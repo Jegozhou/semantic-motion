@@ -1,0 +1,160 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+  "transcript_sha256": "68e06ea343db6fed2071118ae69b7975a2513a745f333e3660ffc4e538094bb6",
+  "duration_s": 25.0,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "keyword",
+      "text": "但是我还有其他的",
+      "start_s": 2.11,
+      "end_s": 3.34,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w9",
+        "w10",
+        "w11",
+        "w12",
+        "w13"
+      ],
+      "rule": "contrast_marker+phrase_merge",
+      "merged_words": 5,
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 90,
+        "accepted": true,
+        "window_ms": 250,
+        "detector": "silence_exit",
+        "onset_s": 2.11,
+        "search_window_s": [
+          1.77,
+          2.27
+        ],
+        "quiet_threshold": 0.019154,
+        "climb": 0.023805,
+        "asr_start_s": 2.02
+      }
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "其实还远远没有结",
+      "start_s": 6.4,
+      "end_s": 7.8,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w28",
+        "w29",
+        "w30",
+        "w31",
+        "w32",
+        "w33"
+      ],
+      "rule": "contrast_marker+phrase_merge",
+      "merged_words": 6,
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 60,
+        "accepted": true,
+        "window_ms": 250,
+        "detector": "silence_exit",
+        "onset_s": 6.4,
+        "search_window_s": [
+          6.09,
+          6.59
+        ],
+        "quiet_threshold": 0.019154,
+        "climb": 0.012499,
+        "asr_start_s": 6.34
+      }
+    },
+    {
+      "id": "a02",
+      "kind": "number",
+      "text": "一年",
+      "start_s": 11.4,
+      "end_s": 11.7,
+      "confidence": 0.86,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s4",
+      "word_ids": [
+        "w48",
+        "w49"
+      ],
+      "rule": "chinese_number",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 0,
+        "accepted": true,
+        "window_ms": 250,
+        "detector": "silence_exit",
+        "onset_s": 11.4,
+        "search_window_s": [
+          11.15,
+          11.65
+        ],
+        "quiet_threshold": 0.019154,
+        "climb": 0.011943,
+        "asr_start_s": 11.4
+      }
+    },
+    {
+      "id": "a03",
+      "kind": "number",
+      "text": "一年",
+      "start_s": 13.02,
+      "end_s": 13.44,
+      "confidence": 0.86,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s5",
+      "word_ids": [
+        "w55",
+        "w56"
+      ],
+      "rule": "chinese_number",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -120,
+        "accepted": true,
+        "window_ms": 250,
+        "detector": "silence_exit",
+        "onset_s": 13.02,
+        "search_window_s": [
+          12.89,
+          13.39
+        ],
+        "quiet_threshold": 0.019154,
+        "climb": 0.014926,
+        "asr_start_s": 13.14
+      }
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T14:17:21Z",
+    "method": "asr_word_spans+rule_classifier",
+    "n_anchors": 4,
+    "kinds": {
+      "keyword": 2,
+      "number": 2
+    },
+    "truth_class": "MACHINE_WEAK",
+    "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
+    "refine": {
+      "method": "energy_onset",
+      "window_ms": 250,
+      "hop_ms": 10,
+      "energy": "rms",
+      "video": "/Volumes/ZHITAI/SemanticMotion/inputs/zhengqinwen_25s.mp4",
+      "video_sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+      "n_anchors": 4,
+      "n_accepted": 4,
+      "n_rejected": 0
+    }
+  }
+}

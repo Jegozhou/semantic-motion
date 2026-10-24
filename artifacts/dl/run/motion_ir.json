@@ -1,0 +1,716 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "n_frames": 625,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 625,
+    "timebase": {
+      "num": 1,
+      "den": 25
+    }
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "68e06ea343db6fed2071118ae69b7975a2513a745f333e3660ffc4e538094bb6",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "91f35ff9fb206bc846424efa3d5f6ebeea05bfd74f0436eb58fa2964f7a65d73",
+    "decisions_sha256": "30fb66ce6ec7cd57ae46ee44a36f36eab5edf1856235605f9062a5fcceedb91b",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "card",
+        "text": "奥运会是我的梦想没错",
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s0",
+        "word_ids": [
+          "w0",
+          "w1",
+          "w2",
+          "w3",
+          "w4",
+          "w5",
+          "w6",
+          "w7",
+          "w8"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "但是我还有其他的梦想",
+        "start_s": 2.02,
+        "end_s": 3.7,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s1",
+        "word_ids": [
+          "w9",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "list_item",
+        "text": "每一年我们都有比赛",
+        "start_s": 11.18,
+        "end_s": 12.94,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s4",
+        "word_ids": [
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52",
+          "w53"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "list_item",
+        "text": "每一年都有更大的困难",
+        "start_s": 12.94,
+        "end_s": 15.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s5",
+        "word_ids": [
+          "w54",
+          "w55",
+          "w56",
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "list_item",
+        "text": "更大的山坡",
+        "start_s": 15.54,
+        "end_s": 16.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s6",
+        "word_ids": [
+          "w62",
+          "w63",
+          "w64",
+          "w65"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "card",
+        "text": "停滞在一个位置",
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s8",
+        "word_ids": [
+          "w85",
+          "w86",
+          "w87",
+          "w88",
+          "w89",
+          "w90"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "keyword",
+        "text": "没有办法向前进步",
+        "start_s": 22.68,
+        "end_s": 24.32,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s9",
+        "word_ids": [
+          "w91",
+          "w92",
+          "w93",
+          "w94",
+          "w95",
+          "w96",
+          "w97"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "d01",
+        "anchor_id": "a00",
+        "anchor_ids": [
+          "a00"
+        ],
+        "effect": "card",
+        "emphasis": "high",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸",
+        "confidence": 0.82,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "奥运会是我的梦想没错",
+          "items": null
+        },
+        "window": {
+          "start_s": 0.0,
+          "end_s": 1.98
+        }
+      },
+      {
+        "id": "d02",
+        "anchor_id": "a01",
+        "anchor_ids": [
+          "a01"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块",
+        "confidence": 0.84,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "但是我还有其他的梦想",
+          "items": null
+        },
+        "window": {
+          "start_s": 2.02,
+          "end_s": 4.0
+        }
+      },
+      {
+        "id": "d03",
+        "anchor_id": "a02",
+        "anchor_ids": [
+          "a02",
+          "a03",
+          "a04"
+        ],
+        "effect": "list",
+        "emphasis": "high",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码",
+        "confidence": 0.86,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "每一年我们都有比赛",
+          "items": [
+            "每一年我们都有比赛",
+            "每一年都有更大的困难",
+            "更大的山坡"
+          ]
+        },
+        "window": {
+          "start_s": 11.18,
+          "end_s": 16.99
+        }
+      },
+      {
+        "id": "d04",
+        "anchor_id": "a06",
+        "anchor_ids": [
+          "a06"
+        ],
+        "effect": "keyword",
+        "emphasis": "medium",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃",
+        "confidence": 0.78,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "没有办法向前进步",
+          "items": null
+        },
+        "window": {
+          "start_s": 22.68,
+          "end_s": 24.1
+        },
+        "notes": "trimmed_before_cut_at_24.40s"
+      }
+    ],
+    "transcript_text": "奥运会是我的梦想没错但是我还有其他的梦想等着我去实现我的目标我的梦想其实还远远没有结束网球最好的一点就是它永远都有比赛每一年我们都有比赛每一年都有更大的困难更大的山坡等着你去战胜因为如果我觉得太过于满足的话你可能就会停滞在一个位置没有办法向前进步",
+    "face_safe": {
+      "bbox_union": [
+        932,
+        192,
+        266,
+        383
+      ],
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_card",
+      "z": 30,
+      "elements": [
+        "el_d01"
+      ]
+    },
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_d02",
+        "el_d03",
+        "el_d04"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_d01",
+      "type": "card",
+      "anchor_ref": "a00",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 0.0,
+        "end_s": 2.0,
+        "start_frame": 0,
+        "end_frame": 50,
+        "hold_s": 0.0,
+        "anchor_start_s": 0.0,
+        "anchor_end_s": 2.02
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(16,21,33,0.78)",
+        "font_size_px": 72,
+        "padding_px": 37,
+        "radius_px": 28,
+        "align": "left",
+        "accent_bar": true
+      },
+      "motion": {
+        "enter": {
+          "type": "scale_in",
+          "dur_s": 0.28,
+          "ease": "smoothstep",
+          "scale_from": 0.96
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "奥运会是我的梦想没错"
+      },
+      "provenance": {
+        "decision_id": "d01",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 真实采访素材：开篇用卡片立命题（奥运会是我的梦想），转折句用关键词强调（但是我还有其他的梦想），中段「每一年/更大的困难/更大的山坡」是递进结构，合并成一个三行列表逐行揭示；结尾「没有办法向前进步」做对照强调。不遮脸（人物在中偏右），",
+        "confidence": 0.82,
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸",
+        "effect_params_sha256": "f14fe7f92658967fd154150519d3b448178da6e9376f3b268d629b4074a0c0ea"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          124,
+          314,
+          748,
+          273
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          932,
+          192,
+          266,
+          383
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 748,
+          "height": 273
+        }
+      }
+    },
+    {
+      "id": "el_d02",
+      "type": "keyword",
+      "anchor_ref": "a01",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.0,
+        "end_s": 4.0,
+        "start_frame": 50,
+        "end_frame": 100,
+        "hold_s": 0.3,
+        "anchor_start_s": 2.02,
+        "anchor_end_s": 3.7
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 89,
+        "padding_px": 33,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "但是我还有其他的梦想"
+      },
+      "provenance": {
+        "decision_id": "d02",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 真实采访素材：开篇用卡片立命题（奥运会是我的梦想），转折句用关键词强调（但是我还有其他的梦想），中段「每一年/更大的困难/更大的山坡」是递进结构，合并成一个三行列表逐行揭示；结尾「没有办法向前进步」做对照强调。不遮脸（人物在中偏右），",
+        "confidence": 0.84,
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块",
+        "effect_params_sha256": "4212f3e1dcd93fa7fa2766710b7d628d26b23b1c4b48d4741790e26e034ea330"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          109,
+          285,
+          778,
+          331
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          932,
+          192,
+          266,
+          383
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 778,
+          "height": 331
+        }
+      }
+    },
+    {
+      "id": "el_d03",
+      "type": "list",
+      "anchor_ref": "a02",
+      "anchor_refs": [
+        "a02",
+        "a03",
+        "a04"
+      ],
+      "window": {
+        "start_s": 11.2,
+        "end_s": 17.0,
+        "start_frame": 280,
+        "end_frame": 425,
+        "hold_s": 0.46,
+        "anchor_start_s": 11.18,
+        "anchor_end_s": 16.54
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 59,
+        "padding_px": 33,
+        "radius_px": 26,
+        "align": "left",
+        "min_width_px": 1190,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "每一年我们都有比赛",
+        "items": [
+          "每一年我们都有比赛",
+          "每一年都有更大的困难",
+          "更大的山坡"
+        ],
+        "item_onsets_s": [
+          0.0,
+          1.74,
+          4.34
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 0.0,
+            "text_at_s": 0.0
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 1.74,
+            "text_at_s": 1.74
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 4.34,
+            "text_at_s": 4.34
+          }
+        ],
+        "anchor_rows": [
+          "a02",
+          "a03",
+          "a04"
+        ]
+      },
+      "provenance": {
+        "decision_id": "d03",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 真实采访素材：开篇用卡片立命题（奥运会是我的梦想），转折句用关键词强调（但是我还有其他的梦想），中段「每一年/更大的困难/更大的山坡」是递进结构，合并成一个三行列表逐行揭示；结尾「没有办法向前进步」做对照强调。不遮脸（人物在中偏右），",
+        "confidence": 0.86,
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码",
+        "effect_params_sha256": "5eeefa468478e6dce5c0f247825e57d329f8b2c50084c05e51c65acbf736b96e"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          96,
+          251,
+          804,
+          374
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          932,
+          192,
+          266,
+          383
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 804,
+          "height": 374
+        }
+      }
+    },
+    {
+      "id": "el_d04",
+      "type": "keyword",
+      "anchor_ref": "a06",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 22.68,
+        "end_s": 24.08,
+        "start_frame": 567,
+        "end_frame": 602,
+        "hold_s": 0.0,
+        "anchor_start_s": 22.68,
+        "anchor_end_s": 24.32
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 79,
+        "padding_px": 33,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "没有办法向前进步"
+      },
+      "provenance": {
+        "decision_id": "d04",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 真实采访素材：开篇用卡片立命题（奥运会是我的梦想），转折句用关键词强调（但是我还有其他的梦想），中段「每一年/更大的困难/更大的山坡」是递进结构，合并成一个三行列表逐行揭示；结尾「没有办法向前进步」做对照强调。不遮脸（人物在中偏右），",
+        "confidence": 0.78,
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃",
+        "effect_params_sha256": "8b7d8bad538c977947953e446f803496379e3d0f716bc985413745b960588930"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          149,
+          350,
+          698,
+          200
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          932,
+          192,
+          266,
+          383
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 698,
+          "height": 200
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T14:37:01Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 625,
+      "source": "nb_frames",
+      "container_duration_s": 25.0,
+      "duration_fps_frames": 625
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 4,
+    "ir_sha256": "d91495bd945b038e53d0d53bc5fbff15d6be504fc27561179b37fbaf7f414d91"
+  }
+}

@@ -17,7 +17,12 @@ export const Captions: React.FC<{
   const frame = useCurrentFrame();
   const cue = cues.find((c) => frame >= c.startFrame && frame < c.endFrame);
   if (!cue) return null;
-  const basePx = canvas.height > canvas.width ? Math.round(canvas.height * 0.030) : Math.round(canvas.height * 0.040);
+  // Subtitle size must follow the *viewing* dimension: a 1920x920 wide frame needs
+  // ~46px, while a 1080x1920 vertical frame needs ~58px. Scaling by height alone
+  // made wide-frame captions unreadably small.
+  const basePx = canvas.width > canvas.height
+    ? Math.round(canvas.width * 0.024)
+    : Math.round(canvas.height * 0.030);
   const active = cue.words?.find((w) => frame >= w.startFrame && frame < w.endFrame);
   const text = cue.lines.join("\n");
   const lines = cue.lines;

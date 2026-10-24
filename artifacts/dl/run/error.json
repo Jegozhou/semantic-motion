@@ -1,0 +1,45 @@
+{
+  "error": {
+    "code": "E_FFMPEG",
+    "message": "ffmpeg exited 234",
+    "cmd": "ffmpeg -v error -y -i artifacts/dl/run/overlay_pass.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpfx8ohei_.s16le",
+    "stderr_tail": "[out#0/s16le @ 0xaf5068180] Output file does not contain any stream\nError opening output file /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpfx8ohei_.s16le.\nError opening output files: Invalid argument\n"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.04
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.04
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.07
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 48.94
+    },
+    {
+      "step": "render_overlay_pass",
+      "status": "failed",
+      "error": "[E_FFMPEG] ffmpeg exited 234"
+    }
+  ]
+}

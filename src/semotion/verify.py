@@ -326,7 +326,9 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
 
 def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
               fps: float, width: int, height: int, *, max_samples: int = 240,
-              caption_band: tuple[int, int] | None = None) -> dict[str, Any]:
+              caption_band: tuple[int, int] | None = None,
+              baseline: np.ndarray | None = None,
+              overlay: np.ndarray | None = None) -> dict[str, Any]:
     faces = _face_boxes_by_frame(vision.get("faces", []))
     elements = ir.get("elements", [])
 
@@ -353,15 +355,24 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
     # ---- observed geometry (changed pixels vs source)
     # Compression noise scales inversely with resolution: at 320px wide a CRF-18
     # re-encode alone can exceed a fixed |Δ|>8 gate and fake a full-frame "overlay".
-    noise_frames = [i for i in range(len(rendered))
+    # The observed geometry needs a clean "what changed" signal.
+    # Against the source video this fails on busy footage (camera/background motion
+    # and re-encode noise swamp the overlay). When a *blank render* (same source,
+    # same encoder, no overlays) is supplied, diffing against it isolates the overlay
+    # layer exactly.
+    ref = baseline if baseline is not None else source
+    noise_frames = [i for i in range(min(len(rendered), len(ref)))
                     if not any(int(e["window"]["start_frame"]) - 2 <= i < int(e["window"]["end_frame"]) + 2
                                for e in elements)]
     if noise_frames:
         nf = noise_frames[len(noise_frames) // 2]
-        base_d = np.abs(rendered[nf].astype(np.int32) - source[nf].astype(np.int32))
-        obs_thr = float(max(8.0, np.percentile(base_d, 99.5) * 1.5 + 4.0))
+        base_d = np.abs(rendered[nf].astype(np.int32) - ref[nf].astype(np.int32))
+        p995 = float(np.percentile(base_d, 99.5))
+        obs_thr = float(max(6.0, p995 * 1.5 + 4.0))
+        observed_unreliable = (baseline is None and overlay is None and obs_thr > 60.0)
     else:
-        obs_thr = 8.0
+        obs_thr = 6.0
+        observed_unreliable = False
 
     obs_face_hits = 0
     obs_frames = 0
@@ -369,13 +380,20 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
     observed_windows = 0
     containment = {"changed": 0, "inside": 0}
     stride = max(1, len(rendered) // max_samples)
-    for el in elements:
+    for el in ([] if observed_unreliable else elements):
         wnd = el["window"]
         lo, hi = int(wnd["start_frame"]), min(int(wnd["end_frame"]), len(rendered))
         observed_any = False
-        for fr in range(lo, hi, stride):
-            d = np.abs(rendered[fr].astype(np.int32) - source[fr].astype(np.int32))
-            mask = d > obs_thr
+        for fr in range(lo, min(hi, len(ref))):
+            if overlay is not None:
+                if fr >= len(overlay):
+                    continue
+                # overlay-only pass: anything non-black *is* the element layer, so the
+                # mask is exact and immune to source motion / encoder noise
+                mask = overlay[fr].astype(np.int32) > 12
+            else:
+                d = np.abs(rendered[fr].astype(np.int32) - ref[fr].astype(np.int32))
+                mask = d > obs_thr
             if not mask.any():
                 continue
             observed_any = True
@@ -524,6 +542,41 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
                          "observed_diff_threshold": round(obs_thr, 2), "low_resolution": True},
         }
 
+    if observed_unreliable:
+        return {
+            "subject_motion": motion,
+            "cut_safety": cut_check,
+            "observed_baseline": "source_video",
+            "observed_unreliable": True,
+            "observed": {
+                "face_overlap": {"verdict": NOT_RUN,
+                                 "note": "source motion/noise too high to isolate overlays; "
+                                         "pass a blank-render baseline"},
+                "out_of_bounds": {"verdict": NOT_RUN},
+                "windows_with_visible_change": 0, "sampled_frames": 0},
+            "planned": {
+                "face_overlap": {"value": round(planned_face_hits / planned_frames, 6) if planned_frames else 0.0,
+                                 "hits": planned_face_hits, "samples": planned_frames,
+                                 "threshold": FACE_OVERLAP_THRESHOLD,
+                                 "verdict": PASS if planned_face_hits == 0 else FAIL},
+                "out_of_bounds_elements": {"value": planned_oob / max(1, len(elements)),
+                                           "count": planned_oob, "threshold": 0,
+                                           "verdict": PASS if planned_oob == 0 else FAIL},
+            },
+            "raster_containment": {"value": None, "verdict": NOT_RUN,
+                                   "note": "no reliable observed mask"},
+            "collision": {
+                "value": round(collision_pairs / compared, 6) if compared else 0.0,
+                "pairs": collision_pairs, "compared_pairs": compared,
+                "threshold": COLLISION_THRESHOLD,
+                "verdict": PASS if (not compared or collision_pairs / compared <= COLLISION_THRESHOLD) else FAIL,
+            },
+            "face_detection": {"faces_detected": sum(len(v) for v in faces.values()),
+                               "frames_with_faces": len(faces)},
+            "sampling": {"stride_frames": stride, "grid": "192px wide grayscale diff",
+                         "observed_diff_threshold": round(obs_thr, 2)},
+        }
+
     return {
         "subject_motion": motion,
         "cut_safety": cut_check,
@@ -568,7 +621,9 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
 def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
             truth_json: Path | None = None, vision: dict | None = None,
             gate: str = "G1", work: Path | None = None,
-            caption_band: tuple[int, int] | None = None) -> dict[str, Any]:
+            caption_band: tuple[int, int] | None = None,
+            blank_render: Path | None = None,
+            overlay_render: Path | None = None) -> dict[str, Any]:
     """Compute the full metric set for one render of one IR."""
     source, rendered = Path(source), Path(rendered)
     fps = float(ir["source"]["fps"])
@@ -581,8 +636,15 @@ def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
     out_frames = _gray_frames(rendered)
     global_noise = _global_noise(ir, out_frames, src_frames)
     timing = _timing(ir, out_frames, src_frames, truth, fps, global_noise)
+    baseline_frames = _gray_frames(blank_render) if blank_render else None
+    overlay_frames = _gray_frames(overlay_render) if overlay_render else None
     position = _position(ir, out_frames, src_frames, vision or {}, fps, width, height,
-                         caption_band=caption_band)
+                         caption_band=caption_band, baseline=baseline_frames,
+                         overlay=overlay_frames)
+    position["observed_baseline"] = (f"overlay_only:{overlay_render}" if overlay_render
+                                     else ("blank_render:" + str(blank_render) if blank_render
+                                           else "source_video"))
+    position["observed_baseline"] = str(blank_render) if blank_render else "source_video"
     position["caption_band_excluded"] = list(caption_band) if caption_band else None
 
     src_audio = _audio_stats(source)

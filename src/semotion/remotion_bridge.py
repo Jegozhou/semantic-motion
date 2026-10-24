@@ -91,6 +91,25 @@ def _style_for(element: dict, canvas: dict) -> dict:
     }
 
 
+def _em_width(text: str) -> float:
+    """Approximate text width in em (CJK ≈ 1em, Latin ≈ 0.55em)."""
+    return sum(1.0 if ord(ch) > 127 else 0.55 for ch in str(text or ""))
+
+
+def _fit_font(text: str, box_w: int, base: int, *, pad: int = 104, floor: int = 36) -> int:
+    """Shrink the font so the copy fits the declared box on one line where possible.
+
+    A card rendered at 96px into a 750px box breaks a 9-character sentence into
+    "…没" + "错"; fitting the size keeps the line intact and stays inside the box
+    (the containment metric already enforces the box).
+    """
+    em = _em_width(text)
+    if em <= 0 or box_w <= 0:
+        return base
+    fit = int((box_w - pad) / em)
+    return max(floor, min(base, fit))
+
+
 def _motion_for(element: dict, fps: float) -> dict:
     motion = element.get("motion") or {}
     enter = float((motion.get("enter") or {}).get("dur_s") or 0.28)
@@ -172,7 +191,7 @@ def _suppress_duplicate_captions(elements: list[dict], captions: list[dict]) -> 
 
 
 def props(ir: dict, *, captions: list[dict] | None = None,
-          caption_safe_bottom_px: int = 0) -> dict:
+          caption_safe_bottom_px: int = 0, hidden: bool = False) -> dict:
     canvas = ir["canvas"]
     fps = float(canvas["fps"])
     elements = []
@@ -191,11 +210,19 @@ def props(ir: dict, *, captions: list[dict] | None = None,
         }
         if effect == "number":
             base["content"] = _numeric_parts(content.get("numeric"), str(content.get("text") or ""))
+            shown = (base["content"].get("prefix") or "") + str(int(base["content"].get("value") or 0)) \
+                + (base["content"].get("suffix") or "")
+            base["style"]["fontPx"] = _fit_font(shown, base["box"][2], base["style"]["fontPx"])
         elif effect == "list":
-            base["content"] = {"text": str(content.get("text") or ""),
-                               "items": _list_items(el, fps)}
+            items = _list_items(el, fps)
+            base["content"] = {"text": str(content.get("text") or ""), "items": items}
+            longest = max((it["text"] for it in items), key=len, default="")
+            base["style"]["fontPx"] = _fit_font(longest, base["box"][2], base["style"]["fontPx"],
+                                                pad=150)
         else:
-            base["content"] = {"text": str(content.get("text") or "")}
+            text = str(content.get("text") or "")
+            base["content"] = {"text": text}
+            base["style"]["fontPx"] = _fit_font(text, base["box"][2], base["style"]["fontPx"])
         elements.append(base)
 
     kept_captions, dropped_captions = _suppress_duplicate_captions(elements, captions or [])
@@ -203,7 +230,7 @@ def props(ir: dict, *, captions: list[dict] | None = None,
         "schema": SCHEMA,
         "canvas": {"width": int(canvas["width"]), "height": int(canvas["height"]),
                    "fps": fps, "durationInFrames": int(ir["source"]["n_frames"])},
-        "source": {"file": "source.mp4", "audio": True},
+        "source": {"file": "source.mp4", "audio": not hidden, "hidden": hidden},
         "captions": kept_captions,
         "captionsSuppressed": dropped_captions,
         "captionSafeBottomPx": int(caption_safe_bottom_px),
@@ -214,7 +241,7 @@ def props(ir: dict, *, captions: list[dict] | None = None,
 # ---------------------------------------------------------------------- render
 
 def render(ir: dict, source: Path, out: Path, *, preview: bool = False,
-           captions: list[dict] | None = None,
+           captions: list[dict] | None = None, hidden: bool = False,
            chrome: str | None = None, log_dir: Path | None = None) -> dict:
     source, out = Path(source), Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -227,11 +254,13 @@ def render(ir: dict, source: Path, out: Path, *, preview: bool = False,
     if not staged.exists() or media.sha256_file(staged) != media.sha256_file(source):
         shutil.copy2(source, staged)
 
-    doc = props(ir, captions=captions)
+    doc = props(ir, captions=captions, hidden=hidden)
     props_path = PUBLIC_DIR / "props.json"
     props_path.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding="utf-8")
-    (out.parent / "remotion_props.json").write_text(
-        json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    props_artifact = (out.parent / "remotion_props.json" if out.stem.endswith("_motion")
+                      else out.parent / f"{out.stem}.props.json")
+    props_artifact.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
+                              encoding="utf-8")
 
     chrome = chrome or _chrome()
     cmd = [str(ROOT / "remotion/node_modules/.bin/remotion"), "render",
@@ -255,7 +284,10 @@ def render(ir: dict, source: Path, out: Path, *, preview: bool = False,
 
     mi = media.info(out)
     src_mi = media.info(source)
-    audio = _audio_stats(source), _audio_stats(out)
+    # An overlay-only pass intentionally has no audio: never treat that as a failure.
+    has_audio = mi.n_audio_streams > 0
+    audio = _audio_stats(source), (_audio_stats(out) if has_audio else
+                                   {"n_samples": 0, "duration_s": 0.0, "rms_db": -120.0})
     manifest = {
         "schema": "semotion.render/1",
         "backend": "remotion",
@@ -268,11 +300,16 @@ def render(ir: dict, source: Path, out: Path, *, preview: bool = False,
         },
         "source": {"path": str(source.resolve()), "sha256": media.sha256_file(source),
                    "duration_s": round(src_mi.duration, 6), "n_frames": src_mi.frame_count},
-        "audio": {
+        "audio": ({
             "source": audio[0], "rendered": audio[1],
             "duration_delta_s": round(abs(audio[0]["duration_s"] - audio[1]["duration_s"]), 6),
             "rms_delta_db": round(abs(audio[0]["rms_db"] - audio[1]["rms_db"]), 3),
-        },
+            "no_audio_by_design": False,
+        } if has_audio else {
+            "source": audio[0], "rendered": None,
+            "no_audio_by_design": True,
+            "note": "overlay-only verification pass renders without the source audio",
+        }),
         "overlay": {"backend": "remotion", "elements": len(doc["elements"]),
                     "captions": len(doc["captions"] or [])},
         "commands": [" ".join(cmd)],
@@ -284,8 +321,14 @@ def render(ir: dict, source: Path, out: Path, *, preview: bool = False,
         },
         "created_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
-    (out.parent / "render_manifest.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Never overwrite the deliverable manifest with a verification pass when both are
+    # rendered into the same directory.
+    manifest_path = out.parent / (f"{out.stem}.manifest.json" if out.stem != "motion"
+                                  else "render_manifest.json")
+    if out.stem.endswith("_motion"):
+        manifest_path = out.parent / "render_manifest.json"
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+                             encoding="utf-8")
     return manifest
 
 

@@ -1,0 +1,128 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "duration_s": 25.0,
+  "decisions": [
+    {
+      "id": "d01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸",
+      "confidence": 0.82,
+      "decision_model": "llm:deepseek-v4.1-flash",
+      "content": {
+        "text": "奥运会是我的梦想没错",
+        "items": null
+      },
+      "window": {
+        "start_s": 0.0,
+        "end_s": 1.98
+      }
+    },
+    {
+      "id": "d02",
+      "anchor_id": "a01",
+      "anchor_ids": [
+        "a01"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块",
+      "confidence": 0.84,
+      "decision_model": "llm:deepseek-v4.1-flash",
+      "content": {
+        "text": "但是我还有其他的梦想",
+        "items": null
+      },
+      "window": {
+        "start_s": 2.02,
+        "end_s": 4.0
+      }
+    },
+    {
+      "id": "d03",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02",
+        "a03",
+        "a04"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码",
+      "confidence": 0.86,
+      "decision_model": "llm:deepseek-v4.1-flash",
+      "content": {
+        "text": "每一年我们都有比赛",
+        "items": [
+          "每一年我们都有比赛",
+          "每一年都有更大的困难",
+          "更大的山坡"
+        ]
+      },
+      "window": {
+        "start_s": 11.18,
+        "end_s": 16.99
+      }
+    },
+    {
+      "id": "d04",
+      "anchor_id": "a06",
+      "anchor_ids": [
+        "a06"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃",
+      "confidence": 0.78,
+      "decision_model": "llm:deepseek-v4.1-flash",
+      "content": {
+        "text": "没有办法向前进步",
+        "items": null
+      },
+      "window": {
+        "start_s": 22.68,
+        "end_s": 24.1
+      },
+      "notes": "trimmed_before_cut_at_24.40s"
+    }
+  ],
+  "notes": {
+    "policy": "LLM selects the effect; windows/coordinates are derived from the validated anchors (no LLM timestamps, no LLM layout)",
+    "skipped": [
+      {
+        "anchor_id": "a05",
+        "reason": "与 a06 语义连续且相邻，两个一起出现会过密，留给 a06 收尾"
+      },
+      {
+        "anchor_id": "a02",
+        "reason": "已并入列表元素（anchor_ids）"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4,
+      "max_coverage": 0.58,
+      "max_hold_s": 0.8,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.4664,
+    "collision_ok": []
+  },
+  "provenance": {
+    "method": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 真实采访素材：开篇用卡片立命题（奥运会是我的梦想），转折句用关键词强调（但是我还有其他的梦想），中段「每一年/更大的困难/更大的山坡」是递进结构，合并成一个三行列表逐行揭示；结尾「没有办法向前进步」做对照强调。不遮脸（人物在中偏右），不跨镜头，数字类锚点仅“一年”语义弱，不加计数动画。",
+    "decision_model": "llm:deepseek-v4.1-flash",
+    "prompt_summary": "真实采访素材：开篇用卡片立命题（奥运会是我的梦想），转折句用关键词强调（但是我还有其他的梦想），中段「每一年/更大的困难/更大的山坡」是递进结构，合并成一个三行列表逐行揭示；结尾「没有办法向前进步」做对照强调。不遮脸（人物在中偏右），不跨镜头，数字类锚点仅“一年”语义弱，不加计数动画。",
+    "decision_schema": "semotion.llm-decisions/1",
+    "anchor_count": 7,
+    "decided_count": 4
+  }
+}

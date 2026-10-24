@@ -95,6 +95,16 @@
 | 自动回归 | **11/11 步骤 PASS，3 分 42 秒** | `artifacts/regression/summary.json` |
 | 回归测试 | 92 passed | `.venv/bin/python -m pytest tests/ -q` |
 
+## 1.10 真实下载素材实测（2026-10-24 22:3x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| 素材 | Wikimedia Commons 郑钦文采访（CC BY 3.0），裁掉原字幕条 → 1920×920 / 25 s | `inputs/zhengqinwen_25s.mp4` |
+| LLM 选词跨度 + 动效 | 4 元素（card / keyword / list×3行 / keyword），跳过 2 个 | `artifacts/llm/download_zhengqinwen.decisions.json`、`artifacts/dl/anchors_llm.json` |
+| 指标 | position PASS（遮脸 0/279 帧、框外像素 0、切镜 PASS）、render PASS、**timing NOT RUN**（无人工真值） | `artifacts/dl/run/metrics.json` |
+| 修复 | 高运动素材像素差分假通过 → overlay-only 验证渲染；LLM 计划切镜守卫；横屏字幕字号；卡片自适应字号；验证产物不覆盖主产物 | `reports/download-run.md` §5 |
+| 演示 | before/after + 分镜 | `delivery/demo_downloaded/` |
+
 ## 1.9 G5 — LLM 导演 + Remotion 后端 + 字幕（PASS，2026-10-24 22:0x）
 
 | 项 | 结果 | 证据 |

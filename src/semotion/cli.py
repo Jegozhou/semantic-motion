@@ -205,6 +205,12 @@ def cmd_run(a) -> int:
         vis = step("vision", lambda: vision.analyze(video, vis_path, force=a.force))
 
         def _anchors():
+            override = getattr(a, "anchors", None)
+            if override:
+                an = _load(Path(override))
+                an["duration_s"] = float(transcript["source"]["duration_s"])
+                _dump(an, outdir / "anchors.json")
+                return an
             an = anchors.classify(transcript)
             an = anchors.refine_onsets(video, an)
             an["duration_s"] = float(transcript["source"]["duration_s"])
@@ -230,6 +236,12 @@ def cmd_run(a) -> int:
             return semantic.decide(anchors_doc, vis, canvas, style=a.style, transcript=transcript)
 
         plan = step("plan", _plan)
+        # Cut safety is a rendering constraint, not a directorial taste: enforce it for
+        # every planner (LLM decisions may not know the shot boundaries).
+        if len(vis.get("shots") or []) > 1:
+            kept = semantic._apply_shot_policy(list(plan.get("decisions") or []), vis,
+                                               plan.setdefault("notes", {}).setdefault("skipped", []))
+            plan["decisions"] = kept
         _dump(plan, outdir / "plan.json")
 
         ir_doc = step("ir", lambda: ir_mod.build(transcript, vis, anchors_doc, plan, video, canvas))
@@ -260,10 +272,21 @@ def cmd_run(a) -> int:
         band = None
         if cues:
             band = (int(canvas["height"] * 0.84), int(canvas["height"]))
+
+        # Observed geometry needs "what changed" isolated from source motion. Rendering
+        # the same source with no overlays gives an exact baseline; against busy
+        # real footage the source-video diff is unusable (it would report 0 samples).
+        overlay_pass = None
+        if getattr(a, "backend", "ffmpeg") == "remotion" and not a.preview:
+            overlay_pass = outdir / "overlay_pass.mp4"
+            step("render_overlay_pass", lambda: remotion_bridge.render(
+                ir_doc, video, overlay_pass, preview=False, captions=[], hidden=True,
+                log_dir=outdir / "logs"))
         m = step("verify", lambda: verify.metrics(
             ir_doc, man, source=video, rendered=rendered,
             truth_json=truth if (truth and Path(truth).exists()) else None,
-            vision=vis, gate=a.gate, work=outdir, caption_band=band))
+            vision=vis, gate=a.gate, work=outdir, caption_band=band,
+            overlay_render=overlay_pass))
         _dump(m, outdir / "metrics.json")
 
         summary = {
@@ -411,6 +434,7 @@ def build_parser() -> argparse.ArgumentParser:
                     help="render backend: local Pillow/ffmpeg (default) or Remotion")
     ru.add_argument("--decisions", help="LLM decisions JSON (semotion.llm-decisions/1); "
                                         "when given, the LLM plan replaces the rule director")
+    ru.add_argument("--anchors", help="anchors JSON override (e.g. LLM-chosen word spans)")
     ru.add_argument("--captions", action="store_true", help="burn word-synced captions")
     ru.set_defaults(func=cmd_run)
 

@@ -1,0 +1,54 @@
+{
+  "schema": "semotion.render/1",
+  "backend": "remotion",
+  "ir_sha256": "d91495bd945b038e53d0d53bc5fbff15d6be504fc27561179b37fbaf7f414d91",
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/dl/run/zhengqinwen_25s_motion.mp4",
+    "sha256": "c2cd408531ec778fbdffcef6dd11423af19469bd6835b2b2ed763f145e424a88",
+    "size_bytes": 14024556,
+    "duration_s": 25.003,
+    "n_frames": 625,
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac"
+  },
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "duration_s": 25.0,
+    "n_frames": 625
+  },
+  "audio": {
+    "source": {
+      "n_samples": 2400256,
+      "duration_s": 25.002667,
+      "rms_db": -32.06
+    },
+    "rendered": {
+      "n_samples": 2400256,
+      "duration_s": 25.002667,
+      "rms_db": -32.07
+    },
+    "duration_delta_s": 0.0,
+    "rms_delta_db": 0.01,
+    "no_audio_by_design": false
+  },
+  "overlay": {
+    "backend": "remotion",
+    "elements": 4,
+    "captions": 6
+  },
+  "commands": [
+    "/Volumes/ZHITAI/SemanticMotion/remotion/node_modules/.bin/remotion render src/index.ts Main /Volumes/ZHITAI/SemanticMotion/artifacts/dl/run/zhengqinwen_25s_motion.mp4 --props=public/props.json --log=error --concurrency=2 --codec=h264 --crf=18 --pixel-format=yuv420p --audio-codec=aac --timeout=60000 --browser-executable=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers",
+    "node": "v24.15.0",
+    "remotion": "4.0.538",
+    "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  },
+  "created_utc": "2026-10-24T14:37:51Z"
+}

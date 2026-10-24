@@ -1,0 +1,189 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+  "transcript_sha256": null,
+  "duration_s": 25.0,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "card",
+      "text": "奥运会是我的梦想没错",
+      "start_s": 0.0,
+      "end_s": 2.02,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s0",
+      "word_ids": [
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "w4",
+        "w5",
+        "w6",
+        "w7",
+        "w8"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "但是我还有其他的梦想",
+      "start_s": 2.02,
+      "end_s": 3.7,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s1",
+      "word_ids": [
+        "w9",
+        "w10",
+        "w11",
+        "w12",
+        "w13",
+        "w14",
+        "w15"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    },
+    {
+      "id": "a02",
+      "kind": "list_item",
+      "text": "每一年我们都有比赛",
+      "start_s": 11.18,
+      "end_s": 12.94,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s4",
+      "word_ids": [
+        "w47",
+        "w48",
+        "w49",
+        "w50",
+        "w51",
+        "w52",
+        "w53"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    },
+    {
+      "id": "a03",
+      "kind": "list_item",
+      "text": "每一年都有更大的困难",
+      "start_s": 12.94,
+      "end_s": 15.54,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s5",
+      "word_ids": [
+        "w54",
+        "w55",
+        "w56",
+        "w57",
+        "w58",
+        "w59",
+        "w60",
+        "w61"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    },
+    {
+      "id": "a04",
+      "kind": "list_item",
+      "text": "更大的山坡",
+      "start_s": 15.54,
+      "end_s": 16.54,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s6",
+      "word_ids": [
+        "w62",
+        "w63",
+        "w64",
+        "w65"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    },
+    {
+      "id": "a05",
+      "kind": "card",
+      "text": "停滞在一个位置",
+      "start_s": 21.58,
+      "end_s": 22.68,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s8",
+      "word_ids": [
+        "w85",
+        "w86",
+        "w87",
+        "w88",
+        "w89",
+        "w90"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    },
+    {
+      "id": "a06",
+      "kind": "keyword",
+      "text": "没有办法向前进步",
+      "start_s": 22.68,
+      "end_s": 24.32,
+      "confidence": 0.85,
+      "source": "LLM_SPAN",
+      "segment_id": "s9",
+      "word_ids": [
+        "w91",
+        "w92",
+        "w93",
+        "w94",
+        "w95",
+        "w96",
+        "w97"
+      ],
+      "rule": "llm_word_span",
+      "refine": {
+        "method": "llm_word_span",
+        "delta_ms": 0,
+        "accepted": true
+      }
+    }
+  ],
+  "provenance": {
+    "method": "llm_word_spans (the LLM chooses spans, transcript supplies every timestamp)",
+    "n_anchors": 7,
+    "truth_class": "MACHINE_WEAK",
+    "note": "no timestamp is invented: start/end are the union of the named words"
+  }
+}

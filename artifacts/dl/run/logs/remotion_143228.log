@@ -1,0 +1,2 @@
+$ /Volumes/ZHITAI/SemanticMotion/remotion/node_modules/.bin/remotion render src/index.ts Main /Volumes/ZHITAI/SemanticMotion/artifacts/dl/run/overlay_pass.mp4 --props=public/props.json --log=error --concurrency=2 --codec=h264 --crf=18 --pixel-format=yuv420p --audio-codec=aac --timeout=60000 --browser-executable=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+

@@ -1,0 +1,145 @@
+{
+  "schema": "semotion.remotion-props/1",
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "durationInFrames": 625
+  },
+  "source": {
+    "file": "source.mp4",
+    "audio": false,
+    "hidden": true
+  },
+  "captions": [],
+  "captionsSuppressed": [],
+  "captionSafeBottomPx": 0,
+  "elements": [
+    {
+      "id": "el_d01",
+      "effect": "card",
+      "startFrame": 0,
+      "endFrame": 50,
+      "box": [
+        124,
+        314,
+        748,
+        273
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(16,21,33,0.78)",
+        "fontPx": 64,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 7,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "奥运会是我的梦想没错"
+      }
+    },
+    {
+      "id": "el_d02",
+      "effect": "keyword",
+      "startFrame": 50,
+      "endFrame": 100,
+      "box": [
+        109,
+        285,
+        778,
+        331
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 67,
+        "radius": 26,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "但是我还有其他的梦想"
+      }
+    },
+    {
+      "id": "el_d03",
+      "effect": "list",
+      "startFrame": 280,
+      "endFrame": 425,
+      "box": [
+        96,
+        251,
+        804,
+        374
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.82)",
+        "fontPx": 59,
+        "radius": 26,
+        "align": "left",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 5,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "每一年我们都有比赛",
+        "items": [
+          {
+            "text": "每一年我们都有比赛",
+            "startFrame": 280
+          },
+          {
+            "text": "每一年都有更大的困难",
+            "startFrame": 324
+          },
+          {
+            "text": "更大的山坡",
+            "startFrame": 388
+          }
+        ]
+      }
+    },
+    {
+      "id": "el_d04",
+      "effect": "keyword",
+      "startFrame": 567,
+      "endFrame": 602,
+      "box": [
+        149,
+        350,
+        698,
+        200
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 74,
+        "radius": 26,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "没有办法向前进步"
+      }
+    }
+  ]
+}

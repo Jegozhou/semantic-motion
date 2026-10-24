@@ -1,0 +1,585 @@
+{
+  "schema": "semotion.captions/1",
+  "cues": [
+    {
+      "startFrame": 0,
+      "endFrame": 50,
+      "lines": [
+        "奥运会是我的梦想没错"
+      ],
+      "words": [
+        {
+          "text": "奥",
+          "startFrame": 0,
+          "endFrame": 16
+        },
+        {
+          "text": "运",
+          "startFrame": 16,
+          "endFrame": 20
+        },
+        {
+          "text": "会",
+          "startFrame": 20,
+          "endFrame": 24
+        },
+        {
+          "text": "是",
+          "startFrame": 24,
+          "endFrame": 29
+        },
+        {
+          "text": "我的",
+          "startFrame": 29,
+          "endFrame": 33
+        },
+        {
+          "text": "梦",
+          "startFrame": 33,
+          "endFrame": 37
+        },
+        {
+          "text": "想",
+          "startFrame": 37,
+          "endFrame": 40
+        },
+        {
+          "text": "没",
+          "startFrame": 40,
+          "endFrame": 46
+        },
+        {
+          "text": "错",
+          "startFrame": 46,
+          "endFrame": 50
+        }
+      ]
+    },
+    {
+      "startFrame": 50,
+      "endFrame": 141,
+      "lines": [
+        "但是我还有其他的梦想等着我去实现我的目标"
+      ],
+      "words": [
+        {
+          "text": "但是",
+          "startFrame": 50,
+          "endFrame": 60
+        },
+        {
+          "text": "我",
+          "startFrame": 60,
+          "endFrame": 65
+        },
+        {
+          "text": "还有",
+          "startFrame": 65,
+          "endFrame": 71
+        },
+        {
+          "text": "其",
+          "startFrame": 71,
+          "endFrame": 80
+        },
+        {
+          "text": "他的",
+          "startFrame": 80,
+          "endFrame": 84
+        },
+        {
+          "text": "梦",
+          "startFrame": 84,
+          "endFrame": 88
+        },
+        {
+          "text": "想",
+          "startFrame": 88,
+          "endFrame": 92
+        },
+        {
+          "text": "等",
+          "startFrame": 92,
+          "endFrame": 96
+        },
+        {
+          "text": "着",
+          "startFrame": 96,
+          "endFrame": 100
+        },
+        {
+          "text": "我",
+          "startFrame": 100,
+          "endFrame": 104
+        },
+        {
+          "text": "去",
+          "startFrame": 104,
+          "endFrame": 108
+        },
+        {
+          "text": "实",
+          "startFrame": 108,
+          "endFrame": 113
+        },
+        {
+          "text": "现",
+          "startFrame": 113,
+          "endFrame": 116
+        },
+        {
+          "text": "我的",
+          "startFrame": 116,
+          "endFrame": 123
+        },
+        {
+          "text": "目",
+          "startFrame": 123,
+          "endFrame": 128
+        },
+        {
+          "text": "标",
+          "startFrame": 128,
+          "endFrame": 141
+        }
+      ]
+    },
+    {
+      "startFrame": 141,
+      "endFrame": 207,
+      "lines": [
+        "我的梦想其实还远远没有结束"
+      ],
+      "words": [
+        {
+          "text": "我的",
+          "startFrame": 141,
+          "endFrame": 148
+        },
+        {
+          "text": "梦",
+          "startFrame": 148,
+          "endFrame": 154
+        },
+        {
+          "text": "想",
+          "startFrame": 154,
+          "endFrame": 158
+        },
+        {
+          "text": "其实",
+          "startFrame": 158,
+          "endFrame": 164
+        },
+        {
+          "text": "还",
+          "startFrame": 164,
+          "endFrame": 172
+        },
+        {
+          "text": "远",
+          "startFrame": 172,
+          "endFrame": 176
+        },
+        {
+          "text": "远",
+          "startFrame": 176,
+          "endFrame": 180
+        },
+        {
+          "text": "没有",
+          "startFrame": 180,
+          "endFrame": 185
+        },
+        {
+          "text": "结",
+          "startFrame": 185,
+          "endFrame": 195
+        },
+        {
+          "text": "束",
+          "startFrame": 195,
+          "endFrame": 207
+        }
+      ]
+    },
+    {
+      "startFrame": 207,
+      "endFrame": 280,
+      "lines": [
+        "网球最好的一点就是它永远都有比赛"
+      ],
+      "words": [
+        {
+          "text": "网",
+          "startFrame": 207,
+          "endFrame": 214
+        },
+        {
+          "text": "球",
+          "startFrame": 214,
+          "endFrame": 229
+        },
+        {
+          "text": "最",
+          "startFrame": 229,
+          "endFrame": 237
+        },
+        {
+          "text": "好的",
+          "startFrame": 237,
+          "endFrame": 242
+        },
+        {
+          "text": "一点",
+          "startFrame": 242,
+          "endFrame": 248
+        },
+        {
+          "text": "就是",
+          "startFrame": 248,
+          "endFrame": 252
+        },
+        {
+          "text": "它",
+          "startFrame": 252,
+          "endFrame": 258
+        },
+        {
+          "text": "永",
+          "startFrame": 258,
+          "endFrame": 261
+        },
+        {
+          "text": "远",
+          "startFrame": 261,
+          "endFrame": 264
+        },
+        {
+          "text": "都有",
+          "startFrame": 264,
+          "endFrame": 270
+        },
+        {
+          "text": "比",
+          "startFrame": 270,
+          "endFrame": 276
+        },
+        {
+          "text": "赛",
+          "startFrame": 276,
+          "endFrame": 280
+        }
+      ]
+    },
+    {
+      "startFrame": 280,
+      "endFrame": 324,
+      "lines": [
+        "每一年我们都有比赛"
+      ],
+      "words": [
+        {
+          "text": "每",
+          "startFrame": 280,
+          "endFrame": 285
+        },
+        {
+          "text": "一",
+          "startFrame": 285,
+          "endFrame": 290
+        },
+        {
+          "text": "年",
+          "startFrame": 290,
+          "endFrame": 292
+        },
+        {
+          "text": "我们",
+          "startFrame": 292,
+          "endFrame": 300
+        },
+        {
+          "text": "都有",
+          "startFrame": 300,
+          "endFrame": 306
+        },
+        {
+          "text": "比",
+          "startFrame": 306,
+          "endFrame": 313
+        },
+        {
+          "text": "赛",
+          "startFrame": 313,
+          "endFrame": 324
+        }
+      ]
+    },
+    {
+      "startFrame": 324,
+      "endFrame": 388,
+      "lines": [
+        "每一年都有更大的困难"
+      ],
+      "words": [
+        {
+          "text": "每",
+          "startFrame": 324,
+          "endFrame": 328
+        },
+        {
+          "text": "一",
+          "startFrame": 328,
+          "endFrame": 333
+        },
+        {
+          "text": "年",
+          "startFrame": 333,
+          "endFrame": 336
+        },
+        {
+          "text": "都有",
+          "startFrame": 336,
+          "endFrame": 342
+        },
+        {
+          "text": "更",
+          "startFrame": 342,
+          "endFrame": 347
+        },
+        {
+          "text": "大的",
+          "startFrame": 347,
+          "endFrame": 366
+        },
+        {
+          "text": "困",
+          "startFrame": 366,
+          "endFrame": 382
+        },
+        {
+          "text": "难",
+          "startFrame": 382,
+          "endFrame": 388
+        }
+      ]
+    },
+    {
+      "startFrame": 388,
+      "endFrame": 452,
+      "lines": [
+        "更大的山坡等着你去战胜"
+      ],
+      "words": [
+        {
+          "text": "更",
+          "startFrame": 388,
+          "endFrame": 393
+        },
+        {
+          "text": "大的",
+          "startFrame": 393,
+          "endFrame": 403
+        },
+        {
+          "text": "山",
+          "startFrame": 403,
+          "endFrame": 411
+        },
+        {
+          "text": "坡",
+          "startFrame": 411,
+          "endFrame": 414
+        },
+        {
+          "text": "等",
+          "startFrame": 414,
+          "endFrame": 418
+        },
+        {
+          "text": "着",
+          "startFrame": 418,
+          "endFrame": 422
+        },
+        {
+          "text": "你",
+          "startFrame": 422,
+          "endFrame": 426
+        },
+        {
+          "text": "去",
+          "startFrame": 426,
+          "endFrame": 430
+        },
+        {
+          "text": "战",
+          "startFrame": 430,
+          "endFrame": 436
+        },
+        {
+          "text": "胜",
+          "startFrame": 436,
+          "endFrame": 452
+        }
+      ]
+    },
+    {
+      "startFrame": 452,
+      "endFrame": 520,
+      "lines": [
+        "因为如果我觉得太过于满足的话"
+      ],
+      "words": [
+        {
+          "text": "因为",
+          "startFrame": 452,
+          "endFrame": 466
+        },
+        {
+          "text": "如果",
+          "startFrame": 466,
+          "endFrame": 478
+        },
+        {
+          "text": "我觉得",
+          "startFrame": 478,
+          "endFrame": 488
+        },
+        {
+          "text": "太",
+          "startFrame": 488,
+          "endFrame": 496
+        },
+        {
+          "text": "过",
+          "startFrame": 496,
+          "endFrame": 502
+        },
+        {
+          "text": "于",
+          "startFrame": 502,
+          "endFrame": 508
+        },
+        {
+          "text": "满",
+          "startFrame": 508,
+          "endFrame": 512
+        },
+        {
+          "text": "足",
+          "startFrame": 512,
+          "endFrame": 516
+        },
+        {
+          "text": "的话",
+          "startFrame": 516,
+          "endFrame": 520
+        }
+      ]
+    },
+    {
+      "startFrame": 520,
+      "endFrame": 567,
+      "lines": [
+        "你可能就会停滞在一个位置"
+      ],
+      "words": [
+        {
+          "text": "你",
+          "startFrame": 520,
+          "endFrame": 526
+        },
+        {
+          "text": "可能",
+          "startFrame": 526,
+          "endFrame": 529
+        },
+        {
+          "text": "就",
+          "startFrame": 529,
+          "endFrame": 534
+        },
+        {
+          "text": "会",
+          "startFrame": 534,
+          "endFrame": 540
+        },
+        {
+          "text": "停",
+          "startFrame": 540,
+          "endFrame": 544
+        },
+        {
+          "text": "滞",
+          "startFrame": 544,
+          "endFrame": 546
+        },
+        {
+          "text": "在",
+          "startFrame": 546,
+          "endFrame": 552
+        },
+        {
+          "text": "一个",
+          "startFrame": 552,
+          "endFrame": 556
+        },
+        {
+          "text": "位",
+          "startFrame": 556,
+          "endFrame": 562
+        },
+        {
+          "text": "置",
+          "startFrame": 562,
+          "endFrame": 567
+        }
+      ]
+    },
+    {
+      "startFrame": 567,
+      "endFrame": 608,
+      "lines": [
+        "没有办法向前进步"
+      ],
+      "words": [
+        {
+          "text": "没有",
+          "startFrame": 567,
+          "endFrame": 573
+        },
+        {
+          "text": "办",
+          "startFrame": 573,
+          "endFrame": 576
+        },
+        {
+          "text": "法",
+          "startFrame": 576,
+          "endFrame": 580
+        },
+        {
+          "text": "向",
+          "startFrame": 580,
+          "endFrame": 584
+        },
+        {
+          "text": "前",
+          "startFrame": 584,
+          "endFrame": 588
+        },
+        {
+          "text": "进",
+          "startFrame": 588,
+          "endFrame": 596
+        },
+        {
+          "text": "步",
+          "startFrame": 596,
+          "endFrame": 608
+        }
+      ]
+    }
+  ]
+}

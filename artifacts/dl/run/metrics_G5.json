@@ -1,0 +1,211 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G5",
+  "input_sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+  "ir_sha256": "d91495bd945b038e53d0d53bc5fbff15d6be504fc27561179b37fbaf7f414d91",
+  "render_sha256": "c2cd408531ec778fbdffcef6dd11423af19469bd6835b2b2ed763f145e424a88",
+  "timing": {
+    "samples": 0,
+    "elements": 4,
+    "detected_onsets": 4,
+    "rows": [
+      {
+        "element_id": "el_d01",
+        "effect": "card",
+        "text": "奥运会是我的梦想没错",
+        "window_start_s": 0.0,
+        "rendered_onset_s": 0.04,
+        "anchor_start_s": 0.0,
+        "fidelity_ms": 40.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 58.201,
+        "detect_threshold": 29.101
+      },
+      {
+        "element_id": "el_d02",
+        "effect": "keyword",
+        "text": "但是我还有其他的梦想",
+        "window_start_s": 2.0,
+        "rendered_onset_s": 2.04,
+        "anchor_start_s": 2.02,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 56.776,
+        "detect_threshold": 28.388
+      },
+      {
+        "element_id": "el_d03",
+        "effect": "list",
+        "text": "每一年我们都有比赛",
+        "window_start_s": 11.2,
+        "rendered_onset_s": 11.2,
+        "anchor_start_s": 11.18,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 42.61,
+        "detect_threshold": 3.366
+      },
+      {
+        "element_id": "el_d04",
+        "effect": "keyword",
+        "text": "没有办法向前进步",
+        "window_start_s": 22.68,
+        "rendered_onset_s": 22.68,
+        "anchor_start_s": 22.68,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 49.45,
+        "detect_threshold": 3.684
+      }
+    ],
+    "source": "none",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 4,
+      "p50_ms": 20.0,
+      "max_ms": 40.0
+    },
+    "p50_ms": null,
+    "p90_ms": null,
+    "max_ms": null,
+    "verdict": "NOT RUN",
+    "note": "truth file present but no element onset could be matched to an independent unit start (anchors inside longer units) — this is NOT RUN, not a pass and not an environment block"
+  },
+  "position": {
+    "subject_motion": {
+      "tracks": 1,
+      "max_center_displacement_px": 73.32,
+      "frames": 122,
+      "policy": "static_safe: overlay boxes are pinned and the face union is treated as an obstacle (no claim of visual tracking)",
+      "min_clearance_px": 42.0,
+      "clearance_samples": 26
+    },
+    "cut_safety": {
+      "shots": 2,
+      "violations": [],
+      "verdict": "PASS",
+      "policy": "an overlay must not straddle a camera cut (30 ms guard band)"
+    },
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 26,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 279,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 279,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 4,
+      "sampled_frames": 279
+    },
+    "raster_containment": {
+      "changed_pixels": 206908,
+      "inside_declared_box": 206908,
+      "value": 0.0,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 122,
+      "frames_with_faces": 122,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 2,
+      "grid": "192px wide grayscale diff",
+      "observed_diff_threshold": 206.5
+    },
+    "observed_baseline": "source_video",
+    "caption_band_excluded": [
+      772,
+      920
+    ]
+  },
+  "render": {
+    "duration_src_s": 25.0,
+    "duration_rendered_s": 25.003,
+    "duration_delta_s": 0.003,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 625,
+    "frames_rendered": 625,
+    "audio": {
+      "src": {
+        "n_samples": 2400256,
+        "duration_s": 25.002667,
+        "rms_db": -32.06,
+        "peak_db": -8.404
+      },
+      "rendered": {
+        "n_samples": 2400256,
+        "duration_s": 25.002667,
+        "rms_db": -32.07,
+        "peak_db": -8.441
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.01,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "NOT RUN",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "inputs/zhengqinwen_25s.mp4",
+    "rendered": "artifacts/dl/run/zhengqinwen_25s_motion.mp4",
+    "truth": null,
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

@@ -80,10 +80,15 @@ export const Main: React.FC<Props> = (props) => {
   const { canvas, source, elements, captions } = props;
   const src = staticFile(source.file);
   const frame = useCurrentFrame();
+  const hidden = (source as { hidden?: boolean }).hidden === true;
   return (
     <AbsoluteFill style={{ backgroundColor: "#000", fontFamily: FONT_FAMILY }}>
-      <OffthreadVideo src={src} muted />
-      {source.audio !== false ? <Audio src={src} /> : null}
+      {hidden ? null : (
+        <>
+          <OffthreadVideo src={src} muted />
+          {source.audio !== false ? <Audio src={src} /> : null}
+        </>
+      )}
       <Captions cues={captions ?? []} canvas={canvas} safeBottomPx={props.captionSafeBottomPx ?? 0} />
       {/* Elements are gated on the absolute composition frame: `useCurrentFrame`
           stays identical inside a Sequence-offset tree only by accident, and mixing
