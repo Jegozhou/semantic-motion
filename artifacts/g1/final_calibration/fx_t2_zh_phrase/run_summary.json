@@ -1,7 +1,7 @@
 {
   "gate": "G1",
-  "started_utc": "2026-10-24T11:21:18Z",
-  "finished_utc": "2026-10-24T11:21:28Z",
+  "started_utc": "2026-10-24T11:34:18Z",
+  "finished_utc": "2026-10-24T11:34:27Z",
   "input": {
     "video": "tests/fixtures/clips/fx_t2_zh_phrase/fx_t2_zh_phrase.mp4",
     "sha256": "bbb5f946968d617ebb4cd0b9dbccafa830cb9bd13c3898ca0c27036a3ccc37f5",
@@ -69,12 +69,12 @@
     {
       "step": "render",
       "status": "ok",
-      "seconds": 8.7
+      "seconds": 8.44
     },
     {
       "step": "verify",
       "status": "ok",
-      "seconds": 0.9
+      "seconds": 0.88
     }
   ],
   "exit": 0

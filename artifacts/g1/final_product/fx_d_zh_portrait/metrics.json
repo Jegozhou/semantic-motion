@@ -2,7 +2,7 @@
   "schema": "semotion.metrics/1",
   "gate": "G1",
   "input_sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
-  "ir_sha256": "0563336cc28dfa99682b51e6e4f0079223cb16bd7250d55afb2ef55b29c16539",
+  "ir_sha256": "d34c0657fd93d3005674abb7f68307acb8b172ef1267a5cb3120ff092a267c94",
   "render_sha256": "f175d26fedf5fe8f3236832ef659b888a2079dad345e43ad5f2c683efff4a598",
   "timing": {
     "samples": 6,

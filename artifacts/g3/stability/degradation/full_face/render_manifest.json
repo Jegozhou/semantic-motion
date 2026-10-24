@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "a3b8e667b1341965045bc4d8d2271a17ad7726c17aa9c4e8f21e99888a5d2c9f",
+  "ir_sha256": "873a2a13233b458b05830a523e9ae3870dbe9658f20b6e21b3d7173c7002af48",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4",
     "sha256": "ffd53944c3f9821704b6be632444e3462ea1354737fb50baf244e779d47e3759"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_render_a3b8e667b134",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_render_873a2a13233b",
     "rendered_frames": 0,
     "empty_frames": 0,
     "elements": [],
@@ -72,7 +72,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T11:23:11Z",
+  "created_utc": "2026-10-24T11:36:11Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.016,

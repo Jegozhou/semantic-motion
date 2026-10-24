@@ -877,7 +877,7 @@
     "loudness_target_db": null
   },
   "provenance": {
-    "generated_utc": "2026-10-24T11:21:41Z",
+    "generated_utc": "2026-10-24T11:34:41Z",
     "tool_versions": {
       "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
       "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
@@ -893,6 +893,6 @@
     "build_warnings": [],
     "skipped_decisions": [],
     "n_elements": 4,
-    "ir_sha256": "7b79301e7f0df3c15cd77f61b320ecb09481c3cb148f0d557e5c2a18d1f548fc"
+    "ir_sha256": "9ab981539808ded1d6cf1dfa42e9c63207fc1f3165e754b04043c0b566abd0b4"
   }
 }

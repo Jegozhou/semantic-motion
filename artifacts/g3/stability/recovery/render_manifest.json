@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "c8d22a939d58c7c93d8d62f1614402ab84cbc63bac554c7c170fff9265ebfb00",
+  "ir_sha256": "b3404a8195935c635e8b41487646b9f50f00a966fc5e46ca495d444859458cbf",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4",
     "sha256": "ffd53944c3f9821704b6be632444e3462ea1354737fb50baf244e779d47e3759"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_resume_b_c8d22a939d58",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_resume_b_b3404a819593",
     "rendered_frames": 347,
     "empty_frames": 0,
     "elements": [
@@ -40,7 +40,7 @@
         "start_frame": 53,
         "end_frame": 78,
         "frames": 25,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal01"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal01"
       },
       {
         "id": "el_cal04",
@@ -49,7 +49,7 @@
         "start_frame": 160,
         "end_frame": 214,
         "frames": 54,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal04"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal04"
       },
       {
         "id": "el_cal07",
@@ -58,7 +58,7 @@
         "start_frame": 294,
         "end_frame": 318,
         "frames": 24,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal07"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal07"
       },
       {
         "id": "el_cal10",
@@ -67,7 +67,7 @@
         "start_frame": 400,
         "end_frame": 435,
         "frames": 35,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal10"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal10"
       },
       {
         "id": "el_cal03",
@@ -76,7 +76,7 @@
         "start_frame": 98,
         "end_frame": 158,
         "frames": 60,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal03"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal03"
       },
       {
         "id": "el_cal06",
@@ -85,7 +85,7 @@
         "start_frame": 275,
         "end_frame": 293,
         "frames": 18,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal06"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal06"
       },
       {
         "id": "el_cal09",
@@ -94,7 +94,7 @@
         "start_frame": 330,
         "end_frame": 398,
         "frames": 68,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal09"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal09"
       },
       {
         "id": "el_cal12",
@@ -103,13 +103,13 @@
         "start_frame": 462,
         "end_frame": 525,
         "frames": 63,
-        "frames_dir": "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal12"
+        "frames_dir": "artifacts/tmp/render_resume_b_b3404a819593/el_cal12"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4 -framerate 25 -start_number 53 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal01/f%05d.png -framerate 25 -start_number 160 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal04/f%05d.png -framerate 25 -start_number 294 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal07/f%05d.png -framerate 25 -start_number 400 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal10/f%05d.png -framerate 25 -start_number 98 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal03/f%05d.png -framerate 25 -start_number 275 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal06/f%05d.png -framerate 25 -start_number 330 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal09/f%05d.png -framerate 25 -start_number 462 -i artifacts/tmp/render_resume_b_c8d22a939d58/el_cal12/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.120000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.120000)*lt(t,3.120000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+6.400000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.400000)*lt(t,8.560000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.760000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.760000)*lt(t,12.720000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+16.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,16.000000)*lt(t,17.400000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+3.920000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.920000)*lt(t,6.320000)'\"'\"'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+11.000000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.000000)*lt(t,11.720000)'\"'\"'[v5];[7:v]format=rgba,setpts=PTS-STARTPTS+13.200000/TB[o6];[v5][o6]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,13.200000)*lt(t,15.920000)'\"'\"'[v6];[8:v]format=rgba,setpts=PTS-STARTPTS+18.480000/TB[o7];[v6][o7]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,18.480000)*lt(t,21.000000)'\"'\"'[v7];[v7]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g3/stability/recovery/resume_b.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4 -framerate 25 -start_number 53 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal01/f%05d.png -framerate 25 -start_number 160 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal04/f%05d.png -framerate 25 -start_number 294 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal07/f%05d.png -framerate 25 -start_number 400 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal10/f%05d.png -framerate 25 -start_number 98 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal03/f%05d.png -framerate 25 -start_number 275 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal06/f%05d.png -framerate 25 -start_number 330 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal09/f%05d.png -framerate 25 -start_number 462 -i artifacts/tmp/render_resume_b_b3404a819593/el_cal12/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.120000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.120000)*lt(t,3.120000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+6.400000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.400000)*lt(t,8.560000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.760000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.760000)*lt(t,12.720000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+16.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,16.000000)*lt(t,17.400000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+3.920000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.920000)*lt(t,6.320000)'\"'\"'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+11.000000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.000000)*lt(t,11.720000)'\"'\"'[v5];[7:v]format=rgba,setpts=PTS-STARTPTS+13.200000/TB[o6];[v5][o6]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,13.200000)*lt(t,15.920000)'\"'\"'[v6];[8:v]format=rgba,setpts=PTS-STARTPTS+18.480000/TB[o7];[v6][o7]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,18.480000)*lt(t,21.000000)'\"'\"'[v7];[v7]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g3/stability/recovery/resume_b.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -124,49 +124,49 @@
     "-start_number",
     "53",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal01/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal01/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "160",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal04/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal04/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "294",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal07/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal07/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "400",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal10/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal10/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "98",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal03/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal03/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "275",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal06/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal06/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "330",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal09/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal09/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "462",
     "-i",
-    "artifacts/tmp/render_resume_b_c8d22a939d58/el_cal12/f%05d.png",
+    "artifacts/tmp/render_resume_b_b3404a819593/el_cal12/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.120000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,2.120000)*lt(t,3.120000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+6.400000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,6.400000)*lt(t,8.560000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.760000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,11.760000)*lt(t,12.720000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+16.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,16.000000)*lt(t,17.400000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+3.920000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,3.920000)*lt(t,6.320000)'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+11.000000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='gte(t,11.000000)*lt(t,11.720000)'[v5];[7:v]format=rgba,setpts=PTS-STARTPTS+13.200000/TB[o6];[v5][o6]overlay=0:0:eof_action=pass:enable='gte(t,13.200000)*lt(t,15.920000)'[v6];[8:v]format=rgba,setpts=PTS-STARTPTS+18.480000/TB[o7];[v6][o7]overlay=0:0:eof_action=pass:enable='gte(t,18.480000)*lt(t,21.000000)'[v7];[v7]format=yuv420p[vout]",
     "-map",
@@ -197,7 +197,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T11:23:51Z",
+  "created_utc": "2026-10-24T11:36:50Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.016,

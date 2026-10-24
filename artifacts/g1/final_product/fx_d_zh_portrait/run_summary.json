@@ -1,7 +1,7 @@
 {
   "gate": "G1",
-  "started_utc": "2026-10-24T11:21:51Z",
-  "finished_utc": "2026-10-24T11:22:00Z",
+  "started_utc": "2026-10-24T11:34:50Z",
+  "finished_utc": "2026-10-24T11:34:59Z",
   "input": {
     "video": "tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
     "sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
@@ -70,7 +70,7 @@
     {
       "step": "render",
       "status": "ok",
-      "seconds": 7.44
+      "seconds": 7.4
     },
     {
       "step": "verify",

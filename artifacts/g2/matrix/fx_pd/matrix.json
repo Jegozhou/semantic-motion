@@ -1,13 +1,13 @@
 {
   "schema": "semotion.effect_matrix/1",
   "fixture": "fx_pd_real_16x9_a",
-  "created_utc": "2026-10-24T11:22:50Z",
+  "created_utc": "2026-10-24T11:35:49Z",
   "cells": [
     {
       "fixture": "fx_pd_real_16x9_a",
       "effect": "keyword",
       "elements": 13,
-      "ir_hash": "de29238e407714de",
+      "ir_hash": "1bd02cb5e641775a",
       "rendered": "artifacts/g2/matrix/fx_pd/keyword/fx_pd_real_16x9_a_keyword.mp4",
       "verdicts": {
         "timing": "NOT RUN",
@@ -34,7 +34,7 @@
       "fixture": "fx_pd_real_16x9_a",
       "effect": "number",
       "elements": 1,
-      "ir_hash": "9d46cb2478bd8efb",
+      "ir_hash": "6c150a422d8ea775",
       "rendered": "artifacts/g2/matrix/fx_pd/number/fx_pd_real_16x9_a_number.mp4",
       "verdicts": {
         "timing": "NOT RUN",
@@ -73,7 +73,7 @@
       "fixture": "fx_pd_real_16x9_a",
       "effect": "combo",
       "elements": 14,
-      "ir_hash": "2ef46acc90e66250",
+      "ir_hash": "a5e1ff6b6a18250c",
       "rendered": "artifacts/g2/matrix/fx_pd/combo/fx_pd_real_16x9_a_combo.mp4",
       "verdicts": {
         "timing": "NOT RUN",

@@ -1,7 +1,7 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：G0 / G1 / G2 / **G3 全部 PASS**；自动回归 11/11（`artifacts/regression/summary.json`）；G4 进行中。
+> 最近更新：**G0–G4 全部 PASS，项目完成阶段性交付**。最终回归 11/11（`artifacts/regression/summary.json`）；未完成项 L1–L9 见 `reports/FINAL-REPORT.md` §6。
 
 ## 0. 当前状态一屏
 
@@ -11,7 +11,7 @@
 | G1 最小语义闭环 | **PASS** | 链路已打通：`artifacts/g1/runner/gate_summary.json`（fx_a：timing/position/render PASS，n=3 探索性）、`artifacts/g1/pd_a/`（真实人脸素材：position/render PASS）；**待 ≥50 独立事件校准素材** |
 | G2 四类动效 | **PASS** | `reports/gate-G2.md`；20 格动效矩阵、真实人脸 198 帧遮脸 0、数值确定性校验全 PASS |
 | G3 高级稳定性 | **PASS** | `reports/gate-G3.md`；切镜安全 0 违规、人脸位移 103px/净距 192px、5 个降级场景、局部修改、4 类异常恢复、自动回归 11/11 |
-| G4 完整交付 | **IN PROGRESS** | 依赖 G3（已完成）；Skill 入口、指南、许可终审 |
+| G4 完整交付 | **PASS** | `reports/gate-G4.md`、`reports/FINAL-REPORT.md`；Skill 已加载+调用；指南/许可/5 条成片齐备；最终回归 11/11 |
 
 预算：本地零付费；已用磁盘 < 2 GB（不含 1.42 GB whisper medium 缓存，位于 `/Volumes/ZHITAI/models` 与 `~/.cache/whisper`）；并发子智能体 2（上限 3）。
 
@@ -95,7 +95,20 @@
 | 自动回归 | **11/11 步骤 PASS，3 分 42 秒** | `artifacts/regression/summary.json` |
 | 回归测试 | 92 passed | `.venv/bin/python -m pytest tests/ -q` |
 
-## 2. 进行中（G1 过程记录，保留）
+## 1.8 G4 最终交付（PASS，2026-10-24 19:4x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| Skill 加载 | `semantic-motion` 出现在本会话技能目录（实时热加载） | 会话技能目录；`artifacts/delivery/skill_check.json` |
+| Skill 调用 | `skill(name="semantic-motion")` 返回完整内容与 base dir | tool 返回内容 |
+| Skill 安装位置 | 项目内 + `~/.dsh/skills` + `~/.claude/skills`，结构校验 3/3 PASS | `scripts/check_skill.py` |
+| 使用指南 | `docs/USER-GUIDE.md` | — |
+| 依赖与许可 | `reports/licenses.md` + `requirements.lock`(30 包) + `assets/fonts/OFL.txt` | — |
+| 测试成片 | `delivery/01..05_*/`（MP4 + IR + manifest + metrics + number_check + contact sheet） | 35 个文件 |
+| 最终回归 | 11/11 PASS，约 3 分 42 秒 | `artifacts/regression/summary.json` |
+| 最终报告 | `reports/FINAL-REPORT.md`、`reports/gate-G4.md` | — |
+
+## 2. 进行中（无；以下为 G1 过程记录，保留）
 
 | 子任务 | Owner | 写域 | 状态 | 备注 |
 |---|---|---|---|---|
@@ -110,7 +123,14 @@
 | 度量引擎（时间/位置/渲染/确定性） | lead | `src/semotion/verify.py` | ✅ 已写，待集成验证 | 渲染 onset 由解码像素测得 |
 | CLI 端到端 | lead | `src/semotion/cli.py` | ✅ 已写 | `run --fixture fx_a_zh_portrait` |
 
-## 3. 下一步（按顺序，可直接执行）
+## 2.5 后续（需要外部输入或额外工作，非本轮范围）
+
+1. 真人素材 + 人工标注（HUMAN）→ 把时间精度从合成校准升级为真人验收（L1）。
+2. 留出集盲测（L2）与人工审美评审（L3）。
+3. 分发合规：ffmpeg / YuNet 方案调整（L7）。
+4. P2 能力：视觉跟踪（L4）、帧级局部重渲染（L5）、英文列表/卡片规则（L6）。
+
+## 3. 下一步（历史：G1 集成清单，已完成）
 
 1. speech-vision / motion-render 交付模块 + 单测全绿（等待回报）。
 2. Lead 集成：`PYTHONPATH=src .venv/bin/python -m semotion.cli run --fixture fx_a_zh_portrait --outdir artifacts/g1/run_a --gate G1`

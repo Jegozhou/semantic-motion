@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "5be47785c8970b08dde49d4b843232f9bd39be02e381f2136f23edb2b1d58a16",
+  "ir_sha256": "fbdc5797e4bbda2204c1333221ed2a85f4a27a2c0f9bf3a0093873693710062d",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
     "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb",
     "rendered_frames": 163,
     "empty_frames": 0,
     "elements": [
@@ -40,7 +40,7 @@
         "start_frame": 271,
         "end_frame": 320,
         "frames": 49,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke01"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke01"
       },
       {
         "id": "el_ke02",
@@ -49,7 +49,7 @@
         "start_frame": 322,
         "end_frame": 343,
         "frames": 21,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke02"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke02"
       },
       {
         "id": "el_ke03",
@@ -58,7 +58,7 @@
         "start_frame": 474,
         "end_frame": 496,
         "frames": 22,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke03"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke03"
       },
       {
         "id": "el_ke04",
@@ -67,7 +67,7 @@
         "start_frame": 497,
         "end_frame": 527,
         "frames": 30,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke04"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke04"
       },
       {
         "id": "el_ke05",
@@ -76,7 +76,7 @@
         "start_frame": 567,
         "end_frame": 591,
         "frames": 24,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke05"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke05"
       },
       {
         "id": "el_ke06",
@@ -85,13 +85,13 @@
         "start_frame": 592,
         "end_frame": 609,
         "frames": 17,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke06"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke06"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 271 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke01/f%05d.png -framerate 25 -start_number 322 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke02/f%05d.png -framerate 25 -start_number 474 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke03/f%05d.png -framerate 25 -start_number 497 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke04/f%05d.png -framerate 25 -start_number 567 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke05/f%05d.png -framerate 25 -start_number 592 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke06/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+10.840000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,10.840000)*lt(t,12.800000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+12.880000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,12.880000)*lt(t,13.720000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+18.960000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,18.960000)*lt(t,19.840000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+19.880000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,19.880000)*lt(t,21.080000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+22.680000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,22.680000)*lt(t,23.640000)'\"'\"'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+23.680000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,23.680000)*lt(t,24.360000)'\"'\"'[v5];[v5]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_face/keyword/fx_face_zh_portrait_keyword.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 271 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke01/f%05d.png -framerate 25 -start_number 322 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke02/f%05d.png -framerate 25 -start_number 474 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke03/f%05d.png -framerate 25 -start_number 497 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke04/f%05d.png -framerate 25 -start_number 567 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke05/f%05d.png -framerate 25 -start_number 592 -i artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke06/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+10.840000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,10.840000)*lt(t,12.800000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+12.880000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,12.880000)*lt(t,13.720000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+18.960000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,18.960000)*lt(t,19.840000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+19.880000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,19.880000)*lt(t,21.080000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+22.680000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,22.680000)*lt(t,23.640000)'\"'\"'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+23.680000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,23.680000)*lt(t,24.360000)'\"'\"'[v5];[v5]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_face/keyword/fx_face_zh_portrait_keyword.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -106,37 +106,37 @@
     "-start_number",
     "271",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke01/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke01/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "322",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke02/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke02/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "474",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke03/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke03/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "497",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke04/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke04/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "567",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke05/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke05/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "592",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_keyword_5be47785c897/el_ke06/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_keyword_fbdc5797e4bb/el_ke06/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+10.840000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,10.840000)*lt(t,12.800000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+12.880000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,12.880000)*lt(t,13.720000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+18.960000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,18.960000)*lt(t,19.840000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+19.880000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,19.880000)*lt(t,21.080000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+22.680000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,22.680000)*lt(t,23.640000)'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+23.680000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='gte(t,23.680000)*lt(t,24.360000)'[v5];[v5]format=yuv420p[vout]",
     "-map",
@@ -167,7 +167,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T11:22:14Z",
+  "created_utc": "2026-10-24T11:35:14Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.0,

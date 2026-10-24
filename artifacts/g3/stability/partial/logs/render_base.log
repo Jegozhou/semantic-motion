@@ -1,4 +1,4 @@
-$ ffmpeg -v error -y -i artifacts/g3/stability/partial/base.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpcuvsxl6l.s16le
+$ ffmpeg -v error -y -i artifacts/g3/stability/partial/base.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpvos_45ll.s16le
 
 
 render manifest: artifacts/g3/stability/partial/render_manifest.json

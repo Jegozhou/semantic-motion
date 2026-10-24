@@ -1,0 +1,43 @@
+{
+  "updated_utc": "2026-10-24T11:38:45Z",
+  "gates": {
+    "G0": {
+      "verdict": "PASS",
+      "report": "reports/gate-G0.md",
+      "evidence": "artifacts/g0/baseline_report.json"
+    },
+    "G1": {
+      "verdict": "PASS",
+      "report": "reports/gate-G1.md",
+      "evidence": "artifacts/g1/final_calibration/gate_summary.json"
+    },
+    "G2": {
+      "verdict": "PASS",
+      "report": "reports/gate-G2.md",
+      "evidence": "artifacts/g2/matrix/"
+    },
+    "G3": {
+      "verdict": "PASS",
+      "report": "reports/gate-G3.md",
+      "evidence": "artifacts/g3/stability/stability.json"
+    },
+    "G4": {
+      "verdict": "PASS",
+      "report": "reports/gate-G4.md",
+      "evidence": "artifacts/delivery/skill_check.json",
+      "final_report": "reports/FINAL-REPORT.md"
+    }
+  },
+  "regression": "artifacts/regression/summary.json",
+  "not_done": [
+    "L1 human-truth timing (NOT RUN)",
+    "L2 holdout (none)",
+    "L3 aesthetics review (subjective)",
+    "L4 tracking (P2)",
+    "L5 frame-level partial render (P2)",
+    "L6 English list/card anchors (partial)",
+    "L7 license compliance for distribution",
+    "L8 low-resolution pixel metrics (NOT RUN)",
+    "L9 code sandbox (disabled by spec)"
+  ]
+}

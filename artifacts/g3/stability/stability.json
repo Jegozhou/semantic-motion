@@ -1,7 +1,7 @@
 {
   "schema": "semotion.stability/1",
   "fixture": "fx_face_pan",
-  "created_utc": "2026-10-24T11:22:56Z",
+  "created_utc": "2026-10-24T11:35:56Z",
   "degradation": [
     {
       "name": "no_face_detected",

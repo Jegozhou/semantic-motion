@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "9135b732ba09554e0932d9328185b521e1d92e95b2a8ce281dca7f89abf413ef",
+  "ir_sha256": "ddb0f5a88e6e27550323c3681a3e409fe022dd2036187ae58a2e4cd379bdc972",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
     "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e",
     "rendered_frames": 390,
     "empty_frames": 0,
     "elements": [
@@ -40,7 +40,7 @@
         "start_frame": 57,
         "end_frame": 79,
         "frames": 22,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal02"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal02"
       },
       {
         "id": "el_cal03",
@@ -49,7 +49,7 @@
         "start_frame": 86,
         "end_frame": 109,
         "frames": 23,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal03"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal03"
       },
       {
         "id": "el_cal04",
@@ -58,7 +58,7 @@
         "start_frame": 145,
         "end_frame": 172,
         "frames": 27,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal04"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal04"
       },
       {
         "id": "el_cal09",
@@ -67,7 +67,7 @@
         "start_frame": 271,
         "end_frame": 320,
         "frames": 49,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal09"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal09"
       },
       {
         "id": "el_cal12",
@@ -76,7 +76,7 @@
         "start_frame": 392,
         "end_frame": 410,
         "frames": 18,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal12"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal12"
       },
       {
         "id": "el_cal15",
@@ -85,7 +85,7 @@
         "start_frame": 497,
         "end_frame": 527,
         "frames": 30,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal15"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal15"
       },
       {
         "id": "el_cal16",
@@ -94,7 +94,7 @@
         "start_frame": 567,
         "end_frame": 590,
         "frames": 23,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal16"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal16"
       },
       {
         "id": "el_cal17",
@@ -103,7 +103,7 @@
         "start_frame": 592,
         "end_frame": 609,
         "frames": 17,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal17"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal17"
       },
       {
         "id": "el_cal01",
@@ -112,7 +112,7 @@
         "start_frame": 40,
         "end_frame": 56,
         "frames": 16,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal01"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal01"
       },
       {
         "id": "el_cal06",
@@ -121,7 +121,7 @@
         "start_frame": 186,
         "end_frame": 226,
         "frames": 40,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal06"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal06"
       },
       {
         "id": "el_cal08",
@@ -130,7 +130,7 @@
         "start_frame": 227,
         "end_frame": 270,
         "frames": 43,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal08"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal08"
       },
       {
         "id": "el_cal11",
@@ -139,7 +139,7 @@
         "start_frame": 322,
         "end_frame": 382,
         "frames": 60,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal11"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal11"
       },
       {
         "id": "el_cal14",
@@ -148,13 +148,13 @@
         "start_frame": 474,
         "end_frame": 496,
         "frames": 22,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal14"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal14"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 57 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal02/f%05d.png -framerate 25 -start_number 86 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal03/f%05d.png -framerate 25 -start_number 145 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal04/f%05d.png -framerate 25 -start_number 271 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal09/f%05d.png -framerate 25 -start_number 392 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal12/f%05d.png -framerate 25 -start_number 497 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal15/f%05d.png -framerate 25 -start_number 567 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal16/f%05d.png -framerate 25 -start_number 592 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal17/f%05d.png -framerate 25 -start_number 40 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal01/f%05d.png -framerate 25 -start_number 186 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal06/f%05d.png -framerate 25 -start_number 227 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal08/f%05d.png -framerate 25 -start_number 322 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal11/f%05d.png -framerate 25 -start_number 474 -i artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal14/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.280000)*lt(t,3.160000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.440000)*lt(t,4.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+5.800000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,5.800000)*lt(t,6.880000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+10.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,10.840000)*lt(t,12.800000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.680000)*lt(t,16.400000)'\"'\"'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+19.880000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,19.880000)*lt(t,21.080000)'\"'\"'[v5];[7:v]format=rgba,setpts=PTS-STARTPTS+22.680000/TB[o6];[v5][o6]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,22.680000)*lt(t,23.600000)'\"'\"'[v6];[8:v]format=rgba,setpts=PTS-STARTPTS+23.680000/TB[o7];[v6][o7]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,23.680000)*lt(t,24.360000)'\"'\"'[v7];[9:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o8];[v7][o8]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,1.600000)*lt(t,2.240000)'\"'\"'[v8];[10:v]format=rgba,setpts=PTS-STARTPTS+7.440000/TB[o9];[v8][o9]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.440000)*lt(t,9.040000)'\"'\"'[v9];[11:v]format=rgba,setpts=PTS-STARTPTS+9.080000/TB[o10];[v9][o10]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,9.080000)*lt(t,10.800000)'\"'\"'[v10];[12:v]format=rgba,setpts=PTS-STARTPTS+12.880000/TB[o11];[v10][o11]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,12.880000)*lt(t,15.280000)'\"'\"'[v11];[13:v]format=rgba,setpts=PTS-STARTPTS+18.960000/TB[o12];[v11][o12]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,18.960000)*lt(t,19.840000)'\"'\"'[v12];[v12]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/face_stress/fx_face_zh_portrait/fx_face_zh_portrait_motion.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 57 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal02/f%05d.png -framerate 25 -start_number 86 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal03/f%05d.png -framerate 25 -start_number 145 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal04/f%05d.png -framerate 25 -start_number 271 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal09/f%05d.png -framerate 25 -start_number 392 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal12/f%05d.png -framerate 25 -start_number 497 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal15/f%05d.png -framerate 25 -start_number 567 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal16/f%05d.png -framerate 25 -start_number 592 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal17/f%05d.png -framerate 25 -start_number 40 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal01/f%05d.png -framerate 25 -start_number 186 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal06/f%05d.png -framerate 25 -start_number 227 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal08/f%05d.png -framerate 25 -start_number 322 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal11/f%05d.png -framerate 25 -start_number 474 -i artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal14/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.280000)*lt(t,3.160000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.440000)*lt(t,4.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+5.800000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,5.800000)*lt(t,6.880000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+10.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,10.840000)*lt(t,12.800000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.680000)*lt(t,16.400000)'\"'\"'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+19.880000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,19.880000)*lt(t,21.080000)'\"'\"'[v5];[7:v]format=rgba,setpts=PTS-STARTPTS+22.680000/TB[o6];[v5][o6]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,22.680000)*lt(t,23.600000)'\"'\"'[v6];[8:v]format=rgba,setpts=PTS-STARTPTS+23.680000/TB[o7];[v6][o7]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,23.680000)*lt(t,24.360000)'\"'\"'[v7];[9:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o8];[v7][o8]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,1.600000)*lt(t,2.240000)'\"'\"'[v8];[10:v]format=rgba,setpts=PTS-STARTPTS+7.440000/TB[o9];[v8][o9]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.440000)*lt(t,9.040000)'\"'\"'[v9];[11:v]format=rgba,setpts=PTS-STARTPTS+9.080000/TB[o10];[v9][o10]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,9.080000)*lt(t,10.800000)'\"'\"'[v10];[12:v]format=rgba,setpts=PTS-STARTPTS+12.880000/TB[o11];[v10][o11]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,12.880000)*lt(t,15.280000)'\"'\"'[v11];[13:v]format=rgba,setpts=PTS-STARTPTS+18.960000/TB[o12];[v11][o12]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,18.960000)*lt(t,19.840000)'\"'\"'[v12];[v12]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/face_stress/fx_face_zh_portrait/fx_face_zh_portrait_motion.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -169,79 +169,79 @@
     "-start_number",
     "57",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal02/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal02/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "86",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal03/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal03/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "145",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal04/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal04/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "271",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal09/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal09/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "392",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal12/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal12/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "497",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal15/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal15/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "567",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal16/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal16/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "592",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal17/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal17/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "40",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal01/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal01/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "186",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal06/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal06/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "227",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal08/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal08/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "322",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal11/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal11/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "474",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_motion_9135b732ba09/el_cal14/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_motion_ddb0f5a88e6e/el_cal14/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,2.280000)*lt(t,3.160000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,3.440000)*lt(t,4.360000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+5.800000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,5.800000)*lt(t,6.880000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+10.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,10.840000)*lt(t,12.800000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,15.680000)*lt(t,16.400000)'[v4];[6:v]format=rgba,setpts=PTS-STARTPTS+19.880000/TB[o5];[v4][o5]overlay=0:0:eof_action=pass:enable='gte(t,19.880000)*lt(t,21.080000)'[v5];[7:v]format=rgba,setpts=PTS-STARTPTS+22.680000/TB[o6];[v5][o6]overlay=0:0:eof_action=pass:enable='gte(t,22.680000)*lt(t,23.600000)'[v6];[8:v]format=rgba,setpts=PTS-STARTPTS+23.680000/TB[o7];[v6][o7]overlay=0:0:eof_action=pass:enable='gte(t,23.680000)*lt(t,24.360000)'[v7];[9:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o8];[v7][o8]overlay=0:0:eof_action=pass:enable='gte(t,1.600000)*lt(t,2.240000)'[v8];[10:v]format=rgba,setpts=PTS-STARTPTS+7.440000/TB[o9];[v8][o9]overlay=0:0:eof_action=pass:enable='gte(t,7.440000)*lt(t,9.040000)'[v9];[11:v]format=rgba,setpts=PTS-STARTPTS+9.080000/TB[o10];[v9][o10]overlay=0:0:eof_action=pass:enable='gte(t,9.080000)*lt(t,10.800000)'[v10];[12:v]format=rgba,setpts=PTS-STARTPTS+12.880000/TB[o11];[v10][o11]overlay=0:0:eof_action=pass:enable='gte(t,12.880000)*lt(t,15.280000)'[v11];[13:v]format=rgba,setpts=PTS-STARTPTS+18.960000/TB[o12];[v11][o12]overlay=0:0:eof_action=pass:enable='gte(t,18.960000)*lt(t,19.840000)'[v12];[v12]format=yuv420p[vout]",
     "-map",
@@ -272,7 +272,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T11:22:55Z",
+  "created_utc": "2026-10-24T11:35:54Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.0,

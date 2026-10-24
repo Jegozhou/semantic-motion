@@ -85,7 +85,7 @@
         "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
         "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
       },
-      "timestamp_utc": "2026-10-24T11:21:08Z"
+      "timestamp_utc": "2026-10-24T11:34:08Z"
     },
     "reencode": {
       "operation": "reencode",
@@ -136,7 +136,7 @@
         "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
         "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
       },
-      "timestamp_utc": "2026-10-24T11:21:09Z"
+      "timestamp_utc": "2026-10-24T11:34:09Z"
     }
   },
   "verdict": "PASS",
@@ -148,5 +148,5 @@
     "remux": "ffmpeg -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c copy -movflags +faststart artifacts/g0/baseline_remux.mp4",
     "reencode": "ffmpeg -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g0/baseline_reencode.mp4"
   },
-  "timestamp_utc": "2026-10-24T11:21:09Z"
+  "timestamp_utc": "2026-10-24T11:34:09Z"
 }

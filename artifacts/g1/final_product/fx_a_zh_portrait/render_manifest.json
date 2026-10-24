@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "94badc96b3583735fa1623b93b39919d9621dda95b627903bddaede24b4c5cba",
+  "ir_sha256": "f0d1a0f3d29570aa9877284a6074cb652af8a103b8feed29b05411a3d1bf4fa3",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
     "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295",
     "rendered_frames": 165,
     "empty_frames": 0,
     "elements": [
@@ -40,7 +40,7 @@
         "start_frame": 83,
         "end_frame": 106,
         "frames": 23,
-        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d01"
+        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d01"
       },
       {
         "id": "el_d02",
@@ -49,7 +49,7 @@
         "start_frame": 159,
         "end_frame": 195,
         "frames": 36,
-        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d02"
+        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d02"
       },
       {
         "id": "el_d03",
@@ -58,7 +58,7 @@
         "start_frame": 196,
         "end_frame": 218,
         "frames": 22,
-        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d03"
+        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d03"
       },
       {
         "id": "el_d05",
@@ -67,7 +67,7 @@
         "start_frame": 520,
         "end_frame": 549,
         "frames": 29,
-        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d05"
+        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d05"
       },
       {
         "id": "el_d04",
@@ -76,13 +76,13 @@
         "start_frame": 233,
         "end_frame": 288,
         "frames": 55,
-        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d04"
+        "frames_dir": "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d04"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -framerate 25 -start_number 83 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d01/f%05d.png -framerate 25 -start_number 159 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d02/f%05d.png -framerate 25 -start_number 196 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d03/f%05d.png -framerate 25 -start_number 520 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d05/f%05d.png -framerate 25 -start_number 233 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d04/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+3.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.320000)*lt(t,4.240000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+6.360000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.360000)*lt(t,7.800000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.840000)*lt(t,8.720000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+20.800000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,20.800000)*lt(t,21.960000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+9.320000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,9.320000)*lt(t,11.520000)'\"'\"'[v4];[v4]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/final_product/fx_a_zh_portrait/fx_a_zh_portrait_motion_rerender.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -framerate 25 -start_number 83 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d01/f%05d.png -framerate 25 -start_number 159 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d02/f%05d.png -framerate 25 -start_number 196 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d03/f%05d.png -framerate 25 -start_number 520 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d05/f%05d.png -framerate 25 -start_number 233 -i artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d04/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+3.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.320000)*lt(t,4.240000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+6.360000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.360000)*lt(t,7.800000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.840000)*lt(t,8.720000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+20.800000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,20.800000)*lt(t,21.960000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+9.320000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,9.320000)*lt(t,11.520000)'\"'\"'[v4];[v4]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/final_product/fx_a_zh_portrait/fx_a_zh_portrait_motion_rerender.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -97,31 +97,31 @@
     "-start_number",
     "83",
     "-i",
-    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d01/f%05d.png",
+    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d01/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "159",
     "-i",
-    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d02/f%05d.png",
+    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d02/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "196",
     "-i",
-    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d03/f%05d.png",
+    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d03/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "520",
     "-i",
-    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d05/f%05d.png",
+    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d05/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "233",
     "-i",
-    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_94badc96b358/el_d04/f%05d.png",
+    "artifacts/tmp/render_fx_a_zh_portrait_motion_rerender_f0d1a0f3d295/el_d04/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+3.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,3.320000)*lt(t,4.240000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+6.360000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,6.360000)*lt(t,7.800000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,7.840000)*lt(t,8.720000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+20.800000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,20.800000)*lt(t,21.960000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+9.320000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,9.320000)*lt(t,11.520000)'[v4];[v4]format=yuv420p[vout]",
     "-map",
@@ -152,7 +152,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T11:22:10Z",
+  "created_utc": "2026-10-24T11:35:09Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.0,

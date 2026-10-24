@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "2fd964a8a2cdb1f729a955654d04d48e071a4579a70cf8bd7cf008aa122684d0",
+  "ir_sha256": "8ddc9e799f2f3b75b92557b566dedeee1fb2dc459dba4e08d4288a70578d9c80",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
     "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f",
     "rendered_frames": 63,
     "empty_frames": 0,
     "elements": [
@@ -40,7 +40,7 @@
         "start_frame": 57,
         "end_frame": 79,
         "frames": 22,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu01"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu01"
       },
       {
         "id": "el_nu02",
@@ -49,7 +49,7 @@
         "start_frame": 86,
         "end_frame": 109,
         "frames": 23,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu02"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu02"
       },
       {
         "id": "el_nu03",
@@ -58,13 +58,13 @@
         "start_frame": 392,
         "end_frame": 410,
         "frames": 18,
-        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu03"
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu03"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 57 -i artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu01/f%05d.png -framerate 25 -start_number 86 -i artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu02/f%05d.png -framerate 25 -start_number 392 -i artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu03/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.280000)*lt(t,3.160000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.440000)*lt(t,4.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.680000)*lt(t,16.400000)'\"'\"'[v2];[v2]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 57 -i artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu01/f%05d.png -framerate 25 -start_number 86 -i artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu02/f%05d.png -framerate 25 -start_number 392 -i artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu03/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.280000)*lt(t,3.160000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.440000)*lt(t,4.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.680000)*lt(t,16.400000)'\"'\"'[v2];[v2]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -79,19 +79,19 @@
     "-start_number",
     "57",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu01/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu01/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "86",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu02/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu02/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "392",
     "-i",
-    "artifacts/tmp/render_fx_face_zh_portrait_number_2fd964a8a2cd/el_nu03/f%05d.png",
+    "artifacts/tmp/render_fx_face_zh_portrait_number_8ddc9e799f2f/el_nu03/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,2.280000)*lt(t,3.160000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,3.440000)*lt(t,4.360000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,15.680000)*lt(t,16.400000)'[v2];[v2]format=yuv420p[vout]",
     "-map",
@@ -122,7 +122,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T11:22:18Z",
+  "created_utc": "2026-10-24T11:35:17Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.0,

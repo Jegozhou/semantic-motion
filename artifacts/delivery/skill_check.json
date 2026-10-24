@@ -1,0 +1,63 @@
+{
+  "copies": [
+    {
+      "path": "/Volumes/ZHITAI/SemanticMotion/.dsh/skills/semantic-motion/SKILL.md",
+      "exists": true,
+      "frontmatter": true,
+      "has_name": true,
+      "has_description": true,
+      "missing_sections": []
+    },
+    {
+      "path": "/Users/mozhouwen/.dsh/skills/semantic-motion/SKILL.md",
+      "exists": true,
+      "frontmatter": true,
+      "has_name": true,
+      "has_description": true,
+      "missing_sections": []
+    },
+    {
+      "path": "/Users/mozhouwen/.claude/skills/semantic-motion/SKILL.md",
+      "exists": true,
+      "frontmatter": true,
+      "has_name": true,
+      "has_description": true,
+      "missing_sections": []
+    }
+  ],
+  "required_paths": [
+    {
+      "path": "src/semotion/cli.py",
+      "exists": true
+    },
+    {
+      "path": "docs/INTERFACES.md",
+      "exists": true
+    },
+    {
+      "path": "docs/USER-GUIDE.md",
+      "exists": true
+    },
+    {
+      "path": "requirements.lock",
+      "exists": true
+    },
+    {
+      "path": "ENVIRONMENT.md",
+      "exists": true
+    },
+    {
+      "path": "reports/licenses.md",
+      "exists": true
+    },
+    {
+      "path": "scripts/regression.py",
+      "exists": true
+    },
+    {
+      "path": "assets/fonts/NotoSansSC-Regular.otf",
+      "exists": true
+    }
+  ],
+  "verdict": "PASS"
+}

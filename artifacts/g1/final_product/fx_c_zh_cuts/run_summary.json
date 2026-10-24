@@ -1,7 +1,7 @@
 {
   "gate": "G1",
-  "started_utc": "2026-10-24T11:21:46Z",
-  "finished_utc": "2026-10-24T11:21:51Z",
+  "started_utc": "2026-10-24T11:34:46Z",
+  "finished_utc": "2026-10-24T11:34:50Z",
   "input": {
     "video": "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
     "sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
@@ -74,7 +74,7 @@
     {
       "step": "verify",
       "status": "ok",
-      "seconds": 0.54
+      "seconds": 0.53
     }
   ],
   "exit": 0

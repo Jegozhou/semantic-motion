@@ -1,7 +1,7 @@
 {
   "gate": "G1",
-  "started_utc": "2026-10-24T11:21:41Z",
-  "finished_utc": "2026-10-24T11:21:46Z",
+  "started_utc": "2026-10-24T11:34:41Z",
+  "finished_utc": "2026-10-24T11:34:46Z",
   "input": {
     "video": "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
     "sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6",
@@ -70,12 +70,12 @@
     {
       "step": "render",
       "status": "ok",
-      "seconds": 4.31
+      "seconds": 4.38
     },
     {
       "step": "verify",
       "status": "ok",
-      "seconds": 0.56
+      "seconds": 0.58
     }
   ],
   "exit": 0
