@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -i artifacts/g0/baseline_remux.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpymeop3pl.s16le
+

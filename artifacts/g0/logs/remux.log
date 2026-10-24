@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c copy -movflags +faststart artifacts/g0/baseline_remux.mp4
+

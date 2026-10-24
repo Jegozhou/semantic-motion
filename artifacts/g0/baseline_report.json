@@ -1,0 +1,151 @@
+{
+  "gate": "G0",
+  "input": {
+    "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
+    "info": {
+      "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+      "duration": 24.2,
+      "width": 1080,
+      "height": 1920,
+      "fps": 25.0,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "n_video_streams": 1,
+      "n_audio_streams": 1,
+      "rotation": 0,
+      "raw": null
+    }
+  },
+  "outputs": {
+    "remux": {
+      "path": "artifacts/g0/baseline_remux.mp4",
+      "sha256": "087463e8c436f1af5b68aab7ae0c2a752f6a477c38cfc83690a5a36709230112",
+      "size_bytes": 522917
+    },
+    "reencode": {
+      "path": "artifacts/g0/baseline_reencode.mp4",
+      "sha256": "661f8be7294fd5eaf817a577c57a0c1910511f08a394f18d28aa1b4b997306f4",
+      "size_bytes": 553936
+    }
+  },
+  "verification": {
+    "remux": {
+      "operation": "stream_copy",
+      "src": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+      "dst": "artifacts/g0/baseline_remux.mp4",
+      "src_sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
+      "dst_sha256": "087463e8c436f1af5b68aab7ae0c2a752f6a477c38cfc83690a5a36709230112",
+      "checks": {
+        "duration": {
+          "src_s": 24.2,
+          "dst_s": 24.2,
+          "delta_s": 0.0,
+          "pass": true
+        },
+        "streams": {
+          "video": [
+            1,
+            1
+          ],
+          "audio": [
+            1,
+            1
+          ],
+          "pass": true
+        },
+        "geometry": {
+          "src": [
+            1080,
+            1920,
+            25.0
+          ],
+          "dst": [
+            1080,
+            1920,
+            25.0
+          ],
+          "pass": true
+        },
+        "audio_pcm_identity": {
+          "src": "ec89e650b7821ef9b071565594ca5919b6436fdae9155886fafc1599cc48b74a",
+          "dst": "ec89e650b7821ef9b071565594ca5919b6436fdae9155886fafc1599cc48b74a",
+          "pass": true
+        },
+        "frames": {
+          "src": 605,
+          "dst": 605,
+          "identical_hashes": true,
+          "pass": true
+        }
+      },
+      "verdict": "PASS",
+      "tool_versions": {
+        "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+        "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+      },
+      "timestamp_utc": "2026-10-24T08:57:49Z"
+    },
+    "reencode": {
+      "operation": "reencode",
+      "src": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+      "dst": "artifacts/g0/baseline_reencode.mp4",
+      "src_sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
+      "dst_sha256": "661f8be7294fd5eaf817a577c57a0c1910511f08a394f18d28aa1b4b997306f4",
+      "checks": {
+        "duration": {
+          "src_s": 24.2,
+          "dst_s": 24.2,
+          "delta_s": 0.0,
+          "budget_s": 0.04,
+          "pass": true
+        },
+        "geometry": {
+          "src": [
+            1080,
+            1920
+          ],
+          "dst": [
+            1080,
+            1920
+          ],
+          "pass": true
+        },
+        "streams": {
+          "dst_video": "h264",
+          "dst_audio": "aac",
+          "pass": true
+        },
+        "pixels": {
+          "frames_compared": 605,
+          "frames_a": 605,
+          "frames_b": 605,
+          "max_diff": 0.011822916666666667,
+          "mean_diff": 0.005831525482093664,
+          "tolerance_mean_abs": 12.0,
+          "pass": true
+        },
+        "audio_present": {
+          "dst_audio": "aac",
+          "pass": true
+        }
+      },
+      "verdict": "PASS",
+      "tool_versions": {
+        "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+        "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+      },
+      "timestamp_utc": "2026-10-24T08:57:50Z"
+    }
+  },
+  "verdict": "PASS",
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "commands": {
+    "remux": "ffmpeg -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c copy -movflags +faststart artifacts/g0/baseline_remux.mp4",
+    "reencode": "ffmpeg -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g0/baseline_reencode.mp4"
+  },
+  "timestamp_utc": "2026-10-24T08:57:50Z"
+}

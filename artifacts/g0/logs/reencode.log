@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g0/baseline_reencode.mp4
+
