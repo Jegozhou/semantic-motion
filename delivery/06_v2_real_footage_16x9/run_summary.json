@@ -14,21 +14,32 @@
     "height": 920,
     "fps": 25.0
   },
+  "policy": {
+    "name": "smart_balanced",
+    "version": "1.0.0",
+    "sha256": "d8e2024ddc8a7cee",
+    "source": "/Volumes/ZHITAI/Semantic Motion/policies/smart_balanced.json"
+  },
+  "director": {
+    "mode": "supplied",
+    "source": "file",
+    "decisions": 4
+  },
   "elements": 5,
   "coverage": 0.512,
   "captions": 10,
   "perception_used": true,
   "render": {
     "path": "artifacts/v2/final_zq/final.mp4",
-    "sha256": "8555486c62f3f3469de36c1987693a0a6e060d5aec2ee3d2dd2f04b0230574b2",
+    "sha256": "f634c3d196f08a0aeed26e1a65e1ec40d467148e77e45bb6f1baf2a3bbb66540",
     "width": 1920,
     "height": 920,
     "fps": 25.0,
     "frames": 625,
     "duration_s": 25.0,
-    "bytes": 9704711
+    "bytes": 9610223
   },
-  "elapsed_s": 30.3,
+  "elapsed_s": 19.5,
   "repair_rounds": 0,
   "repair_history": [],
   "artifacts": {
@@ -44,20 +55,5 @@
     "alignment.json": "artifacts/v2/final_zq/alignment.json",
     "qa/qa_metrics.json": "artifacts/v2/final_zq/qa/qa_metrics.json"
   },
-  "checks": {
-    "verdict": "PASS",
-    "checks": {
-      "render_integrity": "PASS",
-      "footprint": "PASS",
-      "person_occlusion": "PASS",
-      "existing_text_collision": "PASS",
-      "legibility": "PASS",
-      "text_onset": "PASS",
-      "displayed_text": "PASS",
-      "scrim": "PASS",
-      "layout": "PASS",
-      "timing": "PASS",
-      "determinism": "NOT RUN"
-    }
-  }
+  "checks": {}
 }

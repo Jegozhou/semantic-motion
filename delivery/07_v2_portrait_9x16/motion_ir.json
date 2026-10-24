@@ -1,0 +1,1023 @@
+{
+  "schema": "semotion.motion-ir/2",
+  "ir_version": "2.1.0",
+  "style": "smart_balanced",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/artifacts/p3/portrait_zq.mp4",
+    "sha256": "96608579093531d9169d2c8a107a0799bf89b8be47aea9a08f17a5375a9b527a",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 25.002,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "theme": {
+    "accent": "#EBBB98",
+    "ink": "#F7F8FA",
+    "scrim": "#070A10",
+    "surface_is_dark": true
+  },
+  "semantic": {
+    "language": "zh",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "card",
+        "text": "奥运会是我的梦想没错",
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s0",
+        "word_ids": [
+          "w0",
+          "w1",
+          "w2",
+          "w3",
+          "w4",
+          "w5",
+          "w6",
+          "w7",
+          "w8"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "但是我还有其他的梦想",
+        "start_s": 2.02,
+        "end_s": 3.7,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s1",
+        "word_ids": [
+          "w9",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "list_item",
+        "text": "每一年我们都有比赛",
+        "start_s": 11.18,
+        "end_s": 12.94,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s4",
+        "word_ids": [
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52",
+          "w53"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "list_item",
+        "text": "每一年都有更大的困难",
+        "start_s": 12.94,
+        "end_s": 15.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s5",
+        "word_ids": [
+          "w54",
+          "w55",
+          "w56",
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "list_item",
+        "text": "更大的山坡",
+        "start_s": 15.54,
+        "end_s": 16.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s6",
+        "word_ids": [
+          "w62",
+          "w63",
+          "w64",
+          "w65"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "card",
+        "text": "停滞在一个位置",
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s8",
+        "word_ids": [
+          "w85",
+          "w86",
+          "w87",
+          "w88",
+          "w89",
+          "w90"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "keyword",
+        "text": "没有办法向前进步",
+        "start_s": 22.68,
+        "end_s": 24.32,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s9",
+        "word_ids": [
+          "w91",
+          "w92",
+          "w93",
+          "w94",
+          "w95",
+          "w96",
+          "w97"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      }
+    ],
+    "decisions_sha256": "8e50b038688621105e553f73673d7d9e50828f083ef7251120eb5f131e572c29"
+  },
+  "perception": {
+    "schema": "semotion.perception/1",
+    "person_union": [
+      0,
+      312,
+      1080,
+      1608
+    ],
+    "face_union": [
+      311,
+      504,
+      577,
+      606
+    ],
+    "hands_union": [
+      461,
+      1385,
+      619,
+      535
+    ],
+    "existing_text": [],
+    "quiet_zone_count": 5,
+    "used": true
+  },
+  "elements": [
+    {
+      "id": "el_1_c8961792",
+      "type": "card",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "start_frame": 0,
+        "end_frame": 50,
+        "hold_s": 0.5,
+        "anchor_start_s": 0.0,
+        "anchor_end_s": 2.02
+      },
+      "box": [
+        343,
+        118,
+        392,
+        88
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "band_top",
+        "box": [
+          0,
+          0,
+          1080,
+          316
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "title": "奥运会是我的梦想没错",
+        "body": "",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "card",
+        "width": 392,
+        "height": 88,
+        "pad": 6,
+        "font_size_px": 38,
+        "min_font_px": 22,
+        "display_px": 0,
+        "title_px": 38,
+        "body_px": 19,
+        "kicker_px": 13,
+        "pitch": 50,
+        "lines": [
+          "奥运会是我的梦想没错"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "scale",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "scale_in",
+          "applied": "scale"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.75,
+      "layout": {
+        "treatment": "band_top",
+        "zone": "band_top",
+        "zone_box": [
+          64,
+          57,
+          950,
+          211
+        ],
+        "category": "side",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸",
+        "candidates": [
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              64,
+              57,
+              950,
+              211
+            ],
+            "quiet": 0.951,
+            "status": "ok",
+            "box": [
+              343,
+              118,
+              392,
+              88
+            ],
+            "fit_w": 392,
+            "fit_h": 88,
+            "score": 0.5421
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a00",
+        "decision_confidence": 0.82,
+        "emphasis": "high",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸"
+      }
+    },
+    {
+      "id": "el_1_cede221a",
+      "type": "keyword",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.02,
+        "end_s": 4.0,
+        "start_frame": 50,
+        "end_frame": 100,
+        "hold_s": 0.3,
+        "anchor_start_s": 2.02,
+        "anchor_end_s": 3.7
+      },
+      "box": [
+        273,
+        110,
+        532,
+        100
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "band_top",
+        "box": [
+          0,
+          0,
+          1080,
+          312
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "但是我还有其他的梦想",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 532,
+        "height": 100,
+        "pad": 6,
+        "font_size_px": 52,
+        "min_font_px": 30,
+        "display_px": 52,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 14,
+        "pitch": 68,
+        "lines": [
+          "但是我还有其他的梦想"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "scale",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "spring_pop",
+          "applied": "scale"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "band_top",
+        "zone": "band_top",
+        "zone_box": [
+          64,
+          57,
+          950,
+          207
+        ],
+        "category": "side",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块",
+        "candidates": [
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              64,
+              57,
+              950,
+              207
+            ],
+            "quiet": 0.951,
+            "status": "ok",
+            "box": [
+              273,
+              110,
+              532,
+              100
+            ],
+            "fit_w": 532,
+            "fit_h": 100,
+            "score": 0.7042
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a01",
+        "decision_confidence": 0.84,
+        "emphasis": "high",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块"
+      }
+    },
+    {
+      "id": "el_3_ac80487a",
+      "type": "list",
+      "anchor_refs": [
+        "a02",
+        "a03",
+        "a04"
+      ],
+      "window": {
+        "start_s": 11.18,
+        "end_s": 16.99,
+        "start_frame": 280,
+        "end_frame": 425,
+        "hold_s": 0.45,
+        "anchor_start_s": 11.18,
+        "anchor_end_s": 16.54
+      },
+      "box": [
+        347,
+        68,
+        384,
+        197
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "band_top",
+        "box": [
+          0,
+          0,
+          1080,
+          324
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 11.18
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 12.94
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 15.54
+          }
+        ],
+        "kicker": "",
+        "items": [
+          "每一年我们都有比赛",
+          "每一年都有更大的困难",
+          "更大的山坡"
+        ]
+      },
+      "fit": {
+        "kind": "list",
+        "width": 384,
+        "height": 197,
+        "pad": 6,
+        "font_size_px": 33,
+        "min_font_px": 19,
+        "display_px": 0,
+        "title_px": 33,
+        "body_px": 0,
+        "kicker_px": 13,
+        "pitch": 44,
+        "lines": [],
+        "body_lines": [],
+        "kicker": "要点",
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 0.0,
+            "lines": [
+              "每一年我们都有比赛"
+            ]
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 1.76,
+            "lines": [
+              "每一年都有更大的困难"
+            ]
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 4.36,
+            "lines": [
+              "更大的山坡"
+            ]
+          }
+        ],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "reveal",
+          "applied": "wipe"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.8,
+      "layout": {
+        "treatment": "band_top",
+        "zone": "band_top",
+        "zone_box": [
+          64,
+          57,
+          950,
+          219
+        ],
+        "category": "side",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码",
+        "candidates": [
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              64,
+              57,
+              950,
+              219
+            ],
+            "quiet": 0.95,
+            "status": "ok",
+            "box": [
+              347,
+              68,
+              384,
+              197
+            ],
+            "fit_w": 384,
+            "fit_h": 197,
+            "score": 0.5544
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a02",
+        "decision_confidence": 0.86,
+        "emphasis": "high",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码"
+      }
+    },
+    {
+      "id": "el_1_511529f3",
+      "type": "card",
+      "anchor_refs": [
+        "a05"
+      ],
+      "window": {
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "start_frame": 540,
+        "end_frame": 567,
+        "hold_s": 0.45,
+        "anchor_start_s": 21.58,
+        "anchor_end_s": 22.68
+      },
+      "box": [
+        400,
+        118,
+        278,
+        88
+      ],
+      "accent": null,
+      "backdrop": {
+        "kind": "band_top",
+        "box": [
+          0,
+          0,
+          1080,
+          316
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "title": "停滞在一个位置",
+        "body": "",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "card",
+        "width": 278,
+        "height": 88,
+        "pad": 6,
+        "font_size_px": 38,
+        "min_font_px": 22,
+        "display_px": 0,
+        "title_px": 38,
+        "body_px": 19,
+        "kicker_px": 13,
+        "pitch": 50,
+        "lines": [
+          "停滞在一个位置"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.75,
+      "layout": {
+        "treatment": "band_top",
+        "zone": "band_top",
+        "zone_box": [
+          64,
+          57,
+          950,
+          211
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              64,
+              57,
+              950,
+              211
+            ],
+            "quiet": 0.95,
+            "status": "ok",
+            "box": [
+              400,
+              118,
+              278,
+              88
+            ],
+            "fit_w": 278,
+            "fit_h": 88,
+            "score": 0.6481
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a05",
+        "decision_confidence": 0.85,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_69d37695",
+      "type": "keyword",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 22.68,
+        "end_s": 24.57,
+        "start_frame": 567,
+        "end_frame": 614,
+        "hold_s": 0.25,
+        "anchor_start_s": 22.68,
+        "anchor_end_s": 24.32
+      },
+      "box": [
+        325,
+        112,
+        428,
+        100
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "band_top",
+        "box": [
+          0,
+          0,
+          1080,
+          316
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "没有办法向前进步",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 428,
+        "height": 100,
+        "pad": 6,
+        "font_size_px": 52,
+        "min_font_px": 30,
+        "display_px": 52,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 14,
+        "pitch": 68,
+        "lines": [
+          "没有办法向前进步"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "fade_up",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "fade_up",
+          "applied": "fade_up"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "band_top",
+        "zone": "band_top",
+        "zone_box": [
+          64,
+          57,
+          950,
+          211
+        ],
+        "category": "side",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃",
+        "candidates": [
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              64,
+              57,
+              950,
+              211
+            ],
+            "quiet": 0.96,
+            "status": "ok",
+            "box": [
+              325,
+              112,
+              428,
+              100
+            ],
+            "fit_w": 428,
+            "fit_h": 100,
+            "score": 0.7051
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a06",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃"
+      }
+    }
+  ],
+  "layout_audit": {
+    "decisions": [
+      {
+        "group": 0,
+        "decision": "place",
+        "element": "el_1_c8961792",
+        "treatment": "band_top",
+        "zone": "band_top",
+        "start_s": 0.0,
+        "box": [
+          343,
+          118,
+          392,
+          88
+        ],
+        "text": "奥运会是我的梦想没错"
+      },
+      {
+        "group": 1,
+        "decision": "place",
+        "element": "el_1_cede221a",
+        "treatment": "band_top",
+        "zone": "band_top",
+        "start_s": 2.02,
+        "box": [
+          273,
+          110,
+          532,
+          100
+        ],
+        "text": "但是我还有其他的梦想"
+      },
+      {
+        "group": 2,
+        "decision": "place",
+        "element": "el_3_ac80487a",
+        "treatment": "band_top",
+        "zone": "band_top",
+        "start_s": 11.18,
+        "box": [
+          347,
+          68,
+          384,
+          197
+        ],
+        "text": ""
+      },
+      {
+        "group": 3,
+        "decision": "place",
+        "element": "el_1_511529f3",
+        "treatment": "band_top",
+        "zone": "band_top",
+        "start_s": 21.58,
+        "box": [
+          400,
+          118,
+          278,
+          88
+        ],
+        "text": "停滞在一个位置"
+      },
+      {
+        "group": 4,
+        "decision": "place",
+        "element": "el_1_69d37695",
+        "treatment": "band_top",
+        "zone": "band_top",
+        "start_s": 22.68,
+        "box": [
+          325,
+          112,
+          428,
+          100
+        ],
+        "text": "没有办法向前进步"
+      }
+    ],
+    "coverage": 0.512,
+    "perception_used": true,
+    "text_obstacles": 0
+  },
+  "provenance": {
+    "director": "semotion.design2/2",
+    "policy": {
+      "name": "smart_balanced",
+      "version": "1.0.0",
+      "sha256": "d8e2024ddc8a7cee",
+      "source": "/Volumes/ZHITAI/Semantic Motion/policies/smart_balanced.json"
+    },
+    "truth_class": "MACHINE",
+    "note": "windows derive from measured anchor onsets; placement rejects any box that touches the person silhouette, burned-in text or captions"
+  }
+}
