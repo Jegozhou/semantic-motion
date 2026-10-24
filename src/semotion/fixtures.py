@@ -128,6 +128,46 @@ class Unit:
     pause_s: float = 0.35
 
 
+def _scene_plan(spec: dict, total_dur: float) -> list[dict]:
+    """Resolve the shot plan for a fixture.
+
+    Priority: explicit ``cuts_at_s`` → per-scene ``duration_s`` → equal split of
+    the full narration length. Every plan is clamped to the narration length so
+    the video never runs past the audio.
+    """
+    scenes = spec.get("scenes") or []
+    if not scenes:
+        return [{"index": 0, "start_s": 0.0, "end_s": total_dur,
+                 "duration_s": total_dur, "palette": spec.get("palette", "studio_night"),
+                 "camera_motion": spec.get("camera_motion", "static")}]
+
+    cuts = [float(c) for c in spec.get("cuts_at_s", [])]
+    if cuts:
+        bounds = [0.0] + cuts + [total_dur]
+    elif all("duration_s" in sc for sc in scenes):
+        acc, bounds = 0.0, [0.0]
+        for sc in scenes:
+            acc += float(sc["duration_s"])
+            bounds.append(acc)
+        bounds[-1] = total_dur
+    else:
+        step = total_dur / len(scenes)
+        bounds = [i * step for i in range(len(scenes))] + [total_dur]
+
+    plan = []
+    for i, sc in enumerate(scenes):
+        start, end = bounds[i], bounds[min(i + 1, len(bounds) - 1)]
+        if end - start <= 0:
+            continue
+        plan.append({
+            "index": i, "start_s": round(start, 6), "end_s": round(end, 6),
+            "duration_s": end - start,
+            "palette": sc.get("palette", spec.get("palette", "studio_night")),
+            "camera_motion": sc.get("camera_motion", spec.get("camera_motion", "static")),
+        })
+    return plan
+
+
 def _unit_plan(spec_units: Iterable[dict]) -> list[Unit]:
     out: list[Unit] = []
     for i, u in enumerate(spec_units, 1):
@@ -213,20 +253,39 @@ def build_fixture(spec: dict, out_root: Path, *, work: Path | None = None,
                "-i", str(lst), "-c:a", "pcm_s16le", "-ar", str(AUDIO_RATE), "-ac", "1",
                str(audio)], log=log_dir / "audio_concat.log")
 
-    # 3. designed background (+ optional slow push-in for motion fixtures)
-    bg = make_background(width, height, palette, work / "bg.png",
-                         label=fid, seed=int(spec.get("seed", 7)))
+    # 3. designed background(s). A fixture may contain several shots (`scenes`)
+    #    so that camera-cut handling (G3) can be exercised on a known timeline.
+    scenes = _scene_plan(spec, total_dur)
     motion = spec.get("camera_motion", "static")
-    vf = "format=yuv420p"
-    if motion == "slow_zoom":
-        vf = (f"zoompan=z='min(1.0+0.0006*on,1.12)':x='iw/2-(iw/zoom/2)':"
-              f"y='ih/2-(ih/zoom/2)':d=1:s={width}x{height}:fps={fps}," + vf)
+
+    def _scene_video(scene: dict, dest: Path, log_name: str) -> Path:
+        bg = make_background(width, height, scene.get("palette", palette),
+                             work / f"bg_{scene['index']}.png",
+                             label=f"{fid}_s{scene['index']}", seed=int(spec.get("seed", 7)) + scene["index"])
+        m = scene.get("camera_motion", motion)
+        vf = "format=yuv420p"
+        if m == "slow_zoom":
+            vf = (f"zoompan=z='min(1.0+0.0006*on,1.12)':x='iw/2-(iw/zoom/2)':"
+                  f"y='ih/2-(ih/zoom/2)':d=1:s={width}x{height}:fps={fps}," + vf)
+        elif m == "slow_pan":
+            vf = (f"zoompan=z='1.08':x='(iw-iw/zoom)*(on/({max(1, int(scene['duration_s']*fps))}*1.0))':"
+                  f"y='ih/2-(ih/zoom/2)':d=1:s={width}x{height}:fps={fps}," + vf)
+        media.run([media.FFMPEG, "-v", "error", "-y", "-loop", "1", "-framerate", str(fps),
+                   "-i", str(bg), "-t", f"{scene['duration_s']:.4f}", "-vf", vf,
+                   "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+                   "-pix_fmt", "yuv420p", "-g", str(max(1, int(fps))), str(dest)],
+                  log=log_dir / log_name)
+        return dest
 
     video = work / "video.mp4"
-    media.run([media.FFMPEG, "-v", "error", "-y", "-loop", "1", "-framerate", str(fps),
-               "-i", str(bg), "-t", f"{total_dur:.4f}", "-vf", vf,
-               "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-               "-pix_fmt", "yuv420p", str(video)], log=log_dir / "video_build.log")
+    if len(scenes) == 1:
+        _scene_video(scenes[0], video, "video_build.log")
+    else:
+        parts = [_scene_video(s, work / f"scene_{s['index']}.mp4", f"scene_{s['index']}.log")
+                 for s in scenes]
+        lst = media.ffconcat_list(parts, work / "scenes.ffconcat")
+        media.run([media.FFMPEG, "-v", "error", "-y", "-f", "concat", "-safe", "0",
+                   "-i", str(lst), "-c", "copy", str(video)], log=log_dir / "scenes_concat.log")
 
     # 4. mux
     out = out_dir / f"{fid}.mp4"
@@ -248,8 +307,12 @@ def build_fixture(spec: dict, out_root: Path, *, work: Path | None = None,
         "n_frames": mi.frame_count,
         "language": "zh",
         "voice": voice, "rate": rate,
-        "camera_motion": motion,
-        "palette": palette,
+        "camera_motion": [sc["camera_motion"] for sc in scenes],
+        "palette": [sc["palette"] for sc in scenes],
+        "shots": [{"index": sc["index"], "start_s": round(sc["start_s"], 6),
+                   "end_s": round(sc["end_s"], 6),
+                   "start_frame": int(round(sc["start_s"] * fps)),
+                   "end_frame": int(round(min(sc["end_s"], total_dur) * fps))} for sc in scenes],
         "design": "generated graphic artwork (no real person)",
         "units": truth,
         "audio_assembly": {

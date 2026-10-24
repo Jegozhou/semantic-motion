@@ -4,7 +4,7 @@
   "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
   "path": "fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
   "abs_path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
-  "sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
+  "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
   "duration_s": 24.2,
   "width": 1080,
   "height": 1920,
@@ -13,8 +13,21 @@
   "language": "zh",
   "voice": "Tingting",
   "rate": 175,
-  "camera_motion": "static",
-  "palette": "studio_night",
+  "camera_motion": [
+    "static"
+  ],
+  "palette": [
+    "studio_night"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 24.216042,
+      "start_frame": 0,
+      "end_frame": 605
+    }
+  ],
   "design": "generated graphic artwork (no real person)",
   "units": [
     {

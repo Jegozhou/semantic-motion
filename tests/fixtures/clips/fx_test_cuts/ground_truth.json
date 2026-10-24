@@ -1,0 +1,90 @@
+{
+  "fixture_id": "fx_test_cuts",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_test_cuts/fx_test_cuts.mp4",
+  "abs_path": "tests/fixtures/clips/fx_test_cuts/fx_test_cuts.mp4",
+  "sha256": "74bed52956706e6741c2c19176f9aaba18f1a0f31068370f4cbb6af23fd9642c",
+  "duration_s": 7.4,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25.0,
+  "n_frames": 185,
+  "language": "zh",
+  "voice": "Meijia",
+  "rate": 180,
+  "camera_motion": [
+    "static",
+    "slow_pan"
+  ],
+  "palette": [
+    "studio_night",
+    "studio_warm"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 5.0,
+      "start_frame": 0,
+      "end_frame": 125
+    },
+    {
+      "index": 1,
+      "start_s": 5.0,
+      "end_s": 7.404292,
+      "start_frame": 125,
+      "end_frame": 185
+    }
+  ],
+  "design": "generated graphic artwork (no real person)",
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "这是第一个镜头",
+      "role": "plain",
+      "start_s": 0.4,
+      "end_s": 1.815208,
+      "start_frame": 10,
+      "end_frame": 45,
+      "duration_s": 1.415208,
+      "audio_sha256": "07d39b5f48cc15876c3fef056821456e6f554c2deb0ac402a066e0e4f26bc514",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "然后切到第二个镜头",
+      "role": "plain",
+      "start_s": 2.115208,
+      "end_s": 4.224604,
+      "start_frame": 53,
+      "end_frame": 106,
+      "duration_s": 2.109396,
+      "audio_sha256": "2a29a47ce1c13a510a0583a3598b31b16a4eaace95631405210284c31a8473f3",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "镜头里还有缓慢的平移",
+      "role": "keyword",
+      "start_s": 4.524604,
+      "end_s": 6.704292,
+      "start_frame": 113,
+      "end_frame": 168,
+      "duration_s": 2.179688,
+      "audio_sha256": "126dd0e5ff9dbd9014d10a86ed5d1408182a94382624dabaf169c3a1bf2b6fa5",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.4,
+    "gap_s": 0.3,
+    "tail_s": 0.4,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}
