@@ -18,6 +18,15 @@
 | R5 字幕排版质检 | DONE | `verify2.caption_typography`（PASS） |
 | R16 非文字图形对比度 | DONE | `verify2.non_text_graphics`（PASS，advisory） |
 
+## ThreeUI 吸收决策（2026-10-25）
+
+| 项 | 结论 | 证据 |
+|---|---|---|
+| 运行时吸收 ThreeUI（WebGL 组件作为图层/渲染依赖） | **REJECT** | `docs/THREEUI-ADVERSARIAL-REVIEW.md`：wall-clock/rAF/DPR 驱动无帧索引；叠加破坏 ink-only 归因与双跑确定性；目录媒体不在 MIT；单维护者、生成式打包 |
+| 离线插入镜头（全画幅 1.5–3 s，默认关闭） | **CONDITIONAL** | 仅在用户确认"品牌片/允许插入镜头"后启动 2 天 spike，门禁 G1–G6 全过才进入产品 |
+| 视觉母题移植（光晕/颗粒/渐变/视差，GPU-free） | **APPROVED（参考）** | 不引入依赖，作为原生渲染器的设计参考 |
+| 主线优先级 | 关键帧/逐属性缓动 → 数据可视化 → 节奏模型 → 视觉 critic → 排版/背景自适应 | 见 review §8 |
+
 ## v2 状态一屏
 
 | 项 | 状态 | 证据 |

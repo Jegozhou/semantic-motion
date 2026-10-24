@@ -449,6 +449,7 @@ relevant) the cost we would pay.
 | **A model-generated renderer / code execution** | LLM-to-React pipelines | `docs/REMOTION.md` already says it: "不执行 LLM 生成的代码：props 只含数据". Keep it. Code generation would destroy both the repair planner and the determinism gate. |
 | **Distributed / lambda rendering, thread pools** | Remotion Lambda, `threads` in Revideo | 25 s of 1920×920 renders in seconds-to-a-minute; the scheduler, the cache key and the failure modes cost more than they save. Revisit only if clip length > 5 min becomes normal. |
 | **Per-frame ML inference in the render loop** | auto-vertical-reframe (YOLO per frame) | Our perception is a pre-pass at 5 Hz with a mask document; putting a model in the render loop would make render time unpredictable and the output non-reproducible on a different machine. |
+| **ThreeUI (React + Three.js component catalog)** | MengTo/threeui (MIT) | Reviewed in [`THREEUI-ADVERSARIAL-REVIEW.md`](THREEUI-ADVERSARIAL-REVIEW.md): scenes are wall-clock (`performance.now`), rAF/DPR/AA driven with no frame-index API; as an overlay they break ink-only attribution and the double-render determinism gate, and the catalog media is not MIT. Only an **offline pre-rendered insert pack** (default off) would be allowed. |
 
 ---
 
