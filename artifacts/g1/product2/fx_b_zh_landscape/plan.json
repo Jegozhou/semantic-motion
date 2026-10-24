@@ -1,0 +1,70 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 25.0
+  },
+  "duration_s": 26.18,
+  "decisions": [
+    {
+      "id": "d03",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02",
+        "a03"
+      ],
+      "effect": "list",
+      "emphasis": "medium",
+      "reason": "sequence_of_2_steps",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第一",
+        "items": [
+          "第一",
+          "第二"
+        ],
+        "items_raw": [
+          "第一",
+          "第二"
+        ]
+      },
+      "window": {
+        "start_s": 3.89,
+        "end_s": 7.41
+      }
+    }
+  ],
+  "notes": {
+    "policy": "P1 effects only; plain speech intentionally gets zero motion; rhythm budget enforced",
+    "skipped": [
+      {
+        "anchor_id": "a06",
+        "reason": "filler_word"
+      },
+      {
+        "anchor_id": "a01",
+        "reason": "d01 contained"
+      },
+      {
+        "anchor_id": "a00",
+        "reason": "superseded_by_d03"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4.0,
+      "min_gap_s": 0.9,
+      "max_coverage": 0.58,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.1345
+  },
+  "provenance": {
+    "method": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+    "decision_model": "rules-v1-smart-balanced",
+    "anchor_count": 2,
+    "decided_count": 1
+  }
+}

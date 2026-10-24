@@ -1,0 +1,267 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 25.0
+  },
+  "duration_s": 40.64,
+  "decisions": [
+    {
+      "id": "d01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.92,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "87%"
+      },
+      "window": {
+        "start_s": 3.31,
+        "end_s": 4.11
+      }
+    },
+    {
+      "id": "d02",
+      "anchor_id": "a01",
+      "anchor_ids": [
+        "a01"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.88,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "3秒"
+      },
+      "window": {
+        "start_s": 4.57,
+        "end_s": 5.41
+      }
+    },
+    {
+      "id": "d03",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.88,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "2秒"
+      },
+      "window": {
+        "start_s": 6.14,
+        "end_s": 7.03
+      }
+    },
+    {
+      "id": "d04",
+      "anchor_id": "a04",
+      "anchor_ids": [
+        "a04"
+      ],
+      "effect": "card",
+      "emphasis": "medium",
+      "reason": "explanatory_statement",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "所以重点必须前置"
+      },
+      "window": {
+        "start_s": 8.91,
+        "end_s": 11.44
+      }
+    },
+    {
+      "id": "d05",
+      "anchor_id": "a09",
+      "anchor_ids": [
+        "a09"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "三条"
+      },
+      "window": {
+        "start_s": 17.22,
+        "end_s": 18.07
+      }
+    },
+    {
+      "id": "d06",
+      "anchor_id": "a10",
+      "anchor_ids": [
+        "a10"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "semantic_role:conclusion",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "结论"
+      },
+      "window": {
+        "start_s": 20.37,
+        "end_s": 21.16
+      }
+    },
+    {
+      "id": "d07",
+      "anchor_id": "a11",
+      "anchor_ids": [
+        "a11"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.92,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "50%"
+      },
+      "window": {
+        "start_s": 22.74,
+        "end_s": 24.05
+      }
+    },
+    {
+      "id": "d08",
+      "anchor_id": "a12",
+      "anchor_ids": [
+        "a12"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.84,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "一半"
+      },
+      "window": {
+        "start_s": 25.66,
+        "end_s": 26.41
+      }
+    },
+    {
+      "id": "d09",
+      "anchor_id": "a13",
+      "anchor_ids": [
+        "a13",
+        "a14"
+      ],
+      "effect": "list",
+      "emphasis": "medium",
+      "reason": "sequence_of_2_steps",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第一步",
+        "items": [
+          "第一步",
+          "第二步"
+        ]
+      },
+      "window": {
+        "start_s": 28.27,
+        "end_s": 31.33
+      }
+    },
+    {
+      "id": "d10",
+      "anchor_id": "a16",
+      "anchor_ids": [
+        "a16"
+      ],
+      "effect": "list",
+      "emphasis": "medium",
+      "reason": "sequence_of_1_steps",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第三步",
+        "items": [
+          "第三步"
+        ]
+      },
+      "window": {
+        "start_s": 32.06,
+        "end_s": 33.23
+      }
+    },
+    {
+      "id": "d11",
+      "anchor_id": "a18",
+      "anchor_ids": [
+        "a18"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "semantic_role:conclusion",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "结论"
+      },
+      "window": {
+        "start_s": 34.04,
+        "end_s": 34.78
+      }
+    }
+  ],
+  "notes": {
+    "policy": "P1 effects only; plain speech intentionally gets zero motion; rhythm budget enforced",
+    "skipped": [
+      {
+        "anchor_id": "a03",
+        "reason": "filler_word"
+      },
+      {
+        "anchor_id": "a05",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a06",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a15",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a17",
+        "reason": "rhythm_density"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4.0,
+      "min_gap_s": 0.9,
+      "max_coverage": 0.58,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.3378
+  },
+  "provenance": {
+    "method": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+    "decision_model": "rules-v1-smart-balanced",
+    "anchor_count": 18,
+    "decided_count": 11
+  }
+}

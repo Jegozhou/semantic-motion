@@ -75,6 +75,29 @@ def _fmt(value: float, decimals: int) -> str:
     return f"{value:.{decimals}f}"
 
 
+_T2S = None
+
+
+def _fold_traditional(text: str) -> str:
+    """1:1 Traditional→Simplified fold that preserves character offsets."""
+    global _T2S
+    if _T2S is None:
+        try:
+            import opencc
+            _T2S = opencc.OpenCC("t2s")
+        except Exception:  # pragma: no cover - optional dependency
+            _T2S = False
+    if not _T2S or not text:
+        return text
+    folded = "".join(_T2S.convert(ch) for ch in text)
+    return folded if len(folded) == len(text) else text
+
+
+# Idiomatic quantities that are not written as numeral+unit and must not be
+# degraded into a single digit ("一半" is 50%, not "1半").
+_IDIOMS = (("一半", 50.0, "%"), ("一半儿", 50.0, "%"))
+
+
 def parse_numeric(text: str) -> dict[str, Any] | None:
     """Find the first numeric token and describe how to animate it.
 
@@ -82,19 +105,27 @@ def parse_numeric(text: str) -> dict[str, Any] | None:
     """
     text = text or ""
     cands: list[dict[str, Any]] = []
+    scan = _fold_traditional(text)
 
-    for m in _RE_CN_PERCENT.finditer(text):
+    for word, val, unit in _IDIOMS:
+        idx = scan.find(word)
+        if idx >= 0:
+            cands.append({"start": idx, "end": idx + len(word), "value": val, "unit": unit,
+                          "kind": "percent" if unit == "%" else "unit",
+                          "final": _fmt(val, 0) + unit, "decimals": 0})
+
+    for m in _RE_CN_PERCENT.finditer(scan):
         v = cn_to_number(m.group(1))
         if v is None:
             continue
         cands.append({"start": m.start(), "end": m.end(), "value": v, "unit": "%",
                       "kind": "percent", "final": _fmt(v, 0) + "%", "decimals": 0})
-    for m in _RE_AR_PERCENT.finditer(text):
+    for m in _RE_AR_PERCENT.finditer(scan):
         v = float(m.group(1))
         dec = len(m.group(1).split(".")[1]) if "." in m.group(1) else 0
         cands.append({"start": m.start(), "end": m.end(), "value": v, "unit": "%",
                       "kind": "percent", "final": _fmt(v, dec) + "%", "decimals": dec})
-    for m in _RE_CN_UNIT.finditer(text):
+    for m in _RE_CN_UNIT.finditer(scan):
         v = cn_to_number(m.group(1))
         if v is None:
             continue
@@ -106,7 +137,7 @@ def parse_numeric(text: str) -> dict[str, Any] | None:
         else:
             cands.append({"start": m.start(), "end": m.end(), "value": v, "unit": unit,
                           "kind": "unit", "final": _fmt(v, 0) + unit, "decimals": 0})
-    for m in _RE_AR_UNIT.finditer(text):
+    for m in _RE_AR_UNIT.finditer(scan):
         v = float(m.group(1))
         dec = len(m.group(1).split(".")[1]) if "." in m.group(1) else 0
         unit = m.group(2)
@@ -114,13 +145,13 @@ def parse_numeric(text: str) -> dict[str, Any] | None:
             v, unit = v * 10.0, "%"
         cands.append({"start": m.start(), "end": m.end(), "value": v, "unit": unit,
                       "kind": "unit", "final": _fmt(v, dec) + unit, "decimals": dec})
-    for m in _RE_CN_BARE.finditer(text):
+    for m in _RE_CN_BARE.finditer(scan):
         v = cn_to_number(m.group(1))
         if v is None:
             continue
         cands.append({"start": m.start(), "end": m.end(), "value": v, "unit": "",
                       "kind": "plain", "final": _fmt(v, 0), "decimals": 0})
-    for m in _RE_AR_BARE.finditer(text):
+    for m in _RE_AR_BARE.finditer(scan):
         v = float(m.group(1))
         dec = len(m.group(1).split(".")[1]) if "." in m.group(1) else 0
         cands.append({"start": m.start(), "end": m.end(), "value": v, "unit": "",
@@ -131,7 +162,7 @@ def parse_numeric(text: str) -> dict[str, Any] | None:
     # earliest occurrence wins; longer token breaks ties
     cands.sort(key=lambda c: (c["start"], -(c["end"] - c["start"])))
     best = cands[0]
-    best["label"] = text[best["start"]:best["end"]]
+    best["label"] = scan[best["start"]:best["end"]]
     best["value"] = float(best["value"])
     return best
 

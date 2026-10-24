@@ -1,0 +1,2093 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
+    "sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 46.633,
+    "n_frames": 1163,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 1166,
+    "timebase": {
+      "num": 1,
+      "den": 25
+    }
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "04aac21040a64e3e2bafc4c1b2a35708438a3543a41bd854ec85ad6a250df209",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "4287c709c716cc60d7ab208275881cc83ce63f9b80f0ba7d7d3413fc557ad1f8",
+    "decisions_sha256": "ea3a69e75a8256f837bcc7a87f09804797f54c7eca55dc38323ccb8ccea955c5",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "其实大多数人",
+        "start_s": 0.5,
+        "end_s": 1.94,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w0",
+          "w1",
+          "w2",
+          "w3",
+          "w4"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 5,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 500,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_forward",
+          "onset_s": 0.5,
+          "search_window_s": [
+            0.0,
+            0.25
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.003913,
+          "asr_start_s": 0.0
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "number",
+        "text": "三个",
+        "start_s": 6.35,
+        "end_s": 6.86,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w21",
+          "w22"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -110,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 6.35,
+          "search_window_s": [
+            6.21,
+            6.71
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.005814,
+          "asr_start_s": 6.46
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "card",
+        "text": "三个动效就够了",
+        "start_s": 6.35,
+        "end_s": 8.12,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w21",
+          "w22",
+          "w23",
+          "w24",
+          "w25",
+          "w26",
+          "w27"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -110,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 6.35,
+          "search_window_s": [
+            6.21,
+            6.71
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.005814,
+          "asr_start_s": 6.46
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "list_item",
+        "text": "第一",
+        "start_s": 8.19,
+        "end_s": 8.64,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w28"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 8.19,
+          "search_window_s": [
+            7.91,
+            8.41
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.032162,
+          "asr_start_s": 8.16
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "keyword",
+        "text": "关键词只标一次",
+        "start_s": 8.95,
+        "end_s": 10.66,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w29",
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 6,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -50,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 8.95,
+          "search_window_s": [
+            8.75,
+            9.25
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.007876,
+          "asr_start_s": 9.0
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "list_item",
+        "text": "第二",
+        "start_s": 10.83,
+        "end_s": 11.38,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w35"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -70,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 10.83,
+          "search_window_s": [
+            10.65,
+            11.15
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.014614,
+          "asr_start_s": 10.9
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "number",
+        "text": "两秒",
+        "start_s": 12.34,
+        "end_s": 13.04,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w40",
+          "w41"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -100,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 12.34,
+          "search_window_s": [
+            12.19,
+            12.69
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.174784,
+          "asr_start_s": 12.44
+        }
+      },
+      {
+        "id": "a07",
+        "kind": "list_item",
+        "text": "第三",
+        "start_s": 13.3,
+        "end_s": 13.94,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w42"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -160,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 13.3,
+          "search_window_s": [
+            13.21,
+            13.71
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.018839,
+          "asr_start_s": 13.46
+        }
+      },
+      {
+        "id": "a08",
+        "kind": "number",
+        "text": "六次",
+        "start_s": 15.84,
+        "end_s": 16.3,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w49",
+          "w50"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -40,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 15.84,
+          "search_window_s": [
+            15.63,
+            16.14
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.038197,
+          "asr_start_s": 15.88
+        }
+      },
+      {
+        "id": "a09",
+        "kind": "keyword",
+        "text": "底线是先保住人物",
+        "start_s": 18.04,
+        "end_s": 19.82,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61",
+          "w62",
+          "w63",
+          "w64"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 8,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -40,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 18.04,
+          "search_window_s": [
+            17.82,
+            18.33
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.019271,
+          "asr_start_s": 18.08
+        }
+      },
+      {
+        "id": "a10",
+        "kind": "conclusion",
+        "text": "所以",
+        "start_s": 20.08,
+        "end_s": 20.48,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w65"
+        ],
+        "rule": "conclusion_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 260,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_forward",
+          "onset_s": 20.08,
+          "search_window_s": [
+            19.57,
+            20.07
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.005663,
+          "asr_start_s": 19.82
+        }
+      },
+      {
+        "id": "a11",
+        "kind": "card",
+        "text": "所以我们把动效减半",
+        "start_s": 20.08,
+        "end_s": 22.3,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w65",
+          "w66",
+          "w67",
+          "w68",
+          "w69",
+          "w70",
+          "w71"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 260,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_forward",
+          "onset_s": 20.08,
+          "search_window_s": [
+            19.57,
+            20.07
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.005663,
+          "asr_start_s": 19.82
+        }
+      },
+      {
+        "id": "a12",
+        "kind": "keyword",
+        "text": "最难的是舍得删",
+        "start_s": 22.45,
+        "end_s": 24.14,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w72",
+          "w73",
+          "w74",
+          "w75",
+          "w76",
+          "w77"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 6,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -110,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 22.45,
+          "search_window_s": [
+            22.31,
+            22.81
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.006853,
+          "asr_start_s": 22.56
+        }
+      },
+      {
+        "id": "a13",
+        "kind": "keyword",
+        "text": "其实删掉反而更",
+        "start_s": 24.28,
+        "end_s": 26.02,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w78",
+          "w79",
+          "w80",
+          "w81",
+          "w82",
+          "w83"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 6,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -120,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 24.28,
+          "search_window_s": [
+            24.15,
+            24.65
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.013664,
+          "asr_start_s": 24.4
+        }
+      },
+      {
+        "id": "a14",
+        "kind": "list_item",
+        "text": "第一",
+        "start_s": 26.89,
+        "end_s": 27.24,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w85"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 26.89,
+          "search_window_s": [
+            26.81,
+            27.31
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.026233,
+          "asr_start_s": 27.06
+        }
+      },
+      {
+        "id": "a15",
+        "kind": "list_item",
+        "text": "第二",
+        "start_s": 28.93,
+        "end_s": 29.32,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w92"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 28.93,
+          "search_window_s": [
+            28.81,
+            29.31
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.029179,
+          "asr_start_s": 29.06
+        }
+      },
+      {
+        "id": "a16",
+        "kind": "number",
+        "text": "一半",
+        "start_s": 29.81,
+        "end_s": 30.5,
+        "confidence": 0.84,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w96",
+          "w97"
+        ],
+        "rule": "fraction_half",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 29.81,
+          "search_window_s": [
+            29.73,
+            30.23
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.168046,
+          "asr_start_s": 29.98
+        }
+      },
+      {
+        "id": "a17",
+        "kind": "number",
+        "text": "三个",
+        "start_s": 30.77,
+        "end_s": 31.32,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w98",
+          "w99"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -110,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 30.77,
+          "search_window_s": [
+            30.63,
+            31.13
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.010069,
+          "asr_start_s": 30.88
+        }
+      },
+      {
+        "id": "a18",
+        "kind": "card",
+        "text": "三个版本砍成一个",
+        "start_s": 30.77,
+        "end_s": 32.62,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w98",
+          "w99",
+          "w100",
+          "w101",
+          "w102",
+          "w103",
+          "w104"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -110,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 30.77,
+          "search_window_s": [
+            30.63,
+            31.13
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.010069,
+          "asr_start_s": 30.88
+        }
+      },
+      {
+        "id": "a19",
+        "kind": "list_item",
+        "text": "第一",
+        "start_s": 32.88,
+        "end_s": 33.3,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w105"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -140,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 32.88,
+          "search_window_s": [
+            32.77,
+            33.28
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.047108,
+          "asr_start_s": 33.02
+        }
+      },
+      {
+        "id": "a20",
+        "kind": "list_item",
+        "text": "第二个",
+        "start_s": 34.93,
+        "end_s": 35.56,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w112",
+          "w113"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -190,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 34.93,
+          "search_window_s": [
+            34.86,
+            35.37
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.037713,
+          "asr_start_s": 35.12
+        }
+      },
+      {
+        "id": "a21",
+        "kind": "card",
+        "text": "第二个误区更常见",
+        "start_s": 34.93,
+        "end_s": 37.0,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w112",
+          "w113",
+          "w114",
+          "w115",
+          "w116",
+          "w117",
+          "w118"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -190,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 34.93,
+          "search_window_s": [
+            34.86,
+            35.37
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.037713,
+          "asr_start_s": 35.12
+        }
+      },
+      {
+        "id": "a22",
+        "kind": "keyword",
+        "text": "误区更常见",
+        "start_s": 35.39,
+        "end_s": 37.0,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w114",
+          "w115",
+          "w116",
+          "w117",
+          "w118"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 5,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 35.39,
+          "search_window_s": [
+            35.31,
+            35.81
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.16352,
+          "asr_start_s": 35.56
+        }
+      },
+      {
+        "id": "a23",
+        "kind": "list_item",
+        "text": "最后",
+        "start_s": 37.12,
+        "end_s": 37.62,
+        "confidence": 0.72,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w119",
+          "w120"
+        ],
+        "rule": "ordinal_final",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -100,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 37.12,
+          "search_window_s": [
+            36.97,
+            37.47
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.010041,
+          "asr_start_s": 37.22
+        }
+      },
+      {
+        "id": "a24",
+        "kind": "conclusion",
+        "text": "所以",
+        "start_s": 39.09,
+        "end_s": 39.52,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w126"
+        ],
+        "rule": "conclusion_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 39.09,
+          "search_window_s": [
+            38.97,
+            39.47
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.008283,
+          "asr_start_s": 39.22
+        }
+      },
+      {
+        "id": "a25",
+        "kind": "card",
+        "text": "所以别一上来就加动效",
+        "start_s": 39.09,
+        "end_s": 41.56,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w126",
+          "w127",
+          "w128",
+          "w129",
+          "w130",
+          "w131",
+          "w132",
+          "w133",
+          "w134"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 39.09,
+          "search_window_s": [
+            38.97,
+            39.47
+          ],
+          "quiet_threshold": 0.004763,
+          "climb": 0.008283,
+          "asr_start_s": 39.22
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "d01",
+        "anchor_id": "a00",
+        "anchor_ids": [
+          "a00"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "semantic_role:keyword",
+        "confidence": 0.8,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "其实大多数人"
+        },
+        "window": {
+          "start_s": 0.5,
+          "end_s": 2.24
+        }
+      },
+      {
+        "id": "d03",
+        "anchor_id": "a02",
+        "anchor_ids": [
+          "a02"
+        ],
+        "effect": "card",
+        "emphasis": "medium",
+        "reason": "explanatory_statement",
+        "confidence": 0.62,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "三个动效就够了"
+        },
+        "window": {
+          "start_s": 6.35,
+          "end_s": 8.15
+        },
+        "notes": "trimmed_before_d04"
+      },
+      {
+        "id": "d04",
+        "anchor_id": "a03",
+        "anchor_ids": [
+          "a03",
+          "a05"
+        ],
+        "effect": "list",
+        "emphasis": "medium",
+        "reason": "sequence_of_2_steps",
+        "confidence": 0.9,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "第一",
+          "items": [
+            "关键词只标一次",
+            "数字只停"
+          ],
+          "items_raw": [
+            "第一",
+            "第二"
+          ]
+        },
+        "window": {
+          "start_s": 8.19,
+          "end_s": 11.83
+        }
+      },
+      {
+        "id": "d05",
+        "anchor_id": "a06",
+        "anchor_ids": [
+          "a06"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "两秒"
+        },
+        "window": {
+          "start_s": 12.34,
+          "end_s": 13.39
+        }
+      },
+      {
+        "id": "d06",
+        "anchor_id": "a11",
+        "anchor_ids": [
+          "a11"
+        ],
+        "effect": "card",
+        "emphasis": "medium",
+        "reason": "explanatory_statement",
+        "confidence": 0.62,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "所以我们把动效减半"
+        },
+        "window": {
+          "start_s": 20.08,
+          "end_s": 22.8
+        }
+      },
+      {
+        "id": "d07",
+        "anchor_id": "a13",
+        "anchor_ids": [
+          "a13"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "semantic_role:keyword",
+        "confidence": 0.8,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "其实删掉反而更"
+        },
+        "window": {
+          "start_s": 24.28,
+          "end_s": 26.32
+        }
+      },
+      {
+        "id": "d08",
+        "anchor_id": "a14",
+        "anchor_ids": [
+          "a14",
+          "a15"
+        ],
+        "effect": "list",
+        "emphasis": "medium",
+        "reason": "sequence_of_2_steps",
+        "confidence": 0.9,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "第一",
+          "items": [
+            "版总会加太多",
+            "版砍掉"
+          ],
+          "items_raw": [
+            "第一",
+            "第二"
+          ]
+        },
+        "window": {
+          "start_s": 26.89,
+          "end_s": 29.77
+        }
+      },
+      {
+        "id": "d09",
+        "anchor_id": "a16",
+        "anchor_ids": [
+          "a16"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.84,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "一半"
+        },
+        "window": {
+          "start_s": 29.81,
+          "end_s": 30.73
+        },
+        "notes": "trimmed_before_d10"
+      },
+      {
+        "id": "d10",
+        "anchor_id": "a17",
+        "anchor_ids": [
+          "a17"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "三个"
+        },
+        "window": {
+          "start_s": 30.77,
+          "end_s": 31.67
+        }
+      },
+      {
+        "id": "d11",
+        "anchor_id": "a21",
+        "anchor_ids": [
+          "a21"
+        ],
+        "effect": "card",
+        "emphasis": "medium",
+        "reason": "explanatory_statement",
+        "confidence": 0.62,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "第二个误区更常见"
+        },
+        "window": {
+          "start_s": 34.93,
+          "end_s": 37.08
+        },
+        "notes": "trimmed_before_d12"
+      },
+      {
+        "id": "d12",
+        "anchor_id": "a23",
+        "anchor_ids": [
+          "a23"
+        ],
+        "effect": "list",
+        "emphasis": "medium",
+        "reason": "sequence_of_1_steps",
+        "confidence": 0.72,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "最后",
+          "items": [
+            "才轮到排版"
+          ],
+          "items_raw": [
+            "最后"
+          ]
+        },
+        "window": {
+          "start_s": 37.12,
+          "end_s": 38.07
+        }
+      }
+    ],
+    "transcript_text": "其实大多数人,都高估了动效。以为做得越多,就越专业,三个动效就够了。第一,关键词只标一次。第二,数字只停两秒。第三,卡片别压住脸。六次是每分钟上限,底线是先保住人物。所以我们把动效减半,最难的是舍得删,其实删掉反而更清楚。第一版总会加太多,第二版砍掉一半,三个版本砍成一个,第一次听都会怀疑,第二个误区更常见,最后才轮到排版,所以别一上来就加动效,剩下的是你的判断。下一期讲镜头切换。",
+    "face_safe": {
+      "bbox_union": null,
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_card",
+      "z": 30,
+      "elements": [
+        "el_d03",
+        "el_d06",
+        "el_d11"
+      ]
+    },
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_d01",
+        "el_d04",
+        "el_d05",
+        "el_d07",
+        "el_d08",
+        "el_d09",
+        "el_d10",
+        "el_d12"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_d01",
+      "type": "keyword",
+      "anchor_ref": "a00",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 0.48,
+        "end_s": 2.24,
+        "start_frame": 12,
+        "end_frame": 56,
+        "hold_s": 0.3,
+        "anchor_start_s": 0.5,
+        "anchor_end_s": 1.94
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 96,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "其实大多数人"
+      },
+      "provenance": {
+        "decision_id": "d01",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.8,
+        "reason": "semantic_role:keyword",
+        "effect_params_sha256": "96e73465cc6e9d42dff497f0f5c0b0082c326faf10706b78017fb692b36e7961"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          216,
+          1035,
+          648,
+          232
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 648,
+          "height": 232
+        }
+      }
+    },
+    {
+      "id": "el_d03",
+      "type": "card",
+      "anchor_ref": "a02",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 6.36,
+        "end_s": 8.16,
+        "start_frame": 159,
+        "end_frame": 204,
+        "hold_s": 0.04,
+        "anchor_start_s": 6.35,
+        "anchor_end_s": 8.12
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(16,21,33,0.78)",
+        "font_size_px": 78,
+        "padding_px": 40,
+        "radius_px": 30,
+        "align": "left",
+        "accent_bar": true
+      },
+      "motion": {
+        "enter": {
+          "type": "scale_in",
+          "dur_s": 0.28,
+          "ease": "smoothstep",
+          "scale_from": 0.96
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "三个动效就够了"
+      },
+      "provenance": {
+        "decision_id": "d03",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.62,
+        "reason": "explanatory_statement",
+        "effect_params_sha256": "e85a6ffa0ffa208fa50824ca1658489743d2145baeba64b949903805716a0296"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          213,
+          1054,
+          654,
+          194
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 654,
+          "height": 194
+        }
+      }
+    },
+    {
+      "id": "el_d04",
+      "type": "list",
+      "anchor_ref": "a03",
+      "anchor_refs": [
+        "a03",
+        "a05"
+      ],
+      "window": {
+        "start_s": 8.2,
+        "end_s": 11.84,
+        "start_frame": 205,
+        "end_frame": 296,
+        "hold_s": 0.46,
+        "anchor_start_s": 8.19,
+        "anchor_end_s": 11.38
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 64,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "left",
+        "min_width_px": 670,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "第一",
+        "items": [
+          "关键词只标一次",
+          "数字只停"
+        ],
+        "item_onsets_s": [
+          0.0,
+          2.63
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "关键词只标一次",
+            "at_s": 0.0,
+            "text_at_s": 0.0
+          },
+          {
+            "marker": "2",
+            "text": "数字只停",
+            "at_s": 2.63,
+            "text_at_s": 2.63
+          }
+        ],
+        "anchor_rows": [
+          "a03",
+          "a05"
+        ]
+      },
+      "provenance": {
+        "decision_id": "d04",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.9,
+        "reason": "sequence_of_2_steps",
+        "effect_params_sha256": "afa5227bc9e6f38ce0454a3702866952543dbf66f81dcdc742f277909f659e02"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          205,
+          963,
+          670,
+          287
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 670,
+          "height": 287
+        }
+      }
+    },
+    {
+      "id": "el_d05",
+      "type": "number",
+      "anchor_ref": "a06",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 12.32,
+        "end_s": 13.4,
+        "start_frame": 308,
+        "end_frame": 335,
+        "hold_s": 0.36,
+        "anchor_start_s": 12.34,
+        "anchor_end_s": 13.04
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "两秒",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 2.0,
+          "unit": "秒",
+          "kind": "unit",
+          "final": "2秒",
+          "decimals": 0,
+          "label": "两秒"
+        },
+        "numeric_display": "2秒"
+      },
+      "provenance": {
+        "decision_id": "d05",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.86,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "71be4e503d411e6f5ed4e2e6e3dce8f9322ddfc146ce20b457f5c5dcb63c8053"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          399,
+          1016,
+          282,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 282,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d06",
+      "type": "card",
+      "anchor_ref": "a11",
+      "anchor_refs": [
+        "a11"
+      ],
+      "window": {
+        "start_s": 20.08,
+        "end_s": 22.8,
+        "start_frame": 502,
+        "end_frame": 570,
+        "hold_s": 0.5,
+        "anchor_start_s": 20.08,
+        "anchor_end_s": 22.3
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(16,21,33,0.78)",
+        "font_size_px": 78,
+        "padding_px": 40,
+        "radius_px": 30,
+        "align": "left",
+        "accent_bar": true
+      },
+      "motion": {
+        "enter": {
+          "type": "scale_in",
+          "dur_s": 0.28,
+          "ease": "smoothstep",
+          "scale_from": 0.96
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "所以我们把动效减半"
+      },
+      "provenance": {
+        "decision_id": "d06",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.62,
+        "reason": "explanatory_statement",
+        "effect_params_sha256": "775699bdb1e9f1b6ed86d52226c6dfac77fed2483770221027159340353d6c0a"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          135,
+          1054,
+          810,
+          194
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 810,
+          "height": 194
+        }
+      }
+    },
+    {
+      "id": "el_d07",
+      "type": "keyword",
+      "anchor_ref": "a13",
+      "anchor_refs": [
+        "a13"
+      ],
+      "window": {
+        "start_s": 24.28,
+        "end_s": 26.32,
+        "start_frame": 607,
+        "end_frame": 658,
+        "hold_s": 0.3,
+        "anchor_start_s": 24.28,
+        "anchor_end_s": 26.02
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 96,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "其实删掉反而更"
+      },
+      "provenance": {
+        "decision_id": "d07",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.8,
+        "reason": "semantic_role:keyword",
+        "effect_params_sha256": "75c826245e35f589430aaf8cf8e5202ff47d7f7f093d6059289d3fa14c613824"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          168,
+          1035,
+          744,
+          232
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 744,
+          "height": 232
+        }
+      }
+    },
+    {
+      "id": "el_d08",
+      "type": "list",
+      "anchor_ref": "a14",
+      "anchor_refs": [
+        "a14",
+        "a15"
+      ],
+      "window": {
+        "start_s": 26.88,
+        "end_s": 29.76,
+        "start_frame": 672,
+        "end_frame": 744,
+        "hold_s": 0.44,
+        "anchor_start_s": 26.89,
+        "anchor_end_s": 29.32
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 64,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "left",
+        "min_width_px": 670,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "第一",
+        "items": [
+          "版总会加太多",
+          "版砍掉"
+        ],
+        "item_onsets_s": [
+          0.01,
+          2.05
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "版总会加太多",
+            "at_s": 0.01,
+            "text_at_s": 0.01
+          },
+          {
+            "marker": "2",
+            "text": "版砍掉",
+            "at_s": 2.05,
+            "text_at_s": 2.05
+          }
+        ],
+        "anchor_rows": [
+          "a14",
+          "a15"
+        ]
+      },
+      "provenance": {
+        "decision_id": "d08",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.9,
+        "reason": "sequence_of_2_steps",
+        "effect_params_sha256": "3a249e1e416dbbcd2a852c06c67978476f2b3a6ec1cc8a0f6fede518a5122836"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          205,
+          963,
+          670,
+          287
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 670,
+          "height": 287
+        }
+      }
+    },
+    {
+      "id": "el_d09",
+      "type": "number",
+      "anchor_ref": "a16",
+      "anchor_refs": [
+        "a16"
+      ],
+      "window": {
+        "start_s": 29.8,
+        "end_s": 30.72,
+        "start_frame": 745,
+        "end_frame": 768,
+        "hold_s": 0.22,
+        "anchor_start_s": 29.81,
+        "anchor_end_s": 30.5
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "一半",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 50.0,
+          "unit": "%",
+          "kind": "percent",
+          "final": "50%",
+          "decimals": 0,
+          "label": "一半"
+        },
+        "numeric_display": "50%"
+      },
+      "provenance": {
+        "decision_id": "d09",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.84,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "f3eb8765fc9a32259480cb750e705b0cac8e98956c2a125dfd99cc31ec330f92"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          368,
+          1016,
+          344,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 344,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d10",
+      "type": "number",
+      "anchor_ref": "a17",
+      "anchor_refs": [
+        "a17"
+      ],
+      "window": {
+        "start_s": 30.76,
+        "end_s": 31.68,
+        "start_frame": 769,
+        "end_frame": 792,
+        "hold_s": 0.36,
+        "anchor_start_s": 30.77,
+        "anchor_end_s": 31.32
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "三个",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 3.0,
+          "unit": "个",
+          "kind": "unit",
+          "final": "3个",
+          "decimals": 0,
+          "label": "三个"
+        },
+        "numeric_display": "3个"
+      },
+      "provenance": {
+        "decision_id": "d10",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.86,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "c34aef7f9c3178c7d3f51897d6279ea92d7ac367ce96ffc520bed6cd8aec1ebc"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          399,
+          1016,
+          282,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 282,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d11",
+      "type": "card",
+      "anchor_ref": "a21",
+      "anchor_refs": [
+        "a21"
+      ],
+      "window": {
+        "start_s": 34.92,
+        "end_s": 37.08,
+        "start_frame": 873,
+        "end_frame": 927,
+        "hold_s": 0.08,
+        "anchor_start_s": 34.93,
+        "anchor_end_s": 37.0
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(16,21,33,0.78)",
+        "font_size_px": 78,
+        "padding_px": 40,
+        "radius_px": 30,
+        "align": "left",
+        "accent_bar": true
+      },
+      "motion": {
+        "enter": {
+          "type": "scale_in",
+          "dur_s": 0.28,
+          "ease": "smoothstep",
+          "scale_from": 0.96
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "第二个误区更常见"
+      },
+      "provenance": {
+        "decision_id": "d11",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.62,
+        "reason": "explanatory_statement",
+        "effect_params_sha256": "3df43e81249d4a87ad95ae8844300e8305a2d4762b763366f128672e03993180"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          174,
+          1054,
+          732,
+          194
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 732,
+          "height": 194
+        }
+      }
+    },
+    {
+      "id": "el_d12",
+      "type": "list",
+      "anchor_ref": "a23",
+      "anchor_refs": [
+        "a23"
+      ],
+      "window": {
+        "start_s": 37.12,
+        "end_s": 38.08,
+        "start_frame": 928,
+        "end_frame": 952,
+        "hold_s": 0.46,
+        "anchor_start_s": 37.12,
+        "anchor_end_s": 37.62
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 64,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "left",
+        "min_width_px": 670,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "最后",
+        "items": [
+          "才轮到排版"
+        ],
+        "item_onsets_s": [
+          0.0
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "才轮到排版",
+            "at_s": 0.0,
+            "text_at_s": 0.0
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "d12",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.72,
+        "reason": "sequence_of_1_steps",
+        "effect_params_sha256": "d44a832fc86a1b4a47ab2e82b398b1a48756d0f6360b89247874f288a38c8416"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          229,
+          994,
+          622,
+          166
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 622,
+          "height": 166
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T10:12:16Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 1163,
+      "source": "nb_frames",
+      "container_duration_s": 46.633,
+      "duration_fps_frames": 1166
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 11,
+    "ir_sha256": "cdab4055bee8084f6c0882e8fffd3102b31578d3526456945c5d968177a9c720"
+  }
+}

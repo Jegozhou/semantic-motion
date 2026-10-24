@@ -1,0 +1,120 @@
+{
+  "schema": "semotion.number_check/1",
+  "video": "artifacts/g1/final_calibration/fx_t1_zh_phrase/fx_t1_zh_phrase_motion.mp4",
+  "ir": "artifacts/g1/final_calibration/fx_t1_zh_phrase/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_cal01",
+      "text": "九成",
+      "expected_value": 90.0,
+      "expected_kind": "percent",
+      "ocr_raw": "90%",
+      "ocr_variants": {
+        "psm8": "90%",
+        "psm13": "90%"
+      },
+      "observed_value": 90.0,
+      "frame": 34,
+      "t_s": 1.36,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_cal05",
+      "text": "六次",
+      "expected_value": 6.0,
+      "expected_kind": "unit",
+      "ocr_raw": "oR",
+      "ocr_variants": {
+        "psm8": "oR",
+        "psm13": "oR"
+      },
+      "observed_value": null,
+      "frame": 138,
+      "t_s": 5.52,
+      "box": [
+        399,
+        1016,
+        282,
+        269
+      ],
+      "status": "UNREADABLE"
+    },
+    {
+      "element_id": "el_cal06",
+      "text": "一半",
+      "expected_value": 50.0,
+      "expected_kind": "percent",
+      "ocr_raw": "50%",
+      "ocr_variants": {
+        "psm8": "50%",
+        "psm13": "50%"
+      },
+      "observed_value": 50.0,
+      "frame": 186,
+      "t_s": 7.44,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_cal07",
+      "text": "两倍",
+      "expected_value": 2.0,
+      "expected_kind": "unit",
+      "ocr_raw": "2倍",
+      "ocr_variants": {
+        "psm8": "2倍",
+        "psm13": "2倍"
+      },
+      "observed_value": 2.0,
+      "frame": 238,
+      "t_s": 9.52,
+      "box": [
+        399,
+        1016,
+        282,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_cal08",
+      "text": "三成",
+      "expected_value": 30.0,
+      "expected_kind": "percent",
+      "ocr_raw": "30%",
+      "ocr_variants": {
+        "psm8": "30%",
+        "psm13": "30%"
+      },
+      "observed_value": 30.0,
+      "frame": 293,
+      "t_s": 11.72,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 4,
+  "mismatches": 0,
+  "unreadable": [
+    "el_cal05"
+  ],
+  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
+  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+}

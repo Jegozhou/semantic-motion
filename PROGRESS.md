@@ -1,15 +1,15 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：G0 PASS；G1 链路已打通（真实成片+指标），等待校准素材凑够 ≥50 独立事件后判定。
+> 最近更新：G0 PASS；**G1 PASS**（真实成片 + IR + 指标；校准集 56 事件 P90=50.15 ms）；G2 进行中。
 
 ## 0. 当前状态一屏
 
 | 闸门 | 状态 | 证据 |
 |---|---|---|
 | **G0 预检与基线** | **PASS** | `ENVIRONMENT.md`、`artifacts/env/env_probe.json`、`artifacts/g0/baseline_report.json`（verdict=PASS）、`reports/gate-G0.md` |
-| G1 最小语义闭环 | **IN PROGRESS** | 链路已打通：`artifacts/g1/runner/gate_summary.json`（fx_a：timing/position/render PASS，n=3 探索性）、`artifacts/g1/pd_a/`（真实人脸素材：position/render PASS）；**待 ≥50 独立事件校准素材** |
-| G2 四类动效 | NOT RUN | 依赖 G1 |
+| G1 最小语义闭环 | **PASS** | 链路已打通：`artifacts/g1/runner/gate_summary.json`（fx_a：timing/position/render PASS，n=3 探索性）、`artifacts/g1/pd_a/`（真实人脸素材：position/render PASS）；**待 ≥50 独立事件校准素材** |
+| G2 四类动效 | **IN PROGRESS** | 依赖 G1（已完成）；正在做逐项/组合/双画幅/双素材验收 |
 | G3 高级稳定性 | NOT RUN | 依赖 G2 |
 | G4 完整交付 | NOT RUN | 依赖 G3 |
 
@@ -44,7 +44,19 @@
 - 真值：`tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json`（units[] 含 start_s/end_s/start_frame/end_frame/audio_sha256，truth=SYNTH_KNOWN）
 - 多镜头能力：`scenes` + `cuts_at_s`，已用 `fx_test_cuts` 验证（5.0 s 切镜，slow_pan 第二镜头）
 
-## 1.5 G1 已跑通的实测（2026-10-24 17:4x）
+## 1.4 G1 最终验收（PASS，2026-10-24 18:2x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| 校准集时间精度 | **n=56，P50 18.70 ms / P90 50.15 ms / max 86.15 ms（阈值 100 ms）→ PASS，可作 P90 宣称** | `artifacts/g1/final_calibration/gate_summary.json` |
+| 产品集（Smart Balanced） | 5 条素材 timing/position/render 全 PASS；n=19，P50 16.83 / P90 22.04 / max 24.87（探索性） | `artifacts/g1/final_product/gate_summary.json` |
+| 真实素材（公有领域真人） | fx_pd_a/b：position/render PASS，遮脸 0/8、0/6；timing **NOT RUN**（无人工真值） | `artifacts/g1/final_realface/*/metrics.json` |
+| 可复现 | 同 IR 双跑 605/605 帧哈希一致，max_pixel_diff 0.0 | `final_product/gate_summary.json → determinism` |
+| 数值语义（OCR 实证） | fx_a/b/c/d/e/t1/t3 全 PASS；t2 无数字元素 NOT RUN | 各目录 `number_check.json` |
+| 回归测试 | **92 passed / 27 s** | `.venv/bin/python -m pytest tests/ -q` |
+| 闸门报告 | `reports/gate-G1.md` | — |
+
+## 1.5 G1 过程记录（早期实测，保留）
 
 | 项 | 结果 | 证据 |
 |---|---|---|
@@ -82,8 +94,9 @@
 3. 检查成片（抽帧肉眼 + 指标）：字卡是否与语义对齐、是否避脸、是否越界。
 4. 写 `reports/gate-G1.md`；只有 metrics 的 timing/position/render 全 PASS 才记 G1 PASS。
 5. G2：补 number/list/card 与 16:9 素材（`fx_b_zh_landscape`），两条不同素材成片 + 组合测试。
-6. G3：多镜头素材、降级策略、局部重渲染、确定性双跑、异常恢复、回归脚本。
-7. G4：`~/.dsh/skills/semantic-motion/SKILL.md`、使用指南、指标与限制、许可证清单。
+7. G2：逐项动效矩阵（keyword/number/list/card 单独 + 组合）、9:16 与 16:9、两条不同素材（合成 fx_a + 真实 fx_pd_a）、真实素材避脸压力测试（calibration 策略扩大样本）→ `reports/gate-G2.md`。
+8. G3：镜头变化/人物运动降级、局部重渲染（只重渲染一个元素）、可复现双跑、异常恢复、自动回归脚本 → `reports/gate-G3.md`。
+9. G4：`~/.dsh/skills/semantic-motion/SKILL.md`、使用指南、指标与限制、许可证清单终审 → `reports/gate-G4.md`。
 
 ## 4. 已知阻碍与风险
 

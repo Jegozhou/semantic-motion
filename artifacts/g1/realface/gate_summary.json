@@ -1,0 +1,68 @@
+{
+  "gate": "G1",
+  "style": "smart_balanced",
+  "started_utc": "2026-10-24T09:51:48Z",
+  "finished_utc": "2026-10-24T09:52:05Z",
+  "fixtures": [
+    "fx_pd_real_16x9_a",
+    "fx_pd_real_16x9_b"
+  ],
+  "results": [
+    {
+      "fixture": "fx_pd_real_16x9_a",
+      "exit": 8,
+      "stdout_tail": "{\"timing\": \"NOT RUN\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/realface/fx_pd_real_16x9_a/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 0,
+        "p50_ms": null,
+        "p90_ms": null,
+        "max_ms": null,
+        "source": "none",
+        "verdict": "NOT RUN"
+      },
+      "rendered": "artifacts/g1/realface/fx_pd_real_16x9_a/fx_pd_real_16x9_a_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/realface/frames/fx_pd_real_16x9_a_motion_t11.79.png"
+      ]
+    },
+    {
+      "fixture": "fx_pd_real_16x9_b",
+      "exit": 8,
+      "stdout_tail": "{\"timing\": \"NOT RUN\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/realface/fx_pd_real_16x9_b/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 0,
+        "p50_ms": null,
+        "p90_ms": null,
+        "max_ms": null,
+        "source": "none",
+        "verdict": "NOT RUN"
+      },
+      "rendered": "artifacts/g1/realface/fx_pd_real_16x9_b/fx_pd_real_16x9_b_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/realface/frames/fx_pd_real_16x9_b_motion_t02.39.png"
+      ]
+    }
+  ],
+  "pooled_timing": null,
+  "determinism": null,
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

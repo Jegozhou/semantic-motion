@@ -68,6 +68,8 @@ def main() -> int:
     ap.add_argument("--clips-root", default="tests/fixtures/clips")
     ap.add_argument("--model", default="medium")
     ap.add_argument("--language", default="zh")
+    ap.add_argument("--style", default="smart_balanced",
+                    help="director policy: smart_balanced | calibration")
     ap.add_argument("--determinism", action="store_true")
     ap.add_argument("--frames", type=int, default=3)
     args = ap.parse_args()
@@ -86,7 +88,8 @@ def main() -> int:
         rundir = out / fid
         cp = run_cli(["run", "--fixture", fid, "--clips-root", args.clips_root,
                       "--outdir", str(rundir), "--gate", args.gate,
-                      "--model", args.model, "--language", args.language])
+                      "--model", args.model, "--language", args.language,
+                      "--style", args.style])
         summary = _read(rundir / "run_summary.json")
         metrics = _read(rundir / "metrics.json")
         entry = {"fixture": fid, "exit": cp.returncode,
@@ -146,6 +149,7 @@ def main() -> int:
     verdicts = [r.get("verdicts", {}).get("timing") for r in results]
     summary = {
         "gate": args.gate,
+        "style": args.style,
         "started_utc": started.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "finished_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "fixtures": args.fixtures,

@@ -1,0 +1,34 @@
+{
+  "schema": "semotion.number_check/1",
+  "video": "artifacts/g1/final_product/fx_b_zh_landscape/fx_b_zh_landscape_motion.mp4",
+  "ir": "artifacts/g1/final_product/fx_b_zh_landscape/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_d04",
+      "text": "70%",
+      "expected_value": 70.0,
+      "expected_kind": "percent",
+      "ocr_raw": "70%",
+      "ocr_variants": {
+        "psm8": "70%",
+        "psm13": "70%"
+      },
+      "observed_value": 70.0,
+      "frame": 326,
+      "t_s": 13.04,
+      "box": [
+        788,
+        675,
+        344,
+        269
+      ],
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 1,
+  "mismatches": 0,
+  "unreadable": [],
+  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
+  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+}

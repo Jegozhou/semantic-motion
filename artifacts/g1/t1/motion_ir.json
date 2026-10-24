@@ -1,0 +1,1911 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_t1_zh_phrase/fx_t1_zh_phrase.mp4",
+    "sha256": "6529aa797a4b2b6a4218828ca9d2d5d55db3cc6d3f6a2a03829fae30b1ea6e74",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 40.221,
+    "n_frames": 1005,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 1006,
+    "timebase": {
+      "num": 1,
+      "den": 25
+    }
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "9f5d5612190031691e6168ef39d7f708344d05d78cf7571ae4454bd654c0b18c",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "181856f471112882f03be24e75a2135d155302458c1d58c2617a1fa3d70ddb1f",
+    "decisions_sha256": "eeeb6bcdb77acda0c113222d1b07dcde5ba56e7dafe6f2b5571079a4a9e89305",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "number",
+        "text": "九成",
+        "start_s": 0.51,
+        "end_s": 0.98,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w0",
+          "w1"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 510,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_forward",
+          "onset_s": 0.51,
+          "search_window_s": [
+            0.0,
+            0.25
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.002633,
+          "asr_start_s": 0.0
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "number",
+        "text": "三個",
+        "start_s": 2.79,
+        "end_s": 3.26,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w6",
+          "w7"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 2.79,
+          "search_window_s": [
+            2.37,
+            2.87
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.00231,
+          "asr_start_s": 2.62
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "card",
+        "text": "三個步驟就夠",
+        "start_s": 2.79,
+        "end_s": 4.24,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w6",
+          "w7",
+          "w8",
+          "w9",
+          "w10",
+          "w11"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 2.79,
+          "search_window_s": [
+            2.37,
+            2.87
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.00231,
+          "asr_start_s": 2.62
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "process",
+        "text": "步驟",
+        "start_s": 3.1,
+        "end_s": 3.66,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w8",
+          "w9"
+        ],
+        "rule": "process_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -160,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 3.1,
+          "search_window_s": [
+            3.01,
+            3.51
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.127859,
+          "asr_start_s": 3.26
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "number",
+        "text": "六次",
+        "start_s": 4.67,
+        "end_s": 5.14,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w12",
+          "w13"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 4.67,
+          "search_window_s": [
+            4.29,
+            4.79
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.014366,
+          "asr_start_s": 4.54
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "number",
+        "text": "一半",
+        "start_s": 6.72,
+        "end_s": 7.06,
+        "confidence": 0.84,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w18",
+          "w19"
+        ],
+        "rule": "fraction_half",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 140,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 6.72,
+          "search_window_s": [
+            6.33,
+            6.83
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.031274,
+          "asr_start_s": 6.58
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "number",
+        "text": "兩倍",
+        "start_s": 8.69,
+        "end_s": 9.16,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w24",
+          "w25"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 8.69,
+          "search_window_s": [
+            8.31,
+            8.81
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.025923,
+          "asr_start_s": 8.56
+        }
+      },
+      {
+        "id": "a07",
+        "kind": "number",
+        "text": "三成",
+        "start_s": 10.81,
+        "end_s": 11.34,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w30",
+          "w31"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 10,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 10.81,
+          "search_window_s": [
+            10.55,
+            11.05
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.002922,
+          "asr_start_s": 10.8
+        }
+      },
+      {
+        "id": "a08",
+        "kind": "keyword",
+        "text": "關鍵是節奏",
+        "start_s": 13.19,
+        "end_s": 14.84,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 5,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 190,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 13.19,
+          "search_window_s": [
+            12.75,
+            13.25
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.008345,
+          "asr_start_s": 13.0
+        }
+      },
+      {
+        "id": "a09",
+        "kind": "keyword",
+        "text": "重點是留白",
+        "start_s": 14.97,
+        "end_s": 16.7,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s7",
+        "word_ids": [
+          "w42",
+          "w43",
+          "w44",
+          "w45",
+          "w46"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 5,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 14.97,
+          "search_window_s": [
+            14.59,
+            15.09
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.002698,
+          "asr_start_s": 14.84
+        }
+      },
+      {
+        "id": "a10",
+        "kind": "keyword",
+        "text": "核心是克制",
+        "start_s": 16.86,
+        "end_s": 18.46,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s8",
+        "word_ids": [
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 5,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 160,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 16.86,
+          "search_window_s": [
+            16.45,
+            16.95
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.002603,
+          "asr_start_s": 16.7
+        }
+      },
+      {
+        "id": "a11",
+        "kind": "keyword",
+        "text": "其實是順序",
+        "start_s": 18.61,
+        "end_s": 20.3,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s9",
+        "word_ids": [
+          "w52",
+          "w53",
+          "w54",
+          "w55"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 4,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 150,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 18.61,
+          "search_window_s": [
+            18.21,
+            18.71
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.005811,
+          "asr_start_s": 18.46
+        }
+      },
+      {
+        "id": "a12",
+        "kind": "process",
+        "text": "順序",
+        "start_s": 19.37,
+        "end_s": 20.3,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s9",
+        "word_ids": [
+          "w54",
+          "w55"
+        ],
+        "rule": "process_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 19.37,
+          "search_window_s": [
+            19.09,
+            19.59
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.104054,
+          "asr_start_s": 19.34
+        }
+      },
+      {
+        "id": "a13",
+        "kind": "keyword",
+        "text": "底線是先保認",
+        "start_s": 20.4,
+        "end_s": 22.22,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s10",
+        "word_ids": [
+          "w56",
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 6,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 100,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 20.4,
+          "search_window_s": [
+            20.05,
+            20.55
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.031977,
+          "asr_start_s": 20.3
+        }
+      },
+      {
+        "id": "a14",
+        "kind": "keyword",
+        "text": "最難的是取捨",
+        "start_s": 22.4,
+        "end_s": 24.1,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s11",
+        "word_ids": [
+          "w62",
+          "w63",
+          "w64",
+          "w65",
+          "w66"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 5,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 180,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 22.4,
+          "search_window_s": [
+            21.97,
+            22.47
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.006185,
+          "asr_start_s": 22.22
+        }
+      },
+      {
+        "id": "a15",
+        "kind": "list_item",
+        "text": "第一步",
+        "start_s": 24.27,
+        "end_s": 24.84,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s12",
+        "word_ids": [
+          "w67",
+          "w68"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 24.27,
+          "search_window_s": [
+            23.85,
+            24.35
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.002871,
+          "asr_start_s": 24.1
+        }
+      },
+      {
+        "id": "a16",
+        "kind": "list_item",
+        "text": "第二步",
+        "start_s": 25.96,
+        "end_s": 26.62,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s13",
+        "word_ids": [
+          "w71",
+          "w72"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 180,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 25.96,
+          "search_window_s": [
+            25.53,
+            26.03
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.010327,
+          "asr_start_s": 25.78
+        }
+      },
+      {
+        "id": "a17",
+        "kind": "list_item",
+        "text": "第三步",
+        "start_s": 27.69,
+        "end_s": 28.4,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s14",
+        "word_ids": [
+          "w75",
+          "w76"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 210,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 27.69,
+          "search_window_s": [
+            27.23,
+            27.73
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.0085,
+          "asr_start_s": 27.48
+        }
+      },
+      {
+        "id": "a18",
+        "kind": "conclusion",
+        "text": "結論",
+        "start_s": 29.5,
+        "end_s": 29.98,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s15",
+        "word_ids": [
+          "w79",
+          "w80"
+        ],
+        "rule": "conclusion_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 120,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 29.5,
+          "search_window_s": [
+            29.13,
+            29.63
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.003906,
+          "asr_start_s": 29.38
+        }
+      },
+      {
+        "id": "a19",
+        "kind": "card",
+        "text": "結論是自動化",
+        "start_s": 29.5,
+        "end_s": 31.26,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s15",
+        "word_ids": [
+          "w79",
+          "w80",
+          "w81",
+          "w82",
+          "w83",
+          "w84"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 120,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 29.5,
+          "search_window_s": [
+            29.13,
+            29.63
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.003906,
+          "asr_start_s": 29.38
+        }
+      },
+      {
+        "id": "a20",
+        "kind": "conclusion",
+        "text": "所以",
+        "start_s": 31.49,
+        "end_s": 31.9,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s16",
+        "word_ids": [
+          "w85"
+        ],
+        "rule": "conclusion_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 230,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 31.49,
+          "search_window_s": [
+            31.01,
+            31.51
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.005342,
+          "asr_start_s": 31.26
+        }
+      },
+      {
+        "id": "a21",
+        "kind": "card",
+        "text": "所以我們先對齊",
+        "start_s": 31.49,
+        "end_s": 33.68,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s16",
+        "word_ids": [
+          "w85",
+          "w86",
+          "w87",
+          "w88",
+          "w89"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 230,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 31.49,
+          "search_window_s": [
+            31.01,
+            31.51
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.005342,
+          "asr_start_s": 31.26
+        }
+      },
+      {
+        "id": "a22",
+        "kind": "conclusion",
+        "text": "總之",
+        "start_s": 33.68,
+        "end_s": 34.18,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s17",
+        "word_ids": [
+          "w90",
+          "w91"
+        ],
+        "rule": "conclusion_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 0,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 33.68,
+          "search_window_s": [
+            33.43,
+            33.93
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.004559,
+          "asr_start_s": 33.68
+        }
+      },
+      {
+        "id": "a23",
+        "kind": "comparison",
+        "text": "相比",
+        "start_s": 35.49,
+        "end_s": 36.04,
+        "confidence": 0.76,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s18",
+        "word_ids": [
+          "w95",
+          "w96"
+        ],
+        "rule": "comparison_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 35.49,
+          "search_window_s": [
+            35.27,
+            35.78
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.004198,
+          "asr_start_s": 35.52
+        }
+      },
+      {
+        "id": "a24",
+        "kind": "list_item",
+        "text": "最终",
+        "start_s": 37.37,
+        "end_s": 37.86,
+        "confidence": 0.72,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s19",
+        "word_ids": [
+          "w100",
+          "w101"
+        ],
+        "rule": "ordinal_final",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 190,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 37.37,
+          "search_window_s": [
+            36.93,
+            37.43
+          ],
+          "quiet_threshold": 0.002694,
+          "climb": 0.006965,
+          "asr_start_s": 37.18
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "d01",
+        "anchor_id": "a00",
+        "anchor_ids": [
+          "a00"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "九成"
+        },
+        "window": {
+          "start_s": 0.51,
+          "end_s": 1.33
+        }
+      },
+      {
+        "id": "d02",
+        "anchor_id": "a01",
+        "anchor_ids": [
+          "a01"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "三個"
+        },
+        "window": {
+          "start_s": 2.79,
+          "end_s": 3.61
+        }
+      },
+      {
+        "id": "d04",
+        "anchor_id": "a04",
+        "anchor_ids": [
+          "a04"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "六次"
+        },
+        "window": {
+          "start_s": 4.67,
+          "end_s": 5.49
+        }
+      },
+      {
+        "id": "d05",
+        "anchor_id": "a07",
+        "anchor_ids": [
+          "a07"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "三成"
+        },
+        "window": {
+          "start_s": 10.81,
+          "end_s": 11.69
+        }
+      },
+      {
+        "id": "d06",
+        "anchor_id": "a08",
+        "anchor_ids": [
+          "a08"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "semantic_role:keyword",
+        "confidence": 0.8,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "關鍵是節奏"
+        },
+        "window": {
+          "start_s": 13.19,
+          "end_s": 15.14
+        }
+      },
+      {
+        "id": "d08",
+        "anchor_id": "a10",
+        "anchor_ids": [
+          "a10"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "semantic_role:keyword",
+        "confidence": 0.8,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "核心是克制"
+        },
+        "window": {
+          "start_s": 16.86,
+          "end_s": 18.76
+        }
+      },
+      {
+        "id": "d10",
+        "anchor_id": "a15",
+        "anchor_ids": [
+          "a15",
+          "a16",
+          "a17"
+        ],
+        "effect": "list",
+        "emphasis": "high",
+        "reason": "sequence_of_3_steps",
+        "confidence": 0.9,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "第一步",
+          "items": [
+            "第一步",
+            "第二步",
+            "第三步"
+          ]
+        },
+        "window": {
+          "start_s": 24.27,
+          "end_s": 28.85
+        }
+      },
+      {
+        "id": "d12",
+        "anchor_id": "a19",
+        "anchor_ids": [
+          "a19"
+        ],
+        "effect": "card",
+        "emphasis": "medium",
+        "reason": "explanatory_statement",
+        "confidence": 0.62,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "結論是自動化"
+        },
+        "window": {
+          "start_s": 29.5,
+          "end_s": 31.76
+        }
+      },
+      {
+        "id": "d13",
+        "anchor_id": "a22",
+        "anchor_ids": [
+          "a22"
+        ],
+        "effect": "keyword",
+        "emphasis": "medium",
+        "reason": "semantic_role:conclusion",
+        "confidence": 0.8,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "總之"
+        },
+        "window": {
+          "start_s": 33.68,
+          "end_s": 34.48
+        }
+      },
+      {
+        "id": "d14",
+        "anchor_id": "a23",
+        "anchor_ids": [
+          "a23"
+        ],
+        "effect": "keyword",
+        "emphasis": "medium",
+        "reason": "semantic_role:comparison",
+        "confidence": 0.76,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "相比"
+        },
+        "window": {
+          "start_s": 35.49,
+          "end_s": 36.34
+        }
+      }
+    ],
+    "transcript_text": "九成的人會拖延三個步驟就夠六次剛好夠用一半來自刪減兩倍的時間浪費三成是無效動效關鍵是節奏重點是留白核心是克制其實是順序底線是先保認最難的是取捨第一步對齊第二步佈局第三步渲染結論是自動化所以我們先對齊總之先減法相比加特效最終要可編輯",
+    "face_safe": {
+      "bbox_union": null,
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_card",
+      "z": 30,
+      "elements": [
+        "el_d12"
+      ]
+    },
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_d01",
+        "el_d02",
+        "el_d04",
+        "el_d05",
+        "el_d06",
+        "el_d08",
+        "el_d10",
+        "el_d13",
+        "el_d14"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_d01",
+      "type": "number",
+      "anchor_ref": "a00",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 0.52,
+        "end_s": 1.32,
+        "start_frame": 13,
+        "end_frame": 33,
+        "hold_s": 0.34,
+        "anchor_start_s": 0.51,
+        "anchor_end_s": 0.98
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "九成",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 90.0,
+          "unit": "%",
+          "kind": "percent",
+          "final": "90%",
+          "decimals": 0,
+          "label": "九成"
+        },
+        "numeric_display": "90%"
+      },
+      "provenance": {
+        "decision_id": "d01",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.86,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "cc69dfd9ff9c939fb3d03fb2b2aa279e8c5b543907768a2051748067d2d7cb46"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          368,
+          844,
+          344,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 344,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d02",
+      "type": "number",
+      "anchor_ref": "a01",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.8,
+        "end_s": 3.6,
+        "start_frame": 70,
+        "end_frame": 90,
+        "hold_s": 0.34,
+        "anchor_start_s": 2.79,
+        "anchor_end_s": 3.26
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "三個",
+        "numeric": {
+          "start": 0,
+          "end": 1,
+          "value": 3.0,
+          "unit": "",
+          "kind": "plain",
+          "final": "3",
+          "decimals": 0,
+          "label": "三"
+        },
+        "numeric_display": "3個"
+      },
+      "provenance": {
+        "decision_id": "d02",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.86,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "a31cd5ef74d4676d376d17ea2d4cc9b0616e6a63ec8cfdf5653b9cd03558dc5e"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          422,
+          844,
+          236,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 236,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d04",
+      "type": "number",
+      "anchor_ref": "a04",
+      "anchor_refs": [
+        "a04"
+      ],
+      "window": {
+        "start_s": 4.68,
+        "end_s": 5.48,
+        "start_frame": 117,
+        "end_frame": 137,
+        "hold_s": 0.34,
+        "anchor_start_s": 4.67,
+        "anchor_end_s": 5.14
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "六次",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 6.0,
+          "unit": "次",
+          "kind": "unit",
+          "final": "6次",
+          "decimals": 0,
+          "label": "六次"
+        },
+        "numeric_display": "6次"
+      },
+      "provenance": {
+        "decision_id": "d04",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.86,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "8666b778432ad64368e17b009298f1a871759c5594d4f61454297ee65c770f79"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          399,
+          844,
+          282,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 282,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d05",
+      "type": "number",
+      "anchor_ref": "a07",
+      "anchor_refs": [
+        "a07"
+      ],
+      "window": {
+        "start_s": 10.8,
+        "end_s": 11.68,
+        "start_frame": 270,
+        "end_frame": 292,
+        "hold_s": 0.34,
+        "anchor_start_s": 10.81,
+        "anchor_end_s": 11.34
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "三成",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 30.0,
+          "unit": "%",
+          "kind": "percent",
+          "final": "30%",
+          "decimals": 0,
+          "label": "三成"
+        },
+        "numeric_display": "30%"
+      },
+      "provenance": {
+        "decision_id": "d05",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.86,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "66047749825868d2ce19827b441d4cf00bd21ff5bff51b912070606f2933c10d"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          368,
+          844,
+          344,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 344,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d06",
+      "type": "keyword",
+      "anchor_ref": "a08",
+      "anchor_refs": [
+        "a08"
+      ],
+      "window": {
+        "start_s": 13.2,
+        "end_s": 15.12,
+        "start_frame": 330,
+        "end_frame": 378,
+        "hold_s": 0.28,
+        "anchor_start_s": 13.19,
+        "anchor_end_s": 14.84
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 96,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "關鍵是節奏"
+      },
+      "provenance": {
+        "decision_id": "d06",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.8,
+        "reason": "semantic_role:keyword",
+        "effect_params_sha256": "656da21ee7079da0a9e862d9d66fd04d92ab07dfecebdfc660d30c8b4c8d8a8c"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          264,
+          863,
+          552,
+          232
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 552,
+          "height": 232
+        }
+      }
+    },
+    {
+      "id": "el_d08",
+      "type": "keyword",
+      "anchor_ref": "a10",
+      "anchor_refs": [
+        "a10"
+      ],
+      "window": {
+        "start_s": 16.88,
+        "end_s": 18.76,
+        "start_frame": 422,
+        "end_frame": 469,
+        "hold_s": 0.3,
+        "anchor_start_s": 16.86,
+        "anchor_end_s": 18.46
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 96,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "核心是克制"
+      },
+      "provenance": {
+        "decision_id": "d08",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.8,
+        "reason": "semantic_role:keyword",
+        "effect_params_sha256": "7adc73342ff5cebf74ce1faffef6b086e18cffa985dfe7c318c3bb94a05b933b"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          264,
+          863,
+          552,
+          232
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 552,
+          "height": 232
+        }
+      }
+    },
+    {
+      "id": "el_d10",
+      "type": "list",
+      "anchor_ref": "a15",
+      "anchor_refs": [
+        "a15",
+        "a16",
+        "a17"
+      ],
+      "window": {
+        "start_s": 24.28,
+        "end_s": 28.84,
+        "start_frame": 607,
+        "end_frame": 721,
+        "hold_s": 0.44,
+        "anchor_start_s": 24.27,
+        "anchor_end_s": 28.4
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 64,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "left",
+        "min_width_px": 670,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "第一步",
+        "items": [
+          "第一步",
+          "第二步",
+          "第三步"
+        ],
+        "item_onsets_s": [
+          0.0,
+          1.68,
+          3.41
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "第一步",
+            "at_s": 0.0,
+            "text_at_s": 0.0
+          },
+          {
+            "marker": "2",
+            "text": "第二步",
+            "at_s": 1.68,
+            "text_at_s": 1.68
+          },
+          {
+            "marker": "3",
+            "text": "第三步",
+            "at_s": 3.41,
+            "text_at_s": 3.41
+          }
+        ],
+        "anchor_rows": [
+          "a15",
+          "a16",
+          "a17"
+        ]
+      },
+      "provenance": {
+        "decision_id": "d10",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.9,
+        "reason": "sequence_of_3_steps",
+        "effect_params_sha256": "f6f5e854ae4d86263da7d603c00043f885d09753c697e450cd7adc723023007f"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          315,
+          675,
+          450,
+          408
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 450,
+          "height": 408
+        }
+      }
+    },
+    {
+      "id": "el_d12",
+      "type": "card",
+      "anchor_ref": "a19",
+      "anchor_refs": [
+        "a19"
+      ],
+      "window": {
+        "start_s": 29.52,
+        "end_s": 31.76,
+        "start_frame": 738,
+        "end_frame": 794,
+        "hold_s": 0.5,
+        "anchor_start_s": 29.5,
+        "anchor_end_s": 31.26
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(16,21,33,0.78)",
+        "font_size_px": 78,
+        "padding_px": 40,
+        "radius_px": 30,
+        "align": "left",
+        "accent_bar": true
+      },
+      "motion": {
+        "enter": {
+          "type": "scale_in",
+          "dur_s": 0.28,
+          "ease": "smoothstep",
+          "scale_from": 0.96
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "結論是自動化"
+      },
+      "provenance": {
+        "decision_id": "d12",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.62,
+        "reason": "explanatory_statement",
+        "effect_params_sha256": "f13aed0fa42265fd881dcbfeab2aa2b67842a93cc100bb6e81f8405dcca6cc9d"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          252,
+          882,
+          576,
+          194
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 576,
+          "height": 194
+        }
+      }
+    },
+    {
+      "id": "el_d13",
+      "type": "keyword",
+      "anchor_ref": "a22",
+      "anchor_refs": [
+        "a22"
+      ],
+      "window": {
+        "start_s": 33.68,
+        "end_s": 34.48,
+        "start_frame": 842,
+        "end_frame": 862,
+        "hold_s": 0.3,
+        "anchor_start_s": 33.68,
+        "anchor_end_s": 34.18
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 86,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "總之"
+      },
+      "provenance": {
+        "decision_id": "d13",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.8,
+        "reason": "semantic_role:conclusion",
+        "effect_params_sha256": "bd10b1f5cacb10e00109e584282a1926ae859106602adafd9f102cfbcddd2c9b"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "title",
+        "box": [
+          417,
+          121,
+          244,
+          217
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 244,
+          "height": 217
+        }
+      }
+    },
+    {
+      "id": "el_d14",
+      "type": "keyword",
+      "anchor_ref": "a23",
+      "anchor_refs": [
+        "a23"
+      ],
+      "window": {
+        "start_s": 35.48,
+        "end_s": 36.36,
+        "start_frame": 887,
+        "end_frame": 909,
+        "hold_s": 0.32,
+        "anchor_start_s": 35.49,
+        "anchor_end_s": 36.04
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 86,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "相比"
+      },
+      "provenance": {
+        "decision_id": "d14",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.76,
+        "reason": "semantic_role:comparison",
+        "effect_params_sha256": "b18a718e9797f13cd0945db48320ff126ba2fe5689172f3280de9acd96ef5c2a"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "title",
+        "box": [
+          417,
+          121,
+          244,
+          217
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 244,
+          "height": 217
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T09:40:24Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 1005,
+      "source": "nb_frames",
+      "container_duration_s": 40.221,
+      "duration_fps_frames": 1006
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 10,
+    "ir_sha256": "98cd7aff57cfa4f946df9d56065aabe50f38761be0b2db8e2e1225fc7b6e556b"
+  }
+}

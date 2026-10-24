@@ -1,0 +1,464 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "calibration",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "duration_s": 41.0,
+  "decisions": [
+    {
+      "id": "cal01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "九成",
+        "items": null
+      },
+      "window": {
+        "start_s": 0.51,
+        "end_s": 1.45
+      }
+    },
+    {
+      "id": "cal03",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "三个动效救购",
+        "items": null
+      },
+      "window": {
+        "start_s": 2.87,
+        "end_s": 4.82
+      }
+    },
+    {
+      "id": "cal04",
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "六次",
+        "items": null
+      },
+      "window": {
+        "start_s": 4.87,
+        "end_s": 5.81
+      }
+    },
+    {
+      "id": "cal05",
+      "anchor_id": "a04",
+      "anchor_ids": [
+        "a04"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "两倍",
+        "items": null
+      },
+      "window": {
+        "start_s": 6.74,
+        "end_s": 7.73
+      }
+    },
+    {
+      "id": "cal06",
+      "anchor_id": "a05",
+      "anchor_ids": [
+        "a05"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第一步",
+        "items": null
+      },
+      "window": {
+        "start_s": 8.87,
+        "end_s": 9.91
+      }
+    },
+    {
+      "id": "cal08",
+      "anchor_id": "a07",
+      "anchor_ids": [
+        "a07"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第二步定数字",
+        "items": null
+      },
+      "window": {
+        "start_s": 10.87,
+        "end_s": 12.7
+      }
+    },
+    {
+      "id": "cal10",
+      "anchor_id": "a09",
+      "anchor_ids": [
+        "a09"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第三步定节奏",
+        "items": null
+      },
+      "window": {
+        "start_s": 12.75,
+        "end_s": 14.66
+      }
+    },
+    {
+      "id": "cal12",
+      "anchor_id": "a11",
+      "anchor_ids": [
+        "a11"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "结论是自动化",
+        "items": null
+      },
+      "window": {
+        "start_s": 14.71,
+        "end_s": 16.64
+      }
+    },
+    {
+      "id": "cal13",
+      "anchor_id": "a12",
+      "anchor_ids": [
+        "a12"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "所以",
+        "items": null
+      },
+      "window": {
+        "start_s": 16.69,
+        "end_s": 17.59
+      }
+    },
+    {
+      "id": "cal14",
+      "anchor_id": "a13",
+      "anchor_ids": [
+        "a13"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "总之",
+        "items": null
+      },
+      "window": {
+        "start_s": 18.55,
+        "end_s": 19.47
+      }
+    },
+    {
+      "id": "cal15",
+      "anchor_id": "a14",
+      "anchor_ids": [
+        "a14"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "关键是节奏",
+        "items": null
+      },
+      "window": {
+        "start_s": 20.34,
+        "end_s": 22.08
+      }
+    },
+    {
+      "id": "cal16",
+      "anchor_id": "a15",
+      "anchor_ids": [
+        "a15"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "重点是留白",
+        "items": null
+      },
+      "window": {
+        "start_s": 22.13,
+        "end_s": 23.95
+      }
+    },
+    {
+      "id": "cal17",
+      "anchor_id": "a16",
+      "anchor_ids": [
+        "a16"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.78,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "其实顺序最重要",
+        "items": null
+      },
+      "window": {
+        "start_s": 24.0,
+        "end_s": 24.5
+      }
+    },
+    {
+      "id": "cal18",
+      "anchor_id": "a17",
+      "anchor_ids": [
+        "a17"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.74,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "顺序",
+        "items": null
+      },
+      "window": {
+        "start_s": 24.55,
+        "end_s": 25.41
+      }
+    },
+    {
+      "id": "cal19",
+      "anchor_id": "a18",
+      "anchor_ids": [
+        "a18"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.78,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "最难是取舍",
+        "items": null
+      },
+      "window": {
+        "start_s": 26.26,
+        "end_s": 28.04
+      }
+    },
+    {
+      "id": "cal20",
+      "anchor_id": "a19",
+      "anchor_ids": [
+        "a19"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.76,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "相比",
+        "items": null
+      },
+      "window": {
+        "start_s": 28.09,
+        "end_s": 29.07
+      }
+    },
+    {
+      "id": "cal21",
+      "anchor_id": "a20",
+      "anchor_ids": [
+        "a20"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.84,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "一半",
+        "items": null
+      },
+      "window": {
+        "start_s": 29.93,
+        "end_s": 30.83
+      }
+    },
+    {
+      "id": "cal22",
+      "anchor_id": "a21",
+      "anchor_ids": [
+        "a21"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.74,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "流程",
+        "items": null
+      },
+      "window": {
+        "start_s": 32.24,
+        "end_s": 33.05
+      }
+    },
+    {
+      "id": "cal23",
+      "anchor_id": "a22",
+      "anchor_ids": [
+        "a22"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "四步",
+        "items": null
+      },
+      "window": {
+        "start_s": 33.1,
+        "end_s": 33.96
+      }
+    },
+    {
+      "id": "cal24",
+      "anchor_id": "a23",
+      "anchor_ids": [
+        "a23"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.74,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "步骤",
+        "items": null
+      },
+      "window": {
+        "start_s": 34.01,
+        "end_s": 34.87
+      }
+    },
+    {
+      "id": "cal25",
+      "anchor_id": "a24",
+      "anchor_ids": [
+        "a24"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.82,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "首先",
+        "items": null
+      },
+      "window": {
+        "start_s": 36.0,
+        "end_s": 36.97
+      }
+    },
+    {
+      "id": "cal26",
+      "anchor_id": "a25",
+      "anchor_ids": [
+        "a25"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.72,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "最终",
+        "items": null
+      },
+      "window": {
+        "start_s": 38.15,
+        "end_s": 39.09
+      }
+    }
+  ],
+  "notes": {
+    "policy": "calibration: every non-plain anchor animated, windows tiled; used ONLY to measure timing, never presented as product output",
+    "skipped": [],
+    "budget": null,
+    "overlay_coverage": 0.6432
+  },
+  "provenance": {
+    "method": "rule_engine (calibration)",
+    "decision_model": "rules-v1-calibration",
+    "anchor_count": 26,
+    "decided_count": 22
+  }
+}

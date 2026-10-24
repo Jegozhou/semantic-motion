@@ -207,6 +207,25 @@ class TestIrBuildAndValidate(unittest.TestCase):
         ats = [r["at_s"] for r in rows]
         self.assertEqual(ats, sorted(ats))
 
+    def test_list_is_wide_and_single_line(self) -> None:
+        el = next(e for e in self.ir["elements"] if e["type"] == "list")
+        box = self.ir["elements"][0]["layout"]["box"]
+        x, y, w, h = [int(v) for v in el["layout"]["box"]]
+        self.assertGreaterEqual(w, int(0.6 * CANVAS["width"]), "list panel must be prominent")
+        spec = raster.element_spec(el, CANVAS)
+        self.assertTrue(all(len(r["lines"]) == 1 for r in spec["rows"]),
+                        [r["lines"] for r in spec["rows"]])
+        self.assertGreaterEqual(spec["font_px"], 56)
+        self.assertLessEqual(spec["font_px"], 68)
+
+    def test_frame_count_source_is_decoded_stream(self) -> None:
+        src = self.ir["source"]
+        info = media.info(SOURCE)
+        self.assertEqual(src["n_frames"], int(info.stream_frames))
+        self.assertEqual(src["frame_source"], "nb_frames")
+        if int(info.stream_frames) != round(src["duration_s"] * src["fps"]):
+            self.assertTrue(irmod.validate(self.ir) == [])
+
 
 class TestIrInvariants(unittest.TestCase):
     """Each negative case must be reported with the element id, not swallowed."""
@@ -230,14 +249,43 @@ class TestIrInvariants(unittest.TestCase):
         errs = self._mutate(mutate)
         self.assertTrue(any("not fully inside canvas" in e for e in errs), errs)
 
-    def test_window_beyond_anchor_tolerance(self) -> None:
+    def test_window_beyond_hold_budget(self) -> None:
         def mutate(doc):
             el = self._el(doc, "keyword")
             fps = float(doc["source"]["fps"])
             el["window"]["end_s"] += 0.8
             el["window"]["end_frame"] = round(el["window"]["end_s"] * fps)
+            el["window"]["hold_s"] = round(el["window"]["end_s"]
+                                          - el["window"]["anchor_end_s"], 6)
         errs = self._mutate(mutate)
-        self.assertTrue(any("tolerance" in e and "after anchor end" in e for e in errs), errs)
+        self.assertTrue(any("0.8s hold" in e for e in errs), errs)
+
+    def test_onset_before_anchor_tolerance(self) -> None:
+        def mutate(doc):
+            el = self._el(doc, "keyword")
+            fps = float(doc["source"]["fps"])
+            el["window"]["start_s"] -= 0.8
+            el["window"]["start_frame"] = round(el["window"]["start_s"] * fps)
+        errs = self._mutate(mutate)
+        self.assertTrue(any("before anchor start" in e for e in errs), errs)
+
+    def test_hold_s_declared_and_bounded(self) -> None:
+        fps = float(self.base["source"]["fps"])
+        for el in self.base["elements"]:
+            win = el["window"]
+            self.assertIn("hold_s", win, el["id"])
+            self.assertGreaterEqual(win["hold_s"], 0.0)
+            self.assertLessEqual(win["hold_s"], 0.8 + 0.5 / fps + 1e-6, el["id"])
+            # onset never precedes the anchor start by more than 250 ms
+            self.assertGreaterEqual(win["start_s"],
+                                    win["anchor_start_s"] - 0.25 - 0.5 / fps - 1e-6)
+
+    def test_missing_hold_s_rejected(self) -> None:
+        def mutate(doc):
+            el = self._el(doc, "keyword")
+            el["window"].pop("hold_s", None)
+        errs = self._mutate(mutate)
+        self.assertTrue(any("hold_s is not declared" in e for e in errs), errs)
 
     def test_undeclared_simultaneous_elements(self) -> None:
         def mutate(doc):
@@ -446,6 +494,18 @@ class TestRaster(unittest.TestCase):
             self.assertGreaterEqual(int(ys.min()), by, el["id"])
             self.assertLessEqual(int(xs.max()) + 1, bx + bw, el["id"])
             self.assertLessEqual(int(ys.max()) + 1, by + bh, el["id"])
+
+    def test_first_frame_is_already_visible(self) -> None:
+        """Rendered onset must land on window.start_frame (no systematic 1-frame lag)."""
+        for el in self.ir["elements"]:
+            out = WORK / f"onset_{el['id']}"
+            paths = raster.render_element_png(el, self.canvas, out)
+            first = np.asarray(Image.open(paths[0]).getchannel("A"))
+            mid = np.asarray(Image.open(paths[len(paths) // 2]).getchannel("A"))
+            self.assertGreater(int(first.max()), 20, f"{el['id']}: first frame invisible")
+            self.assertGreater(int((first > 8).sum()), 100, f"{el['id']}: first frame too faint")
+            # the entrance must still be progressing (first frame is not the final pose)
+            self.assertLess(float(first.mean()), float(mid.mean()) + 1e-6, el["id"])
 
     def test_raster_is_deterministic(self) -> None:
         el = next(e for e in self.ir["elements"] if e["type"] == "number")

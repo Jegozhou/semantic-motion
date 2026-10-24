@@ -1,8 +1,8 @@
 {
   "schema": "semotion.manifest/1",
   "contract": "contracts-1.0.0",
-  "updated_utc": "2026-10-24T17:40:00Z",
-  "created_utc": "2026-10-24T17:40:00Z",
+  "created_utc": "2026-10-24T17:45:00Z",
+  "updated_utc": "2026-10-24T17:56:00Z",
   "owner": "speech-vision",
   "paths_are_relative_to": "project root",
   "split_policy": {
@@ -16,20 +16,70 @@
       "fx_pd_real_16x9_a",
       "fx_pd_real_16x9_b"
     ],
+    "calibration": [
+      "fx_t1_zh_phrase",
+      "fx_t2_zh_phrase",
+      "fx_t3_zh_phrase"
+    ],
     "holdout": [],
-    "note": "No holdout material exists yet, so every test is non-blind and must be reported as internal regression, not independent blind evaluation (spec §4/§5). Reserve future clips (especially human-labelled ones) as holdout before tuning on them."
+    "note": "`calibration` = SYNTH_KNOWN clips built only to obtain enough independent unit-onset events for the timing metric (spec §5 requires >= 50); they are not development fixtures for effect design. No holdout material exists yet, so every test is non-blind and must be reported as internal regression, not independent blind evaluation (spec §4/§5). Reserve future human-labelled clips as holdout before tuning on them."
   },
   "truth_policy": {
     "HUMAN": "independent human word/event labels — none available yet (timing acceptance NOT RUN)",
-    "SYNTH_KNOWN": "per-unit TTS assembly with ffprobe-measured onsets — engineering calibration only",
+    "SYNTH_KNOWN": "per-unit TTS assembly with ffprobe-measured onsets — engineering calibration only, even for the `calibration` split",
     "MACHINE_WEAK": "ASR/model output — development regression only, never an independent truth"
   },
   "counts": {
-    "fixtures": 8,
-    "synth_known_units": 69,
-    "synth_known_clips": 6,
+    "fixtures": 11,
+    "synth_known_clips": 9,
+    "synth_known_units": 129,
+    "calibration_clips": 3,
+    "calibration_units": 60,
     "real_pd_clips": 2,
     "with_detectable_face": 2
+  },
+  "timing_calibration": {
+    "fixtures": [
+      "fx_t1_zh_phrase",
+      "fx_t2_zh_phrase",
+      "fx_t3_zh_phrase"
+    ],
+    "events_measured": 59,
+    "min_events_required": 50,
+    "report": "artifacts/anchors/calibration_report.json",
+    "note": "measured by tests/eval_timing.py on 2026-10-24; see that report for per-event detail",
+    "per_fixture": {
+      "fx_t1_zh_phrase": {
+        "units": 20,
+        "events": 19
+      },
+      "fx_t2_zh_phrase": {
+        "units": 20,
+        "events": 20
+      },
+      "fx_t3_zh_phrase": {
+        "units": 20,
+        "events": 20
+      }
+    },
+    "measured_after_p90_ms": 20,
+    "measured_after_max_ms": 37,
+    "measured_before": {
+      "n": 59,
+      "p50_ms": 133,
+      "p90_ms": 222,
+      "max_ms": 500,
+      "mean_ms": 153
+    },
+    "measured_after": {
+      "n": 59,
+      "p50_ms": 8,
+      "p90_ms": 20,
+      "max_ms": 37,
+      "mean_ms": 10
+    },
+    "verdict": "PASS",
+    "all_fixtures_anchor_events": 103
   },
   "fixtures": [
     {
@@ -37,6 +87,7 @@
       "kind": "SYNTH_KNOWN",
       "truth_class": "SYNTH_KNOWN",
       "split": "dev",
+      "purpose": "development fixture",
       "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
       "ground_truth": "tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json",
       "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
@@ -49,14 +100,14 @@
       "language": "zh",
       "source": {
         "type": "synthetic_tts",
-        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
         "voice": "Tingting (zh_CN), 175 wpm",
         "visuals": "program-generated graphic artwork (Pillow), fixed seed",
         "spec": "tests/fixtures/specs/fx_a_zh_portrait.json"
       },
       "license": "synthetic (macOS say + generated artwork), no third-party rights",
       "summary": "Portrait 9:16 calibration clip: 14 per-unit TTS units (greeting, keyword emphasis, 九成/三个 numbers, 第一/第二/第三 list, closing keyword).",
-      "person_position": "designed presenter silhouette (no real person): head ellipse centered at x=0.50, y≈0.36·H; shoulders lower third",
+      "person_position": "designed presenter silhouette (no real person): head ellipse centered at x=0.50, y≈0.36·H; shoulders in the lower third",
       "camera_motion": [
         "static"
       ],
@@ -111,6 +162,7 @@
       "kind": "SYNTH_KNOWN",
       "truth_class": "SYNTH_KNOWN",
       "split": "dev",
+      "purpose": "development fixture",
       "path": "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
       "ground_truth": "tests/fixtures/clips/fx_b_zh_landscape/ground_truth.json",
       "sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6",
@@ -119,11 +171,11 @@
       "height": 1080,
       "aspect": "16:9",
       "fps": 25.0,
-      "n_frames": 654,
+      "n_frames": 651,
       "language": "zh",
       "source": {
         "type": "synthetic_tts",
-        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
         "voice": "Tingting (zh_CN), 175 wpm",
         "visuals": "program-generated graphic artwork (Pillow), fixed seed",
         "spec": "tests/fixtures/specs/fx_b_zh_landscape.json"
@@ -183,6 +235,7 @@
       "kind": "SYNTH_KNOWN",
       "truth_class": "SYNTH_KNOWN",
       "split": "dev",
+      "purpose": "development fixture",
       "path": "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
       "ground_truth": "tests/fixtures/clips/fx_c_zh_cuts/ground_truth.json",
       "sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
@@ -195,13 +248,13 @@
       "language": "zh",
       "source": {
         "type": "synthetic_tts",
-        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
         "voice": "Tingting (zh_CN), 175 wpm",
         "visuals": "program-generated graphic artwork (Pillow), fixed seed",
         "spec": "tests/fixtures/specs/fx_c_zh_cuts.json"
       },
       "license": "synthetic (macOS say + generated artwork), no third-party rights",
-      "summary": "Multi-shot 9:16 calibration clip: 7 units across 3 shots cut at 8.0 s / 16.0 s; shots 2 and 3 carry camera motion (slow_pan / slow_zoom).",
+      "summary": "Multi-shot 9:16 calibration clip: 7 units across 3 shots cut at 8.0 s / 16.0 s; shot 2 and 3 carry camera motion (slow_pan / slow_zoom).",
       "person_position": "designed presenter silhouette (no real person), same composition in all 3 shots",
       "camera_motion": [
         "static",
@@ -256,7 +309,7 @@
       },
       "usable_for": [
         "G3 shot-cut detection",
-        "re-layout after cut",
+        "re-layout after a cut",
         "camera-motion degradation"
       ],
       "not_usable_for": [
@@ -271,6 +324,7 @@
       "kind": "SYNTH_KNOWN",
       "truth_class": "SYNTH_KNOWN",
       "split": "dev",
+      "purpose": "development fixture",
       "path": "tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
       "ground_truth": "tests/fixtures/clips/fx_d_zh_portrait/ground_truth.json",
       "sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
@@ -279,17 +333,17 @@
       "height": 1920,
       "aspect": "9:16",
       "fps": 25.0,
-      "n_frames": 1166,
+      "n_frames": 1163,
       "language": "zh",
       "source": {
         "type": "synthetic_tts",
-        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
         "voice": "Meijia (zh_TW), 180 wpm",
         "visuals": "program-generated graphic artwork (Pillow), fixed seed",
         "spec": "tests/fixtures/specs/fx_d_zh_portrait.json"
       },
       "license": "synthetic (macOS say + generated artwork), no third-party rights",
-      "summary": "Portrait 9:16 timing-sample clip (second TTS voice, slow_zoom camera): 20 units whose openings are anchor-worthy (其实/三个/第一.../六次/底线/所以/最难/第一次/第二个/最后) to grow the independent timing event count.",
+      "summary": "Portrait 9:16 G2 clip (second TTS voice, slow_zoom camera): 20 units, most opening with an anchor-worthy phrase (其实/三个/第一.../六次/底线/所以/最难/第一次/第二个/最后).",
       "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
       "camera_motion": [
         "slow_zoom"
@@ -327,9 +381,10 @@
         "evidence": "artifacts/vision/fx_d_zh_portrait.vision.json"
       },
       "usable_for": [
-        "timing sample size (SYNTH_KNOWN)",
+        "G2 four effect classes",
         "second voice",
-        "slow_zoom onset accuracy"
+        "slow_zoom onset accuracy",
+        "timing sample size"
       ],
       "not_usable_for": [
         "realHumanTiming",
@@ -343,6 +398,7 @@
       "kind": "SYNTH_KNOWN",
       "truth_class": "SYNTH_KNOWN",
       "split": "dev",
+      "purpose": "development fixture",
       "path": "tests/fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",
       "ground_truth": "tests/fixtures/clips/fx_e_zh_landscape/ground_truth.json",
       "sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
@@ -355,13 +411,13 @@
       "language": "zh",
       "source": {
         "type": "synthetic_tts",
-        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
         "voice": "Tingting (zh_CN), 178 wpm",
         "visuals": "program-generated graphic artwork (Pillow), fixed seed",
         "spec": "tests/fixtures/specs/fx_e_zh_landscape.json"
       },
       "license": "synthetic (macOS say + generated artwork), no third-party rights",
-      "summary": "Landscape 16:9 timing-sample clip: 17 units with percentages (百分之八十七 / 百分之五十 / 一半), a 3-step list, three conclusion sentences (所以 / 结论是 / 结论很清楚).",
+      "summary": "Landscape 16:9 G2 clip: 17 units with percentages (百分之八十七 / 百分之五十 / 一半), a 3-step list, three conclusion sentences (所以 / 结论是 / 结论很清楚).",
       "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
       "camera_motion": [
         "static"
@@ -399,9 +455,10 @@
         "evidence": "artifacts/vision/fx_e_zh_landscape.vision.json"
       },
       "usable_for": [
-        "timing sample size (SYNTH_KNOWN)",
+        "G2 four effect classes",
         "16:9",
-        "G2 percentage/conclusion anchors"
+        "G2 percentage/conclusion anchors",
+        "timing sample size"
       ],
       "not_usable_for": [
         "realHumanTiming",
@@ -415,6 +472,7 @@
       "kind": "SYNTH_KNOWN",
       "truth_class": "SYNTH_KNOWN",
       "split": "dev",
+      "purpose": "development fixture",
       "path": "tests/fixtures/clips/fx_test_cuts/fx_test_cuts.mp4",
       "ground_truth": "tests/fixtures/clips/fx_test_cuts/ground_truth.json",
       "sha256": "74bed52956706e6741c2c19176f9aaba18f1a0f31068370f4cbb6af23fd9642c",
@@ -427,7 +485,7 @@
       "language": "zh",
       "source": {
         "type": "synthetic_tts",
-        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
         "voice": "Tingting (zh_CN), 175 wpm",
         "visuals": "program-generated graphic artwork (Pillow), fixed seed",
         "spec": "tests/fixtures/specs/fx_test_cuts.json"
@@ -487,10 +545,229 @@
       "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
     },
     {
+      "id": "fx_t1_zh_phrase",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "calibration",
+      "purpose": "time-only calibration; not for aesthetics or real-footage claims",
+      "path": "tests/fixtures/clips/fx_t1_zh_phrase/fx_t1_zh_phrase.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_t1_zh_phrase/ground_truth.json",
+      "sha256": "6529aa797a4b2b6a4218828ca9d2d5d55db3cc6d3f6a2a03829fae30b1ea6e74",
+      "duration_s": 40.221,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 1005,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
+        "voice": "Tingting (zh_CN), 158 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_t1_zh_phrase.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Timing-calibration clip #1: 20 short units (5-9 characters), every unit starts with the phrase the anchor rules must emit (numbers / list items / keywords / conclusions), so each unit is an independently checkable timing event.",
+      "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 40.220958,
+          "start_frame": 0,
+          "end_frame": 1006
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time",
+        "anchor_onset"
+      ],
+      "units": {
+        "count": 20,
+        "roles": {
+          "keyword": 11,
+          "list_item": 3,
+          "number": 6
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": null
+      },
+      "usable_for": [
+        "timing accuracy calibration: unit-initial anchor vs assembly-truth onset",
+        ">=50 independent events across fx_t1-t3"
+      ],
+      "not_usable_for": [
+        "aesthetics",
+        "real human speech claims",
+        "G2 effect variety"
+      ],
+      "timing_truth": true,
+      "note": "Calibration material: synthetic prosody, valid for engineering timing checks only."
+    },
+    {
+      "id": "fx_t2_zh_phrase",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "calibration",
+      "purpose": "time-only calibration; not for aesthetics or real-footage claims",
+      "path": "tests/fixtures/clips/fx_t2_zh_phrase/fx_t2_zh_phrase.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_t2_zh_phrase/ground_truth.json",
+      "sha256": "bbb5f946968d617ebb4cd0b9dbccafa830cb9bd13c3898ca0c27036a3ccc37f5",
+      "duration_s": 40.755,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 1017,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
+        "voice": "Tingting (zh_CN), 158 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_t2_zh_phrase.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Timing-calibration clip #2: 20 short units (5-9 characters), every unit starts with the phrase the anchor rules must emit (numbers / list items / keywords / conclusions), so each unit is an independently checkable timing event.",
+      "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 39.555646,
+          "start_frame": 0,
+          "end_frame": 989
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time",
+        "anchor_onset"
+      ],
+      "units": {
+        "count": 20,
+        "roles": {
+          "keyword": 14,
+          "list_item": 6
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": null
+      },
+      "usable_for": [
+        "timing accuracy calibration: unit-initial anchor vs assembly-truth onset",
+        ">=50 independent events across fx_t1-t3"
+      ],
+      "not_usable_for": [
+        "aesthetics",
+        "real human speech claims",
+        "G2 effect variety"
+      ],
+      "timing_truth": true,
+      "note": "Calibration material: synthetic prosody, valid for engineering timing checks only."
+    },
+    {
+      "id": "fx_t3_zh_phrase",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "calibration",
+      "purpose": "time-only calibration; not for aesthetics or real-footage claims",
+      "path": "tests/fixtures/clips/fx_t3_zh_phrase/fx_t3_zh_phrase.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_t3_zh_phrase/ground_truth.json",
+      "sha256": "cce8e9e40e6e5920824a814213a9183e5614a99c4860e02865e7ba3c426cc999",
+      "duration_s": 41.0,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 1025,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; each unit's onset measured on its wav during assembly (never from ASR)",
+        "voice": "Tingting (zh_CN), 158 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_t3_zh_phrase.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Timing-calibration clip #3: 20 short units (5-9 characters), every unit starts with the phrase the anchor rules must emit (numbers / list items / keywords / conclusions), so each unit is an independently checkable timing event.",
+      "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 41.00175,
+          "start_frame": 0,
+          "end_frame": 1025
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time",
+        "anchor_onset"
+      ],
+      "units": {
+        "count": 20,
+        "roles": {
+          "keyword": 11,
+          "list_item": 4,
+          "number": 5
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": null
+      },
+      "usable_for": [
+        "timing accuracy calibration: unit-initial anchor vs assembly-truth onset",
+        ">=50 independent events across fx_t1-t3"
+      ],
+      "not_usable_for": [
+        "aesthetics",
+        "real human speech claims",
+        "G2 effect variety"
+      ],
+      "timing_truth": true,
+      "note": "Calibration material: synthetic prosody, valid for engineering timing checks only."
+    },
+    {
       "id": "fx_pd_real_16x9_a",
       "kind": "REAL_PD",
       "truth_class": "MACHINE_WEAK",
       "split": "dev",
+      "purpose": "face protection + real-footage smoke test",
       "path": "tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
       "ground_truth": null,
       "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
@@ -513,7 +790,7 @@
         "processing": "trimmed and upscaled 854x480 -> 1280x720 (ffmpeg)"
       },
       "license": "Public domain (U.S. Government work, 17 U.S.C. §105)",
-      "summary": "Real talking-head footage of a real person (US weekly address, public domain), English speech; trimmed segment 6-30 s of the source.",
+      "summary": "Real talking-head footage of a real person (US weekly address, public domain), English speech; trimmed 6-30 s of the source.",
       "person_position": "real presenter, face box [491, 87, 280, 392] px (measured with YuNet), coverage 1.0",
       "camera_motion": "static",
       "shots": [
@@ -552,21 +829,22 @@
       "usable_for": [
         "face protection / avoid-face layout",
         "real-footage robustness smoke test",
-        "timing via weak labels only (MACHINE_WEAK)"
+        "timing only as MACHINE_WEAK (weak labels)"
       ],
       "not_usable_for": [
-        "timing accuracy acceptance: there are NO human word/event labels",
+        "timing accuracy acceptance: NO human word/event labels",
         "P90 timing claims",
         "Chinese speech accuracy"
       ],
       "timing_truth": false,
-      "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts can only be used for development regression, never as an independent timing truth."
+      "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts are development regression only, never an independent timing truth."
     },
     {
       "id": "fx_pd_real_16x9_b",
       "kind": "REAL_PD",
       "truth_class": "MACHINE_WEAK",
       "split": "dev",
+      "purpose": "face protection + real-footage smoke test",
       "path": "tests/fixtures/clips/fx_pd_real_16x9_b/fx_pd_real_16x9_b.mp4",
       "ground_truth": null,
       "sha256": "b463bcba53983f5ec95029ada62171efdd6d4a8137fd7fa4cac131a5099b04ff",
@@ -589,7 +867,7 @@
         "processing": "trimmed and upscaled 854x480 -> 1280x720 (ffmpeg)"
       },
       "license": "Public domain (U.S. Government work, 17 U.S.C. §105)",
-      "summary": "Real talking-head footage of a real person (US weekly address, public domain), English speech; trimmed segment 66-90 s of the source.",
+      "summary": "Real talking-head footage of a real person (US weekly address, public domain), English speech; trimmed 66-90 s of the source.",
       "person_position": "real presenter, face box [490, 97, 288, 381] px (measured with YuNet), coverage 1.0",
       "camera_motion": "static",
       "shots": [
@@ -628,15 +906,15 @@
       "usable_for": [
         "face protection / avoid-face layout",
         "real-footage robustness smoke test",
-        "timing via weak labels only (MACHINE_WEAK)"
+        "timing only as MACHINE_WEAK (weak labels)"
       ],
       "not_usable_for": [
-        "timing accuracy acceptance: there are NO human word/event labels",
+        "timing accuracy acceptance: NO human word/event labels",
         "P90 timing claims",
         "Chinese speech accuracy"
       ],
       "timing_truth": false,
-      "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts can only be used for development regression, never as an independent timing truth."
+      "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts are development regression only, never an independent timing truth."
     }
   ]
 }

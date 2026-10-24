@@ -85,8 +85,29 @@ def _audio_stats(path: Path) -> dict[str, float]:
         raw.unlink(missing_ok=True)
 
 
+_T2S = None
+
+
+def _to_simplified(text: str) -> str:
+    """Fold traditional Chinese to simplified so ASR script variants still match.
+
+    Whisper occasionally emits traditional characters for Mandarin; matching text
+    must not silently fail because of that (opencc is optional, pure Python).
+    """
+    global _T2S
+    if _T2S is None:
+        try:
+            import opencc
+            _T2S = opencc.OpenCC("t2s")
+        except Exception:  # pragma: no cover - optional dependency
+            _T2S = False
+    if _T2S:
+        return _T2S.convert(text)
+    return text
+
+
 def _norm_text(s: str) -> str:
-    return "".join(ch for ch in str(s) if ch.isalnum())
+    return "".join(ch for ch in _to_simplified(str(s)) if ch.isalnum())
 
 
 def _match_truth(anchor_text: str, units: list[dict]) -> dict | None:
@@ -150,46 +171,89 @@ def _unit_matches(anchor_text: str, units: list[dict]) -> list[dict]:
     return out
 
 
+def _global_noise(ir: dict, rendered: np.ndarray, source: np.ndarray) -> float:
+    """Changed-pixel ratio baseline from frames outside every element window."""
+    n = len(rendered)
+    inside = np.zeros(n, dtype=bool)
+    for el in ir.get("elements", []):
+        w = el["window"]
+        inside[max(0, int(w["start_frame"]) - 2):min(n, int(w["end_frame"]) + 2)] = True
+    idx = np.nonzero(~inside)[0]
+    if idx.size == 0:
+        return 0.0
+    step = max(1, idx.size // 60)
+    sample = idx[::step][:60]
+    ratios = (np.abs(rendered[sample].astype(np.int32) - source[sample].astype(np.int32)) > 8).mean(axis=1)
+    return float(np.median(ratios))
+
+
+def _region_series(el: dict, rendered: np.ndarray, source: np.ndarray,
+                   width: int, height: int, lo: int, hi: int) -> np.ndarray:
+    """Mean |Δ| per frame inside the element's own declared box (low-res grid)."""
+    box = el["layout"]["box"]
+    x0 = max(0, int(box[0] * LOW_W / width) - 3)
+    x1 = min(LOW_W, int((box[0] + box[2]) * LOW_W / width) + 3)
+    hh = rendered.shape[1] // LOW_W
+    y0 = max(0, int(box[1] * hh / height) - 3)
+    y1 = min(hh, int((box[1] + box[3]) * hh / height) + 3)
+    if x1 <= x0 or y1 <= y0:
+        return np.zeros(hi - lo)
+    a = rendered[lo:hi].reshape(-1, hh, LOW_W)[:, y0:y1, x0:x1].astype(np.int32)
+    b = source[lo:hi].reshape(-1, hh, LOW_W)[:, y0:y1, x0:x1].astype(np.int32)
+    return np.abs(a - b).mean(axis=(1, 2))
+
+
 def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | None,
-            fps: float) -> dict[str, Any]:
+            fps: float, global_noise: float = 0.0) -> dict[str, Any]:
     """Measure rendered onsets and compare with independent truth where available.
 
-    Two quantities are reported separately:
-      * fidelity_ms   — rendered onset vs the anchor time frozen in the IR
-                        (rendering fidelity; expected ~1 frame);
-      * error_ms      — rendered onset vs an independent SYNTH_KNOWN/HUMAN event
-                        (semantic time accuracy; the spec's acceptance metric).
+    Onset is measured *inside each element's own box* (localised), so a faint fade-in
+    on a small card is still detected, and neighbour elements cannot mask it.
+    Targets come from SYNTH_KNOWN unit starts for anchors that begin a unit.
     """
+    width = int(ir["canvas"]["width"])
+    height = int(ir["canvas"]["height"])
     units = (truth or {}).get("units", []) if truth else []
+    try:  # prefer the anchors module's shared matching rule when available
+        from . import anchors as anchors_mod
+        prefix_match = getattr(anchors_mod, "prefix_matches", None)
+    except Exception:  # pragma: no cover
+        prefix_match = None
+
     elements = ir.get("elements", [])
+    anchor_index = {a.get("id"): a for a in ir.get("semantic", {}).get("anchors", [])}
     rows: list[dict[str, Any]] = []
 
     for el in elements:
         w = el["window"]
         sf, ef = int(w["start_frame"]), int(w["end_frame"])
-        lo, hi = max(0, sf - 6), min(len(rendered), ef + 2)
+        # Search from one frame before the declared start: an earlier neighbour may
+        # share the same box, and its tail must not be mistaken for this onset.
+        lo, hi = max(0, sf - 1), min(len(rendered), ef + 3)
         if hi - lo < 2:
             continue
-        raw = np.abs(rendered[lo:hi].astype(np.int32) - source[lo:hi].astype(np.int32))
-        ratio = (raw > 8).mean(axis=1)                      # changed-pixel fraction
-        pre_lo, pre_hi = max(0, sf - 12), max(1, sf - 1)
+        series = _region_series(el, rendered, source, width, height, lo, hi)
+        pre_lo, pre_hi = max(0, sf - 10), max(1, sf - 1)
         if pre_hi - pre_lo >= 2:
-            pr = (np.abs(rendered[pre_lo:pre_hi].astype(np.int32)
-                         - source[pre_lo:pre_hi].astype(np.int32)) > 8).mean(axis=1)
+            pre = _region_series(el, rendered, source, width, height, pre_lo, pre_hi)
+            # 20th percentile: the pre-window may still contain the tail of the
+            # previous element, and that must not raise the onset gate above the
+            # amplitude of the element being measured.
+            noise = float(np.percentile(pre, 20))
         else:
-            pr = np.array([0.0])
-        noise = float(np.median(pr))
-        peak = float(ratio.max()) if ratio.size else 0.0
-        thr = max(0.0012, noise * 4.0 + 0.0008, 0.12 * peak)
+            noise = float(global_noise) * 255.0
+        peak = float(series.max()) if series.size else 0.0
+        thr = max(0.8, noise * 2.5 + 0.4, 0.05 * peak)
+        if peak > 2.0:
+            thr = min(thr, 0.5 * peak)
         onset_idx = None
-        for k, val in enumerate(ratio):
+        for k, val in enumerate(series):
             if val > thr:
                 onset_idx = lo + k
                 break
         rendered_onset_s = (onset_idx / fps) if onset_idx is not None else None
 
-        anchor = next((a for a in ir.get("semantic", {}).get("anchors", [])
-                       if a.get("id") == el.get("anchor_ref")), None)
+        anchor = anchor_index.get(el.get("anchor_ref"))
         anchor_start = float(anchor.get("start_s")) if anchor else None
 
         target_s, truth_unit = None, None
@@ -214,6 +278,8 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
                          else round(abs(rendered_onset_s - target_s) * 1000, 2)),
             "detected": rendered_onset_s is not None,
             "measurable_against_truth": target_s is not None,
+            "peak_mean_abs_diff": round(peak, 3),
+            "detect_threshold": round(thr, 3),
         })
 
     errors = [r["error_ms"] for r in rows if r["error_ms"] is not None]
@@ -225,6 +291,7 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
         "rows": rows,
         "source": (truth or {}).get("kind", "none"),
         "threshold_p90_ms": P90_THRESHOLD_MS,
+        "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
         "fidelity": {
             "samples": len(fidelity),
             "p50_ms": round(statistics.median(fidelity), 2) if fidelity else None,
@@ -232,31 +299,25 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
         },
     }
     if not errors:
-        base.update({
-            "p50_ms": None, "p90_ms": None, "max_ms": None,
-            "verdict": NOT_RUN if not truth else BLOCKED,
-            "note": ("no element had an independent target onset: SYNTH_KNOWN truth is "
-                     "unit-granular and this IR only animates intra-unit words"),
-        })
+        base.update({"p50_ms": None, "p90_ms": None, "max_ms": None,
+                     "verdict": NOT_RUN if not truth else BLOCKED,
+                     "note": "no element had an independent target onset"})
         return base
-
-    errors_sorted = sorted(errors)
-    p90 = errors_sorted[max(0, int(round(0.9 * (len(errors_sorted) - 1))))]
+    e = sorted(errors)
+    p90 = e[max(0, int(round(0.9 * (len(e) - 1))))]
     by_effect: dict[str, list[float]] = {}
     for r in rows:
         if r["error_ms"] is not None:
             by_effect.setdefault(str(r["effect"]), []).append(r["error_ms"])
     base.update({
-        "p50_ms": round(statistics.median(errors), 2),
-        "p90_ms": round(p90, 2),
-        "max_ms": round(max(errors), 2),
+        "p50_ms": round(statistics.median(e), 2), "p90_ms": round(p90, 2), "max_ms": round(max(e), 2),
         "by_effect": {k: {"n": len(v), "p50_ms": round(statistics.median(v), 2),
                           "max_ms": round(max(v), 2)} for k, v in by_effect.items()},
         "frame_quantum_ms": round(1000.0 / fps, 2),
         "verdict": PASS if p90 <= P90_THRESHOLD_MS else FAIL,
-        "note": ("rendered onset measured from decoded pixels vs source; target is an "
-                 "independent SYNTH_KNOWN assembly time of a unit the anchor starts. "
-                 "ASR timings never define the target. n<50 is exploratory, not a P90 claim."),
+        "note": ("rendered onset measured inside each element box; target = independent "
+                 "SYNTH_KNOWN unit start of a unit the anchor begins. ASR never defines "
+                 "the target. n<50 is exploratory, not a P90 claim."),
     })
     return base
 
@@ -411,7 +472,8 @@ def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
 
     src_frames = _gray_frames(source)
     out_frames = _gray_frames(rendered)
-    timing = _timing(ir, out_frames, src_frames, truth, fps)
+    global_noise = _global_noise(ir, out_frames, src_frames)
+    timing = _timing(ir, out_frames, src_frames, truth, fps, global_noise)
     position = _position(ir, out_frames, src_frames, vision or {}, fps, width, height)
 
     src_audio = _audio_stats(source)

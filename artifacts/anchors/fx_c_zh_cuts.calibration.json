@@ -21,7 +21,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 0.78,
         "search_window_s": [
@@ -50,7 +50,7 @@
         "method": "energy_onset",
         "delta_ms": 30,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 2.93,
         "search_window_s": [
@@ -79,7 +79,7 @@
         "method": "energy_onset",
         "delta_ms": 110,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 5.67,
         "search_window_s": [
@@ -108,7 +108,7 @@
         "method": "energy_onset",
         "delta_ms": 120,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 7.96,
         "search_window_s": [
@@ -137,7 +137,7 @@
         "method": "energy_onset",
         "delta_ms": 90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 11.39,
         "search_window_s": [
@@ -166,7 +166,7 @@
         "method": "energy_onset",
         "delta_ms": -20,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 14.0,
         "search_window_s": [
@@ -195,7 +195,7 @@
         "method": "energy_onset",
         "delta_ms": 70,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 16.23,
         "search_window_s": [
@@ -209,13 +209,13 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:20Z",
+    "created_utc": "2026-10-24T09:40:58Z",
     "method": "calibration:asr_word_nearest_to_synth_truth",
     "n_anchors": 7,
     "truth_class": "SYNTH_KNOWN",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",

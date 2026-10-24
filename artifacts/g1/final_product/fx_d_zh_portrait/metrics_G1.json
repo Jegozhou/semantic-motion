@@ -1,0 +1,321 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G1",
+  "input_sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
+  "ir_sha256": "cdab4055bee8084f6c0882e8fffd3102b31578d3526456945c5d968177a9c720",
+  "render_sha256": "f175d26fedf5fe8f3236832ef659b888a2079dad345e43ad5f2c683efff4a598",
+  "timing": {
+    "samples": 6,
+    "elements": 11,
+    "detected_onsets": 11,
+    "rows": [
+      {
+        "element_id": "el_d01",
+        "effect": "keyword",
+        "text": "其实大多数人",
+        "window_start_s": 0.48,
+        "rendered_onset_s": 0.48,
+        "anchor_start_s": 0.5,
+        "fidelity_ms": 20.0,
+        "target_onset_s": 0.5,
+        "truth_unit": "u01",
+        "error_ms": 20.0,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 97.925,
+        "detect_threshold": 4.896
+      },
+      {
+        "element_id": "el_d03",
+        "effect": "card",
+        "text": "三个动效就够了",
+        "window_start_s": 6.36,
+        "rendered_onset_s": 6.36,
+        "anchor_start_s": 6.35,
+        "fidelity_ms": 10.0,
+        "target_onset_s": 6.3396,
+        "truth_unit": "u03",
+        "error_ms": 20.38,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 135.785,
+        "detect_threshold": 6.789
+      },
+      {
+        "element_id": "el_d04",
+        "effect": "list",
+        "text": "第一",
+        "window_start_s": 8.2,
+        "rendered_onset_s": 8.2,
+        "anchor_start_s": 8.19,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 127.94,
+        "detect_threshold": 63.97
+      },
+      {
+        "element_id": "el_d05",
+        "effect": "number",
+        "text": "两秒",
+        "window_start_s": 12.32,
+        "rendered_onset_s": 12.32,
+        "anchor_start_s": 12.34,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 105.297,
+        "detect_threshold": 5.265
+      },
+      {
+        "element_id": "el_d06",
+        "effect": "card",
+        "text": "所以我们把动效减半",
+        "window_start_s": 20.08,
+        "rendered_onset_s": 20.08,
+        "anchor_start_s": 20.08,
+        "fidelity_ms": 0.0,
+        "target_onset_s": 20.0707,
+        "truth_unit": "u09",
+        "error_ms": 9.33,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 102.056,
+        "detect_threshold": 5.103
+      },
+      {
+        "element_id": "el_d07",
+        "effect": "keyword",
+        "text": "其实删掉反而更",
+        "window_start_s": 24.28,
+        "rendered_onset_s": 24.28,
+        "anchor_start_s": 24.28,
+        "fidelity_ms": 0.0,
+        "target_onset_s": 24.2726,
+        "truth_unit": "u11",
+        "error_ms": 7.37,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 94.915,
+        "detect_threshold": 4.746
+      },
+      {
+        "element_id": "el_d08",
+        "effect": "list",
+        "text": "第一",
+        "window_start_s": 26.88,
+        "rendered_onset_s": 26.88,
+        "anchor_start_s": 26.89,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 132.136,
+        "detect_threshold": 6.607
+      },
+      {
+        "element_id": "el_d09",
+        "effect": "number",
+        "text": "一半",
+        "window_start_s": 29.8,
+        "rendered_onset_s": 29.8,
+        "anchor_start_s": 29.81,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 110.324,
+        "detect_threshold": 55.162
+      },
+      {
+        "element_id": "el_d10",
+        "effect": "number",
+        "text": "三个",
+        "window_start_s": 30.76,
+        "rendered_onset_s": 30.76,
+        "anchor_start_s": 30.77,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 108.205,
+        "detect_threshold": 54.102
+      },
+      {
+        "element_id": "el_d11",
+        "effect": "card",
+        "text": "第二个误区更常见",
+        "window_start_s": 34.92,
+        "rendered_onset_s": 34.92,
+        "anchor_start_s": 34.93,
+        "fidelity_ms": 10.0,
+        "target_onset_s": 34.9191,
+        "truth_unit": "u18",
+        "error_ms": 0.92,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 100.542,
+        "detect_threshold": 5.027
+      },
+      {
+        "element_id": "el_d12",
+        "effect": "list",
+        "text": "最后",
+        "window_start_s": 37.12,
+        "rendered_onset_s": 37.12,
+        "anchor_start_s": 37.12,
+        "fidelity_ms": 0.0,
+        "target_onset_s": 37.098,
+        "truth_unit": "u19",
+        "error_ms": 22.04,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 115.286,
+        "detect_threshold": 57.643
+      }
+    ],
+    "source": "SYNTH_KNOWN",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 11,
+      "p50_ms": 10.0,
+      "max_ms": 20.0
+    },
+    "p50_ms": 14.66,
+    "p90_ms": 20.38,
+    "max_ms": 22.04,
+    "by_effect": {
+      "keyword": {
+        "n": 2,
+        "p50_ms": 13.69,
+        "max_ms": 20.0
+      },
+      "card": {
+        "n": 3,
+        "p50_ms": 9.33,
+        "max_ms": 20.38
+      },
+      "list": {
+        "n": 1,
+        "p50_ms": 22.04,
+        "max_ms": 22.04
+      }
+    },
+    "frame_quantum_ms": 40.0,
+    "verdict": "PASS",
+    "note": "rendered onset measured inside each element box; target = independent SYNTH_KNOWN unit start of a unit the anchor begins. ASR never defines the target. n<50 is exploratory, not a P90 claim."
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 0,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 133,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 133,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 11,
+      "sampled_frames": 133
+    },
+    "raster_containment": {
+      "changed_pixels": 643582,
+      "inside_declared_box": 642851,
+      "value": 0.001136,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 0,
+      "frames_with_faces": 0,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 4,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 46.633,
+    "duration_rendered_s": 46.634,
+    "duration_delta_s": 0.001,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 1163,
+    "frames_rendered": 1163,
+    "audio": {
+      "src": {
+        "n_samples": 4476928,
+        "duration_s": 46.634667,
+        "rms_db": -19.023,
+        "peak_db": -4.825
+      },
+      "rendered": {
+        "n_samples": 4476928,
+        "duration_s": 46.634667,
+        "rms_db": -19.024,
+        "peak_db": -4.825
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.001,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
+    "rendered": "artifacts/g1/final_product/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
+    "truth": "tests/fixtures/clips/fx_d_zh_portrait/ground_truth.json",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

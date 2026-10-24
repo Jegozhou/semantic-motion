@@ -47,12 +47,17 @@ if str(ROOT / "src") not in sys.path:
 from semotion import anchors as A  # noqa: E402
 from semotion import asr  # noqa: E402
 
+# Timing-calibration fixtures: every 5-9 character unit starts with the phrase
+# the rules must emit, so each unit yields an independently checkable event.
+CALIBRATION_FIXTURES = ["fx_t1_zh_phrase", "fx_t2_zh_phrase", "fx_t3_zh_phrase"]
+
 DEFAULT_FIXTURES = [
     "fx_a_zh_portrait",
     "fx_b_zh_landscape",
     "fx_c_zh_cuts",
     "fx_d_zh_portrait",
     "fx_e_zh_landscape",
+    *CALIBRATION_FIXTURES,
 ]
 
 
@@ -86,6 +91,7 @@ def main(argv: list[str] | None = None) -> int:
     anchor_before: list[int] = []
     anchor_after: list[int] = []
     units_total = 0
+    calibration: dict = {}
 
     for fid in args.fixtures:
         clip = clips / fid / f"{fid}.mp4"
@@ -101,6 +107,8 @@ def main(argv: list[str] | None = None) -> int:
         cal = A.unit_onset_anchors(transcript, truth)
         cal_refined = A.refine_onsets(clip, cal, out_json=art / f"{fid}.calibration.json")
 
+        all_pairs, _unmatched = A.prefix_matches(refined, truth)     # after refinement
+        before_pairs, _ = A.prefix_matches(doc, truth)               # raw ASR word spans
         ab = A.timing_errors(doc, truth)
         aa = A.timing_errors(refined, truth)
         wb = A.timing_errors(cal, truth)
@@ -132,7 +140,28 @@ def main(argv: list[str] | None = None) -> int:
                 "per_unit_before_ms": {p["unit_id"]: p["error_ms"] for p in ab["matched"]},
             },
             "refine_deltas_ms": [a["refine"]["delta_ms"] for a in refined["anchors"]],
+            "prefix_events": {
+                "anchors_with_prefix_text": len(all_pairs),
+                "units_with_prefix_anchor": len({p["unit_id"] for p in all_pairs}),
+                "pairs": [
+                    {"unit_id": p["unit_id"], "unit_text": p["unit_text"],
+                     "anchor_id": p["anchor_id"], "anchor_kind": p["anchor_kind"],
+                     "anchor_text": p["anchor_text"],
+                     "error_ms_before": p["error_ms"]}
+                    for p in all_pairs
+                ],
+            },
         }
+        if fid in CALIBRATION_FIXTURES:
+            calibration[fid] = {
+                "units": len(truth),
+                "anchors": len(refined["anchors"]),
+                "events": len({p["unit_id"] for p in all_pairs}),
+                "anchors_with_prefix_text": len(all_pairs),
+                "errors_before_ms": [p["error_ms"] for p in before_pairs],
+                "errors_after_ms": [p["error_ms"] for p in all_pairs],
+                "pairs": report["per_fixture"][fid]["prefix_events"]["pairs"],
+            }
         print(f"{fid}: units={len(truth)} anchors={len(refined['anchors'])} "
               f"anchor n={aa['samples']} before p50/p90/max="
               f"{ab['p50_ms']}/{ab['p90_ms']}/{ab['max_ms']} after="
@@ -157,6 +186,36 @@ def main(argv: list[str] | None = None) -> int:
                  "P90 acceptance per spec §5 needs >= 50 independent events "
                  "and at least one independently labelled (HUMAN) set."),
     }
+    if calibration:
+        calib_report = {
+            "schema": "semotion.timing-calibration/1",
+            "created_utc": report["per_fixture"] and A._now(),
+            "truth_class": "SYNTH_KNOWN",
+            "split": "calibration",
+            "purpose": ("Minimum-event timing calibration: every unit starts with a phrase the "
+                        "anchor rules emit, so anchor->unit onset comparison is independent of ASR."),
+            "match_rule": ("anchor text (punctuation stripped, Traditional->Simplified folded) is a "
+                           "prefix of the unit text AND |anchor.start - unit.start| <= 0.9 s; "
+                           "one nearest anchor per unit counts as an event"),
+            "fixtures": calibration,
+            "totals": {
+                "units": sum(c["units"] for c in calibration.values()),
+                "events": sum(c["events"] for c in calibration.values()),
+                "errors_before_ms": [e for c in calibration.values() for e in c["errors_before_ms"]],
+                "errors_after_ms": [e for c in calibration.values() for e in c["errors_after_ms"]],
+                "before": stats([e for c in calibration.values() for e in c["errors_before_ms"]]),
+                "after": stats([e for c in calibration.values() for e in c["errors_after_ms"]]),
+                "min_events_required": 50,
+                "verdict": ("PASS" if sum(c["events"] for c in calibration.values()) >= 50
+                            else "FAIL"),
+            },
+            "note": ("Calibration material only: synthetic TTS with ffprobe-measured assembly "
+                     "truth. It says nothing about real-human speech or aesthetics."),
+        }
+        calib_path = art / "calibration_report.json"
+        calib_path.write_text(json.dumps(calib_report, ensure_ascii=False, indent=2) + "\n",
+                              encoding="utf-8")
+        print(f"calibration events: {calib_report['totals']['events']} -> {calib_path}")
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

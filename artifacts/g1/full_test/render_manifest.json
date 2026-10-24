@@ -1,14 +1,14 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "3783ef6f4b71e9eb63d6d81e2f235ffded59be47b3cbf694af90391c098ccc94",
+  "ir_sha256": "619476978bbae92f0fa86012e154fe0d829a4bee907baf401a33c7dbe95236f1",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
     "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df"
   },
   "output": {
     "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/full_test/fx_a_gt_full.mp4",
-    "sha256": "109bfacb77eb1a1a3ffe83bc07080618716792c907df44ab905728b1e88dbd91",
-    "size_bytes": 893852,
+    "sha256": "78a1938a1fe39ca2670bd7daaaf4bfad8736d0415c6386fd81272431b0d34d5b",
+    "size_bytes": 882774,
     "duration_s": 24.2,
     "n_frames": 605,
     "width": 1080,
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 25.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_a_gt_full_619476978bba",
     "rendered_frames": 401,
     "empty_frames": 0,
     "elements": [
@@ -40,7 +40,7 @@
         "start_frame": 158,
         "end_frame": 195,
         "frames": 37,
-        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d02"
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d02"
       },
       {
         "id": "el_d03",
@@ -49,7 +49,7 @@
         "start_frame": 196,
         "end_frame": 234,
         "frames": 38,
-        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d03"
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d03"
       },
       {
         "id": "el_d04",
@@ -58,7 +58,7 @@
         "start_frame": 284,
         "end_frame": 503,
         "frames": 219,
-        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d04"
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d04"
       },
       {
         "id": "el_d05",
@@ -67,7 +67,7 @@
         "start_frame": 546,
         "end_frame": 587,
         "frames": 41,
-        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d05"
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d05"
       },
       {
         "id": "el_d01",
@@ -76,13 +76,13 @@
         "start_frame": 40,
         "end_frame": 106,
         "frames": 66,
-        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d01"
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d01"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -framerate 25 -start_number 158 -i artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d02/f%05d.png -framerate 25 -start_number 196 -i artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d03/f%05d.png -framerate 25 -start_number 284 -i artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d04/f%05d.png -framerate 25 -start_number 546 -i artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d05/f%05d.png -framerate 25 -start_number 40 -i artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d01/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+6.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.320000)*lt(t,7.800000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.840000)*lt(t,9.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.360000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.360000)*lt(t,20.120000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+21.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,21.840000)*lt(t,23.480000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,1.600000)*lt(t,4.240000)'\"'\"'[v4];[v4]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -frames:v 605 -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/full_test/fx_a_gt_full.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -framerate 25 -start_number 158 -i artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d02/f%05d.png -framerate 25 -start_number 196 -i artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d03/f%05d.png -framerate 25 -start_number 284 -i artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d04/f%05d.png -framerate 25 -start_number 546 -i artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d05/f%05d.png -framerate 25 -start_number 40 -i artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d01/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+6.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.320000)*lt(t,7.800000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.840000)*lt(t,9.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.360000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.360000)*lt(t,20.120000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+21.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,21.840000)*lt(t,23.480000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,1.600000)*lt(t,4.240000)'\"'\"'[v4];[v4]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/full_test/fx_a_gt_full.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -97,39 +97,37 @@
     "-start_number",
     "158",
     "-i",
-    "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d02/f%05d.png",
+    "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d02/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "196",
     "-i",
-    "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d03/f%05d.png",
+    "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d03/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "284",
     "-i",
-    "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d04/f%05d.png",
+    "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d04/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "546",
     "-i",
-    "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d05/f%05d.png",
+    "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d05/f%05d.png",
     "-framerate",
     "25",
     "-start_number",
     "40",
     "-i",
-    "artifacts/tmp/render_fx_a_gt_full_3783ef6f4b71/el_d01/f%05d.png",
+    "artifacts/tmp/render_fx_a_gt_full_619476978bba/el_d01/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+6.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,6.320000)*lt(t,7.800000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,7.840000)*lt(t,9.360000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.360000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,11.360000)*lt(t,20.120000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+21.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,21.840000)*lt(t,23.480000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,1.600000)*lt(t,4.240000)'[v4];[v4]format=yuv420p[vout]",
     "-map",
     "[vout]",
     "-map",
     "0:a?",
-    "-frames:v",
-    "605",
     "-r",
     "25",
     "-c:v",
@@ -154,12 +152,21 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T09:33:09Z",
+  "created_utc": "2026-10-24T09:41:09Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.0,
     "duration_tolerance_s": 0.04,
+    "source_video_stream_duration_s": 24.2,
+    "output_video_stream_duration_s": 24.2,
+    "source_audio_stream_duration_s": 24.192,
+    "output_audio_stream_duration_s": 24.192,
+    "audio_stream_delta_s": 0.0,
     "frames_expected": 605,
+    "source_decoded_frames": 605,
+    "frames_out_vs_source_decoded": 0,
+    "frames_expected_vs_source_decoded": 0,
+    "frame_count_note": "expected frames come from the IR (container nb_frames first); duration*fps may differ by a few frames when the container pads the audio tail — that is not a fault",
     "resolution_expected": [
       1080,
       1920

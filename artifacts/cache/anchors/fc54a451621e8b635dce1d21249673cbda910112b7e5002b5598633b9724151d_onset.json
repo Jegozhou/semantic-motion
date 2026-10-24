@@ -3,83 +3,124 @@
   "source_sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
   "transcript_sha256": "fc54a451621e8b635dce1d21249673cbda910112b7e5002b5598633b9724151d",
   "duration_s": 20.08,
+  "language": "zh",
   "anchors": [
     {
       "id": "a00",
-      "kind": "keyword",
-      "text": "种",
-      "start_s": 0.78,
+      "kind": "list_item",
+      "text": "第三种",
+      "start_s": 0.5,
       "end_s": 1.22,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
       "segment_id": "s0",
       "word_ids": [
+        "w0",
         "w1"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "ordinal",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": -160,
+        "delta_ms": 500,
         "accepted": true,
-        "window_ms": 500,
-        "detector": "energy_rise",
-        "onset_s": 0.78,
+        "window_ms": 250,
+        "detector": "silence_forward",
+        "onset_s": 0.5,
         "search_window_s": [
-          0.69,
-          1.19
+          0.0,
+          0.25
         ],
         "quiet_threshold": 0.002746,
-        "climb": 0.123851,
-        "asr_start_s": 0.94
+        "climb": 0.005214,
+        "asr_start_s": 0.0
       }
     },
     {
       "id": "a01",
-      "kind": "keyword",
-      "text": "人",
-      "start_s": 2.93,
-      "end_s": 3.2,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
-      "segment_id": "s1",
+      "kind": "card",
+      "text": "第三种情况最难处理",
+      "start_s": 0.5,
+      "end_s": 2.9,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
       "word_ids": [
-        "w7"
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "w4",
+        "w5",
+        "w6"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "card_clause",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": 30,
+        "delta_ms": 500,
         "accepted": true,
-        "window_ms": 500,
-        "detector": "silence_exit",
-        "onset_s": 2.93,
+        "window_ms": 250,
+        "detector": "silence_forward",
+        "onset_s": 0.5,
         "search_window_s": [
-          2.65,
-          3.15
+          0.0,
+          0.25
         ],
         "quiet_threshold": 0.002746,
-        "climb": 0.010086,
-        "asr_start_s": 2.9
+        "climb": 0.005214,
+        "asr_start_s": 0.0
       }
     },
     {
       "id": "a02",
       "kind": "keyword",
-      "text": "第一,",
+      "text": "最难处理",
+      "start_s": 1.54,
+      "end_s": 2.9,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w3",
+        "w4",
+        "w5",
+        "w6"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 4,
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -140,
+        "accepted": true,
+        "window_ms": 250,
+        "detector": "energy_rise",
+        "onset_s": 1.54,
+        "search_window_s": [
+          1.43,
+          1.93
+        ],
+        "quiet_threshold": 0.002746,
+        "climb": 0.122589,
+        "asr_start_s": 1.68
+      }
+    },
+    {
+      "id": "a03",
+      "kind": "list_item",
+      "text": "第一",
       "start_s": 5.67,
       "end_s": 6.2,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
       "segment_id": "s2",
       "word_ids": [
         "w16"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "ordinal",
       "refine": {
         "method": "energy_onset",
         "delta_ms": 110,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 5.67,
         "search_window_s": [
@@ -92,23 +133,23 @@
       }
     },
     {
-      "id": "a03",
-      "kind": "keyword",
-      "text": "第二,",
+      "id": "a04",
+      "kind": "list_item",
+      "text": "第二",
       "start_s": 7.96,
       "end_s": 8.48,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
       "segment_id": "s3",
       "word_ids": [
         "w22"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "ordinal",
       "refine": {
         "method": "energy_onset",
         "delta_ms": 120,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 7.96,
         "search_window_s": [
@@ -121,23 +162,23 @@
       }
     },
     {
-      "id": "a04",
-      "kind": "keyword",
-      "text": "第三,",
+      "id": "a05",
+      "kind": "list_item",
+      "text": "第三",
       "start_s": 11.39,
       "end_s": 11.9,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
       "segment_id": "s4",
       "word_ids": [
         "w32"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "ordinal",
       "refine": {
         "method": "energy_onset",
         "delta_ms": 90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 11.39,
         "search_window_s": [
@@ -150,23 +191,54 @@
       }
     },
     {
-      "id": "a05",
-      "kind": "keyword",
-      "text": "九",
+      "id": "a06",
+      "kind": "list_item",
+      "text": "最后",
+      "start_s": 12.23,
+      "end_s": 12.78,
+      "confidence": 0.72,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s4",
+      "word_ids": [
+        "w33",
+        "w34"
+      ],
+      "rule": "ordinal_final",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -90,
+        "accepted": true,
+        "window_ms": 250,
+        "detector": "silence_exit",
+        "onset_s": 12.23,
+        "search_window_s": [
+          12.07,
+          12.57
+        ],
+        "quiet_threshold": 0.002746,
+        "climb": 0.008815,
+        "asr_start_s": 12.32
+      }
+    },
+    {
+      "id": "a07",
+      "kind": "number",
+      "text": "九成",
       "start_s": 14.0,
-      "end_s": 14.24,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
+      "end_s": 14.46,
+      "confidence": 0.86,
+      "source": "ASR_ALIGNED",
       "segment_id": "s5",
       "word_ids": [
-        "w39"
+        "w39",
+        "w40"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "chinese_number",
       "refine": {
         "method": "energy_onset",
         "delta_ms": -20,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 14.0,
         "search_window_s": [
@@ -179,53 +251,58 @@
       }
     },
     {
-      "id": "a06",
-      "kind": "keyword",
-      "text": "剩",
-      "start_s": 16.23,
-      "end_s": 16.56,
-      "confidence": 1.0,
-      "source": "SYNTH_KNOWN",
+      "id": "a08",
+      "kind": "number",
+      "text": "10%",
+      "start_s": 16.94,
+      "end_s": 18.06,
+      "confidence": 0.92,
+      "source": "ASR_ALIGNED",
       "segment_id": "s6",
       "word_ids": [
-        "w47"
+        "w50",
+        "w51"
       ],
-      "rule": "calibration_unit_onset",
+      "rule": "percent_symbol",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": 70,
+        "delta_ms": -80,
         "accepted": true,
-        "window_ms": 500,
-        "detector": "silence_exit",
-        "onset_s": 16.23,
+        "window_ms": 250,
+        "detector": "energy_rise",
+        "onset_s": 16.94,
         "search_window_s": [
-          15.91,
-          16.41
+          16.77,
+          17.27
         ],
         "quiet_threshold": 0.002746,
-        "climb": 0.004722,
-        "asr_start_s": 16.16
+        "climb": 0.12419,
+        "asr_start_s": 17.02
       }
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:20Z",
-    "method": "calibration:asr_word_nearest_to_synth_truth",
-    "n_anchors": 7,
-    "truth_class": "SYNTH_KNOWN",
+    "created_utc": "2026-10-24T09:40:58Z",
+    "method": "asr_word_spans+rule_classifier",
+    "n_anchors": 9,
+    "kinds": {
+      "card": 1,
+      "keyword": 1,
+      "list_item": 5,
+      "number": 2
+    },
+    "truth_class": "MACHINE_WEAK",
+    "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
       "video_sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
-      "n_anchors": 7,
-      "n_accepted": 7,
+      "n_anchors": 9,
+      "n_accepted": 9,
       "n_rejected": 0
-    },
-    "kinds": {
-      "keyword": 7
     }
   }
 }

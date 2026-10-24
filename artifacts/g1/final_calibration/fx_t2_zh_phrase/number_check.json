@@ -1,0 +1,12 @@
+{
+  "schema": "semotion.number_check/1",
+  "video": "artifacts/g1/final_calibration/fx_t2_zh_phrase/fx_t2_zh_phrase_motion.mp4",
+  "ir": "artifacts/g1/final_calibration/fx_t2_zh_phrase/motion_ir.json",
+  "checks": [],
+  "verdict": "NOT RUN",
+  "readable": 0,
+  "mismatches": 0,
+  "unreadable": [],
+  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
+  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+}

@@ -1,0 +1,123 @@
+{
+  "gate": "G2",
+  "style": "smart_balanced",
+  "started_utc": "2026-10-24T09:59:39Z",
+  "finished_utc": "2026-10-24T09:59:52Z",
+  "fixtures": [
+    "fx_b_zh_landscape",
+    "fx_d_zh_portrait"
+  ],
+  "results": [
+    {
+      "fixture": "fx_b_zh_landscape",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g2/probe/fx_b_zh_landscape/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 2,
+        "p50_ms": 9.19,
+        "p90_ms": 12.94,
+        "max_ms": 12.94,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g2/probe/fx_b_zh_landscape/fx_b_zh_landscape_motion.mp4",
+      "review_frames": [
+        "artifacts/g2/probe/frames/fx_b_zh_landscape_motion_t04.00.png",
+        "artifacts/g2/probe/frames/fx_b_zh_landscape_motion_t11.96.png",
+        "artifacts/g2/probe/frames/fx_b_zh_landscape_motion_t15.96.png"
+      ]
+    },
+    {
+      "fixture": "fx_d_zh_portrait",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g2/probe/fx_d_zh_portrait/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 6,
+        "p50_ms": 14.66,
+        "p90_ms": 20.38,
+        "max_ms": 22.04,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g2/probe/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
+      "review_frames": [
+        "artifacts/g2/probe/frames/fx_d_zh_portrait_motion_t00.60.png",
+        "artifacts/g2/probe/frames/fx_d_zh_portrait_motion_t06.48.png",
+        "artifacts/g2/probe/frames/fx_d_zh_portrait_motion_t08.32.png"
+      ]
+    }
+  ],
+  "pooled_timing": {
+    "n": 8,
+    "p50_ms": 11.13,
+    "p90_ms": 20.38,
+    "max_ms": 22.04,
+    "threshold_p90_ms": 100.0,
+    "verdict": "PASS",
+    "samples_needed_for_p90_claim": 50,
+    "claim_scope": "exploratory only (<50 independent events)",
+    "rows": [
+      {
+        "fixture": "fx_b_zh_landscape",
+        "effect": "list",
+        "error_ms": 12.94
+      },
+      {
+        "fixture": "fx_b_zh_landscape",
+        "effect": "card",
+        "error_ms": 5.44
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "keyword",
+        "error_ms": 20.0
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "card",
+        "error_ms": 20.38
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "card",
+        "error_ms": 9.33
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "keyword",
+        "error_ms": 7.37
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "card",
+        "error_ms": 0.92
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "list",
+        "error_ms": 22.04
+      }
+    ]
+  },
+  "determinism": null,
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

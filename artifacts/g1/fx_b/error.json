@@ -1,0 +1,40 @@
+{
+  "error": {
+    "code": "E_RENDER_FAILED",
+    "message": "render verification failed: duration delta 0.140s exceeds 1 frame (0.040s)",
+    "cmd": "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4 -framerate 25 -start_number 97 -i artifacts/tmp/render_fx_b_zh_landscape_motion_3760fa704de0/el_d03/f%05d.png -framerate 25 -start_number 226 -i artifacts/tmp/render_fx_b_zh_landscape_motion_3760fa704de0/el_d04/f%05d.png -framerate 25 -start_number 502 -i artifacts/tmp/render_fx_b_zh_landscape_motion_3760fa704de0/el_d07/f%05d.png -framerate 25 -start_number 526 -i artifacts/tmp/render_fx_b_zh_landscape_motion_3760fa704de0/el_d08/f%05d.png -framerate 25 -start_number 396 -i artifacts/tmp/render_fx_b_zh_landscape_motion_3760fa704de0/el_d05/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+3.880000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.880000)*lt(t,7.400000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+9.040000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,9.040000)*lt(t,10.120000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+20.080000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,20.080000)*lt(t,20.960000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+21.040000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,21.040000)*lt(t,21.760000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+15.840000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.840000)*lt(t,18.080000)'\"'\"'[v4];[v4]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -frames:v 651 -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/fx_b/fx_b_zh_landscape_motion.mp4",
+    "stderr_tail": ""
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.05
+    },
+    {
+      "step": "render",
+      "status": "failed",
+      "error": "[E_RENDER_FAILED] render verification failed: duration delta 0.140s exceeds 1 frame (0.040s)"
+    }
+  ]
+}

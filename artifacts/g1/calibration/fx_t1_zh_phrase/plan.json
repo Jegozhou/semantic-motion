@@ -1,0 +1,444 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "calibration",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "duration_s": 40.221,
+  "decisions": [
+    {
+      "id": "cal01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "九成",
+        "items": null
+      },
+      "window": {
+        "start_s": 0.51,
+        "end_s": 1.43
+      }
+    },
+    {
+      "id": "cal04",
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.74,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "步驟",
+        "items": null
+      },
+      "window": {
+        "start_s": 3.1,
+        "end_s": 4.11
+      }
+    },
+    {
+      "id": "cal05",
+      "anchor_id": "a04",
+      "anchor_ids": [
+        "a04"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "六次",
+        "items": null
+      },
+      "window": {
+        "start_s": 4.67,
+        "end_s": 5.59
+      }
+    },
+    {
+      "id": "cal06",
+      "anchor_id": "a05",
+      "anchor_ids": [
+        "a05"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.84,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "一半",
+        "items": null
+      },
+      "window": {
+        "start_s": 6.72,
+        "end_s": 7.51
+      }
+    },
+    {
+      "id": "cal07",
+      "anchor_id": "a06",
+      "anchor_ids": [
+        "a06"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "兩倍",
+        "items": null
+      },
+      "window": {
+        "start_s": 8.69,
+        "end_s": 9.61
+      }
+    },
+    {
+      "id": "cal08",
+      "anchor_id": "a07",
+      "anchor_ids": [
+        "a07"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "三成",
+        "items": null
+      },
+      "window": {
+        "start_s": 10.81,
+        "end_s": 11.79
+      }
+    },
+    {
+      "id": "cal09",
+      "anchor_id": "a08",
+      "anchor_ids": [
+        "a08"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "關鍵是節奏",
+        "items": null
+      },
+      "window": {
+        "start_s": 13.19,
+        "end_s": 14.92
+      }
+    },
+    {
+      "id": "cal10",
+      "anchor_id": "a09",
+      "anchor_ids": [
+        "a09"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "重點是留白",
+        "items": null
+      },
+      "window": {
+        "start_s": 14.97,
+        "end_s": 16.81
+      }
+    },
+    {
+      "id": "cal11",
+      "anchor_id": "a10",
+      "anchor_ids": [
+        "a10"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "核心是克制",
+        "items": null
+      },
+      "window": {
+        "start_s": 16.86,
+        "end_s": 18.56
+      }
+    },
+    {
+      "id": "cal12",
+      "anchor_id": "a11",
+      "anchor_ids": [
+        "a11"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "其實是順序",
+        "items": null
+      },
+      "window": {
+        "start_s": 18.61,
+        "end_s": 19.32
+      }
+    },
+    {
+      "id": "cal13",
+      "anchor_id": "a12",
+      "anchor_ids": [
+        "a12"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.74,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "順序",
+        "items": null
+      },
+      "window": {
+        "start_s": 19.37,
+        "end_s": 20.35
+      }
+    },
+    {
+      "id": "cal14",
+      "anchor_id": "a13",
+      "anchor_ids": [
+        "a13"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.78,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "底線是先保認",
+        "items": null
+      },
+      "window": {
+        "start_s": 20.4,
+        "end_s": 22.35
+      }
+    },
+    {
+      "id": "cal15",
+      "anchor_id": "a14",
+      "anchor_ids": [
+        "a14"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.78,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "最難的是取捨",
+        "items": null
+      },
+      "window": {
+        "start_s": 22.4,
+        "end_s": 24.22
+      }
+    },
+    {
+      "id": "cal16",
+      "anchor_id": "a15",
+      "anchor_ids": [
+        "a15"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第一步",
+        "items": null
+      },
+      "window": {
+        "start_s": 24.27,
+        "end_s": 25.29
+      }
+    },
+    {
+      "id": "cal17",
+      "anchor_id": "a16",
+      "anchor_ids": [
+        "a16"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第二步",
+        "items": null
+      },
+      "window": {
+        "start_s": 25.96,
+        "end_s": 27.07
+      }
+    },
+    {
+      "id": "cal18",
+      "anchor_id": "a17",
+      "anchor_ids": [
+        "a17"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第三步",
+        "items": null
+      },
+      "window": {
+        "start_s": 27.69,
+        "end_s": 28.85
+      }
+    },
+    {
+      "id": "cal20",
+      "anchor_id": "a19",
+      "anchor_ids": [
+        "a19"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "結論是自動化",
+        "items": null
+      },
+      "window": {
+        "start_s": 29.5,
+        "end_s": 31.44
+      }
+    },
+    {
+      "id": "cal22",
+      "anchor_id": "a21",
+      "anchor_ids": [
+        "a21"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "所以我們先對齊",
+        "items": null
+      },
+      "window": {
+        "start_s": 31.49,
+        "end_s": 33.63
+      }
+    },
+    {
+      "id": "cal23",
+      "anchor_id": "a22",
+      "anchor_ids": [
+        "a22"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "總之",
+        "items": null
+      },
+      "window": {
+        "start_s": 33.68,
+        "end_s": 34.63
+      }
+    },
+    {
+      "id": "cal24",
+      "anchor_id": "a23",
+      "anchor_ids": [
+        "a23"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.76,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "相比",
+        "items": null
+      },
+      "window": {
+        "start_s": 35.49,
+        "end_s": 36.49
+      }
+    },
+    {
+      "id": "cal25",
+      "anchor_id": "a24",
+      "anchor_ids": [
+        "a24"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.72,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "最终",
+        "items": null
+      },
+      "window": {
+        "start_s": 37.37,
+        "end_s": 38.31
+      }
+    }
+  ],
+  "notes": {
+    "policy": "calibration: every non-plain anchor animated, windows tiled; used ONLY to measure timing, never presented as product output",
+    "skipped": [],
+    "budget": null,
+    "overlay_coverage": 0.6596
+  },
+  "provenance": {
+    "method": "rule_engine (calibration)",
+    "decision_model": "rules-v1-calibration",
+    "anchor_count": 25,
+    "decided_count": 21
+  }
+}

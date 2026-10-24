@@ -1,0 +1,401 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "f39a9b3542290669bb83dd0233180f61e88aae0f99997745eaa069e9a751c32a",
+  "transcript_sha256": "ec2640139959b3cdec0f0600fe358d9842faec917b6d8caaa57e8d6a1620f207",
+  "duration_s": 39.955,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "keyword",
+      "text": "其实剪辑不难",
+      "start_s": 0.0,
+      "end_s": 2.48,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "rule": "contrast_marker+phrase_merge",
+      "merged_words": 5
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "痛点是没有结构",
+      "start_s": 2.48,
+      "end_s": 4.68,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w5",
+        "w6",
+        "w7",
+        "w8",
+        "w9",
+        "w10"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 6
+    },
+    {
+      "id": "a02",
+      "kind": "keyword",
+      "text": "误区是加太多",
+      "start_s": 4.68,
+      "end_s": 6.74,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w11",
+        "w12",
+        "w13",
+        "w14",
+        "w15",
+        "w16"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 6
+    },
+    {
+      "id": "a03",
+      "kind": "keyword",
+      "text": "真相是观众会走",
+      "start_s": 6.74,
+      "end_s": 9.06,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s3",
+      "word_ids": [
+        "w17",
+        "w18",
+        "w19",
+        "w20",
+        "w21",
+        "w22",
+        "w23"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 7
+    },
+    {
+      "id": "a04",
+      "kind": "keyword",
+      "text": "秘诀是节奏",
+      "start_s": 9.06,
+      "end_s": 10.74,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s4",
+      "word_ids": [
+        "w24",
+        "w25",
+        "w26",
+        "w27",
+        "w28"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 5
+    },
+    {
+      "id": "a05",
+      "kind": "keyword",
+      "text": "关键是时间",
+      "start_s": 10.74,
+      "end_s": 12.0,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s5",
+      "word_ids": [
+        "w29",
+        "w30",
+        "w31",
+        "w32"
+      ],
+      "rule": "contrast_marker+phrase_merge",
+      "merged_words": 4
+    },
+    {
+      "id": "a06",
+      "kind": "keyword",
+      "text": "重点是信息",
+      "start_s": 12.56,
+      "end_s": 14.16,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s6",
+      "word_ids": [
+        "w33",
+        "w34",
+        "w35",
+        "w36",
+        "w37"
+      ],
+      "rule": "contrast_marker+phrase_merge",
+      "merged_words": 5
+    },
+    {
+      "id": "a07",
+      "kind": "keyword",
+      "text": "核心是内容",
+      "start_s": 14.58,
+      "end_s": 16.36,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s7",
+      "word_ids": [
+        "w38",
+        "w39",
+        "w40",
+        "w41",
+        "w42"
+      ],
+      "rule": "contrast_marker+phrase_merge",
+      "merged_words": 5
+    },
+    {
+      "id": "a08",
+      "kind": "keyword",
+      "text": "本质是取舍",
+      "start_s": 16.36,
+      "end_s": 18.1,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s8",
+      "word_ids": [
+        "w43",
+        "w44",
+        "w45",
+        "w46",
+        "w47"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 5
+    },
+    {
+      "id": "a09",
+      "kind": "conclusion",
+      "text": "先说结论",
+      "start_s": 18.1,
+      "end_s": 19.36,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s9",
+      "word_ids": [
+        "w48",
+        "w49",
+        "w50",
+        "w51"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a10",
+      "kind": "card",
+      "text": "先说结论再改",
+      "start_s": 18.1,
+      "end_s": 20.32,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s9",
+      "word_ids": [
+        "w48",
+        "w49",
+        "w50",
+        "w51",
+        "w52",
+        "w53"
+      ],
+      "rule": "card_clause"
+    },
+    {
+      "id": "a11",
+      "kind": "conclusion",
+      "text": "结论",
+      "start_s": 20.32,
+      "end_s": 21.0,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s10",
+      "word_ids": [
+        "w54",
+        "w55"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a12",
+      "kind": "card",
+      "text": "结论是少及是多",
+      "start_s": 20.32,
+      "end_s": 22.2,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s10",
+      "word_ids": [
+        "w54",
+        "w55",
+        "w56",
+        "w57",
+        "w58",
+        "w59",
+        "w60"
+      ],
+      "rule": "card_clause"
+    },
+    {
+      "id": "a13",
+      "kind": "conclusion",
+      "text": "所以",
+      "start_s": 22.62,
+      "end_s": 23.22,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s11",
+      "word_ids": [
+        "w61"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a14",
+      "kind": "conclusion",
+      "text": "因此",
+      "start_s": 24.42,
+      "end_s": 25.1,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s12",
+      "word_ids": [
+        "w65",
+        "w66"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a15",
+      "kind": "conclusion",
+      "text": "总之",
+      "start_s": 26.28,
+      "end_s": 26.88,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s13",
+      "word_ids": [
+        "w70",
+        "w71"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a16",
+      "kind": "list_item",
+      "text": "首先",
+      "start_s": 28.06,
+      "end_s": 28.74,
+      "confidence": 0.82,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s14",
+      "word_ids": [
+        "w75"
+      ],
+      "rule": "ordinal_generic"
+    },
+    {
+      "id": "a17",
+      "kind": "list_item",
+      "text": "其次",
+      "start_s": 30.16,
+      "end_s": 30.76,
+      "confidence": 0.82,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s15",
+      "word_ids": [
+        "w79",
+        "w80"
+      ],
+      "rule": "ordinal_generic"
+    },
+    {
+      "id": "a18",
+      "kind": "list_item",
+      "text": "最后",
+      "start_s": 31.96,
+      "end_s": 32.56,
+      "confidence": 0.72,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s16",
+      "word_ids": [
+        "w84",
+        "w85"
+      ],
+      "rule": "ordinal_final"
+    },
+    {
+      "id": "a19",
+      "kind": "list_item",
+      "text": "一是",
+      "start_s": 33.76,
+      "end_s": 34.3,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s17",
+      "word_ids": [
+        "w89",
+        "w90"
+      ],
+      "rule": "enumeration"
+    },
+    {
+      "id": "a20",
+      "kind": "list_item",
+      "text": "二是",
+      "start_s": 35.46,
+      "end_s": 36.04,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s18",
+      "word_ids": [
+        "w94",
+        "w95"
+      ],
+      "rule": "enumeration"
+    },
+    {
+      "id": "a21",
+      "kind": "list_item",
+      "text": "三是",
+      "start_s": 37.3,
+      "end_s": 37.9,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s19",
+      "word_ids": [
+        "w99",
+        "w100"
+      ],
+      "rule": "enumeration"
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:39:21Z",
+    "method": "asr_word_spans+rule_classifier",
+    "n_anchors": 22,
+    "kinds": {
+      "card": 2,
+      "conclusion": 5,
+      "keyword": 9,
+      "list_item": 6
+    },
+    "truth_class": "MACHINE_WEAK",
+    "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
+    "refine": null
+  }
+}

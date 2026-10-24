@@ -1,0 +1,900 @@
+{
+  "schema": "semotion.transcript/1",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_b/fx_pd_real_16x9_b.mp4",
+    "sha256": "b463bcba53983f5ec95029ada62171efdd6d4a8137fd7fa4cac131a5099b04ff",
+    "duration_s": 24.0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "language": "en",
+  "model": {
+    "name": "faster-whisper",
+    "family": "whisper",
+    "size": "medium",
+    "device": "cpu",
+    "compute_type": "int8",
+    "version": "1.2.1",
+    "ctranslate2_version": "4.8.3",
+    "path": "/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f",
+    "beam_size": 5,
+    "word_timestamps": true
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start_s": 0.0,
+      "end_s": 4.1,
+      "text": "It's a plan that will save or create 3 to 4 million jobs over",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s1",
+      "start_s": 4.1,
+      "end_s": 8.02,
+      "text": "the next few years, and one that recognizes both the paradox and",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s2",
+      "start_s": 8.02,
+      "end_s": 9.28,
+      "text": "the promise of this moment.",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s3",
+      "start_s": 9.78,
+      "end_s": 12.2,
+      "text": "The fact that there are millions of Americans trying to",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s4",
+      "start_s": 12.2,
+      "end_s": 14.8,
+      "text": "find work, even as, all around the country,",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s5",
+      "start_s": 14.94,
+      "end_s": 16.56,
+      "text": "there's so much work to be done.",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s6",
+      "start_s": 17.38,
+      "end_s": 20.18,
+      "text": "That's why this is not just a short-term program to boost",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s7",
+      "start_s": 20.18,
+      "end_s": 20.62,
+      "text": "employment.",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    },
+    {
+      "id": "s8",
+      "start_s": 21.18,
+      "end_s": 23.98,
+      "text": "It's one that will invest in our most important priority.",
+      "avg_logprob": -0.117084,
+      "no_speech_prob": 0.041872
+    }
+  ],
+  "words": [
+    {
+      "id": "w0",
+      "segment_id": "s0",
+      "text": "It's",
+      "start_s": 0.0,
+      "end_s": 0.7,
+      "probability": 0.866636,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w1",
+      "segment_id": "s0",
+      "text": "a",
+      "start_s": 0.7,
+      "end_s": 0.86,
+      "probability": 0.998144,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w2",
+      "segment_id": "s0",
+      "text": "plan",
+      "start_s": 0.86,
+      "end_s": 1.0,
+      "probability": 0.998896,
+      "char_start": 7,
+      "char_end": 11
+    },
+    {
+      "id": "w3",
+      "segment_id": "s0",
+      "text": "that",
+      "start_s": 1.0,
+      "end_s": 1.14,
+      "probability": 0.999446,
+      "char_start": 12,
+      "char_end": 16
+    },
+    {
+      "id": "w4",
+      "segment_id": "s0",
+      "text": "will",
+      "start_s": 1.14,
+      "end_s": 1.34,
+      "probability": 0.99848,
+      "char_start": 17,
+      "char_end": 21
+    },
+    {
+      "id": "w5",
+      "segment_id": "s0",
+      "text": "save",
+      "start_s": 1.34,
+      "end_s": 1.62,
+      "probability": 0.998806,
+      "char_start": 22,
+      "char_end": 26
+    },
+    {
+      "id": "w6",
+      "segment_id": "s0",
+      "text": "or",
+      "start_s": 1.62,
+      "end_s": 1.86,
+      "probability": 0.990476,
+      "char_start": 27,
+      "char_end": 29
+    },
+    {
+      "id": "w7",
+      "segment_id": "s0",
+      "text": "create",
+      "start_s": 1.86,
+      "end_s": 2.16,
+      "probability": 0.999353,
+      "char_start": 30,
+      "char_end": 36
+    },
+    {
+      "id": "w8",
+      "segment_id": "s0",
+      "text": "3",
+      "start_s": 2.16,
+      "end_s": 2.58,
+      "probability": 0.433858,
+      "char_start": 37,
+      "char_end": 38
+    },
+    {
+      "id": "w9",
+      "segment_id": "s0",
+      "text": "to",
+      "start_s": 2.58,
+      "end_s": 2.76,
+      "probability": 0.789546,
+      "char_start": 39,
+      "char_end": 41
+    },
+    {
+      "id": "w10",
+      "segment_id": "s0",
+      "text": "4",
+      "start_s": 2.76,
+      "end_s": 3.1,
+      "probability": 0.996749,
+      "char_start": 42,
+      "char_end": 43
+    },
+    {
+      "id": "w11",
+      "segment_id": "s0",
+      "text": "million",
+      "start_s": 3.1,
+      "end_s": 3.52,
+      "probability": 0.997326,
+      "char_start": 44,
+      "char_end": 51
+    },
+    {
+      "id": "w12",
+      "segment_id": "s0",
+      "text": "jobs",
+      "start_s": 3.52,
+      "end_s": 3.88,
+      "probability": 0.999381,
+      "char_start": 52,
+      "char_end": 56
+    },
+    {
+      "id": "w13",
+      "segment_id": "s0",
+      "text": "over",
+      "start_s": 3.88,
+      "end_s": 4.1,
+      "probability": 0.998439,
+      "char_start": 57,
+      "char_end": 61
+    },
+    {
+      "id": "w14",
+      "segment_id": "s1",
+      "text": "the",
+      "start_s": 4.1,
+      "end_s": 4.2,
+      "probability": 0.999687,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w15",
+      "segment_id": "s1",
+      "text": "next",
+      "start_s": 4.2,
+      "end_s": 4.4,
+      "probability": 0.999531,
+      "char_start": 4,
+      "char_end": 8
+    },
+    {
+      "id": "w16",
+      "segment_id": "s1",
+      "text": "few",
+      "start_s": 4.4,
+      "end_s": 4.58,
+      "probability": 0.998824,
+      "char_start": 9,
+      "char_end": 12
+    },
+    {
+      "id": "w17",
+      "segment_id": "s1",
+      "text": "years,",
+      "start_s": 4.58,
+      "end_s": 4.96,
+      "probability": 0.9993,
+      "char_start": 13,
+      "char_end": 19
+    },
+    {
+      "id": "w18",
+      "segment_id": "s1",
+      "text": "and",
+      "start_s": 5.3,
+      "end_s": 5.52,
+      "probability": 0.999599,
+      "char_start": 20,
+      "char_end": 23
+    },
+    {
+      "id": "w19",
+      "segment_id": "s1",
+      "text": "one",
+      "start_s": 5.52,
+      "end_s": 5.66,
+      "probability": 0.9993,
+      "char_start": 24,
+      "char_end": 27
+    },
+    {
+      "id": "w20",
+      "segment_id": "s1",
+      "text": "that",
+      "start_s": 5.66,
+      "end_s": 5.96,
+      "probability": 0.99959,
+      "char_start": 28,
+      "char_end": 32
+    },
+    {
+      "id": "w21",
+      "segment_id": "s1",
+      "text": "recognizes",
+      "start_s": 5.96,
+      "end_s": 6.46,
+      "probability": 0.998709,
+      "char_start": 33,
+      "char_end": 43
+    },
+    {
+      "id": "w22",
+      "segment_id": "s1",
+      "text": "both",
+      "start_s": 6.46,
+      "end_s": 6.82,
+      "probability": 0.998839,
+      "char_start": 44,
+      "char_end": 48
+    },
+    {
+      "id": "w23",
+      "segment_id": "s1",
+      "text": "the",
+      "start_s": 6.82,
+      "end_s": 7.08,
+      "probability": 0.999119,
+      "char_start": 49,
+      "char_end": 52
+    },
+    {
+      "id": "w24",
+      "segment_id": "s1",
+      "text": "paradox",
+      "start_s": 7.08,
+      "end_s": 7.48,
+      "probability": 0.999232,
+      "char_start": 53,
+      "char_end": 60
+    },
+    {
+      "id": "w25",
+      "segment_id": "s1",
+      "text": "and",
+      "start_s": 7.48,
+      "end_s": 8.02,
+      "probability": 0.992876,
+      "char_start": 61,
+      "char_end": 64
+    },
+    {
+      "id": "w26",
+      "segment_id": "s2",
+      "text": "the",
+      "start_s": 8.02,
+      "end_s": 8.3,
+      "probability": 0.936925,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w27",
+      "segment_id": "s2",
+      "text": "promise",
+      "start_s": 8.3,
+      "end_s": 8.52,
+      "probability": 0.998873,
+      "char_start": 4,
+      "char_end": 11
+    },
+    {
+      "id": "w28",
+      "segment_id": "s2",
+      "text": "of",
+      "start_s": 8.52,
+      "end_s": 8.7,
+      "probability": 0.999086,
+      "char_start": 12,
+      "char_end": 14
+    },
+    {
+      "id": "w29",
+      "segment_id": "s2",
+      "text": "this",
+      "start_s": 8.7,
+      "end_s": 8.92,
+      "probability": 0.998711,
+      "char_start": 15,
+      "char_end": 19
+    },
+    {
+      "id": "w30",
+      "segment_id": "s2",
+      "text": "moment.",
+      "start_s": 8.92,
+      "end_s": 9.28,
+      "probability": 0.999438,
+      "char_start": 20,
+      "char_end": 27
+    },
+    {
+      "id": "w31",
+      "segment_id": "s3",
+      "text": "The",
+      "start_s": 9.78,
+      "end_s": 10.02,
+      "probability": 0.993966,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w32",
+      "segment_id": "s3",
+      "text": "fact",
+      "start_s": 10.02,
+      "end_s": 10.2,
+      "probability": 0.999495,
+      "char_start": 4,
+      "char_end": 8
+    },
+    {
+      "id": "w33",
+      "segment_id": "s3",
+      "text": "that",
+      "start_s": 10.2,
+      "end_s": 10.4,
+      "probability": 0.994286,
+      "char_start": 9,
+      "char_end": 13
+    },
+    {
+      "id": "w34",
+      "segment_id": "s3",
+      "text": "there",
+      "start_s": 10.4,
+      "end_s": 10.46,
+      "probability": 0.998185,
+      "char_start": 14,
+      "char_end": 19
+    },
+    {
+      "id": "w35",
+      "segment_id": "s3",
+      "text": "are",
+      "start_s": 10.46,
+      "end_s": 10.62,
+      "probability": 0.998227,
+      "char_start": 20,
+      "char_end": 23
+    },
+    {
+      "id": "w36",
+      "segment_id": "s3",
+      "text": "millions",
+      "start_s": 10.62,
+      "end_s": 10.98,
+      "probability": 0.99899,
+      "char_start": 24,
+      "char_end": 32
+    },
+    {
+      "id": "w37",
+      "segment_id": "s3",
+      "text": "of",
+      "start_s": 10.98,
+      "end_s": 11.26,
+      "probability": 0.999335,
+      "char_start": 33,
+      "char_end": 35
+    },
+    {
+      "id": "w38",
+      "segment_id": "s3",
+      "text": "Americans",
+      "start_s": 11.26,
+      "end_s": 11.54,
+      "probability": 0.997729,
+      "char_start": 36,
+      "char_end": 45
+    },
+    {
+      "id": "w39",
+      "segment_id": "s3",
+      "text": "trying",
+      "start_s": 11.54,
+      "end_s": 11.9,
+      "probability": 0.998844,
+      "char_start": 46,
+      "char_end": 52
+    },
+    {
+      "id": "w40",
+      "segment_id": "s3",
+      "text": "to",
+      "start_s": 11.9,
+      "end_s": 12.2,
+      "probability": 0.999108,
+      "char_start": 53,
+      "char_end": 55
+    },
+    {
+      "id": "w41",
+      "segment_id": "s4",
+      "text": "find",
+      "start_s": 12.2,
+      "end_s": 12.42,
+      "probability": 0.994838,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w42",
+      "segment_id": "s4",
+      "text": "work,",
+      "start_s": 12.42,
+      "end_s": 12.84,
+      "probability": 0.999464,
+      "char_start": 5,
+      "char_end": 10
+    },
+    {
+      "id": "w43",
+      "segment_id": "s4",
+      "text": "even",
+      "start_s": 13.04,
+      "end_s": 13.3,
+      "probability": 0.999383,
+      "char_start": 11,
+      "char_end": 15
+    },
+    {
+      "id": "w44",
+      "segment_id": "s4",
+      "text": "as,",
+      "start_s": 13.3,
+      "end_s": 13.88,
+      "probability": 0.997601,
+      "char_start": 16,
+      "char_end": 19
+    },
+    {
+      "id": "w45",
+      "segment_id": "s4",
+      "text": "all",
+      "start_s": 13.9,
+      "end_s": 14.16,
+      "probability": 0.997497,
+      "char_start": 20,
+      "char_end": 23
+    },
+    {
+      "id": "w46",
+      "segment_id": "s4",
+      "text": "around",
+      "start_s": 14.16,
+      "end_s": 14.32,
+      "probability": 0.994335,
+      "char_start": 24,
+      "char_end": 30
+    },
+    {
+      "id": "w47",
+      "segment_id": "s4",
+      "text": "the",
+      "start_s": 14.32,
+      "end_s": 14.5,
+      "probability": 0.998916,
+      "char_start": 31,
+      "char_end": 34
+    },
+    {
+      "id": "w48",
+      "segment_id": "s4",
+      "text": "country,",
+      "start_s": 14.5,
+      "end_s": 14.8,
+      "probability": 0.998964,
+      "char_start": 35,
+      "char_end": 43
+    },
+    {
+      "id": "w49",
+      "segment_id": "s5",
+      "text": "there's",
+      "start_s": 14.94,
+      "end_s": 15.16,
+      "probability": 0.882268,
+      "char_start": 0,
+      "char_end": 7
+    },
+    {
+      "id": "w50",
+      "segment_id": "s5",
+      "text": "so",
+      "start_s": 15.16,
+      "end_s": 15.44,
+      "probability": 0.997553,
+      "char_start": 8,
+      "char_end": 10
+    },
+    {
+      "id": "w51",
+      "segment_id": "s5",
+      "text": "much",
+      "start_s": 15.44,
+      "end_s": 15.68,
+      "probability": 0.999532,
+      "char_start": 11,
+      "char_end": 15
+    },
+    {
+      "id": "w52",
+      "segment_id": "s5",
+      "text": "work",
+      "start_s": 15.68,
+      "end_s": 15.86,
+      "probability": 0.994662,
+      "char_start": 16,
+      "char_end": 20
+    },
+    {
+      "id": "w53",
+      "segment_id": "s5",
+      "text": "to",
+      "start_s": 15.86,
+      "end_s": 16.06,
+      "probability": 0.998462,
+      "char_start": 21,
+      "char_end": 23
+    },
+    {
+      "id": "w54",
+      "segment_id": "s5",
+      "text": "be",
+      "start_s": 16.06,
+      "end_s": 16.2,
+      "probability": 0.998857,
+      "char_start": 24,
+      "char_end": 26
+    },
+    {
+      "id": "w55",
+      "segment_id": "s5",
+      "text": "done.",
+      "start_s": 16.2,
+      "end_s": 16.56,
+      "probability": 0.999784,
+      "char_start": 27,
+      "char_end": 32
+    },
+    {
+      "id": "w56",
+      "segment_id": "s6",
+      "text": "That's",
+      "start_s": 17.38,
+      "end_s": 17.72,
+      "probability": 0.995495,
+      "char_start": 0,
+      "char_end": 6
+    },
+    {
+      "id": "w57",
+      "segment_id": "s6",
+      "text": "why",
+      "start_s": 17.72,
+      "end_s": 17.92,
+      "probability": 0.999724,
+      "char_start": 7,
+      "char_end": 10
+    },
+    {
+      "id": "w58",
+      "segment_id": "s6",
+      "text": "this",
+      "start_s": 17.92,
+      "end_s": 18.1,
+      "probability": 0.991876,
+      "char_start": 11,
+      "char_end": 15
+    },
+    {
+      "id": "w59",
+      "segment_id": "s6",
+      "text": "is",
+      "start_s": 18.1,
+      "end_s": 18.28,
+      "probability": 0.995898,
+      "char_start": 16,
+      "char_end": 18
+    },
+    {
+      "id": "w60",
+      "segment_id": "s6",
+      "text": "not",
+      "start_s": 18.28,
+      "end_s": 18.44,
+      "probability": 0.999147,
+      "char_start": 19,
+      "char_end": 22
+    },
+    {
+      "id": "w61",
+      "segment_id": "s6",
+      "text": "just",
+      "start_s": 18.44,
+      "end_s": 18.7,
+      "probability": 0.998081,
+      "char_start": 23,
+      "char_end": 27
+    },
+    {
+      "id": "w62",
+      "segment_id": "s6",
+      "text": "a",
+      "start_s": 18.7,
+      "end_s": 18.84,
+      "probability": 0.997115,
+      "char_start": 28,
+      "char_end": 29
+    },
+    {
+      "id": "w63",
+      "segment_id": "s6",
+      "text": "short",
+      "start_s": 18.84,
+      "end_s": 19.12,
+      "probability": 0.998423,
+      "char_start": 30,
+      "char_end": 35
+    },
+    {
+      "id": "w64",
+      "segment_id": "s6",
+      "text": "-term",
+      "start_s": 19.12,
+      "end_s": 19.36,
+      "probability": 0.973249,
+      "char_start": 35,
+      "char_end": 40
+    },
+    {
+      "id": "w65",
+      "segment_id": "s6",
+      "text": "program",
+      "start_s": 19.36,
+      "end_s": 19.8,
+      "probability": 0.999217,
+      "char_start": 41,
+      "char_end": 48
+    },
+    {
+      "id": "w66",
+      "segment_id": "s6",
+      "text": "to",
+      "start_s": 19.8,
+      "end_s": 19.98,
+      "probability": 0.998527,
+      "char_start": 49,
+      "char_end": 51
+    },
+    {
+      "id": "w67",
+      "segment_id": "s6",
+      "text": "boost",
+      "start_s": 19.98,
+      "end_s": 20.18,
+      "probability": 0.999228,
+      "char_start": 52,
+      "char_end": 57
+    },
+    {
+      "id": "w68",
+      "segment_id": "s7",
+      "text": "employment.",
+      "start_s": 20.18,
+      "end_s": 20.62,
+      "probability": 0.997993,
+      "char_start": 0,
+      "char_end": 11
+    },
+    {
+      "id": "w69",
+      "segment_id": "s8",
+      "text": "It's",
+      "start_s": 21.18,
+      "end_s": 21.42,
+      "probability": 0.993544,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w70",
+      "segment_id": "s8",
+      "text": "one",
+      "start_s": 21.42,
+      "end_s": 21.6,
+      "probability": 0.999295,
+      "char_start": 5,
+      "char_end": 8
+    },
+    {
+      "id": "w71",
+      "segment_id": "s8",
+      "text": "that",
+      "start_s": 21.6,
+      "end_s": 21.74,
+      "probability": 0.997502,
+      "char_start": 9,
+      "char_end": 13
+    },
+    {
+      "id": "w72",
+      "segment_id": "s8",
+      "text": "will",
+      "start_s": 21.74,
+      "end_s": 21.98,
+      "probability": 0.86121,
+      "char_start": 14,
+      "char_end": 18
+    },
+    {
+      "id": "w73",
+      "segment_id": "s8",
+      "text": "invest",
+      "start_s": 21.98,
+      "end_s": 22.48,
+      "probability": 0.995893,
+      "char_start": 19,
+      "char_end": 25
+    },
+    {
+      "id": "w74",
+      "segment_id": "s8",
+      "text": "in",
+      "start_s": 22.48,
+      "end_s": 22.78,
+      "probability": 0.997629,
+      "char_start": 26,
+      "char_end": 28
+    },
+    {
+      "id": "w75",
+      "segment_id": "s8",
+      "text": "our",
+      "start_s": 22.78,
+      "end_s": 22.98,
+      "probability": 0.999074,
+      "char_start": 29,
+      "char_end": 32
+    },
+    {
+      "id": "w76",
+      "segment_id": "s8",
+      "text": "most",
+      "start_s": 22.98,
+      "end_s": 23.2,
+      "probability": 0.998249,
+      "char_start": 33,
+      "char_end": 37
+    },
+    {
+      "id": "w77",
+      "segment_id": "s8",
+      "text": "important",
+      "start_s": 23.2,
+      "end_s": 23.62,
+      "probability": 0.997567,
+      "char_start": 38,
+      "char_end": 47
+    },
+    {
+      "id": "w78",
+      "segment_id": "s8",
+      "text": "priority.",
+      "start_s": 23.62,
+      "end_s": 23.98,
+      "probability": 0.459365,
+      "char_start": 48,
+      "char_end": 57
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:52:02Z",
+    "command": "faster-whisper medium (/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f) device=cpu compute_type=int8 language=en word_timestamps=True beam_size=5 vad_filter=False :: tests/fixtures/clips/fx_pd_real_16x9_b/fx_pd_real_16x9_b.mp4",
+    "truth_class": "MACHINE_WEAK",
+    "engine": "faster-whisper (CTranslate2)",
+    "elapsed_s": 10.386,
+    "language_probability": 1.0,
+    "n_segments": 9,
+    "n_words": 79
+  }
+}

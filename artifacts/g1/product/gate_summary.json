@@ -1,0 +1,274 @@
+{
+  "gate": "G1",
+  "style": "smart_balanced",
+  "started_utc": "2026-10-24T09:50:58Z",
+  "finished_utc": "2026-10-24T09:51:27Z",
+  "fixtures": [
+    "fx_a_zh_portrait",
+    "fx_b_zh_landscape",
+    "fx_c_zh_cuts",
+    "fx_d_zh_portrait",
+    "fx_e_zh_landscape"
+  ],
+  "results": [
+    {
+      "fixture": "fx_a_zh_portrait",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/product/fx_a_zh_portrait/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 3,
+        "p50_ms": 5.75,
+        "p90_ms": 12.04,
+        "max_ms": 12.04,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g1/product/fx_a_zh_portrait/fx_a_zh_portrait_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/product/frames/fx_a_zh_portrait_motion_t03.44.png",
+        "artifacts/g1/product/frames/fx_a_zh_portrait_motion_t07.96.png",
+        "artifacts/g1/product/frames/fx_a_zh_portrait_motion_t09.44.png"
+      ]
+    },
+    {
+      "fixture": "fx_b_zh_landscape",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/product/fx_b_zh_landscape/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 3,
+        "p50_ms": 12.94,
+        "p90_ms": 13.4,
+        "max_ms": 13.4,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g1/product/fx_b_zh_landscape/fx_b_zh_landscape_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/product/frames/fx_b_zh_landscape_motion_t04.00.png",
+        "artifacts/g1/product/frames/fx_b_zh_landscape_motion_t09.16.png",
+        "artifacts/g1/product/frames/fx_b_zh_landscape_motion_t15.96.png"
+      ]
+    },
+    {
+      "fixture": "fx_c_zh_cuts",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/product/fx_c_zh_cuts/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 3,
+        "p50_ms": 18.75,
+        "p90_ms": 20.0,
+        "max_ms": 20.0,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g1/product/fx_c_zh_cuts/fx_c_zh_cuts_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/product/frames/fx_c_zh_cuts_motion_t00.60.png",
+        "artifacts/g1/product/frames/fx_c_zh_cuts_motion_t05.80.png",
+        "artifacts/g1/product/frames/fx_c_zh_cuts_motion_t11.52.png"
+      ]
+    },
+    {
+      "fixture": "fx_d_zh_portrait",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/product/fx_d_zh_portrait/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 4,
+        "p50_ms": 14.66,
+        "p90_ms": 22.04,
+        "max_ms": 22.04,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g1/product/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/product/frames/fx_d_zh_portrait_motion_t00.60.png",
+        "artifacts/g1/product/frames/fx_d_zh_portrait_motion_t06.48.png",
+        "artifacts/g1/product/frames/fx_d_zh_portrait_motion_t08.32.png"
+      ]
+    },
+    {
+      "fixture": "fx_e_zh_landscape",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/product/fx_e_zh_landscape/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 5,
+        "p50_ms": 18.17,
+        "p90_ms": 24.87,
+        "max_ms": 24.87,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g1/product/fx_e_zh_landscape/fx_e_zh_landscape_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/product/frames/fx_e_zh_landscape_motion_t03.44.png",
+        "artifacts/g1/product/frames/fx_e_zh_landscape_motion_t04.68.png",
+        "artifacts/g1/product/frames/fx_e_zh_landscape_motion_t06.28.png"
+      ]
+    }
+  ],
+  "pooled_timing": {
+    "n": 18,
+    "p50_ms": 13.17,
+    "p90_ms": 21.46,
+    "max_ms": 24.87,
+    "threshold_p90_ms": 100.0,
+    "verdict": "PASS",
+    "samples_needed_for_p90_claim": 50,
+    "claim_scope": "exploratory only (<50 independent events)",
+    "rows": [
+      {
+        "fixture": "fx_a_zh_portrait",
+        "effect": "number",
+        "error_ms": 5.75
+      },
+      {
+        "fixture": "fx_a_zh_portrait",
+        "effect": "card",
+        "error_ms": 12.04
+      },
+      {
+        "fixture": "fx_a_zh_portrait",
+        "effect": "list",
+        "error_ms": 3.19
+      },
+      {
+        "fixture": "fx_b_zh_landscape",
+        "effect": "list",
+        "error_ms": 12.94
+      },
+      {
+        "fixture": "fx_b_zh_landscape",
+        "effect": "list",
+        "error_ms": 13.4
+      },
+      {
+        "fixture": "fx_b_zh_landscape",
+        "effect": "card",
+        "error_ms": 5.44
+      },
+      {
+        "fixture": "fx_c_zh_cuts",
+        "effect": "list",
+        "error_ms": 20.0
+      },
+      {
+        "fixture": "fx_c_zh_cuts",
+        "effect": "list",
+        "error_ms": 8.35
+      },
+      {
+        "fixture": "fx_c_zh_cuts",
+        "effect": "number",
+        "error_ms": 18.75
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "keyword",
+        "error_ms": 20.0
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "card",
+        "error_ms": 9.33
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "keyword",
+        "error_ms": 7.37
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "effect": "list",
+        "error_ms": 22.04
+      },
+      {
+        "fixture": "fx_e_zh_landscape",
+        "effect": "card",
+        "error_ms": 24.87
+      },
+      {
+        "fixture": "fx_e_zh_landscape",
+        "effect": "number",
+        "error_ms": 18.17
+      },
+      {
+        "fixture": "fx_e_zh_landscape",
+        "effect": "number",
+        "error_ms": 21.46
+      },
+      {
+        "fixture": "fx_e_zh_landscape",
+        "effect": "list",
+        "error_ms": 7.33
+      },
+      {
+        "fixture": "fx_e_zh_landscape",
+        "effect": "list",
+        "error_ms": 16.83
+      }
+    ]
+  },
+  "determinism": {
+    "runs": 2,
+    "frames": [
+      605,
+      605
+    ],
+    "frame_hashes_equal": true,
+    "max_pixel_diff": 0.0,
+    "mean_pixel_diff": 0.0,
+    "verdict": "PASS",
+    "policy": "pixel-identical required (tolerance=0); byte-identical MP4 not required",
+    "sha256": [
+      "11cec28e133b9a24e1fc579c818fdad845e85e678d920eadd842d202f3690043",
+      "11cec28e133b9a24e1fc579c818fdad845e85e678d920eadd842d202f3690043"
+    ],
+    "fixture": "fx_a_zh_portrait",
+    "rerender_stdout": "manticMotion/artifacts/g1/product/fx_a_zh_portrait/fx_a_zh_portrait_motion_rerender.mp4\",\n    \"sha256\": \"11cec28e133b9a24e1fc579c818fdad845e85e678d920eadd842d202f3690043\",\n    \"size_bytes\": 720743,\n    \"duration_s\": 24.2,\n    \"n_frames\": 605,\n    \"width\": 1080,\n    \"height\": 1920,\n    \"fps\": 25.0,\n    \"video_codec\": \"h264\",\n    \"audio_codec\": \"aac\",\n    \"pix_fmt\": \"yuv420p\"\n  },\n  \"commands\": 1\n}\n"
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

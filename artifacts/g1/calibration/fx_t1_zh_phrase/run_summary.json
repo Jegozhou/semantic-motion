@@ -1,0 +1,82 @@
+{
+  "gate": "G1",
+  "started_utc": "2026-10-24T09:45:13Z",
+  "finished_utc": "2026-10-24T09:45:21Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_t1_zh_phrase/fx_t1_zh_phrase.mp4",
+    "sha256": "6529aa797a4b2b6a4218828ca9d2d5d55db3cc6d3f6a2a03829fae30b1ea6e74",
+    "truth": "tests/fixtures/clips/fx_t1_zh_phrase/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g1/calibration/fx_t1_zh_phrase/transcript.json",
+    "vision": "artifacts/g1/calibration/fx_t1_zh_phrase/vision.json",
+    "anchors": "artifacts/g1/calibration/fx_t1_zh_phrase/anchors.json",
+    "plan": "artifacts/g1/calibration/fx_t1_zh_phrase/plan.json",
+    "motion_ir": "artifacts/g1/calibration/fx_t1_zh_phrase/motion_ir.json",
+    "render": "artifacts/g1/calibration/fx_t1_zh_phrase/fx_t1_zh_phrase_motion.mp4",
+    "render_manifest": "artifacts/g1/calibration/fx_t1_zh_phrase/render_manifest.json",
+    "metrics": "artifacts/g1/calibration/fx_t1_zh_phrase/metrics.json"
+  },
+  "decisions": {
+    "decisions": 21,
+    "by_effect": {
+      "number": 5,
+      "keyword": 9,
+      "list": 4,
+      "card": 3
+    },
+    "skipped": 0,
+    "coverage": 0.6596
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 18,
+    "p50_ms": 11.09,
+    "p90_ms": 47.31,
+    "max_ms": 55.67,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.06
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 7.32
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.82
+    }
+  ],
+  "exit": 0
+}

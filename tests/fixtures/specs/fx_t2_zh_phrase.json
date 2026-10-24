@@ -1,11 +1,11 @@
 {
   "id": "fx_t2_zh_phrase",
   "voice": "Tingting",
-  "rate": 158,
+  "rate": 156,
   "width": 1080,
   "height": 1920,
   "fps": 25,
-  "gap_s": 0.6,
+  "gap_s": 0.66,
   "lead_in_s": 0.5,
   "tail_s": 0.7,
   "palette": "studio_night",

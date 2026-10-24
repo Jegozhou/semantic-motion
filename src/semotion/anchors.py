@@ -54,6 +54,7 @@ __all__ = [
     "refine_onsets",
     "load_truth",
     "timing_errors",
+    "prefix_matches",
     "unit_onset_anchors",
     "anchors_cache_path",
     "envelope",
@@ -159,7 +160,51 @@ _TRAD_TO_SIMP: dict[str, str] = {
     "兩": "两", "兒": "儿", "總": "总", "結": "结", "誤": "误", "區": "区", "級": "级",
     "構": "构", "組": "组", "簡": "简", "複": "复", "雜": "杂", "難": "难", "項": "项",
     "細": "细", "漢": "汉", "華": "华", "專": "专", "轉": "转", "換": "换", "銜": "衔",
-    "接": "接", "離": "离", "節": "节", "奏": "奏", "閱": "阅", "覽": "览", "頻": "频",
+    "離": "离", "節": "节", "閱": "阅", "覽": "览", "頻": "频",
+    # second batch: forms that actually appeared in faster-whisper output on the
+    # calibration fixtures (順/鍵/捨/驟/終/夠 ...) plus other common ones.
+    "順": "顺", "鍵": "键", "捨": "舍", "驟": "骤", "終": "终", "夠": "够", "準": "准",
+    "備": "备", "門": "门", "問": "问", "資": "资", "費": "费", "課": "课", "練": "练",
+    "習": "习", "慣": "惯", "態": "态", "勢": "势", "導": "导", "週": "周", "圍": "围",
+    "議": "议", "討": "讨", "講": "讲", "許": "许", "訂": "订", "記": "记", "試": "试",
+    "詳": "详", "誠": "诚", "誰": "谁", "調": "调", "談": "谈", "請": "请", "謝": "谢",
+    "譜": "谱", "讚": "赞", "貝": "贝", "負": "负", "財": "财", "貨": "货", "販": "贩",
+    "責": "责", "貸": "贷", "貼": "贴", "賈": "贾", "賓": "宾", "賴": "赖", "賺": "赚",
+    "購": "购", "賽": "赛", "贈": "赠", "趕": "赶", "趨": "趋", "踐": "践", "軍": "军",
+    "較": "较", "載": "载", "輸": "输", "辦": "办", "農": "农", "連": "连", "遊": "游",
+    "運": "运", "達": "达", "違": "违", "遠": "远", "適": "适", "選": "选", "遺": "遗",
+    "郵": "邮", "鄉": "乡", "釋": "释", "銀": "银", "鋼": "钢", "錄": "录", "鐘": "钟",
+    "鐵": "铁", "閉": "闭", "閑": "闲", "陽": "阳", "陰": "阴", "陣": "阵", "階": "阶",
+    "際": "际", "陸": "陆", "隨": "随", "險": "险", "隱": "隐", "隻": "只", "雖": "虽",
+    "雙": "双", "雞": "鸡", "霧": "雾", "靈": "灵", "靜": "静", "響": "响", "頂": "顶",
+    "須": "须", "預": "预", "頓": "顿", "領": "领", "頸": "颈", "顆": "颗", "顏": "颜",
+    "願": "愿", "類": "类", "顧": "顾", "風": "风", "飛": "飞", "飯": "饭", "飲": "饮",
+    "養": "养", "餘": "余", "館": "馆", "馬": "马", "驗": "验", "驚": "惊", "髮": "发",
+    "魚": "鱼", "鮮": "鲜", "鳥": "鸟", "麗": "丽", "麥": "麦", "黃": "黄", "齒": "齿",
+    "龍": "龙", "龜": "龟", "橋": "桥", "樹": "树", "權": "权", "歡": "欢", "歲": "岁",
+    "歷": "历", "厲": "厉", "壓": "压", "廳": "厅", "彈": "弹", "強": "强", "徑": "径",
+    "徹": "彻", "懷": "怀", "戰": "战", "戲": "戏", "戶": "户", "拋": "抛", "揮": "挥",
+    "損": "损", "擺": "摆", "攝": "摄", "敗": "败", "敵": "敌", "斷": "断", "於": "于",
+    "昇": "升", "書": "书", "爭": "争", "牆": "墙", "獨": "独", "獎": "奖", "環": "环",
+    "畢": "毕", "畫": "画", "異": "异", "當": "当", "疊": "叠", "穩": "稳", "窮": "穷",
+    "競": "竞", "筆": "笔", "節": "节", "範": "范", "築": "筑", "簽": "签", "籃": "篮",
+    "籌": "筹", "籤": "签", "紅": "红", "純": "纯", "紙": "纸", "級": "级", "素": "素",
+    "緊": "紧", "綜": "综", "綠": "绿", "緒": "绪", "編": "编", "緩": "缓", "縣": "县",
+    "繼": "继", "續": "续", "纖": "纤", "缺": "缺", "罰": "罚", "罷": "罢", "羅": "罗",
+    "義": "义", "聖": "圣", "聞": "闻", "聯": "联", "聰": "聪", "職": "职", "聽": "听",
+    "肅": "肃", "脅": "胁", "脫": "脱", "腦": "脑", "臉": "脸", "臟": "脏", "臺": "台",
+    "與": "与", "舉": "举", "舊": "旧", "艙": "舱", "藝": "艺", "蘇": "苏", "蘋": "苹",
+    "處": "处", "號": "号", "蟲": "虫", "衝": "冲", "裝": "装", "製": "制", "複": "复",
+    "見": "见", "規": "规", "視": "视", "親": "亲", "觀": "观", "計": "计", "訓": "训",
+    "託": "托", "訪": "访", "設": "设", "評": "评", "註": "注", "証": "证", "詩": "诗",
+    "話": "话", "誌": "志", "誤": "误", "諸": "诸", "謀": "谋", "謂": "谓", "謎": "谜",
+    "謠": "谣", "譯": "译", "護": "护", "讀": "读", "贖": "赎", "跡": "迹", "躍": "跃",
+    "軀": "躯", "輛": "辆", "輪": "轮", "轟": "轰", "辭": "辞", "辯": "辩", "邊": "边",
+    "邏": "逻", "鑰": "钥", "閃": "闪", "閱": "阅", "闆": "板", "陝": "陕", "隊": "队",
+    "隻": "只", "難": "难", "雲": "云", "電": "电", "霧": "雾", "響": "响", "頻": "频",
+    "顆": "颗", "題": "题", "額": "额", "顏": "颜", "願": "愿", "類": "类", "顧": "顾",
+    "顯": "显", "飛": "飞", "餐": "餐", "館": "馆", "駕": "驾", "騎": "骑", "驗": "验",
+    "體": "体", "鬍": "胡", "麗": "丽", "黨": "党", "齊": "齐", "齒": "齿", "龍": "龙",
 }
 
 # Clause boundary for card anchors: punctuation, not spaces.
@@ -569,7 +614,7 @@ def find_onset(env_doc: dict[str, Any], t_start: float, *, search_s: float = SEA
         "method": "none",
         "delta_ms": 0,
         "accepted": False,
-        "window_ms": int(round(search_s * 2000)),
+        "window_ms": int(round(search_s * 1000)),   # per-side window, contract says 250
         "search_window_s": [round(i0 * hop, 6), round(min(n, i1) * hop, 6)],
         "quiet_threshold": round(floor, 6),
         "peak": round(peak, 6),
@@ -606,16 +651,21 @@ def find_onset(env_doc: dict[str, Any], t_start: float, *, search_s: float = SEA
     if not candidates and ends_quiet:
         # The frames right after the window may already be on the onset ramp, so
         # "after a 30 ms quiet run" is the wrong test here: look for the first
-        # frame that is clearly speech (>= 5 % of the clip peak) and that is
-        # sustained for at least 2 of the next 3 frames (rejects a click).
-        strong = max(floor * 1.5, peak * 0.05)
+        # frame that is clearly speech and that is sustained for at least 2 of
+        # the next 3 frames (rejects a click). The threshold is deliberately low
+        # (0.35x the adaptive floor, i.e. ~1 % of peak): Chinese onsets are often
+        # soft fricatives ("三", "四", "是") whose energy is a few percent of the
+        # vowel peak, and a 5 %-of-peak gate delayed one calibration onset by
+        # 103 ms. A frame is only accepted after >= 30 ms of verified silence, so
+        # this does not open the door to noise.
+        strong = max(floor * 0.35, peak * 0.01)
         fwd = min(n, i1 + int(round(1.0 / hop)))
         for j in range(i1, fwd):
             value = float(env[j])
             if value < strong:
                 continue
             follow = env[j + 1:j + 4]
-            if sum(1 for v in follow if v > floor) < 2:
+            if sum(1 for v in follow if v > strong) < 2:
                 continue
             onset = j * hop
             result.update({
@@ -679,6 +729,9 @@ def refine_onsets(video: Path, anchors: dict[str, Any], *, out_json: Path | None
         {"method": "energy_onset", "delta_ms": -184, "accepted": true,
          "window_ms": 250, "detector": "silence_exit", "onset_s": 6.336, ...}
 
+    ``window_ms`` is the per-side search radius (250 = +/-250 ms); the concrete
+    interval actually searched is in ``search_window_s``.
+
     ``delta_ms`` is always ``onset - asr_start`` (negative = the audio starts
     earlier than ASR claimed). Rejected refinements keep the ASR time and say
     ``accepted: false`` with the detector that failed. Anchors are re-sorted and
@@ -730,7 +783,7 @@ def refine_onsets(video: Path, anchors: dict[str, Any], *, out_json: Path | None
     prov = doc.setdefault("provenance", {})
     prov["refine"] = {
         "method": "energy_onset",
-        "window_ms": int(round(search_s * 2000)),
+        "window_ms": int(round(search_s * 1000)),   # per-side window, contract says 250
         "hop_ms": int(round(env_doc["hop_s"] * 1000)),
         "energy": "rms",
         "video": str(video.resolve()),
@@ -830,6 +883,21 @@ def _match_units(anchors: Iterable[dict[str, Any]], units: Sequence[dict[str, An
             "signed_error_ms": int(round((float(anchor["start_s"]) - float(unit["start_s"])) * 1000.0)),
         })
     return pairs, unmatched
+
+
+def prefix_matches(anchors: dict[str, Any] | Sequence[dict[str, Any]],
+                   units: Sequence[dict[str, Any]], *,
+                   tol_s: float = 0.9) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """All (truth unit, anchor) pairs where the anchor text is a *unit prefix*.
+
+    Exposed for ``verify``/calibration scripts: on unit-level assembly truth the
+    only independently checkable anchor onset is one whose text starts its unit,
+    so this is the event set that a timing metric may legitimately use.
+    Returns ``(pairs, unmatched_units)``; see :func:`timing_errors` for the
+    error distribution built on top of it.
+    """
+    anchor_list = anchors.get("anchors", []) if isinstance(anchors, dict) else list(anchors)
+    return _match_units(anchor_list, units, tol_s)
 
 
 def _pct(values: Sequence[float], q: float) -> float:

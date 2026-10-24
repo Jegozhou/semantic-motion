@@ -1,0 +1,640 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "duration_s": 24.0,
+    "n_frames": 720,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 720,
+    "timebase": {
+      "num": 1,
+      "den": 30
+    }
+  },
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "65dd040271fff436fa0d253a6c2bdca81db148e27a94a59e18ac61bd3fd8f64e",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "4e995a21518e90645d9a2dbbc8d46bc22f26e19dea1dcb0febb533825822abdd",
+    "decisions_sha256": "dfa28812e7b59969c9b7b6342adc38009ca16c78151720aa29b7f8b2b46a8478",
+    "anchors": [
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "口播视频最难的地方",
+        "start_s": 2.0,
+        "end_s": 4.2,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a01",
+        "word_ids": [
+          "a01"
+        ]
+      },
+      {
+        "id": "a02",
+        "kind": "number",
+        "text": "九成的剪辑",
+        "start_s": 5.4,
+        "end_s": 7.0,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a02",
+        "word_ids": [
+          "a02"
+        ]
+      },
+      {
+        "id": "a03",
+        "kind": "list_item",
+        "text": "第一",
+        "start_s": 8.4,
+        "end_s": 8.9,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a03",
+        "word_ids": [
+          "a03"
+        ]
+      },
+      {
+        "id": "a04",
+        "kind": "list_item",
+        "text": "不知道什么时候加字",
+        "start_s": 9.0,
+        "end_s": 10.7,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a04",
+        "word_ids": [
+          "a04"
+        ]
+      },
+      {
+        "id": "a05",
+        "kind": "list_item",
+        "text": "第二",
+        "start_s": 10.8,
+        "end_s": 11.2,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a05",
+        "word_ids": [
+          "a05"
+        ]
+      },
+      {
+        "id": "a06",
+        "kind": "list_item",
+        "text": "加了又挡住脸",
+        "start_s": 11.4,
+        "end_s": 13.0,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a06",
+        "word_ids": [
+          "a06"
+        ]
+      },
+      {
+        "id": "a07",
+        "kind": "card",
+        "text": "其实是节奏",
+        "start_s": 15.0,
+        "end_s": 17.2,
+        "confidence": 0.9,
+        "source": "SYNTH_KNOWN",
+        "segment_id": "a07",
+        "word_ids": [
+          "a07"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "id": "d01",
+        "anchor_id": "a01",
+        "anchor_ids": [
+          "a01"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "scratch",
+        "confidence": 0.9,
+        "decision_model": "scratch-manual",
+        "content": {
+          "text": "口播视频最难的地方"
+        },
+        "window": {
+          "start_s": 2.0,
+          "end_s": 4.5
+        }
+      },
+      {
+        "id": "d02",
+        "anchor_id": "a02",
+        "anchor_ids": [
+          "a02"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "scratch",
+        "confidence": 0.9,
+        "decision_model": "scratch-manual",
+        "content": {
+          "text": "九成的剪辑"
+        },
+        "window": {
+          "start_s": 5.4,
+          "end_s": 7.35
+        }
+      },
+      {
+        "id": "d03",
+        "anchor_id": "a03",
+        "anchor_ids": [
+          "a03",
+          "a04",
+          "a05",
+          "a06"
+        ],
+        "effect": "list",
+        "emphasis": "high",
+        "reason": "scratch",
+        "confidence": 0.9,
+        "decision_model": "scratch-manual",
+        "content": {
+          "text": "第一",
+          "items": [
+            "第一",
+            "不知道什么时候加字",
+            "第二",
+            "加了又挡住脸"
+          ]
+        },
+        "window": {
+          "start_s": 8.4,
+          "end_s": 13.45
+        }
+      },
+      {
+        "id": "d04",
+        "anchor_id": "a07",
+        "anchor_ids": [
+          "a07"
+        ],
+        "effect": "card",
+        "emphasis": "medium",
+        "reason": "scratch",
+        "confidence": 0.9,
+        "decision_model": "scratch-manual",
+        "content": {
+          "text": "其实是节奏"
+        },
+        "window": {
+          "start_s": 15.0,
+          "end_s": 17.7
+        }
+      }
+    ],
+    "transcript_text": "口播视频最难的地方九成的剪辑第一不知道什么时候加字第二加了又挡住脸其实是节奏",
+    "face_safe": {
+      "bbox_union": [
+        491,
+        87,
+        280,
+        392
+      ],
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_card",
+      "z": 30,
+      "elements": [
+        "el_d04"
+      ]
+    },
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_d01",
+        "el_d02",
+        "el_d03"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_d01",
+      "type": "keyword",
+      "anchor_ref": "a01",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.0,
+        "end_s": 4.5,
+        "start_frame": 60,
+        "end_frame": 135,
+        "hold_s": 0.3,
+        "anchor_start_s": 2.0,
+        "anchor_end_s": 4.2
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "口播视频最难的地方"
+      },
+      "provenance": {
+        "decision_id": "d01",
+        "decision_model": "scratch-manual",
+        "prompt_summary": "",
+        "confidence": 0.9,
+        "reason": "scratch",
+        "effect_params_sha256": "1a94621bc22ee7fdd4dec43351e78cdb0893fa763c88ebfc1f00fbc842d6d22f"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          825,
+          233,
+          368,
+          238
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 368,
+          "height": 238
+        }
+      }
+    },
+    {
+      "id": "el_d02",
+      "type": "number",
+      "anchor_ref": "a02",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 5.4,
+        "end_s": 7.333333,
+        "start_frame": 162,
+        "end_frame": 220,
+        "hold_s": 0.333333,
+        "anchor_start_s": 5.4,
+        "anchor_end_s": 7.0
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 56,
+        "padding_px": 27,
+        "radius_px": 17,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "九成的剪辑",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 90.0,
+          "unit": "%",
+          "kind": "percent",
+          "final": "90%",
+          "decimals": 0,
+          "label": "九成"
+        },
+        "numeric_display": "90%的剪辑"
+      },
+      "provenance": {
+        "decision_id": "d02",
+        "decision_model": "scratch-manual",
+        "prompt_summary": "",
+        "confidence": 0.9,
+        "reason": "scratch",
+        "effect_params_sha256": "a735123e28eaf5fec12dfe51d89fd07aa8143fe21731ec0a583f1149e20bef90"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          810,
+          262,
+          398,
+          181
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 398,
+          "height": 181
+        }
+      }
+    },
+    {
+      "id": "el_d03",
+      "type": "list",
+      "anchor_ref": "a03",
+      "anchor_refs": [
+        "a03",
+        "a04",
+        "a05",
+        "a06"
+      ],
+      "window": {
+        "start_s": 8.4,
+        "end_s": 13.466667,
+        "start_frame": 252,
+        "end_frame": 404,
+        "hold_s": 0.466667,
+        "anchor_start_s": 8.4,
+        "anchor_end_s": 13.0
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 35,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "left",
+        "min_width_px": 794,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "第一",
+        "items": [
+          "第一",
+          "不知道什么时候加字",
+          "第二",
+          "加了又挡住脸"
+        ],
+        "item_onsets_s": [
+          0.0,
+          0.6,
+          2.4,
+          3.0
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "不知道什么时候加字",
+            "at_s": 0.0,
+            "text_at_s": 0.6
+          },
+          {
+            "marker": "2",
+            "text": "加了又挡住脸",
+            "at_s": 2.4,
+            "text_at_s": 3.0
+          }
+        ],
+        "anchor_rows": [
+          "a03",
+          "a04",
+          "a05",
+          "a06"
+        ]
+      },
+      "provenance": {
+        "decision_id": "d03",
+        "decision_model": "scratch-manual",
+        "prompt_summary": "",
+        "confidence": 0.9,
+        "reason": "scratch",
+        "effect_params_sha256": "1e21aeaaa39e9c57ec2372b82cecca286b2aa4d368e1f2822d7b6a52e5faeca5"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          803,
+          228,
+          413,
+          167
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 413,
+          "height": 167
+        }
+      }
+    },
+    {
+      "id": "el_d04",
+      "type": "card",
+      "anchor_ref": "a07",
+      "anchor_refs": [
+        "a07"
+      ],
+      "window": {
+        "start_s": 15.0,
+        "end_s": 17.7,
+        "start_frame": 450,
+        "end_frame": 531,
+        "hold_s": 0.5,
+        "anchor_start_s": 15.0,
+        "anchor_end_s": 17.2
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(16,21,33,0.78)",
+        "font_size_px": 52,
+        "padding_px": 27,
+        "radius_px": 20,
+        "align": "left",
+        "accent_bar": true
+      },
+      "motion": {
+        "enter": {
+          "type": "scale_in",
+          "dur_s": 0.28,
+          "ease": "smoothstep",
+          "scale_from": 0.96
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "其实是节奏"
+      },
+      "provenance": {
+        "decision_id": "d04",
+        "decision_model": "scratch-manual",
+        "prompt_summary": "",
+        "confidence": 0.9,
+        "reason": "scratch",
+        "effect_params_sha256": "b6bdc1e9f2cbcf3037523fb57836fb95cdedd92dd5f73bc1476c83192fa1e75c"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          843,
+          287,
+          333,
+          130
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 333,
+          "height": 130
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T09:40:19Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 720,
+      "source": "nb_frames",
+      "container_duration_s": 24.0,
+      "duration_fps_frames": 720
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 4,
+    "ir_sha256": "fa16d5480b75f86461af928133d1f7cded831bc5fac1b4e787f8d38c4f4fc493"
+  }
+}

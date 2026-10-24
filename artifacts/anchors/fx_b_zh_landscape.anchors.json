@@ -27,7 +27,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 2.04,
         "search_window_s": [
@@ -57,7 +57,7 @@
         "method": "energy_onset",
         "delta_ms": 80,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 2.7,
         "search_window_s": [
@@ -86,7 +86,7 @@
         "method": "energy_onset",
         "delta_ms": -190,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 3.89,
         "search_window_s": [
@@ -115,7 +115,7 @@
         "method": "energy_onset",
         "delta_ms": -170,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 6.43,
         "search_window_s": [
@@ -144,7 +144,7 @@
         "method": "energy_onset",
         "delta_ms": -170,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 9.05,
         "search_window_s": [
@@ -174,7 +174,7 @@
         "method": "energy_onset",
         "delta_ms": -40,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 11.82,
         "search_window_s": [
@@ -203,7 +203,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 15.85,
         "search_window_s": [
@@ -236,7 +236,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 15.85,
         "search_window_s": [
@@ -268,7 +268,7 @@
         "method": "energy_onset",
         "delta_ms": 60,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 16.7,
         "search_window_s": [
@@ -298,7 +298,7 @@
         "method": "energy_onset",
         "delta_ms": -140,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 20.08,
         "search_window_s": [
@@ -328,7 +328,7 @@
         "method": "energy_onset",
         "delta_ms": 160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 21.06,
         "search_window_s": [
@@ -360,7 +360,7 @@
         "method": "energy_onset",
         "delta_ms": -120,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 21.6,
         "search_window_s": [
@@ -374,7 +374,7 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:20Z",
+    "created_utc": "2026-10-24T09:40:58Z",
     "method": "asr_word_spans+rule_classifier",
     "n_anchors": 12,
     "kinds": {
@@ -389,7 +389,7 @@
     "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",

@@ -1,0 +1,326 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "duration_s": 46.633,
+  "decisions": [
+    {
+      "id": "d01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "semantic_role:keyword",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "其实大多数人"
+      },
+      "window": {
+        "start_s": 0.5,
+        "end_s": 2.24
+      }
+    },
+    {
+      "id": "d03",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "card",
+      "emphasis": "medium",
+      "reason": "explanatory_statement",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "三个动效就够了"
+      },
+      "window": {
+        "start_s": 6.35,
+        "end_s": 8.15
+      },
+      "notes": "trimmed_before_d04"
+    },
+    {
+      "id": "d04",
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03",
+        "a05"
+      ],
+      "effect": "list",
+      "emphasis": "medium",
+      "reason": "sequence_of_2_steps",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第一",
+        "items": [
+          "关键词只标一次",
+          "数字只停"
+        ],
+        "items_raw": [
+          "第一",
+          "第二"
+        ]
+      },
+      "window": {
+        "start_s": 8.19,
+        "end_s": 11.83
+      }
+    },
+    {
+      "id": "d05",
+      "anchor_id": "a06",
+      "anchor_ids": [
+        "a06"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "两秒"
+      },
+      "window": {
+        "start_s": 12.34,
+        "end_s": 13.39
+      }
+    },
+    {
+      "id": "d06",
+      "anchor_id": "a11",
+      "anchor_ids": [
+        "a11"
+      ],
+      "effect": "card",
+      "emphasis": "medium",
+      "reason": "explanatory_statement",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "所以我们把动效减半"
+      },
+      "window": {
+        "start_s": 20.08,
+        "end_s": 22.8
+      }
+    },
+    {
+      "id": "d07",
+      "anchor_id": "a13",
+      "anchor_ids": [
+        "a13"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "semantic_role:keyword",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "其实删掉反而更"
+      },
+      "window": {
+        "start_s": 24.28,
+        "end_s": 26.32
+      }
+    },
+    {
+      "id": "d08",
+      "anchor_id": "a14",
+      "anchor_ids": [
+        "a14",
+        "a15"
+      ],
+      "effect": "list",
+      "emphasis": "medium",
+      "reason": "sequence_of_2_steps",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第一",
+        "items": [
+          "版总会加太多",
+          "版砍掉"
+        ],
+        "items_raw": [
+          "第一",
+          "第二"
+        ]
+      },
+      "window": {
+        "start_s": 26.89,
+        "end_s": 29.77
+      }
+    },
+    {
+      "id": "d09",
+      "anchor_id": "a16",
+      "anchor_ids": [
+        "a16"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.84,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "一半"
+      },
+      "window": {
+        "start_s": 29.81,
+        "end_s": 30.73
+      },
+      "notes": "trimmed_before_d10"
+    },
+    {
+      "id": "d10",
+      "anchor_id": "a17",
+      "anchor_ids": [
+        "a17"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "三个"
+      },
+      "window": {
+        "start_s": 30.77,
+        "end_s": 31.67
+      }
+    },
+    {
+      "id": "d11",
+      "anchor_id": "a21",
+      "anchor_ids": [
+        "a21"
+      ],
+      "effect": "card",
+      "emphasis": "medium",
+      "reason": "explanatory_statement",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第二个误区更常见"
+      },
+      "window": {
+        "start_s": 34.93,
+        "end_s": 37.08
+      },
+      "notes": "trimmed_before_d12"
+    },
+    {
+      "id": "d12",
+      "anchor_id": "a23",
+      "anchor_ids": [
+        "a23"
+      ],
+      "effect": "list",
+      "emphasis": "medium",
+      "reason": "sequence_of_1_steps",
+      "confidence": 0.72,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "最后",
+        "items": [
+          "才轮到排版"
+        ],
+        "items_raw": [
+          "最后"
+        ]
+      },
+      "window": {
+        "start_s": 37.12,
+        "end_s": 38.07
+      }
+    }
+  ],
+  "notes": {
+    "policy": "P1 effects only; plain speech intentionally gets zero motion; rhythm budget enforced",
+    "skipped": [
+      {
+        "anchor_id": "a10",
+        "reason": "filler_word"
+      },
+      {
+        "anchor_id": "a24",
+        "reason": "filler_word"
+      },
+      {
+        "anchor_id": "a04",
+        "reason": "segment_keyword_dedupe"
+      },
+      {
+        "anchor_id": "a09",
+        "reason": "segment_keyword_dedupe"
+      },
+      {
+        "anchor_id": "a12",
+        "reason": "segment_keyword_dedupe"
+      },
+      {
+        "anchor_id": "a22",
+        "reason": "segment_keyword_dedupe"
+      },
+      {
+        "anchor_id": "a07",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a08",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a18",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a19",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a25",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a01",
+        "reason": "superseded_by_d03_richer_text"
+      },
+      {
+        "anchor_id": "a03",
+        "reason": "temporal_conflict_with_d04"
+      },
+      {
+        "anchor_id": "a17",
+        "reason": "temporal_conflict_with_d10"
+      },
+      {
+        "anchor_id": "a23",
+        "reason": "temporal_conflict_with_d12"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4.0,
+      "min_gap_s": 0.9,
+      "max_coverage": 0.58,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.4458
+  },
+  "provenance": {
+    "method": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+    "decision_model": "rules-v1-smart-balanced",
+    "anchor_count": 20,
+    "decided_count": 11
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "gate": "G1",
+  "started_utc": "2026-10-24T09:45:21Z",
+  "finished_utc": "2026-10-24T09:45:32Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_t2_zh_phrase/fx_t2_zh_phrase.mp4",
+    "sha256": "bbb5f946968d617ebb4cd0b9dbccafa830cb9bd13c3898ca0c27036a3ccc37f5",
+    "truth": "tests/fixtures/clips/fx_t2_zh_phrase/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g1/calibration/fx_t2_zh_phrase/transcript.json",
+    "vision": "artifacts/g1/calibration/fx_t2_zh_phrase/vision.json",
+    "anchors": "artifacts/g1/calibration/fx_t2_zh_phrase/anchors.json",
+    "plan": "artifacts/g1/calibration/fx_t2_zh_phrase/plan.json",
+    "motion_ir": "artifacts/g1/calibration/fx_t2_zh_phrase/motion_ir.json",
+    "render": "artifacts/g1/calibration/fx_t2_zh_phrase/fx_t2_zh_phrase_motion.mp4",
+    "render_manifest": "artifacts/g1/calibration/fx_t2_zh_phrase/render_manifest.json",
+    "metrics": "artifacts/g1/calibration/fx_t2_zh_phrase/metrics.json"
+  },
+  "decisions": {
+    "decisions": 20,
+    "by_effect": {
+      "keyword": 9,
+      "card": 5,
+      "list": 6
+    },
+    "skipped": 0,
+    "coverage": 0.7324
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 19,
+    "p50_ms": 24.37,
+    "p90_ms": 54.17,
+    "max_ms": 86.15,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 1.6
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.07
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 7.84
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.81
+    }
+  ],
+  "exit": 0
+}

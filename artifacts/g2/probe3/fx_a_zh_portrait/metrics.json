@@ -1,0 +1,225 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G2",
+  "input_sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+  "ir_sha256": "316e8a6a140043161036cd6556695c015f03ef375eb6570bbef30531996027fc",
+  "render_sha256": "c10411d194a31f1f46d9c85ef1f7c1c67b08a448d0eeff8e73591de88c06e3bb",
+  "timing": {
+    "samples": 3,
+    "elements": 5,
+    "detected_onsets": 5,
+    "rows": [
+      {
+        "element_id": "el_d01",
+        "effect": "keyword",
+        "text": "痛点",
+        "window_start_s": 3.32,
+        "rendered_onset_s": 3.32,
+        "anchor_start_s": 3.32,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 32.322,
+        "detect_threshold": 1.616
+      },
+      {
+        "element_id": "el_d02",
+        "effect": "keyword",
+        "text": "其实是节奏",
+        "window_start_s": 6.36,
+        "rendered_onset_s": 6.36,
+        "anchor_start_s": 6.36,
+        "fidelity_ms": 0.0,
+        "target_onset_s": 6.3365,
+        "truth_unit": "u04",
+        "error_ms": 23.54,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 33.918,
+        "detect_threshold": 1.696
+      },
+      {
+        "element_id": "el_d03",
+        "effect": "number",
+        "text": "九成",
+        "window_start_s": 7.84,
+        "rendered_onset_s": 7.84,
+        "anchor_start_s": 7.85,
+        "fidelity_ms": 10.0,
+        "target_onset_s": 7.8342,
+        "truth_unit": "u05",
+        "error_ms": 5.75,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 34.752,
+        "detect_threshold": 17.376
+      },
+      {
+        "element_id": "el_d04",
+        "effect": "card",
+        "text": "都卡在三个问题",
+        "window_start_s": 9.32,
+        "rendered_onset_s": 9.32,
+        "anchor_start_s": 9.33,
+        "fidelity_ms": 10.0,
+        "target_onset_s": 9.332,
+        "truth_unit": "u06",
+        "error_ms": 12.04,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 27.627,
+        "detect_threshold": 1.381
+      },
+      {
+        "element_id": "el_d05",
+        "effect": "keyword",
+        "text": "流程",
+        "window_start_s": 20.8,
+        "rendered_onset_s": 20.8,
+        "anchor_start_s": 20.81,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 20.232,
+        "detect_threshold": 1.012
+      }
+    ],
+    "source": "SYNTH_KNOWN",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 5,
+      "p50_ms": 10.0,
+      "max_ms": 10.0
+    },
+    "p50_ms": 12.04,
+    "p90_ms": 23.54,
+    "max_ms": 23.54,
+    "by_effect": {
+      "keyword": {
+        "n": 1,
+        "p50_ms": 23.54,
+        "max_ms": 23.54
+      },
+      "number": {
+        "n": 1,
+        "p50_ms": 5.75,
+        "max_ms": 5.75
+      },
+      "card": {
+        "n": 1,
+        "p50_ms": 12.04,
+        "max_ms": 12.04
+      }
+    },
+    "frame_quantum_ms": 40.0,
+    "verdict": "PASS",
+    "note": "rendered onset measured inside each element box; target = independent SYNTH_KNOWN unit start of a unit the anchor begins. ASR never defines the target. n<50 is exploratory, not a P90 claim."
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 0,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 84,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 84,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 5,
+      "sampled_frames": 84
+    },
+    "raster_containment": {
+      "changed_pixels": 239818,
+      "inside_declared_box": 239818,
+      "value": 0.0,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 0,
+      "frames_with_faces": 0,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 2,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 24.2,
+    "duration_rendered_s": 24.2,
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 605,
+    "frames_rendered": 605,
+    "audio": {
+      "src": {
+        "n_samples": 2322432,
+        "duration_s": 24.192,
+        "rms_db": -22.186,
+        "peak_db": -6.027
+      },
+      "rendered": {
+        "n_samples": 2322432,
+        "duration_s": 24.192,
+        "rms_db": -22.187,
+        "peak_db": -6.027
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.001,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "rendered": "artifacts/g2/probe3/fx_a_zh_portrait/fx_a_zh_portrait_motion.mp4",
+    "truth": "tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

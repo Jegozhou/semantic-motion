@@ -9,7 +9,7 @@
       "id": "a00",
       "kind": "list_item",
       "text": "第三种",
-      "start_s": 0.51,
+      "start_s": 0.5,
       "end_s": 1.22,
       "confidence": 0.9,
       "source": "ASR_ALIGNED",
@@ -21,17 +21,17 @@
       "rule": "ordinal",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": 510,
+        "delta_ms": 500,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_forward",
-        "onset_s": 0.51,
+        "onset_s": 0.5,
         "search_window_s": [
           0.0,
           0.25
         ],
         "quiet_threshold": 0.002746,
-        "climb": 0.062865,
+        "climb": 0.005214,
         "asr_start_s": 0.0
       }
     },
@@ -39,7 +39,7 @@
       "id": "a01",
       "kind": "card",
       "text": "第三种情况最难处理",
-      "start_s": 0.51,
+      "start_s": 0.5,
       "end_s": 2.9,
       "confidence": 0.62,
       "source": "ASR_ALIGNED",
@@ -56,17 +56,17 @@
       "rule": "card_clause",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": 510,
+        "delta_ms": 500,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_forward",
-        "onset_s": 0.51,
+        "onset_s": 0.5,
         "search_window_s": [
           0.0,
           0.25
         ],
         "quiet_threshold": 0.002746,
-        "climb": 0.062865,
+        "climb": 0.005214,
         "asr_start_s": 0.0
       }
     },
@@ -91,7 +91,7 @@
         "method": "energy_onset",
         "delta_ms": -140,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 1.54,
         "search_window_s": [
@@ -120,7 +120,7 @@
         "method": "energy_onset",
         "delta_ms": 110,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 5.67,
         "search_window_s": [
@@ -149,7 +149,7 @@
         "method": "energy_onset",
         "delta_ms": 120,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 7.96,
         "search_window_s": [
@@ -178,7 +178,7 @@
         "method": "energy_onset",
         "delta_ms": 90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 11.39,
         "search_window_s": [
@@ -208,7 +208,7 @@
         "method": "energy_onset",
         "delta_ms": -90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 12.23,
         "search_window_s": [
@@ -238,7 +238,7 @@
         "method": "energy_onset",
         "delta_ms": -20,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 14.0,
         "search_window_s": [
@@ -268,7 +268,7 @@
         "method": "energy_onset",
         "delta_ms": -80,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 16.94,
         "search_window_s": [
@@ -282,7 +282,7 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:20Z",
+    "created_utc": "2026-10-24T09:40:58Z",
     "method": "asr_word_spans+rule_classifier",
     "n_anchors": 9,
     "kinds": {
@@ -295,7 +295,7 @@
     "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",

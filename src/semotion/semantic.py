@@ -14,14 +14,44 @@ from __future__ import annotations
 
 from typing import Any
 
+_T2S = None
+
+
+def to_simplified(text: str) -> str:
+    """Display text in Simplified Chinese; Thai/English pass through unchanged.
+
+    Whisper sometimes emits Traditional characters for Mandarin. Overlay copy must
+    be Simplified for the product's audience, so the displayed string is folded
+    here while the original transcript/anchor text stays untouched in the IR.
+    """
+    global _T2S
+    if _T2S is None:
+        try:
+            import opencc
+            _T2S = opencc.OpenCC("t2s")
+        except Exception:  # pragma: no cover - optional dependency
+            _T2S = False
+    if not text or not _T2S:
+        return text
+    return _T2S.convert(str(text))
+
 STYLE_SMART_BALANCED = "smart_balanced"
+# Calibration policy: animate *every* non-plain anchor (no rhythm budget) so that
+# timing can be measured on as many independent events as the fixtures provide.
+# It is a measurement instrument, not the product's default taste.
+STYLE_CALIBRATION = "calibration"
 
 # Rhythm budget for Smart Balanced.
 MAX_NEW_ELEMENTS_PER_10S = 4.0     # new overlays per 10 seconds
 MIN_GAP_BETWEEN_ELEMENTS_S = 0.9   # breathing room between overlay windows
 MAX_OVERLAY_COVERAGE = 0.58        # fraction of runtime that may carry an overlay
 MIN_CONFIDENCE = 0.60              # below this, do not animate precisely
-LIST_MERGE_GAP_S = 2.0             # consecutive list anchors merge into one list
+LIST_MERGE_GAP_S = 2.6             # consecutive list anchors merge into one list
+
+# Camera cuts: an overlay that straddles a cut reads as a mistake, so windows are
+# kept inside one shot. `CUT_GUARD_S` is the exclusion band around each cut.
+CUT_GUARD_S = 0.30
+MIN_ELEMENT_AFTER_GUARD_S = 0.35
 
 # Information value of a semantic role. Numbers and steps outrank loose keywords
 # when the rhythm budget is scarce (Smart Balanced: important information first).
@@ -50,8 +80,93 @@ def _conf(a: dict) -> float:
         return 0.0
 
 
+def _apply_shot_policy(decisions: list[dict], vision: dict, skipped: list[dict]) -> list[dict]:
+    """Keep every overlay inside a single shot, away from the cut itself.
+
+    Without shot information (no vision, or a single shot) this is a no-op.
+    """
+    shots = [s for s in (vision or {}).get("shots", []) if s.get("end_s")]
+    if len(shots) < 2:
+        return decisions
+    cuts = [float(s["start_s"]) for s in shots[1:]]
+    out: list[dict] = []
+    for d in decisions:
+        ws, we = float(d["window"]["start_s"]), float(d["window"]["end_s"])
+        near = [c for c in cuts if ws - CUT_GUARD_S < c < we + CUT_GUARD_S]
+        if not near:
+            out.append(d)
+            continue
+        nxt = min(c for c in cuts if c >= ws - CUT_GUARD_S)
+        trimmed_end = nxt - CUT_GUARD_S
+        if trimmed_end - ws >= MIN_ELEMENT_AFTER_GUARD_S:
+            d = {**d, "window": {**d["window"], "end_s": round(trimmed_end, 6)}}
+            d["notes"] = f"trimmed_before_cut_at_{nxt:.2f}s"
+            out.append(d)
+            continue
+        # the anchor itself sits on the cut: start after the cut instead
+        shifted_start = nxt + CUT_GUARD_S
+        if we - shifted_start >= MIN_ELEMENT_AFTER_GUARD_S:
+            d = {**d, "window": {"start_s": round(shifted_start, 6), "end_s": round(we, 6)}}
+            d["notes"] = f"shifted_after_cut_at_{nxt:.2f}s"
+            out.append(d)
+            continue
+        skipped.append({"anchor_id": d["anchor_id"], "reason": f"crosses_cut_at_{nxt:.2f}s"})
+    return out
+
+
 def _norm(text: str) -> str:
     return "".join(ch for ch in str(text) if ch.isalnum())
+
+
+_ORDINAL_PREFIX = ("第一个", "第一", "第二个", "第二", "第三个", "第三", "第四个", "第四",
+                   "首先", "其次", "然后", "最后", "接着", "另外")
+
+
+def _transcript_slice(transcript: dict | None, t0: float, t1: float) -> str:
+    """Spoken text between two times, from the ASR word stream."""
+    if not transcript:
+        return ""
+    words = transcript.get("words") or []
+    picked = [w for w in words if t0 - 0.02 <= float(w.get("start_s", 0.0)) < t1 - 0.02]
+    return "".join(str(w.get("text", "")) for w in picked)
+
+
+def _compose_list_items(group: list[dict], all_items: list[dict],
+                        transcript: dict | None = None) -> list[str]:
+    """Attach each step's spoken content to its ordinal marker.
+
+    Anchors come from ASR words, so "第一" is often its own anchor followed by the
+    step's phrase anchors. Showing only "① 第一" is semantically thin; the list row
+    should read "① 字幕出现的时间". We join the following non-list anchors that sit
+    inside the same step window and strip a leading ordinal from the joined text.
+    """
+    starts = [float(g.get("start_s", 0.0)) for g in group]
+    out: list[str] = []
+    for idx, g in enumerate(group):
+        start = starts[idx]
+        end = starts[idx + 1] if idx + 1 < len(starts) else float(g.get("end_s", start)) + LIST_MERGE_GAP_S
+        if idx + 1 >= len(starts):
+            nxt_anchor = [float(it.get("start_s", 0.0)) for it in all_items
+                          if not _is_list(it) and float(it.get("start_s", 0.0)) > start + 0.05]
+            if nxt_anchor:
+                end = min(end, min(nxt_anchor) - 0.05)
+        follows = [it for it in all_items
+                   if not _is_list(it) and start - 1e-6 <= float(it.get("start_s", 0.0)) < end]
+        follows.sort(key=lambda x: float(x.get("start_s", 0.0)))
+        pieces: list[str] = []
+        for it in follows:
+            t = str(it.get("text", "")).strip("，,。.、；;：: ")
+            if t and not any(t in p or p in t for p in pieces):
+                pieces.append(t)
+        spoken = _transcript_slice(transcript, start, end).strip("，,。.、；;：: ")
+        joined = spoken or "".join(pieces)
+        for pre in sorted(_ORDINAL_PREFIX, key=len, reverse=True):
+            if joined.startswith(pre):
+                joined = joined[len(pre):].strip("，,。.、；;：: ")
+                break
+        joined = joined.strip("，,。.、；;：: ")
+        out.append(joined if joined else str(g.get("text", "")))
+    return out
 
 
 def _is_list(a: dict) -> bool:
@@ -70,6 +185,8 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
     a camera cut) and for face-density awareness; it does not invent coordinates.
     """
     items: list[dict] = sorted(anchors.get("anchors", []), key=lambda a: a.get("start_s", 0.0))
+    raw_items = list(items)          # before stopword/dedupe filtering, for list text
+    calibration = style == STYLE_CALIBRATION
     duration = float(anchors.get("duration_s") or
                      (canvas.get("duration_s") if canvas.get("duration_s") else
                       max([a.get("end_s", 0.0) for a in items] or [0.0])))
@@ -86,6 +203,9 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
         text = str(a.get("text", ""))
         length_bonus = 0.15 if len(text) >= 4 else 0.0
         return base * (0.5 + conf) + length_bonus
+
+    if calibration:
+        return _calibration_plan(items, canvas, duration)
 
     # Pre-filter: drop filler words; keep at most one loose keyword per ASR segment
     # so a single sentence cannot produce a stack of one-word overlays.
@@ -151,6 +271,7 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
                 skipped.append({"anchor_id": a.get("id"), "reason": why})
                 i = j
                 continue
+            composed = _compose_list_items(group, raw_items, transcript)
             decisions.append({
                 "id": _decision_id(len(decisions) + 1),
                 "anchor_id": a.get("id"),
@@ -160,8 +281,9 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
                 "reason": f"sequence_of_{len(group)}_steps",
                 "confidence": round(min(_conf(g) for g in group), 4),
                 "decision_model": "rules-v1-smart-balanced",
-                "content": {"text": a.get("text", ""),
-                            "items": [g.get("text", "") for g in group]},
+                "content": {"text": to_simplified(a.get("text", "")),
+                            "items": [to_simplified(t) for t in composed],
+                            "items_raw": [g.get("text", "") for g in group]},
                 "window": {"start_s": round(g_start, 6), "end_s": round(g_end, 6)},
             })
             recent_starts.append(g_start)
@@ -184,7 +306,7 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
                 "reason": "quantified_claim",
                 "confidence": conf,
                 "decision_model": "rules-v1-smart-balanced",
-                "content": {"text": a.get("text", "")},
+                "content": {"text": to_simplified(a.get("text", ""))},
                 "window": {"start_s": round(start, 6), "end_s": round(end + 0.35, 6)},
             })
             recent_starts.append(start)
@@ -208,7 +330,7 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
                 "reason": "explanatory_statement",
                 "confidence": conf,
                 "decision_model": "rules-v1-smart-balanced",
-                "content": {"text": text},
+                "content": {"text": to_simplified(text)},
                 "window": {"start_s": round(start, 6), "end_s": round(end + 0.5, 6)},
             })
             recent_starts.append(start)
@@ -231,7 +353,7 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
                 "reason": f"semantic_role:{kind}",
                 "confidence": conf,
                 "decision_model": "rules-v1-smart-balanced",
-                "content": {"text": text},
+                "content": {"text": to_simplified(text)},
                 "window": {"start_s": round(start, 6), "end_s": round(end + 0.30, 6)},
             })
             recent_starts.append(start)
@@ -260,9 +382,25 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
                 contained = (str(d["content"].get("text", "")) in str(k["content"].get("text", ""))
                              or str(k["content"].get("text", "")) in str(d["content"].get("text", "")))
                 if contained:
-                    conflict = (k, "contains " + k["id"] if _keep_score(k) >= _keep_score(d)
-                                else k["id"] + " contained")
-                elif _keep_score(k) >= _keep_score(d):
+                    k_text, d_text = str(k["content"].get("text", "")), str(d["content"].get("text", ""))
+                    richer_is_k = len(k_text) >= len(d_text)
+                    if not richer_is_k:
+                        kept.remove(k)
+                        skipped.append({"anchor_id": k["anchor_id"],
+                                        "reason": f"superseded_by_{d['id']}_richer_text"})
+                        continue
+                    conflict = (k, "contains " + k["id"])
+                else:
+                    # small overlap: trim the earlier element instead of dropping it,
+                    # so a card that leads into a list still gets its moment.
+                    overlap = float(k["window"]["end_s"]) - float(d["window"]["start_s"])
+                    if 0 < overlap <= 0.7 and (float(d["window"]["start_s"])
+                                               - float(k["window"]["start_s"])) >= 0.6:
+                        k["window"]["end_s"] = round(float(d["window"]["start_s"]) - 0.04, 6)
+                        k["notes"] = f"trimmed_before_{d['id']}"
+                        kept.append(d)
+                        continue
+                if _keep_score(k) >= _keep_score(d):
                     conflict = (k, f"temporal_conflict_with_{k['id']}")
                 else:
                     kept.remove(k)
@@ -275,6 +413,9 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
         else:
             skipped.append({"anchor_id": d["anchor_id"], "reason": conflict[1]})
     decisions = kept
+
+    # --- camera-cut policy (G3): no overlay may straddle a shot change
+    decisions = _apply_shot_policy(decisions, vision, skipped)
 
     # --- global coverage guard: drop the least important elements if over budget
     overlay = sum(max(0.0, d["window"]["end_s"] - d["window"]["start_s"]) for d in decisions)
@@ -315,6 +456,53 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
         },
     }
     return plan
+
+
+def _calibration_plan(items: list[dict], canvas: dict, duration: float) -> dict:
+    """One element per non-plain anchor, windows tiled so they never overlap."""
+    rows = [a for a in items if a.get("kind") not in (None, "", "plain")
+            and _conf(a) >= MIN_CONFIDENCE]
+    rows.sort(key=lambda a: float(a.get("start_s", 0.0)))
+    decisions: list[dict] = []
+    for i, a in enumerate(rows):
+        start = float(a.get("start_s", 0.0))
+        nxt = float(rows[i + 1].get("start_s", duration)) if i + 1 < len(rows) else duration
+        end = min(float(a.get("end_s", start + 1.0)) + 0.45, nxt - 0.05, duration - 0.05)
+        if end - start < 0.30:
+            continue
+        kind = a.get("kind")
+        effect = {"number": "number", "list_item": "list", "card": "card",
+                  "conclusion": "card"}.get(kind, "keyword")
+        decisions.append({
+            "id": f"cal{i + 1:02d}",
+            "anchor_id": a.get("id"),
+            "anchor_ids": [a.get("id")],
+            "effect": effect,
+            "emphasis": "high",
+            "reason": "calibration_all_anchors",
+            "confidence": _conf(a),
+            "decision_model": "rules-v1-calibration",
+            "content": {"text": to_simplified(a.get("text", "")), "items": None},
+            "window": {"start_s": round(start, 6), "end_s": round(end, 6)},
+        })
+    return {
+        "schema": "semotion.plan/1",
+        "style": STYLE_CALIBRATION,
+        "canvas": {"width": canvas.get("width"), "height": canvas.get("height"),
+                   "fps": canvas.get("fps")},
+        "duration_s": round(duration, 6),
+        "decisions": decisions,
+        "notes": {
+            "policy": "calibration: every non-plain anchor animated, windows tiled; "
+                      "used ONLY to measure timing, never presented as product output",
+            "skipped": [],
+            "budget": None,
+            "overlay_coverage": round(sum(
+                d["window"]["end_s"] - d["window"]["start_s"] for d in decisions) / max(duration, 1e-6), 4),
+        },
+        "provenance": {"method": "rule_engine (calibration)", "decision_model": "rules-v1-calibration",
+                       "anchor_count": len(items), "decided_count": len(decisions)},
+    }
 
 
 def summarize(plan: dict) -> dict[str, Any]:

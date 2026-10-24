@@ -98,8 +98,9 @@ def cmd_plan(a) -> int:
     an = _load(a.anchors)
     vis = _load(a.vision) if a.vision else {}
     w, h = (int(x) for x in a.canvas.lower().split("x"))
+    tr = _load(a.transcript) if getattr(a, "transcript", None) else None
     plan = semantic.decide(an, vis, {"width": w, "height": h, "fps": a.fps},
-                           style=a.style)
+                           style=a.style, transcript=tr)
     _dump(plan, Path(a.out))
     print(json.dumps(semantic.summarize(plan), ensure_ascii=False))
     return 0
@@ -213,7 +214,8 @@ def cmd_run(a) -> int:
 
         canvas = {"width": transcript["source"]["width"], "height": transcript["source"]["height"],
                   "fps": transcript["source"]["fps"]}
-        plan = step("plan", lambda: semantic.decide(anchors_doc, vis, canvas, style=a.style))
+        plan = step("plan", lambda: semantic.decide(anchors_doc, vis, canvas, style=a.style,
+                                                   transcript=transcript))
         _dump(plan, outdir / "plan.json")
 
         ir_doc = step("ir", lambda: ir_mod.build(transcript, vis, anchors_doc, plan, video, canvas))
@@ -324,6 +326,7 @@ def build_parser() -> argparse.ArgumentParser:
     pl.add_argument("--canvas", default="1080x1920")
     pl.add_argument("--fps", type=float, default=25.0)
     pl.add_argument("--style", default="smart_balanced")
+    pl.add_argument("--transcript")
     pl.add_argument("--out", required=True)
     pl.set_defaults(func=cmd_plan)
 

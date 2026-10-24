@@ -1,0 +1,172 @@
+{
+  "schema": "semotion.render/1",
+  "ir_sha256": "2f505553ddec1c9c9c3d8e3a6d9dc1c03dc2c5393a2caf69bcddb19711e0a47b",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
+    "sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5"
+  },
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/fx_c/fx_c_zh_cuts_motion.mp4",
+    "sha256": "989c775837bc2476f4cfd56b9773f271146a2f25c30cb7e3e7976ad60d718a0e",
+    "size_bytes": 1231380,
+    "duration_s": 20.08,
+    "n_frames": 502,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "pix_fmt": "yuv420p"
+  },
+  "audio": {
+    "pcm_sha256": "bc58a05bccc1c4d3c8601b0ddcc9ad671a3655113d099f2781cf71f401fa2567",
+    "source": "passthrough_decode_encode",
+    "delta_vs_source_s": 0.0,
+    "rms_delta_db": 0.0,
+    "correlation": 0.999999,
+    "method": "decoded 48 kHz stereo PCM: duration + RMS energy + zero-mean correlation vs source (AAC re-encode prevents sample-exact identity)",
+    "source_duration_s": 20.074667
+  },
+  "overlay": {
+    "fps": 25.0,
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec",
+    "rendered_frames": 213,
+    "empty_frames": 0,
+    "elements": [
+      {
+        "id": "el_d01",
+        "type": "list",
+        "z": 20,
+        "start_frame": 12,
+        "end_frame": 42,
+        "frames": 30,
+        "frames_dir": "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d01"
+      },
+      {
+        "id": "el_d04",
+        "type": "list",
+        "z": 20,
+        "start_frame": 142,
+        "end_frame": 223,
+        "frames": 81,
+        "frames_dir": "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d04"
+      },
+      {
+        "id": "el_d05",
+        "type": "list",
+        "z": 20,
+        "start_frame": 285,
+        "end_frame": 331,
+        "frames": 46,
+        "frames_dir": "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d05"
+      },
+      {
+        "id": "el_d06",
+        "type": "number",
+        "z": 20,
+        "start_frame": 350,
+        "end_frame": 370,
+        "frames": 20,
+        "frames_dir": "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d06"
+      },
+      {
+        "id": "el_d07",
+        "type": "number",
+        "z": 20,
+        "start_frame": 424,
+        "end_frame": 460,
+        "frames": 36,
+        "frames_dir": "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d07"
+      }
+    ],
+    "frames_retained": false
+  },
+  "commands": [
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4 -framerate 25 -start_number 12 -i artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d01/f%05d.png -framerate 25 -start_number 142 -i artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d04/f%05d.png -framerate 25 -start_number 285 -i artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d05/f%05d.png -framerate 25 -start_number 350 -i artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d06/f%05d.png -framerate 25 -start_number 424 -i artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d07/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+0.480000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,0.480000)*lt(t,1.680000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+5.680000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,5.680000)*lt(t,8.920000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.400000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.400000)*lt(t,13.240000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+14.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,14.000000)*lt(t,14.800000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+16.960000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,16.960000)*lt(t,18.400000)'\"'\"'[v4];[v4]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -frames:v 502 -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/fx_c/fx_c_zh_cuts_motion.mp4"
+  ],
+  "command_argv": [
+    "ffmpeg",
+    "-hide_banner",
+    "-y",
+    "-v",
+    "error",
+    "-i",
+    "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
+    "-framerate",
+    "25",
+    "-start_number",
+    "12",
+    "-i",
+    "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d01/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "142",
+    "-i",
+    "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d04/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "285",
+    "-i",
+    "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d05/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "350",
+    "-i",
+    "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d06/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "424",
+    "-i",
+    "artifacts/tmp/render_fx_c_zh_cuts_motion_2f505553ddec/el_d07/f%05d.png",
+    "-filter_complex",
+    "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+0.480000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,0.480000)*lt(t,1.680000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+5.680000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,5.680000)*lt(t,8.920000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.400000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,11.400000)*lt(t,13.240000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+14.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,14.000000)*lt(t,14.800000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+16.960000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,16.960000)*lt(t,18.400000)'[v4];[v4]format=yuv420p[vout]",
+    "-map",
+    "[vout]",
+    "-map",
+    "0:a?",
+    "-frames:v",
+    "502",
+    "-r",
+    "25",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "192k",
+    "-ar",
+    "48000",
+    "-movflags",
+    "+faststart",
+    "artifacts/g1/fx_c/fx_c_zh_cuts_motion.mp4"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "created_utc": "2026-10-24T09:36:44Z",
+  "preview": false,
+  "checks": {
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.04,
+    "frames_expected": 502,
+    "resolution_expected": [
+      1080,
+      1920
+    ],
+    "verdict": "PASS",
+    "problems": []
+  },
+  "log": "artifacts/g1/fx_c/logs/render_fx_c_zh_cuts_motion.log",
+  "manifest_path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/fx_c/render_manifest.json"
+}

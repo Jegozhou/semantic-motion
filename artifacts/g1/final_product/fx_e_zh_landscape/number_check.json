@@ -1,0 +1,139 @@
+{
+  "schema": "semotion.number_check/1",
+  "video": "artifacts/g1/final_product/fx_e_zh_landscape/fx_e_zh_landscape_motion.mp4",
+  "ir": "artifacts/g1/final_product/fx_e_zh_landscape/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_d01",
+      "text": "87%",
+      "expected_value": 87.0,
+      "expected_kind": "percent",
+      "ocr_raw": "87%",
+      "ocr_variants": {
+        "psm8": "87%",
+        "psm13": "87%"
+      },
+      "observed_value": 87.0,
+      "frame": 101,
+      "t_s": 4.04,
+      "box": [
+        788,
+        675,
+        344,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d02",
+      "text": "3秒",
+      "expected_value": 3.0,
+      "expected_kind": "unit",
+      "ocr_raw": "3秒",
+      "ocr_variants": {
+        "psm8": "3秒",
+        "psm13": "3秒"
+      },
+      "observed_value": 3.0,
+      "frame": 133,
+      "t_s": 5.32,
+      "box": [
+        1241,
+        384,
+        282,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d03",
+      "text": "2秒",
+      "expected_value": 2.0,
+      "expected_kind": "unit",
+      "ocr_raw": "2秒",
+      "ocr_variants": {
+        "psm8": "2秒",
+        "psm13": "2秒"
+      },
+      "observed_value": 2.0,
+      "frame": 174,
+      "t_s": 6.96,
+      "box": [
+        1241,
+        384,
+        282,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d05",
+      "text": "三条",
+      "expected_value": 3.0,
+      "expected_kind": "unit",
+      "ocr_raw": "3条",
+      "ocr_variants": {
+        "psm8": "3条",
+        "psm13": "3条"
+      },
+      "observed_value": 3.0,
+      "frame": 450,
+      "t_s": 18.0,
+      "box": [
+        1241,
+        384,
+        282,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d07",
+      "text": "50%",
+      "expected_value": 50.0,
+      "expected_kind": "percent",
+      "ocr_raw": "50%",
+      "ocr_variants": {
+        "psm8": "50%",
+        "psm13": "50%"
+      },
+      "observed_value": 50.0,
+      "frame": 599,
+      "t_s": 23.96,
+      "box": [
+        788,
+        675,
+        344,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d08",
+      "text": "一半",
+      "expected_value": 50.0,
+      "expected_kind": "percent",
+      "ocr_raw": "50%",
+      "ocr_variants": {
+        "psm8": "50%",
+        "psm13": "50%"
+      },
+      "observed_value": 50.0,
+      "frame": 658,
+      "t_s": 26.32,
+      "box": [
+        788,
+        675,
+        344,
+        269
+      ],
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 6,
+  "mismatches": 0,
+  "unreadable": [],
+  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
+  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+}

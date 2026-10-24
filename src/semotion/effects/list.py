@@ -57,20 +57,23 @@ def measure(element: dict, canvas: dict, *, max_text_width: float | None = None,
     line_factor = float(st.get("line_height") or 1.35)
 
     max_w = float(max_text_width) if max_text_width else float(base.scaled(880, canvas))
-    # a step list is a prominent element: never a narrow column in the middle
+    # a step list is a prominent element: it wants >=0.6 canvas width, but a tight
+    # face-free column may be narrower — never overflow the available width.
+    avail_w = max_w + 2 * pad
     min_w = int(st.get("min_width_px") or round(0.60 * float(canvas.get("width") or 1080)))
-    max_w = max(max_w, float(min_w))
-    text_max = max(60.0, max_w - 2 * pad - marker_d - marker_gap)
+    min_w = min(min_w, int(avail_w))
+    text_max = max(60.0, min_w - 2 * pad - marker_d - marker_gap)
 
     rows = _rows(element)
     # prefer single-line steps: fit the type inside the 56-68 px band before wrapping
     min_font = max(10, int(round(56 * base.canvas_scale(canvas))))
+    hard_floor = max(10, int(round(min_font * 0.80)))   # tight 16:9 columns
     chosen = font_px
-    for size in range(font_px, min_font - 1, -2):
+    for size in range(font_px, hard_floor - 1, -2):
         f = base.load_font(font_path, size)
         md = int(round(size * 0.70))
         mg = int(round(size * 0.38))
-        tmax = max(60.0, max_w - 2 * pad - md - mg)
+        tmax = max(60.0, min_w - 2 * pad - md - mg)
         if all(len(base.wrap_text(r["text"], f, tmax, base.MAX_LINES)) <= 1 for r in rows):
             chosen = size
             break
@@ -82,7 +85,7 @@ def measure(element: dict, canvas: dict, *, max_text_width: float | None = None,
         marker_d = int(round(font_px * 0.70))
         marker_gap = int(round(font_px * 0.38))
         row_gap = int(round(font_px * 0.42))
-        text_max = max(60.0, max_w - 2 * pad - marker_d - marker_gap)
+        text_max = max(60.0, min_w - 2 * pad - marker_d - marker_gap)
     marker_font = base.load_font(font_path, max(10, int(round(font_px * 0.42))))
     asc, desc = base.text_block_metrics(font)
     step = int(round(font_px * line_factor))
@@ -99,7 +102,11 @@ def measure(element: dict, canvas: dict, *, max_text_width: float | None = None,
         total_h += row_h + (row_gap if i < len(rows) - 1 else 0)
 
     text_w = int(marker_d + marker_gap + widest)
-    width = max(text_w + 2 * pad, int(min_w))
+    desired = text_w + 2 * pad
+    # prominent, but not an empty billboard: cap the minimum-width rule at 1.35x
+    # the content width so a two-character step never gets a 60%-canvas panel.
+    min_w_eff = min(int(min_w), int(round(desired * 1.35)))
+    width = min(max(desired, min_w_eff), int(avail_w))
     content_w = width - 2 * pad
     height = total_h + 2 * pad
     return {"kind": "list", "rows": laid, "font_px": font_px, "font": font,

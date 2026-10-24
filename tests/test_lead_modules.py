@@ -129,6 +129,19 @@ class DirectorTest(unittest.TestCase):
         self.assertLessEqual(len(plan["decisions"]), 4)
         self.assertLessEqual(plan["notes"]["overlay_coverage"], semantic.MAX_OVERLAY_COVERAGE + 1e-6)
 
+    def test_overlays_never_straddle_a_camera_cut(self):
+        anchors = {"schema": "semotion.anchors/1", "duration_s": 20.0, "anchors": [
+            {"id": "a01", "kind": "keyword", "text": "跨切点", "start_s": 7.2, "end_s": 9.5,
+             "confidence": 0.9, "source": "ASR_ALIGNED"}]}
+        vision = {"shots": [{"index": 0, "start_s": 0.0, "end_s": 8.0},
+                            {"index": 1, "start_s": 8.0, "end_s": 16.0}]}
+        plan = semantic.decide(anchors, vision, {"width": 1080, "height": 1920, "fps": 25})
+        self.assertTrue(plan["decisions"], "element should survive the cut policy")
+        w = plan["decisions"][0]["window"]
+        cut = 8.0
+        straddles = w["start_s"] - semantic.CUT_GUARD_S < cut < w["end_s"] + semantic.CUT_GUARD_S
+        self.assertFalse(straddles, f"window {w} still straddles cut at {cut}")
+
     def test_deterministic_output(self):
         p1 = semantic.decide(_anchors(), {}, {"width": 1080, "height": 1920, "fps": 25})
         p2 = semantic.decide(_anchors(), {}, {"width": 1080, "height": 1920, "fps": 25})

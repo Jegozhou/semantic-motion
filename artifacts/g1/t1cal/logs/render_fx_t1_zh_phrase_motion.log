@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g1/t1cal/fx_t1_zh_phrase_motion.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmp3vk9nsbd.s16le
+
+
+render manifest: artifacts/g1/t1cal/render_manifest.json
+verdict: PASS

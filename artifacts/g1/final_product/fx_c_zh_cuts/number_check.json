@@ -1,0 +1,55 @@
+{
+  "schema": "semotion.number_check/1",
+  "video": "artifacts/g1/final_product/fx_c_zh_cuts/fx_c_zh_cuts_motion.mp4",
+  "ir": "artifacts/g1/final_product/fx_c_zh_cuts/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_d06",
+      "text": "九成",
+      "expected_value": 90.0,
+      "expected_kind": "percent",
+      "ocr_raw": "90%",
+      "ocr_variants": {
+        "psm8": "90%",
+        "psm13": "90%"
+      },
+      "observed_value": 90.0,
+      "frame": 368,
+      "t_s": 14.72,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d07",
+      "text": "10%",
+      "expected_value": 10.0,
+      "expected_kind": "percent",
+      "ocr_raw": "10%",
+      "ocr_variants": {
+        "psm8": "10%",
+        "psm13": "10%"
+      },
+      "observed_value": 10.0,
+      "frame": 458,
+      "t_s": 18.32,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 2,
+  "mismatches": 0,
+  "unreadable": [],
+  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
+  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+}

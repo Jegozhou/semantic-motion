@@ -1,0 +1,279 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "duration_s": 40.221,
+  "decisions": [
+    {
+      "id": "d01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "九成"
+      },
+      "window": {
+        "start_s": 0.51,
+        "end_s": 1.33
+      }
+    },
+    {
+      "id": "d02",
+      "anchor_id": "a01",
+      "anchor_ids": [
+        "a01"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "三個"
+      },
+      "window": {
+        "start_s": 2.79,
+        "end_s": 3.61
+      }
+    },
+    {
+      "id": "d04",
+      "anchor_id": "a04",
+      "anchor_ids": [
+        "a04"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "六次"
+      },
+      "window": {
+        "start_s": 4.67,
+        "end_s": 5.49
+      }
+    },
+    {
+      "id": "d05",
+      "anchor_id": "a07",
+      "anchor_ids": [
+        "a07"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "三成"
+      },
+      "window": {
+        "start_s": 10.81,
+        "end_s": 11.69
+      }
+    },
+    {
+      "id": "d06",
+      "anchor_id": "a08",
+      "anchor_ids": [
+        "a08"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "semantic_role:keyword",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "關鍵是節奏"
+      },
+      "window": {
+        "start_s": 13.19,
+        "end_s": 15.14
+      }
+    },
+    {
+      "id": "d08",
+      "anchor_id": "a10",
+      "anchor_ids": [
+        "a10"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "semantic_role:keyword",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "核心是克制"
+      },
+      "window": {
+        "start_s": 16.86,
+        "end_s": 18.76
+      }
+    },
+    {
+      "id": "d10",
+      "anchor_id": "a15",
+      "anchor_ids": [
+        "a15",
+        "a16",
+        "a17"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "sequence_of_3_steps",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "第一步",
+        "items": [
+          "第一步",
+          "第二步",
+          "第三步"
+        ]
+      },
+      "window": {
+        "start_s": 24.27,
+        "end_s": 28.85
+      }
+    },
+    {
+      "id": "d12",
+      "anchor_id": "a19",
+      "anchor_ids": [
+        "a19"
+      ],
+      "effect": "card",
+      "emphasis": "medium",
+      "reason": "explanatory_statement",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "結論是自動化"
+      },
+      "window": {
+        "start_s": 29.5,
+        "end_s": 31.76
+      }
+    },
+    {
+      "id": "d13",
+      "anchor_id": "a22",
+      "anchor_ids": [
+        "a22"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "semantic_role:conclusion",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "總之"
+      },
+      "window": {
+        "start_s": 33.68,
+        "end_s": 34.48
+      }
+    },
+    {
+      "id": "d14",
+      "anchor_id": "a23",
+      "anchor_ids": [
+        "a23"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "semantic_role:comparison",
+      "confidence": 0.76,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "相比"
+      },
+      "window": {
+        "start_s": 35.49,
+        "end_s": 36.34
+      }
+    }
+  ],
+  "notes": {
+    "policy": "P1 effects only; plain speech intentionally gets zero motion; rhythm budget enforced",
+    "skipped": [
+      {
+        "anchor_id": "a20",
+        "reason": "filler_word"
+      },
+      {
+        "anchor_id": "a03",
+        "reason": "rhythm_gap"
+      },
+      {
+        "anchor_id": "a05",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a06",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a11",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a12",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a13",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a21",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a24",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a02",
+        "reason": "contains d02"
+      },
+      {
+        "anchor_id": "a09",
+        "reason": "temporal_conflict_with_d06"
+      },
+      {
+        "anchor_id": "a14",
+        "reason": "superseded_by_d10"
+      },
+      {
+        "anchor_id": "a18",
+        "reason": "contains d12"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4.0,
+      "min_gap_s": 0.9,
+      "max_coverage": 0.58,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.3898
+  },
+  "provenance": {
+    "method": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+    "decision_model": "rules-v1-smart-balanced",
+    "anchor_count": 24,
+    "decided_count": 10
+  }
+}

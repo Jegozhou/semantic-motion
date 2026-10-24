@@ -84,8 +84,28 @@ def load(path: str | Path) -> dict:
 
 
 # --------------------------------------------------------------------------- helpers
+_T2S = None
+
+
+def _to_simplified(text: str) -> str:
+    """Fold Traditional Chinese to Simplified (ASR may emit either script).
+
+    Used only for *text containment* checks, never to rewrite stored content.
+    """
+    global _T2S
+    if _T2S is None:
+        try:
+            import opencc
+            _T2S = opencc.OpenCC("t2s")
+        except Exception:  # pragma: no cover - optional dependency
+            _T2S = False
+    if not text or not _T2S:
+        return str(text or "")
+    return _T2S.convert(str(text))
+
+
 def _norm_text(text: str) -> str:
-    return "".join(ch for ch in str(text or "") if not ch.isspace())
+    return "".join(ch for ch in _to_simplified(text) if not ch.isspace())
 
 
 def _now_utc() -> str:
@@ -110,6 +130,34 @@ def _fps_of(transcript: dict, canvas: dict, source_info: media.MediaInfo | None)
         if f > 0:
             return f
     return 25.0
+
+
+def _frame_count_of(transcript: dict, source_info: media.MediaInfo | None,
+                    duration: float, fps: float) -> tuple[int, str, list[str]]:
+    """Real decoded frame count first: duration*fps is not authoritative.
+
+    Containers pad the audio tail, so ``duration*fps`` can be a few frames larger
+    than the video stream (nb_frames). Trusting the derived number would make a
+    correct render look like a frame-count regression.
+    """
+    warnings: list[str] = []
+    stream_frames = getattr(source_info, "stream_frames", None) if source_info else None
+    if stream_frames and int(stream_frames) > 0:
+        n = int(stream_frames)
+        tr_n = (transcript.get("source") or {}).get("n_frames")
+        if tr_n is not None and int(tr_n) != n:
+            warnings.append(f"transcript n_frames={tr_n} != container nb_frames={n}; "
+                            "using the decoded stream count")
+        return n, "nb_frames", warnings
+    tr_n = (transcript.get("source") or {}).get("n_frames")
+    if tr_n is not None:
+        try:
+            n = int(tr_n)
+            if n > 0:
+                return n, "transcript", warnings
+        except (TypeError, ValueError):
+            pass
+    return int(round(duration * fps)), "duration*fps", warnings
 
 
 def _duration_of(transcript: dict, source_info: media.MediaInfo | None) -> float:
@@ -268,11 +316,12 @@ def build(transcript: dict, vision: dict, anchors: dict, plan: dict,
     src_sha = media.sha256_file(source)
     fps = _fps_of(transcript, canvas, src_info)
     duration = _duration_of(transcript, src_info) or src_info.duration
-    n_frames = int(round(duration * fps))
+    n_frames, frame_source, frame_warnings = _frame_count_of(transcript, src_info,
+                                                            duration, fps)
     width = int((canvas or {}).get("width") or src_info.width)
     height = int((canvas or {}).get("height") or src_info.height)
 
-    warnings: list[str] = []
+    warnings: list[str] = list(frame_warnings)
     ts_sha = (transcript.get("source") or {}).get("sha256")
     if ts_sha and ts_sha != src_sha:
         warnings.append(f"transcript.source.sha256 != source sha256 ({ts_sha[:12]} vs {src_sha[:12]})")
@@ -415,6 +464,8 @@ def build(transcript: dict, vision: dict, anchors: dict, plan: dict,
             "fps": float(fps),
             "duration_s": round(duration, 6),
             "n_frames": n_frames,
+            "frame_source": frame_source,
+            "duration_fps_frames": int(round(duration * fps)),
             "timebase": {"num": 1, "den": int(round(fps)) if abs(fps - round(fps)) < 1e-9
                          else 1000},
         },
@@ -444,6 +495,9 @@ def build(transcript: dict, vision: dict, anchors: dict, plan: dict,
             "tool_versions": media.tool_versions(),
             "host": "macOS-arm64",
             "policy": "schema-validated declarative primitives only; no code execution",
+            "frame_count": {"n_frames": n_frames, "source": frame_source,
+                            "container_duration_s": round(duration, 6),
+                            "duration_fps_frames": int(round(duration * fps))},
             "build_warnings": warnings,
             "skipped_decisions": skipped,
             "n_elements": len(elements),
@@ -512,9 +566,15 @@ def validate(ir: dict) -> list[str]:
         errs.append(f"source.fps must be > 0, got {fps}")
     if n_frames <= 0:
         errs.append(f"source.n_frames must be > 0, got {n_frames}")
-    if abs(n_frames - round(duration * fps)) > 1:
-        errs.append(f"source.n_frames={n_frames} inconsistent with duration_s*fps="
-                    f"{round(duration * fps)}")
+    frame_source = str(source.get("frame_source") or "")
+    derived = round(duration * fps)
+    frame_tol = max(3.0, 0.02 * fps) if frame_source in ("nb_frames", "transcript") else 1.0
+    if abs(n_frames - derived) > frame_tol:
+        errs.append(f"source.n_frames={n_frames} inconsistent with duration_s*fps={derived} "
+                    f"(frame_source={frame_source or 'unknown'}, tolerance {frame_tol:g})")
+    if frame_source and frame_source not in ("nb_frames", "transcript", "duration*fps"):
+        errs.append(f"source.frame_source must be 'nb_frames', 'transcript' or 'duration*fps', "
+                    f"got {frame_source!r}")
     sha = str(source.get("sha256") or "")
     if len(sha) != 64 or any(c not in "0123456789abcdef" for c in sha):
         errs.append("source.sha256 must be a 64-char lowercase hex digest")

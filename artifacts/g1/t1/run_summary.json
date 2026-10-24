@@ -1,0 +1,82 @@
+{
+  "gate": "G1",
+  "started_utc": "2026-10-24T09:40:19Z",
+  "finished_utc": "2026-10-24T09:40:33Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_t1_zh_phrase/fx_t1_zh_phrase.mp4",
+    "sha256": "6529aa797a4b2b6a4218828ca9d2d5d55db3cc6d3f6a2a03829fae30b1ea6e74",
+    "truth": "tests/fixtures/clips/fx_t1_zh_phrase/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g1/t1/transcript.json",
+    "vision": "artifacts/g1/t1/vision.json",
+    "anchors": "artifacts/g1/t1/anchors.json",
+    "plan": "artifacts/g1/t1/plan.json",
+    "motion_ir": "artifacts/g1/t1/motion_ir.json",
+    "render": "artifacts/g1/t1/fx_t1_zh_phrase_motion.mp4",
+    "render_manifest": "artifacts/g1/t1/render_manifest.json",
+    "metrics": "artifacts/g1/t1/metrics.json"
+  },
+  "decisions": {
+    "decisions": 10,
+    "by_effect": {
+      "number": 4,
+      "keyword": 4,
+      "list": 1,
+      "card": 1
+    },
+    "skipped": 13,
+    "coverage": 0.3898
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 6,
+    "p50_ms": 16.21,
+    "p90_ms": 23.81,
+    "max_ms": 55.67,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.03
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 4.66
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.09
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 7.97
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 1.29
+    }
+  ],
+  "exit": 0
+}

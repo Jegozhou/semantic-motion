@@ -459,7 +459,7 @@ class TestManifest(unittest.TestCase):
             for key in self.REQUIRED:
                 self.assertIn(key, entry, f"{fid} missing {key}")
             self.assertIn(entry["truth_class"], ("SYNTH_KNOWN", "HUMAN", "MACHINE_WEAK"))
-            self.assertIn(entry["split"], ("train", "dev", "holdout"))
+            self.assertIn(entry["split"], ("train", "dev", "holdout", "calibration"))
             self.assertGreater(entry["duration_s"], 0)
             self.assertGreater(entry["fps"], 0)
 
@@ -482,10 +482,77 @@ class TestManifest(unittest.TestCase):
 
     def test_split_policy_is_honest(self):
         self.assertIn("holdout", self.doc["split_policy"])
+        self.assertIn("calibration", self.doc["split_policy"])
         self.assertIn("non-blind", self.doc["split_policy"]["note"])
         counts = self.doc["counts"]
         self.assertEqual(counts["fixtures"], len(self.entries))
         self.assertGreaterEqual(counts["synth_known_units"], 50)
+        self.assertEqual(counts["calibration_units"],
+                         sum(e["units"]["count"] for e in self.entries.values()
+                             if e["split"] == "calibration"))
+
+    def test_calibration_split_is_registered(self):
+        calibration = {fid: e for fid, e in self.entries.items() if e["split"] == "calibration"}
+        self.assertGreaterEqual(len(calibration), 3)
+        for fid, entry in calibration.items():
+            self.assertEqual(entry["kind"], "SYNTH_KNOWN")
+            self.assertEqual(entry["truth_class"], "SYNTH_KNOWN")
+            self.assertTrue(entry["timing_truth"])
+            self.assertGreaterEqual(entry["units"]["count"], 18)
+            self.assertLessEqual(entry["units"]["count"], 20)
+            self.assertTrue(40.0 <= entry["duration_s"] <= 60.0 + 1e-6,
+                            f"{fid}: duration {entry['duration_s']} outside 40-60 s")
+        self.assertGreaterEqual(self.doc["timing_calibration"]["events_measured"],
+                                self.doc["timing_calibration"]["min_events_required"])
+
+    def test_calibration_unit_text_lengths(self):
+        """Every calibration unit must be 5-9 characters (short, single-phrase)."""
+        for fid, entry in self.entries.items():
+            if entry["split"] != "calibration":
+                continue
+            gt = json.loads((ROOT / entry["ground_truth"]).read_text(encoding="utf-8"))
+            for unit in gt["units"]:
+                self.assertTrue(5 <= len(unit["text"]) <= 9,
+                                f"{fid} {unit['unit_id']} text length {len(unit['text'])}")
+
+    def test_calibration_prefix_events_from_cached_transcripts(self):
+        """Each calibration clip must yield >= 15 unit-initial anchor events.
+
+        Skipped when the ASR transcripts have not been generated yet (they are
+        produced by tests/eval_timing.py); the assertion never invents data.
+        """
+        checked = 0
+        for fid, entry in self.entries.items():
+            if entry["split"] != "calibration":
+                continue
+            transcript_path = ART / "anchors" / f"{fid}.transcript.json"
+            gt_path = ROOT / entry["ground_truth"]
+            if not transcript_path.exists() or not gt_path.exists():
+                continue
+            transcript = json.loads(transcript_path.read_text(encoding="utf-8"))
+            doc = A.classify(transcript)
+            units = A.load_truth(gt_path)
+            pairs, _unmatched = A.prefix_matches(doc, units)
+            events = len({p["unit_id"] for p in pairs})
+            self.assertGreaterEqual(events, 15,
+                                    f"{fid}: only {events} unit-initial anchor events")
+            checked += 1
+        if checked == 0:
+            self.skipTest("no cached calibration transcripts; run tests/eval_timing.py first")
+
+    def test_calibration_report_meets_threshold(self):
+        path = ART / "anchors" / "calibration_report.json"
+        if not path.exists():
+            self.skipTest("calibration report not generated yet")
+        report = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(report["truth_class"], "SYNTH_KNOWN")
+        self.assertEqual(report["split"], "calibration")
+        totals = report["totals"]
+        self.assertGreaterEqual(totals["events"], totals["min_events_required"])
+        self.assertEqual(totals["verdict"], "PASS")
+        self.assertLessEqual(totals["after"]["p90_ms"], 100)
+        for fid, fixture in report["fixtures"].items():
+            self.assertGreaterEqual(fixture["events"], 15, f"{fid}: too few events")
 
 
 if __name__ == "__main__":

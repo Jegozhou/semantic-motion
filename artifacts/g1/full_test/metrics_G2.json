@@ -2,8 +2,8 @@
   "schema": "semotion.metrics/1",
   "gate": "G2",
   "input_sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
-  "ir_sha256": "3783ef6f4b71e9eb63d6d81e2f235ffded59be47b3cbf694af90391c098ccc94",
-  "render_sha256": "109bfacb77eb1a1a3ffe83bc07080618716792c907df44ab905728b1e88dbd91",
+  "ir_sha256": "619476978bbae92f0fa86012e154fe0d829a4bee907baf401a33c7dbe95236f1",
+  "render_sha256": "78a1938a1fe39ca2670bd7daaaf4bfad8736d0415c6386fd81272431b0d34d5b",
   "timing": {
     "samples": 4,
     "elements": 5,
@@ -146,8 +146,8 @@
       "sampled_frames": 202
     },
     "raster_containment": {
-      "changed_pixels": 1727986,
-      "inside_declared_box": 1727986,
+      "changed_pixels": 1260878,
+      "inside_declared_box": 1260878,
       "value": 0.0,
       "threshold": 0.03,
       "verdict": "PASS",

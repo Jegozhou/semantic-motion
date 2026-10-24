@@ -1,0 +1,81 @@
+{
+  "gate": "G2",
+  "started_utc": "2026-10-24T10:01:31Z",
+  "finished_utc": "2026-10-24T10:01:35Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+    "truth": "tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g2/probe2/fx_a_zh_portrait/transcript.json",
+    "vision": "artifacts/g2/probe2/fx_a_zh_portrait/vision.json",
+    "anchors": "artifacts/g2/probe2/fx_a_zh_portrait/anchors.json",
+    "plan": "artifacts/g2/probe2/fx_a_zh_portrait/plan.json",
+    "motion_ir": "artifacts/g2/probe2/fx_a_zh_portrait/motion_ir.json",
+    "render": "artifacts/g2/probe2/fx_a_zh_portrait/fx_a_zh_portrait_motion.mp4",
+    "render_manifest": "artifacts/g2/probe2/fx_a_zh_portrait/render_manifest.json",
+    "metrics": "artifacts/g2/probe2/fx_a_zh_portrait/metrics.json"
+  },
+  "decisions": {
+    "decisions": 5,
+    "by_effect": {
+      "keyword": 3,
+      "number": 1,
+      "card": 1
+    },
+    "skipped": 4,
+    "coverage": 0.2723
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 3,
+    "p50_ms": 12.04,
+    "p90_ms": 23.54,
+    "max_ms": 23.54,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.05
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 2.79
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.55
+    }
+  ],
+  "exit": 0
+}

@@ -98,9 +98,15 @@ class MediaInfo:
     n_audio_streams: int
     rotation: int = 0
     raw: dict[str, Any] = field(default_factory=dict, compare=False)
+    # Exact decoded frame count when the container reports it (nb_frames).
+    # duration*fps can be off by a whole frame for VFR/tail-padded files, which
+    # must never be confused with a render fault.
+    stream_frames: int | None = None
 
     @property
     def frame_count(self) -> int:
+        if self.stream_frames:
+            return int(self.stream_frames)
         return int(round(self.duration * self.fps))
 
 
@@ -118,6 +124,11 @@ def info(path: str | Path) -> MediaInfo:
     for sd in v.get("side_data_list", []) or []:
         if "rotation" in sd:
             rotation = int(sd["rotation"])
+    nb = v.get("nb_frames")
+    try:
+        nb_frames = int(nb) if nb is not None else None
+    except (TypeError, ValueError):
+        nb_frames = None
     return MediaInfo(
         path=str(path),
         duration=float(pr["format"].get("duration", 0.0)),
@@ -130,6 +141,7 @@ def info(path: str | Path) -> MediaInfo:
         n_audio_streams=len(astreams),
         rotation=rotation,
         raw=pr,
+        stream_frames=nb_frames,
     )
 
 

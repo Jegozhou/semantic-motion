@@ -1,0 +1,53 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "duration_s": 24.0,
+  "decisions": [
+    {
+      "id": "d01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.88,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "3"
+      },
+      "window": {
+        "start_s": 2.27,
+        "end_s": 2.93
+      }
+    }
+  ],
+  "notes": {
+    "policy": "P1 effects only; plain speech intentionally gets zero motion; rhythm budget enforced",
+    "skipped": [
+      {
+        "anchor_id": "a01",
+        "reason": "temporal_conflict_with_d01"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4.0,
+      "min_gap_s": 0.9,
+      "max_coverage": 0.58,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.0275
+  },
+  "provenance": {
+    "method": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+    "decision_model": "rules-v1-smart-balanced",
+    "anchor_count": 2,
+    "decided_count": 1
+  }
+}

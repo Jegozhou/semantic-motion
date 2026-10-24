@@ -1,0 +1,779 @@
+{
+  "schema": "semotion.timing-calibration/1",
+  "created_utc": "2026-10-24T09:40:59Z",
+  "truth_class": "SYNTH_KNOWN",
+  "split": "calibration",
+  "purpose": "Minimum-event timing calibration: every unit starts with a phrase the anchor rules emit, so anchor->unit onset comparison is independent of ASR.",
+  "match_rule": "anchor text (punctuation stripped, Traditional->Simplified folded) is a prefix of the unit text AND |anchor.start - unit.start| <= 0.9 s; one nearest anchor per unit counts as an event",
+  "fixtures": {
+    "fx_t1_zh_phrase": {
+      "units": 20,
+      "anchors": 25,
+      "events": 19,
+      "anchors_with_prefix_text": 19,
+      "errors_before_ms": [
+        500,
+        134,
+        128,
+        132,
+        126,
+        24,
+        189,
+        132,
+        124,
+        133,
+        172,
+        173,
+        178,
+        209,
+        109,
+        216,
+        11,
+        39,
+        181
+      ],
+      "errors_after_ms": [
+        10,
+        36,
+        2,
+        8,
+        4,
+        34,
+        1,
+        2,
+        36,
+        17,
+        8,
+        3,
+        2,
+        1,
+        11,
+        14,
+        11,
+        9,
+        9
+      ],
+      "pairs": [
+        {
+          "unit_id": "u01",
+          "unit_text": "九成的人会拖延",
+          "anchor_id": "a00",
+          "anchor_kind": "number",
+          "anchor_text": "九成",
+          "error_ms_before": 10
+        },
+        {
+          "unit_id": "u02",
+          "unit_text": "三个步骤就够",
+          "anchor_id": "a01",
+          "anchor_kind": "number",
+          "anchor_text": "三個",
+          "error_ms_before": 36
+        },
+        {
+          "unit_id": "u03",
+          "unit_text": "六次刚好够用",
+          "anchor_id": "a04",
+          "anchor_kind": "number",
+          "anchor_text": "六次",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u04",
+          "unit_text": "一半来自删减",
+          "anchor_id": "a05",
+          "anchor_kind": "number",
+          "anchor_text": "一半",
+          "error_ms_before": 8
+        },
+        {
+          "unit_id": "u05",
+          "unit_text": "两倍的时间浪费",
+          "anchor_id": "a06",
+          "anchor_kind": "number",
+          "anchor_text": "兩倍",
+          "error_ms_before": 4
+        },
+        {
+          "unit_id": "u06",
+          "unit_text": "三成是无效动效",
+          "anchor_id": "a07",
+          "anchor_kind": "number",
+          "anchor_text": "三成",
+          "error_ms_before": 34
+        },
+        {
+          "unit_id": "u07",
+          "unit_text": "关键是节奏",
+          "anchor_id": "a08",
+          "anchor_kind": "keyword",
+          "anchor_text": "關鍵是節奏",
+          "error_ms_before": 1
+        },
+        {
+          "unit_id": "u08",
+          "unit_text": "重点是留白",
+          "anchor_id": "a09",
+          "anchor_kind": "keyword",
+          "anchor_text": "重點是留白",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u09",
+          "unit_text": "核心是克制",
+          "anchor_id": "a10",
+          "anchor_kind": "keyword",
+          "anchor_text": "核心是克制",
+          "error_ms_before": 36
+        },
+        {
+          "unit_id": "u10",
+          "unit_text": "其实是顺序",
+          "anchor_id": "a11",
+          "anchor_kind": "keyword",
+          "anchor_text": "其實是順序",
+          "error_ms_before": 17
+        },
+        {
+          "unit_id": "u12",
+          "unit_text": "最难的是取舍",
+          "anchor_id": "a14",
+          "anchor_kind": "keyword",
+          "anchor_text": "最難的是取捨",
+          "error_ms_before": 8
+        },
+        {
+          "unit_id": "u13",
+          "unit_text": "第一步对齐",
+          "anchor_id": "a15",
+          "anchor_kind": "list_item",
+          "anchor_text": "第一步",
+          "error_ms_before": 3
+        },
+        {
+          "unit_id": "u14",
+          "unit_text": "第二步布局",
+          "anchor_id": "a16",
+          "anchor_kind": "list_item",
+          "anchor_text": "第二步",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u15",
+          "unit_text": "第三步渲染",
+          "anchor_id": "a17",
+          "anchor_kind": "list_item",
+          "anchor_text": "第三步",
+          "error_ms_before": 1
+        },
+        {
+          "unit_id": "u16",
+          "unit_text": "结论是自动化",
+          "anchor_id": "a18",
+          "anchor_kind": "conclusion",
+          "anchor_text": "結論",
+          "error_ms_before": 11
+        },
+        {
+          "unit_id": "u17",
+          "unit_text": "所以我们先对齐",
+          "anchor_id": "a20",
+          "anchor_kind": "conclusion",
+          "anchor_text": "所以",
+          "error_ms_before": 14
+        },
+        {
+          "unit_id": "u18",
+          "unit_text": "总之先减法",
+          "anchor_id": "a22",
+          "anchor_kind": "conclusion",
+          "anchor_text": "總之",
+          "error_ms_before": 11
+        },
+        {
+          "unit_id": "u19",
+          "unit_text": "相比加特效",
+          "anchor_id": "a23",
+          "anchor_kind": "comparison",
+          "anchor_text": "相比",
+          "error_ms_before": 9
+        },
+        {
+          "unit_id": "u20",
+          "unit_text": "最终要可编辑",
+          "anchor_id": "a24",
+          "anchor_kind": "list_item",
+          "anchor_text": "最终",
+          "error_ms_before": 9
+        }
+      ]
+    },
+    "fx_t2_zh_phrase": {
+      "units": 20,
+      "anchors": 22,
+      "events": 20,
+      "anchors_with_prefix_text": 20,
+      "errors_before_ms": [
+        500,
+        111,
+        130,
+        128,
+        165,
+        126,
+        199,
+        114,
+        160,
+        281,
+        203,
+        205,
+        149,
+        122,
+        55,
+        152,
+        127,
+        116,
+        150,
+        53
+      ],
+      "errors_after_ms": [
+        10,
+        19,
+        0,
+        2,
+        5,
+        6,
+        1,
+        36,
+        0,
+        9,
+        17,
+        15,
+        0,
+        8,
+        5,
+        18,
+        13,
+        4,
+        0,
+        37
+      ],
+      "pairs": [
+        {
+          "unit_id": "u01",
+          "unit_text": "其实剪辑不难",
+          "anchor_id": "a00",
+          "anchor_kind": "keyword",
+          "anchor_text": "其实剪辑不难",
+          "error_ms_before": 10
+        },
+        {
+          "unit_id": "u02",
+          "unit_text": "痛点是没有结构",
+          "anchor_id": "a01",
+          "anchor_kind": "keyword",
+          "anchor_text": "痛点是没有结构",
+          "error_ms_before": 19
+        },
+        {
+          "unit_id": "u03",
+          "unit_text": "误区是加太多",
+          "anchor_id": "a02",
+          "anchor_kind": "keyword",
+          "anchor_text": "误区是加太多",
+          "error_ms_before": 0
+        },
+        {
+          "unit_id": "u04",
+          "unit_text": "真相是观众会走",
+          "anchor_id": "a03",
+          "anchor_kind": "keyword",
+          "anchor_text": "真相是观众会走",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u05",
+          "unit_text": "秘诀是节奏",
+          "anchor_id": "a04",
+          "anchor_kind": "keyword",
+          "anchor_text": "秘诀是节奏",
+          "error_ms_before": 5
+        },
+        {
+          "unit_id": "u06",
+          "unit_text": "关键是时间",
+          "anchor_id": "a05",
+          "anchor_kind": "keyword",
+          "anchor_text": "关键是时间",
+          "error_ms_before": 6
+        },
+        {
+          "unit_id": "u07",
+          "unit_text": "重点是信息",
+          "anchor_id": "a06",
+          "anchor_kind": "keyword",
+          "anchor_text": "重点是信息",
+          "error_ms_before": 1
+        },
+        {
+          "unit_id": "u08",
+          "unit_text": "核心是内容",
+          "anchor_id": "a07",
+          "anchor_kind": "keyword",
+          "anchor_text": "核心是内容",
+          "error_ms_before": 36
+        },
+        {
+          "unit_id": "u09",
+          "unit_text": "本质是取舍",
+          "anchor_id": "a08",
+          "anchor_kind": "keyword",
+          "anchor_text": "本质是取舍",
+          "error_ms_before": 0
+        },
+        {
+          "unit_id": "u10",
+          "unit_text": "先说结论再改",
+          "anchor_id": "a09",
+          "anchor_kind": "conclusion",
+          "anchor_text": "先说结论",
+          "error_ms_before": 9
+        },
+        {
+          "unit_id": "u11",
+          "unit_text": "结论是少即是多",
+          "anchor_id": "a11",
+          "anchor_kind": "conclusion",
+          "anchor_text": "结论",
+          "error_ms_before": 17
+        },
+        {
+          "unit_id": "u12",
+          "unit_text": "所以先排序",
+          "anchor_id": "a13",
+          "anchor_kind": "conclusion",
+          "anchor_text": "所以",
+          "error_ms_before": 15
+        },
+        {
+          "unit_id": "u13",
+          "unit_text": "因此要克制",
+          "anchor_id": "a14",
+          "anchor_kind": "conclusion",
+          "anchor_text": "因此",
+          "error_ms_before": 0
+        },
+        {
+          "unit_id": "u14",
+          "unit_text": "总之别贪多",
+          "anchor_id": "a15",
+          "anchor_kind": "conclusion",
+          "anchor_text": "总之",
+          "error_ms_before": 8
+        },
+        {
+          "unit_id": "u15",
+          "unit_text": "首先定标题",
+          "anchor_id": "a16",
+          "anchor_kind": "list_item",
+          "anchor_text": "首先",
+          "error_ms_before": 5
+        },
+        {
+          "unit_id": "u16",
+          "unit_text": "其次定数字",
+          "anchor_id": "a17",
+          "anchor_kind": "list_item",
+          "anchor_text": "其次",
+          "error_ms_before": 18
+        },
+        {
+          "unit_id": "u17",
+          "unit_text": "最后定节奏",
+          "anchor_id": "a18",
+          "anchor_kind": "list_item",
+          "anchor_text": "最后",
+          "error_ms_before": 13
+        },
+        {
+          "unit_id": "u18",
+          "unit_text": "一是定结构",
+          "anchor_id": "a19",
+          "anchor_kind": "list_item",
+          "anchor_text": "一是",
+          "error_ms_before": 4
+        },
+        {
+          "unit_id": "u19",
+          "unit_text": "二是定节奏",
+          "anchor_id": "a20",
+          "anchor_kind": "list_item",
+          "anchor_text": "二是",
+          "error_ms_before": 0
+        },
+        {
+          "unit_id": "u20",
+          "unit_text": "三是定动效",
+          "anchor_id": "a21",
+          "anchor_kind": "list_item",
+          "anchor_text": "三是",
+          "error_ms_before": 37
+        }
+      ]
+    },
+    "fx_t3_zh_phrase": {
+      "units": 20,
+      "anchors": 26,
+      "events": 20,
+      "anchors_with_prefix_text": 20,
+      "errors_before_ms": [
+        500,
+        247,
+        65,
+        136,
+        72,
+        170,
+        132,
+        132,
+        138,
+        154,
+        107,
+        90,
+        2,
+        259,
+        142,
+        87,
+        158,
+        143,
+        24,
+        101
+      ],
+      "errors_after_ms": [
+        10,
+        23,
+        5,
+        4,
+        2,
+        0,
+        2,
+        18,
+        12,
+        16,
+        7,
+        0,
+        18,
+        1,
+        8,
+        3,
+        2,
+        7,
+        4,
+        9
+      ],
+      "pairs": [
+        {
+          "unit_id": "u01",
+          "unit_text": "九成问题在时间",
+          "anchor_id": "a00",
+          "anchor_kind": "number",
+          "anchor_text": "九成",
+          "error_ms_before": 10
+        },
+        {
+          "unit_id": "u02",
+          "unit_text": "三个动效就够",
+          "anchor_id": "a01",
+          "anchor_kind": "number",
+          "anchor_text": "三個",
+          "error_ms_before": 23
+        },
+        {
+          "unit_id": "u03",
+          "unit_text": "六次是上限",
+          "anchor_id": "a03",
+          "anchor_kind": "number",
+          "anchor_text": "六次",
+          "error_ms_before": 5
+        },
+        {
+          "unit_id": "u04",
+          "unit_text": "两倍效率提升",
+          "anchor_id": "a04",
+          "anchor_kind": "number",
+          "anchor_text": "兩倍",
+          "error_ms_before": 4
+        },
+        {
+          "unit_id": "u05",
+          "unit_text": "第一步定标题",
+          "anchor_id": "a05",
+          "anchor_kind": "list_item",
+          "anchor_text": "第一步",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u06",
+          "unit_text": "第二步定数字",
+          "anchor_id": "a06",
+          "anchor_kind": "list_item",
+          "anchor_text": "第二步",
+          "error_ms_before": 0
+        },
+        {
+          "unit_id": "u07",
+          "unit_text": "第三步定节奏",
+          "anchor_id": "a08",
+          "anchor_kind": "list_item",
+          "anchor_text": "第三步",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u08",
+          "unit_text": "结论是自动化",
+          "anchor_id": "a10",
+          "anchor_kind": "conclusion",
+          "anchor_text": "結論",
+          "error_ms_before": 18
+        },
+        {
+          "unit_id": "u09",
+          "unit_text": "所以先对齐",
+          "anchor_id": "a12",
+          "anchor_kind": "conclusion",
+          "anchor_text": "所以",
+          "error_ms_before": 12
+        },
+        {
+          "unit_id": "u10",
+          "unit_text": "总之先减法",
+          "anchor_id": "a13",
+          "anchor_kind": "conclusion",
+          "anchor_text": "總之",
+          "error_ms_before": 16
+        },
+        {
+          "unit_id": "u11",
+          "unit_text": "关键是节奏",
+          "anchor_id": "a14",
+          "anchor_kind": "keyword",
+          "anchor_text": "關鍵是節奏",
+          "error_ms_before": 7
+        },
+        {
+          "unit_id": "u12",
+          "unit_text": "重点是留白",
+          "anchor_id": "a15",
+          "anchor_kind": "keyword",
+          "anchor_text": "重點是留白",
+          "error_ms_before": 0
+        },
+        {
+          "unit_id": "u13",
+          "unit_text": "其实顺序最重要",
+          "anchor_id": "a16",
+          "anchor_kind": "keyword",
+          "anchor_text": "其實順序最重要",
+          "error_ms_before": 18
+        },
+        {
+          "unit_id": "u14",
+          "unit_text": "最难是取舍",
+          "anchor_id": "a18",
+          "anchor_kind": "keyword",
+          "anchor_text": "最難是取捨",
+          "error_ms_before": 1
+        },
+        {
+          "unit_id": "u15",
+          "unit_text": "相比加动画",
+          "anchor_id": "a19",
+          "anchor_kind": "comparison",
+          "anchor_text": "相比",
+          "error_ms_before": 8
+        },
+        {
+          "unit_id": "u16",
+          "unit_text": "一半效果来自删",
+          "anchor_id": "a20",
+          "anchor_kind": "number",
+          "anchor_text": "一半",
+          "error_ms_before": 3
+        },
+        {
+          "unit_id": "u17",
+          "unit_text": "流程是四步",
+          "anchor_id": "a21",
+          "anchor_kind": "process",
+          "anchor_text": "流程",
+          "error_ms_before": 2
+        },
+        {
+          "unit_id": "u18",
+          "unit_text": "步骤是先对齐",
+          "anchor_id": "a23",
+          "anchor_kind": "process",
+          "anchor_text": "步驟",
+          "error_ms_before": 7
+        },
+        {
+          "unit_id": "u19",
+          "unit_text": "首先锁定人脸",
+          "anchor_id": "a24",
+          "anchor_kind": "list_item",
+          "anchor_text": "首先",
+          "error_ms_before": 4
+        },
+        {
+          "unit_id": "u20",
+          "unit_text": "最终要可编辑",
+          "anchor_id": "a25",
+          "anchor_kind": "list_item",
+          "anchor_text": "最终",
+          "error_ms_before": 9
+        }
+      ]
+    }
+  },
+  "totals": {
+    "units": 60,
+    "events": 59,
+    "errors_before_ms": [
+      500,
+      134,
+      128,
+      132,
+      126,
+      24,
+      189,
+      132,
+      124,
+      133,
+      172,
+      173,
+      178,
+      209,
+      109,
+      216,
+      11,
+      39,
+      181,
+      500,
+      111,
+      130,
+      128,
+      165,
+      126,
+      199,
+      114,
+      160,
+      281,
+      203,
+      205,
+      149,
+      122,
+      55,
+      152,
+      127,
+      116,
+      150,
+      53,
+      500,
+      247,
+      65,
+      136,
+      72,
+      170,
+      132,
+      132,
+      138,
+      154,
+      107,
+      90,
+      2,
+      259,
+      142,
+      87,
+      158,
+      143,
+      24,
+      101
+    ],
+    "errors_after_ms": [
+      10,
+      36,
+      2,
+      8,
+      4,
+      34,
+      1,
+      2,
+      36,
+      17,
+      8,
+      3,
+      2,
+      1,
+      11,
+      14,
+      11,
+      9,
+      9,
+      10,
+      19,
+      0,
+      2,
+      5,
+      6,
+      1,
+      36,
+      0,
+      9,
+      17,
+      15,
+      0,
+      8,
+      5,
+      18,
+      13,
+      4,
+      0,
+      37,
+      10,
+      23,
+      5,
+      4,
+      2,
+      0,
+      2,
+      18,
+      12,
+      16,
+      7,
+      0,
+      18,
+      1,
+      8,
+      3,
+      2,
+      7,
+      4,
+      9
+    ],
+    "before": {
+      "n": 59,
+      "p50_ms": 133,
+      "p90_ms": 222,
+      "max_ms": 500,
+      "mean_ms": 153
+    },
+    "after": {
+      "n": 59,
+      "p50_ms": 8,
+      "p90_ms": 20,
+      "max_ms": 37,
+      "mean_ms": 10
+    },
+    "min_events_required": 50,
+    "verdict": "PASS"
+  },
+  "note": "Calibration material only: synthetic TTS with ffprobe-measured assembly truth. It says nothing about real-human speech or aesthetics."
+}

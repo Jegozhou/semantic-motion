@@ -1,0 +1,82 @@
+{
+  "gate": "G1",
+  "started_utc": "2026-10-24T09:51:10Z",
+  "finished_utc": "2026-10-24T09:51:17Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
+    "sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
+    "truth": "tests/fixtures/clips/fx_d_zh_portrait/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g1/product/fx_d_zh_portrait/transcript.json",
+    "vision": "artifacts/g1/product/fx_d_zh_portrait/vision.json",
+    "anchors": "artifacts/g1/product/fx_d_zh_portrait/anchors.json",
+    "plan": "artifacts/g1/product/fx_d_zh_portrait/plan.json",
+    "motion_ir": "artifacts/g1/product/fx_d_zh_portrait/motion_ir.json",
+    "render": "artifacts/g1/product/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
+    "render_manifest": "artifacts/g1/product/fx_d_zh_portrait/render_manifest.json",
+    "metrics": "artifacts/g1/product/fx_d_zh_portrait/metrics.json"
+  },
+  "decisions": {
+    "decisions": 9,
+    "by_effect": {
+      "keyword": 2,
+      "number": 2,
+      "list": 4,
+      "card": 1
+    },
+    "skipped": 15,
+    "coverage": 0.3
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 4,
+    "p50_ms": 14.66,
+    "p90_ms": 22.04,
+    "max_ms": 22.04,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.03
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.05
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 5.6
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.85
+    }
+  ],
+  "exit": 0
+}

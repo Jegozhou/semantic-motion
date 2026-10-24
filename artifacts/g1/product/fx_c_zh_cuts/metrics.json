@@ -1,0 +1,220 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G1",
+  "input_sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
+  "ir_sha256": "aa569773c093bb41ef2b05d4c3fe2cbf648744ac0b5de410fc9c803ac966f176",
+  "render_sha256": "0d0d12532576c60d86f2228dd1dd8d083ee3bd9e01a5bf31d98f8fcdd914b0ec",
+  "timing": {
+    "samples": 3,
+    "elements": 5,
+    "detected_onsets": 5,
+    "rows": [
+      {
+        "element_id": "el_d01",
+        "effect": "list",
+        "text": "第三种",
+        "window_start_s": 0.48,
+        "rendered_onset_s": 0.48,
+        "anchor_start_s": 0.5,
+        "fidelity_ms": 20.0,
+        "target_onset_s": 0.5,
+        "truth_unit": "u01",
+        "error_ms": 20.0,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 29.213,
+        "detect_threshold": 1.461
+      },
+      {
+        "element_id": "el_d04",
+        "effect": "list",
+        "text": "第一",
+        "window_start_s": 5.68,
+        "rendered_onset_s": 5.68,
+        "anchor_start_s": 5.67,
+        "fidelity_ms": 10.0,
+        "target_onset_s": 5.6716,
+        "truth_unit": "u03",
+        "error_ms": 8.35,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 33.167,
+        "detect_threshold": 1.658
+      },
+      {
+        "element_id": "el_d05",
+        "effect": "list",
+        "text": "第三",
+        "window_start_s": 11.4,
+        "rendered_onset_s": 11.4,
+        "anchor_start_s": 11.39,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 32.868,
+        "detect_threshold": 1.643
+      },
+      {
+        "element_id": "el_d06",
+        "effect": "number",
+        "text": "九成",
+        "window_start_s": 14.0,
+        "rendered_onset_s": 14.0,
+        "anchor_start_s": 14.0,
+        "fidelity_ms": 0.0,
+        "target_onset_s": 13.9812,
+        "truth_unit": "u06",
+        "error_ms": 18.75,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 37.776,
+        "detect_threshold": 1.889
+      },
+      {
+        "element_id": "el_d07",
+        "effect": "number",
+        "text": "10%",
+        "window_start_s": 16.96,
+        "rendered_onset_s": 16.96,
+        "anchor_start_s": 16.94,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 111.456,
+        "detect_threshold": 5.573
+      }
+    ],
+    "source": "SYNTH_KNOWN",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 5,
+      "p50_ms": 10.0,
+      "max_ms": 20.0
+    },
+    "p50_ms": 18.75,
+    "p90_ms": 20.0,
+    "max_ms": 20.0,
+    "by_effect": {
+      "list": {
+        "n": 2,
+        "p50_ms": 14.18,
+        "max_ms": 20.0
+      },
+      "number": {
+        "n": 1,
+        "p50_ms": 18.75,
+        "max_ms": 18.75
+      }
+    },
+    "frame_quantum_ms": 40.0,
+    "verdict": "PASS",
+    "note": "rendered onset measured inside each element box; target = independent SYNTH_KNOWN unit start of a unit the anchor begins. ASR never defines the target. n<50 is exploratory, not a P90 claim."
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 0,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 91,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 91,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 5,
+      "sampled_frames": 91
+    },
+    "raster_containment": {
+      "changed_pixels": 246127,
+      "inside_declared_box": 246127,
+      "value": 0.0,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 0,
+      "frames_with_faces": 0,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 2,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 20.08,
+    "duration_rendered_s": 20.08,
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 502,
+    "frames_rendered": 502,
+    "audio": {
+      "src": {
+        "n_samples": 1927168,
+        "duration_s": 20.074667,
+        "rms_db": -21.912,
+        "peak_db": -6.319
+      },
+      "rendered": {
+        "n_samples": 1927168,
+        "duration_s": 20.074667,
+        "rms_db": -21.912,
+        "peak_db": -6.319
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.0,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
+    "rendered": "artifacts/g1/product/fx_c_zh_cuts/fx_c_zh_cuts_motion.mp4",
+    "truth": "tests/fixtures/clips/fx_c_zh_cuts/ground_truth.json",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

@@ -21,7 +21,7 @@
         "method": "energy_onset",
         "delta_ms": -180,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 0.64,
         "search_window_s": [
@@ -50,7 +50,7 @@
         "method": "energy_onset",
         "delta_ms": 90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 3.31,
         "search_window_s": [
@@ -79,7 +79,7 @@
         "method": "energy_onset",
         "delta_ms": -20,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 6.14,
         "search_window_s": [
@@ -108,7 +108,7 @@
         "method": "energy_onset",
         "delta_ms": -30,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 8.91,
         "search_window_s": [
@@ -137,7 +137,7 @@
         "method": "energy_onset",
         "delta_ms": -20,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 11.1,
         "search_window_s": [
@@ -166,7 +166,7 @@
         "method": "energy_onset",
         "delta_ms": -90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 13.11,
         "search_window_s": [
@@ -195,7 +195,7 @@
         "method": "energy_onset",
         "delta_ms": -90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 15.15,
         "search_window_s": [
@@ -224,7 +224,7 @@
         "method": "energy_onset",
         "delta_ms": -60,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 17.22,
         "search_window_s": [
@@ -240,7 +240,7 @@
       "id": "a08",
       "kind": "keyword",
       "text": "结",
-      "start_s": 20.38,
+      "start_s": 20.37,
       "end_s": 20.62,
       "confidence": 1.0,
       "source": "SYNTH_KNOWN",
@@ -251,17 +251,17 @@
       "rule": "calibration_unit_onset",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": 260,
+        "delta_ms": 250,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_forward",
-        "onset_s": 20.38,
+        "onset_s": 20.37,
         "search_window_s": [
           19.87,
           20.37
         ],
         "quiet_threshold": 0.002787,
-        "climb": 0.009328,
+        "climb": 0.0015,
         "asr_start_s": 20.12
       }
     },
@@ -282,7 +282,7 @@
         "method": "energy_onset",
         "delta_ms": -180,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 22.74,
         "search_window_s": [
@@ -311,7 +311,7 @@
         "method": "energy_onset",
         "delta_ms": -140,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 25.66,
         "search_window_s": [
@@ -340,7 +340,7 @@
         "method": "energy_onset",
         "delta_ms": -150,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 28.27,
         "search_window_s": [
@@ -369,7 +369,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 30.24,
         "search_window_s": [
@@ -398,7 +398,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 32.06,
         "search_window_s": [
@@ -427,7 +427,7 @@
         "method": "energy_onset",
         "delta_ms": -80,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 34.04,
         "search_window_s": [
@@ -456,7 +456,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 36.91,
         "search_window_s": [
@@ -485,7 +485,7 @@
         "method": "energy_onset",
         "delta_ms": -60,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 38.54,
         "search_window_s": [
@@ -499,13 +499,13 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:54Z",
+    "created_utc": "2026-10-24T09:40:59Z",
     "method": "calibration:asr_word_nearest_to_synth_truth",
     "n_anchors": 17,
     "truth_class": "SYNTH_KNOWN",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",

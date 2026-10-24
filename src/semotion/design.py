@@ -34,8 +34,10 @@ ZONE_ORDER = {
     "caption": ("caption", "card", "title"),
 }
 
-# typography degradation ladder, applied to the style font size
-FONT_RATIOS = (1.0, 0.92, 0.84, 0.76, 0.68)
+# typography degradation ladder, applied to the style font size. The last steps
+# exist for tight 16:9 face-free columns; they are reported as below the comfort
+# floor rather than silently accepted.
+FONT_RATIOS = (1.0, 0.92, 0.84, 0.76, 0.68, 0.60, 0.52, 0.46, 0.40)
 # typography floors per effect (reference-canvas px, scaled to the canvas)
 FONT_FLOOR_PX = {"keyword": 72, "number": 60, "list": 56, "card": 64, "caption": 48}
 FACE_OVERLAP_RATIO = 0.01
@@ -91,8 +93,18 @@ def safe_area_boxes(canvas: dict, vision: dict | None) -> dict:
             if b and len(b) >= 4 and float(b[2]) > 0 and float(b[3]) > 0:
                 unions.append(b)
     raw_union = base.union_boxes(unions)
+    # No reliable face detection ⇒ conservative subject band (spec §3.2: degrade to
+    # a conservative static layout rather than guessing). A talking-head subject sits
+    # centre-frame; we keep overlays out of the head/shoulder band.
+    subject_box = None
+    if not raw_union:
+        if h > w:
+            subject_box = [int(0.32 * w), int(0.14 * h), int(0.36 * w), int(0.34 * h)]
+        else:
+            subject_box = [int(0.36 * w), int(0.10 * h), int(0.28 * w), int(0.48 * h)]
     margin = int(vision.get("face_safe_margin_px") or DEFAULT_MARGIN_PX)
     face_safe = base.expand_box(raw_union, margin) if raw_union else None
+    obstacle = face_safe or subject_box
     usable = [z for z in zones.values() if z[2] >= 0.40 * w]
     return {
         "canvas": {"width": w, "height": h},
@@ -100,6 +112,8 @@ def safe_area_boxes(canvas: dict, vision: dict | None) -> dict:
         "zones_norm": zones_norm,
         "face_union": raw_union,
         "face_box": face_safe,
+        "subject_box_heuristic": subject_box,
+        "obstacle_box": obstacle,
         "margin_px": margin,
         "usable_zones": usable,
         "has_space": bool(usable),
@@ -219,7 +233,7 @@ def layout(element: dict, canvas: dict, vision: dict, occupied: list[dict]) -> d
               "fps": float(canvas.get("fps") or 25.0)}
     info = safe_area_boxes(canvas, vision)
     zones: dict[str, list[int]] = info["zones"]
-    face = info["face_box"]
+    face = info["face_box"] or info.get("subject_box_heuristic")
     kind = str(element.get("type") or "keyword")
     order = ZONE_ORDER.get(kind, ("card", "title", "caption"))
     window = element.get("window") or None
@@ -229,28 +243,40 @@ def layout(element: dict, canvas: dict, vision: dict, occupied: list[dict]) -> d
     font_floor = max(12, int(round(FONT_FLOOR_PX.get(kind, 56) * base.canvas_scale(canvas))))
     warnings: list[str] = []
 
+    # candidate slots: each zone split around the face-safe box
+    slots: list[tuple[str, list[int]]] = []
+    for zone_name in order:
+        zone = zones.get(zone_name)
+        if not zone:
+            continue
+        for rect in _free_rects(zone, face):
+            slots.append((zone_name, rect))
+
     best: dict[str, Any] | None = None      # most tolerable degraded candidate
     for ratio in FONT_RATIOS:
         style = dict(base_style)
-        style["font_size_px"] = max(12, font_floor, int(round(base_font * ratio)))
+        style["font_size_px"] = max(12, int(round(base_font * ratio)))
         probe = dict(element)
         probe["style"] = style
-        for zone_name in order:
-            zone = zones.get(zone_name)
-            if not zone:
-                continue
-            max_text_w = max(80.0, zone[2] - 2 * pad)
+        for zone_name, rect in slots:
+            max_text_w = max(80.0, rect[2] - 2 * pad)
             try:
                 spec = _measure_stable(probe, canvas, max_text_w)
             except Exception as exc:  # pragma: no cover - defensive
                 warnings.append(f"measure failed in {zone_name}: {exc}")
                 continue
-            for box in _candidates(zone, int(spec["width"]), int(spec["height"]), kind):
+            if int(spec["width"]) > rect[2] or int(spec["height"]) > rect[3]:
+                continue
+            for box in _candidates(rect, int(spec["width"]), int(spec["height"]), kind):
                 face_ratio = _face_ratio(box, face)
                 occ_ratio = _occupied_ratio(box, occupied, window)
                 if not _inside(box, canvas):
                     continue
                 if face_ratio <= FACE_OVERLAP_RATIO and occ_ratio <= COLLISION_AREA_RATIO:
+                    if int(style["font_size_px"]) < font_floor:
+                        warnings.append(
+                            f"{element.get('id')}: font {style['font_size_px']}px is below the "
+                            f"comfort floor {font_floor}px to stay off the face")
                     return _result(zone_name, box, style, spec, info, degraded=False,
                                    reason="", warnings=warnings)
                 # remember the least-bad slot in case everything fails
@@ -290,6 +316,23 @@ def layout(element: dict, canvas: dict, vision: dict, occupied: list[dict]) -> d
     warnings.append("layout degraded: " + reason)
     return _result(zone_name, box, style, spec, info, degraded=True, reason=reason,
                    warnings=warnings)
+
+
+def _free_rects(zone: Sequence[int], face: Sequence[int] | None) -> list[list[int]]:
+    """Split a zone around the face-safe box; every piece is face-free."""
+    zx, zy, zw, zh = (int(v) for v in zone[:4])
+    if not face:
+        return [[zx, zy, zw, zh]]
+    fx, fy, fw, fh = (int(v) for v in face[:4])
+    parts = [
+        [zx, zy, zw, max(0, fy - zy)],                                  # above
+        [zx, fy + fh, zw, max(0, (zy + zh) - (fy + fh))],               # below
+        [zx, zy, max(0, fx - zx), zh],                                  # left
+        [fx + fw, zy, max(0, (zx + zw) - (fx + fw)), zh],               # right
+    ]
+    out = [p for p in parts if p[2] >= 40 and p[3] >= 40]
+    out.sort(key=lambda r: r[2] * r[3], reverse=True)
+    return out or [[zx, zy, zw, zh]]
 
 
 def _first_zone(order: Sequence[str], zones: dict) -> tuple[str | None, list[int] | None]:

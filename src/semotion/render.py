@@ -138,7 +138,6 @@ def _argv_for(ir: dict, source: Path, out: Path, seqs: Sequence[dict], *,
 
     argv += ["-filter_complex", ";".join(filters),
              "-map", "[vout]", "-map", "0:a?",
-             "-frames:v", str(n_frames),
              "-r", fps_str,
              "-c:v", "libx264", "-preset", "medium",
              "-crf", PREVIEW_CRF if preview else "18",
@@ -205,8 +204,7 @@ def render(ir: dict, source: str | Path, out: str | Path, *, preview: bool = Fal
         if not seqs:
             # nothing to draw: still produce a valid, re-encoded pass-through
             argv = [media.FFMPEG, "-hide_banner", "-y", "-v", "error",
-                    "-i", str(source), "-map", "0:v:0", "-map", "0:a?",
-                    "-frames:v", str(n_frames)]
+                    "-i", str(source), "-map", "0:v:0", "-map", "0:a?"]
             if preview:
                 argv += ["-vf", "scale=iw/2:ih/2"]
             argv += ["-c:v", "libx264", "-preset", "medium",
@@ -230,6 +228,29 @@ def render(ir: dict, source: str | Path, out: str | Path, *, preview: bool = Fal
         out_duration = float(man_probe.get("format", {}).get("duration", 0.0))
         src_duration = float(ir["source"]["duration_s"])
         duration_delta = abs(out_duration - src_duration)
+        # the video stream is authoritative for frame count; audio may legitimately
+        # outlast it in the source container (audio tail padding)
+        src_info = media.info(source)
+        src_v_stream = next((st for st in (src_info.raw.get("streams") or [])
+                             if st.get("codec_type") == "video"), {})
+        src_a_stream = next((st for st in (src_info.raw.get("streams") or [])
+                             if st.get("codec_type") == "audio"), {})
+        out_v_stream = v
+        out_a_stream = astreams[0] if astreams else {}
+        try:
+            src_v_dur = float(src_v_stream.get("duration") or src_duration)
+        except (TypeError, ValueError):
+            src_v_dur = src_duration
+        try:
+            out_v_dur = float(out_v_stream.get("duration") or 0.0)
+        except (TypeError, ValueError):
+            out_v_dur = 0.0
+        try:
+            src_a_dur = float(src_a_stream.get("duration") or src_duration)
+            out_a_dur = float(out_a_stream.get("duration") or 0.0)
+        except (TypeError, ValueError):
+            src_a_dur = out_a_dur = src_duration
+        audio_stream_delta = abs(out_a_dur - src_a_dur)
         problems: list[str] = []
         if (out_w, out_h) != (expected_w, expected_h):
             problems.append(f"resolution {out_w}x{out_h} != expected {expected_w}x{expected_h}")
@@ -237,10 +258,15 @@ def render(ir: dict, source: str | Path, out: str | Path, *, preview: bool = Fal
             problems.append(f"frame count {out_frames} != source {n_frames}")
         if duration_delta > 1.0 / fps + 0.01:
             problems.append(f"duration delta {duration_delta:.3f}s exceeds 1 frame "
-                            f"({1.0 / fps:.3f}s)")
+                            f"({1.0 / fps:.3f}s) "
+                            f"(source video stream {src_v_dur:.3f}s, audio {src_a_dur:.3f}s)")
+        if out_v_dur and abs(out_v_dur - src_v_dur) > 1.0 / fps + 0.01:
+            problems.append(f"video stream duration {out_v_dur:.3f}s != source "
+                            f"{src_v_dur:.3f}s")
         if not astreams:
             problems.append("rendered file has no audio stream")
 
+        src_decoded = int(getattr(src_info, "stream_frames", 0) or 0) or _frame_count(source)
         src_pcm = _decode_pcm(source, log=log_path)
         out_pcm = _decode_pcm(out, log=log_path)
         src_audio = _audio_stats(src_pcm)
@@ -305,7 +331,18 @@ def render(ir: dict, source: str | Path, out: str | Path, *, preview: bool = Fal
             "checks": {
                 "duration_delta_s": round(duration_delta, 6),
                 "duration_tolerance_s": round(1.0 / fps, 6),
+                "source_video_stream_duration_s": round(src_v_dur, 6),
+                "output_video_stream_duration_s": round(out_v_dur, 6),
+                "source_audio_stream_duration_s": round(src_a_dur, 6),
+                "output_audio_stream_duration_s": round(out_a_dur, 6),
+                "audio_stream_delta_s": round(audio_stream_delta, 6),
                 "frames_expected": n_frames,
+                "source_decoded_frames": src_decoded,
+                "frames_out_vs_source_decoded": out_frames - src_decoded,
+                "frames_expected_vs_source_decoded": n_frames - src_decoded,
+                "frame_count_note": ("expected frames come from the IR (container nb_frames "
+                                     "first); duration*fps may differ by a few frames when "
+                                     "the container pads the audio tail — that is not a fault"),
                 "resolution_expected": [expected_w, expected_h],
                 "verdict": "PASS" if not problems else "FAIL",
                 "problems": problems,

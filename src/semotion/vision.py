@@ -75,6 +75,7 @@ __all__ = [
     "validate",
     "face_tracks",
     "box_at_frame",
+    "boxes_at_frame",
     "face_box_at",
     "face_union_box",
     "iou",
@@ -692,6 +693,20 @@ def box_at_frame(track: dict[str, Any], frame: int) -> list[int] | None:
         if best_d is None or d < best_d:
             best, best_d = obs, d
     return list(best["box"]) if best else None
+
+
+def boxes_at_frame(vision: dict[str, Any], frame: int) -> list[dict[str, Any]]:
+    """Every track's box (native px) at ``frame`` via nearest-neighbour interpolation.
+
+    Convenience wrapper for layout/metrics code that iterates frames: returns
+    ``[{"track_id", "box"}]`` for tracks observed at that point.
+    """
+    out: list[dict[str, Any]] = []
+    for track in face_tracks(vision):
+        box = box_at_frame(track, frame)
+        if box is not None:
+            out.append({"track_id": track["id"], "box": box})
+    return out
 
 
 def face_box_at(vision: dict[str, Any], t_s: float, *, min_coverage: float = 0.0) -> list[int] | None:

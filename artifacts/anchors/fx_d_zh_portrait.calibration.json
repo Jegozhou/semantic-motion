@@ -21,7 +21,7 @@
         "method": "energy_onset",
         "delta_ms": 80,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "energy_rise",
         "onset_s": 0.98,
         "search_window_s": [
@@ -50,7 +50,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 3.7,
         "search_window_s": [
@@ -79,7 +79,7 @@
         "method": "energy_onset",
         "delta_ms": -110,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 6.35,
         "search_window_s": [
@@ -108,7 +108,7 @@
         "method": "energy_onset",
         "delta_ms": 30,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 8.19,
         "search_window_s": [
@@ -137,7 +137,7 @@
         "method": "energy_onset",
         "delta_ms": -70,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 10.83,
         "search_window_s": [
@@ -166,7 +166,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 13.3,
         "search_window_s": [
@@ -195,7 +195,7 @@
         "method": "energy_onset",
         "delta_ms": -40,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 15.84,
         "search_window_s": [
@@ -224,7 +224,7 @@
         "method": "energy_onset",
         "delta_ms": -40,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 18.04,
         "search_window_s": [
@@ -240,7 +240,7 @@
       "id": "a08",
       "kind": "keyword",
       "text": "所以",
-      "start_s": 20.09,
+      "start_s": 20.08,
       "end_s": 20.48,
       "confidence": 1.0,
       "source": "SYNTH_KNOWN",
@@ -251,17 +251,17 @@
       "rule": "calibration_unit_onset",
       "refine": {
         "method": "energy_onset",
-        "delta_ms": 270,
+        "delta_ms": 260,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_forward",
-        "onset_s": 20.09,
+        "onset_s": 20.08,
         "search_window_s": [
           19.57,
           20.07
         ],
         "quiet_threshold": 0.004763,
-        "climb": 0.016231,
+        "climb": 0.005663,
         "asr_start_s": 19.82
       }
     },
@@ -282,7 +282,7 @@
         "method": "energy_onset",
         "delta_ms": -110,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 22.45,
         "search_window_s": [
@@ -311,7 +311,7 @@
         "method": "energy_onset",
         "delta_ms": -120,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 24.28,
         "search_window_s": [
@@ -340,7 +340,7 @@
         "method": "energy_onset",
         "delta_ms": -170,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 26.89,
         "search_window_s": [
@@ -369,7 +369,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 28.93,
         "search_window_s": [
@@ -398,7 +398,7 @@
         "method": "energy_onset",
         "delta_ms": -110,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 30.77,
         "search_window_s": [
@@ -427,7 +427,7 @@
         "method": "energy_onset",
         "delta_ms": -140,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 32.88,
         "search_window_s": [
@@ -456,7 +456,7 @@
         "method": "energy_onset",
         "delta_ms": -190,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 34.93,
         "search_window_s": [
@@ -485,7 +485,7 @@
         "method": "energy_onset",
         "delta_ms": -100,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 37.12,
         "search_window_s": [
@@ -514,7 +514,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 39.09,
         "search_window_s": [
@@ -543,7 +543,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 41.71,
         "search_window_s": [
@@ -572,7 +572,7 @@
         "method": "energy_onset",
         "delta_ms": -200,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 43.72,
         "search_window_s": [
@@ -586,13 +586,13 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:39Z",
+    "created_utc": "2026-10-24T09:40:58Z",
     "method": "calibration:asr_word_nearest_to_synth_truth",
     "n_anchors": 20,
     "truth_class": "SYNTH_KNOWN",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",

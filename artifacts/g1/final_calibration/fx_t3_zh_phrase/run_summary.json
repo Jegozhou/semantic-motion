@@ -1,0 +1,82 @@
+{
+  "gate": "G1",
+  "started_utc": "2026-10-24T10:11:38Z",
+  "finished_utc": "2026-10-24T10:11:46Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_t3_zh_phrase/fx_t3_zh_phrase.mp4",
+    "sha256": "cce8e9e40e6e5920824a814213a9183e5614a99c4860e02865e7ba3c426cc999",
+    "truth": "tests/fixtures/clips/fx_t3_zh_phrase/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g1/final_calibration/fx_t3_zh_phrase/transcript.json",
+    "vision": "artifacts/g1/final_calibration/fx_t3_zh_phrase/vision.json",
+    "anchors": "artifacts/g1/final_calibration/fx_t3_zh_phrase/anchors.json",
+    "plan": "artifacts/g1/final_calibration/fx_t3_zh_phrase/plan.json",
+    "motion_ir": "artifacts/g1/final_calibration/fx_t3_zh_phrase/motion_ir.json",
+    "render": "artifacts/g1/final_calibration/fx_t3_zh_phrase/fx_t3_zh_phrase_motion.mp4",
+    "render_manifest": "artifacts/g1/final_calibration/fx_t3_zh_phrase/render_manifest.json",
+    "metrics": "artifacts/g1/final_calibration/fx_t3_zh_phrase/metrics.json"
+  },
+  "decisions": {
+    "decisions": 22,
+    "by_effect": {
+      "number": 5,
+      "card": 6,
+      "list": 3,
+      "keyword": 8
+    },
+    "skipped": 0,
+    "coverage": 0.6432
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 19,
+    "p50_ms": 15.58,
+    "p90_ms": 30.23,
+    "max_ms": 58.29,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.06
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 7.33
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.8
+    }
+  ],
+  "exit": 0
+}

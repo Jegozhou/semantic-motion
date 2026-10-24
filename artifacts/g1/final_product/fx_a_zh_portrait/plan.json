@@ -1,0 +1,142 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "smart_balanced",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "duration_s": 24.2,
+  "decisions": [
+    {
+      "id": "d01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "semantic_role:keyword",
+      "confidence": 0.78,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "痛点"
+      },
+      "window": {
+        "start_s": 3.32,
+        "end_s": 4.24
+      }
+    },
+    {
+      "id": "d02",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "semantic_role:keyword",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "其实是节奏"
+      },
+      "window": {
+        "start_s": 6.36,
+        "end_s": 7.81
+      },
+      "notes": "trimmed_before_d03"
+    },
+    {
+      "id": "d03",
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "quantified_claim",
+      "confidence": 0.86,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "九成"
+      },
+      "window": {
+        "start_s": 7.85,
+        "end_s": 8.71
+      }
+    },
+    {
+      "id": "d04",
+      "anchor_id": "a04",
+      "anchor_ids": [
+        "a04"
+      ],
+      "effect": "card",
+      "emphasis": "medium",
+      "reason": "explanatory_statement",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "都卡在三个问题"
+      },
+      "window": {
+        "start_s": 9.33,
+        "end_s": 11.54
+      }
+    },
+    {
+      "id": "d05",
+      "anchor_id": "a09",
+      "anchor_ids": [
+        "a09"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "semantic_role:process",
+      "confidence": 0.74,
+      "decision_model": "rules-v1-smart-balanced",
+      "content": {
+        "text": "流程"
+      },
+      "window": {
+        "start_s": 20.81,
+        "end_s": 21.96
+      }
+    }
+  ],
+  "notes": {
+    "policy": "P1 effects only; plain speech intentionally gets zero motion; rhythm budget enforced",
+    "skipped": [
+      {
+        "anchor_id": "a01",
+        "reason": "segment_keyword_dedupe"
+      },
+      {
+        "anchor_id": "a05",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a06",
+        "reason": "rhythm_density"
+      },
+      {
+        "anchor_id": "a03",
+        "reason": "temporal_conflict_with_d03"
+      }
+    ],
+    "budget": {
+      "max_new_per_10s": 4.0,
+      "min_gap_s": 0.9,
+      "max_coverage": 0.58,
+      "min_confidence": 0.6
+    },
+    "overlay_coverage": 0.2723
+  },
+  "provenance": {
+    "method": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+    "decision_model": "rules-v1-smart-balanced",
+    "anchor_count": 9,
+    "decided_count": 5
+  }
+}

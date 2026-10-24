@@ -21,7 +21,7 @@
         "method": "energy_onset",
         "delta_ms": -140,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 0.5,
         "search_window_s": [
@@ -50,7 +50,7 @@
         "method": "energy_onset",
         "delta_ms": -170,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 1.61,
         "search_window_s": [
@@ -79,7 +79,7 @@
         "method": "energy_onset",
         "delta_ms": -170,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 4.05,
         "search_window_s": [
@@ -108,7 +108,7 @@
         "method": "energy_onset",
         "delta_ms": -160,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 6.36,
         "search_window_s": [
@@ -137,7 +137,7 @@
         "method": "energy_onset",
         "delta_ms": -70,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 7.85,
         "search_window_s": [
@@ -166,7 +166,7 @@
         "method": "energy_onset",
         "delta_ms": -90,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 9.33,
         "search_window_s": [
@@ -195,7 +195,7 @@
         "method": "energy_onset",
         "delta_ms": -60,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 11.36,
         "search_window_s": [
@@ -224,7 +224,7 @@
         "method": "energy_onset",
         "delta_ms": 20,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 12.12,
         "search_window_s": [
@@ -253,7 +253,7 @@
         "method": "energy_onset",
         "delta_ms": -80,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 14.28,
         "search_window_s": [
@@ -282,7 +282,7 @@
         "method": "energy_onset",
         "delta_ms": -120,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 15.06,
         "search_window_s": [
@@ -311,7 +311,7 @@
         "method": "energy_onset",
         "delta_ms": -130,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 16.75,
         "search_window_s": [
@@ -340,7 +340,7 @@
         "method": "energy_onset",
         "delta_ms": -100,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 17.6,
         "search_window_s": [
@@ -369,7 +369,7 @@
         "method": "energy_onset",
         "delta_ms": -10,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 19.99,
         "search_window_s": [
@@ -398,7 +398,7 @@
         "method": "energy_onset",
         "delta_ms": -170,
         "accepted": true,
-        "window_ms": 500,
+        "window_ms": 250,
         "detector": "silence_exit",
         "onset_s": 21.85,
         "search_window_s": [
@@ -412,13 +412,13 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:29:20Z",
+    "created_utc": "2026-10-24T09:40:58Z",
     "method": "calibration:asr_word_nearest_to_synth_truth",
     "n_anchors": 14,
     "truth_class": "SYNTH_KNOWN",
     "refine": {
       "method": "energy_onset",
-      "window_ms": 500,
+      "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
       "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",

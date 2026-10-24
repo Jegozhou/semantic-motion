@@ -1,0 +1,182 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G2-realface",
+  "input_sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+  "ir_sha256": "fa16d5480b75f86461af928133d1f7cded831bc5fac1b4e787f8d38c4f4fc493",
+  "render_sha256": "debfa0287fbe313cf1421591fd06362315899a216365872936f64bc7e21bcafc",
+  "timing": {
+    "samples": 0,
+    "elements": 4,
+    "detected_onsets": 4,
+    "rows": [
+      {
+        "element_id": "el_d01",
+        "effect": "keyword",
+        "text": "口播视频最难的地方",
+        "window_start_s": 2.0,
+        "rendered_onset_s": 2.0,
+        "anchor_start_s": 2.0,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false
+      },
+      {
+        "element_id": "el_d02",
+        "effect": "number",
+        "text": "九成的剪辑",
+        "window_start_s": 5.4,
+        "rendered_onset_s": 5.4,
+        "anchor_start_s": 5.4,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false
+      },
+      {
+        "element_id": "el_d03",
+        "effect": "list",
+        "text": "第一",
+        "window_start_s": 8.4,
+        "rendered_onset_s": 8.4,
+        "anchor_start_s": 8.4,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false
+      },
+      {
+        "element_id": "el_d04",
+        "effect": "card",
+        "text": "其实是节奏",
+        "window_start_s": 15.0,
+        "rendered_onset_s": 15.0,
+        "anchor_start_s": 15.0,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false
+      }
+    ],
+    "source": "none",
+    "threshold_p90_ms": 100.0,
+    "fidelity": {
+      "samples": 4,
+      "p50_ms": 0.0,
+      "max_ms": 0.0
+    },
+    "p50_ms": null,
+    "p90_ms": null,
+    "max_ms": null,
+    "verdict": "NOT RUN",
+    "note": "no element had an independent target onset: SYNTH_KNOWN truth is unit-granular and this IR only animates intra-unit words"
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 26,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 123,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 123,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 4,
+      "sampled_frames": 123
+    },
+    "raster_containment": {
+      "changed_pixels": 186707,
+      "inside_declared_box": 186516,
+      "value": 0.001023,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 120,
+      "frames_with_faces": 120,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 3,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 24.0,
+    "duration_rendered_s": 24.0,
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.033333,
+    "frames_src": 720,
+    "frames_rendered": 720,
+    "audio": {
+      "src": {
+        "n_samples": 2304000,
+        "duration_s": 24.0,
+        "rms_db": -32.335,
+        "peak_db": -11.665
+      },
+      "rendered": {
+        "n_samples": 2304000,
+        "duration_s": 24.0,
+        "rms_db": -32.337,
+        "peak_db": -11.666
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.002,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "NOT RUN",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "rendered": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/real_face/fx_pd_motion.mp4",
+    "truth": null,
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

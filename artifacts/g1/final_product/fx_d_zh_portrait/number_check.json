@@ -1,0 +1,76 @@
+{
+  "schema": "semotion.number_check/1",
+  "video": "artifacts/g1/final_product/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
+  "ir": "artifacts/g1/final_product/fx_d_zh_portrait/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_d05",
+      "text": "两秒",
+      "expected_value": 2.0,
+      "expected_kind": "unit",
+      "ocr_raw": "2秒",
+      "ocr_variants": {
+        "psm8": "2秒",
+        "psm13": "2秒"
+      },
+      "observed_value": 2.0,
+      "frame": 333,
+      "t_s": 13.32,
+      "box": [
+        399,
+        1016,
+        282,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d09",
+      "text": "一半",
+      "expected_value": 50.0,
+      "expected_kind": "percent",
+      "ocr_raw": "50%",
+      "ocr_variants": {
+        "psm8": "50%",
+        "psm13": "50%"
+      },
+      "observed_value": 50.0,
+      "frame": 766,
+      "t_s": 30.64,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_d10",
+      "text": "三个",
+      "expected_value": 3.0,
+      "expected_kind": "unit",
+      "ocr_raw": "3个",
+      "ocr_variants": {
+        "psm8": "3个",
+        "psm13": "3个"
+      },
+      "observed_value": 3.0,
+      "frame": 790,
+      "t_s": 31.6,
+      "box": [
+        399,
+        1016,
+        282,
+        269
+      ],
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 3,
+  "mismatches": 0,
+  "unreadable": [],
+  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
+  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+}

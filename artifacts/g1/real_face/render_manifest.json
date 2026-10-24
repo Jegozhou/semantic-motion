@@ -1,0 +1,163 @@
+{
+  "schema": "semotion.render/1",
+  "ir_sha256": "fa16d5480b75f86461af928133d1f7cded831bc5fac1b4e787f8d38c4f4fc493",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1"
+  },
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/real_face/fx_pd_motion.mp4",
+    "sha256": "debfa0287fbe313cf1421591fd06362315899a216365872936f64bc7e21bcafc",
+    "size_bytes": 5150000,
+    "duration_s": 24.0,
+    "n_frames": 720,
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "pix_fmt": "yuv420p"
+  },
+  "audio": {
+    "pcm_sha256": "4176c28154c11927fc94e773150980df20f5e49c3b23f8ebb020d9e200abfdb3",
+    "source": "passthrough_decode_encode",
+    "delta_vs_source_s": 0.0,
+    "rms_delta_db": 0.002,
+    "correlation": 0.999995,
+    "method": "decoded 48 kHz stereo PCM: duration + RMS energy + zero-mean correlation vs source (AAC re-encode prevents sample-exact identity)",
+    "source_duration_s": 24.0
+  },
+  "overlay": {
+    "fps": 30.0,
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_pd_motion_fa16d5480b75",
+    "rendered_frames": 366,
+    "empty_frames": 0,
+    "elements": [
+      {
+        "id": "el_d01",
+        "type": "keyword",
+        "z": 20,
+        "start_frame": 60,
+        "end_frame": 135,
+        "frames": 75,
+        "frames_dir": "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d01"
+      },
+      {
+        "id": "el_d02",
+        "type": "number",
+        "z": 20,
+        "start_frame": 162,
+        "end_frame": 220,
+        "frames": 58,
+        "frames_dir": "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d02"
+      },
+      {
+        "id": "el_d03",
+        "type": "list",
+        "z": 20,
+        "start_frame": 252,
+        "end_frame": 404,
+        "frames": 152,
+        "frames_dir": "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d03"
+      },
+      {
+        "id": "el_d04",
+        "type": "card",
+        "z": 30,
+        "start_frame": 450,
+        "end_frame": 531,
+        "frames": 81,
+        "frames_dir": "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d04"
+      }
+    ],
+    "frames_retained": false
+  },
+  "commands": [
+    "ffmpeg -hide_banner -y -v error -i /Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4 -framerate 30 -start_number 60 -i artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d01/f%05d.png -framerate 30 -start_number 162 -i artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d02/f%05d.png -framerate 30 -start_number 252 -i artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d03/f%05d.png -framerate 30 -start_number 450 -i artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d04/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.000000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.000000)*lt(t,4.500000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+5.400000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,5.400000)*lt(t,7.333333)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+8.400000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,8.400000)*lt(t,13.466667)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+15.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.000000)*lt(t,17.700000)'\"'\"'[v3];[v3]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 30 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart /Volumes/ZHITAI/SemanticMotion/artifacts/g1/real_face/fx_pd_motion.mp4"
+  ],
+  "command_argv": [
+    "ffmpeg",
+    "-hide_banner",
+    "-y",
+    "-v",
+    "error",
+    "-i",
+    "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "-framerate",
+    "30",
+    "-start_number",
+    "60",
+    "-i",
+    "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d01/f%05d.png",
+    "-framerate",
+    "30",
+    "-start_number",
+    "162",
+    "-i",
+    "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d02/f%05d.png",
+    "-framerate",
+    "30",
+    "-start_number",
+    "252",
+    "-i",
+    "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d03/f%05d.png",
+    "-framerate",
+    "30",
+    "-start_number",
+    "450",
+    "-i",
+    "artifacts/tmp/render_fx_pd_motion_fa16d5480b75/el_d04/f%05d.png",
+    "-filter_complex",
+    "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.000000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,2.000000)*lt(t,4.500000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+5.400000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,5.400000)*lt(t,7.333333)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+8.400000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,8.400000)*lt(t,13.466667)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+15.000000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,15.000000)*lt(t,17.700000)'[v3];[v3]format=yuv420p[vout]",
+    "-map",
+    "[vout]",
+    "-map",
+    "0:a?",
+    "-r",
+    "30",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "192k",
+    "-ar",
+    "48000",
+    "-movflags",
+    "+faststart",
+    "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/real_face/fx_pd_motion.mp4"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "created_utc": "2026-10-24T09:40:24Z",
+  "preview": false,
+  "checks": {
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.033333,
+    "source_video_stream_duration_s": 24.0,
+    "output_video_stream_duration_s": 24.0,
+    "source_audio_stream_duration_s": 24.0,
+    "output_audio_stream_duration_s": 24.0,
+    "audio_stream_delta_s": 0.0,
+    "frames_expected": 720,
+    "source_decoded_frames": 720,
+    "frames_out_vs_source_decoded": 0,
+    "frames_expected_vs_source_decoded": 0,
+    "frame_count_note": "expected frames come from the IR (container nb_frames first); duration*fps may differ by a few frames when the container pads the audio tail — that is not a fault",
+    "resolution_expected": [
+      1280,
+      720
+    ],
+    "verdict": "PASS",
+    "problems": []
+  },
+  "log": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/real_face/logs/render_fx_pd_motion.log"
+}
