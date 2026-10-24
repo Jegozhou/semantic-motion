@@ -1,0 +1,47 @@
+{
+  "schema": "semotion.render/2",
+  "created_utc": "2026-10-24T17:52:28Z",
+  "source": {
+    "path": "artifacts/p3/portrait_zq.mp4",
+    "sha256": "96608579093531d9169d2c8a107a0799bf89b8be47aea9a08f17a5375a9b527a",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 25.002,
+    "frames": 625
+  },
+  "output": {
+    "path": "artifacts/p3/portrait_run/final.mp4",
+    "sha256": "557b07d56a833ffeacae5efb0f7274217541aaacf7cc48312272810242701b7d",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "frames": 625,
+    "duration_s": 25.0,
+    "bytes": 13479741
+  },
+  "overlay_pass": "artifacts/p3/portrait_run/final_overlay.mp4",
+  "ink_pass": "artifacts/p3/portrait_run/final_ink.mp4",
+  "ir": {
+    "schema": "semotion.motion-ir/2",
+    "elements": 5,
+    "sha256": "25f9c9a8bcd981b49eee63147455cb19ba0716218841e9c8db5852eaacda0576"
+  },
+  "captions": {
+    "segments": 10
+  },
+  "encode": {
+    "video": "libx264",
+    "crf": 18,
+    "draft": false,
+    "audio": "aac 192k"
+  },
+  "elapsed_s": 13.54,
+  "fps_real": 46.15,
+  "tools": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "command_decode": "ffmpeg -v error -i artifacts/p3/portrait_zq.mp4 -vf fps=25.0,scale=1080:1920:flags=lanczos -f rawvideo -pix_fmt rgb24 -",
+  "command_encode": "ffmpeg -v error -y -f rawvideo -pix_fmt rgb24 -s 1080x1920 -r 25.0 -i - -i artifacts/p3/portrait_zq.mp4 -map 0:v:0 -map 1:a:0 -shortest -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -profile:v high -level 4.2 -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/p3/portrait_run/final.mp4"
+}

@@ -1,0 +1,420 @@
+{
+  "schema": "semotion.director-brief/1",
+  "style": "smart_balanced",
+  "language": "zh",
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 25.002
+  },
+  "policy": {
+    "name": "smart_balanced",
+    "version": "1.0.0",
+    "budget": {
+      "max_elements_per_10s": 4,
+      "min_gap_s": 0.85,
+      "max_coverage": 0.58,
+      "hold_s": 0.45,
+      "min_dwell_s": 1.35,
+      "caption_band": 0.14
+    },
+    "captions": {
+      "max_lines": 2,
+      "target_chars_cjk": 22,
+      "max_chars_cjk": 24,
+      "max_chars_latin": 42,
+      "min_display_s": 0.9
+    },
+    "max_element_types": [
+      "barchart",
+      "card",
+      "compare",
+      "keyword",
+      "list",
+      "quote",
+      "stat"
+    ]
+  },
+  "transcript": {
+    "sentences": [
+      {
+        "index": 0,
+        "segment_id": "s0",
+        "text": "奥运会是我的梦想没错",
+        "start_s": 0.0,
+        "end_s": 2.02
+      },
+      {
+        "index": 1,
+        "segment_id": "s1",
+        "text": "但是我还有其他的梦想等着我去实现我的目标",
+        "start_s": 2.02,
+        "end_s": 5.64
+      },
+      {
+        "index": 2,
+        "segment_id": "s2",
+        "text": "我的梦想其实还远远没有结束",
+        "start_s": 5.64,
+        "end_s": 8.28
+      },
+      {
+        "index": 3,
+        "segment_id": "s3",
+        "text": "网球最好的一点就是它永远都有比赛",
+        "start_s": 8.28,
+        "end_s": 11.18
+      },
+      {
+        "index": 4,
+        "segment_id": "s4",
+        "text": "每一年我们都有比赛",
+        "start_s": 11.18,
+        "end_s": 12.94
+      },
+      {
+        "index": 5,
+        "segment_id": "s5",
+        "text": "每一年都有更大的困难",
+        "start_s": 12.94,
+        "end_s": 15.54
+      },
+      {
+        "index": 6,
+        "segment_id": "s6",
+        "text": "更大的山坡等着你去战胜",
+        "start_s": 15.54,
+        "end_s": 18.08
+      },
+      {
+        "index": 7,
+        "segment_id": "s7",
+        "text": "因为如果我觉得太过于满足的话",
+        "start_s": 18.08,
+        "end_s": 20.82
+      },
+      {
+        "index": 8,
+        "segment_id": "s8",
+        "text": "你可能就会停滞在一个位置",
+        "start_s": 20.82,
+        "end_s": 22.68
+      },
+      {
+        "index": 9,
+        "segment_id": "s9",
+        "text": "没有办法向前进步",
+        "start_s": 22.68,
+        "end_s": 24.32
+      }
+    ],
+    "text": "奥运会是我的梦想没错 但是我还有其他的梦想等着我去实现我的目标 我的梦想其实还远远没有结束 网球最好的一点就是它永远都有比赛 每一年我们都有比赛 每一年都有更大的困难 更大的山坡等着你去战胜 因为如果我觉得太过于满足的话 你可能就会停滞在一个位置 没有办法向前进步"
+  },
+  "scene": {
+    "existing_text": [
+      {
+        "bbox": [
+          652,
+          1591,
+          228,
+          329
+        ],
+        "conf": 0.3,
+        "kind": "logo",
+        "t0": 0.0,
+        "t1": 24.4,
+        "text": "CGTN"
+      },
+      {
+        "bbox": [
+          0,
+          1756,
+          632,
+          164
+        ],
+        "conf": 0.341,
+        "kind": "subtitle",
+        "t0": 0.0,
+        "t1": 24.4,
+        "text": "报"
+      },
+      {
+        "bbox": [
+          0,
+          1815,
+          171,
+          78
+        ],
+        "conf": 0.3353,
+        "kind": "other",
+        "t0": 3.4,
+        "t1": 7.4,
+        "text": "报/"
+      },
+      {
+        "bbox": [
+          0,
+          1815,
+          156,
+          75
+        ],
+        "conf": 0.4,
+        "kind": "other",
+        "t0": 19.6,
+        "t1": 22.0,
+        "text": "报"
+      },
+      {
+        "bbox": [
+          0,
+          1815,
+          165,
+          75
+        ],
+        "conf": 0.4,
+        "kind": "other",
+        "t0": 23.6,
+        "t1": 24.4,
+        "text": "报"
+      }
+    ],
+    "quiet_zone_count": 5,
+    "person_union": [
+      0,
+      312,
+      1080,
+      1608
+    ]
+  },
+  "candidates": [
+    {
+      "id": "a00",
+      "text": "奥运会是我的梦想没错",
+      "start_s": 0.0,
+      "end_s": 2.02,
+      "duration_s": 2.02,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": false,
+        "conclusion": false,
+        "question": false,
+        "chars": 10
+      },
+      "context": [
+        "奥运会是我的梦想没错",
+        "但是我还有其他的梦想等着我去实现我的目标"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "card",
+      "timing_confidence": 0.738
+    },
+    {
+      "id": "a01",
+      "text": "但是我还有其他的梦想",
+      "start_s": 2.02,
+      "end_s": 3.7,
+      "duration_s": 1.68,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": true,
+        "conclusion": false,
+        "question": false,
+        "chars": 10
+      },
+      "context": [
+        "奥运会是我的梦想没错",
+        "但是我还有其他的梦想等着我去实现我的目标"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "keyword",
+      "timing_confidence": 0.924
+    },
+    {
+      "id": "a02",
+      "text": "每一年我们都有比赛",
+      "start_s": 11.18,
+      "end_s": 12.94,
+      "duration_s": 1.76,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": false,
+        "conclusion": false,
+        "question": false,
+        "chars": 9
+      },
+      "context": [
+        "我的梦想其实还远远没有结束",
+        "网球最好的一点就是它永远都有比赛",
+        "每一年我们都有比赛"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "list_item",
+      "timing_confidence": 0.415
+    },
+    {
+      "id": "a03",
+      "text": "每一年都有更大的困难",
+      "start_s": 12.94,
+      "end_s": 15.54,
+      "duration_s": 2.6,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": false,
+        "conclusion": false,
+        "question": false,
+        "chars": 10
+      },
+      "context": [
+        "网球最好的一点就是它永远都有比赛",
+        "每一年我们都有比赛",
+        "每一年都有更大的困难"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "list_item",
+      "timing_confidence": 0.701
+    },
+    {
+      "id": "a04",
+      "text": "更大的山坡",
+      "start_s": 15.54,
+      "end_s": 16.54,
+      "duration_s": 1.0,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": false,
+        "conclusion": false,
+        "question": false,
+        "chars": 5
+      },
+      "context": [
+        "每一年我们都有比赛",
+        "每一年都有更大的困难",
+        "更大的山坡等着你去战胜"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "list_item",
+      "timing_confidence": 0.907
+    },
+    {
+      "id": "a05",
+      "text": "停滞在一个位置",
+      "start_s": 21.58,
+      "end_s": 22.68,
+      "duration_s": 1.1,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": false,
+        "conclusion": false,
+        "question": false,
+        "chars": 7
+      },
+      "context": [
+        "因为如果我觉得太过于满足的话",
+        "你可能就会停滞在一个位置",
+        "没有办法向前进步"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "card",
+      "timing_confidence": 0.74
+    },
+    {
+      "id": "a06",
+      "text": "没有办法向前进步",
+      "start_s": 22.68,
+      "end_s": 24.32,
+      "duration_s": 1.64,
+      "features": {
+        "has_number": false,
+        "digits": [],
+        "enumeration": false,
+        "contrast": false,
+        "conclusion": false,
+        "question": false,
+        "chars": 8
+      },
+      "context": [
+        "因为如果我觉得太过于满足的话",
+        "你可能就会停滞在一个位置",
+        "没有办法向前进步"
+      ],
+      "speaker_side": "centre",
+      "kind_hint": "keyword",
+      "timing_confidence": 0.837
+    }
+  ],
+  "rules": [
+    "Only reference anchor ids from candidates[]; never invent timestamps.",
+    "0–4 elements per 10 seconds; plain narration gets nothing.",
+    "One idea per element. 8–16 Chinese characters (2 lines max).",
+    "Numbers must appear verbatim in the anchor text (digits or Chinese numerals).",
+    "A list needs >=2 anchors, spoken in order; use effect 'list' with anchor_ids in order.",
+    "Never animate filler ('大家好', '然后', '对').",
+    "Prefer: numbers, enumerations, contrasts, conclusions, superlas.",
+    "Do not restate the obvious; do not add three cards in a row.",
+    "Return strict JSON only, matching output_schema."
+  ],
+  "output_schema": {
+    "schema": "semotion.llm-decisions/1",
+    "decision_model": "<your model id>",
+    "prompt_summary": "<one sentence: why these choices for this clip>",
+    "decisions": [
+      {
+        "anchor_id": "<first anchor id>",
+        "anchor_ids": [
+          "<one or more ids, in speech order>"
+        ],
+        "effect": "<keyword|card|list|stat|barchart|compare|quote>",
+        "emphasis": "high|medium|low",
+        "hold_s": "<0.0-1.2>",
+        "confidence": "<0-1>",
+        "reason": "<one short sentence in the video's language>",
+        "params": {
+          "kicker": "<optional>",
+          "emphasis": [
+            "<substring of the anchor text>"
+          ],
+          "label": "<optional>",
+          "unit": "<optional>",
+          "bars": [
+            {
+              "label": "<s>",
+              "value": "<number>"
+            }
+          ],
+          "left": {
+            "title": "<s>",
+            "items": [
+              "<s>"
+            ]
+          },
+          "right": {
+            "title": "<s>",
+            "items": [
+              "<s>"
+            ]
+          },
+          "attribution": "<optional>"
+        }
+      }
+    ],
+    "skipped": [
+      {
+        "anchor_id": "<id>",
+        "reason": "<why no motion>"
+      }
+    ]
+  }
+}

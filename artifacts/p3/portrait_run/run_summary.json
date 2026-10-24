@@ -1,0 +1,59 @@
+{
+  "schema": "semotion.run/2",
+  "video": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/artifacts/p3/portrait_zq.mp4",
+    "sha256": "96608579093531d9169d2c8a107a0799bf89b8be47aea9a08f17a5375a9b527a",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 25.002,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "policy": {
+    "name": "smart_balanced",
+    "version": "1.0.0",
+    "sha256": "d8e2024ddc8a7cee",
+    "source": "/Volumes/ZHITAI/Semantic Motion/policies/smart_balanced.json"
+  },
+  "director": {
+    "mode": "supplied",
+    "source": "file",
+    "decisions": 4
+  },
+  "elements": 5,
+  "coverage": 0.512,
+  "captions": 10,
+  "perception_used": true,
+  "render": {
+    "path": "artifacts/p3/portrait_run/final.mp4",
+    "sha256": "557b07d56a833ffeacae5efb0f7274217541aaacf7cc48312272810242701b7d",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "frames": 625,
+    "duration_s": 25.0,
+    "bytes": 13479741
+  },
+  "elapsed_s": 22.2,
+  "repair_rounds": 0,
+  "repair_history": [],
+  "artifacts": {
+    "final.mp4": "artifacts/p3/portrait_run/final.mp4",
+    "final_overlay.mp4": "artifacts/p3/portrait_run/final_overlay.mp4",
+    "final_ink.mp4": "artifacts/p3/portrait_run/final_ink.mp4",
+    "motion_ir.json": "artifacts/p3/portrait_run/motion_ir.json",
+    "captions.json": "artifacts/p3/portrait_run/captions.json",
+    "captions.srt": "artifacts/p3/portrait_run/captions.srt",
+    "captions.ass": "artifacts/p3/portrait_run/captions.ass",
+    "storyboard.png": "artifacts/p3/portrait_run/storyboard.png",
+    "perception.json": "artifacts/p3/portrait_run/perception.json",
+    "alignment.json": "artifacts/p3/portrait_run/alignment.json",
+    "qa/qa_metrics.json": "artifacts/p3/portrait_run/qa/qa_metrics.json"
+  },
+  "checks": {}
+}

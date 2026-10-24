@@ -1,0 +1,808 @@
+{
+  "schema": "semotion.forced-evidence/1",
+  "created_utc": "2026-10-24T17:10:37.447536Z",
+  "truth_classes": {
+    "SYNTH_KNOWN": "TTS units concatenated on a measured timeline; truth is the splice boundary. Valid for onset placement only.",
+    "REAL_UNVERIFIED": "real human audio with an ASR transcript; no human labels. Confidence/agreement/monotonicity only."
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "darwin",
+    "machine": "arm64",
+    "numpy": "2.5.4",
+    "torch": "2.14.1",
+    "torch_threads": 4,
+    "transformers": "5.20.2",
+    "torchaudio": "2.11.0"
+  },
+  "engine_paths": {
+    "dp": "torchaudio.functional.forced_align",
+    "acoustic_model": "hf-wav2vec2-ctc",
+    "mms_fa_evaluated": {
+      "engine": "torchaudio-mms-fa",
+      "usable_for_alignment": false,
+      "reason": "English-phoneme label set: no Mandarin support, and text->IPA needs a G2P dependency that is not installed",
+      "labels": [
+        "-",
+        "a",
+        "i",
+        "e",
+        "n",
+        "o",
+        "u",
+        "t",
+        "s",
+        "r",
+        "m",
+        "k",
+        "l",
+        "d",
+        "g",
+        "h",
+        "y",
+        "b",
+        "p",
+        "w",
+        "c",
+        "v",
+        "j",
+        "z",
+        "f",
+        "'",
+        "q",
+        "x",
+        "*"
+      ],
+      "n_labels": 29,
+      "sample_rate": 16000,
+      "n_params": 315466396,
+      "torch_home": "/Volumes/ZHITAI/Semantic Motion/.cache/torch"
+    }
+  },
+  "model": {
+    "id": "jonatasgrosman/wav2vec2-large-xlsr-53-chinese-zh-cn",
+    "engine": "hf-wav2vec2-ctc",
+    "device": "cpu",
+    "n_params": 319029295,
+    "vocab_size": 3503,
+    "frame_stride_ms": 20.0,
+    "blank_id": 0,
+    "cold_load_s": 2.68,
+    "cache": {
+      "path": "/Volumes/ZHITAI/Semantic Motion/.cache/huggingface",
+      "model_bytes": 1276350776,
+      "hf_home_bytes": 2409869314
+    },
+    "offline_load_env": "1"
+  },
+  "energy_aligner": {
+    "method": "envelope-dp/1",
+    "truth_class": "MACHINE_WEAK",
+    "note": "deterministic envelope DP; no model, no download"
+  },
+  "synthetic": {
+    "truth_class": "SYNTH_KNOWN",
+    "metric": "unit-start error: nearest predicted character onset vs the TTS assembly boundary (same rule as align.score_unit_onsets)",
+    "n_fixtures_scored": 10,
+    "n_units_scored": 147,
+    "aggregate": {
+      "energy": {
+        "n": 147,
+        "p50_ms": 2.75,
+        "p90_ms": 7.56,
+        "max_ms": 108.17,
+        "mean_ms": 5.25,
+        "n_fixtures": 10
+      },
+      "ctc": {
+        "n": 147,
+        "p50_ms": 17.04,
+        "p90_ms": 72.81,
+        "max_ms": 258.63,
+        "mean_ms": 30.29,
+        "n_fixtures": 10
+      }
+    },
+    "per_fixture_p50_wins": {
+      "ctc_better": 0,
+      "energy_better": 10,
+      "tie": 0
+    },
+    "fixtures": [
+      {
+        "fixture": "fx_a_zh_portrait",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 14,
+        "duration_s": 24.2,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 14,
+          "n_scored": 14,
+          "n_skipped": 0,
+          "p50_ms": 4.47,
+          "p90_ms": 7.04,
+          "max_ms": 7.96,
+          "mean_ms": 4.09,
+          "bias_ms": 3.74,
+          "runtime_s": 0.08,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 14,
+          "n_scored": 14,
+          "n_skipped": 0,
+          "p50_ms": 14.54,
+          "p90_ms": 34.06,
+          "max_ms": 63.54,
+          "mean_ms": 19.08,
+          "bias_ms": 15.88,
+          "runtime_s": 2.01,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.7727,
+          "low_conf_rate": 0.1951,
+          "mean_logp": -1.1294,
+          "alignment_score_per_frame": -0.0931
+        },
+        "ctc_coverage": {
+          "source_symbols": 82,
+          "ctc_targets": 82,
+          "oov": 0,
+          "oov_chars": [],
+          "coverage": 1.0,
+          "script_converted": 0,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 2
+      },
+      {
+        "fixture": "fx_b_zh_landscape",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 8,
+        "duration_s": 26.18,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 8,
+          "n_scored": 8,
+          "n_skipped": 0,
+          "p50_ms": 3.79,
+          "p90_ms": 6.74,
+          "max_ms": 7.06,
+          "mean_ms": 3.44,
+          "bias_ms": 3.38,
+          "runtime_s": 0.08,
+          "median_syllable_ms": 230.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 8,
+          "n_scored": 8,
+          "n_skipped": 0,
+          "p50_ms": 10.69,
+          "p90_ms": 74.47,
+          "max_ms": 85.44,
+          "mean_ms": 28.82,
+          "bias_ms": 27.13,
+          "runtime_s": 1.33,
+          "median_syllable_ms": 240.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.8598,
+          "low_conf_rate": 0.0714,
+          "mean_logp": -0.6995,
+          "alignment_score_per_frame": -0.0494
+        },
+        "ctc_coverage": {
+          "source_symbols": 87,
+          "ctc_targets": 87,
+          "oov": 0,
+          "oov_chars": [],
+          "coverage": 1.0,
+          "script_converted": 32,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 2
+      },
+      {
+        "fixture": "fx_c_zh_cuts",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 7,
+        "duration_s": 20.08,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 7,
+          "n_scored": 7,
+          "n_skipped": 0,
+          "p50_ms": 1.25,
+          "p90_ms": 6.17,
+          "max_ms": 8.35,
+          "mean_ms": 2.46,
+          "bias_ms": 1.64,
+          "runtime_s": 0.07,
+          "median_syllable_ms": 240.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 7,
+          "n_scored": 7,
+          "n_skipped": 0,
+          "p50_ms": 9.4,
+          "p90_ms": 33.13,
+          "max_ms": 54.71,
+          "mean_ms": 14.79,
+          "bias_ms": 11.64,
+          "runtime_s": 1.02,
+          "median_syllable_ms": 240.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.833,
+          "low_conf_rate": 0.0952,
+          "mean_logp": -0.4453,
+          "alignment_score_per_frame": -0.0312
+        },
+        "ctc_coverage": {
+          "source_symbols": 65,
+          "ctc_targets": 65,
+          "oov": 0,
+          "oov_chars": [],
+          "coverage": 1.0,
+          "script_converted": 0,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 1
+      },
+      {
+        "fixture": "fx_d_zh_portrait",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 20,
+        "duration_s": 46.633,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 0.8,
+          "p90_ms": 7.5,
+          "max_ms": 8.9,
+          "mean_ms": 2.82,
+          "bias_ms": 2.67,
+          "runtime_s": 0.12,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 34.75,
+          "p90_ms": 91.53,
+          "max_ms": 109.77,
+          "mean_ms": 37.93,
+          "bias_ms": 37.67,
+          "runtime_s": 2.4,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.7371,
+          "low_conf_rate": 0.2096,
+          "mean_logp": -0.7425,
+          "alignment_score_per_frame": -0.0762
+        },
+        "ctc_coverage": {
+          "source_symbols": 167,
+          "ctc_targets": 162,
+          "oov": 5,
+          "oov_chars": [
+            "删",
+            "砍",
+            "秒"
+          ],
+          "coverage": 0.9701,
+          "script_converted": 0,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 3
+      },
+      {
+        "fixture": "fx_e_zh_landscape",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 17,
+        "duration_s": 40.64,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 17,
+          "n_scored": 17,
+          "n_skipped": 0,
+          "p50_ms": 2.73,
+          "p90_ms": 7.31,
+          "max_ms": 108.17,
+          "mean_ms": 9.7,
+          "bias_ms": 9.38,
+          "runtime_s": 0.11,
+          "median_syllable_ms": 230.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 17,
+          "n_scored": 17,
+          "n_skipped": 0,
+          "p50_ms": 7.33,
+          "p90_ms": 80.85,
+          "max_ms": 258.63,
+          "mean_ms": 37.82,
+          "bias_ms": 36.44,
+          "runtime_s": 2.16,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.7497,
+          "low_conf_rate": 0.1908,
+          "mean_logp": -0.7673,
+          "alignment_score_per_frame": -0.0882
+        },
+        "ctc_coverage": {
+          "source_symbols": 138,
+          "ctc_targets": 134,
+          "oov": 4,
+          "oov_chars": [
+            "删",
+            "秒"
+          ],
+          "coverage": 0.971,
+          "script_converted": 0,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 2
+      },
+      {
+        "fixture": "fx_face_pan",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 9,
+        "duration_s": 21.381,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 9,
+          "n_scored": 9,
+          "n_skipped": 0,
+          "p50_ms": 4.44,
+          "p90_ms": 6.02,
+          "max_ms": 7.94,
+          "mean_ms": 3.45,
+          "bias_ms": 3.45,
+          "runtime_s": 0.08,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 9,
+          "n_scored": 9,
+          "n_skipped": 0,
+          "p50_ms": 15.5,
+          "p90_ms": 45.11,
+          "max_ms": 65.54,
+          "mean_ms": 22.34,
+          "bias_ms": 22.34,
+          "runtime_s": 1.15,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.7236,
+          "low_conf_rate": 0.24,
+          "mean_logp": -1.0606,
+          "alignment_score_per_frame": -0.1011
+        },
+        "ctc_coverage": {
+          "source_symbols": 78,
+          "ctc_targets": 78,
+          "oov": 0,
+          "oov_chars": [],
+          "coverage": 1.0,
+          "script_converted": 23,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 2
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 12,
+        "duration_s": 24.92,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 12,
+          "n_scored": 12,
+          "n_skipped": 0,
+          "p50_ms": 3.19,
+          "p90_ms": 7.37,
+          "max_ms": 7.42,
+          "mean_ms": 3.38,
+          "bias_ms": 3.03,
+          "runtime_s": 0.08,
+          "median_syllable_ms": 230.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 12,
+          "n_scored": 12,
+          "n_skipped": 0,
+          "p50_ms": 9.53,
+          "p90_ms": 65.42,
+          "max_ms": 77.37,
+          "mean_ms": 21.02,
+          "bias_ms": 18.86,
+          "runtime_s": 2.83,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.6739,
+          "low_conf_rate": 0.2771,
+          "mean_logp": -1.4764,
+          "alignment_score_per_frame": -0.1216
+        },
+        "ctc_coverage": {
+          "source_symbols": 86,
+          "ctc_targets": 86,
+          "oov": 0,
+          "oov_chars": [],
+          "coverage": 1.0,
+          "script_converted": 28,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 2
+      },
+      {
+        "fixture": "fx_t1_zh_phrase",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 20,
+        "duration_s": 40.221,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 3.11,
+          "p90_ms": 7.61,
+          "max_ms": 85.67,
+          "mean_ms": 7.56,
+          "bias_ms": 7.28,
+          "runtime_s": 0.11,
+          "median_syllable_ms": 230.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 23.8,
+          "p90_ms": 83.84,
+          "max_ms": 86.21,
+          "mean_ms": 33.14,
+          "bias_ms": 32.28,
+          "runtime_s": 2.25,
+          "median_syllable_ms": 220.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.6225,
+          "low_conf_rate": 0.3304,
+          "mean_logp": -1.3891,
+          "alignment_score_per_frame": -0.1229
+        },
+        "ctc_coverage": {
+          "source_symbols": 115,
+          "ctc_targets": 114,
+          "oov": 1,
+          "oov_chars": [
+            "刪"
+          ],
+          "coverage": 0.9913,
+          "script_converted": 37,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 20
+      },
+      {
+        "fixture": "fx_t2_zh_phrase",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 20,
+        "duration_s": 40.755,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 3.72,
+          "p90_ms": 7.63,
+          "max_ms": 86.15,
+          "mean_ms": 7.51,
+          "bias_ms": 7.2,
+          "runtime_s": 0.09,
+          "median_syllable_ms": 240.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 19.23,
+          "p90_ms": 69.7,
+          "max_ms": 94.96,
+          "mean_ms": 33.19,
+          "bias_ms": 32.7,
+          "runtime_s": 3.46,
+          "median_syllable_ms": 240.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.659,
+          "low_conf_rate": 0.3028,
+          "mean_logp": -1.1573,
+          "alignment_score_per_frame": -0.1063
+        },
+        "ctc_coverage": {
+          "source_symbols": 109,
+          "ctc_targets": 108,
+          "oov": 1,
+          "oov_chars": [
+            "贪"
+          ],
+          "coverage": 0.9908,
+          "script_converted": 0,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 20
+      },
+      {
+        "fixture": "fx_t3_zh_phrase",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 20,
+        "duration_s": 41.0,
+        "asr_transcript_cached": true,
+        "status": "OK",
+        "energy": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 3.38,
+          "p90_ms": 7.89,
+          "max_ms": 8.29,
+          "mean_ms": 3.79,
+          "bias_ms": 3.49,
+          "runtime_s": 0.09,
+          "median_syllable_ms": 250.0,
+          "monotonicity_violations": 0
+        },
+        "ctc": {
+          "n_units": 20,
+          "n_scored": 20,
+          "n_skipped": 0,
+          "p50_ms": 24.98,
+          "p90_ms": 65.78,
+          "max_ms": 93.33,
+          "mean_ms": 33.49,
+          "bias_ms": 33.49,
+          "runtime_s": 2.48,
+          "median_syllable_ms": 240.0,
+          "monotonicity_violations": 0
+        },
+        "ctc_posterior": {
+          "mean_conf": 0.6951,
+          "low_conf_rate": 0.2609,
+          "mean_logp": -1.0216,
+          "alignment_score_per_frame": -0.0838
+        },
+        "ctc_coverage": {
+          "source_symbols": 115,
+          "ctc_targets": 115,
+          "oov": 0,
+          "oov_chars": [],
+          "coverage": 1.0,
+          "script_converted": 38,
+          "approx_tokens": 0
+        },
+        "ctc_n_chunks": 20
+      },
+      {
+        "fixture": "fx_test_cuts",
+        "kind": "SYNTH_KNOWN",
+        "truth": "SYNTH_KNOWN",
+        "n_units": 3,
+        "duration_s": 7.4,
+        "asr_transcript_cached": false,
+        "status": "SKIPPED (no cached ASR transcript)"
+      }
+    ],
+    "failures": []
+  },
+  "real": {
+    "truth_class": "REAL_UNVERIFIED",
+    "source": {
+      "video": "inputs/zhengqinwen_25s.mp4",
+      "video_bytes": 8601775,
+      "duration_s": 25.0,
+      "transcript": "artifacts/dl/run/transcript.json",
+      "transcript_model": "faster-whisper",
+      "n_segments": 10
+    },
+    "energy": {
+      "runtime_s": 0.1,
+      "n_chars": 123,
+      "monotonicity_violations": 0,
+      "median_syllable_ms": 150.0
+    },
+    "ctc": {
+      "runtime_s": 1.21,
+      "n_chars": 123,
+      "monotonicity_violations": 0,
+      "median_syllable_ms": 140.0,
+      "posterior": {
+        "n_tokens": 123,
+        "mean_logp": -2.0199,
+        "median_conf": 0.966,
+        "mean_conf": 0.7309,
+        "p10_conf": 0.0018,
+        "min_conf": 0.0,
+        "low_conf_rate": 0.2358
+      },
+      "coverage": {
+        "source_symbols": 123,
+        "ctc_targets": 123,
+        "oov": 0,
+        "oov_chars": [],
+        "coverage": 1.0,
+        "script_converted": 0,
+        "approx_tokens": 0
+      },
+      "n_chunks": 6,
+      "chunk_feasible": true,
+      "alignment_score_per_frame": -0.277,
+      "full_clip_inference_s": 2.03
+    },
+    "boundary_agreement_energy_vs_ctc": {
+      "matched_chars": 123,
+      "unmatched_chars": 0,
+      "n": 123,
+      "onset": {
+        "median_abs_ms": 150.0,
+        "p90_abs_ms": 318.0,
+        "within_50ms_rate": 0.2195,
+        "within_100ms_rate": 0.3659
+      },
+      "offset": {
+        "median_abs_ms": 150.0,
+        "p90_abs_ms": 308.0,
+        "within_50ms_rate": 0.2358
+      },
+      "confidence_vs_agreement": {
+        "confidence_split": 0.966,
+        "high_conf_median_abs_ms": 170.0,
+        "low_conf_median_abs_ms": 130.0,
+        "spearman_conf_vs_abs_delta": 0.003
+      },
+      "caveat": "agreement is not accuracy: neither method has human labels here"
+    },
+    "third_opinion_whisper_word_times": {
+      "n": 98,
+      "reference": "Whisper word times (MACHINE_WEAK)",
+      "energy": {
+        "word_start_median_abs_ms": 150.0,
+        "word_start_p90_abs_ms": 390.0,
+        "word_start_within_100ms_rate": 0.3469,
+        "word_end_median_abs_ms": 160.0
+      },
+      "ctc": {
+        "word_start_median_abs_ms": 50.0,
+        "word_start_p90_abs_ms": 132.0,
+        "word_start_within_100ms_rate": 0.8367,
+        "word_end_median_abs_ms": 60.0
+      },
+      "signed_delta_ctc_minus_energy_within_segment": {
+        "first_half_median_ms": 50.0,
+        "second_half_median_ms": -70.0,
+        "interpretation": "energy spreads characters to the Whisper segment bounds; CTC follows the acoustics, so it runs early in the second half of padded segments"
+      }
+    },
+    "degenerate_cases": {
+      "n_chars": 123,
+      "monotonicity_violations": 0,
+      "oov_symbols": 0,
+      "coverage": 1.0,
+      "approx_tokens": 0,
+      "repeated_character_runs_in_text": [
+        {
+          "segment_id": "s2",
+          "text": "远远",
+          "count": 2
+        }
+      ],
+      "repeated_runs_aligned": [
+        {
+          "segment_id": "s2",
+          "text": "远远",
+          "count": 2,
+          "aligned_spans": [
+            [
+              6.8,
+              6.96,
+              0.963
+            ],
+            [
+              6.96,
+              7.12,
+              0.906
+            ]
+          ],
+          "distinct_spans": true,
+          "strictly_ordered": true
+        }
+      ],
+      "chars_at_or_below_2_frames": 5,
+      "chars_longer_than_1s": 0,
+      "max_char_duration_s": 0.66,
+      "min_char_duration_s": 0.02,
+      "degenerate_targets_without_frames": 0,
+      "chunk_feasible": true,
+      "note": "character CTC: the phoneme-level degenerate case is a run of identical characters; distinct spans are checked above"
+    },
+    "negative_control": {
+      "design": "same audio posteriors, character order shuffled within each segment (same symbol multiset), single 25 s pass",
+      "positive": {
+        "mean_conf": 0.8087,
+        "median_conf": 0.988,
+        "alignment_score_per_frame": -0.0839,
+        "n_chunks": 1
+      },
+      "shuffled": {
+        "mean_conf": 0.2894,
+        "median_conf": 0.0,
+        "alignment_score_per_frame": -1.1953,
+        "n_chunks": 1
+      },
+      "score_delta": -1.1114,
+      "mean_conf_delta": -0.5193,
+      "verdict": "shuffled targets score materially worse"
+    }
+  },
+  "disk_footprint": {
+    "zh_model_bytes": 1276350776,
+    "hf_home_bytes": 2409869314,
+    "torch_cache_bytes": 1262047414,
+    "uv_cache_bytes": 1132271242,
+    "note": "model weights are symlinked into the HF hub cache; sizes are reported per cache root without double counting"
+  },
+  "caveats": [
+    "SYNTH_KNOWN truth is the TTS splice point, not a human syllable label; on that material the envelope DP is near-exact by construction because every unit starts at a spliced energy jump.",
+    "The real clip has no human labels. 'Agreement with the energy aligner' is not accuracy; neither method is certified here.",
+    "The zh engine is a character-CTC model (XLSR-53), i.e. syllable resolution, not phoneme resolution. MMS_FA is English-phoneme only and cannot align Mandarin.",
+    "Confidence is the mean CTC posterior of the chosen state over the symbol's frames; it is not calibrated against human judgements.",
+    "Runtime is CPU-only on this machine and excludes the one-off download."
+  ]
+}

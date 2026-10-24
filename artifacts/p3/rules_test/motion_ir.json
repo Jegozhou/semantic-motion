@@ -1,0 +1,2466 @@
+{
+  "schema": "semotion.motion-ir/2",
+  "ir_version": "2.1.0",
+  "style": "smart_balanced",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "theme": {
+    "accent": "#EBC898",
+    "ink": "#F7F8FA",
+    "scrim": "#070A10",
+    "surface_is_dark": true
+  },
+  "semantic": {
+    "language": "zh",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "但是我还有其他的梦想等着",
+        "start_s": 1.91,
+        "end_s": 4.2,
+        "confidence": 0.78,
+        "source": "RULE_V2",
+        "segment_id": "s1",
+        "word_ids": [
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15",
+          "w16",
+          "w17",
+          "w18",
+          "w19",
+          "w20",
+          "w21"
+        ],
+        "items": []
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "我的梦想其实还远远没有结束",
+        "start_s": 5.72,
+        "end_s": 7.94,
+        "confidence": 0.78,
+        "source": "RULE_V2",
+        "segment_id": "s2",
+        "word_ids": [
+          "w30",
+          "w31",
+          "w32",
+          "w33",
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39",
+          "w40",
+          "w41",
+          "w42"
+        ],
+        "items": []
+      },
+      {
+        "id": "a02",
+        "kind": "keyword",
+        "text": "网球最好的一点就是",
+        "start_s": 8.32,
+        "end_s": 9.89,
+        "confidence": 0.72,
+        "source": "RULE_V2",
+        "segment_id": "s3",
+        "word_ids": [
+          "w43",
+          "w44",
+          "w45",
+          "w46",
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51"
+        ],
+        "items": []
+      },
+      {
+        "id": "a03",
+        "kind": "keyword",
+        "text": "它永远都有比赛每一年",
+        "start_s": 9.89,
+        "end_s": 11.55,
+        "confidence": 0.72,
+        "source": "RULE_V2",
+        "segment_id": "s3",
+        "word_ids": [
+          "w52",
+          "w53",
+          "w54",
+          "w55",
+          "w56",
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61"
+        ],
+        "items": []
+      },
+      {
+        "id": "a04",
+        "kind": "keyword",
+        "text": "你去战胜因为如果",
+        "start_s": 16.95,
+        "end_s": 18.94,
+        "confidence": 0.78,
+        "source": "RULE_V2",
+        "segment_id": "s6",
+        "word_ids": [
+          "w85",
+          "w86",
+          "w87",
+          "w88",
+          "w89",
+          "w90",
+          "w91",
+          "w92"
+        ],
+        "items": []
+      }
+    ],
+    "decisions_sha256": null
+  },
+  "perception": {
+    "schema": "semotion.perception/1",
+    "person_union": [
+      524,
+      152,
+      892,
+      768
+    ],
+    "face_union": [
+      943,
+      236,
+      296,
+      311
+    ],
+    "hands_union": [
+      1021,
+      667,
+      303,
+      253
+    ],
+    "existing_text": [
+      {
+        "bbox": [
+          708,
+          865,
+          159,
+          44
+        ],
+        "t0": 0.0,
+        "t1": 24.4,
+        "kind": "logo",
+        "text": "新京报",
+        "conf": 0.7934
+      }
+    ],
+    "quiet_zone_count": 12,
+    "used": true
+  },
+  "elements": [
+    {
+      "id": "el_1_5e1d7150",
+      "type": "keyword",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 1.91,
+        "end_s": 4.65,
+        "start_frame": 48,
+        "end_frame": 116,
+        "hold_s": 0.45,
+        "anchor_start_s": 1.91,
+        "anchor_end_s": 4.2
+      },
+      "box": [
+        1447,
+        327,
+        425,
+        190
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1348,
+          0,
+          572,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1088
+          ],
+          [
+            182,
+            1120
+          ],
+          [
+            201,
+            1148
+          ],
+          [
+            220,
+            1168
+          ],
+          [
+            239,
+            1176
+          ],
+          [
+            258,
+            1184
+          ],
+          [
+            277,
+            1188
+          ],
+          [
+            297,
+            1192
+          ],
+          [
+            316,
+            1200
+          ],
+          [
+            335,
+            1200
+          ],
+          [
+            354,
+            1200
+          ],
+          [
+            373,
+            1204
+          ],
+          [
+            392,
+            1208
+          ],
+          [
+            412,
+            1212
+          ],
+          [
+            431,
+            1216
+          ],
+          [
+            450,
+            1212
+          ],
+          [
+            469,
+            1212
+          ],
+          [
+            488,
+            1212
+          ],
+          [
+            507,
+            1208
+          ],
+          [
+            527,
+            1232
+          ],
+          [
+            546,
+            1240
+          ],
+          [
+            565,
+            1248
+          ],
+          [
+            584,
+            1248
+          ],
+          [
+            603,
+            1244
+          ],
+          [
+            622,
+            1264
+          ],
+          [
+            642,
+            1284
+          ],
+          [
+            661,
+            1292
+          ],
+          [
+            680,
+            1300
+          ],
+          [
+            699,
+            1312
+          ],
+          [
+            718,
+            1320
+          ],
+          [
+            737,
+            1324
+          ],
+          [
+            757,
+            1332
+          ],
+          [
+            776,
+            1340
+          ],
+          [
+            795,
+            1344
+          ],
+          [
+            814,
+            1352
+          ],
+          [
+            833,
+            1360
+          ],
+          [
+            852,
+            1364
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1408
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "但是我还有其他的梦想等着",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 425,
+        "height": 190,
+        "pad": 6,
+        "font_size_px": 59,
+        "min_font_px": 34,
+        "display_px": 59,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 77,
+        "lines": [
+          "但是我还有",
+          "其他的梦想等着"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1428,
+          165,
+          444,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1428,
+              165,
+              444,
+              515
+            ],
+            "quiet": 0.797,
+            "status": "ok",
+            "box": [
+              1447,
+              327,
+              425,
+              190
+            ],
+            "fit_w": 425,
+            "fit_h": 190,
+            "score": 0.6118
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              781,
+              56,
+              497,
+              80
+            ],
+            "fit_w": 497,
+            "fit_h": 80,
+            "score": 0.5107
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              434,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              327,
+              425,
+              190
+            ],
+            "fit_w": 425,
+            "fit_h": 190,
+            "score": 0.5039
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.784,
+            "status": "ok",
+            "box": [
+              477,
+              56,
+              497,
+              80
+            ],
+            "fit_w": 497,
+            "fit_h": 80,
+            "score": 0.4466
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1520,
+              327,
+              314,
+              143
+            ],
+            "fit_w": 314,
+            "fit_h": 143,
+            "score": 0.4443
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1520,
+              453,
+              314,
+              143
+            ],
+            "fit_w": 314,
+            "fit_h": 143,
+            "score": 0.418
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              87,
+              283,
+              343,
+              158
+            ],
+            "fit_w": 343,
+            "fit_h": 158,
+            "score": 0.414
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              87,
+              409,
+              343,
+              158
+            ],
+            "fit_w": 343,
+            "fit_h": 158,
+            "score": 0.4105
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a00",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_9cb2fe5d",
+      "type": "keyword",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 5.72,
+        "end_s": 8.32,
+        "start_frame": 143,
+        "end_frame": 208,
+        "hold_s": 0.45,
+        "anchor_start_s": 5.72,
+        "anchor_end_s": 7.94
+      },
+      "box": [
+        1447,
+        327,
+        425,
+        190
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1352,
+          0,
+          568,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1088
+          ],
+          [
+            182,
+            1124
+          ],
+          [
+            201,
+            1152
+          ],
+          [
+            220,
+            1168
+          ],
+          [
+            239,
+            1176
+          ],
+          [
+            258,
+            1184
+          ],
+          [
+            277,
+            1188
+          ],
+          [
+            297,
+            1192
+          ],
+          [
+            316,
+            1196
+          ],
+          [
+            335,
+            1200
+          ],
+          [
+            354,
+            1204
+          ],
+          [
+            373,
+            1204
+          ],
+          [
+            392,
+            1212
+          ],
+          [
+            412,
+            1212
+          ],
+          [
+            431,
+            1212
+          ],
+          [
+            450,
+            1212
+          ],
+          [
+            469,
+            1212
+          ],
+          [
+            488,
+            1212
+          ],
+          [
+            507,
+            1212
+          ],
+          [
+            527,
+            1228
+          ],
+          [
+            546,
+            1244
+          ],
+          [
+            565,
+            1252
+          ],
+          [
+            584,
+            1252
+          ],
+          [
+            603,
+            1248
+          ],
+          [
+            622,
+            1268
+          ],
+          [
+            642,
+            1288
+          ],
+          [
+            661,
+            1300
+          ],
+          [
+            680,
+            1308
+          ],
+          [
+            699,
+            1320
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1332
+          ],
+          [
+            757,
+            1340
+          ],
+          [
+            776,
+            1348
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1360
+          ],
+          [
+            833,
+            1364
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1408
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "我的梦想其实还远远没有结束",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 425,
+        "height": 190,
+        "pad": 6,
+        "font_size_px": 59,
+        "min_font_px": 34,
+        "display_px": 59,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 77,
+        "lines": [
+          "我的梦想其实",
+          "还远远没有结束"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1431,
+          165,
+          441,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1431,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1447,
+              327,
+              425,
+              190
+            ],
+            "fit_w": 425,
+            "fit_h": 190,
+            "score": 0.7123
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              781,
+              56,
+              497,
+              80
+            ],
+            "fit_w": 497,
+            "fit_h": 80,
+            "score": 0.5104
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              81
+            ],
+            "quiet": 0.769,
+            "status": "ok",
+            "box": [
+              492,
+              27,
+              935,
+              81
+            ],
+            "fit_w": 935,
+            "fit_h": 81,
+            "score": 0.504
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              327,
+              425,
+              190
+            ],
+            "fit_w": 425,
+            "fit_h": 190,
+            "score": 0.5039
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.784,
+            "status": "ok",
+            "box": [
+              477,
+              56,
+              497,
+              80
+            ],
+            "fit_w": 497,
+            "fit_h": 80,
+            "score": 0.4463
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1520,
+              327,
+              314,
+              143
+            ],
+            "fit_w": 314,
+            "fit_h": 143,
+            "score": 0.4447
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1520,
+              453,
+              314,
+              143
+            ],
+            "fit_w": 314,
+            "fit_h": 143,
+            "score": 0.4184
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              87,
+              283,
+              343,
+              158
+            ],
+            "fit_w": 343,
+            "fit_h": 158,
+            "score": 0.414
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a01",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_20f6d0d1",
+      "type": "keyword",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 8.32,
+        "end_s": 9.89,
+        "start_frame": 208,
+        "end_frame": 247,
+        "hold_s": 0.45,
+        "anchor_start_s": 8.32,
+        "anchor_end_s": 9.89
+      },
+      "box": [
+        1505,
+        308,
+        367,
+        228
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1356,
+          0,
+          564,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1104
+          ],
+          [
+            182,
+            1136
+          ],
+          [
+            201,
+            1164
+          ],
+          [
+            220,
+            1180
+          ],
+          [
+            239,
+            1188
+          ],
+          [
+            258,
+            1192
+          ],
+          [
+            277,
+            1196
+          ],
+          [
+            297,
+            1200
+          ],
+          [
+            316,
+            1204
+          ],
+          [
+            335,
+            1208
+          ],
+          [
+            354,
+            1212
+          ],
+          [
+            373,
+            1212
+          ],
+          [
+            392,
+            1216
+          ],
+          [
+            412,
+            1220
+          ],
+          [
+            431,
+            1220
+          ],
+          [
+            450,
+            1216
+          ],
+          [
+            469,
+            1216
+          ],
+          [
+            488,
+            1216
+          ],
+          [
+            507,
+            1216
+          ],
+          [
+            527,
+            1228
+          ],
+          [
+            546,
+            1244
+          ],
+          [
+            565,
+            1252
+          ],
+          [
+            584,
+            1256
+          ],
+          [
+            603,
+            1256
+          ],
+          [
+            622,
+            1272
+          ],
+          [
+            642,
+            1292
+          ],
+          [
+            661,
+            1304
+          ],
+          [
+            680,
+            1312
+          ],
+          [
+            699,
+            1320
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1332
+          ],
+          [
+            757,
+            1340
+          ],
+          [
+            776,
+            1348
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1360
+          ],
+          [
+            833,
+            1364
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1404
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "网球最好的一点就是",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 367,
+        "height": 228,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "网球最好的",
+          "一点就是"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1434,
+          165,
+          438,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1434,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1505,
+              308,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.7518
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              308,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              852,
+              56,
+              355,
+              80
+            ],
+            "fit_w": 355,
+            "fit_h": 80,
+            "score": 0.5119
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              81
+            ],
+            "quiet": 0.769,
+            "status": "ok",
+            "box": [
+              634,
+              27,
+              651,
+              81
+            ],
+            "fit_w": 651,
+            "fit_h": 81,
+            "score": 0.5055
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1529,
+              303,
+              295,
+              190
+            ],
+            "fit_w": 295,
+            "fit_h": 190,
+            "score": 0.4834
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              96,
+              264,
+              325,
+              197
+            ],
+            "fit_w": 325,
+            "fit_h": 197,
+            "score": 0.4584
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1529,
+              429,
+              295,
+              190
+            ],
+            "fit_w": 295,
+            "fit_h": 190,
+            "score": 0.4572
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              96,
+              390,
+              325,
+              197
+            ],
+            "fit_w": 325,
+            "fit_h": 197,
+            "score": 0.4549
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a02",
+        "decision_confidence": 0.72,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_2467682e",
+      "type": "keyword",
+      "anchor_refs": [
+        "a03"
+      ],
+      "window": {
+        "start_s": 9.89,
+        "end_s": 12.0,
+        "start_frame": 247,
+        "end_frame": 300,
+        "hold_s": 0.45,
+        "anchor_start_s": 9.89,
+        "anchor_end_s": 11.55
+      },
+      "box": [
+        1505,
+        308,
+        367,
+        228
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1356,
+          0,
+          564,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1104
+          ],
+          [
+            182,
+            1136
+          ],
+          [
+            201,
+            1164
+          ],
+          [
+            220,
+            1180
+          ],
+          [
+            239,
+            1188
+          ],
+          [
+            258,
+            1192
+          ],
+          [
+            277,
+            1196
+          ],
+          [
+            297,
+            1200
+          ],
+          [
+            316,
+            1204
+          ],
+          [
+            335,
+            1208
+          ],
+          [
+            354,
+            1212
+          ],
+          [
+            373,
+            1212
+          ],
+          [
+            392,
+            1220
+          ],
+          [
+            412,
+            1224
+          ],
+          [
+            431,
+            1228
+          ],
+          [
+            450,
+            1228
+          ],
+          [
+            469,
+            1224
+          ],
+          [
+            488,
+            1228
+          ],
+          [
+            507,
+            1244
+          ],
+          [
+            527,
+            1260
+          ],
+          [
+            546,
+            1272
+          ],
+          [
+            565,
+            1272
+          ],
+          [
+            584,
+            1276
+          ],
+          [
+            603,
+            1272
+          ],
+          [
+            622,
+            1272
+          ],
+          [
+            642,
+            1292
+          ],
+          [
+            661,
+            1304
+          ],
+          [
+            680,
+            1312
+          ],
+          [
+            699,
+            1320
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1332
+          ],
+          [
+            757,
+            1340
+          ],
+          [
+            776,
+            1348
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1360
+          ],
+          [
+            833,
+            1368
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1404
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "它永远都有比赛每一年",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 367,
+        "height": 228,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "它永远都有",
+          "比赛每一年"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1434,
+          165,
+          438,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1434,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1505,
+              308,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.7508
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              444,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              308,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              852,
+              56,
+              355,
+              80
+            ],
+            "fit_w": 355,
+            "fit_h": 80,
+            "score": 0.5107
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1529,
+              303,
+              295,
+              190
+            ],
+            "fit_w": 295,
+            "fit_h": 190,
+            "score": 0.4824
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              96,
+              264,
+              325,
+              197
+            ],
+            "fit_w": 325,
+            "fit_h": 197,
+            "score": 0.4584
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1529,
+              429,
+              295,
+              190
+            ],
+            "fit_w": 295,
+            "fit_h": 190,
+            "score": 0.4562
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              96,
+              390,
+              325,
+              197
+            ],
+            "fit_w": 325,
+            "fit_h": 197,
+            "score": 0.4549
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.784,
+            "status": "ok",
+            "box": [
+              548,
+              56,
+              355,
+              80
+            ],
+            "fit_w": 355,
+            "fit_h": 80,
+            "score": 0.4493
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a03",
+        "decision_confidence": 0.72,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_ee917915",
+      "type": "keyword",
+      "anchor_refs": [
+        "a04"
+      ],
+      "window": {
+        "start_s": 16.95,
+        "end_s": 19.39,
+        "start_frame": 424,
+        "end_frame": 485,
+        "hold_s": 0.45,
+        "anchor_start_s": 16.95,
+        "anchor_end_s": 18.94
+      },
+      "box": [
+        1576,
+        308,
+        296,
+        228
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1356,
+          0,
+          564,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1096
+          ],
+          [
+            182,
+            1124
+          ],
+          [
+            201,
+            1156
+          ],
+          [
+            220,
+            1172
+          ],
+          [
+            239,
+            1176
+          ],
+          [
+            258,
+            1184
+          ],
+          [
+            277,
+            1188
+          ],
+          [
+            297,
+            1192
+          ],
+          [
+            316,
+            1200
+          ],
+          [
+            335,
+            1204
+          ],
+          [
+            354,
+            1204
+          ],
+          [
+            373,
+            1208
+          ],
+          [
+            392,
+            1212
+          ],
+          [
+            412,
+            1216
+          ],
+          [
+            431,
+            1216
+          ],
+          [
+            450,
+            1212
+          ],
+          [
+            469,
+            1216
+          ],
+          [
+            488,
+            1216
+          ],
+          [
+            507,
+            1220
+          ],
+          [
+            527,
+            1240
+          ],
+          [
+            546,
+            1252
+          ],
+          [
+            565,
+            1252
+          ],
+          [
+            584,
+            1252
+          ],
+          [
+            603,
+            1244
+          ],
+          [
+            622,
+            1272
+          ],
+          [
+            642,
+            1292
+          ],
+          [
+            661,
+            1304
+          ],
+          [
+            680,
+            1312
+          ],
+          [
+            699,
+            1316
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1332
+          ],
+          [
+            757,
+            1336
+          ],
+          [
+            776,
+            1344
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1356
+          ],
+          [
+            833,
+            1364
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1372
+          ],
+          [
+            891,
+            1320
+          ],
+          [
+            910,
+            1268
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "你去战胜因为如果",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 296,
+        "height": 228,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "你去战胜",
+          "因为如果"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1434,
+          165,
+          438,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1434,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1576,
+              308,
+              296,
+              228
+            ],
+            "fit_w": 296,
+            "fit_h": 228,
+            "score": 0.7596
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              308,
+              296,
+              228
+            ],
+            "fit_w": 296,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1535,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5163
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              745,
+              56,
+              568,
+              80
+            ],
+            "fit_w": 568,
+            "fit_h": 80,
+            "score": 0.5128
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              81
+            ],
+            "quiet": 0.769,
+            "status": "ok",
+            "box": [
+              669,
+              27,
+              580,
+              81
+            ],
+            "fit_w": 580,
+            "fit_h": 81,
+            "score": 0.5064
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1535,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.49
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              117,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              117,
+              390,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4716
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a04",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    }
+  ],
+  "layout_audit": {
+    "decisions": [
+      {
+        "group": 0,
+        "decision": "place",
+        "element": "el_1_5e1d7150",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 1.91,
+        "box": [
+          1447,
+          327,
+          425,
+          190
+        ],
+        "text": "但是我还有其他的梦想等着"
+      },
+      {
+        "group": 1,
+        "decision": "place",
+        "element": "el_1_9cb2fe5d",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 5.72,
+        "box": [
+          1447,
+          327,
+          425,
+          190
+        ],
+        "text": "我的梦想其实还远远没有结束"
+      },
+      {
+        "group": 2,
+        "decision": "place",
+        "element": "el_1_20f6d0d1",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 8.32,
+        "box": [
+          1505,
+          308,
+          367,
+          228
+        ],
+        "text": "网球最好的一点就是"
+      },
+      {
+        "group": 3,
+        "decision": "place",
+        "element": "el_1_2467682e",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 9.89,
+        "box": [
+          1505,
+          308,
+          367,
+          228
+        ],
+        "text": "它永远都有比赛每一年"
+      },
+      {
+        "group": 4,
+        "decision": "place",
+        "element": "el_1_ee917915",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 16.95,
+        "box": [
+          1576,
+          308,
+          296,
+          228
+        ],
+        "text": "你去战胜因为如果"
+      }
+    ],
+    "coverage": 0.4584,
+    "perception_used": true,
+    "text_obstacles": 1
+  },
+  "provenance": {
+    "director": "semotion.design2/2",
+    "policy": {
+      "name": "smart_balanced",
+      "version": "1.0.0",
+      "sha256": "5c46657da1557ff2",
+      "source": "/Volumes/ZHITAI/Semantic Motion/policies/smart_balanced.json"
+    },
+    "truth_class": "MACHINE",
+    "note": "windows derive from measured anchor onsets; placement rejects any box that touches the person silhouette, burned-in text or captions"
+  }
+}

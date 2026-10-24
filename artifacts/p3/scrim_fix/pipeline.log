@@ -1,0 +1,33 @@
+
+$ /Volumes/ZHITAI/Semantic Motion/.venv/bin/python -m semotion.perception --video inputs/zhengqinwen_25s.mp4 --out artifacts/p3/scrim_fix/perception.json --mask-dir artifacts/p3/scrim_fix/masks
+video      : inputs/zhengqinwen_25s.mp4
+out        : /Volumes/ZHITAI/Semantic Motion/artifacts/p3/scrim_fix/perception.json
+backend    : apple-vision  cache=hit  runtime=0.077s
+samples    : 125 @ 5.0 Hz (1920x920 @ 25.0 fps)
+mask       : coverage mean 0.1879  failures=3
+text       : 11 regions
+             [  0.00- 24.40s] logo     [90, 55, 267, 87] conf=0.3165 '视频'
+             [  0.00- 24.40s] logo     [1115, 762, 105, 158] conf=0.3189 'CGTA'
+             [  0.00- 13.00s] other    [885, 842, 214, 73] conf=0.3519 '走的巴黎纪念'
+             [  0.00- 24.40s] logo     [708, 865, 159, 44] conf=0.7934 '新京报'
+             [  0.60- 24.40s] logo     [1394, 90, 524, 169] conf=1.0 'HOUSE'
+             [  3.60-  6.20s] other    [1410, 0, 507, 72] conf=0.4143 'АІ ПЕСІ'
+             [ 17.40- 21.60s] other    [1410, 0, 508, 76] conf=0.3 'НІЛЬС'
+             [ 19.20- 23.80s] other    [896, 851, 203, 60] conf=0.3235 '走的巴黎纪'
+             [ 19.80- 24.20s] other    [123, 679, 234, 50] conf=0.4955 '迟瀚宇邢翀'
+             [ 19.80- 24.20s] other    [123, 748, 237, 56] conf=0.4273 '制作 刘世炯'
+             [ 19.80- 24.20s] other    [123, 812, 411, 51] conf=0.8455 '版权所有，未经许可请勿转载'
+quiet zones: 12 (person_overlap==0: 12)
+             Z1  score=0.907 bbox=[1482, 288, 422, 221] side        person=0.0 text=0.0 edge=0.0174
+             Z2  score=0.885 bbox=[684, 18, 691, 101] background  person=0.0 text=0.0 edge=0.0127
+             Z3  score=0.881 bbox=[1482, 414, 422, 221] side        person=0.0 text=0.0 edge=0.0232
+             Z4  score=0.824 bbox=[380, 0, 691, 101] background  person=0.0 text=0.0 edge=0.0276
+             Z5  score=0.813 bbox=[1498, 522, 422, 221] side        person=0.0 text=0.0 edge=0.0398
+             Z6  score=0.784 bbox=[38, 252, 422, 221] side        person=0.0 text=0.0 edge=0.0475
+             Z7  score=0.775 bbox=[38, 378, 422, 221] side        person=0.0 text=0.0 edge=0.0496
+             Z8  score=0.746 bbox=[1330, 468, 422, 221] side        person=0.0 text=0.0 edge=0.0251
+             Z9  score=0.736 bbox=[1330, 342, 422, 221] side        person=0.0 text=0.0 edge=0.0239
+             Z10 score=0.717 bbox=[38, 162, 422, 101] background  person=0.0 text=0.0 edge=0.0466
+             Z11 score=0.713 bbox=[1482, 630, 422, 221] side        person=0.0 text=0.0 edge=0.067
+             Z12 score=0.702 bbox=[38, 558, 422, 101] lower_third person=0.0 text=0.0 edge=0.0498
+VALIDATE   : OK

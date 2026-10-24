@@ -1,0 +1,20 @@
+
+$ /Volumes/ZHITAI/Semantic Motion/.venv/bin/python -m semotion.perception --video artifacts/p3/portrait_zq.mp4 --out artifacts/p3/portrait_run/perception.json --mask-dir artifacts/p3/portrait_run/masks
+video      : artifacts/p3/portrait_zq.mp4
+out        : /Volumes/ZHITAI/Semantic Motion/artifacts/p3/portrait_run/perception.json
+backend    : apple-vision  cache=hit  runtime=0.07s
+samples    : 125 @ 5.0 Hz (1080x1920 @ 25.0 fps)
+mask       : coverage mean 0.6149  failures=3
+text       : 5 regions
+             [  0.00- 24.40s] logo     [652, 1591, 228, 329] conf=0.3 'CGTN'
+             [  0.00- 24.40s] subtitle [0, 1756, 632, 164] conf=0.341 '报'
+             [  3.40-  7.40s] other    [0, 1815, 171, 78] conf=0.3353 '报/'
+             [ 19.60- 22.00s] other    [0, 1815, 156, 75] conf=0.4 '报'
+             [ 23.60- 24.40s] other    [0, 1815, 165, 75] conf=0.4 '报'
+quiet zones: 5 (person_overlap==0: 5)
+             Z1  score=0.924 bbox=[418, 0, 367, 269] background  person=0.0 text=0.0 edge=0.0047
+             Z2  score=0.911 bbox=[616, 0, 367, 269] background  person=0.0 text=0.0 edge=0.0046
+             Z3  score=0.910 bbox=[220, 0, 367, 269] background  person=0.0 text=0.0 edge=0.0052
+             Z4  score=0.880 bbox=[22, 0, 367, 269] background  person=0.0 text=0.0 edge=0.0046
+             Z5  score=0.781 bbox=[836, 114, 238, 461] side        person=0.0 text=0.0 edge=0.0032
+VALIDATE   : OK

@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/2",
-  "created_utc": "2026-10-24T15:57:17Z",
+  "created_utc": "2026-10-24T17:51:45Z",
   "source": {
     "path": "inputs/zhengqinwen_25s.mp4",
     "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
@@ -12,20 +12,20 @@
   },
   "output": {
     "path": "artifacts/v2/final_zq/final.mp4",
-    "sha256": "8555486c62f3f3469de36c1987693a0a6e060d5aec2ee3d2dd2f04b0230574b2",
+    "sha256": "f634c3d196f08a0aeed26e1a65e1ec40d467148e77e45bb6f1baf2a3bbb66540",
     "width": 1920,
     "height": 920,
     "fps": 25.0,
     "frames": 625,
     "duration_s": 25.0,
-    "bytes": 9704711
+    "bytes": 9610223
   },
   "overlay_pass": "artifacts/v2/final_zq/final_overlay.mp4",
   "ink_pass": "artifacts/v2/final_zq/final_ink.mp4",
   "ir": {
     "schema": "semotion.motion-ir/2",
     "elements": 5,
-    "sha256": "f40ac807a4a24de6f7f4a75d772c284255827a8ba3914cf169fc2e5dd4e4aa81"
+    "sha256": "c5f326700c044a667d2f762d6bcdd5abb149c19f42a78cb08cc31dd671b75a81"
   },
   "captions": {
     "segments": 10
@@ -36,8 +36,8 @@
     "draft": false,
     "audio": "aac 192k"
   },
-  "elapsed_s": 10.99,
-  "fps_real": 56.86,
+  "elapsed_s": 11.31,
+  "fps_real": 55.25,
   "tools": {
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"

@@ -1,0 +1,3392 @@
+{
+  "schema": "semotion.motion-ir/2",
+  "ir_version": "2.1.0",
+  "style": "smart_balanced",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "theme": {
+    "accent": "#EBC898",
+    "ink": "#F7F8FA",
+    "scrim": "#070A10",
+    "surface_is_dark": true
+  },
+  "semantic": {
+    "language": "zh",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "card",
+        "text": "奥运会是我的梦想没错",
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s0",
+        "word_ids": [
+          "w0",
+          "w1",
+          "w2",
+          "w3",
+          "w4",
+          "w5",
+          "w6",
+          "w7",
+          "w8"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "但是我还有其他的梦想",
+        "start_s": 2.02,
+        "end_s": 3.7,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s1",
+        "word_ids": [
+          "w9",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "list_item",
+        "text": "每一年我们都有比赛",
+        "start_s": 11.18,
+        "end_s": 12.94,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s4",
+        "word_ids": [
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52",
+          "w53"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "list_item",
+        "text": "每一年都有更大的困难",
+        "start_s": 12.94,
+        "end_s": 15.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s5",
+        "word_ids": [
+          "w54",
+          "w55",
+          "w56",
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "list_item",
+        "text": "更大的山坡",
+        "start_s": 15.54,
+        "end_s": 16.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s6",
+        "word_ids": [
+          "w62",
+          "w63",
+          "w64",
+          "w65"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "card",
+        "text": "停滞在一个位置",
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s8",
+        "word_ids": [
+          "w85",
+          "w86",
+          "w87",
+          "w88",
+          "w89",
+          "w90"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "keyword",
+        "text": "没有办法向前进步",
+        "start_s": 22.68,
+        "end_s": 24.32,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s9",
+        "word_ids": [
+          "w91",
+          "w92",
+          "w93",
+          "w94",
+          "w95",
+          "w96",
+          "w97"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      }
+    ],
+    "decisions_sha256": "8e50b038688621105e553f73673d7d9e50828f083ef7251120eb5f131e572c29"
+  },
+  "perception": {
+    "schema": "semotion.perception/1",
+    "person_union": [
+      524,
+      152,
+      892,
+      768
+    ],
+    "face_union": [
+      943,
+      236,
+      296,
+      311
+    ],
+    "hands_union": [
+      1021,
+      667,
+      303,
+      253
+    ],
+    "existing_text": [
+      {
+        "bbox": [
+          708,
+          865,
+          159,
+          44
+        ],
+        "t0": 0.0,
+        "t1": 24.4,
+        "kind": "logo",
+        "text": "新京报",
+        "conf": 0.7934
+      }
+    ],
+    "quiet_zone_count": 12,
+    "used": true
+  },
+  "elements": [
+    {
+      "id": "el_1_c8961792",
+      "type": "card",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "start_frame": 0,
+        "end_frame": 50,
+        "hold_s": 0.5,
+        "anchor_start_s": 0.0,
+        "anchor_end_s": 2.02
+      },
+      "box": [
+        1542,
+        325,
+        330,
+        194
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1352,
+          0,
+          568,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            158,
+            1071
+          ],
+          [
+            167,
+            1119
+          ],
+          [
+            177,
+            1135
+          ],
+          [
+            186,
+            1151
+          ],
+          [
+            196,
+            1171
+          ],
+          [
+            206,
+            1179
+          ],
+          [
+            215,
+            1191
+          ],
+          [
+            225,
+            1195
+          ],
+          [
+            234,
+            1199
+          ],
+          [
+            244,
+            1203
+          ],
+          [
+            253,
+            1207
+          ],
+          [
+            263,
+            1211
+          ],
+          [
+            273,
+            1211
+          ],
+          [
+            282,
+            1215
+          ],
+          [
+            292,
+            1219
+          ],
+          [
+            301,
+            1219
+          ],
+          [
+            311,
+            1223
+          ],
+          [
+            321,
+            1227
+          ],
+          [
+            330,
+            1227
+          ],
+          [
+            340,
+            1227
+          ],
+          [
+            349,
+            1231
+          ],
+          [
+            359,
+            1231
+          ],
+          [
+            368,
+            1235
+          ],
+          [
+            378,
+            1235
+          ],
+          [
+            388,
+            1239
+          ],
+          [
+            397,
+            1239
+          ],
+          [
+            407,
+            1239
+          ],
+          [
+            416,
+            1243
+          ],
+          [
+            426,
+            1243
+          ],
+          [
+            436,
+            1243
+          ],
+          [
+            445,
+            1243
+          ],
+          [
+            455,
+            1243
+          ],
+          [
+            464,
+            1239
+          ],
+          [
+            474,
+            1243
+          ],
+          [
+            483,
+            1243
+          ],
+          [
+            493,
+            1239
+          ],
+          [
+            503,
+            1239
+          ],
+          [
+            512,
+            1243
+          ],
+          [
+            522,
+            1247
+          ],
+          [
+            531,
+            1259
+          ],
+          [
+            541,
+            1263
+          ],
+          [
+            551,
+            1271
+          ],
+          [
+            560,
+            1275
+          ],
+          [
+            570,
+            1275
+          ],
+          [
+            579,
+            1275
+          ],
+          [
+            589,
+            1275
+          ],
+          [
+            598,
+            1275
+          ],
+          [
+            608,
+            1271
+          ],
+          [
+            618,
+            1263
+          ],
+          [
+            627,
+            1291
+          ],
+          [
+            637,
+            1299
+          ],
+          [
+            646,
+            1311
+          ],
+          [
+            656,
+            1319
+          ],
+          [
+            666,
+            1323
+          ],
+          [
+            675,
+            1327
+          ],
+          [
+            685,
+            1331
+          ],
+          [
+            694,
+            1331
+          ],
+          [
+            704,
+            1339
+          ],
+          [
+            713,
+            1343
+          ],
+          [
+            723,
+            1347
+          ],
+          [
+            733,
+            1351
+          ],
+          [
+            742,
+            1351
+          ],
+          [
+            752,
+            1355
+          ],
+          [
+            761,
+            1359
+          ],
+          [
+            771,
+            1363
+          ],
+          [
+            781,
+            1367
+          ],
+          [
+            790,
+            1371
+          ],
+          [
+            800,
+            1375
+          ],
+          [
+            809,
+            1375
+          ],
+          [
+            819,
+            1379
+          ],
+          [
+            828,
+            1383
+          ],
+          [
+            838,
+            1387
+          ],
+          [
+            848,
+            1391
+          ],
+          [
+            857,
+            1395
+          ],
+          [
+            867,
+            1395
+          ],
+          [
+            876,
+            1403
+          ],
+          [
+            886,
+            1415
+          ],
+          [
+            896,
+            1427
+          ],
+          [
+            905,
+            1431
+          ],
+          [
+            915,
+            1439
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "title": "奥运会是我的梦想没错",
+        "body": "",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "card",
+        "width": 330,
+        "height": 194,
+        "pad": 6,
+        "font_size_px": 53,
+        "min_font_px": 31,
+        "display_px": 0,
+        "title_px": 53,
+        "body_px": 26,
+        "kicker_px": 18,
+        "pitch": 70,
+        "lines": [
+          "奥运会是",
+          "我的梦想没错"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "scale",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "scale_in",
+          "applied": "scale"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.75,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1431,
+          165,
+          441,
+          515
+        ],
+        "category": "side",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1431,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.654,
+            "status": "ok",
+            "box": [
+              1542,
+              325,
+              330,
+              194
+            ],
+            "fit_w": 330,
+            "fit_h": 194,
+            "score": 0.6008
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              434,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              325,
+              330,
+              194
+            ],
+            "fit_w": 330,
+            "fit_h": 194,
+            "score": 0.54
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.862,
+            "status": "ok",
+            "box": [
+              1533,
+              310,
+              288,
+              177
+            ],
+            "fit_w": 288,
+            "fit_h": 177,
+            "score": 0.524
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1533,
+              436,
+              288,
+              177
+            ],
+            "fit_w": 288,
+            "fit_h": 177,
+            "score": 0.514
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              115,
+              274,
+              288,
+              177
+            ],
+            "fit_w": 288,
+            "fit_h": 177,
+            "score": 0.499
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              115,
+              400,
+              288,
+              177
+            ],
+            "fit_w": 288,
+            "fit_h": 177,
+            "score": 0.4955
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.841,
+            "status": "ok",
+            "box": [
+              879,
+              56,
+              300,
+              80
+            ],
+            "fit_w": 300,
+            "fit_h": 80,
+            "score": 0.4291
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.782,
+            "status": "ok",
+            "box": [
+              575,
+              56,
+              300,
+              80
+            ],
+            "fit_w": 300,
+            "fit_h": 80,
+            "score": 0.4101
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a00",
+        "decision_confidence": 0.82,
+        "emphasis": "high",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸"
+      }
+    },
+    {
+      "id": "el_1_cede221a",
+      "type": "keyword",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.02,
+        "end_s": 4.0,
+        "start_frame": 50,
+        "end_frame": 100,
+        "hold_s": 0.3,
+        "anchor_start_s": 2.02,
+        "anchor_end_s": 3.7
+      },
+      "box": [
+        1505,
+        308,
+        367,
+        228
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1344,
+          0,
+          576,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            158,
+            1075
+          ],
+          [
+            167,
+            1111
+          ],
+          [
+            177,
+            1127
+          ],
+          [
+            186,
+            1143
+          ],
+          [
+            196,
+            1159
+          ],
+          [
+            206,
+            1171
+          ],
+          [
+            215,
+            1183
+          ],
+          [
+            225,
+            1187
+          ],
+          [
+            234,
+            1195
+          ],
+          [
+            244,
+            1199
+          ],
+          [
+            253,
+            1203
+          ],
+          [
+            263,
+            1203
+          ],
+          [
+            273,
+            1207
+          ],
+          [
+            282,
+            1207
+          ],
+          [
+            292,
+            1211
+          ],
+          [
+            301,
+            1211
+          ],
+          [
+            311,
+            1215
+          ],
+          [
+            321,
+            1219
+          ],
+          [
+            330,
+            1219
+          ],
+          [
+            340,
+            1223
+          ],
+          [
+            349,
+            1223
+          ],
+          [
+            359,
+            1223
+          ],
+          [
+            368,
+            1223
+          ],
+          [
+            378,
+            1223
+          ],
+          [
+            388,
+            1227
+          ],
+          [
+            397,
+            1227
+          ],
+          [
+            407,
+            1231
+          ],
+          [
+            416,
+            1231
+          ],
+          [
+            426,
+            1231
+          ],
+          [
+            436,
+            1231
+          ],
+          [
+            445,
+            1231
+          ],
+          [
+            455,
+            1227
+          ],
+          [
+            464,
+            1227
+          ],
+          [
+            474,
+            1231
+          ],
+          [
+            483,
+            1231
+          ],
+          [
+            493,
+            1231
+          ],
+          [
+            503,
+            1227
+          ],
+          [
+            512,
+            1227
+          ],
+          [
+            522,
+            1235
+          ],
+          [
+            531,
+            1255
+          ],
+          [
+            541,
+            1255
+          ],
+          [
+            551,
+            1259
+          ],
+          [
+            560,
+            1263
+          ],
+          [
+            570,
+            1267
+          ],
+          [
+            579,
+            1267
+          ],
+          [
+            589,
+            1267
+          ],
+          [
+            598,
+            1263
+          ],
+          [
+            608,
+            1251
+          ],
+          [
+            618,
+            1263
+          ],
+          [
+            627,
+            1287
+          ],
+          [
+            637,
+            1295
+          ],
+          [
+            646,
+            1307
+          ],
+          [
+            656,
+            1311
+          ],
+          [
+            666,
+            1315
+          ],
+          [
+            675,
+            1319
+          ],
+          [
+            685,
+            1323
+          ],
+          [
+            694,
+            1327
+          ],
+          [
+            704,
+            1331
+          ],
+          [
+            713,
+            1335
+          ],
+          [
+            723,
+            1339
+          ],
+          [
+            733,
+            1343
+          ],
+          [
+            742,
+            1347
+          ],
+          [
+            752,
+            1351
+          ],
+          [
+            761,
+            1355
+          ],
+          [
+            771,
+            1359
+          ],
+          [
+            781,
+            1359
+          ],
+          [
+            790,
+            1363
+          ],
+          [
+            800,
+            1367
+          ],
+          [
+            809,
+            1371
+          ],
+          [
+            819,
+            1375
+          ],
+          [
+            828,
+            1379
+          ],
+          [
+            838,
+            1379
+          ],
+          [
+            848,
+            1383
+          ],
+          [
+            857,
+            1387
+          ],
+          [
+            867,
+            1395
+          ],
+          [
+            876,
+            1403
+          ],
+          [
+            886,
+            1415
+          ],
+          [
+            896,
+            1427
+          ],
+          [
+            905,
+            1435
+          ],
+          [
+            915,
+            1439
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "但是我还有其他的梦想",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 367,
+        "height": 228,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "但是我还有",
+          "其他的梦想"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "scale",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "spring_pop",
+          "applied": "scale"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1424,
+          165,
+          448,
+          515
+        ],
+        "category": "side",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1424,
+              165,
+              448,
+              515
+            ],
+            "quiet": 0.652,
+            "status": "ok",
+            "box": [
+              1505,
+              308,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.6945
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              434,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              308,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.841,
+            "status": "ok",
+            "box": [
+              852,
+              56,
+              355,
+              80
+            ],
+            "fit_w": 355,
+            "fit_h": 80,
+            "score": 0.4693
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.862,
+            "status": "ok",
+            "box": [
+              1529,
+              303,
+              295,
+              190
+            ],
+            "fit_w": 295,
+            "fit_h": 190,
+            "score": 0.468
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              96,
+              264,
+              325,
+              197
+            ],
+            "fit_w": 325,
+            "fit_h": 197,
+            "score": 0.4584
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1529,
+              429,
+              295,
+              190
+            ],
+            "fit_w": 295,
+            "fit_h": 190,
+            "score": 0.4581
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              96,
+              390,
+              325,
+              197
+            ],
+            "fit_w": 325,
+            "fit_h": 197,
+            "score": 0.4549
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.782,
+            "status": "ok",
+            "box": [
+              548,
+              56,
+              355,
+              80
+            ],
+            "fit_w": 355,
+            "fit_h": 80,
+            "score": 0.4479
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a01",
+        "decision_confidence": 0.84,
+        "emphasis": "high",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块"
+      }
+    },
+    {
+      "id": "el_3_ac80487a",
+      "type": "list",
+      "anchor_refs": [
+        "a02",
+        "a03",
+        "a04"
+      ],
+      "window": {
+        "start_s": 11.18,
+        "end_s": 16.99,
+        "start_frame": 280,
+        "end_frame": 425,
+        "hold_s": 0.45,
+        "anchor_start_s": 11.18,
+        "anchor_end_s": 16.54
+      },
+      "box": [
+        1579,
+        230,
+        293,
+        384
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1360,
+          0,
+          560,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            158,
+            1051
+          ],
+          [
+            167,
+            1115
+          ],
+          [
+            177,
+            1139
+          ],
+          [
+            186,
+            1155
+          ],
+          [
+            196,
+            1175
+          ],
+          [
+            206,
+            1183
+          ],
+          [
+            215,
+            1191
+          ],
+          [
+            225,
+            1195
+          ],
+          [
+            234,
+            1199
+          ],
+          [
+            244,
+            1199
+          ],
+          [
+            253,
+            1203
+          ],
+          [
+            263,
+            1207
+          ],
+          [
+            273,
+            1211
+          ],
+          [
+            282,
+            1215
+          ],
+          [
+            292,
+            1219
+          ],
+          [
+            301,
+            1219
+          ],
+          [
+            311,
+            1223
+          ],
+          [
+            321,
+            1223
+          ],
+          [
+            330,
+            1227
+          ],
+          [
+            340,
+            1227
+          ],
+          [
+            349,
+            1227
+          ],
+          [
+            359,
+            1231
+          ],
+          [
+            368,
+            1231
+          ],
+          [
+            378,
+            1235
+          ],
+          [
+            388,
+            1243
+          ],
+          [
+            397,
+            1243
+          ],
+          [
+            407,
+            1247
+          ],
+          [
+            416,
+            1247
+          ],
+          [
+            426,
+            1251
+          ],
+          [
+            436,
+            1251
+          ],
+          [
+            445,
+            1251
+          ],
+          [
+            455,
+            1251
+          ],
+          [
+            464,
+            1247
+          ],
+          [
+            474,
+            1247
+          ],
+          [
+            483,
+            1247
+          ],
+          [
+            493,
+            1251
+          ],
+          [
+            503,
+            1255
+          ],
+          [
+            512,
+            1267
+          ],
+          [
+            522,
+            1275
+          ],
+          [
+            531,
+            1283
+          ],
+          [
+            541,
+            1291
+          ],
+          [
+            551,
+            1295
+          ],
+          [
+            560,
+            1295
+          ],
+          [
+            570,
+            1295
+          ],
+          [
+            579,
+            1299
+          ],
+          [
+            589,
+            1295
+          ],
+          [
+            598,
+            1295
+          ],
+          [
+            608,
+            1287
+          ],
+          [
+            618,
+            1271
+          ],
+          [
+            627,
+            1295
+          ],
+          [
+            637,
+            1307
+          ],
+          [
+            646,
+            1315
+          ],
+          [
+            656,
+            1327
+          ],
+          [
+            666,
+            1331
+          ],
+          [
+            675,
+            1335
+          ],
+          [
+            685,
+            1339
+          ],
+          [
+            694,
+            1343
+          ],
+          [
+            704,
+            1347
+          ],
+          [
+            713,
+            1351
+          ],
+          [
+            723,
+            1355
+          ],
+          [
+            733,
+            1359
+          ],
+          [
+            742,
+            1363
+          ],
+          [
+            752,
+            1367
+          ],
+          [
+            761,
+            1367
+          ],
+          [
+            771,
+            1371
+          ],
+          [
+            781,
+            1375
+          ],
+          [
+            790,
+            1379
+          ],
+          [
+            800,
+            1383
+          ],
+          [
+            809,
+            1387
+          ],
+          [
+            819,
+            1391
+          ],
+          [
+            828,
+            1391
+          ],
+          [
+            838,
+            1395
+          ],
+          [
+            848,
+            1399
+          ],
+          [
+            857,
+            1403
+          ],
+          [
+            867,
+            1407
+          ],
+          [
+            876,
+            1403
+          ],
+          [
+            886,
+            1415
+          ],
+          [
+            896,
+            1427
+          ],
+          [
+            905,
+            1431
+          ],
+          [
+            915,
+            1439
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 11.18
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 12.94
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 15.54
+          }
+        ],
+        "kicker": "",
+        "items": [
+          "每一年我们都有比赛",
+          "每一年都有更大的困难",
+          "更大的山坡"
+        ]
+      },
+      "fit": {
+        "kind": "list",
+        "width": 293,
+        "height": 384,
+        "pad": 6,
+        "font_size_px": 45,
+        "min_font_px": 26,
+        "display_px": 0,
+        "title_px": 45,
+        "body_px": 0,
+        "kicker_px": 18,
+        "pitch": 59,
+        "lines": [],
+        "body_lines": [],
+        "kicker": "要点",
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 0.0,
+            "lines": [
+              "每一年我们",
+              "都有比赛"
+            ]
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 1.76,
+            "lines": [
+              "每一年都有",
+              "更大的困难"
+            ]
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 4.36,
+            "lines": [
+              "更大的山坡"
+            ]
+          }
+        ],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "reveal",
+          "applied": "wipe"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.8,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1438,
+          165,
+          434,
+          515
+        ],
+        "category": "side",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1438,
+              165,
+              434,
+              515
+            ],
+            "quiet": 0.646,
+            "status": "ok",
+            "box": [
+              1579,
+              230,
+              293,
+              384
+            ],
+            "fit_w": 293,
+            "fit_h": 384,
+            "score": 0.6219
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.862,
+            "status": "ok",
+            "box": [
+              1536,
+              300,
+              281,
+              197
+            ],
+            "fit_w": 281,
+            "fit_h": 197,
+            "score": 0.4627
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              230,
+              293,
+              384
+            ],
+            "fit_w": 293,
+            "fit_h": 384,
+            "score": 0.46
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1536,
+              426,
+              281,
+              197
+            ],
+            "fit_w": 281,
+            "fit_h": 197,
+            "score": 0.4528
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              118,
+              264,
+              281,
+              197
+            ],
+            "fit_w": 281,
+            "fit_h": 197,
+            "score": 0.4378
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              118,
+              390,
+              281,
+              197
+            ],
+            "fit_w": 281,
+            "fit_h": 197,
+            "score": 0.4343
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.841,
+            "status": "ok",
+            "box": [
+              776,
+              56,
+              506,
+              80
+            ],
+            "fit_w": 506,
+            "fit_h": 80,
+            "score": 0.4317
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.782,
+            "status": "ok",
+            "box": [
+              472,
+              56,
+              506,
+              80
+            ],
+            "fit_w": 506,
+            "fit_h": 80,
+            "score": 0.4083
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a02",
+        "decision_confidence": 0.86,
+        "emphasis": "high",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码"
+      }
+    },
+    {
+      "id": "el_1_511529f3",
+      "type": "card",
+      "anchor_refs": [
+        "a05"
+      ],
+      "window": {
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "start_frame": 540,
+        "end_frame": 567,
+        "hold_s": 0.45,
+        "anchor_start_s": 21.58,
+        "anchor_end_s": 22.68
+      },
+      "box": [
+        1489,
+        360,
+        383,
+        124
+      ],
+      "accent": null,
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1352,
+          0,
+          568,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            158,
+            1055
+          ],
+          [
+            167,
+            1119
+          ],
+          [
+            177,
+            1135
+          ],
+          [
+            186,
+            1151
+          ],
+          [
+            196,
+            1167
+          ],
+          [
+            206,
+            1175
+          ],
+          [
+            215,
+            1183
+          ],
+          [
+            225,
+            1187
+          ],
+          [
+            234,
+            1191
+          ],
+          [
+            244,
+            1195
+          ],
+          [
+            253,
+            1195
+          ],
+          [
+            263,
+            1199
+          ],
+          [
+            273,
+            1203
+          ],
+          [
+            282,
+            1203
+          ],
+          [
+            292,
+            1207
+          ],
+          [
+            301,
+            1211
+          ],
+          [
+            311,
+            1211
+          ],
+          [
+            321,
+            1215
+          ],
+          [
+            330,
+            1215
+          ],
+          [
+            340,
+            1219
+          ],
+          [
+            349,
+            1219
+          ],
+          [
+            359,
+            1219
+          ],
+          [
+            368,
+            1223
+          ],
+          [
+            378,
+            1223
+          ],
+          [
+            388,
+            1223
+          ],
+          [
+            397,
+            1227
+          ],
+          [
+            407,
+            1227
+          ],
+          [
+            416,
+            1227
+          ],
+          [
+            426,
+            1227
+          ],
+          [
+            436,
+            1227
+          ],
+          [
+            445,
+            1227
+          ],
+          [
+            455,
+            1227
+          ],
+          [
+            464,
+            1227
+          ],
+          [
+            474,
+            1227
+          ],
+          [
+            483,
+            1231
+          ],
+          [
+            493,
+            1227
+          ],
+          [
+            503,
+            1231
+          ],
+          [
+            512,
+            1239
+          ],
+          [
+            522,
+            1247
+          ],
+          [
+            531,
+            1255
+          ],
+          [
+            541,
+            1267
+          ],
+          [
+            551,
+            1271
+          ],
+          [
+            560,
+            1271
+          ],
+          [
+            570,
+            1271
+          ],
+          [
+            579,
+            1271
+          ],
+          [
+            589,
+            1267
+          ],
+          [
+            598,
+            1263
+          ],
+          [
+            608,
+            1255
+          ],
+          [
+            618,
+            1263
+          ],
+          [
+            627,
+            1291
+          ],
+          [
+            637,
+            1303
+          ],
+          [
+            646,
+            1311
+          ],
+          [
+            656,
+            1319
+          ],
+          [
+            666,
+            1323
+          ],
+          [
+            675,
+            1327
+          ],
+          [
+            685,
+            1331
+          ],
+          [
+            694,
+            1335
+          ],
+          [
+            704,
+            1339
+          ],
+          [
+            713,
+            1343
+          ],
+          [
+            723,
+            1347
+          ],
+          [
+            733,
+            1351
+          ],
+          [
+            742,
+            1355
+          ],
+          [
+            752,
+            1359
+          ],
+          [
+            761,
+            1363
+          ],
+          [
+            771,
+            1367
+          ],
+          [
+            781,
+            1371
+          ],
+          [
+            790,
+            1371
+          ],
+          [
+            800,
+            1375
+          ],
+          [
+            809,
+            1379
+          ],
+          [
+            819,
+            1383
+          ],
+          [
+            828,
+            1387
+          ],
+          [
+            838,
+            1391
+          ],
+          [
+            848,
+            1395
+          ],
+          [
+            857,
+            1399
+          ],
+          [
+            867,
+            1399
+          ],
+          [
+            876,
+            1403
+          ],
+          [
+            886,
+            1411
+          ],
+          [
+            896,
+            1423
+          ],
+          [
+            905,
+            1431
+          ],
+          [
+            915,
+            1435
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "title": "停滞在一个位置",
+        "body": "",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "card",
+        "width": 383,
+        "height": 124,
+        "pad": 6,
+        "font_size_px": 53,
+        "min_font_px": 31,
+        "display_px": 0,
+        "title_px": 53,
+        "body_px": 26,
+        "kicker_px": 18,
+        "pitch": 70,
+        "lines": [
+          "停滞在一个位置"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.75,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1431,
+          165,
+          441,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1431,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.662,
+            "status": "ok",
+            "box": [
+              1489,
+              360,
+              383,
+              124
+            ],
+            "fit_w": 383,
+            "fit_h": 124,
+            "score": 0.6984
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              444,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              360,
+              383,
+              124
+            ],
+            "fit_w": 383,
+            "fit_h": 124,
+            "score": 0.54
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.862,
+            "status": "ok",
+            "box": [
+              1581,
+              310,
+              192,
+              177
+            ],
+            "fit_w": 192,
+            "fit_h": 177,
+            "score": 0.531
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1581,
+              436,
+              192,
+              177
+            ],
+            "fit_w": 192,
+            "fit_h": 177,
+            "score": 0.5211
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              91,
+              305,
+              336,
+              114
+            ],
+            "fit_w": 336,
+            "fit_h": 114,
+            "score": 0.499
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              91,
+              431,
+              336,
+              114
+            ],
+            "fit_w": 336,
+            "fit_h": 114,
+            "score": 0.4955
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.841,
+            "status": "ok",
+            "box": [
+              924,
+              56,
+              210,
+              80
+            ],
+            "fit_w": 210,
+            "fit_h": 80,
+            "score": 0.4323
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.782,
+            "status": "ok",
+            "box": [
+              620,
+              56,
+              210,
+              80
+            ],
+            "fit_w": 210,
+            "fit_h": 80,
+            "score": 0.4175
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a05",
+        "decision_confidence": 0.85,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_69d37695",
+      "type": "keyword",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 22.68,
+        "end_s": 24.57,
+        "start_frame": 567,
+        "end_frame": 614,
+        "hold_s": 0.25,
+        "anchor_start_s": 22.68,
+        "anchor_end_s": 24.32
+      },
+      "box": [
+        1576,
+        308,
+        296,
+        228
+      ],
+      "accent": "#F2B233",
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1352,
+          0,
+          568,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            158,
+            1059
+          ],
+          [
+            167,
+            1119
+          ],
+          [
+            177,
+            1135
+          ],
+          [
+            186,
+            1151
+          ],
+          [
+            196,
+            1167
+          ],
+          [
+            206,
+            1175
+          ],
+          [
+            215,
+            1187
+          ],
+          [
+            225,
+            1191
+          ],
+          [
+            234,
+            1195
+          ],
+          [
+            244,
+            1199
+          ],
+          [
+            253,
+            1199
+          ],
+          [
+            263,
+            1203
+          ],
+          [
+            273,
+            1207
+          ],
+          [
+            282,
+            1211
+          ],
+          [
+            292,
+            1215
+          ],
+          [
+            301,
+            1215
+          ],
+          [
+            311,
+            1219
+          ],
+          [
+            321,
+            1223
+          ],
+          [
+            330,
+            1223
+          ],
+          [
+            340,
+            1223
+          ],
+          [
+            349,
+            1223
+          ],
+          [
+            359,
+            1223
+          ],
+          [
+            368,
+            1227
+          ],
+          [
+            378,
+            1227
+          ],
+          [
+            388,
+            1231
+          ],
+          [
+            397,
+            1235
+          ],
+          [
+            407,
+            1235
+          ],
+          [
+            416,
+            1235
+          ],
+          [
+            426,
+            1235
+          ],
+          [
+            436,
+            1235
+          ],
+          [
+            445,
+            1235
+          ],
+          [
+            455,
+            1235
+          ],
+          [
+            464,
+            1235
+          ],
+          [
+            474,
+            1239
+          ],
+          [
+            483,
+            1239
+          ],
+          [
+            493,
+            1235
+          ],
+          [
+            503,
+            1235
+          ],
+          [
+            512,
+            1239
+          ],
+          [
+            522,
+            1247
+          ],
+          [
+            531,
+            1259
+          ],
+          [
+            541,
+            1263
+          ],
+          [
+            551,
+            1275
+          ],
+          [
+            560,
+            1279
+          ],
+          [
+            570,
+            1279
+          ],
+          [
+            579,
+            1275
+          ],
+          [
+            589,
+            1275
+          ],
+          [
+            598,
+            1271
+          ],
+          [
+            608,
+            1267
+          ],
+          [
+            618,
+            1267
+          ],
+          [
+            627,
+            1291
+          ],
+          [
+            637,
+            1303
+          ],
+          [
+            646,
+            1311
+          ],
+          [
+            656,
+            1319
+          ],
+          [
+            666,
+            1323
+          ],
+          [
+            675,
+            1327
+          ],
+          [
+            685,
+            1327
+          ],
+          [
+            694,
+            1331
+          ],
+          [
+            704,
+            1335
+          ],
+          [
+            713,
+            1339
+          ],
+          [
+            723,
+            1343
+          ],
+          [
+            733,
+            1347
+          ],
+          [
+            742,
+            1351
+          ],
+          [
+            752,
+            1355
+          ],
+          [
+            761,
+            1359
+          ],
+          [
+            771,
+            1363
+          ],
+          [
+            781,
+            1367
+          ],
+          [
+            790,
+            1367
+          ],
+          [
+            800,
+            1371
+          ],
+          [
+            809,
+            1375
+          ],
+          [
+            819,
+            1379
+          ],
+          [
+            828,
+            1383
+          ],
+          [
+            838,
+            1387
+          ],
+          [
+            848,
+            1391
+          ],
+          [
+            857,
+            1391
+          ],
+          [
+            867,
+            1395
+          ],
+          [
+            876,
+            1403
+          ],
+          [
+            886,
+            1415
+          ],
+          [
+            896,
+            1427
+          ],
+          [
+            905,
+            1431
+          ],
+          [
+            915,
+            1439
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "没有办法向前进步",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 296,
+        "height": 228,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "没有办法",
+          "向前进步"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "fade_up",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12,
+          "scale_from": 0.94,
+          "requested": "fade_up",
+          "applied": "fade_up"
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "accent_requested": "#F2B233"
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1431,
+          165,
+          441,
+          515
+        ],
+        "category": "side",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1431,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              1576,
+              308,
+              296,
+              228
+            ],
+            "fit_w": 296,
+            "fit_h": 228,
+            "score": 0.7362
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              308,
+              296,
+              228
+            ],
+            "fit_w": 296,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.862,
+            "status": "ok",
+            "box": [
+              1535,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5012
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1535,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4913
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              117,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              117,
+              390,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4716
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.841,
+            "status": "ok",
+            "box": [
+              745,
+              56,
+              568,
+              80
+            ],
+            "fit_w": 568,
+            "fit_h": 80,
+            "score": 0.4692
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.782,
+            "status": "ok",
+            "box": [
+              441,
+              56,
+              568,
+              80
+            ],
+            "fit_w": 568,
+            "fit_h": 80,
+            "score": 0.4458
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a06",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃"
+      }
+    }
+  ],
+  "layout_audit": {
+    "decisions": [
+      {
+        "group": 0,
+        "decision": "place",
+        "element": "el_1_c8961792",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 0.0,
+        "box": [
+          1542,
+          325,
+          330,
+          194
+        ],
+        "text": "奥运会是我的梦想没错"
+      },
+      {
+        "group": 1,
+        "decision": "place",
+        "element": "el_1_cede221a",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 2.02,
+        "box": [
+          1505,
+          308,
+          367,
+          228
+        ],
+        "text": "但是我还有其他的梦想"
+      },
+      {
+        "group": 2,
+        "decision": "place",
+        "element": "el_3_ac80487a",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 11.18,
+        "box": [
+          1579,
+          230,
+          293,
+          384
+        ],
+        "text": ""
+      },
+      {
+        "group": 3,
+        "decision": "place",
+        "element": "el_1_511529f3",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 21.58,
+        "box": [
+          1489,
+          360,
+          383,
+          124
+        ],
+        "text": "停滞在一个位置"
+      },
+      {
+        "group": 4,
+        "decision": "place",
+        "element": "el_1_69d37695",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 22.68,
+        "box": [
+          1576,
+          308,
+          296,
+          228
+        ],
+        "text": "没有办法向前进步"
+      }
+    ],
+    "coverage": 0.512,
+    "perception_used": true,
+    "text_obstacles": 1
+  },
+  "provenance": {
+    "director": "semotion.design2/2",
+    "policy": {
+      "name": "smart_balanced",
+      "version": "1.0.0",
+      "sha256": "d61ac322e9bd1d74",
+      "source": "/Volumes/ZHITAI/Semantic Motion/policies/smart_balanced.json"
+    },
+    "truth_class": "MACHINE",
+    "note": "windows derive from measured anchor onsets; placement rejects any box that touches the person silhouette, burned-in text or captions"
+  }
+}

@@ -1,2 +1,2 @@
-$ ffmpeg -v error -y -i '/Volumes/ZHITAI/Semantic Motion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4' -vf scale=320:180:flags=bilinear,format=rgb24 -f rawvideo /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmplvzhpoil.raw
+$ ffmpeg -v error -y -i '/Volumes/ZHITAI/Semantic Motion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4' -vf scale=320:180:flags=bilinear,format=rgb24 -f rawvideo /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmp3hk0py6k.raw
 

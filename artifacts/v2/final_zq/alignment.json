@@ -11,39 +11,49 @@
     "audio_rate": 16000
   },
   "method": {
-    "name": "envelope-dp/1",
+    "name": "ctc-forced",
+    "version": "ctc-forced/1",
     "truth_class": "MACHINE_WEAK",
-    "engine": "numpy (log-mel spectral flux + energy VAD + monotonic DP)",
+    "engine": "hf-wav2vec2-ctc",
+    "device": "cpu",
+    "model": "jonatasgrosman/wav2vec2-large-xlsr-53-chinese-zh-cn",
+    "model_info": {
+      "id": "jonatasgrosman/wav2vec2-large-xlsr-53-chinese-zh-cn",
+      "engine": "hf-wav2vec2-ctc",
+      "language": "zh",
+      "device": "cpu",
+      "n_params": 319029295,
+      "frame_stride_s": 0.02,
+      "vocab_size": 3503,
+      "cache_dir": "/Volumes/ZHITAI/Semantic Motion/.cache/huggingface",
+      "load_s": 2.512
+    },
     "params": {
-      "anchor_scale": 40.0,
-      "anchor_tol_s": 0.12,
-      "fmax_hz": 7600.0,
-      "fmin_hz": 80.0,
-      "frame_s": 0.025,
-      "hop_s": 0.01,
+      "audio_rate": 16000,
+      "chunk_merge_gap_s": 0.4,
+      "chunk_min_targets": 1,
+      "chunk_pad_s": 0.06,
+      "confidence_floor_db": 0.0,
       "low_conf": 0.35,
-      "n_mels": 40,
-      "pause_min_s": 0.14,
-      "refine_energy_drop_db": 16.0,
-      "refine_max_lead_s": 0.12,
-      "refine_min_lead_s": 0.025,
-      "refine_onsets": 0,
-      "seq_max_syllable_s": 1.3,
-      "seq_med_syllable_s": 0.205,
-      "seq_min_syllable_s": 0.06,
+      "max_chunk_s": 20.0,
+      "min_chunk_s": 0.18,
+      "min_token_frames": 1,
       "vad_fill_gap_s": 0.09,
       "vad_floor_db": 4.0,
       "vad_high_frac": 0.25,
-      "vad_min_speech_s": 0.06,
-      "w_anchor": 0.7,
-      "w_dur": 1.2,
-      "w_onset": 1.0
+      "vad_min_speech_s": 0.06
+    },
+    "runtime_s": {
+      "load": 2.512,
+      "align": 1.095,
+      "total": 3.676
     },
     "notes": [
-      "Whisper word times are not used; only the transcript text and segment bounds",
-      "segment bounds are soft anchors (±120 ms); VAD pauses are hard chunk edges",
-      "punctuation carries no duration and never gets a boundary",
-      "onset = prominent onset-envelope peak (optional attack refinement, off by default)"
+      "transcript text is trusted; CTC posteriors decide every boundary",
+      "monotonic CTC Viterbi (torchaudio.functional.forced_align or NumPy)",
+      "long clips are chunked at pauses; token allocation is per ASR segment",
+      "confidence = mean posterior of the chosen CTC state over its frames",
+      "frame stride 20.0 ms"
     ]
   },
   "segments": [
@@ -55,7 +65,7 @@
       "n_tokens": 10,
       "n_syllables": 10,
       "speech_start_s": 0.5,
-      "speech_end_s": 1.91
+      "speech_end_s": 2.1
     },
     {
       "id": "s1",
@@ -64,8 +74,8 @@
       "text": "但是我还有其他的梦想等着我去实现我的目标",
       "n_tokens": 20,
       "n_syllables": 20,
-      "speech_start_s": 1.91,
-      "speech_end_s": 5.52
+      "speech_start_s": 2.1,
+      "speech_end_s": 5.7
     },
     {
       "id": "s2",
@@ -74,8 +84,8 @@
       "text": "我的梦想其实还远远没有结束",
       "n_tokens": 13,
       "n_syllables": 13,
-      "speech_start_s": 5.72,
-      "speech_end_s": 7.94
+      "speech_start_s": 5.7,
+      "speech_end_s": 7.36
     },
     {
       "id": "s3",
@@ -84,8 +94,8 @@
       "text": "网球最好的一点就是它永远都有比赛",
       "n_tokens": 16,
       "n_syllables": 16,
-      "speech_start_s": 8.32,
-      "speech_end_s": 11.15
+      "speech_start_s": 8.3,
+      "speech_end_s": 11.22
     },
     {
       "id": "s4",
@@ -94,8 +104,8 @@
       "text": "每一年我们都有比赛",
       "n_tokens": 9,
       "n_syllables": 9,
-      "speech_start_s": 11.15,
-      "speech_end_s": 12.76
+      "speech_start_s": 11.22,
+      "speech_end_s": 12.24
     },
     {
       "id": "s5",
@@ -104,8 +114,8 @@
       "text": "每一年都有更大的困难",
       "n_tokens": 10,
       "n_syllables": 10,
-      "speech_start_s": 13.02,
-      "speech_end_s": 15.72
+      "speech_start_s": 13.0,
+      "speech_end_s": 15.56
     },
     {
       "id": "s6",
@@ -114,8 +124,8 @@
       "text": "更大的山坡等着你去战胜",
       "n_tokens": 11,
       "n_syllables": 11,
-      "speech_start_s": 15.72,
-      "speech_end_s": 17.64
+      "speech_start_s": 15.56,
+      "speech_end_s": 17.6
     },
     {
       "id": "s7",
@@ -124,8 +134,8 @@
       "text": "因为如果我觉得太过于满足的话",
       "n_tokens": 14,
       "n_syllables": 14,
-      "speech_start_s": 18.2,
-      "speech_end_s": 20.72
+      "speech_start_s": 18.28,
+      "speech_end_s": 20.84
     },
     {
       "id": "s8",
@@ -134,8 +144,8 @@
       "text": "你可能就会停滞在一个位置",
       "n_tokens": 12,
       "n_syllables": 12,
-      "speech_start_s": 20.72,
-      "speech_end_s": 22.67
+      "speech_start_s": 20.84,
+      "speech_end_s": 22.68
     },
     {
       "id": "s9",
@@ -144,8 +154,8 @@
       "text": "没有办法向前进步",
       "n_tokens": 8,
       "n_syllables": 8,
-      "speech_start_s": 22.67,
-      "speech_end_s": 23.98
+      "speech_start_s": 22.68,
+      "speech_end_s": 23.96
     }
   ],
   "syllables": [
@@ -153,1231 +163,1354 @@
       "index": 0,
       "token_index": 0,
       "segment_id": "s0",
+      "text": "奥",
       "start_s": 0.5,
-      "end_s": 0.66,
-      "conf": 0.966,
+      "end_s": 0.64,
+      "conf": 0.914,
       "island": 0,
-      "peak_s": 0.5
+      "synthetic": false
     },
     {
       "index": 1,
       "token_index": 1,
       "segment_id": "s0",
-      "start_s": 0.66,
-      "end_s": 0.82,
-      "conf": 0.461,
+      "text": "运",
+      "start_s": 0.64,
+      "end_s": 0.8,
+      "conf": 0.146,
       "island": 0,
-      "peak_s": 0.66
+      "synthetic": false
     },
     {
       "index": 2,
       "token_index": 2,
       "segment_id": "s0",
-      "start_s": 0.82,
-      "end_s": 0.93,
-      "conf": 0.834,
+      "text": "会",
+      "start_s": 0.8,
+      "end_s": 0.98,
+      "conf": 0.994,
       "island": 0,
-      "peak_s": 0.82
+      "synthetic": false
     },
     {
       "index": 3,
       "token_index": 3,
       "segment_id": "s0",
-      "start_s": 0.93,
-      "end_s": 1.05,
-      "conf": 0.831,
+      "text": "是",
+      "start_s": 0.98,
+      "end_s": 1.1,
+      "conf": 0.988,
       "island": 0,
-      "peak_s": 0.93
+      "synthetic": false
     },
     {
       "index": 4,
       "token_index": 4,
       "segment_id": "s0",
-      "start_s": 1.05,
-      "end_s": 1.23,
-      "conf": 0.687,
+      "text": "我",
+      "start_s": 1.1,
+      "end_s": 1.22,
+      "conf": 1.0,
       "island": 0,
-      "peak_s": 1.05
+      "synthetic": false
     },
     {
       "index": 5,
       "token_index": 5,
       "segment_id": "s0",
-      "start_s": 1.23,
-      "end_s": 1.36,
-      "conf": 0.76,
+      "text": "的",
+      "start_s": 1.22,
+      "end_s": 1.3,
+      "conf": 0.996,
       "island": 0,
-      "peak_s": 1.23
+      "synthetic": false
     },
     {
       "index": 6,
       "token_index": 6,
       "segment_id": "s0",
-      "start_s": 1.36,
-      "end_s": 1.49,
-      "conf": 0.631,
+      "text": "梦",
+      "start_s": 1.3,
+      "end_s": 1.44,
+      "conf": 0.001,
       "island": 0,
-      "peak_s": 1.36
+      "synthetic": false
     },
     {
       "index": 7,
       "token_index": 7,
       "segment_id": "s0",
-      "start_s": 1.49,
-      "end_s": 1.64,
-      "conf": 0.868,
+      "text": "想",
+      "start_s": 1.44,
+      "end_s": 1.6,
+      "conf": 0.977,
       "island": 0,
-      "peak_s": 1.49
+      "synthetic": false
     },
     {
       "index": 8,
       "token_index": 8,
       "segment_id": "s0",
-      "start_s": 1.64,
-      "end_s": 1.79,
-      "conf": 0.788,
+      "text": "没",
+      "start_s": 1.6,
+      "end_s": 1.8,
+      "conf": 0.64,
       "island": 0,
-      "peak_s": 1.64
+      "synthetic": false
     },
     {
       "index": 9,
       "token_index": 9,
       "segment_id": "s0",
-      "start_s": 1.79,
-      "end_s": 1.91,
-      "conf": 0.619,
+      "text": "错",
+      "start_s": 1.8,
+      "end_s": 2.1,
+      "conf": 0.476,
       "island": 0,
-      "peak_s": 1.79
+      "synthetic": false
     },
     {
       "index": 10,
       "token_index": 10,
       "segment_id": "s1",
-      "start_s": 1.91,
-      "end_s": 2.11,
-      "conf": 0.72,
+      "text": "但",
+      "start_s": 2.1,
+      "end_s": 2.26,
+      "conf": 1.0,
       "island": 0,
-      "peak_s": 1.91
+      "synthetic": false
     },
     {
       "index": 11,
       "token_index": 11,
       "segment_id": "s1",
-      "start_s": 2.11,
-      "end_s": 2.23,
-      "conf": 0.868,
+      "text": "是",
+      "start_s": 2.26,
+      "end_s": 2.38,
+      "conf": 1.0,
       "island": 0,
-      "peak_s": 2.11
+      "synthetic": false
     },
     {
       "index": 12,
       "token_index": 12,
       "segment_id": "s1",
-      "start_s": 2.23,
-      "end_s": 2.43,
-      "conf": 0.892,
+      "text": "我",
+      "start_s": 2.38,
+      "end_s": 2.48,
+      "conf": 0.998,
       "island": 0,
-      "peak_s": 2.23
+      "synthetic": false
     },
     {
       "index": 13,
       "token_index": 13,
       "segment_id": "s1",
-      "start_s": 2.43,
-      "end_s": 2.57,
-      "conf": 0.633,
+      "text": "还",
+      "start_s": 2.48,
+      "end_s": 2.68,
+      "conf": 0.983,
       "island": 0,
-      "peak_s": 2.43
+      "synthetic": false
     },
     {
       "index": 14,
       "token_index": 14,
       "segment_id": "s1",
-      "start_s": 2.57,
-      "end_s": 2.72,
-      "conf": 0.825,
+      "text": "有",
+      "start_s": 2.68,
+      "end_s": 2.92,
+      "conf": 0.998,
       "island": 0,
-      "peak_s": 2.57
+      "synthetic": false
     },
     {
       "index": 15,
       "token_index": 15,
       "segment_id": "s1",
-      "start_s": 2.72,
-      "end_s": 2.87,
-      "conf": 0.618,
+      "text": "其",
+      "start_s": 2.92,
+      "end_s": 3.04,
+      "conf": 1.0,
       "island": 0,
-      "peak_s": 2.72
+      "synthetic": false
     },
     {
       "index": 16,
       "token_index": 16,
       "segment_id": "s1",
-      "start_s": 2.87,
-      "end_s": 2.99,
-      "conf": 0.691,
+      "text": "他",
+      "start_s": 3.04,
+      "end_s": 3.24,
+      "conf": 0.894,
       "island": 0,
-      "peak_s": 2.87
+      "synthetic": false
     },
     {
       "index": 17,
       "token_index": 17,
       "segment_id": "s1",
-      "start_s": 2.99,
-      "end_s": 3.13,
-      "conf": 0.512,
+      "text": "的",
+      "start_s": 3.24,
+      "end_s": 3.32,
+      "conf": 0.995,
       "island": 0,
-      "peak_s": 2.99
+      "synthetic": false
     },
     {
       "index": 18,
       "token_index": 18,
       "segment_id": "s1",
-      "start_s": 3.13,
-      "end_s": 3.25,
-      "conf": 0.868,
+      "text": "梦",
+      "start_s": 3.32,
+      "end_s": 3.46,
+      "conf": 0.137,
       "island": 0,
-      "peak_s": 3.13
+      "synthetic": false
     },
     {
       "index": 19,
       "token_index": 19,
       "segment_id": "s1",
-      "start_s": 3.25,
-      "end_s": 3.44,
-      "conf": 0.997,
+      "text": "想",
+      "start_s": 3.46,
+      "end_s": 3.7,
+      "conf": 0.937,
       "island": 0,
-      "peak_s": 3.25
+      "synthetic": false
     },
     {
       "index": 20,
       "token_index": 20,
       "segment_id": "s1",
-      "start_s": 3.86,
-      "end_s": 4.05,
-      "conf": 0.848,
-      "island": 1,
-      "peak_s": 3.86
+      "text": "等",
+      "start_s": 3.7,
+      "end_s": 3.84,
+      "conf": 1.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 21,
       "token_index": 21,
       "segment_id": "s1",
-      "start_s": 4.05,
-      "end_s": 4.2,
-      "conf": 0.912,
-      "island": 1,
-      "peak_s": 4.05
+      "text": "着",
+      "start_s": 3.84,
+      "end_s": 3.94,
+      "conf": 1.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 22,
       "token_index": 22,
       "segment_id": "s1",
-      "start_s": 4.2,
-      "end_s": 4.35,
-      "conf": 0.81,
-      "island": 1,
-      "peak_s": 4.2
+      "text": "我",
+      "start_s": 3.94,
+      "end_s": 4.08,
+      "conf": 0.966,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 23,
       "token_index": 23,
       "segment_id": "s1",
-      "start_s": 4.35,
-      "end_s": 4.49,
-      "conf": 0.525,
-      "island": 1,
-      "peak_s": 4.35
+      "text": "去",
+      "start_s": 4.08,
+      "end_s": 4.24,
+      "conf": 0.991,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 24,
       "token_index": 24,
       "segment_id": "s1",
-      "start_s": 4.49,
-      "end_s": 4.6,
-      "conf": 0.834,
-      "island": 1,
-      "peak_s": 4.49
+      "text": "实",
+      "start_s": 4.24,
+      "end_s": 4.42,
+      "conf": 0.975,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 25,
       "token_index": 25,
       "segment_id": "s1",
-      "start_s": 4.6,
-      "end_s": 4.73,
-      "conf": 0.461,
-      "island": 1,
-      "peak_s": 4.6
+      "text": "现",
+      "start_s": 4.42,
+      "end_s": 4.62,
+      "conf": 0.96,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 26,
       "token_index": 26,
       "segment_id": "s1",
-      "start_s": 4.88,
-      "end_s": 5.06,
-      "conf": 0.736,
-      "island": 2,
-      "peak_s": 4.88
+      "text": "我",
+      "start_s": 4.62,
+      "end_s": 4.74,
+      "conf": 1.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 27,
       "token_index": 27,
       "segment_id": "s1",
-      "start_s": 5.06,
-      "end_s": 5.21,
-      "conf": 0.948,
-      "island": 2,
-      "peak_s": 5.06
+      "text": "的",
+      "start_s": 4.74,
+      "end_s": 4.86,
+      "conf": 0.999,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 28,
       "token_index": 28,
       "segment_id": "s1",
-      "start_s": 5.21,
-      "end_s": 5.36,
-      "conf": 0.495,
-      "island": 2,
-      "peak_s": 5.21
+      "text": "目",
+      "start_s": 4.86,
+      "end_s": 5.04,
+      "conf": 0.973,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 29,
       "token_index": 29,
       "segment_id": "s1",
-      "start_s": 5.36,
-      "end_s": 5.52,
-      "conf": 0.703,
-      "island": 2,
-      "peak_s": 5.36
+      "text": "标",
+      "start_s": 5.04,
+      "end_s": 5.7,
+      "conf": 0.995,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 30,
       "token_index": 30,
       "segment_id": "s2",
-      "start_s": 5.72,
-      "end_s": 5.82,
-      "conf": 0.799,
-      "island": 3,
-      "peak_s": 5.72
+      "text": "我",
+      "start_s": 5.7,
+      "end_s": 5.8,
+      "conf": 0.999,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 31,
       "token_index": 31,
       "segment_id": "s2",
-      "start_s": 5.82,
-      "end_s": 5.94,
-      "conf": 0.564,
-      "island": 3,
-      "peak_s": 5.82
+      "text": "的",
+      "start_s": 5.8,
+      "end_s": 5.9,
+      "conf": 0.998,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 32,
       "token_index": 32,
       "segment_id": "s2",
-      "start_s": 5.94,
-      "end_s": 6.06,
-      "conf": 0.677,
-      "island": 3,
-      "peak_s": 5.94
+      "text": "梦",
+      "start_s": 5.9,
+      "end_s": 6.08,
+      "conf": 0.912,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 33,
       "token_index": 33,
       "segment_id": "s2",
-      "start_s": 6.06,
-      "end_s": 6.15,
-      "conf": 0.531,
-      "island": 3,
-      "peak_s": 6.06
+      "text": "想",
+      "start_s": 6.08,
+      "end_s": 6.34,
+      "conf": 0.957,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 34,
       "token_index": 34,
       "segment_id": "s2",
-      "start_s": 6.15,
-      "end_s": 6.26,
-      "conf": 0.834,
-      "island": 3,
-      "peak_s": 6.15
+      "text": "其",
+      "start_s": 6.34,
+      "end_s": 6.46,
+      "conf": 0.991,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 35,
       "token_index": 35,
       "segment_id": "s2",
-      "start_s": 6.26,
-      "end_s": 6.39,
-      "conf": 0.393,
-      "island": 3,
-      "peak_s": 6.26
+      "text": "实",
+      "start_s": 6.46,
+      "end_s": 6.58,
+      "conf": 0.993,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 36,
       "token_index": 36,
       "segment_id": "s2",
-      "start_s": 6.39,
-      "end_s": 6.51,
-      "conf": 0.801,
-      "island": 3,
-      "peak_s": 6.39
+      "text": "还",
+      "start_s": 6.58,
+      "end_s": 6.8,
+      "conf": 1.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 37,
       "token_index": 37,
       "segment_id": "s2",
-      "start_s": 6.51,
-      "end_s": 6.65,
-      "conf": 0.746,
-      "island": 3,
-      "peak_s": 6.51
+      "text": "远",
+      "start_s": 6.8,
+      "end_s": 6.96,
+      "conf": 0.963,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 38,
       "token_index": 38,
       "segment_id": "s2",
-      "start_s": 6.65,
-      "end_s": 6.83,
-      "conf": 0.735,
-      "island": 3,
-      "peak_s": 6.65
+      "text": "远",
+      "start_s": 6.96,
+      "end_s": 7.12,
+      "conf": 0.906,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 39,
       "token_index": 39,
       "segment_id": "s2",
-      "start_s": 6.83,
-      "end_s": 7.01,
-      "conf": 0.837,
-      "island": 3,
-      "peak_s": 6.83
+      "text": "没",
+      "start_s": 7.12,
+      "end_s": 7.24,
+      "conf": 1.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 40,
       "token_index": 40,
       "segment_id": "s2",
-      "start_s": 7.01,
-      "end_s": 7.18,
-      "conf": 0.687,
-      "island": 3,
-      "peak_s": 7.01
+      "text": "有",
+      "start_s": 7.24,
+      "end_s": 7.32,
+      "conf": 0.998,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 41,
       "token_index": 41,
       "segment_id": "s2",
-      "start_s": 7.18,
+      "text": "结",
+      "start_s": 7.32,
       "end_s": 7.34,
-      "conf": 0.901,
-      "island": 3,
-      "peak_s": 7.18
+      "conf": 0.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 42,
       "token_index": 42,
       "segment_id": "s2",
-      "start_s": 7.77,
-      "end_s": 7.94,
-      "conf": 0.906,
-      "island": 4,
-      "peak_s": 7.77
+      "text": "束",
+      "start_s": 7.34,
+      "end_s": 7.36,
+      "conf": 0.0,
+      "island": 0,
+      "synthetic": false
     },
     {
       "index": 43,
       "token_index": 43,
       "segment_id": "s3",
-      "start_s": 8.32,
-      "end_s": 8.51,
-      "conf": 0.997,
-      "island": 5,
-      "peak_s": 8.32
+      "text": "网",
+      "start_s": 8.3,
+      "end_s": 8.56,
+      "conf": 0.005,
+      "island": 1,
+      "synthetic": false
     },
     {
       "index": 44,
       "token_index": 44,
       "segment_id": "s3",
-      "start_s": 8.51,
-      "end_s": 8.62,
-      "conf": 0.834,
-      "island": 5,
-      "peak_s": 8.51
+      "text": "球",
+      "start_s": 8.56,
+      "end_s": 8.78,
+      "conf": 0.989,
+      "island": 1,
+      "synthetic": false
     },
     {
       "index": 45,
       "token_index": 45,
       "segment_id": "s3",
-      "start_s": 8.62,
-      "end_s": 8.79,
-      "conf": 0.926,
-      "island": 5,
-      "peak_s": 8.62
+      "text": "最",
+      "start_s": 8.78,
+      "end_s": 8.8,
+      "conf": 0.0,
+      "island": 1,
+      "synthetic": false
     },
     {
       "index": 46,
       "token_index": 46,
       "segment_id": "s3",
-      "start_s": 8.79,
-      "end_s": 8.99,
-      "conf": 0.618,
-      "island": 5,
-      "peak_s": 8.79
+      "text": "好",
+      "start_s": 8.8,
+      "end_s": 8.88,
+      "conf": 0.0,
+      "island": 1,
+      "synthetic": false
     },
     {
       "index": 47,
       "token_index": 47,
       "segment_id": "s3",
-      "start_s": 8.99,
-      "end_s": 9.14,
-      "conf": 0.666,
-      "island": 5,
-      "peak_s": 8.99
+      "text": "的",
+      "start_s": 9.62,
+      "end_s": 9.68,
+      "conf": 0.975,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 48,
       "token_index": 48,
       "segment_id": "s3",
-      "start_s": 9.33,
-      "end_s": 9.52,
-      "conf": 0.997,
-      "island": 6,
-      "peak_s": 9.33
+      "text": "一",
+      "start_s": 9.68,
+      "end_s": 9.74,
+      "conf": 0.001,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 49,
       "token_index": 49,
       "segment_id": "s3",
-      "start_s": 9.52,
-      "end_s": 9.64,
-      "conf": 0.868,
-      "island": 6,
-      "peak_s": 9.52
+      "text": "点",
+      "start_s": 9.74,
+      "end_s": 9.9,
+      "conf": 0.835,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 50,
       "token_index": 50,
       "segment_id": "s3",
-      "start_s": 9.64,
-      "end_s": 9.76,
-      "conf": 0.868,
-      "island": 6,
-      "peak_s": 9.64
+      "text": "就",
+      "start_s": 9.9,
+      "end_s": 10.02,
+      "conf": 0.0,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 51,
       "token_index": 51,
       "segment_id": "s3",
-      "start_s": 9.76,
-      "end_s": 9.89,
-      "conf": 0.881,
-      "island": 6,
-      "peak_s": 9.76
+      "text": "是",
+      "start_s": 10.02,
+      "end_s": 10.1,
+      "conf": 0.0,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 52,
       "token_index": 52,
       "segment_id": "s3",
-      "start_s": 9.89,
-      "end_s": 10.0,
-      "conf": 0.674,
-      "island": 6,
-      "peak_s": 9.89
+      "text": "它",
+      "start_s": 10.1,
+      "end_s": 10.22,
+      "conf": 0.095,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 53,
       "token_index": 53,
       "segment_id": "s3",
-      "start_s": 10.0,
-      "end_s": 10.1,
-      "conf": 0.573,
-      "island": 6,
-      "peak_s": 10.0
+      "text": "永",
+      "start_s": 10.22,
+      "end_s": 10.4,
+      "conf": 1.0,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 54,
       "token_index": 54,
       "segment_id": "s3",
-      "start_s": 10.1,
-      "end_s": 10.25,
-      "conf": 0.948,
-      "island": 6,
-      "peak_s": 10.1
+      "text": "远",
+      "start_s": 10.4,
+      "end_s": 10.54,
+      "conf": 0.999,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 55,
       "token_index": 55,
       "segment_id": "s3",
-      "start_s": 10.25,
-      "end_s": 10.41,
-      "conf": 0.539,
-      "island": 6,
-      "peak_s": 10.25
+      "text": "都",
+      "start_s": 10.54,
+      "end_s": 10.66,
+      "conf": 0.74,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 56,
       "token_index": 56,
       "segment_id": "s3",
-      "start_s": 10.41,
-      "end_s": 10.56,
-      "conf": 0.774,
-      "island": 6,
-      "peak_s": 10.41
+      "text": "有",
+      "start_s": 10.66,
+      "end_s": 10.82,
+      "conf": 0.143,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 57,
       "token_index": 57,
       "segment_id": "s3",
-      "start_s": 10.56,
-      "end_s": 10.73,
-      "conf": 0.98,
-      "island": 6,
-      "peak_s": 10.56
+      "text": "比",
+      "start_s": 10.82,
+      "end_s": 10.92,
+      "conf": 0.999,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 58,
       "token_index": 58,
       "segment_id": "s3",
-      "start_s": 11.0,
-      "end_s": 11.15,
-      "conf": 0.948,
-      "island": 7,
-      "peak_s": 11.0
+      "text": "赛",
+      "start_s": 10.92,
+      "end_s": 11.22,
+      "conf": 0.965,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 59,
       "token_index": 59,
       "segment_id": "s4",
-      "start_s": 11.15,
-      "end_s": 11.24,
-      "conf": 0.382,
-      "island": 7,
-      "peak_s": 11.15
+      "text": "每",
+      "start_s": 11.22,
+      "end_s": 11.34,
+      "conf": 0.289,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 60,
       "token_index": 60,
       "segment_id": "s4",
-      "start_s": 11.24,
-      "end_s": 11.39,
-      "conf": 0.948,
-      "island": 7,
-      "peak_s": 11.24
+      "text": "一",
+      "start_s": 11.34,
+      "end_s": 11.52,
+      "conf": 0.965,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 61,
       "token_index": 61,
       "segment_id": "s4",
-      "start_s": 11.39,
-      "end_s": 11.55,
-      "conf": 0.915,
-      "island": 7,
-      "peak_s": 11.39
+      "text": "年",
+      "start_s": 11.52,
+      "end_s": 11.74,
+      "conf": 0.509,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 62,
       "token_index": 62,
       "segment_id": "s4",
-      "start_s": 11.55,
-      "end_s": 11.69,
-      "conf": 0.897,
-      "island": 7,
-      "peak_s": 11.55
+      "text": "我",
+      "start_s": 11.74,
+      "end_s": 11.8,
+      "conf": 0.922,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 63,
       "token_index": 63,
       "segment_id": "s4",
-      "start_s": 11.69,
-      "end_s": 11.8,
-      "conf": 0.436,
-      "island": 7,
-      "peak_s": 11.69
+      "text": "们",
+      "start_s": 11.8,
+      "end_s": 11.96,
+      "conf": 0.767,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 64,
       "token_index": 64,
       "segment_id": "s4",
-      "start_s": 11.97,
-      "end_s": 12.06,
-      "conf": 0.764,
-      "island": 8,
-      "peak_s": 11.97
+      "text": "都",
+      "start_s": 11.96,
+      "end_s": 12.12,
+      "conf": 0.979,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 65,
       "token_index": 65,
       "segment_id": "s4",
-      "start_s": 12.06,
-      "end_s": 12.15,
-      "conf": 0.386,
-      "island": 8,
-      "peak_s": 12.06
+      "text": "有",
+      "start_s": 12.12,
+      "end_s": 12.2,
+      "conf": 0.996,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 66,
       "token_index": 66,
       "segment_id": "s4",
-      "start_s": 12.15,
-      "end_s": 12.27,
-      "conf": 0.376,
-      "island": 8,
-      "peak_s": 12.15
+      "text": "比",
+      "start_s": 12.2,
+      "end_s": 12.22,
+      "conf": 0.0,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 67,
       "token_index": 67,
       "segment_id": "s4",
-      "start_s": 12.63,
-      "end_s": 12.76,
-      "conf": 0.898,
-      "island": 9,
-      "peak_s": 12.63
+      "text": "赛",
+      "start_s": 12.22,
+      "end_s": 12.24,
+      "conf": 0.0,
+      "island": 2,
+      "synthetic": false
     },
     {
       "index": 68,
       "token_index": 68,
       "segment_id": "s5",
-      "start_s": 13.02,
-      "end_s": 13.26,
-      "conf": 0.986,
-      "island": 10,
-      "peak_s": 13.02
+      "text": "每",
+      "start_s": 13.0,
+      "end_s": 13.12,
+      "conf": 0.998,
+      "island": 3,
+      "synthetic": false
     },
     {
       "index": 69,
       "token_index": 69,
       "segment_id": "s5",
-      "start_s": 13.26,
-      "end_s": 13.44,
-      "conf": 0.967,
-      "island": 10,
-      "peak_s": 13.26
+      "text": "一",
+      "start_s": 13.12,
+      "end_s": 13.22,
+      "conf": 0.999,
+      "island": 3,
+      "synthetic": false
     },
     {
       "index": 70,
       "token_index": 70,
       "segment_id": "s5",
-      "start_s": 13.44,
-      "end_s": 13.72,
-      "conf": 0.948,
-      "island": 10,
-      "peak_s": 13.44
+      "text": "年",
+      "start_s": 13.22,
+      "end_s": 13.42,
+      "conf": 0.96,
+      "island": 3,
+      "synthetic": false
     },
     {
       "index": 71,
       "token_index": 71,
       "segment_id": "s5",
-      "start_s": 13.72,
-      "end_s": 13.88,
-      "conf": 0.966,
-      "island": 10,
-      "peak_s": 13.72
+      "text": "都",
+      "start_s": 13.42,
+      "end_s": 13.52,
+      "conf": 0.64,
+      "island": 3,
+      "synthetic": false
     },
     {
       "index": 72,
       "token_index": 72,
       "segment_id": "s5",
-      "start_s": 13.88,
-      "end_s": 14.09,
-      "conf": 1.0,
-      "island": 10,
-      "peak_s": 13.88
+      "text": "有",
+      "start_s": 13.52,
+      "end_s": 13.7,
+      "conf": 0.999,
+      "island": 3,
+      "synthetic": false
     },
     {
       "index": 73,
       "token_index": 73,
       "segment_id": "s5",
-      "start_s": 14.09,
-      "end_s": 14.31,
-      "conf": 0.997,
-      "island": 10,
-      "peak_s": 14.09
+      "text": "更",
+      "start_s": 13.7,
+      "end_s": 14.28,
+      "conf": 0.987,
+      "island": 3,
+      "synthetic": false
     },
     {
       "index": 74,
       "token_index": 74,
       "segment_id": "s5",
-      "start_s": 14.89,
-      "end_s": 15.08,
-      "conf": 0.997,
-      "island": 11,
-      "peak_s": 14.89
+      "text": "大",
+      "start_s": 14.8,
+      "end_s": 14.92,
+      "conf": 0.0,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 75,
       "token_index": 75,
       "segment_id": "s5",
-      "start_s": 15.08,
-      "end_s": 15.31,
-      "conf": 0.826,
-      "island": 11,
-      "peak_s": 15.08
+      "text": "的",
+      "start_s": 14.92,
+      "end_s": 15.1,
+      "conf": 0.0,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 76,
       "token_index": 76,
       "segment_id": "s5",
-      "start_s": 15.31,
-      "end_s": 15.57,
-      "conf": 0.787,
-      "island": 11,
-      "peak_s": 15.31
+      "text": "困",
+      "start_s": 15.1,
+      "end_s": 15.28,
+      "conf": 0.998,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 77,
       "token_index": 77,
       "segment_id": "s5",
-      "start_s": 15.57,
-      "end_s": 15.72,
-      "conf": 0.948,
-      "island": 11,
-      "peak_s": 15.57
+      "text": "难",
+      "start_s": 15.28,
+      "end_s": 15.56,
+      "conf": 0.768,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 78,
       "token_index": 78,
       "segment_id": "s6",
-      "start_s": 15.72,
-      "end_s": 15.91,
-      "conf": 0.997,
-      "island": 11,
-      "peak_s": 15.72
+      "text": "更",
+      "start_s": 15.56,
+      "end_s": 15.7,
+      "conf": 0.994,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 79,
       "token_index": 79,
       "segment_id": "s6",
-      "start_s": 15.91,
-      "end_s": 16.03,
-      "conf": 0.868,
-      "island": 11,
-      "peak_s": 15.91
+      "text": "大",
+      "start_s": 15.7,
+      "end_s": 15.9,
+      "conf": 0.983,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 80,
       "token_index": 80,
       "segment_id": "s6",
-      "start_s": 16.03,
-      "end_s": 16.15,
-      "conf": 0.739,
-      "island": 11,
-      "peak_s": 16.03
+      "text": "的",
+      "start_s": 15.9,
+      "end_s": 16.06,
+      "conf": 0.988,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 81,
       "token_index": 81,
       "segment_id": "s6",
-      "start_s": 16.15,
-      "end_s": 16.42,
-      "conf": 0.959,
-      "island": 11,
-      "peak_s": 16.15
+      "text": "山",
+      "start_s": 16.06,
+      "end_s": 16.36,
+      "conf": 0.111,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 82,
       "token_index": 82,
       "segment_id": "s6",
-      "start_s": 16.42,
-      "end_s": 16.58,
-      "conf": 0.966,
-      "island": 11,
-      "peak_s": 16.42
+      "text": "坡",
+      "start_s": 16.36,
+      "end_s": 16.56,
+      "conf": 0.997,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 83,
       "token_index": 83,
       "segment_id": "s6",
-      "start_s": 16.58,
-      "end_s": 16.73,
-      "conf": 0.948,
-      "island": 11,
-      "peak_s": 16.58
+      "text": "等",
+      "start_s": 16.56,
+      "end_s": 16.72,
+      "conf": 1.0,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 84,
       "token_index": 84,
       "segment_id": "s6",
-      "start_s": 16.73,
-      "end_s": 16.95,
-      "conf": 0.997,
-      "island": 11,
-      "peak_s": 16.73
+      "text": "着",
+      "start_s": 16.72,
+      "end_s": 16.84,
+      "conf": 0.995,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 85,
       "token_index": 85,
       "segment_id": "s6",
-      "start_s": 16.95,
-      "end_s": 17.14,
-      "conf": 0.95,
-      "island": 11,
-      "peak_s": 16.95
+      "text": "你",
+      "start_s": 16.84,
+      "end_s": 16.98,
+      "conf": 0.925,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 86,
       "token_index": 86,
       "segment_id": "s6",
-      "start_s": 17.14,
-      "end_s": 17.29,
-      "conf": 0.948,
-      "island": 11,
-      "peak_s": 17.14
+      "text": "去",
+      "start_s": 16.98,
+      "end_s": 17.14,
+      "conf": 0.989,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 87,
       "token_index": 87,
       "segment_id": "s6",
-      "start_s": 17.29,
-      "end_s": 17.45,
-      "conf": 0.372,
-      "island": 11,
-      "peak_s": 17.29
+      "text": "战",
+      "start_s": 17.14,
+      "end_s": 17.36,
+      "conf": 0.866,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 88,
       "token_index": 88,
       "segment_id": "s6",
-      "start_s": 17.45,
-      "end_s": 17.64,
-      "conf": 0.977,
-      "island": 11,
-      "peak_s": 17.45
+      "text": "胜",
+      "start_s": 17.36,
+      "end_s": 17.6,
+      "conf": 0.666,
+      "island": 4,
+      "synthetic": false
     },
     {
       "index": 89,
       "token_index": 89,
       "segment_id": "s7",
-      "start_s": 18.2,
-      "end_s": 18.36,
-      "conf": 0.951,
-      "island": 12,
-      "peak_s": 18.2
+      "text": "因",
+      "start_s": 18.28,
+      "end_s": 18.34,
+      "conf": 0.0,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 90,
       "token_index": 90,
       "segment_id": "s7",
-      "start_s": 18.36,
-      "end_s": 18.52,
-      "conf": 0.752,
-      "island": 12,
-      "peak_s": 18.36
+      "text": "为",
+      "start_s": 18.34,
+      "end_s": 18.8,
+      "conf": 0.996,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 91,
       "token_index": 91,
       "segment_id": "s7",
-      "start_s": 18.52,
-      "end_s": 18.7,
-      "conf": 0.553,
-      "island": 12,
-      "peak_s": 18.52
+      "text": "如",
+      "start_s": 18.8,
+      "end_s": 18.92,
+      "conf": 0.995,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 92,
       "token_index": 92,
       "segment_id": "s7",
-      "start_s": 18.7,
-      "end_s": 18.94,
-      "conf": 0.587,
-      "island": 12,
-      "peak_s": 18.7
+      "text": "果",
+      "start_s": 18.92,
+      "end_s": 19.04,
+      "conf": 0.998,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 93,
       "token_index": 93,
       "segment_id": "s7",
-      "start_s": 18.94,
-      "end_s": 19.07,
-      "conf": 0.898,
-      "island": 12,
-      "peak_s": 18.94
+      "text": "我",
+      "start_s": 19.04,
+      "end_s": 19.18,
+      "conf": 0.906,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 94,
       "token_index": 94,
       "segment_id": "s7",
-      "start_s": 19.07,
-      "end_s": 19.21,
-      "conf": 0.653,
-      "island": 12,
-      "peak_s": 19.07
+      "text": "觉",
+      "start_s": 19.18,
+      "end_s": 19.32,
+      "conf": 0.89,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 95,
       "token_index": 95,
       "segment_id": "s7",
-      "start_s": 19.21,
-      "end_s": 19.34,
-      "conf": 0.898,
-      "island": 12,
-      "peak_s": 19.21
+      "text": "得",
+      "start_s": 19.32,
+      "end_s": 19.56,
+      "conf": 0.899,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 96,
       "token_index": 96,
       "segment_id": "s7",
-      "start_s": 19.34,
-      "end_s": 19.55,
-      "conf": 1.0,
-      "island": 12,
-      "peak_s": 19.34
+      "text": "太",
+      "start_s": 19.56,
+      "end_s": 19.82,
+      "conf": 0.203,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 97,
       "token_index": 97,
       "segment_id": "s7",
-      "start_s": 19.55,
-      "end_s": 19.69,
-      "conf": 0.925,
-      "island": 12,
-      "peak_s": 19.55
+      "text": "过",
+      "start_s": 19.82,
+      "end_s": 20.02,
+      "conf": 0.968,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 98,
       "token_index": 98,
       "segment_id": "s7",
-      "start_s": 19.69,
-      "end_s": 19.84,
-      "conf": 0.634,
-      "island": 12,
-      "peak_s": 19.69
+      "text": "于",
+      "start_s": 20.02,
+      "end_s": 20.2,
+      "conf": 0.203,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 99,
       "token_index": 99,
       "segment_id": "s7",
-      "start_s": 19.84,
-      "end_s": 20.07,
-      "conf": 0.867,
-      "island": 12,
-      "peak_s": 19.84
+      "text": "满",
+      "start_s": 20.2,
+      "end_s": 20.42,
+      "conf": 0.997,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 100,
       "token_index": 100,
       "segment_id": "s7",
-      "start_s": 20.07,
-      "end_s": 20.24,
-      "conf": 0.691,
-      "island": 12,
-      "peak_s": 20.07
+      "text": "足",
+      "start_s": 20.42,
+      "end_s": 20.56,
+      "conf": 0.091,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 101,
       "token_index": 101,
       "segment_id": "s7",
-      "start_s": 20.24,
-      "end_s": 20.39,
-      "conf": 0.948,
-      "island": 12,
-      "peak_s": 20.24
+      "text": "的",
+      "start_s": 20.56,
+      "end_s": 20.68,
+      "conf": 0.984,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 102,
       "token_index": 102,
       "segment_id": "s7",
-      "start_s": 20.59,
-      "end_s": 20.72,
-      "conf": 0.898,
-      "island": 13,
-      "peak_s": 20.59
+      "text": "话",
+      "start_s": 20.68,
+      "end_s": 20.84,
+      "conf": 0.017,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 103,
       "token_index": 103,
       "segment_id": "s8",
-      "start_s": 20.72,
-      "end_s": 20.85,
-      "conf": 0.898,
-      "island": 13,
-      "peak_s": 20.72
+      "text": "你",
+      "start_s": 20.84,
+      "end_s": 20.94,
+      "conf": 0.016,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 104,
       "token_index": 104,
       "segment_id": "s8",
-      "start_s": 20.85,
-      "end_s": 21.0,
-      "conf": 0.737,
-      "island": 13,
-      "peak_s": 20.85
+      "text": "可",
+      "start_s": 20.94,
+      "end_s": 21.08,
+      "conf": 0.133,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 105,
       "token_index": 105,
       "segment_id": "s8",
-      "start_s": 21.0,
-      "end_s": 21.19,
-      "conf": 0.819,
-      "island": 13,
-      "peak_s": 21.0
+      "text": "能",
+      "start_s": 21.08,
+      "end_s": 21.18,
+      "conf": 0.878,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 106,
       "token_index": 106,
       "segment_id": "s8",
-      "start_s": 21.19,
-      "end_s": 21.32,
-      "conf": 0.8,
-      "island": 13,
-      "peak_s": 21.19
+      "text": "就",
+      "start_s": 21.18,
+      "end_s": 21.3,
+      "conf": 0.034,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 107,
       "token_index": 107,
       "segment_id": "s8",
-      "start_s": 21.32,
+      "text": "会",
+      "start_s": 21.3,
       "end_s": 21.46,
-      "conf": 0.925,
-      "island": 13,
-      "peak_s": 21.32
+      "conf": 0.906,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 108,
       "token_index": 108,
       "segment_id": "s8",
-      "start_s": 21.73,
-      "end_s": 21.86,
-      "conf": 0.587,
-      "island": 14,
-      "peak_s": 21.73
+      "text": "停",
+      "start_s": 21.46,
+      "end_s": 21.72,
+      "conf": 0.435,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 109,
       "token_index": 109,
       "segment_id": "s8",
-      "start_s": 21.86,
-      "end_s": 21.98,
-      "conf": 0.868,
-      "island": 14,
-      "peak_s": 21.86
+      "text": "滞",
+      "start_s": 21.72,
+      "end_s": 21.84,
+      "conf": 0.006,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 110,
       "token_index": 110,
       "segment_id": "s8",
-      "start_s": 21.98,
-      "end_s": 22.12,
-      "conf": 0.37,
-      "island": 14,
-      "peak_s": 21.98
+      "text": "在",
+      "start_s": 21.84,
+      "end_s": 22.0,
+      "conf": 0.998,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 111,
       "token_index": 111,
       "segment_id": "s8",
-      "start_s": 22.12,
-      "end_s": 22.26,
-      "conf": 0.814,
-      "island": 14,
-      "peak_s": 22.12
+      "text": "一",
+      "start_s": 22.0,
+      "end_s": 22.08,
+      "conf": 1.0,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 112,
       "token_index": 112,
       "segment_id": "s8",
-      "start_s": 22.26,
-      "end_s": 22.41,
-      "conf": 0.819,
-      "island": 14,
-      "peak_s": 22.26
+      "text": "个",
+      "start_s": 22.08,
+      "end_s": 22.22,
+      "conf": 0.993,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 113,
       "token_index": 113,
       "segment_id": "s8",
-      "start_s": 22.41,
-      "end_s": 22.54,
-      "conf": 0.6,
-      "island": 14,
-      "peak_s": 22.41
+      "text": "位",
+      "start_s": 22.22,
+      "end_s": 22.42,
+      "conf": 0.999,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 114,
       "token_index": 114,
       "segment_id": "s8",
-      "start_s": 22.54,
-      "end_s": 22.67,
-      "conf": 0.513,
-      "island": 14,
-      "peak_s": 22.54
+      "text": "置",
+      "start_s": 22.42,
+      "end_s": 22.68,
+      "conf": 0.997,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 115,
       "token_index": 115,
       "segment_id": "s9",
-      "start_s": 22.67,
-      "end_s": 22.79,
-      "conf": 0.445,
-      "island": 14,
-      "peak_s": 22.67
+      "text": "没",
+      "start_s": 22.68,
+      "end_s": 22.78,
+      "conf": 1.0,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 116,
       "token_index": 116,
       "segment_id": "s9",
-      "start_s": 22.79,
-      "end_s": 22.92,
-      "conf": 0.468,
-      "island": 14,
-      "peak_s": 22.79
+      "text": "有",
+      "start_s": 22.78,
+      "end_s": 22.9,
+      "conf": 1.0,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 117,
       "token_index": 117,
       "segment_id": "s9",
-      "start_s": 22.92,
-      "end_s": 23.07,
-      "conf": 0.948,
-      "island": 14,
-      "peak_s": 22.92
+      "text": "办",
+      "start_s": 22.9,
+      "end_s": 23.04,
+      "conf": 0.999,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 118,
       "token_index": 118,
       "segment_id": "s9",
-      "start_s": 23.07,
-      "end_s": 23.22,
-      "conf": 0.916,
-      "island": 14,
-      "peak_s": 23.07
+      "text": "法",
+      "start_s": 23.04,
+      "end_s": 23.16,
+      "conf": 0.993,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 119,
       "token_index": 119,
       "segment_id": "s9",
-      "start_s": 23.22,
-      "end_s": 23.35,
-      "conf": 0.775,
-      "island": 14,
-      "peak_s": 23.22
+      "text": "向",
+      "start_s": 23.16,
+      "end_s": 23.34,
+      "conf": 0.838,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 120,
       "token_index": 120,
       "segment_id": "s9",
-      "start_s": 23.53,
-      "end_s": 23.67,
-      "conf": 0.865,
-      "island": 15,
-      "peak_s": 23.53
+      "text": "前",
+      "start_s": 23.34,
+      "end_s": 23.52,
+      "conf": 0.872,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 121,
       "token_index": 121,
       "segment_id": "s9",
-      "start_s": 23.67,
-      "end_s": 23.81,
-      "conf": 0.433,
-      "island": 15,
-      "peak_s": 23.67
+      "text": "进",
+      "start_s": 23.52,
+      "end_s": 23.76,
+      "conf": 0.013,
+      "island": 5,
+      "synthetic": false
     },
     {
       "index": 122,
       "token_index": 122,
       "segment_id": "s9",
-      "start_s": 23.81,
-      "end_s": 23.98,
-      "conf": 0.718,
-      "island": 15,
-      "peak_s": 23.81
+      "text": "步",
+      "start_s": 23.76,
+      "end_s": 23.96,
+      "conf": 0.96,
+      "island": 5,
+      "synthetic": false
     }
   ],
   "words": [
@@ -1388,15 +1521,16 @@
       "kind": "han",
       "n_syllables": 1,
       "start_s": 0.5,
-      "end_s": 0.66,
-      "conf": 0.966,
+      "end_s": 0.64,
+      "conf": 0.914,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s0:w0",
+      "group_id": null,
       "syllable_ids": [
         0
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w1",
@@ -1404,16 +1538,17 @@
       "text": "运",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 0.66,
-      "end_s": 0.82,
-      "conf": 0.461,
+      "start_s": 0.64,
+      "end_s": 0.8,
+      "conf": 0.146,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s0:w1",
+      "group_id": null,
       "syllable_ids": [
         1
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w2",
@@ -1421,16 +1556,17 @@
       "text": "会",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 0.82,
-      "end_s": 0.93,
-      "conf": 0.834,
+      "start_s": 0.8,
+      "end_s": 0.98,
+      "conf": 0.994,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s0:w2",
+      "group_id": null,
       "syllable_ids": [
         2
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w3",
@@ -1438,16 +1574,17 @@
       "text": "是",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 0.93,
-      "end_s": 1.05,
-      "conf": 0.831,
+      "start_s": 0.98,
+      "end_s": 1.1,
+      "conf": 0.988,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s0:w3",
+      "group_id": null,
       "syllable_ids": [
         3
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w4",
@@ -1455,16 +1592,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.05,
-      "end_s": 1.23,
-      "conf": 0.687,
+      "start_s": 1.1,
+      "end_s": 1.22,
+      "conf": 1.0,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s0:w4",
+      "group_id": null,
       "syllable_ids": [
         4
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w5",
@@ -1472,16 +1610,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.23,
-      "end_s": 1.36,
-      "conf": 0.76,
+      "start_s": 1.22,
+      "end_s": 1.3,
+      "conf": 0.996,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s0:w4",
+      "group_id": null,
       "syllable_ids": [
         5
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w6",
@@ -1489,16 +1628,17 @@
       "text": "梦",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.36,
-      "end_s": 1.49,
-      "conf": 0.631,
+      "start_s": 1.3,
+      "end_s": 1.44,
+      "conf": 0.001,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s0:w5",
+      "group_id": null,
       "syllable_ids": [
         6
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w7",
@@ -1506,16 +1646,17 @@
       "text": "想",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.49,
-      "end_s": 1.64,
-      "conf": 0.868,
+      "start_s": 1.44,
+      "end_s": 1.6,
+      "conf": 0.977,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s0:w6",
+      "group_id": null,
       "syllable_ids": [
         7
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w8",
@@ -1523,16 +1664,17 @@
       "text": "没",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.64,
-      "end_s": 1.79,
-      "conf": 0.788,
+      "start_s": 1.6,
+      "end_s": 1.8,
+      "conf": 0.64,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s0:w7",
+      "group_id": null,
       "syllable_ids": [
         8
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w9",
@@ -1540,16 +1682,17 @@
       "text": "错",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.79,
-      "end_s": 1.91,
-      "conf": 0.619,
+      "start_s": 1.8,
+      "end_s": 2.1,
+      "conf": 0.476,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s0:w8",
+      "group_id": null,
       "syllable_ids": [
         9
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w10",
@@ -1557,16 +1700,17 @@
       "text": "但",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 1.91,
-      "end_s": 2.11,
-      "conf": 0.72,
+      "start_s": 2.1,
+      "end_s": 2.26,
+      "conf": 1.0,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s1:w9",
+      "group_id": null,
       "syllable_ids": [
         10
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w11",
@@ -1574,16 +1718,17 @@
       "text": "是",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.11,
-      "end_s": 2.23,
-      "conf": 0.868,
+      "start_s": 2.26,
+      "end_s": 2.38,
+      "conf": 1.0,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s1:w9",
+      "group_id": null,
       "syllable_ids": [
         11
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w12",
@@ -1591,16 +1736,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.23,
-      "end_s": 2.43,
-      "conf": 0.892,
+      "start_s": 2.38,
+      "end_s": 2.48,
+      "conf": 0.998,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s1:w10",
+      "group_id": null,
       "syllable_ids": [
         12
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w13",
@@ -1608,16 +1754,17 @@
       "text": "还",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.43,
-      "end_s": 2.57,
-      "conf": 0.633,
+      "start_s": 2.48,
+      "end_s": 2.68,
+      "conf": 0.983,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s1:w11",
+      "group_id": null,
       "syllable_ids": [
         13
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w14",
@@ -1625,16 +1772,17 @@
       "text": "有",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.57,
-      "end_s": 2.72,
-      "conf": 0.825,
+      "start_s": 2.68,
+      "end_s": 2.92,
+      "conf": 0.998,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s1:w11",
+      "group_id": null,
       "syllable_ids": [
         14
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w15",
@@ -1642,16 +1790,17 @@
       "text": "其",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.72,
-      "end_s": 2.87,
-      "conf": 0.618,
+      "start_s": 2.92,
+      "end_s": 3.04,
+      "conf": 1.0,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s1:w12",
+      "group_id": null,
       "syllable_ids": [
         15
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w16",
@@ -1659,16 +1808,17 @@
       "text": "他",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.87,
-      "end_s": 2.99,
-      "conf": 0.691,
+      "start_s": 3.04,
+      "end_s": 3.24,
+      "conf": 0.894,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s1:w13",
+      "group_id": null,
       "syllable_ids": [
         16
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w17",
@@ -1676,16 +1826,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 2.99,
-      "end_s": 3.13,
-      "conf": 0.512,
+      "start_s": 3.24,
+      "end_s": 3.32,
+      "conf": 0.995,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s1:w13",
+      "group_id": null,
       "syllable_ids": [
         17
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w18",
@@ -1693,16 +1844,17 @@
       "text": "梦",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 3.13,
-      "end_s": 3.25,
-      "conf": 0.868,
+      "start_s": 3.32,
+      "end_s": 3.46,
+      "conf": 0.137,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s1:w14",
+      "group_id": null,
       "syllable_ids": [
         18
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w19",
@@ -1710,16 +1862,17 @@
       "text": "想",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 3.25,
-      "end_s": 3.44,
-      "conf": 0.997,
+      "start_s": 3.46,
+      "end_s": 3.7,
+      "conf": 0.937,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s1:w15",
+      "group_id": null,
       "syllable_ids": [
         19
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w20",
@@ -1727,16 +1880,17 @@
       "text": "等",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 3.86,
-      "end_s": 4.05,
-      "conf": 0.848,
+      "start_s": 3.7,
+      "end_s": 3.84,
+      "conf": 1.0,
       "char_start": 10,
       "char_end": 11,
       "trailing_punct": "",
-      "group_id": "s1:w16",
+      "group_id": null,
       "syllable_ids": [
         20
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w21",
@@ -1744,16 +1898,17 @@
       "text": "着",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 4.05,
-      "end_s": 4.2,
-      "conf": 0.912,
+      "start_s": 3.84,
+      "end_s": 3.94,
+      "conf": 1.0,
       "char_start": 11,
       "char_end": 12,
       "trailing_punct": "",
-      "group_id": "s1:w17",
+      "group_id": null,
       "syllable_ids": [
         21
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w22",
@@ -1761,16 +1916,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 4.2,
-      "end_s": 4.35,
-      "conf": 0.81,
+      "start_s": 3.94,
+      "end_s": 4.08,
+      "conf": 0.966,
       "char_start": 12,
       "char_end": 13,
       "trailing_punct": "",
-      "group_id": "s1:w18",
+      "group_id": null,
       "syllable_ids": [
         22
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w23",
@@ -1778,16 +1934,17 @@
       "text": "去",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 4.35,
-      "end_s": 4.49,
-      "conf": 0.525,
+      "start_s": 4.08,
+      "end_s": 4.24,
+      "conf": 0.991,
       "char_start": 13,
       "char_end": 14,
       "trailing_punct": "",
-      "group_id": "s1:w19",
+      "group_id": null,
       "syllable_ids": [
         23
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w24",
@@ -1795,16 +1952,17 @@
       "text": "实",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 4.49,
-      "end_s": 4.6,
-      "conf": 0.834,
+      "start_s": 4.24,
+      "end_s": 4.42,
+      "conf": 0.975,
       "char_start": 14,
       "char_end": 15,
       "trailing_punct": "",
-      "group_id": "s1:w20",
+      "group_id": null,
       "syllable_ids": [
         24
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w25",
@@ -1812,16 +1970,17 @@
       "text": "现",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 4.6,
-      "end_s": 4.73,
-      "conf": 0.461,
+      "start_s": 4.42,
+      "end_s": 4.62,
+      "conf": 0.96,
       "char_start": 15,
       "char_end": 16,
       "trailing_punct": "",
-      "group_id": "s1:w21",
+      "group_id": null,
       "syllable_ids": [
         25
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w26",
@@ -1829,16 +1988,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 4.88,
-      "end_s": 5.06,
-      "conf": 0.736,
+      "start_s": 4.62,
+      "end_s": 4.74,
+      "conf": 1.0,
       "char_start": 16,
       "char_end": 17,
       "trailing_punct": "",
-      "group_id": "s1:w22",
+      "group_id": null,
       "syllable_ids": [
         26
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w27",
@@ -1846,16 +2006,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 5.06,
-      "end_s": 5.21,
-      "conf": 0.948,
+      "start_s": 4.74,
+      "end_s": 4.86,
+      "conf": 0.999,
       "char_start": 17,
       "char_end": 18,
       "trailing_punct": "",
-      "group_id": "s1:w22",
+      "group_id": null,
       "syllable_ids": [
         27
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w28",
@@ -1863,16 +2024,17 @@
       "text": "目",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 5.21,
-      "end_s": 5.36,
-      "conf": 0.495,
+      "start_s": 4.86,
+      "end_s": 5.04,
+      "conf": 0.973,
       "char_start": 18,
       "char_end": 19,
       "trailing_punct": "",
-      "group_id": "s1:w23",
+      "group_id": null,
       "syllable_ids": [
         28
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w29",
@@ -1880,16 +2042,17 @@
       "text": "标",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 5.36,
-      "end_s": 5.52,
-      "conf": 0.703,
+      "start_s": 5.04,
+      "end_s": 5.7,
+      "conf": 0.995,
       "char_start": 19,
       "char_end": 20,
       "trailing_punct": "",
-      "group_id": "s1:w24",
+      "group_id": null,
       "syllable_ids": [
         29
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w30",
@@ -1897,16 +2060,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 5.72,
-      "end_s": 5.82,
-      "conf": 0.799,
+      "start_s": 5.7,
+      "end_s": 5.8,
+      "conf": 0.999,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s2:w25",
+      "group_id": null,
       "syllable_ids": [
         30
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w31",
@@ -1914,16 +2078,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 5.82,
-      "end_s": 5.94,
-      "conf": 0.564,
+      "start_s": 5.8,
+      "end_s": 5.9,
+      "conf": 0.998,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s2:w25",
+      "group_id": null,
       "syllable_ids": [
         31
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w32",
@@ -1931,16 +2096,17 @@
       "text": "梦",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 5.94,
-      "end_s": 6.06,
-      "conf": 0.677,
+      "start_s": 5.9,
+      "end_s": 6.08,
+      "conf": 0.912,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s2:w26",
+      "group_id": null,
       "syllable_ids": [
         32
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w33",
@@ -1948,16 +2114,17 @@
       "text": "想",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.06,
-      "end_s": 6.15,
-      "conf": 0.531,
+      "start_s": 6.08,
+      "end_s": 6.34,
+      "conf": 0.957,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s2:w27",
+      "group_id": null,
       "syllable_ids": [
         33
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w34",
@@ -1965,16 +2132,17 @@
       "text": "其",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.15,
-      "end_s": 6.26,
-      "conf": 0.834,
+      "start_s": 6.34,
+      "end_s": 6.46,
+      "conf": 0.991,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s2:w28",
+      "group_id": null,
       "syllable_ids": [
         34
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w35",
@@ -1982,16 +2150,17 @@
       "text": "实",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.26,
-      "end_s": 6.39,
-      "conf": 0.393,
+      "start_s": 6.46,
+      "end_s": 6.58,
+      "conf": 0.993,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s2:w28",
+      "group_id": null,
       "syllable_ids": [
         35
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w36",
@@ -1999,16 +2168,17 @@
       "text": "还",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.39,
-      "end_s": 6.51,
-      "conf": 0.801,
+      "start_s": 6.58,
+      "end_s": 6.8,
+      "conf": 1.0,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s2:w29",
+      "group_id": null,
       "syllable_ids": [
         36
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w37",
@@ -2016,16 +2186,17 @@
       "text": "远",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.51,
-      "end_s": 6.65,
-      "conf": 0.746,
+      "start_s": 6.8,
+      "end_s": 6.96,
+      "conf": 0.963,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s2:w30",
+      "group_id": null,
       "syllable_ids": [
         37
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w38",
@@ -2033,16 +2204,17 @@
       "text": "远",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.65,
-      "end_s": 6.83,
-      "conf": 0.735,
+      "start_s": 6.96,
+      "end_s": 7.12,
+      "conf": 0.906,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s2:w31",
+      "group_id": null,
       "syllable_ids": [
         38
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w39",
@@ -2050,16 +2222,17 @@
       "text": "没",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 6.83,
-      "end_s": 7.01,
-      "conf": 0.837,
+      "start_s": 7.12,
+      "end_s": 7.24,
+      "conf": 1.0,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s2:w32",
+      "group_id": null,
       "syllable_ids": [
         39
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w40",
@@ -2067,16 +2240,17 @@
       "text": "有",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 7.01,
-      "end_s": 7.18,
-      "conf": 0.687,
+      "start_s": 7.24,
+      "end_s": 7.32,
+      "conf": 0.998,
       "char_start": 10,
       "char_end": 11,
       "trailing_punct": "",
-      "group_id": "s2:w32",
+      "group_id": null,
       "syllable_ids": [
         40
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w41",
@@ -2084,16 +2258,17 @@
       "text": "结",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 7.18,
+      "start_s": 7.32,
       "end_s": 7.34,
-      "conf": 0.901,
+      "conf": 0.0,
       "char_start": 11,
       "char_end": 12,
       "trailing_punct": "",
-      "group_id": "s2:w33",
+      "group_id": null,
       "syllable_ids": [
         41
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w42",
@@ -2101,16 +2276,17 @@
       "text": "束",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 7.77,
-      "end_s": 7.94,
-      "conf": 0.906,
+      "start_s": 7.34,
+      "end_s": 7.36,
+      "conf": 0.0,
       "char_start": 12,
       "char_end": 13,
       "trailing_punct": "",
-      "group_id": "s2:w34",
+      "group_id": null,
       "syllable_ids": [
         42
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w43",
@@ -2118,16 +2294,17 @@
       "text": "网",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 8.32,
-      "end_s": 8.51,
-      "conf": 0.997,
+      "start_s": 8.3,
+      "end_s": 8.56,
+      "conf": 0.005,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s3:w35",
+      "group_id": null,
       "syllable_ids": [
         43
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w44",
@@ -2135,16 +2312,17 @@
       "text": "球",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 8.51,
-      "end_s": 8.62,
-      "conf": 0.834,
+      "start_s": 8.56,
+      "end_s": 8.78,
+      "conf": 0.989,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s3:w36",
+      "group_id": null,
       "syllable_ids": [
         44
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w45",
@@ -2152,16 +2330,17 @@
       "text": "最",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 8.62,
-      "end_s": 8.79,
-      "conf": 0.926,
+      "start_s": 8.78,
+      "end_s": 8.8,
+      "conf": 0.0,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s3:w37",
+      "group_id": null,
       "syllable_ids": [
         45
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w46",
@@ -2169,16 +2348,17 @@
       "text": "好",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 8.79,
-      "end_s": 8.99,
-      "conf": 0.618,
+      "start_s": 8.8,
+      "end_s": 8.88,
+      "conf": 0.0,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s3:w38",
+      "group_id": null,
       "syllable_ids": [
         46
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w47",
@@ -2186,16 +2366,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 8.99,
-      "end_s": 9.14,
-      "conf": 0.666,
+      "start_s": 9.62,
+      "end_s": 9.68,
+      "conf": 0.975,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s3:w38",
+      "group_id": null,
       "syllable_ids": [
         47
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w48",
@@ -2203,16 +2384,17 @@
       "text": "一",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 9.33,
-      "end_s": 9.52,
-      "conf": 0.997,
+      "start_s": 9.68,
+      "end_s": 9.74,
+      "conf": 0.001,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s3:w39",
+      "group_id": null,
       "syllable_ids": [
         48
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w49",
@@ -2220,16 +2402,17 @@
       "text": "点",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 9.52,
-      "end_s": 9.64,
-      "conf": 0.868,
+      "start_s": 9.74,
+      "end_s": 9.9,
+      "conf": 0.835,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s3:w39",
+      "group_id": null,
       "syllable_ids": [
         49
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w50",
@@ -2237,16 +2420,17 @@
       "text": "就",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 9.64,
-      "end_s": 9.76,
-      "conf": 0.868,
+      "start_s": 9.9,
+      "end_s": 10.02,
+      "conf": 0.0,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s3:w40",
+      "group_id": null,
       "syllable_ids": [
         50
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w51",
@@ -2254,16 +2438,17 @@
       "text": "是",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 9.76,
-      "end_s": 9.89,
-      "conf": 0.881,
+      "start_s": 10.02,
+      "end_s": 10.1,
+      "conf": 0.0,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s3:w40",
+      "group_id": null,
       "syllable_ids": [
         51
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w52",
@@ -2271,16 +2456,17 @@
       "text": "它",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 9.89,
-      "end_s": 10.0,
-      "conf": 0.674,
+      "start_s": 10.1,
+      "end_s": 10.22,
+      "conf": 0.095,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s3:w41",
+      "group_id": null,
       "syllable_ids": [
         52
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w53",
@@ -2288,16 +2474,17 @@
       "text": "永",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 10.0,
-      "end_s": 10.1,
-      "conf": 0.573,
+      "start_s": 10.22,
+      "end_s": 10.4,
+      "conf": 1.0,
       "char_start": 10,
       "char_end": 11,
       "trailing_punct": "",
-      "group_id": "s3:w42",
+      "group_id": null,
       "syllable_ids": [
         53
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w54",
@@ -2305,16 +2492,17 @@
       "text": "远",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 10.1,
-      "end_s": 10.25,
-      "conf": 0.948,
+      "start_s": 10.4,
+      "end_s": 10.54,
+      "conf": 0.999,
       "char_start": 11,
       "char_end": 12,
       "trailing_punct": "",
-      "group_id": "s3:w43",
+      "group_id": null,
       "syllable_ids": [
         54
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w55",
@@ -2322,16 +2510,17 @@
       "text": "都",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 10.25,
-      "end_s": 10.41,
-      "conf": 0.539,
+      "start_s": 10.54,
+      "end_s": 10.66,
+      "conf": 0.74,
       "char_start": 12,
       "char_end": 13,
       "trailing_punct": "",
-      "group_id": "s3:w44",
+      "group_id": null,
       "syllable_ids": [
         55
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w56",
@@ -2339,16 +2528,17 @@
       "text": "有",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 10.41,
-      "end_s": 10.56,
-      "conf": 0.774,
+      "start_s": 10.66,
+      "end_s": 10.82,
+      "conf": 0.143,
       "char_start": 13,
       "char_end": 14,
       "trailing_punct": "",
-      "group_id": "s3:w44",
+      "group_id": null,
       "syllable_ids": [
         56
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w57",
@@ -2356,16 +2546,17 @@
       "text": "比",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 10.56,
-      "end_s": 10.73,
-      "conf": 0.98,
+      "start_s": 10.82,
+      "end_s": 10.92,
+      "conf": 0.999,
       "char_start": 14,
       "char_end": 15,
       "trailing_punct": "",
-      "group_id": "s3:w45",
+      "group_id": null,
       "syllable_ids": [
         57
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w58",
@@ -2373,16 +2564,17 @@
       "text": "赛",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.0,
-      "end_s": 11.15,
-      "conf": 0.948,
+      "start_s": 10.92,
+      "end_s": 11.22,
+      "conf": 0.965,
       "char_start": 15,
       "char_end": 16,
       "trailing_punct": "",
-      "group_id": "s3:w46",
+      "group_id": null,
       "syllable_ids": [
         58
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w59",
@@ -2390,16 +2582,17 @@
       "text": "每",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.15,
-      "end_s": 11.24,
-      "conf": 0.382,
+      "start_s": 11.22,
+      "end_s": 11.34,
+      "conf": 0.289,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s4:w47",
+      "group_id": null,
       "syllable_ids": [
         59
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w60",
@@ -2407,16 +2600,17 @@
       "text": "一",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.24,
-      "end_s": 11.39,
-      "conf": 0.948,
+      "start_s": 11.34,
+      "end_s": 11.52,
+      "conf": 0.965,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s4:w48",
+      "group_id": null,
       "syllable_ids": [
         60
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w61",
@@ -2424,16 +2618,17 @@
       "text": "年",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.39,
-      "end_s": 11.55,
-      "conf": 0.915,
+      "start_s": 11.52,
+      "end_s": 11.74,
+      "conf": 0.509,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s4:w49",
+      "group_id": null,
       "syllable_ids": [
         61
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w62",
@@ -2441,16 +2636,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.55,
-      "end_s": 11.69,
-      "conf": 0.897,
+      "start_s": 11.74,
+      "end_s": 11.8,
+      "conf": 0.922,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s4:w50",
+      "group_id": null,
       "syllable_ids": [
         62
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w63",
@@ -2458,16 +2654,17 @@
       "text": "们",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.69,
-      "end_s": 11.8,
-      "conf": 0.436,
+      "start_s": 11.8,
+      "end_s": 11.96,
+      "conf": 0.767,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s4:w50",
+      "group_id": null,
       "syllable_ids": [
         63
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w64",
@@ -2475,16 +2672,17 @@
       "text": "都",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 11.97,
-      "end_s": 12.06,
-      "conf": 0.764,
+      "start_s": 11.96,
+      "end_s": 12.12,
+      "conf": 0.979,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s4:w51",
+      "group_id": null,
       "syllable_ids": [
         64
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w65",
@@ -2492,16 +2690,17 @@
       "text": "有",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 12.06,
-      "end_s": 12.15,
-      "conf": 0.386,
+      "start_s": 12.12,
+      "end_s": 12.2,
+      "conf": 0.996,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s4:w51",
+      "group_id": null,
       "syllable_ids": [
         65
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w66",
@@ -2509,16 +2708,17 @@
       "text": "比",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 12.15,
-      "end_s": 12.27,
-      "conf": 0.376,
+      "start_s": 12.2,
+      "end_s": 12.22,
+      "conf": 0.0,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s4:w52",
+      "group_id": null,
       "syllable_ids": [
         66
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w67",
@@ -2526,16 +2726,17 @@
       "text": "赛",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 12.63,
-      "end_s": 12.76,
-      "conf": 0.898,
+      "start_s": 12.22,
+      "end_s": 12.24,
+      "conf": 0.0,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s4:w53",
+      "group_id": null,
       "syllable_ids": [
         67
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w68",
@@ -2543,16 +2744,17 @@
       "text": "每",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 13.02,
-      "end_s": 13.26,
-      "conf": 0.986,
+      "start_s": 13.0,
+      "end_s": 13.12,
+      "conf": 0.998,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s5:w54",
+      "group_id": null,
       "syllable_ids": [
         68
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w69",
@@ -2560,16 +2762,17 @@
       "text": "一",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 13.26,
-      "end_s": 13.44,
-      "conf": 0.967,
+      "start_s": 13.12,
+      "end_s": 13.22,
+      "conf": 0.999,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s5:w55",
+      "group_id": null,
       "syllable_ids": [
         69
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w70",
@@ -2577,16 +2780,17 @@
       "text": "年",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 13.44,
-      "end_s": 13.72,
-      "conf": 0.948,
+      "start_s": 13.22,
+      "end_s": 13.42,
+      "conf": 0.96,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s5:w56",
+      "group_id": null,
       "syllable_ids": [
         70
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w71",
@@ -2594,16 +2798,17 @@
       "text": "都",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 13.72,
-      "end_s": 13.88,
-      "conf": 0.966,
+      "start_s": 13.42,
+      "end_s": 13.52,
+      "conf": 0.64,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s5:w57",
+      "group_id": null,
       "syllable_ids": [
         71
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w72",
@@ -2611,16 +2816,17 @@
       "text": "有",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 13.88,
-      "end_s": 14.09,
-      "conf": 1.0,
+      "start_s": 13.52,
+      "end_s": 13.7,
+      "conf": 0.999,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s5:w57",
+      "group_id": null,
       "syllable_ids": [
         72
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w73",
@@ -2628,16 +2834,17 @@
       "text": "更",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 14.09,
-      "end_s": 14.31,
-      "conf": 0.997,
+      "start_s": 13.7,
+      "end_s": 14.28,
+      "conf": 0.987,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s5:w58",
+      "group_id": null,
       "syllable_ids": [
         73
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w74",
@@ -2645,16 +2852,17 @@
       "text": "大",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 14.89,
-      "end_s": 15.08,
-      "conf": 0.997,
+      "start_s": 14.8,
+      "end_s": 14.92,
+      "conf": 0.0,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s5:w59",
+      "group_id": null,
       "syllable_ids": [
         74
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w75",
@@ -2662,16 +2870,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 15.08,
-      "end_s": 15.31,
-      "conf": 0.826,
+      "start_s": 14.92,
+      "end_s": 15.1,
+      "conf": 0.0,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s5:w59",
+      "group_id": null,
       "syllable_ids": [
         75
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w76",
@@ -2679,16 +2888,17 @@
       "text": "困",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 15.31,
-      "end_s": 15.57,
-      "conf": 0.787,
+      "start_s": 15.1,
+      "end_s": 15.28,
+      "conf": 0.998,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s5:w60",
+      "group_id": null,
       "syllable_ids": [
         76
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w77",
@@ -2696,16 +2906,17 @@
       "text": "难",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 15.57,
-      "end_s": 15.72,
-      "conf": 0.948,
+      "start_s": 15.28,
+      "end_s": 15.56,
+      "conf": 0.768,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s5:w61",
+      "group_id": null,
       "syllable_ids": [
         77
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w78",
@@ -2713,16 +2924,17 @@
       "text": "更",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 15.72,
-      "end_s": 15.91,
-      "conf": 0.997,
+      "start_s": 15.56,
+      "end_s": 15.7,
+      "conf": 0.994,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s6:w62",
+      "group_id": null,
       "syllable_ids": [
         78
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w79",
@@ -2730,16 +2942,17 @@
       "text": "大",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 15.91,
-      "end_s": 16.03,
-      "conf": 0.868,
+      "start_s": 15.7,
+      "end_s": 15.9,
+      "conf": 0.983,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s6:w63",
+      "group_id": null,
       "syllable_ids": [
         79
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w80",
@@ -2747,16 +2960,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 16.03,
-      "end_s": 16.15,
-      "conf": 0.739,
+      "start_s": 15.9,
+      "end_s": 16.06,
+      "conf": 0.988,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s6:w63",
+      "group_id": null,
       "syllable_ids": [
         80
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w81",
@@ -2764,16 +2978,17 @@
       "text": "山",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 16.15,
-      "end_s": 16.42,
-      "conf": 0.959,
+      "start_s": 16.06,
+      "end_s": 16.36,
+      "conf": 0.111,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s6:w64",
+      "group_id": null,
       "syllable_ids": [
         81
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w82",
@@ -2781,16 +2996,17 @@
       "text": "坡",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 16.42,
-      "end_s": 16.58,
-      "conf": 0.966,
+      "start_s": 16.36,
+      "end_s": 16.56,
+      "conf": 0.997,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s6:w65",
+      "group_id": null,
       "syllable_ids": [
         82
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w83",
@@ -2798,16 +3014,17 @@
       "text": "等",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 16.58,
-      "end_s": 16.73,
-      "conf": 0.948,
+      "start_s": 16.56,
+      "end_s": 16.72,
+      "conf": 1.0,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s6:w66",
+      "group_id": null,
       "syllable_ids": [
         83
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w84",
@@ -2815,16 +3032,17 @@
       "text": "着",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 16.73,
-      "end_s": 16.95,
-      "conf": 0.997,
+      "start_s": 16.72,
+      "end_s": 16.84,
+      "conf": 0.995,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s6:w67",
+      "group_id": null,
       "syllable_ids": [
         84
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w85",
@@ -2832,16 +3050,17 @@
       "text": "你",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 16.95,
-      "end_s": 17.14,
-      "conf": 0.95,
+      "start_s": 16.84,
+      "end_s": 16.98,
+      "conf": 0.925,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s6:w68",
+      "group_id": null,
       "syllable_ids": [
         85
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w86",
@@ -2849,16 +3068,17 @@
       "text": "去",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 17.14,
-      "end_s": 17.29,
-      "conf": 0.948,
+      "start_s": 16.98,
+      "end_s": 17.14,
+      "conf": 0.989,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s6:w69",
+      "group_id": null,
       "syllable_ids": [
         86
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w87",
@@ -2866,16 +3086,17 @@
       "text": "战",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 17.29,
-      "end_s": 17.45,
-      "conf": 0.372,
+      "start_s": 17.14,
+      "end_s": 17.36,
+      "conf": 0.866,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s6:w70",
+      "group_id": null,
       "syllable_ids": [
         87
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w88",
@@ -2883,16 +3104,17 @@
       "text": "胜",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 17.45,
-      "end_s": 17.64,
-      "conf": 0.977,
+      "start_s": 17.36,
+      "end_s": 17.6,
+      "conf": 0.666,
       "char_start": 10,
       "char_end": 11,
       "trailing_punct": "",
-      "group_id": "s6:w71",
+      "group_id": null,
       "syllable_ids": [
         88
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w89",
@@ -2900,16 +3122,17 @@
       "text": "因",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 18.2,
-      "end_s": 18.36,
-      "conf": 0.951,
+      "start_s": 18.28,
+      "end_s": 18.34,
+      "conf": 0.0,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s7:w72",
+      "group_id": null,
       "syllable_ids": [
         89
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w90",
@@ -2917,16 +3140,17 @@
       "text": "为",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 18.36,
-      "end_s": 18.52,
-      "conf": 0.752,
+      "start_s": 18.34,
+      "end_s": 18.8,
+      "conf": 0.996,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s7:w72",
+      "group_id": null,
       "syllable_ids": [
         90
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w91",
@@ -2934,16 +3158,17 @@
       "text": "如",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 18.52,
-      "end_s": 18.7,
-      "conf": 0.553,
+      "start_s": 18.8,
+      "end_s": 18.92,
+      "conf": 0.995,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s7:w73",
+      "group_id": null,
       "syllable_ids": [
         91
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w92",
@@ -2951,16 +3176,17 @@
       "text": "果",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 18.7,
-      "end_s": 18.94,
-      "conf": 0.587,
+      "start_s": 18.92,
+      "end_s": 19.04,
+      "conf": 0.998,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s7:w73",
+      "group_id": null,
       "syllable_ids": [
         92
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w93",
@@ -2968,16 +3194,17 @@
       "text": "我",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 18.94,
-      "end_s": 19.07,
-      "conf": 0.898,
+      "start_s": 19.04,
+      "end_s": 19.18,
+      "conf": 0.906,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s7:w74",
+      "group_id": null,
       "syllable_ids": [
         93
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w94",
@@ -2985,16 +3212,17 @@
       "text": "觉",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 19.07,
-      "end_s": 19.21,
-      "conf": 0.653,
+      "start_s": 19.18,
+      "end_s": 19.32,
+      "conf": 0.89,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s7:w74",
+      "group_id": null,
       "syllable_ids": [
         94
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w95",
@@ -3002,16 +3230,17 @@
       "text": "得",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 19.21,
-      "end_s": 19.34,
-      "conf": 0.898,
+      "start_s": 19.32,
+      "end_s": 19.56,
+      "conf": 0.899,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s7:w74",
+      "group_id": null,
       "syllable_ids": [
         95
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w96",
@@ -3019,16 +3248,17 @@
       "text": "太",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 19.34,
-      "end_s": 19.55,
-      "conf": 1.0,
+      "start_s": 19.56,
+      "end_s": 19.82,
+      "conf": 0.203,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s7:w75",
+      "group_id": null,
       "syllable_ids": [
         96
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w97",
@@ -3036,16 +3266,17 @@
       "text": "过",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 19.55,
-      "end_s": 19.69,
-      "conf": 0.925,
+      "start_s": 19.82,
+      "end_s": 20.02,
+      "conf": 0.968,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s7:w76",
+      "group_id": null,
       "syllable_ids": [
         97
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w98",
@@ -3053,16 +3284,17 @@
       "text": "于",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 19.69,
-      "end_s": 19.84,
-      "conf": 0.634,
+      "start_s": 20.02,
+      "end_s": 20.2,
+      "conf": 0.203,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s7:w77",
+      "group_id": null,
       "syllable_ids": [
         98
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w99",
@@ -3070,16 +3302,17 @@
       "text": "满",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 19.84,
-      "end_s": 20.07,
-      "conf": 0.867,
+      "start_s": 20.2,
+      "end_s": 20.42,
+      "conf": 0.997,
       "char_start": 10,
       "char_end": 11,
       "trailing_punct": "",
-      "group_id": "s7:w78",
+      "group_id": null,
       "syllable_ids": [
         99
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w100",
@@ -3087,16 +3320,17 @@
       "text": "足",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 20.07,
-      "end_s": 20.24,
-      "conf": 0.691,
+      "start_s": 20.42,
+      "end_s": 20.56,
+      "conf": 0.091,
       "char_start": 11,
       "char_end": 12,
       "trailing_punct": "",
-      "group_id": "s7:w79",
+      "group_id": null,
       "syllable_ids": [
         100
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w101",
@@ -3104,16 +3338,17 @@
       "text": "的",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 20.24,
-      "end_s": 20.39,
-      "conf": 0.948,
+      "start_s": 20.56,
+      "end_s": 20.68,
+      "conf": 0.984,
       "char_start": 12,
       "char_end": 13,
       "trailing_punct": "",
-      "group_id": "s7:w80",
+      "group_id": null,
       "syllable_ids": [
         101
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w102",
@@ -3121,16 +3356,17 @@
       "text": "话",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 20.59,
-      "end_s": 20.72,
-      "conf": 0.898,
+      "start_s": 20.68,
+      "end_s": 20.84,
+      "conf": 0.017,
       "char_start": 13,
       "char_end": 14,
       "trailing_punct": "",
-      "group_id": "s7:w80",
+      "group_id": null,
       "syllable_ids": [
         102
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w103",
@@ -3138,16 +3374,17 @@
       "text": "你",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 20.72,
-      "end_s": 20.85,
-      "conf": 0.898,
+      "start_s": 20.84,
+      "end_s": 20.94,
+      "conf": 0.016,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s8:w81",
+      "group_id": null,
       "syllable_ids": [
         103
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w104",
@@ -3155,16 +3392,17 @@
       "text": "可",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 20.85,
-      "end_s": 21.0,
-      "conf": 0.737,
+      "start_s": 20.94,
+      "end_s": 21.08,
+      "conf": 0.133,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s8:w82",
+      "group_id": null,
       "syllable_ids": [
         104
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w105",
@@ -3172,16 +3410,17 @@
       "text": "能",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 21.0,
-      "end_s": 21.19,
-      "conf": 0.819,
+      "start_s": 21.08,
+      "end_s": 21.18,
+      "conf": 0.878,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s8:w82",
+      "group_id": null,
       "syllable_ids": [
         105
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w106",
@@ -3189,16 +3428,17 @@
       "text": "就",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 21.19,
-      "end_s": 21.32,
-      "conf": 0.8,
+      "start_s": 21.18,
+      "end_s": 21.3,
+      "conf": 0.034,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s8:w83",
+      "group_id": null,
       "syllable_ids": [
         106
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w107",
@@ -3206,16 +3446,17 @@
       "text": "会",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 21.32,
+      "start_s": 21.3,
       "end_s": 21.46,
-      "conf": 0.925,
+      "conf": 0.906,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s8:w84",
+      "group_id": null,
       "syllable_ids": [
         107
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w108",
@@ -3223,16 +3464,17 @@
       "text": "停",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 21.73,
-      "end_s": 21.86,
-      "conf": 0.587,
+      "start_s": 21.46,
+      "end_s": 21.72,
+      "conf": 0.435,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s8:w85",
+      "group_id": null,
       "syllable_ids": [
         108
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w109",
@@ -3240,16 +3482,17 @@
       "text": "滞",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 21.86,
-      "end_s": 21.98,
-      "conf": 0.868,
+      "start_s": 21.72,
+      "end_s": 21.84,
+      "conf": 0.006,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s8:w86",
+      "group_id": null,
       "syllable_ids": [
         109
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w110",
@@ -3257,16 +3500,17 @@
       "text": "在",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 21.98,
-      "end_s": 22.12,
-      "conf": 0.37,
+      "start_s": 21.84,
+      "end_s": 22.0,
+      "conf": 0.998,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s8:w87",
+      "group_id": null,
       "syllable_ids": [
         110
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w111",
@@ -3274,16 +3518,17 @@
       "text": "一",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.12,
-      "end_s": 22.26,
-      "conf": 0.814,
+      "start_s": 22.0,
+      "end_s": 22.08,
+      "conf": 1.0,
       "char_start": 8,
       "char_end": 9,
       "trailing_punct": "",
-      "group_id": "s8:w88",
+      "group_id": null,
       "syllable_ids": [
         111
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w112",
@@ -3291,16 +3536,17 @@
       "text": "个",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.26,
-      "end_s": 22.41,
-      "conf": 0.819,
+      "start_s": 22.08,
+      "end_s": 22.22,
+      "conf": 0.993,
       "char_start": 9,
       "char_end": 10,
       "trailing_punct": "",
-      "group_id": "s8:w88",
+      "group_id": null,
       "syllable_ids": [
         112
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w113",
@@ -3308,16 +3554,17 @@
       "text": "位",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.41,
-      "end_s": 22.54,
-      "conf": 0.6,
+      "start_s": 22.22,
+      "end_s": 22.42,
+      "conf": 0.999,
       "char_start": 10,
       "char_end": 11,
       "trailing_punct": "",
-      "group_id": "s8:w89",
+      "group_id": null,
       "syllable_ids": [
         113
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w114",
@@ -3325,16 +3572,17 @@
       "text": "置",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.54,
-      "end_s": 22.67,
-      "conf": 0.513,
+      "start_s": 22.42,
+      "end_s": 22.68,
+      "conf": 0.997,
       "char_start": 11,
       "char_end": 12,
       "trailing_punct": "",
-      "group_id": "s8:w90",
+      "group_id": null,
       "syllable_ids": [
         114
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w115",
@@ -3342,16 +3590,17 @@
       "text": "没",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.67,
-      "end_s": 22.79,
-      "conf": 0.445,
+      "start_s": 22.68,
+      "end_s": 22.78,
+      "conf": 1.0,
       "char_start": 0,
       "char_end": 1,
       "trailing_punct": "",
-      "group_id": "s9:w91",
+      "group_id": null,
       "syllable_ids": [
         115
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w116",
@@ -3359,16 +3608,17 @@
       "text": "有",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.79,
-      "end_s": 22.92,
-      "conf": 0.468,
+      "start_s": 22.78,
+      "end_s": 22.9,
+      "conf": 1.0,
       "char_start": 1,
       "char_end": 2,
       "trailing_punct": "",
-      "group_id": "s9:w91",
+      "group_id": null,
       "syllable_ids": [
         116
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w117",
@@ -3376,16 +3626,17 @@
       "text": "办",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 22.92,
-      "end_s": 23.07,
-      "conf": 0.948,
+      "start_s": 22.9,
+      "end_s": 23.04,
+      "conf": 0.999,
       "char_start": 2,
       "char_end": 3,
       "trailing_punct": "",
-      "group_id": "s9:w92",
+      "group_id": null,
       "syllable_ids": [
         117
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w118",
@@ -3393,16 +3644,17 @@
       "text": "法",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 23.07,
-      "end_s": 23.22,
-      "conf": 0.916,
+      "start_s": 23.04,
+      "end_s": 23.16,
+      "conf": 0.993,
       "char_start": 3,
       "char_end": 4,
       "trailing_punct": "",
-      "group_id": "s9:w93",
+      "group_id": null,
       "syllable_ids": [
         118
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w119",
@@ -3410,16 +3662,17 @@
       "text": "向",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 23.22,
-      "end_s": 23.35,
-      "conf": 0.775,
+      "start_s": 23.16,
+      "end_s": 23.34,
+      "conf": 0.838,
       "char_start": 4,
       "char_end": 5,
       "trailing_punct": "",
-      "group_id": "s9:w94",
+      "group_id": null,
       "syllable_ids": [
         119
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w120",
@@ -3427,16 +3680,17 @@
       "text": "前",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 23.53,
-      "end_s": 23.67,
-      "conf": 0.865,
+      "start_s": 23.34,
+      "end_s": 23.52,
+      "conf": 0.872,
       "char_start": 5,
       "char_end": 6,
       "trailing_punct": "",
-      "group_id": "s9:w95",
+      "group_id": null,
       "syllable_ids": [
         120
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w121",
@@ -3444,16 +3698,17 @@
       "text": "进",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 23.67,
-      "end_s": 23.81,
-      "conf": 0.433,
+      "start_s": 23.52,
+      "end_s": 23.76,
+      "conf": 0.013,
       "char_start": 6,
       "char_end": 7,
       "trailing_punct": "",
-      "group_id": "s9:w96",
+      "group_id": null,
       "syllable_ids": [
         121
-      ]
+      ],
+      "approx": false
     },
     {
       "id": "w122",
@@ -3461,16 +3716,17 @@
       "text": "步",
       "kind": "han",
       "n_syllables": 1,
-      "start_s": 23.81,
-      "end_s": 23.98,
-      "conf": 0.718,
+      "start_s": 23.76,
+      "end_s": 23.96,
+      "conf": 0.96,
       "char_start": 7,
       "char_end": 8,
       "trailing_punct": "",
-      "group_id": "s9:w97",
+      "group_id": null,
       "syllable_ids": [
         122
-      ]
+      ],
+      "approx": false
     }
   ],
   "chars": [
@@ -3481,11 +3737,11 @@
       "text": "奥",
       "kind": "han",
       "start_s": 0.5,
-      "end_s": 0.66,
-      "conf": 0.966,
+      "end_s": 0.64,
+      "conf": 0.914,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s0:w0",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3494,12 +3750,12 @@
       "token_id": "w1",
       "text": "运",
       "kind": "han",
-      "start_s": 0.66,
-      "end_s": 0.82,
-      "conf": 0.461,
+      "start_s": 0.64,
+      "end_s": 0.8,
+      "conf": 0.146,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s0:w1",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3508,12 +3764,12 @@
       "token_id": "w2",
       "text": "会",
       "kind": "han",
-      "start_s": 0.82,
-      "end_s": 0.93,
-      "conf": 0.834,
+      "start_s": 0.8,
+      "end_s": 0.98,
+      "conf": 0.994,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s0:w2",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3522,12 +3778,12 @@
       "token_id": "w3",
       "text": "是",
       "kind": "han",
-      "start_s": 0.93,
-      "end_s": 1.05,
-      "conf": 0.831,
+      "start_s": 0.98,
+      "end_s": 1.1,
+      "conf": 0.988,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s0:w3",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3536,12 +3792,12 @@
       "token_id": "w4",
       "text": "我",
       "kind": "han",
-      "start_s": 1.05,
-      "end_s": 1.23,
-      "conf": 0.687,
+      "start_s": 1.1,
+      "end_s": 1.22,
+      "conf": 1.0,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s0:w4",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3550,12 +3806,12 @@
       "token_id": "w5",
       "text": "的",
       "kind": "han",
-      "start_s": 1.23,
-      "end_s": 1.36,
-      "conf": 0.76,
+      "start_s": 1.22,
+      "end_s": 1.3,
+      "conf": 0.996,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s0:w4",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3564,12 +3820,12 @@
       "token_id": "w6",
       "text": "梦",
       "kind": "han",
-      "start_s": 1.36,
-      "end_s": 1.49,
-      "conf": 0.631,
+      "start_s": 1.3,
+      "end_s": 1.44,
+      "conf": 0.001,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s0:w5",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3578,12 +3834,12 @@
       "token_id": "w7",
       "text": "想",
       "kind": "han",
-      "start_s": 1.49,
-      "end_s": 1.64,
-      "conf": 0.868,
+      "start_s": 1.44,
+      "end_s": 1.6,
+      "conf": 0.977,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s0:w6",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3592,12 +3848,12 @@
       "token_id": "w8",
       "text": "没",
       "kind": "han",
-      "start_s": 1.64,
-      "end_s": 1.79,
-      "conf": 0.788,
+      "start_s": 1.6,
+      "end_s": 1.8,
+      "conf": 0.64,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s0:w7",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3606,12 +3862,12 @@
       "token_id": "w9",
       "text": "错",
       "kind": "han",
-      "start_s": 1.79,
-      "end_s": 1.91,
-      "conf": 0.619,
+      "start_s": 1.8,
+      "end_s": 2.1,
+      "conf": 0.476,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s0:w8",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3620,12 +3876,12 @@
       "token_id": "w10",
       "text": "但",
       "kind": "han",
-      "start_s": 1.91,
-      "end_s": 2.11,
-      "conf": 0.72,
+      "start_s": 2.1,
+      "end_s": 2.26,
+      "conf": 1.0,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s1:w9",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3634,12 +3890,12 @@
       "token_id": "w11",
       "text": "是",
       "kind": "han",
-      "start_s": 2.11,
-      "end_s": 2.23,
-      "conf": 0.868,
+      "start_s": 2.26,
+      "end_s": 2.38,
+      "conf": 1.0,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s1:w9",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3648,12 +3904,12 @@
       "token_id": "w12",
       "text": "我",
       "kind": "han",
-      "start_s": 2.23,
-      "end_s": 2.43,
-      "conf": 0.892,
+      "start_s": 2.38,
+      "end_s": 2.48,
+      "conf": 0.998,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s1:w10",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3662,12 +3918,12 @@
       "token_id": "w13",
       "text": "还",
       "kind": "han",
-      "start_s": 2.43,
-      "end_s": 2.57,
-      "conf": 0.633,
+      "start_s": 2.48,
+      "end_s": 2.68,
+      "conf": 0.983,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s1:w11",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3676,12 +3932,12 @@
       "token_id": "w14",
       "text": "有",
       "kind": "han",
-      "start_s": 2.57,
-      "end_s": 2.72,
-      "conf": 0.825,
+      "start_s": 2.68,
+      "end_s": 2.92,
+      "conf": 0.998,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s1:w11",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3690,12 +3946,12 @@
       "token_id": "w15",
       "text": "其",
       "kind": "han",
-      "start_s": 2.72,
-      "end_s": 2.87,
-      "conf": 0.618,
+      "start_s": 2.92,
+      "end_s": 3.04,
+      "conf": 1.0,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s1:w12",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3704,12 +3960,12 @@
       "token_id": "w16",
       "text": "他",
       "kind": "han",
-      "start_s": 2.87,
-      "end_s": 2.99,
-      "conf": 0.691,
+      "start_s": 3.04,
+      "end_s": 3.24,
+      "conf": 0.894,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s1:w13",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3718,12 +3974,12 @@
       "token_id": "w17",
       "text": "的",
       "kind": "han",
-      "start_s": 2.99,
-      "end_s": 3.13,
-      "conf": 0.512,
+      "start_s": 3.24,
+      "end_s": 3.32,
+      "conf": 0.995,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s1:w13",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3732,12 +3988,12 @@
       "token_id": "w18",
       "text": "梦",
       "kind": "han",
-      "start_s": 3.13,
-      "end_s": 3.25,
-      "conf": 0.868,
+      "start_s": 3.32,
+      "end_s": 3.46,
+      "conf": 0.137,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s1:w14",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3746,12 +4002,12 @@
       "token_id": "w19",
       "text": "想",
       "kind": "han",
-      "start_s": 3.25,
-      "end_s": 3.44,
-      "conf": 0.997,
+      "start_s": 3.46,
+      "end_s": 3.7,
+      "conf": 0.937,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s1:w15",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3760,12 +4016,12 @@
       "token_id": "w20",
       "text": "等",
       "kind": "han",
-      "start_s": 3.86,
-      "end_s": 4.05,
-      "conf": 0.848,
+      "start_s": 3.7,
+      "end_s": 3.84,
+      "conf": 1.0,
       "char_start": 10,
       "char_end": 11,
-      "group_id": "s1:w16",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3774,12 +4030,12 @@
       "token_id": "w21",
       "text": "着",
       "kind": "han",
-      "start_s": 4.05,
-      "end_s": 4.2,
-      "conf": 0.912,
+      "start_s": 3.84,
+      "end_s": 3.94,
+      "conf": 1.0,
       "char_start": 11,
       "char_end": 12,
-      "group_id": "s1:w17",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3788,12 +4044,12 @@
       "token_id": "w22",
       "text": "我",
       "kind": "han",
-      "start_s": 4.2,
-      "end_s": 4.35,
-      "conf": 0.81,
+      "start_s": 3.94,
+      "end_s": 4.08,
+      "conf": 0.966,
       "char_start": 12,
       "char_end": 13,
-      "group_id": "s1:w18",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3802,12 +4058,12 @@
       "token_id": "w23",
       "text": "去",
       "kind": "han",
-      "start_s": 4.35,
-      "end_s": 4.49,
-      "conf": 0.525,
+      "start_s": 4.08,
+      "end_s": 4.24,
+      "conf": 0.991,
       "char_start": 13,
       "char_end": 14,
-      "group_id": "s1:w19",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3816,12 +4072,12 @@
       "token_id": "w24",
       "text": "实",
       "kind": "han",
-      "start_s": 4.49,
-      "end_s": 4.6,
-      "conf": 0.834,
+      "start_s": 4.24,
+      "end_s": 4.42,
+      "conf": 0.975,
       "char_start": 14,
       "char_end": 15,
-      "group_id": "s1:w20",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3830,12 +4086,12 @@
       "token_id": "w25",
       "text": "现",
       "kind": "han",
-      "start_s": 4.6,
-      "end_s": 4.73,
-      "conf": 0.461,
+      "start_s": 4.42,
+      "end_s": 4.62,
+      "conf": 0.96,
       "char_start": 15,
       "char_end": 16,
-      "group_id": "s1:w21",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3844,12 +4100,12 @@
       "token_id": "w26",
       "text": "我",
       "kind": "han",
-      "start_s": 4.88,
-      "end_s": 5.06,
-      "conf": 0.736,
+      "start_s": 4.62,
+      "end_s": 4.74,
+      "conf": 1.0,
       "char_start": 16,
       "char_end": 17,
-      "group_id": "s1:w22",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3858,12 +4114,12 @@
       "token_id": "w27",
       "text": "的",
       "kind": "han",
-      "start_s": 5.06,
-      "end_s": 5.21,
-      "conf": 0.948,
+      "start_s": 4.74,
+      "end_s": 4.86,
+      "conf": 0.999,
       "char_start": 17,
       "char_end": 18,
-      "group_id": "s1:w22",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3872,12 +4128,12 @@
       "token_id": "w28",
       "text": "目",
       "kind": "han",
-      "start_s": 5.21,
-      "end_s": 5.36,
-      "conf": 0.495,
+      "start_s": 4.86,
+      "end_s": 5.04,
+      "conf": 0.973,
       "char_start": 18,
       "char_end": 19,
-      "group_id": "s1:w23",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3886,12 +4142,12 @@
       "token_id": "w29",
       "text": "标",
       "kind": "han",
-      "start_s": 5.36,
-      "end_s": 5.52,
-      "conf": 0.703,
+      "start_s": 5.04,
+      "end_s": 5.7,
+      "conf": 0.995,
       "char_start": 19,
       "char_end": 20,
-      "group_id": "s1:w24",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3900,12 +4156,12 @@
       "token_id": "w30",
       "text": "我",
       "kind": "han",
-      "start_s": 5.72,
-      "end_s": 5.82,
-      "conf": 0.799,
+      "start_s": 5.7,
+      "end_s": 5.8,
+      "conf": 0.999,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s2:w25",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3914,12 +4170,12 @@
       "token_id": "w31",
       "text": "的",
       "kind": "han",
-      "start_s": 5.82,
-      "end_s": 5.94,
-      "conf": 0.564,
+      "start_s": 5.8,
+      "end_s": 5.9,
+      "conf": 0.998,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s2:w25",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3928,12 +4184,12 @@
       "token_id": "w32",
       "text": "梦",
       "kind": "han",
-      "start_s": 5.94,
-      "end_s": 6.06,
-      "conf": 0.677,
+      "start_s": 5.9,
+      "end_s": 6.08,
+      "conf": 0.912,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s2:w26",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3942,12 +4198,12 @@
       "token_id": "w33",
       "text": "想",
       "kind": "han",
-      "start_s": 6.06,
-      "end_s": 6.15,
-      "conf": 0.531,
+      "start_s": 6.08,
+      "end_s": 6.34,
+      "conf": 0.957,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s2:w27",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3956,12 +4212,12 @@
       "token_id": "w34",
       "text": "其",
       "kind": "han",
-      "start_s": 6.15,
-      "end_s": 6.26,
-      "conf": 0.834,
+      "start_s": 6.34,
+      "end_s": 6.46,
+      "conf": 0.991,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s2:w28",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3970,12 +4226,12 @@
       "token_id": "w35",
       "text": "实",
       "kind": "han",
-      "start_s": 6.26,
-      "end_s": 6.39,
-      "conf": 0.393,
+      "start_s": 6.46,
+      "end_s": 6.58,
+      "conf": 0.993,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s2:w28",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3984,12 +4240,12 @@
       "token_id": "w36",
       "text": "还",
       "kind": "han",
-      "start_s": 6.39,
-      "end_s": 6.51,
-      "conf": 0.801,
+      "start_s": 6.58,
+      "end_s": 6.8,
+      "conf": 1.0,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s2:w29",
+      "group_id": null,
       "approx": false
     },
     {
@@ -3998,12 +4254,12 @@
       "token_id": "w37",
       "text": "远",
       "kind": "han",
-      "start_s": 6.51,
-      "end_s": 6.65,
-      "conf": 0.746,
+      "start_s": 6.8,
+      "end_s": 6.96,
+      "conf": 0.963,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s2:w30",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4012,12 +4268,12 @@
       "token_id": "w38",
       "text": "远",
       "kind": "han",
-      "start_s": 6.65,
-      "end_s": 6.83,
-      "conf": 0.735,
+      "start_s": 6.96,
+      "end_s": 7.12,
+      "conf": 0.906,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s2:w31",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4026,12 +4282,12 @@
       "token_id": "w39",
       "text": "没",
       "kind": "han",
-      "start_s": 6.83,
-      "end_s": 7.01,
-      "conf": 0.837,
+      "start_s": 7.12,
+      "end_s": 7.24,
+      "conf": 1.0,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s2:w32",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4040,12 +4296,12 @@
       "token_id": "w40",
       "text": "有",
       "kind": "han",
-      "start_s": 7.01,
-      "end_s": 7.18,
-      "conf": 0.687,
+      "start_s": 7.24,
+      "end_s": 7.32,
+      "conf": 0.998,
       "char_start": 10,
       "char_end": 11,
-      "group_id": "s2:w32",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4054,12 +4310,12 @@
       "token_id": "w41",
       "text": "结",
       "kind": "han",
-      "start_s": 7.18,
+      "start_s": 7.32,
       "end_s": 7.34,
-      "conf": 0.901,
+      "conf": 0.0,
       "char_start": 11,
       "char_end": 12,
-      "group_id": "s2:w33",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4068,12 +4324,12 @@
       "token_id": "w42",
       "text": "束",
       "kind": "han",
-      "start_s": 7.77,
-      "end_s": 7.94,
-      "conf": 0.906,
+      "start_s": 7.34,
+      "end_s": 7.36,
+      "conf": 0.0,
       "char_start": 12,
       "char_end": 13,
-      "group_id": "s2:w34",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4082,12 +4338,12 @@
       "token_id": "w43",
       "text": "网",
       "kind": "han",
-      "start_s": 8.32,
-      "end_s": 8.51,
-      "conf": 0.997,
+      "start_s": 8.3,
+      "end_s": 8.56,
+      "conf": 0.005,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s3:w35",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4096,12 +4352,12 @@
       "token_id": "w44",
       "text": "球",
       "kind": "han",
-      "start_s": 8.51,
-      "end_s": 8.62,
-      "conf": 0.834,
+      "start_s": 8.56,
+      "end_s": 8.78,
+      "conf": 0.989,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s3:w36",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4110,12 +4366,12 @@
       "token_id": "w45",
       "text": "最",
       "kind": "han",
-      "start_s": 8.62,
-      "end_s": 8.79,
-      "conf": 0.926,
+      "start_s": 8.78,
+      "end_s": 8.8,
+      "conf": 0.0,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s3:w37",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4124,12 +4380,12 @@
       "token_id": "w46",
       "text": "好",
       "kind": "han",
-      "start_s": 8.79,
-      "end_s": 8.99,
-      "conf": 0.618,
+      "start_s": 8.8,
+      "end_s": 8.88,
+      "conf": 0.0,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s3:w38",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4138,12 +4394,12 @@
       "token_id": "w47",
       "text": "的",
       "kind": "han",
-      "start_s": 8.99,
-      "end_s": 9.14,
-      "conf": 0.666,
+      "start_s": 9.62,
+      "end_s": 9.68,
+      "conf": 0.975,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s3:w38",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4152,12 +4408,12 @@
       "token_id": "w48",
       "text": "一",
       "kind": "han",
-      "start_s": 9.33,
-      "end_s": 9.52,
-      "conf": 0.997,
+      "start_s": 9.68,
+      "end_s": 9.74,
+      "conf": 0.001,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s3:w39",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4166,12 +4422,12 @@
       "token_id": "w49",
       "text": "点",
       "kind": "han",
-      "start_s": 9.52,
-      "end_s": 9.64,
-      "conf": 0.868,
+      "start_s": 9.74,
+      "end_s": 9.9,
+      "conf": 0.835,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s3:w39",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4180,12 +4436,12 @@
       "token_id": "w50",
       "text": "就",
       "kind": "han",
-      "start_s": 9.64,
-      "end_s": 9.76,
-      "conf": 0.868,
+      "start_s": 9.9,
+      "end_s": 10.02,
+      "conf": 0.0,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s3:w40",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4194,12 +4450,12 @@
       "token_id": "w51",
       "text": "是",
       "kind": "han",
-      "start_s": 9.76,
-      "end_s": 9.89,
-      "conf": 0.881,
+      "start_s": 10.02,
+      "end_s": 10.1,
+      "conf": 0.0,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s3:w40",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4208,12 +4464,12 @@
       "token_id": "w52",
       "text": "它",
       "kind": "han",
-      "start_s": 9.89,
-      "end_s": 10.0,
-      "conf": 0.674,
+      "start_s": 10.1,
+      "end_s": 10.22,
+      "conf": 0.095,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s3:w41",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4222,12 +4478,12 @@
       "token_id": "w53",
       "text": "永",
       "kind": "han",
-      "start_s": 10.0,
-      "end_s": 10.1,
-      "conf": 0.573,
+      "start_s": 10.22,
+      "end_s": 10.4,
+      "conf": 1.0,
       "char_start": 10,
       "char_end": 11,
-      "group_id": "s3:w42",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4236,12 +4492,12 @@
       "token_id": "w54",
       "text": "远",
       "kind": "han",
-      "start_s": 10.1,
-      "end_s": 10.25,
-      "conf": 0.948,
+      "start_s": 10.4,
+      "end_s": 10.54,
+      "conf": 0.999,
       "char_start": 11,
       "char_end": 12,
-      "group_id": "s3:w43",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4250,12 +4506,12 @@
       "token_id": "w55",
       "text": "都",
       "kind": "han",
-      "start_s": 10.25,
-      "end_s": 10.41,
-      "conf": 0.539,
+      "start_s": 10.54,
+      "end_s": 10.66,
+      "conf": 0.74,
       "char_start": 12,
       "char_end": 13,
-      "group_id": "s3:w44",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4264,12 +4520,12 @@
       "token_id": "w56",
       "text": "有",
       "kind": "han",
-      "start_s": 10.41,
-      "end_s": 10.56,
-      "conf": 0.774,
+      "start_s": 10.66,
+      "end_s": 10.82,
+      "conf": 0.143,
       "char_start": 13,
       "char_end": 14,
-      "group_id": "s3:w44",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4278,12 +4534,12 @@
       "token_id": "w57",
       "text": "比",
       "kind": "han",
-      "start_s": 10.56,
-      "end_s": 10.73,
-      "conf": 0.98,
+      "start_s": 10.82,
+      "end_s": 10.92,
+      "conf": 0.999,
       "char_start": 14,
       "char_end": 15,
-      "group_id": "s3:w45",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4292,12 +4548,12 @@
       "token_id": "w58",
       "text": "赛",
       "kind": "han",
-      "start_s": 11.0,
-      "end_s": 11.15,
-      "conf": 0.948,
+      "start_s": 10.92,
+      "end_s": 11.22,
+      "conf": 0.965,
       "char_start": 15,
       "char_end": 16,
-      "group_id": "s3:w46",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4306,12 +4562,12 @@
       "token_id": "w59",
       "text": "每",
       "kind": "han",
-      "start_s": 11.15,
-      "end_s": 11.24,
-      "conf": 0.382,
+      "start_s": 11.22,
+      "end_s": 11.34,
+      "conf": 0.289,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s4:w47",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4320,12 +4576,12 @@
       "token_id": "w60",
       "text": "一",
       "kind": "han",
-      "start_s": 11.24,
-      "end_s": 11.39,
-      "conf": 0.948,
+      "start_s": 11.34,
+      "end_s": 11.52,
+      "conf": 0.965,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s4:w48",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4334,12 +4590,12 @@
       "token_id": "w61",
       "text": "年",
       "kind": "han",
-      "start_s": 11.39,
-      "end_s": 11.55,
-      "conf": 0.915,
+      "start_s": 11.52,
+      "end_s": 11.74,
+      "conf": 0.509,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s4:w49",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4348,12 +4604,12 @@
       "token_id": "w62",
       "text": "我",
       "kind": "han",
-      "start_s": 11.55,
-      "end_s": 11.69,
-      "conf": 0.897,
+      "start_s": 11.74,
+      "end_s": 11.8,
+      "conf": 0.922,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s4:w50",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4362,12 +4618,12 @@
       "token_id": "w63",
       "text": "们",
       "kind": "han",
-      "start_s": 11.69,
-      "end_s": 11.8,
-      "conf": 0.436,
+      "start_s": 11.8,
+      "end_s": 11.96,
+      "conf": 0.767,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s4:w50",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4376,12 +4632,12 @@
       "token_id": "w64",
       "text": "都",
       "kind": "han",
-      "start_s": 11.97,
-      "end_s": 12.06,
-      "conf": 0.764,
+      "start_s": 11.96,
+      "end_s": 12.12,
+      "conf": 0.979,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s4:w51",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4390,12 +4646,12 @@
       "token_id": "w65",
       "text": "有",
       "kind": "han",
-      "start_s": 12.06,
-      "end_s": 12.15,
-      "conf": 0.386,
+      "start_s": 12.12,
+      "end_s": 12.2,
+      "conf": 0.996,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s4:w51",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4404,12 +4660,12 @@
       "token_id": "w66",
       "text": "比",
       "kind": "han",
-      "start_s": 12.15,
-      "end_s": 12.27,
-      "conf": 0.376,
+      "start_s": 12.2,
+      "end_s": 12.22,
+      "conf": 0.0,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s4:w52",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4418,12 +4674,12 @@
       "token_id": "w67",
       "text": "赛",
       "kind": "han",
-      "start_s": 12.63,
-      "end_s": 12.76,
-      "conf": 0.898,
+      "start_s": 12.22,
+      "end_s": 12.24,
+      "conf": 0.0,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s4:w53",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4432,12 +4688,12 @@
       "token_id": "w68",
       "text": "每",
       "kind": "han",
-      "start_s": 13.02,
-      "end_s": 13.26,
-      "conf": 0.986,
+      "start_s": 13.0,
+      "end_s": 13.12,
+      "conf": 0.998,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s5:w54",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4446,12 +4702,12 @@
       "token_id": "w69",
       "text": "一",
       "kind": "han",
-      "start_s": 13.26,
-      "end_s": 13.44,
-      "conf": 0.967,
+      "start_s": 13.12,
+      "end_s": 13.22,
+      "conf": 0.999,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s5:w55",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4460,12 +4716,12 @@
       "token_id": "w70",
       "text": "年",
       "kind": "han",
-      "start_s": 13.44,
-      "end_s": 13.72,
-      "conf": 0.948,
+      "start_s": 13.22,
+      "end_s": 13.42,
+      "conf": 0.96,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s5:w56",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4474,12 +4730,12 @@
       "token_id": "w71",
       "text": "都",
       "kind": "han",
-      "start_s": 13.72,
-      "end_s": 13.88,
-      "conf": 0.966,
+      "start_s": 13.42,
+      "end_s": 13.52,
+      "conf": 0.64,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s5:w57",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4488,12 +4744,12 @@
       "token_id": "w72",
       "text": "有",
       "kind": "han",
-      "start_s": 13.88,
-      "end_s": 14.09,
-      "conf": 1.0,
+      "start_s": 13.52,
+      "end_s": 13.7,
+      "conf": 0.999,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s5:w57",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4502,12 +4758,12 @@
       "token_id": "w73",
       "text": "更",
       "kind": "han",
-      "start_s": 14.09,
-      "end_s": 14.31,
-      "conf": 0.997,
+      "start_s": 13.7,
+      "end_s": 14.28,
+      "conf": 0.987,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s5:w58",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4516,12 +4772,12 @@
       "token_id": "w74",
       "text": "大",
       "kind": "han",
-      "start_s": 14.89,
-      "end_s": 15.08,
-      "conf": 0.997,
+      "start_s": 14.8,
+      "end_s": 14.92,
+      "conf": 0.0,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s5:w59",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4530,12 +4786,12 @@
       "token_id": "w75",
       "text": "的",
       "kind": "han",
-      "start_s": 15.08,
-      "end_s": 15.31,
-      "conf": 0.826,
+      "start_s": 14.92,
+      "end_s": 15.1,
+      "conf": 0.0,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s5:w59",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4544,12 +4800,12 @@
       "token_id": "w76",
       "text": "困",
       "kind": "han",
-      "start_s": 15.31,
-      "end_s": 15.57,
-      "conf": 0.787,
+      "start_s": 15.1,
+      "end_s": 15.28,
+      "conf": 0.998,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s5:w60",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4558,12 +4814,12 @@
       "token_id": "w77",
       "text": "难",
       "kind": "han",
-      "start_s": 15.57,
-      "end_s": 15.72,
-      "conf": 0.948,
+      "start_s": 15.28,
+      "end_s": 15.56,
+      "conf": 0.768,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s5:w61",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4572,12 +4828,12 @@
       "token_id": "w78",
       "text": "更",
       "kind": "han",
-      "start_s": 15.72,
-      "end_s": 15.91,
-      "conf": 0.997,
+      "start_s": 15.56,
+      "end_s": 15.7,
+      "conf": 0.994,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s6:w62",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4586,12 +4842,12 @@
       "token_id": "w79",
       "text": "大",
       "kind": "han",
-      "start_s": 15.91,
-      "end_s": 16.03,
-      "conf": 0.868,
+      "start_s": 15.7,
+      "end_s": 15.9,
+      "conf": 0.983,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s6:w63",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4600,12 +4856,12 @@
       "token_id": "w80",
       "text": "的",
       "kind": "han",
-      "start_s": 16.03,
-      "end_s": 16.15,
-      "conf": 0.739,
+      "start_s": 15.9,
+      "end_s": 16.06,
+      "conf": 0.988,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s6:w63",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4614,12 +4870,12 @@
       "token_id": "w81",
       "text": "山",
       "kind": "han",
-      "start_s": 16.15,
-      "end_s": 16.42,
-      "conf": 0.959,
+      "start_s": 16.06,
+      "end_s": 16.36,
+      "conf": 0.111,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s6:w64",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4628,12 +4884,12 @@
       "token_id": "w82",
       "text": "坡",
       "kind": "han",
-      "start_s": 16.42,
-      "end_s": 16.58,
-      "conf": 0.966,
+      "start_s": 16.36,
+      "end_s": 16.56,
+      "conf": 0.997,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s6:w65",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4642,12 +4898,12 @@
       "token_id": "w83",
       "text": "等",
       "kind": "han",
-      "start_s": 16.58,
-      "end_s": 16.73,
-      "conf": 0.948,
+      "start_s": 16.56,
+      "end_s": 16.72,
+      "conf": 1.0,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s6:w66",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4656,12 +4912,12 @@
       "token_id": "w84",
       "text": "着",
       "kind": "han",
-      "start_s": 16.73,
-      "end_s": 16.95,
-      "conf": 0.997,
+      "start_s": 16.72,
+      "end_s": 16.84,
+      "conf": 0.995,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s6:w67",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4670,12 +4926,12 @@
       "token_id": "w85",
       "text": "你",
       "kind": "han",
-      "start_s": 16.95,
-      "end_s": 17.14,
-      "conf": 0.95,
+      "start_s": 16.84,
+      "end_s": 16.98,
+      "conf": 0.925,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s6:w68",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4684,12 +4940,12 @@
       "token_id": "w86",
       "text": "去",
       "kind": "han",
-      "start_s": 17.14,
-      "end_s": 17.29,
-      "conf": 0.948,
+      "start_s": 16.98,
+      "end_s": 17.14,
+      "conf": 0.989,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s6:w69",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4698,12 +4954,12 @@
       "token_id": "w87",
       "text": "战",
       "kind": "han",
-      "start_s": 17.29,
-      "end_s": 17.45,
-      "conf": 0.372,
+      "start_s": 17.14,
+      "end_s": 17.36,
+      "conf": 0.866,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s6:w70",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4712,12 +4968,12 @@
       "token_id": "w88",
       "text": "胜",
       "kind": "han",
-      "start_s": 17.45,
-      "end_s": 17.64,
-      "conf": 0.977,
+      "start_s": 17.36,
+      "end_s": 17.6,
+      "conf": 0.666,
       "char_start": 10,
       "char_end": 11,
-      "group_id": "s6:w71",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4726,12 +4982,12 @@
       "token_id": "w89",
       "text": "因",
       "kind": "han",
-      "start_s": 18.2,
-      "end_s": 18.36,
-      "conf": 0.951,
+      "start_s": 18.28,
+      "end_s": 18.34,
+      "conf": 0.0,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s7:w72",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4740,12 +4996,12 @@
       "token_id": "w90",
       "text": "为",
       "kind": "han",
-      "start_s": 18.36,
-      "end_s": 18.52,
-      "conf": 0.752,
+      "start_s": 18.34,
+      "end_s": 18.8,
+      "conf": 0.996,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s7:w72",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4754,12 +5010,12 @@
       "token_id": "w91",
       "text": "如",
       "kind": "han",
-      "start_s": 18.52,
-      "end_s": 18.7,
-      "conf": 0.553,
+      "start_s": 18.8,
+      "end_s": 18.92,
+      "conf": 0.995,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s7:w73",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4768,12 +5024,12 @@
       "token_id": "w92",
       "text": "果",
       "kind": "han",
-      "start_s": 18.7,
-      "end_s": 18.94,
-      "conf": 0.587,
+      "start_s": 18.92,
+      "end_s": 19.04,
+      "conf": 0.998,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s7:w73",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4782,12 +5038,12 @@
       "token_id": "w93",
       "text": "我",
       "kind": "han",
-      "start_s": 18.94,
-      "end_s": 19.07,
-      "conf": 0.898,
+      "start_s": 19.04,
+      "end_s": 19.18,
+      "conf": 0.906,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s7:w74",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4796,12 +5052,12 @@
       "token_id": "w94",
       "text": "觉",
       "kind": "han",
-      "start_s": 19.07,
-      "end_s": 19.21,
-      "conf": 0.653,
+      "start_s": 19.18,
+      "end_s": 19.32,
+      "conf": 0.89,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s7:w74",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4810,12 +5066,12 @@
       "token_id": "w95",
       "text": "得",
       "kind": "han",
-      "start_s": 19.21,
-      "end_s": 19.34,
-      "conf": 0.898,
+      "start_s": 19.32,
+      "end_s": 19.56,
+      "conf": 0.899,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s7:w74",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4824,12 +5080,12 @@
       "token_id": "w96",
       "text": "太",
       "kind": "han",
-      "start_s": 19.34,
-      "end_s": 19.55,
-      "conf": 1.0,
+      "start_s": 19.56,
+      "end_s": 19.82,
+      "conf": 0.203,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s7:w75",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4838,12 +5094,12 @@
       "token_id": "w97",
       "text": "过",
       "kind": "han",
-      "start_s": 19.55,
-      "end_s": 19.69,
-      "conf": 0.925,
+      "start_s": 19.82,
+      "end_s": 20.02,
+      "conf": 0.968,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s7:w76",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4852,12 +5108,12 @@
       "token_id": "w98",
       "text": "于",
       "kind": "han",
-      "start_s": 19.69,
-      "end_s": 19.84,
-      "conf": 0.634,
+      "start_s": 20.02,
+      "end_s": 20.2,
+      "conf": 0.203,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s7:w77",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4866,12 +5122,12 @@
       "token_id": "w99",
       "text": "满",
       "kind": "han",
-      "start_s": 19.84,
-      "end_s": 20.07,
-      "conf": 0.867,
+      "start_s": 20.2,
+      "end_s": 20.42,
+      "conf": 0.997,
       "char_start": 10,
       "char_end": 11,
-      "group_id": "s7:w78",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4880,12 +5136,12 @@
       "token_id": "w100",
       "text": "足",
       "kind": "han",
-      "start_s": 20.07,
-      "end_s": 20.24,
-      "conf": 0.691,
+      "start_s": 20.42,
+      "end_s": 20.56,
+      "conf": 0.091,
       "char_start": 11,
       "char_end": 12,
-      "group_id": "s7:w79",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4894,12 +5150,12 @@
       "token_id": "w101",
       "text": "的",
       "kind": "han",
-      "start_s": 20.24,
-      "end_s": 20.39,
-      "conf": 0.948,
+      "start_s": 20.56,
+      "end_s": 20.68,
+      "conf": 0.984,
       "char_start": 12,
       "char_end": 13,
-      "group_id": "s7:w80",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4908,12 +5164,12 @@
       "token_id": "w102",
       "text": "话",
       "kind": "han",
-      "start_s": 20.59,
-      "end_s": 20.72,
-      "conf": 0.898,
+      "start_s": 20.68,
+      "end_s": 20.84,
+      "conf": 0.017,
       "char_start": 13,
       "char_end": 14,
-      "group_id": "s7:w80",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4922,12 +5178,12 @@
       "token_id": "w103",
       "text": "你",
       "kind": "han",
-      "start_s": 20.72,
-      "end_s": 20.85,
-      "conf": 0.898,
+      "start_s": 20.84,
+      "end_s": 20.94,
+      "conf": 0.016,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s8:w81",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4936,12 +5192,12 @@
       "token_id": "w104",
       "text": "可",
       "kind": "han",
-      "start_s": 20.85,
-      "end_s": 21.0,
-      "conf": 0.737,
+      "start_s": 20.94,
+      "end_s": 21.08,
+      "conf": 0.133,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s8:w82",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4950,12 +5206,12 @@
       "token_id": "w105",
       "text": "能",
       "kind": "han",
-      "start_s": 21.0,
-      "end_s": 21.19,
-      "conf": 0.819,
+      "start_s": 21.08,
+      "end_s": 21.18,
+      "conf": 0.878,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s8:w82",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4964,12 +5220,12 @@
       "token_id": "w106",
       "text": "就",
       "kind": "han",
-      "start_s": 21.19,
-      "end_s": 21.32,
-      "conf": 0.8,
+      "start_s": 21.18,
+      "end_s": 21.3,
+      "conf": 0.034,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s8:w83",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4978,12 +5234,12 @@
       "token_id": "w107",
       "text": "会",
       "kind": "han",
-      "start_s": 21.32,
+      "start_s": 21.3,
       "end_s": 21.46,
-      "conf": 0.925,
+      "conf": 0.906,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s8:w84",
+      "group_id": null,
       "approx": false
     },
     {
@@ -4992,12 +5248,12 @@
       "token_id": "w108",
       "text": "停",
       "kind": "han",
-      "start_s": 21.73,
-      "end_s": 21.86,
-      "conf": 0.587,
+      "start_s": 21.46,
+      "end_s": 21.72,
+      "conf": 0.435,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s8:w85",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5006,12 +5262,12 @@
       "token_id": "w109",
       "text": "滞",
       "kind": "han",
-      "start_s": 21.86,
-      "end_s": 21.98,
-      "conf": 0.868,
+      "start_s": 21.72,
+      "end_s": 21.84,
+      "conf": 0.006,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s8:w86",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5020,12 +5276,12 @@
       "token_id": "w110",
       "text": "在",
       "kind": "han",
-      "start_s": 21.98,
-      "end_s": 22.12,
-      "conf": 0.37,
+      "start_s": 21.84,
+      "end_s": 22.0,
+      "conf": 0.998,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s8:w87",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5034,12 +5290,12 @@
       "token_id": "w111",
       "text": "一",
       "kind": "han",
-      "start_s": 22.12,
-      "end_s": 22.26,
-      "conf": 0.814,
+      "start_s": 22.0,
+      "end_s": 22.08,
+      "conf": 1.0,
       "char_start": 8,
       "char_end": 9,
-      "group_id": "s8:w88",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5048,12 +5304,12 @@
       "token_id": "w112",
       "text": "个",
       "kind": "han",
-      "start_s": 22.26,
-      "end_s": 22.41,
-      "conf": 0.819,
+      "start_s": 22.08,
+      "end_s": 22.22,
+      "conf": 0.993,
       "char_start": 9,
       "char_end": 10,
-      "group_id": "s8:w88",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5062,12 +5318,12 @@
       "token_id": "w113",
       "text": "位",
       "kind": "han",
-      "start_s": 22.41,
-      "end_s": 22.54,
-      "conf": 0.6,
+      "start_s": 22.22,
+      "end_s": 22.42,
+      "conf": 0.999,
       "char_start": 10,
       "char_end": 11,
-      "group_id": "s8:w89",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5076,12 +5332,12 @@
       "token_id": "w114",
       "text": "置",
       "kind": "han",
-      "start_s": 22.54,
-      "end_s": 22.67,
-      "conf": 0.513,
+      "start_s": 22.42,
+      "end_s": 22.68,
+      "conf": 0.997,
       "char_start": 11,
       "char_end": 12,
-      "group_id": "s8:w90",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5090,12 +5346,12 @@
       "token_id": "w115",
       "text": "没",
       "kind": "han",
-      "start_s": 22.67,
-      "end_s": 22.79,
-      "conf": 0.445,
+      "start_s": 22.68,
+      "end_s": 22.78,
+      "conf": 1.0,
       "char_start": 0,
       "char_end": 1,
-      "group_id": "s9:w91",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5104,12 +5360,12 @@
       "token_id": "w116",
       "text": "有",
       "kind": "han",
-      "start_s": 22.79,
-      "end_s": 22.92,
-      "conf": 0.468,
+      "start_s": 22.78,
+      "end_s": 22.9,
+      "conf": 1.0,
       "char_start": 1,
       "char_end": 2,
-      "group_id": "s9:w91",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5118,12 +5374,12 @@
       "token_id": "w117",
       "text": "办",
       "kind": "han",
-      "start_s": 22.92,
-      "end_s": 23.07,
-      "conf": 0.948,
+      "start_s": 22.9,
+      "end_s": 23.04,
+      "conf": 0.999,
       "char_start": 2,
       "char_end": 3,
-      "group_id": "s9:w92",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5132,12 +5388,12 @@
       "token_id": "w118",
       "text": "法",
       "kind": "han",
-      "start_s": 23.07,
-      "end_s": 23.22,
-      "conf": 0.916,
+      "start_s": 23.04,
+      "end_s": 23.16,
+      "conf": 0.993,
       "char_start": 3,
       "char_end": 4,
-      "group_id": "s9:w93",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5146,12 +5402,12 @@
       "token_id": "w119",
       "text": "向",
       "kind": "han",
-      "start_s": 23.22,
-      "end_s": 23.35,
-      "conf": 0.775,
+      "start_s": 23.16,
+      "end_s": 23.34,
+      "conf": 0.838,
       "char_start": 4,
       "char_end": 5,
-      "group_id": "s9:w94",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5160,12 +5416,12 @@
       "token_id": "w120",
       "text": "前",
       "kind": "han",
-      "start_s": 23.53,
-      "end_s": 23.67,
-      "conf": 0.865,
+      "start_s": 23.34,
+      "end_s": 23.52,
+      "conf": 0.872,
       "char_start": 5,
       "char_end": 6,
-      "group_id": "s9:w95",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5174,12 +5430,12 @@
       "token_id": "w121",
       "text": "进",
       "kind": "han",
-      "start_s": 23.67,
-      "end_s": 23.81,
-      "conf": 0.433,
+      "start_s": 23.52,
+      "end_s": 23.76,
+      "conf": 0.013,
       "char_start": 6,
       "char_end": 7,
-      "group_id": "s9:w96",
+      "group_id": null,
       "approx": false
     },
     {
@@ -5188,60 +5444,64 @@
       "token_id": "w122",
       "text": "步",
       "kind": "han",
-      "start_s": 23.81,
-      "end_s": 23.98,
-      "conf": 0.718,
+      "start_s": 23.76,
+      "end_s": 23.96,
+      "conf": 0.96,
       "char_start": 7,
       "char_end": 8,
-      "group_id": "s9:w97",
+      "group_id": null,
       "approx": false
     }
   ],
   "quality": {
     "n_chars": 123,
     "n_syllables": 123,
+    "n_words": 123,
     "monotonicity_violations": 0,
     "syllable_ms": {
       "n": 123,
-      "min": 90.0,
-      "p10": 120.0,
-      "median": 150.0,
-      "p90": 200.0,
-      "max": 280.0
+      "min": 20.0,
+      "p10": 80.0,
+      "median": 140.0,
+      "p90": 240.0,
+      "max": 660.0
     },
+    "posterior": {
+      "n_tokens": 123,
+      "mean_logp": -2.0199,
+      "median_conf": 0.966,
+      "mean_conf": 0.7309,
+      "p10_conf": 0.0018,
+      "min_conf": 0.0,
+      "low_conf_rate": 0.2358
+    },
+    "coverage": {
+      "source_symbols": 123,
+      "ctc_targets": 123,
+      "oov": 0,
+      "oov_chars": [],
+      "coverage": 1.0,
+      "script_converted": 0,
+      "approx_tokens": 0
+    },
+    "low_confidence_syllables": 29,
+    "n_chunks": 6,
+    "chunk_feasible": true,
+    "alignment_score_per_frame": -0.277,
+    "degenerate_targets": 0,
+    "onset_median_ms": 160.0,
     "onset_envelope": {
-      "onset_percentile_mean": 0.8605,
-      "peak_hit_rate": 0.7642,
-      "speech_mean_onset": 0.2955,
-      "onset_mean": 0.6806,
-      "contrast_ratio": 2.303,
-      "point_biserial_r": 0.4321,
+      "onset_percentile_mean": 0.5484,
+      "peak_hit_rate": 0.0976,
       "nearest_peak_ms": {
         "n": 123,
-        "median_ms": 0.0,
-        "p90_ms": 10.0,
-        "within_50ms_rate": 0.9756,
-        "within_80ms_rate": 0.9837
-      },
-      "dp_peak_to_peak_ms": {
-        "n": 123,
-        "median_ms": 0.0,
-        "p90_ms": 10.0,
-        "within_50ms_rate": 0.9756,
-        "within_80ms_rate": 0.9837
+        "median_ms": 20.0,
+        "within_50ms_rate": 0.8374
       }
     },
-    "segment_anchor_dev_ms": {
-      "start_median": 90.0,
-      "end_median": 150.0
-    },
-    "low_confidence_syllables": 0,
-    "syllable_start_on_speech": 1.0,
-    "speech_fraction": 0.7549,
-    "n_words": 123,
-    "n_chunks": 16,
-    "feasible_chunks": 16,
-    "onset_median_ms": 150.0
+    "speech_fraction": 0.7549
   },
-  "warnings": []
+  "warnings": [
+    "29 low-confidence syllables"
+  ]
 }

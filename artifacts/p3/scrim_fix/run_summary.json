@@ -1,0 +1,58 @@
+{
+  "schema": "semotion.run/2",
+  "video": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "policy": {
+    "name": "smart_balanced",
+    "version": "1.0.0",
+    "sha256": "d61ac322e9bd1d74",
+    "source": "/Volumes/ZHITAI/Semantic Motion/policies/smart_balanced.json"
+  },
+  "director": {
+    "mode": "supplied",
+    "source": "file",
+    "decisions": 4
+  },
+  "elements": 5,
+  "coverage": 0.512,
+  "captions": 10,
+  "perception_used": true,
+  "render": {
+    "path": "artifacts/p3/scrim_fix/final.mp4",
+    "sha256": "cf0c022e2b5f7f9a31e1989297216d359fe4472ef83facc0f15717961e8612cd",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "frames": 625,
+    "duration_s": 25.0,
+    "bytes": 2458732
+  },
+  "elapsed_s": 16.9,
+  "repair_rounds": 0,
+  "repair_history": [],
+  "artifacts": {
+    "final.mp4": "artifacts/p3/scrim_fix/final.mp4",
+    "final_overlay.mp4": "artifacts/p3/scrim_fix/final_overlay.mp4",
+    "final_ink.mp4": "artifacts/p3/scrim_fix/final_ink.mp4",
+    "motion_ir.json": "artifacts/p3/scrim_fix/motion_ir.json",
+    "captions.json": "artifacts/p3/scrim_fix/captions.json",
+    "captions.srt": "artifacts/p3/scrim_fix/captions.srt",
+    "captions.ass": "artifacts/p3/scrim_fix/captions.ass",
+    "storyboard.png": "artifacts/p3/scrim_fix/storyboard.png",
+    "perception.json": "artifacts/p3/scrim_fix/perception.json",
+    "alignment.json": "artifacts/p3/scrim_fix/alignment.json"
+  },
+  "checks": {}
+}

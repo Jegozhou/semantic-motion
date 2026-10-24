@@ -1,0 +1,131 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+  "transcript_sha256": null,
+  "duration_s": 25.002688,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "keyword",
+      "text": "但是我还有其他的梦想等着",
+      "start_s": 1.91,
+      "end_s": 4.2,
+      "confidence": 0.78,
+      "source": "RULE_V2",
+      "segment_id": "s1",
+      "word_ids": [
+        "w10",
+        "w11",
+        "w12",
+        "w13",
+        "w14",
+        "w15",
+        "w16",
+        "w17",
+        "w18",
+        "w19",
+        "w20",
+        "w21"
+      ],
+      "items": []
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "我的梦想其实还远远没有结束",
+      "start_s": 5.72,
+      "end_s": 7.94,
+      "confidence": 0.78,
+      "source": "RULE_V2",
+      "segment_id": "s2",
+      "word_ids": [
+        "w30",
+        "w31",
+        "w32",
+        "w33",
+        "w34",
+        "w35",
+        "w36",
+        "w37",
+        "w38",
+        "w39",
+        "w40",
+        "w41",
+        "w42"
+      ],
+      "items": []
+    },
+    {
+      "id": "a02",
+      "kind": "keyword",
+      "text": "网球最好的一点就是",
+      "start_s": 8.32,
+      "end_s": 9.89,
+      "confidence": 0.72,
+      "source": "RULE_V2",
+      "segment_id": "s3",
+      "word_ids": [
+        "w43",
+        "w44",
+        "w45",
+        "w46",
+        "w47",
+        "w48",
+        "w49",
+        "w50",
+        "w51"
+      ],
+      "items": []
+    },
+    {
+      "id": "a03",
+      "kind": "keyword",
+      "text": "它永远都有比赛每一年",
+      "start_s": 9.89,
+      "end_s": 11.55,
+      "confidence": 0.72,
+      "source": "RULE_V2",
+      "segment_id": "s3",
+      "word_ids": [
+        "w52",
+        "w53",
+        "w54",
+        "w55",
+        "w56",
+        "w57",
+        "w58",
+        "w59",
+        "w60",
+        "w61"
+      ],
+      "items": []
+    },
+    {
+      "id": "a04",
+      "kind": "keyword",
+      "text": "你去战胜因为如果",
+      "start_s": 16.95,
+      "end_s": 18.94,
+      "confidence": 0.78,
+      "source": "RULE_V2",
+      "segment_id": "s6",
+      "word_ids": [
+        "w85",
+        "w86",
+        "w87",
+        "w88",
+        "w89",
+        "w90",
+        "w91",
+        "w92"
+      ],
+      "items": []
+    }
+  ],
+  "provenance": {
+    "method": "semotion.pipeline.auto_anchors (deterministic rules)",
+    "n_anchors": 5,
+    "truth_class": "MACHINE"
+  }
+}

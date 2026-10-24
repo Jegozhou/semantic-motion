@@ -1,0 +1,47 @@
+{
+  "schema": "semotion.run/2",
+  "video": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "elements": 5,
+  "coverage": 0.512,
+  "captions": 10,
+  "perception_used": true,
+  "render": {
+    "path": "artifacts/p3/policy_check/final.mp4",
+    "sha256": "b3c56f2331f2398678e2bc790b424f071f8cce3e8c23863393674f4fbb1c1513",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "frames": 625,
+    "duration_s": 25.0,
+    "bytes": 2426872
+  },
+  "elapsed_s": 13.2,
+  "repair_rounds": 0,
+  "repair_history": [],
+  "artifacts": {
+    "final.mp4": "artifacts/p3/policy_check/final.mp4",
+    "final_overlay.mp4": "artifacts/p3/policy_check/final_overlay.mp4",
+    "final_ink.mp4": "artifacts/p3/policy_check/final_ink.mp4",
+    "motion_ir.json": "artifacts/p3/policy_check/motion_ir.json",
+    "captions.json": "artifacts/p3/policy_check/captions.json",
+    "captions.srt": "artifacts/p3/policy_check/captions.srt",
+    "captions.ass": "artifacts/p3/policy_check/captions.ass",
+    "storyboard.png": "artifacts/p3/policy_check/storyboard.png",
+    "perception.json": "artifacts/p3/policy_check/perception.json",
+    "alignment.json": "artifacts/p3/policy_check/alignment.json"
+  },
+  "checks": {}
+}
