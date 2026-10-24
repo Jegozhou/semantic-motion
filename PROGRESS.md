@@ -18,6 +18,7 @@
 | 双跑确定性 | **DONE** | 625/625 帧 mean \|Δ\| = 0.0（`artifacts/v2/final_zq/qa/qa_metrics.json`） |
 | 严格 ink 起始帧（真正的"字落在词上"） | **DONE** | 5/5 元素 `ink_onset_delta_frames = 0`（ink-only pass，严格阈值 1 帧） |
 | 渲染后质检总判定 | **PASS** | 11/11 项 PASS：`artifacts/v2/final_zq/qa/qa_metrics.json` |
+| 自动修复回路 | **DONE** | `pipeline` 在 verify FAIL 时自动调用 `repair`（retime→relocate/shrink→scrim→drop）并重渲染重验，最多 2 轮；实测素材 0 轮修复即 PASS（`run_summary.json → repair_rounds`） |
 | Skill 安装 | **DONE（仓库内已热加载）**；`~/.claude` 与 `~/.dsh` 的写入被本会话沙箱拒绝 | `.dsh/skills/semantic-motion/`、`scripts/install_skill.py`（用户侧一条命令即可） |
 | 人工真值时间验收 | **NOT RUN** | 无真人标注语料；合成真值不能冒充真人精度 |
 

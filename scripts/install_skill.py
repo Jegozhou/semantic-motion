@@ -4,7 +4,7 @@
 The agent's own file sandbox usually cannot write outside its workspace, so this
 script is meant to be run once by the user (or by an unrestricted shell):
 
-    python3 /path/to/Semantic\ Motion/scripts/install_skill.py
+    python3 "/path/to/Semantic Motion/scripts/install_skill.py"
 
 It copies SKILL.md + references/ into every root that exists:
 

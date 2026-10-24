@@ -1,2 +1,2 @@
-$ ffmpeg -v error -y -i '/Volumes/ZHITAI/Semantic Motion/artifacts/regress/remux.mp4' -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpvuzrv9ns.s16le
+$ ffmpeg -v error -y -i '/Volumes/ZHITAI/Semantic Motion/artifacts/regress/remux.mp4' -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpfh0egnhi.s16le
 
