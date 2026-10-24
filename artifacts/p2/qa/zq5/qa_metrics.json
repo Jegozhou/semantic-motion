@@ -412,6 +412,81 @@
       },
       "method": "glyph pixels = overlay pixels close to style.color; background = rendered pixels around them (scrim included); WCAG ratio per 24px block, minimum block wins"
     },
+    "text_onset": {
+      "verdict": "NOT RUN",
+      "tolerance_frames": 1,
+      "ink_mode": "overlay_heuristic",
+      "ink_source": null,
+      "by_element": {
+        "el_1_c8961792": {
+          "window_start_frame": 0,
+          "anchor_onset_frame": 0,
+          "gate_pixels": 32,
+          "ink_source": null,
+          "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+          "text_onset_frame": null,
+          "ink_onset_delta_frames": null,
+          "max_ink_pixels": 0,
+          "verdict": "NOT RUN",
+          "note": "heuristic found no ink (diagnostic)",
+          "problems": []
+        },
+        "el_1_cede221a": {
+          "window_start_frame": 50,
+          "anchor_onset_frame": 50,
+          "gate_pixels": 35,
+          "ink_source": null,
+          "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+          "text_onset_frame": null,
+          "ink_onset_delta_frames": null,
+          "max_ink_pixels": 0,
+          "verdict": "NOT RUN",
+          "note": "heuristic found no ink (diagnostic)",
+          "problems": []
+        },
+        "el_3_ac80487a": {
+          "window_start_frame": 280,
+          "anchor_onset_frame": 280,
+          "gate_pixels": 41,
+          "ink_source": null,
+          "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+          "text_onset_frame": null,
+          "ink_onset_delta_frames": null,
+          "max_ink_pixels": 0,
+          "verdict": "NOT RUN",
+          "note": "heuristic found no ink (diagnostic)",
+          "problems": []
+        },
+        "el_1_511529f3": {
+          "window_start_frame": 540,
+          "anchor_onset_frame": 540,
+          "gate_pixels": 22,
+          "ink_source": null,
+          "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+          "text_onset_frame": null,
+          "ink_onset_delta_frames": null,
+          "max_ink_pixels": 0,
+          "verdict": "NOT RUN",
+          "note": "heuristic found no ink (diagnostic)",
+          "problems": []
+        },
+        "el_1_69d37695": {
+          "window_start_frame": 567,
+          "anchor_onset_frame": 567,
+          "gate_pixels": 34,
+          "ink_source": null,
+          "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+          "text_onset_frame": null,
+          "ink_onset_delta_frames": null,
+          "max_ink_pixels": 0,
+          "verdict": "NOT RUN",
+          "note": "heuristic found no ink (diagnostic)",
+          "problems": []
+        }
+      },
+      "method": "strict first-ink-frame measurement: renderer ink-only pass, element-box luma > 12, count > 32 px; scrim/captions are not in that pass, so a scrim can never satisfy this check",
+      "honesty": "without final_ink.mp4 the overlay-pass heuristic is reported but the verdict is NOT RUN"
+    },
     "displayed_text": {
       "verdict": "PASS",
       "not_run_elements": [],
@@ -1051,6 +1126,7 @@
     "person_occlusion": "PASS",
     "existing_text_collision": "PASS",
     "legibility": "PASS",
+    "text_onset": "NOT RUN",
     "displayed_text": "PASS",
     "scrim": "PASS",
     "layout": "PASS",
@@ -1171,6 +1247,19 @@
         "matched_chars": 10,
         "char_recall": 1.0,
         "ellipsis": false,
+        "problems": []
+      },
+      "text_onset": {
+        "window_start_frame": 0,
+        "anchor_onset_frame": 0,
+        "gate_pixels": 32,
+        "ink_source": null,
+        "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+        "text_onset_frame": null,
+        "ink_onset_delta_frames": null,
+        "max_ink_pixels": 0,
+        "verdict": "NOT RUN",
+        "note": "heuristic found no ink (diagnostic)",
         "problems": []
       },
       "scrim": {
@@ -1372,6 +1461,19 @@
         "ellipsis": false,
         "problems": []
       },
+      "text_onset": {
+        "window_start_frame": 50,
+        "anchor_onset_frame": 50,
+        "gate_pixels": 35,
+        "ink_source": null,
+        "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+        "text_onset_frame": null,
+        "ink_onset_delta_frames": null,
+        "max_ink_pixels": 0,
+        "verdict": "NOT RUN",
+        "note": "heuristic found no ink (diagnostic)",
+        "problems": []
+      },
       "scrim": {
         "id": "el_1_cede221a",
         "kind": "scrim_right",
@@ -1569,6 +1671,19 @@
         "matched_chars": 24,
         "char_recall": 1.0,
         "ellipsis": false,
+        "problems": []
+      },
+      "text_onset": {
+        "window_start_frame": 280,
+        "anchor_onset_frame": 280,
+        "gate_pixels": 41,
+        "ink_source": null,
+        "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+        "text_onset_frame": null,
+        "ink_onset_delta_frames": null,
+        "max_ink_pixels": 0,
+        "verdict": "NOT RUN",
+        "note": "heuristic found no ink (diagnostic)",
         "problems": []
       },
       "scrim": {
@@ -1770,6 +1885,19 @@
         "ellipsis": false,
         "problems": []
       },
+      "text_onset": {
+        "window_start_frame": 540,
+        "anchor_onset_frame": 540,
+        "gate_pixels": 22,
+        "ink_source": null,
+        "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+        "text_onset_frame": null,
+        "ink_onset_delta_frames": null,
+        "max_ink_pixels": 0,
+        "verdict": "NOT RUN",
+        "note": "heuristic found no ink (diagnostic)",
+        "problems": []
+      },
       "scrim": {
         "id": "el_1_511529f3",
         "kind": "scrim_right",
@@ -1969,6 +2097,19 @@
         "ellipsis": false,
         "problems": []
       },
+      "text_onset": {
+        "window_start_frame": 567,
+        "anchor_onset_frame": 567,
+        "gate_pixels": 34,
+        "ink_source": null,
+        "method": "overlay-pass heuristic: glyph-coloured pixels above scrim luminance (diagnostic only)",
+        "text_onset_frame": null,
+        "ink_onset_delta_frames": null,
+        "max_ink_pixels": 0,
+        "verdict": "NOT RUN",
+        "note": "heuristic found no ink (diagnostic)",
+        "problems": []
+      },
       "scrim": {
         "id": "el_1_69d37695",
         "kind": "scrim_right",
@@ -2059,6 +2200,7 @@
     "source": "inputs/zhengqinwen_25s.mp4",
     "rendered": "artifacts/v2/demo_zq5/final.mp4",
     "overlay_only": "artifacts/v2/demo_zq5/final_overlay.mp4",
+    "ink_only": null,
     "second_render": null,
     "masks": "artifacts/p2/perception/zhengqinwen_25s/perception.json",
     "ir_sha256": null
@@ -2078,6 +2220,8 @@
     "font_floor_frac": 0.045,
     "font_floor": "IR fit.min_font_px is authoritative; legacy v1 floor is a hard check for style.font_size_px; otherwise a warning",
     "lower_third": "face/hand overlap = 0; body overlap reported, not a failure",
+    "text_onset_tolerance_frames": 1,
+    "text_onset": "first ink pixel frame on the overlay-only pass must be within 1 frame of the window start",
     "determinism_mean": 0.05,
     "determinism_max": 32
   },
@@ -2089,6 +2233,7 @@
     "displayed text is OCR of the isolated overlay pass (mid-hold); OCR errors are possible and ocr_text is included for inspection",
     "rendered footprint must keep 2.5 % of canvas width/height from the edges and two elements' footprints may overlap at most 0.5 % of the smaller box",
     "scrim/band backdrops are checked separately: alpha region ∩ person must be 0 (lower_third: face/hands only) and text contrast is measured on rendered pixels",
+    "text_onset is strict (ink, not scrim): overlay-only pass required; a dark scrim does not satisfy it",
     "protected burned-in text comes from ir.perception.existing_text when present (design2 filters venue signage); otherwise from the mask document"
   ],
   "tool_versions": {

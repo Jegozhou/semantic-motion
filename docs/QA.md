@@ -300,7 +300,7 @@ measured silhouette/contrast proxies; audio aesthetics.
 |---|---|---|---|
 | demo, deliberately bad overlay over the face | **FAIL** | face overlap **6,719,704 px**, 9.34 % of frame / 31.08 % of person, worst frame 61 | `artifacts/p2/qa/qa_bad/qa_metrics.json`, `worst_occlusion_crop.png` |
 | same clip after `repair.py` relocation | **PASS** | face 0 px, person 0.0 %, contrast 13.85, text onset frame 30/30 (+0), determinism mean/max 0.0 over 120 frames | `artifacts/p2/qa/qa_fixed/`, `artifacts/p2/qa/repair/repairs.json` |
-| v2 draft render (`demo_zq5`) | **PASS** | person 0.0, contrast 5.45, text onset all +0, displayed text 5/5, scrim person 0, layout 48 px margin | `artifacts/p2/qa/zq5/` |
+| v2 draft render (`demo_zq5`) | **PASS** | person 0.0, contrast 5.45, displayed text 5/5, scrim person 0, layout 48 px margin; `text_onset` NOT RUN (that draft predates the ink pass) | `artifacts/p2/qa/zq5/` |
 | v2 full-quality pair (`final_zq` / `final_zq_2`) | **PASS** | 11/11 checks; face/hand/person 0; contrast min 7.28; text onset all +0; OCR 5/5; scrim 0 px; determinism 625 frames mean/max 0.0 | `artifacts/p2/qa/final_zq/` |
 
 Demo reproduction: `artifacts/p2/qa/run_demo.sh` (or step-by-step commands in

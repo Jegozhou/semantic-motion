@@ -61,8 +61,15 @@ second full-quality render `artifacts/v2/final_zq_2/`.
 | displayed text | OCR matches IR copy, no truncation | exact |
 | determinism | 625/625 frames, mean \|Δ\| = 0.0 | ≤0.05/255 |
 
-Evidence: `artifacts/v2/final_zq/qa/qa_metrics.json`,
-`artifacts/p2/qa/final_zq/qa_metrics.json`, `artifacts/v2/final_zq/qa/contact_sheet.png`.
+**Final gate: 11/11 checks PASS** (`render_integrity, footprint, person_occlusion,
+existing_text_collision, legibility, text_onset, displayed_text, scrim, layout, timing,
+determinism`). Evidence: `artifacts/v2/final_zq/qa/qa_metrics.json`,
+`artifacts/p2/qa/final_zq/qa_metrics.json`, `artifacts/v2/final_zq/qa/contact_sheet.png`,
+`delivery/06_v2_real_footage_16x9/qa_metrics.json`. The strict `text_onset` check reads the
+renderer's ink-only pass (`final_ink.mp4`) — glyphs on black, no scrim — so a scrim can
+never satisfy it; all five elements report a 0-frame delta.
+
+Test suite: **228 passed, 24 subtests** (`pytest tests/ -q`).
 
 Caption timing is character-level: `align.py` scores **P50 2.75 / P90 7.56 ms** on 147
 known unit boundaries from TTS fixtures, against **P90 ~200 ms** for the previous

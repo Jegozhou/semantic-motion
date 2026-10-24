@@ -412,7 +412,7 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T15:48:10Z",
+    "created_utc": "2026-10-24T15:55:01Z",
     "method": "calibration:asr_word_nearest_to_synth_truth",
     "n_anchors": 14,
     "truth_class": "SYNTH_KNOWN",
