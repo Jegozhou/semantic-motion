@@ -2,7 +2,7 @@
 $ /Volumes/ZHITAI/Semantic Motion/.venv/bin/python -m semotion.perception --video inputs/zhengqinwen_25s.mp4 --out artifacts/v2/final_zq/perception.json --mask-dir artifacts/v2/final_zq/masks
 video      : inputs/zhengqinwen_25s.mp4
 out        : /Volumes/ZHITAI/Semantic Motion/artifacts/v2/final_zq/perception.json
-backend    : apple-vision  cache=hit  runtime=0.059s
+backend    : apple-vision  cache=hit  runtime=0.073s
 samples    : 125 @ 5.0 Hz (1920x920 @ 25.0 fps)
 mask       : coverage mean 0.1879  failures=3
 text       : 11 regions
@@ -31,3 +31,19 @@ quiet zones: 12 (person_overlap==0: 12)
              Z11 score=0.713 bbox=[1482, 630, 422, 221] side        person=0.0 text=0.0 edge=0.067
              Z12 score=0.702 bbox=[38, 558, 422, 101] lower_third person=0.0 text=0.0 edge=0.0498
 VALIDATE   : OK
+
+$ /Volumes/ZHITAI/Semantic Motion/.venv/bin/python -m semotion.verify2 --ir artifacts/v2/final_zq/motion_ir.json --source inputs/zhengqinwen_25s.mp4 --rendered artifacts/v2/final_zq/final.mp4 --masks artifacts/v2/final_zq/perception.json --overlay-only artifacts/v2/final_zq/final_overlay.mp4 --ink-only artifacts/v2/final_zq/final_ink.mp4 --out-dir artifacts/v2/final_zq/qa
+render_integrity             PASS
+footprint                    PASS
+person_occlusion             PASS
+existing_text_collision      PASS
+legibility                   PASS
+text_onset                   PASS
+displayed_text               PASS
+scrim                        PASS
+layout                       PASS
+timing                       PASS
+determinism                  NOT RUN
+OVERALL PASS
+metrics: artifacts/v2/final_zq/qa/qa_metrics.json
+contact sheet: artifacts/v2/final_zq/qa/contact_sheet.png

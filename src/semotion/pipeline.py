@@ -58,6 +58,8 @@ class RunConfig:
     captions_path: str | None = None
     draft: bool = False
     verify: bool = True
+    auto_repair: bool = True
+    max_repair_rounds: int = 2
     max_elements: int = 8
     min_gap_s: float = 0.9
     language: str | None = None
@@ -398,15 +400,66 @@ def run(cfg: RunConfig) -> dict:
     _log(f"design: {len(ir['elements'])} elements, coverage "
          f"{ir['layout_audit']['coverage']:.0%}")
 
-    # render
-    _log("rendering" + (" (draft)" if cfg.draft else " (full quality)"))
-    manifest = render2.render(
-        ir, cfg.video, out / "final.mp4", captions=captions_doc,
-        perception=perception, overlay_pass=True, draft=cfg.draft,
-        log_path=out / "render.log",
-        progress=lambda i, n: print(f"\r  {i}/{n}", end="", flush=True))
-    print()
-    render2.contact_sheet(ir, out / "final.mp4", out / "storyboard.png")
+    # render + verify (+ deterministic repair loop)
+    repair_history: list[dict] = []
+    metrics = None
+    manifest = None
+    rounds = 0
+    while True:
+        _log("rendering" + (" (draft)" if cfg.draft else " (full quality)")
+             + (f" [round {rounds + 1}]" if rounds else ""))
+        manifest = render2.render(
+            ir, cfg.video, out / "final.mp4", captions=captions_doc,
+            perception=perception, overlay_pass=True, draft=cfg.draft,
+            log_path=out / "render.log",
+            progress=lambda i, n: print(f"\r  {i}/{n}", end="", flush=True))
+        print()
+        render2.contact_sheet(ir, out / "final.mp4", out / "storyboard.png")
+        if not (cfg.verify and (out / "final_overlay.mp4").exists()):
+            break
+        _log("verifying rendered output")
+        qa_dir = out / "qa"
+        qa_dir.mkdir(exist_ok=True)
+        _run_module("semotion.verify2", [
+            "--ir", str(out / "motion_ir.json"), "--source", cfg.video,
+            "--rendered", str(out / "final.mp4"),
+            "--masks", str(out / "perception.json") if (out / "perception.json").exists()
+            else str(cfg.perception or ""),
+            "--overlay-only", str(out / "final_overlay.mp4"),
+            "--ink-only", str(out / "final_ink.mp4"),
+            "--out-dir", str(qa_dir)], log)
+        metrics = _load(qa_dir / "qa_metrics.json")
+        verdict = (metrics or {}).get("verdict")
+        _log(f"verify: {verdict}")
+        if verdict == "PASS" or not cfg.auto_repair or rounds >= cfg.max_repair_rounds:
+            break
+        # deterministic repair: rewrite the IR, then re-render and re-verify
+        repair_dir = out / "repair"
+        repair_dir.mkdir(exist_ok=True)
+        _log("repairing failed layout (deterministic ladder)")
+        _run_module("semotion.repair", [
+            "--ir", str(out / "motion_ir.json"),
+            "--metrics", str(qa_dir / "qa_metrics.json"),
+            "--masks", str(out / "perception.json") if (out / "perception.json").exists()
+            else str(cfg.perception or ""),
+            "--out-dir", str(repair_dir)], log)
+        repaired = _load(repair_dir / "motion_ir.repaired.json")
+        rep_doc = _load(repair_dir / "repairs.json") or {}
+        change = {"round": rounds + 1,
+                  "before_verdict": verdict,
+                  "summary": rep_doc.get("summary"),
+                  "actions": [{"element": r.get("element_id"), "action": r.get("action"),
+                               "reason": r.get("reason")} for r in rep_doc.get("repairs") or []]}
+        repair_history.append(change)
+        if not repaired or (rep_doc.get("summary") or {}).get("repaired", 0) == 0:
+            _log("repair found nothing it can fix deterministically; stopping")
+            break
+        if not (out / "motion_ir.initial.json").exists():
+            (out / "motion_ir.initial.json").write_text(
+                json.dumps(ir, ensure_ascii=False, indent=2), encoding="utf-8")
+        ir = repaired
+        _write(ir, out / "motion_ir.json")
+        rounds += 1
 
     summary = {
         "schema": SCHEMA,
@@ -415,39 +468,28 @@ def run(cfg: RunConfig) -> dict:
         "coverage": ir["layout_audit"]["coverage"],
         "captions": len((captions_doc or {}).get("cues") or []),
         "perception_used": bool(perception.get("frames")),
-        "render": manifest["output"],
+        "render": manifest["output"] if manifest else None,
         "elapsed_s": round(time.time() - t0, 1),
+        "repair_rounds": rounds,
+        "repair_history": repair_history,
         "artifacts": {}, "checks": {},
     }
-    for name in ("final.mp4", "final_overlay.mp4", "motion_ir.json", "captions.json",
-                 "captions.srt", "captions.ass", "storyboard.png", "perception.json",
-                 "alignment.json", "anchors.json"):
+    for name in ("final.mp4", "final_overlay.mp4", "final_ink.mp4", "motion_ir.json",
+                 "motion_ir.initial.json", "captions.json", "captions.srt", "captions.ass",
+                 "storyboard.png", "perception.json", "alignment.json", "anchors.json",
+                 "qa/qa_metrics.json", "repair/repairs.json"):
         p = out / name
         if p.exists():
             summary["artifacts"][name] = str(p)
 
-    if cfg.verify and (out / "final_overlay.mp4").exists():
-        _log("verifying rendered output")
-        qa_dir = out / "qa"
-        qa_dir.mkdir(exist_ok=True)
-        rc = _run_module("semotion.verify2", [
-            "--ir", str(out / "motion_ir.json"), "--source", cfg.video,
-            "--rendered", str(out / "final.mp4"),
-            "--masks", str(out / "perception.json") if (out / "perception.json").exists()
-            else str(cfg.perception or ""),
-            "--overlay-only", str(out / "final_overlay.mp4"),
-            "--out-dir", str(qa_dir)], log)
-        metrics = _load(qa_dir / "qa_metrics.json")
-        if metrics:
-            summary["checks"] = {
-                "verdict": metrics.get("verdict"),
-                "checks": {k: v.get("verdict") for k, v in
-                           (metrics.get("checks") or {}).items()},
-            }
-            shutil.copy(qa_dir / "qa_metrics.json", out / "qa_metrics.json")
-            final = dict(summary)
-            _write(final, out / "run_summary.json")
-            _log(f"verify: {summary['checks']['verdict']}")
+    if metrics:
+        summary["checks"] = {
+            "verdict": metrics.get("verdict"),
+            "checks": {k: v.get("verdict") for k, v in (metrics.get("checks") or {}).items()},
+        }
+        shutil.copy(out / "qa" / "qa_metrics.json", out / "qa_metrics.json")
+        if (out / "qa" / "contact_sheet.png").exists():
+            shutil.copy(out / "qa" / "contact_sheet.png", out / "qa_contact_sheet.png")
     _write(summary, out / "run_summary.json")
     _log(f"done in {summary['elapsed_s']}s -> {out / 'final.mp4'}")
     return summary
@@ -468,6 +510,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     r.add_argument("--captions-path")
     r.add_argument("--draft", action="store_true")
     r.add_argument("--no-verify", action="store_true")
+    r.add_argument("--no-repair", action="store_true",
+                   help="verify but do not auto-repair failed layouts")
+    r.add_argument("--max-repair-rounds", type=int, default=2)
     r.add_argument("--max-elements", type=int, default=8)
     r.add_argument("--min-gap", type=float, default=0.9)
     r.add_argument("--language")
@@ -477,7 +522,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                     perception=args.perception, anchors=args.anchors,
                     decisions=args.decisions, captions_mode=args.captions,
                     captions_path=args.captions_path, draft=args.draft,
-                    verify=not args.no_verify, max_elements=args.max_elements,
+                    verify=not args.no_verify, auto_repair=not args.no_repair,
+                    max_repair_rounds=args.max_repair_rounds,
+                    max_elements=args.max_elements,
                     min_gap_s=args.min_gap, language=args.language, force=args.force)
     summary = run(cfg)
     verdict = (summary.get("checks") or {}).get("verdict")

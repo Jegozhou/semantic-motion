@@ -28,17 +28,36 @@
     "duration_s": 25.0,
     "bytes": 9704711
   },
-  "elapsed_s": 19.6,
+  "elapsed_s": 30.3,
+  "repair_rounds": 0,
+  "repair_history": [],
   "artifacts": {
     "final.mp4": "artifacts/v2/final_zq/final.mp4",
     "final_overlay.mp4": "artifacts/v2/final_zq/final_overlay.mp4",
+    "final_ink.mp4": "artifacts/v2/final_zq/final_ink.mp4",
     "motion_ir.json": "artifacts/v2/final_zq/motion_ir.json",
     "captions.json": "artifacts/v2/final_zq/captions.json",
     "captions.srt": "artifacts/v2/final_zq/captions.srt",
     "captions.ass": "artifacts/v2/final_zq/captions.ass",
     "storyboard.png": "artifacts/v2/final_zq/storyboard.png",
     "perception.json": "artifacts/v2/final_zq/perception.json",
-    "alignment.json": "artifacts/v2/final_zq/alignment.json"
+    "alignment.json": "artifacts/v2/final_zq/alignment.json",
+    "qa/qa_metrics.json": "artifacts/v2/final_zq/qa/qa_metrics.json"
   },
-  "checks": {}
+  "checks": {
+    "verdict": "PASS",
+    "checks": {
+      "render_integrity": "PASS",
+      "footprint": "PASS",
+      "person_occlusion": "PASS",
+      "existing_text_collision": "PASS",
+      "legibility": "PASS",
+      "text_onset": "PASS",
+      "displayed_text": "PASS",
+      "scrim": "PASS",
+      "layout": "PASS",
+      "timing": "PASS",
+      "determinism": "NOT RUN"
+    }
+  }
 }

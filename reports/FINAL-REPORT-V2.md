@@ -53,11 +53,12 @@ second full-quality render `artifacts/v2/final_zq_2/`.
 | face occlusion | 0 px | 0 |
 | person occlusion | 0.0 % of frame, 0.0 % of person | ≤0.2 % / ≤0.5 % |
 | burned-in text collision | 0 px over protected regions | 0 |
-| legibility (WCAG) | min 6.43 : 1 | ≥4.5 |
+| legibility (WCAG) | min 7.28 : 1 | ≥4.5 |
 | layout margins | 48 px (2.5 % of width) | ≥2.5 % |
 | concurrent collisions | 0 | 0 |
 | timing, appearance vs anchor | 0 frames on all 5 elements | ≤1 frame (40 ms) |
-| ink on the anchor frame | first ink frame = window frame 0, all 5 elements (8.4k–25.7k ink px) | ≤1 frame |
+| timing, exit vs window end | 0 frames on all 5 elements | ≤1 frame |
+| ink on the anchor frame | first ink frame = window frame 0, all 5 elements (strict ink-only pass, gate 32 px) | ≤1 frame |
 | displayed text | OCR matches IR copy, no truncation | exact |
 | determinism | 625/625 frames, mean \|Δ\| = 0.0 | ≤0.05/255 |
 
@@ -160,7 +161,10 @@ cd "Semantic Motion" && export PYTHONPATH=src
 ```
 
 Runtime on the reference machine (M4, 16 GB): perception 18.7 s cold / 0.05 s cached,
-alignment 0.1 s, design 2 s, full-quality render 15 s. No network, no paid API.
+alignment 0.1 s, design 2 s, full-quality render 15 s, full QA 6 s; the whole pipeline
+with verification takes ~30 s for this 25 s clip. No network, no paid API. The pipeline
+auto-repairs a failed layout (retime → relocate/shrink → scrim → drop) and re-verifies,
+up to 2 rounds.
 
 ## 8. Next steps that would actually raise the ceiling
 
