@@ -1,0 +1,215 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G2",
+  "input_sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6",
+  "ir_sha256": "e75e35376a589570d914c66856b0e10c24bd227672e2c67fdc5aa50fb31c0ee9",
+  "render_sha256": "5aeb2a04f0cdd4631ff0543f7c7e52fdd9055f01fb6f345ee141629bf10ea1a4",
+  "timing": {
+    "samples": 2,
+    "elements": 5,
+    "detected_onsets": 5,
+    "rows": [
+      {
+        "element_id": "el_ke01",
+        "effect": "keyword",
+        "text": "所以",
+        "window_start_s": 15.84,
+        "rendered_onset_s": 15.84,
+        "anchor_start_s": 15.85,
+        "fidelity_ms": 10.0,
+        "target_onset_s": 15.8346,
+        "truth_unit": "u06",
+        "error_ms": 5.44,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 19.046,
+        "detect_threshold": 0.952
+      },
+      {
+        "element_id": "el_ke02",
+        "effect": "keyword",
+        "text": "先对齐,再",
+        "window_start_s": 16.72,
+        "rendered_onset_s": 16.72,
+        "anchor_start_s": 16.7,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 22.536,
+        "detect_threshold": 11.268
+      },
+      {
+        "element_id": "el_ke03",
+        "effect": "keyword",
+        "text": "流程",
+        "window_start_s": 20.08,
+        "rendered_onset_s": 20.08,
+        "anchor_start_s": 20.08,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 20.827,
+        "detect_threshold": 1.041
+      },
+      {
+        "element_id": "el_ke04",
+        "effect": "keyword",
+        "text": "底线",
+        "window_start_s": 21.04,
+        "rendered_onset_s": 21.08,
+        "anchor_start_s": 21.06,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 20.579,
+        "detect_threshold": 10.289
+      },
+      {
+        "element_id": "el_ke05",
+        "effect": "keyword",
+        "text": "先说结论",
+        "window_start_s": 21.6,
+        "rendered_onset_s": 21.64,
+        "anchor_start_s": 21.6,
+        "fidelity_ms": 40.0,
+        "target_onset_s": 21.5902,
+        "truth_unit": "u08",
+        "error_ms": 49.77,
+        "detected": true,
+        "measurable_against_truth": true,
+        "peak_mean_abs_diff": 22.727,
+        "detect_threshold": 11.364
+      }
+    ],
+    "source": "SYNTH_KNOWN",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 5,
+      "p50_ms": 20.0,
+      "max_ms": 40.0
+    },
+    "p50_ms": 27.61,
+    "p90_ms": 49.77,
+    "max_ms": 49.77,
+    "by_effect": {
+      "keyword": {
+        "n": 2,
+        "p50_ms": 27.61,
+        "max_ms": 49.77
+      }
+    },
+    "frame_quantum_ms": 40.0,
+    "verdict": "PASS",
+    "note": "rendered onset measured inside each element box; target = independent SYNTH_KNOWN unit start of a unit the anchor begins. ASR never defines the target. n<50 is exploratory, not a P90 claim."
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 0,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 73,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 73,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 5,
+      "sampled_frames": 73
+    },
+    "raster_containment": {
+      "changed_pixels": 54285,
+      "inside_declared_box": 54285,
+      "value": 0.0,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 0,
+      "frames_with_faces": 0,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 2,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 26.18,
+    "duration_rendered_s": 26.197,
+    "duration_delta_s": 0.017,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 651,
+    "frames_rendered": 651,
+    "audio": {
+      "src": {
+        "n_samples": 2514944,
+        "duration_s": 26.197333,
+        "rms_db": -22.009,
+        "peak_db": -6.662
+      },
+      "rendered": {
+        "n_samples": 2514944,
+        "duration_s": 26.197333,
+        "rms_db": -22.01,
+        "peak_db": -6.662
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.001,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+    "rendered": "artifacts/g2/matrix/fx_b/keyword/fx_b_zh_landscape_keyword.mp4",
+    "truth": "tests/fixtures/clips/fx_b_zh_landscape/ground_truth.json",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

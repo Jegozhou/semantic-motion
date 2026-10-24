@@ -1,0 +1,31 @@
+{
+  "id": "fx_face_zh_portrait",
+  "voice": "Tingting",
+  "rate": 175,
+  "width": 1080, "height": 1920, "fps": 25,
+  "gap_s": 0.32, "lead_in_s": 0.5, "tail_s": 0.7,
+  "palette": "studio_warm",
+  "camera_motion": "static",
+  "seed": 21,
+  "portrait": {
+    "path": "assets/media/portraits/obama_official.jpg",
+    "box": [172, 192, 736, 760],
+    "license": "CC BY 3.0 — Pete Souza, Official portrait of Barack Obama, Wikimedia Commons",
+    "note": "Real photographed face composited into generated artwork. TEST FIXTURE ONLY — never present as real footage."
+  },
+  "purpose": "G2 face-avoidance fixture: real detectable face + Chinese speech + numbers/list/card so all four effects can be tested against a genuine face box.",
+  "units": [
+    {"id": "u01", "text": "大家好", "role": "plain"},
+    {"id": "u02", "text": "先看三个数字", "role": "number"},
+    {"id": "u03", "text": "九成的失败来自时间", "role": "number"},
+    {"id": "u04", "text": "第一步是对齐", "role": "list_item"},
+    {"id": "u05", "text": "第二步是布局", "role": "list_item"},
+    {"id": "u06", "text": "第三步是渲染", "role": "list_item"},
+    {"id": "u07", "text": "关键是别挡住脸", "role": "keyword"},
+    {"id": "u08", "text": "所以我们先测遮挡", "role": "keyword"},
+    {"id": "u09", "text": "百分之七十的返工", "role": "number"},
+    {"id": "u10", "text": "都出在时间不对", "role": "plain"},
+    {"id": "u11", "text": "结论是先对齐再谈样式", "role": "keyword"},
+    {"id": "u12", "text": "这就是这套流程的底线", "role": "plain"}
+  ]
+}

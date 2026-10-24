@@ -1,0 +1,754 @@
+{
+  "schema": "semotion.transcript/1",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+    "duration_s": 24.2,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "language": "zh",
+  "model": {
+    "name": "faster-whisper",
+    "family": "whisper",
+    "size": "medium",
+    "device": "cpu",
+    "compute_type": "int8",
+    "version": "1.2.1",
+    "ctranslate2_version": "4.8.3",
+    "path": "/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f",
+    "beam_size": 5,
+    "word_timestamps": true
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start_s": 0.64,
+      "end_s": 3.94,
+      "text": "大家好,今天聊一个真实的痛点。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    },
+    {
+      "id": "s1",
+      "start_s": 4.22,
+      "end_s": 7.66,
+      "text": "抠播视频最难的地方,其实是节奏。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    },
+    {
+      "id": "s2",
+      "start_s": 7.92,
+      "end_s": 11.04,
+      "text": "九成的剪辑,都卡在三个问题。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    },
+    {
+      "id": "s3",
+      "start_s": 11.42,
+      "end_s": 13.98,
+      "text": "第一,不知道什么时候加字。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    },
+    {
+      "id": "s4",
+      "start_s": 14.36,
+      "end_s": 16.54,
+      "text": "第二,加了又挡住脸。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    },
+    {
+      "id": "s5",
+      "start_s": 16.88,
+      "end_s": 19.74,
+      "text": "第三,该一次就要重做一遍。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    },
+    {
+      "id": "s6",
+      "start_s": 20.0,
+      "end_s": 23.22,
+      "text": "我们把这套流程,做成了自动化。",
+      "avg_logprob": -0.128805,
+      "no_speech_prob": 0.466922
+    }
+  ],
+  "words": [
+    {
+      "id": "w0",
+      "segment_id": "s0",
+      "text": "大家好,",
+      "start_s": 0.64,
+      "end_s": 1.16,
+      "probability": 0.919907,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w1",
+      "segment_id": "s0",
+      "text": "今天",
+      "start_s": 1.78,
+      "end_s": 2.06,
+      "probability": 0.983417,
+      "char_start": 4,
+      "char_end": 6
+    },
+    {
+      "id": "w2",
+      "segment_id": "s0",
+      "text": "聊",
+      "start_s": 2.06,
+      "end_s": 2.34,
+      "probability": 0.991659,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w3",
+      "segment_id": "s0",
+      "text": "一个",
+      "start_s": 2.34,
+      "end_s": 2.64,
+      "probability": 0.604046,
+      "char_start": 7,
+      "char_end": 9
+    },
+    {
+      "id": "w4",
+      "segment_id": "s0",
+      "text": "真",
+      "start_s": 2.64,
+      "end_s": 2.96,
+      "probability": 0.991223,
+      "char_start": 9,
+      "char_end": 10
+    },
+    {
+      "id": "w5",
+      "segment_id": "s0",
+      "text": "实",
+      "start_s": 2.96,
+      "end_s": 3.1,
+      "probability": 0.999229,
+      "char_start": 10,
+      "char_end": 11
+    },
+    {
+      "id": "w6",
+      "segment_id": "s0",
+      "text": "的",
+      "start_s": 3.1,
+      "end_s": 3.3,
+      "probability": 0.997666,
+      "char_start": 11,
+      "char_end": 12
+    },
+    {
+      "id": "w7",
+      "segment_id": "s0",
+      "text": "痛",
+      "start_s": 3.3,
+      "end_s": 3.42,
+      "probability": 0.998572,
+      "char_start": 12,
+      "char_end": 13
+    },
+    {
+      "id": "w8",
+      "segment_id": "s0",
+      "text": "点。",
+      "start_s": 3.42,
+      "end_s": 3.94,
+      "probability": 0.997952,
+      "char_start": 13,
+      "char_end": 15
+    },
+    {
+      "id": "w9",
+      "segment_id": "s1",
+      "text": "抠",
+      "start_s": 4.22,
+      "end_s": 4.28,
+      "probability": 0.543094,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w10",
+      "segment_id": "s1",
+      "text": "播",
+      "start_s": 4.28,
+      "end_s": 4.52,
+      "probability": 0.977053,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w11",
+      "segment_id": "s1",
+      "text": "视",
+      "start_s": 4.52,
+      "end_s": 4.8,
+      "probability": 0.989865,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w12",
+      "segment_id": "s1",
+      "text": "频",
+      "start_s": 4.8,
+      "end_s": 4.96,
+      "probability": 0.999803,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w13",
+      "segment_id": "s1",
+      "text": "最",
+      "start_s": 4.96,
+      "end_s": 5.22,
+      "probability": 0.996261,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w14",
+      "segment_id": "s1",
+      "text": "难",
+      "start_s": 5.22,
+      "end_s": 5.46,
+      "probability": 0.993431,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w15",
+      "segment_id": "s1",
+      "text": "的",
+      "start_s": 5.46,
+      "end_s": 5.62,
+      "probability": 0.998402,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w16",
+      "segment_id": "s1",
+      "text": "地方,",
+      "start_s": 5.62,
+      "end_s": 6.02,
+      "probability": 0.999374,
+      "char_start": 7,
+      "char_end": 10
+    },
+    {
+      "id": "w17",
+      "segment_id": "s1",
+      "text": "其实",
+      "start_s": 6.52,
+      "end_s": 6.78,
+      "probability": 0.984662,
+      "char_start": 10,
+      "char_end": 12
+    },
+    {
+      "id": "w18",
+      "segment_id": "s1",
+      "text": "是",
+      "start_s": 6.78,
+      "end_s": 7.1,
+      "probability": 0.999059,
+      "char_start": 12,
+      "char_end": 13
+    },
+    {
+      "id": "w19",
+      "segment_id": "s1",
+      "text": "节",
+      "start_s": 7.1,
+      "end_s": 7.38,
+      "probability": 0.997311,
+      "char_start": 13,
+      "char_end": 14
+    },
+    {
+      "id": "w20",
+      "segment_id": "s1",
+      "text": "奏。",
+      "start_s": 7.38,
+      "end_s": 7.66,
+      "probability": 0.999777,
+      "char_start": 14,
+      "char_end": 16
+    },
+    {
+      "id": "w21",
+      "segment_id": "s2",
+      "text": "九",
+      "start_s": 7.92,
+      "end_s": 8.12,
+      "probability": 0.71926,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w22",
+      "segment_id": "s2",
+      "text": "成",
+      "start_s": 8.12,
+      "end_s": 8.36,
+      "probability": 0.995073,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w23",
+      "segment_id": "s2",
+      "text": "的",
+      "start_s": 8.36,
+      "end_s": 8.58,
+      "probability": 0.994793,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w24",
+      "segment_id": "s2",
+      "text": "剪",
+      "start_s": 8.58,
+      "end_s": 8.8,
+      "probability": 0.999116,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w25",
+      "segment_id": "s2",
+      "text": "辑,",
+      "start_s": 8.8,
+      "end_s": 9.2,
+      "probability": 0.976939,
+      "char_start": 4,
+      "char_end": 6
+    },
+    {
+      "id": "w26",
+      "segment_id": "s2",
+      "text": "都",
+      "start_s": 9.42,
+      "end_s": 9.6,
+      "probability": 0.99087,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w27",
+      "segment_id": "s2",
+      "text": "卡",
+      "start_s": 9.6,
+      "end_s": 9.84,
+      "probability": 0.992214,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w28",
+      "segment_id": "s2",
+      "text": "在",
+      "start_s": 9.84,
+      "end_s": 10.08,
+      "probability": 0.998938,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w29",
+      "segment_id": "s2",
+      "text": "三",
+      "start_s": 10.08,
+      "end_s": 10.4,
+      "probability": 0.971659,
+      "char_start": 9,
+      "char_end": 10
+    },
+    {
+      "id": "w30",
+      "segment_id": "s2",
+      "text": "个",
+      "start_s": 10.4,
+      "end_s": 10.56,
+      "probability": 0.998649,
+      "char_start": 10,
+      "char_end": 11
+    },
+    {
+      "id": "w31",
+      "segment_id": "s2",
+      "text": "问题。",
+      "start_s": 10.56,
+      "end_s": 11.04,
+      "probability": 0.999013,
+      "char_start": 11,
+      "char_end": 14
+    },
+    {
+      "id": "w32",
+      "segment_id": "s3",
+      "text": "第一,",
+      "start_s": 11.42,
+      "end_s": 11.8,
+      "probability": 0.941234,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w33",
+      "segment_id": "s3",
+      "text": "不知道",
+      "start_s": 12.1,
+      "end_s": 12.72,
+      "probability": 0.971512,
+      "char_start": 3,
+      "char_end": 6
+    },
+    {
+      "id": "w34",
+      "segment_id": "s3",
+      "text": "什么",
+      "start_s": 12.72,
+      "end_s": 13.04,
+      "probability": 0.992102,
+      "char_start": 6,
+      "char_end": 8
+    },
+    {
+      "id": "w35",
+      "segment_id": "s3",
+      "text": "时候",
+      "start_s": 13.04,
+      "end_s": 13.46,
+      "probability": 0.997854,
+      "char_start": 8,
+      "char_end": 10
+    },
+    {
+      "id": "w36",
+      "segment_id": "s3",
+      "text": "加",
+      "start_s": 13.46,
+      "end_s": 13.78,
+      "probability": 0.992395,
+      "char_start": 10,
+      "char_end": 11
+    },
+    {
+      "id": "w37",
+      "segment_id": "s3",
+      "text": "字。",
+      "start_s": 13.78,
+      "end_s": 13.98,
+      "probability": 0.997723,
+      "char_start": 11,
+      "char_end": 13
+    },
+    {
+      "id": "w38",
+      "segment_id": "s4",
+      "text": "第二,",
+      "start_s": 14.36,
+      "end_s": 14.76,
+      "probability": 0.976422,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w39",
+      "segment_id": "s4",
+      "text": "加",
+      "start_s": 15.18,
+      "end_s": 15.34,
+      "probability": 0.99222,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w40",
+      "segment_id": "s4",
+      "text": "了",
+      "start_s": 15.34,
+      "end_s": 15.48,
+      "probability": 0.999014,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w41",
+      "segment_id": "s4",
+      "text": "又",
+      "start_s": 15.48,
+      "end_s": 15.68,
+      "probability": 0.959394,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w42",
+      "segment_id": "s4",
+      "text": "挡",
+      "start_s": 15.68,
+      "end_s": 15.86,
+      "probability": 0.990374,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w43",
+      "segment_id": "s4",
+      "text": "住",
+      "start_s": 15.86,
+      "end_s": 16.12,
+      "probability": 0.987867,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w44",
+      "segment_id": "s4",
+      "text": "脸。",
+      "start_s": 16.12,
+      "end_s": 16.54,
+      "probability": 0.99611,
+      "char_start": 8,
+      "char_end": 10
+    },
+    {
+      "id": "w45",
+      "segment_id": "s5",
+      "text": "第三,",
+      "start_s": 16.88,
+      "end_s": 17.3,
+      "probability": 0.997929,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w46",
+      "segment_id": "s5",
+      "text": "该",
+      "start_s": 17.7,
+      "end_s": 17.86,
+      "probability": 0.983522,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w47",
+      "segment_id": "s5",
+      "text": "一次",
+      "start_s": 17.86,
+      "end_s": 18.22,
+      "probability": 0.929121,
+      "char_start": 4,
+      "char_end": 6
+    },
+    {
+      "id": "w48",
+      "segment_id": "s5",
+      "text": "就",
+      "start_s": 18.22,
+      "end_s": 18.54,
+      "probability": 0.996429,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w49",
+      "segment_id": "s5",
+      "text": "要",
+      "start_s": 18.54,
+      "end_s": 18.76,
+      "probability": 0.998512,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w50",
+      "segment_id": "s5",
+      "text": "重",
+      "start_s": 18.76,
+      "end_s": 19.0,
+      "probability": 0.995392,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w51",
+      "segment_id": "s5",
+      "text": "做",
+      "start_s": 19.0,
+      "end_s": 19.24,
+      "probability": 0.962005,
+      "char_start": 9,
+      "char_end": 10
+    },
+    {
+      "id": "w52",
+      "segment_id": "s5",
+      "text": "一",
+      "start_s": 19.24,
+      "end_s": 19.48,
+      "probability": 0.996335,
+      "char_start": 10,
+      "char_end": 11
+    },
+    {
+      "id": "w53",
+      "segment_id": "s5",
+      "text": "遍。",
+      "start_s": 19.48,
+      "end_s": 19.74,
+      "probability": 0.999434,
+      "char_start": 11,
+      "char_end": 13
+    },
+    {
+      "id": "w54",
+      "segment_id": "s6",
+      "text": "我们",
+      "start_s": 20.0,
+      "end_s": 20.24,
+      "probability": 0.989083,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w55",
+      "segment_id": "s6",
+      "text": "把",
+      "start_s": 20.24,
+      "end_s": 20.52,
+      "probability": 0.998914,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w56",
+      "segment_id": "s6",
+      "text": "这",
+      "start_s": 20.52,
+      "end_s": 20.76,
+      "probability": 0.998136,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w57",
+      "segment_id": "s6",
+      "text": "套",
+      "start_s": 20.76,
+      "end_s": 20.96,
+      "probability": 0.999038,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w58",
+      "segment_id": "s6",
+      "text": "流",
+      "start_s": 20.96,
+      "end_s": 21.26,
+      "probability": 0.994161,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w59",
+      "segment_id": "s6",
+      "text": "程,",
+      "start_s": 21.26,
+      "end_s": 21.66,
+      "probability": 0.999905,
+      "char_start": 6,
+      "char_end": 8
+    },
+    {
+      "id": "w60",
+      "segment_id": "s6",
+      "text": "做",
+      "start_s": 22.02,
+      "end_s": 22.16,
+      "probability": 0.993574,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w61",
+      "segment_id": "s6",
+      "text": "成",
+      "start_s": 22.16,
+      "end_s": 22.4,
+      "probability": 0.999741,
+      "char_start": 9,
+      "char_end": 10
+    },
+    {
+      "id": "w62",
+      "segment_id": "s6",
+      "text": "了",
+      "start_s": 22.4,
+      "end_s": 22.62,
+      "probability": 0.999579,
+      "char_start": 10,
+      "char_end": 11
+    },
+    {
+      "id": "w63",
+      "segment_id": "s6",
+      "text": "自",
+      "start_s": 22.62,
+      "end_s": 22.78,
+      "probability": 0.962169,
+      "char_start": 11,
+      "char_end": 12
+    },
+    {
+      "id": "w64",
+      "segment_id": "s6",
+      "text": "动",
+      "start_s": 22.78,
+      "end_s": 23.02,
+      "probability": 0.999849,
+      "char_start": 12,
+      "char_end": 13
+    },
+    {
+      "id": "w65",
+      "segment_id": "s6",
+      "text": "化。",
+      "start_s": 23.02,
+      "end_s": 23.22,
+      "probability": 0.994231,
+      "char_start": 13,
+      "char_end": 15
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:17:02Z",
+    "command": "faster-whisper medium (/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f) device=cpu compute_type=int8 language=zh word_timestamps=True beam_size=5 vad_filter=False :: tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "truth_class": "MACHINE_WEAK",
+    "engine": "faster-whisper (CTranslate2)",
+    "elapsed_s": 12.077,
+    "language_probability": 1.0,
+    "n_segments": 7,
+    "n_words": 66
+  }
+}

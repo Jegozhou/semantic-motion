@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g2/face_stress/fx_face_zh_portrait/fx_face_zh_portrait_motion.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpgy9lzc84.s16le
+
+
+render manifest: artifacts/g2/face_stress/fx_face_zh_portrait/render_manifest.json
+verdict: PASS

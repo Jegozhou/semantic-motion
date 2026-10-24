@@ -1,4 +1,4 @@
-$ ffmpeg -v error -y -i artifacts/g1/final_calibration/fx_t3_zh_phrase/fx_t3_zh_phrase_motion.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmps8dkxf6q.s16le
+$ ffmpeg -v error -y -i artifacts/g1/final_calibration/fx_t3_zh_phrase/fx_t3_zh_phrase_motion.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpe8t5_avj.s16le
 
 
 render manifest: artifacts/g1/final_calibration/fx_t3_zh_phrase/render_manifest.json

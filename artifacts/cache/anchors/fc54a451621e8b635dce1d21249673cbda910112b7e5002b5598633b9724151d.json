@@ -147,7 +147,7 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:40:58Z",
+    "created_utc": "2026-10-24T10:43:42Z",
     "method": "asr_word_spans+rule_classifier",
     "n_anchors": 9,
     "kinds": {

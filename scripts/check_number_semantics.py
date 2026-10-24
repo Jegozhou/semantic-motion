@@ -1,150 +1,213 @@
 #!/usr/bin/env python3
-"""Check that numeric overlays end on the semantically correct value.
+"""Verify numeric overlays settle on the semantically correct value.
 
-Reads the Motion IR, finds every `number` element, extracts the rendered frame just
-before the element disappear, crops the declared box and OCRs it (tesseract with a
-digit whitelist). The expected value comes from `content.numeric` when the IR
-carries it, otherwise it is parsed from `content.text` with the same dialect rules
-the renderer uses (Chinese numerals -> arabic, 成 -> x10 %).
+Method (deterministic, no OCR guesswork)
+----------------------------------------
+For every `number` element in the Motion IR:
 
-Exit code 0 when every checked value matches, 1 otherwise. Unreadable crops are
-reported as `UNREADABLE` and count as failures: a number overlay we cannot verify
-is not a pass.
+1. extract the rendered frame where the count-up has settled (and the matching
+   source frame, frame-exact via `select=eq(n,..)`);
+2. re-render the *expected* element tile from the IR itself with the same
+   deterministic rasteriser (`raster.element_spec` + `effects.number.draw`);
+3. composite that tile over the source crop (the panel is semi-transparent, so a
+   naive crop comparison would be wrong) and compare with the actual rendered crop;
+4. repeat with a deliberately wrong value (value/2) and require the expected tile
+   to match clearly better than the decoy — that guards against a vacuous pass.
+
+Verdicts: PASS only when the expected composite matches within tolerance *and*
+the decoy is clearly worse. Anything else is FAIL and never counted as a pass.
+Exit code 0 on PASS/NOT RUN, 1 on FAIL.
 """
 from __future__ import annotations
 
+import argparse
 import json
-import re
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
+import numpy as np
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from semotion import media  # noqa: E402
+from semotion import effects, media, raster  # noqa: E402
 
-CN_DIGITS = {"零": 0, "一": 1, "二": 2, "两": 2, "俩": 2, "三": 3, "四": 4,
-             "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
-
-
-def expected_value(element: dict) -> tuple[float, str] | None:
-    """Return (value, display_kind) for a numeric element."""
-    content = element.get("content") or {}
-    numeric = content.get("numeric")
-    if isinstance(numeric, dict):
-        for key in ("value", "target", "final", "number"):
-            if isinstance(numeric.get(key), (int, float)):
-                return float(numeric[key]), str(numeric.get("kind") or "plain")
-    text = str(content.get("text") or "")
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(%|％)?", text)
-    if m:
-        val = float(m.group(1))
-        return val, ("percent" if m.group(2) else "plain")
-    m = re.search(r"([零一二两俩三四五六七八九十百]+)\s*(成|个|次|倍|分|%)?", text)
-    if m:
-        raw, unit = m.group(1), m.group(2) or ""
-        if raw == "十":
-            val = 10.0
-        elif raw == "百":
-            val = 100.0
-        else:
-            val = float(CN_DIGITS.get(raw[0], 0))
-        if unit == "成":
-            return val * 10.0, "percent"
-        return val, ("percent" if unit in ("%", "分") else "plain")
-    return None
+# Tolerances are set from measured behaviour: an H.264 CRF-18 render differs from a
+# fresh raster by a few units of antialiasing noise (mean ≈2.2, p99 ≈19), while a
+# wrong value produced by the decoy differs by an order of magnitude (p99 ≈138).
+TOL_MEAN = 3.5        # mean |Δ| over the box (0..255)
+TOL_P99 = 40          # 99th percentile |Δ| for the correct value
+DECOY_P99_MIN = 80    # the half-value decoy must be clearly worse
+DECOY_MEAN_MULT = 1.6
 
 
-def _tess(png: Path, psm: int, *, cjk: bool = False) -> str:
-    argv = ["tesseract", str(png), "stdout", "--psm", str(psm)]
-    if cjk:
-        # unit/plain numbers carry a Chinese unit glyph (3秒, 6次); a digits-only
-        # whitelist forces tesseract to hallucinate digits out of that glyph.
-        argv += ["-l", "chi_sim+eng"]
-    else:
-        argv += ["-c", "tessedit_char_whitelist=0123456789.%"]
-    out = subprocess.run(argv, capture_output=True, text=True)
-    return (out.stdout or "").strip()
+def _frame_at(video: Path, frame: int, dst: Path) -> None:
+    subprocess.run([media.FFMPEG, "-v", "error", "-y", "-i", str(video),
+                    "-vf", f"select=eq(n\\,{frame})", "-vsync", "0",
+                    "-frames:v", "1", str(dst)], check=True)
 
 
-def ocr_crop(png: Path, *, cjk: bool = False) -> tuple[str, dict]:
-    """OCR a rendered number with two page-segmentation modes and report both."""
+def _crop(img: Image.Image, box: list[int]) -> Image.Image:
+    x, y, w, h = (int(v) for v in box)
+    return img.crop((x, y, x + w, y + h)).convert("RGBA")
+
+
+def _alpha_at(element: dict, t_rel: float, window_s: float) -> float:
+    """Total entrance*exit opacity of the element at this relative time."""
+    motion = element.get("motion") or {}
+    enter_dur = max(1e-3, float((motion.get("enter") or {}).get("dur_s") or 0.26))
+    eased = raster.base.ease(str((motion.get("enter") or {}).get("ease") or "out_cubic"),
+                             min(1.0, max(0.0, t_rel / enter_dur)))
+    alpha_enter, _ = raster._enter(eased, motion)
+    return alpha_enter * raster._exit_alpha(t_rel, window_s, motion)
+
+
+def _best_frame(el: dict, fps: float) -> tuple[int, float]:
+    """Pick the most opaque frame after the count-up settled (strongest evidence)."""
+    win = el["window"]
+    window_s = (float(win["end_s"]) - float(win["start_s"])) or 1.0
+    start, end = int(win["start_frame"]), int(win["end_frame"])
+    lo = start + int(round(0.30 * fps))
+    hi = max(lo + 1, end - 1)
+    best_f, best_a = lo, -1.0
+    for f in range(lo, hi + 1):
+        a = _alpha_at(el, f / fps - float(win["start_s"]), window_s)
+        if a > best_a + 1e-6:
+            best_f, best_a = f, a
+    return min(best_f, end - 1), window_s
+
+
+def _tile(element: dict, canvas: dict, *, value: float | None, t_rel: float,
+          window_s: float) -> Image.Image:
+    """Re-render the tile exactly as raster.py would at this relative time.
+
+    effects.draw paints the settled artwork; the entrance/exit alpha and scale are
+    applied by raster.py around it, so they are applied here too — otherwise a
+    sample taken while the element fades would compare against a full-opacity tile.
+    """
+    el = json.loads(json.dumps(element))          # deep copy
+    if value is not None:
+        numeric = el["content"].setdefault("numeric", {})
+        numeric["value"] = float(value)
+    spec = raster.element_spec(el, canvas)
+    tile = effects.draw(el, canvas, spec, t_rel=t_rel, window_s=window_s)
+
+    motion = el.get("motion") or {}
+    enter_dur = max(1e-3, float((motion.get("enter") or {}).get("dur_s") or 0.26))
+    eased = raster.base.ease(str((motion.get("enter") or {}).get("ease") or "out_cubic"),
+                             min(1.0, max(0.0, t_rel / enter_dur)))
+    alpha_enter, scale = raster._enter(eased, motion)
+    alpha_exit = raster._exit_alpha(t_rel, window_s, motion)
+    alpha = alpha_enter * alpha_exit
+    if abs(scale - 1.0) > 1e-6:
+        w, h = tile.size
+        nw, nh = max(1, int(round(w * scale))), max(1, int(round(h * scale)))
+        scaled = tile.resize((nw, nh), Image.LANCZOS)
+        canvas_tile = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+        canvas_tile.paste(scaled, ((w - nw) // 2, (h - nh) // 2))
+        tile = canvas_tile
+    if alpha < 0.999:
+        arr = np.asarray(tile, dtype=np.float32).copy()
+        arr[..., 3] *= alpha
+        tile = Image.fromarray(arr.astype(np.uint8), "RGBA")
+    return tile
+
+
+def _compare(actual: np.ndarray, source: np.ndarray, tile: Image.Image) -> dict:
+    tile_np = np.asarray(tile.convert("RGBA"), dtype=np.float32)
+    alpha = tile_np[..., 3:4] / 255.0
+    sim = tile_np[..., :3] * alpha + source[..., :3] * (1.0 - alpha)
+    d = np.abs(sim - actual[..., :3]).mean(axis=2)
+    return {
+        "mean": round(float(d.mean()), 4),
+        "p99": round(float(np.percentile(d, 99)), 4),
+        "max": round(float(d.max()), 4),
+        "within_p99": round(float((d <= TOL_P99).mean()), 4),
+    }
+
+
+def check(ir_path: Path, video: Path, out: Path) -> dict:
+    ir = json.loads(ir_path.read_text(encoding="utf-8"))
+    canvas = {"width": int(ir["canvas"]["width"]), "height": int(ir["canvas"]["height"]),
+              "fps": float(ir["canvas"]["fps"])}
+    source = Path(ir["source"]["path"])
+    fps = float(ir["source"]["fps"])
+    results = []
     with tempfile.TemporaryDirectory() as td:
-        big = Path(td) / "big.png"
-        subprocess.run(["magick", str(png), "-resize", "300%", str(big)], check=True)
-        a = _tess(big, 8, cjk=cjk)
-        b = _tess(big, 13, cjk=cjk)
-    return (a or b), {"psm8": a, "psm13": b}
+        td = Path(td)
+        for el in ir.get("elements", []):
+            if el.get("type") != "number":
+                continue
+            numeric = (el.get("content") or {}).get("numeric")
+            if not isinstance(numeric, dict) or "value" not in numeric:
+                results.append({"element_id": el["id"], "status": "NO_NUMERIC_PAYLOAD",
+                                "text": (el.get("content") or {}).get("text")})
+                continue
+            expected = float(numeric["value"])
+            win = el["window"]
+            frame, window_s = _best_frame(el, fps)
+            t_rel = frame / fps - float(win["start_s"])
+
+            out_png, src_png = td / "out.png", td / "src.png"
+            _frame_at(video, frame, out_png)
+            _frame_at(source, frame, src_png)
+            actual = np.asarray(_crop(Image.open(out_png), el["layout"]["box"]), dtype=np.float32)
+            src_np = np.asarray(_crop(Image.open(src_png), el["layout"]["box"]), dtype=np.float32)
+
+            exp_tile = _tile(el, canvas, value=None, t_rel=t_rel, window_s=window_s)
+            decoy_tile = _tile(el, canvas, value=max(0.0, expected * 0.5), t_rel=t_rel,
+                               window_s=window_s)
+            exp = _compare(actual, src_np, exp_tile)
+            dec = _compare(actual, src_np, decoy_tile)
+
+            ok = (exp["mean"] <= TOL_MEAN and exp["p99"] <= TOL_P99
+                  and dec["p99"] >= DECOY_P99_MIN
+                  and dec["mean"] >= exp["mean"] * DECOY_MEAN_MULT)
+            results.append({
+                "element_id": el["id"], "text": (el.get("content") or {}).get("text"),
+                "expected_value": expected, "numeric_final": numeric.get("final"),
+                "frame": frame, "t_rel_s": round(t_rel, 3), "alpha_at_frame": round(
+                    _alpha_at(el, t_rel, window_s), 4), "box": el["layout"]["box"],
+                "expected_match": exp, "decoy_half_value_match": dec,
+                "status": "PASS" if ok else "FAIL",
+            })
+    mismatches = [r for r in results if r["status"] == "FAIL"]
+    passes = [r for r in results if r["status"] == "PASS"]
+    verdict = "NOT RUN" if not results else ("FAIL" if mismatches else
+                                             ("PASS" if passes else "NOT RUN"))
+    doc = {"schema": "semotion.number_check/2", "video": str(video), "ir": str(ir_path),
+           "checks": results, "verdict": verdict,
+           "readable": len(passes), "mismatches": len(mismatches),
+           "method": ("deterministic re-render comparison: expected tile composited over the "
+                      "source crop vs the actual rendered crop, with a decoy value proving "
+                      "the test can fail"),
+           "tolerance": {"mean_abs": TOL_MEAN, "p99_abs": TOL_P99,
+                         "decoy_p99_min": DECOY_P99_MIN, "decoy_mean_mult": DECOY_MEAN_MULT}}
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return doc
 
 
 def main() -> int:
-    if len(sys.argv) < 4:
-        print("usage: check_number_semantics.py <motion_ir.json> <rendered.mp4> <out.json>")
-        return 2
-    ir_path, video, out_path = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
-    ir = json.loads(ir_path.read_text(encoding="utf-8"))
-    fps = float(ir["source"]["fps"])
-    checks = []
-    for el in ir.get("elements", []):
-        if el.get("type") != "number":
-            continue
-        exp = expected_value(el)
-        if exp is None:
-            checks.append({"element_id": el["id"], "status": "NO_EXPECTATION",
-                           "text": (el.get("content") or {}).get("text")})
-            continue
-        want, kind = exp
-        # frame just before the element ends (animation settled)
-        frame = max(0, int(el["window"]["end_frame"]) - 2)
-        t = frame / fps
-        box = el["layout"]["box"]
-        with tempfile.TemporaryDirectory() as td:
-            frame_png = Path(td) / "frame.png"
-            subprocess.run([media.FFMPEG, "-v", "error", "-y", "-ss", f"{t:.3f}",
-                            "-i", str(video), "-frames:v", "1", str(frame_png)], check=True)
-            crop = Path(td) / "crop.png"
-            subprocess.run(["magick", str(frame_png), "-crop",
-                            f"{box[2]}x{box[3]}+{box[0]}+{box[1]}", "+repage", str(crop)],
-                           check=True)
-            got, raw_variants = ocr_crop(crop, cjk=(kind != "percent"))
-        digits = re.sub(r"[^0-9.%]", "", got)
-        num = re.search(r"\d+(?:\.\d+)?", digits)
-        observed = float(num.group(0)) if num else None
-        ok = observed is not None and abs(observed - want) < 0.51
-        checks.append({
-            "element_id": el["id"], "text": (el.get("content") or {}).get("text"),
-            "expected_value": want, "expected_kind": kind,
-            "ocr_raw": got, "ocr_variants": raw_variants, "observed_value": observed,
-            "frame": frame, "t_s": round(t, 3), "box": box,
-            "status": "PASS" if ok else ("UNREADABLE" if observed is None else "FAIL"),
-        })
-    mismatches = [c for c in checks if c["status"] == "FAIL"]
-    readable = [c for c in checks if c["status"] == "PASS"]
-    unreadable = [c for c in checks if c["status"] == "UNREADABLE"]
-    if not checks:
-        verdict = "NOT RUN"
-    elif mismatches:
-        verdict = "FAIL"
-    elif not readable:
-        verdict = "NOT RUN"
-    else:
-        verdict = "PASS"
-    doc = {"schema": "semotion.number_check/1", "video": str(video), "ir": str(ir_path),
-           "checks": checks, "verdict": verdict,
-           "readable": len(readable), "mismatches": len(mismatches),
-           "unreadable": [c["element_id"] for c in unreadable],
-           "coverage_note": ("values are OCR-verified on the rendered final frame; "
-                             "unreadable crops are reported, not counted as passes"),
-           "method": "render final frame -> crop IR box -> tesseract digits-only OCR"}
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    for c in checks:
-        print(f"  {c['element_id']}: {c['status']:10} expected={c.get('expected_value')} "
-              f"ocr={c.get('ocr_raw')!r}")
-    print(f"{verdict} -> {out_path}")
-    return 0 if verdict in ("PASS", "NOT RUN") else 1
+    ap = argparse.ArgumentParser()
+    ap.add_argument("ir")
+    ap.add_argument("video")
+    ap.add_argument("out")
+    a = ap.parse_args()
+    doc = check(Path(a.ir), Path(a.video), Path(a.out))
+    for c in doc["checks"]:
+        if c["status"] == "PASS":
+            print(f"  {c['element_id']}: PASS  value={c['expected_value']} "
+                  f"mean={c['expected_match']['mean']:.2f} "
+                  f"decoy_mean={c['decoy_half_value_match']['mean']:.2f}")
+        else:
+            print(f"  {c['element_id']}: {c['status']}  value={c.get('expected_value')} "
+                  f"{json.dumps(c.get('expected_match'), ensure_ascii=False)}")
+    print(f"{doc['verdict']} -> {a.out}")
+    return 0 if doc["verdict"] in ("PASS", "NOT RUN") else 1
 
 
 if __name__ == "__main__":

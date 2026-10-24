@@ -1,0 +1,45 @@
+{
+  "schema": "semotion.number_check/2",
+  "video": "artifacts/g1/final_realface/fx_pd_real_16x9_b/fx_pd_real_16x9_b_motion.mp4",
+  "ir": "artifacts/g1/final_realface/fx_pd_real_16x9_b/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_d01",
+      "text": "3",
+      "expected_value": 3.0,
+      "numeric_final": "3",
+      "frame": 77,
+      "t_rel_s": 0.3,
+      "alpha_at_frame": 1.0,
+      "box": [
+        962,
+        262,
+        102,
+        181
+      ],
+      "expected_match": {
+        "mean": 1.8129,
+        "p99": 19.1333,
+        "max": 43.0,
+        "within_p99": 0.9996
+      },
+      "decoy_half_value_match": {
+        "mean": 6.3092,
+        "p99": 134.0,
+        "max": 145.0,
+        "within_p99": 0.9599
+      },
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 1,
+  "mismatches": 0,
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
+}

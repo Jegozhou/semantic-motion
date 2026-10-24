@@ -1,0 +1,766 @@
+{
+  "schema": "semotion.transcript/1",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+    "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf",
+    "duration_s": 24.92,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "language": "zh",
+  "model": {
+    "name": "faster-whisper",
+    "family": "whisper",
+    "size": "medium",
+    "device": "cpu",
+    "compute_type": "int8",
+    "version": "1.2.1",
+    "ctranslate2_version": "4.8.3",
+    "path": "/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f",
+    "beam_size": 5,
+    "word_timestamps": true
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start_s": 0.66,
+      "end_s": 23.92,
+      "text": "大家好,先看三個數字,九成的失敗來自時間,第一步是對齊,第二步是佈局,第三步是渲染,關鍵是別擋住臉,所以我們先測遮擋,70%的反攻,都出在時間不對,結論是先對齊再談樣式,這就是這套流程的底線。",
+      "avg_logprob": -0.149659,
+      "no_speech_prob": 0.478715
+    }
+  ],
+  "words": [
+    {
+      "id": "w0",
+      "segment_id": "s0",
+      "text": "大家好,",
+      "start_s": 0.66,
+      "end_s": 1.16,
+      "probability": 0.832657,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w1",
+      "segment_id": "s0",
+      "text": "先",
+      "start_s": 1.74,
+      "end_s": 1.92,
+      "probability": 0.985023,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w2",
+      "segment_id": "s0",
+      "text": "看",
+      "start_s": 1.92,
+      "end_s": 2.18,
+      "probability": 0.995963,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w3",
+      "segment_id": "s0",
+      "text": "三",
+      "start_s": 2.18,
+      "end_s": 2.5,
+      "probability": 0.936551,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w4",
+      "segment_id": "s0",
+      "text": "個",
+      "start_s": 2.5,
+      "end_s": 2.7,
+      "probability": 0.912755,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w5",
+      "segment_id": "s0",
+      "text": "數",
+      "start_s": 2.7,
+      "end_s": 2.94,
+      "probability": 0.989235,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w6",
+      "segment_id": "s0",
+      "text": "字,",
+      "start_s": 2.94,
+      "end_s": 3.44,
+      "probability": 0.99926,
+      "char_start": 9,
+      "char_end": 11
+    },
+    {
+      "id": "w7",
+      "segment_id": "s0",
+      "text": "九",
+      "start_s": 3.56,
+      "end_s": 3.68,
+      "probability": 0.874929,
+      "char_start": 11,
+      "char_end": 12
+    },
+    {
+      "id": "w8",
+      "segment_id": "s0",
+      "text": "成",
+      "start_s": 3.68,
+      "end_s": 3.92,
+      "probability": 0.992325,
+      "char_start": 12,
+      "char_end": 13
+    },
+    {
+      "id": "w9",
+      "segment_id": "s0",
+      "text": "的",
+      "start_s": 3.92,
+      "end_s": 4.16,
+      "probability": 0.998003,
+      "char_start": 13,
+      "char_end": 14
+    },
+    {
+      "id": "w10",
+      "segment_id": "s0",
+      "text": "失",
+      "start_s": 4.16,
+      "end_s": 4.34,
+      "probability": 0.99091,
+      "char_start": 14,
+      "char_end": 15
+    },
+    {
+      "id": "w11",
+      "segment_id": "s0",
+      "text": "敗",
+      "start_s": 4.34,
+      "end_s": 4.48,
+      "probability": 0.999354,
+      "char_start": 15,
+      "char_end": 16
+    },
+    {
+      "id": "w12",
+      "segment_id": "s0",
+      "text": "來",
+      "start_s": 4.48,
+      "end_s": 4.76,
+      "probability": 0.994275,
+      "char_start": 16,
+      "char_end": 17
+    },
+    {
+      "id": "w13",
+      "segment_id": "s0",
+      "text": "自",
+      "start_s": 4.76,
+      "end_s": 5.0,
+      "probability": 0.999438,
+      "char_start": 17,
+      "char_end": 18
+    },
+    {
+      "id": "w14",
+      "segment_id": "s0",
+      "text": "時間,",
+      "start_s": 5.0,
+      "end_s": 5.48,
+      "probability": 0.985613,
+      "char_start": 18,
+      "char_end": 21
+    },
+    {
+      "id": "w15",
+      "segment_id": "s0",
+      "text": "第一",
+      "start_s": 5.96,
+      "end_s": 6.18,
+      "probability": 0.933149,
+      "char_start": 21,
+      "char_end": 23
+    },
+    {
+      "id": "w16",
+      "segment_id": "s0",
+      "text": "步",
+      "start_s": 6.18,
+      "end_s": 6.42,
+      "probability": 0.792792,
+      "char_start": 23,
+      "char_end": 24
+    },
+    {
+      "id": "w17",
+      "segment_id": "s0",
+      "text": "是",
+      "start_s": 6.42,
+      "end_s": 6.58,
+      "probability": 0.997641,
+      "char_start": 24,
+      "char_end": 25
+    },
+    {
+      "id": "w18",
+      "segment_id": "s0",
+      "text": "對",
+      "start_s": 6.58,
+      "end_s": 6.86,
+      "probability": 0.953741,
+      "char_start": 25,
+      "char_end": 26
+    },
+    {
+      "id": "w19",
+      "segment_id": "s0",
+      "text": "齊,",
+      "start_s": 6.86,
+      "end_s": 7.26,
+      "probability": 0.962542,
+      "char_start": 26,
+      "char_end": 28
+    },
+    {
+      "id": "w20",
+      "segment_id": "s0",
+      "text": "第二",
+      "start_s": 7.58,
+      "end_s": 7.86,
+      "probability": 0.983944,
+      "char_start": 28,
+      "char_end": 30
+    },
+    {
+      "id": "w21",
+      "segment_id": "s0",
+      "text": "步",
+      "start_s": 7.86,
+      "end_s": 8.12,
+      "probability": 0.983654,
+      "char_start": 30,
+      "char_end": 31
+    },
+    {
+      "id": "w22",
+      "segment_id": "s0",
+      "text": "是",
+      "start_s": 8.12,
+      "end_s": 8.3,
+      "probability": 0.998173,
+      "char_start": 31,
+      "char_end": 32
+    },
+    {
+      "id": "w23",
+      "segment_id": "s0",
+      "text": "佈",
+      "start_s": 8.3,
+      "end_s": 8.56,
+      "probability": 0.752933,
+      "char_start": 32,
+      "char_end": 33
+    },
+    {
+      "id": "w24",
+      "segment_id": "s0",
+      "text": "局,",
+      "start_s": 8.56,
+      "end_s": 8.84,
+      "probability": 0.999896,
+      "char_start": 33,
+      "char_end": 35
+    },
+    {
+      "id": "w25",
+      "segment_id": "s0",
+      "text": "第三",
+      "start_s": 9.24,
+      "end_s": 9.54,
+      "probability": 0.993195,
+      "char_start": 35,
+      "char_end": 37
+    },
+    {
+      "id": "w26",
+      "segment_id": "s0",
+      "text": "步",
+      "start_s": 9.54,
+      "end_s": 9.82,
+      "probability": 0.997064,
+      "char_start": 37,
+      "char_end": 38
+    },
+    {
+      "id": "w27",
+      "segment_id": "s0",
+      "text": "是",
+      "start_s": 9.82,
+      "end_s": 10.04,
+      "probability": 0.998375,
+      "char_start": 38,
+      "char_end": 39
+    },
+    {
+      "id": "w28",
+      "segment_id": "s0",
+      "text": "渲",
+      "start_s": 10.04,
+      "end_s": 10.34,
+      "probability": 0.953769,
+      "char_start": 39,
+      "char_end": 40
+    },
+    {
+      "id": "w29",
+      "segment_id": "s0",
+      "text": "染,",
+      "start_s": 10.34,
+      "end_s": 10.7,
+      "probability": 0.999929,
+      "char_start": 40,
+      "char_end": 42
+    },
+    {
+      "id": "w30",
+      "segment_id": "s0",
+      "text": "關",
+      "start_s": 10.94,
+      "end_s": 11.16,
+      "probability": 0.984353,
+      "char_start": 42,
+      "char_end": 43
+    },
+    {
+      "id": "w31",
+      "segment_id": "s0",
+      "text": "鍵",
+      "start_s": 11.16,
+      "end_s": 11.34,
+      "probability": 0.999762,
+      "char_start": 43,
+      "char_end": 44
+    },
+    {
+      "id": "w32",
+      "segment_id": "s0",
+      "text": "是",
+      "start_s": 11.34,
+      "end_s": 11.56,
+      "probability": 0.998353,
+      "char_start": 44,
+      "char_end": 45
+    },
+    {
+      "id": "w33",
+      "segment_id": "s0",
+      "text": "別",
+      "start_s": 11.56,
+      "end_s": 11.76,
+      "probability": 0.991002,
+      "char_start": 45,
+      "char_end": 46
+    },
+    {
+      "id": "w34",
+      "segment_id": "s0",
+      "text": "擋",
+      "start_s": 11.76,
+      "end_s": 12.02,
+      "probability": 0.850263,
+      "char_start": 46,
+      "char_end": 47
+    },
+    {
+      "id": "w35",
+      "segment_id": "s0",
+      "text": "住",
+      "start_s": 12.02,
+      "end_s": 12.24,
+      "probability": 0.662385,
+      "char_start": 47,
+      "char_end": 48
+    },
+    {
+      "id": "w36",
+      "segment_id": "s0",
+      "text": "臉,",
+      "start_s": 12.24,
+      "end_s": 12.6,
+      "probability": 0.989273,
+      "char_start": 48,
+      "char_end": 50
+    },
+    {
+      "id": "w37",
+      "segment_id": "s0",
+      "text": "所以",
+      "start_s": 13.06,
+      "end_s": 13.28,
+      "probability": 0.993712,
+      "char_start": 50,
+      "char_end": 52
+    },
+    {
+      "id": "w38",
+      "segment_id": "s0",
+      "text": "我們",
+      "start_s": 13.28,
+      "end_s": 13.68,
+      "probability": 0.996262,
+      "char_start": 52,
+      "char_end": 54
+    },
+    {
+      "id": "w39",
+      "segment_id": "s0",
+      "text": "先",
+      "start_s": 13.68,
+      "end_s": 14.04,
+      "probability": 0.992959,
+      "char_start": 54,
+      "char_end": 55
+    },
+    {
+      "id": "w40",
+      "segment_id": "s0",
+      "text": "測",
+      "start_s": 14.04,
+      "end_s": 14.22,
+      "probability": 0.934945,
+      "char_start": 55,
+      "char_end": 56
+    },
+    {
+      "id": "w41",
+      "segment_id": "s0",
+      "text": "遮",
+      "start_s": 14.22,
+      "end_s": 14.42,
+      "probability": 0.967343,
+      "char_start": 56,
+      "char_end": 57
+    },
+    {
+      "id": "w42",
+      "segment_id": "s0",
+      "text": "擋,",
+      "start_s": 14.42,
+      "end_s": 14.84,
+      "probability": 0.998706,
+      "char_start": 57,
+      "char_end": 59
+    },
+    {
+      "id": "w43",
+      "segment_id": "s0",
+      "text": "70",
+      "start_s": 15.62,
+      "end_s": 15.92,
+      "probability": 0.851199,
+      "char_start": 59,
+      "char_end": 61
+    },
+    {
+      "id": "w44",
+      "segment_id": "s0",
+      "text": "%",
+      "start_s": 15.92,
+      "end_s": 15.96,
+      "probability": 0.994375,
+      "char_start": 61,
+      "char_end": 62
+    },
+    {
+      "id": "w45",
+      "segment_id": "s0",
+      "text": "的",
+      "start_s": 15.96,
+      "end_s": 16.24,
+      "probability": 0.995522,
+      "char_start": 62,
+      "char_end": 63
+    },
+    {
+      "id": "w46",
+      "segment_id": "s0",
+      "text": "反",
+      "start_s": 16.24,
+      "end_s": 16.44,
+      "probability": 0.998306,
+      "char_start": 63,
+      "char_end": 64
+    },
+    {
+      "id": "w47",
+      "segment_id": "s0",
+      "text": "攻,",
+      "start_s": 16.44,
+      "end_s": 16.84,
+      "probability": 0.966877,
+      "char_start": 64,
+      "char_end": 66
+    },
+    {
+      "id": "w48",
+      "segment_id": "s0",
+      "text": "都",
+      "start_s": 17.04,
+      "end_s": 17.26,
+      "probability": 0.990717,
+      "char_start": 66,
+      "char_end": 67
+    },
+    {
+      "id": "w49",
+      "segment_id": "s0",
+      "text": "出",
+      "start_s": 17.26,
+      "end_s": 17.48,
+      "probability": 0.984091,
+      "char_start": 67,
+      "char_end": 68
+    },
+    {
+      "id": "w50",
+      "segment_id": "s0",
+      "text": "在",
+      "start_s": 17.48,
+      "end_s": 17.76,
+      "probability": 0.992634,
+      "char_start": 68,
+      "char_end": 69
+    },
+    {
+      "id": "w51",
+      "segment_id": "s0",
+      "text": "時間",
+      "start_s": 17.76,
+      "end_s": 18.18,
+      "probability": 0.985073,
+      "char_start": 69,
+      "char_end": 71
+    },
+    {
+      "id": "w52",
+      "segment_id": "s0",
+      "text": "不對,",
+      "start_s": 18.18,
+      "end_s": 18.64,
+      "probability": 0.994397,
+      "char_start": 71,
+      "char_end": 74
+    },
+    {
+      "id": "w53",
+      "segment_id": "s0",
+      "text": "結",
+      "start_s": 19.06,
+      "end_s": 19.24,
+      "probability": 0.99214,
+      "char_start": 74,
+      "char_end": 75
+    },
+    {
+      "id": "w54",
+      "segment_id": "s0",
+      "text": "論",
+      "start_s": 19.24,
+      "end_s": 19.46,
+      "probability": 0.998999,
+      "char_start": 75,
+      "char_end": 76
+    },
+    {
+      "id": "w55",
+      "segment_id": "s0",
+      "text": "是",
+      "start_s": 19.46,
+      "end_s": 19.66,
+      "probability": 0.992867,
+      "char_start": 76,
+      "char_end": 77
+    },
+    {
+      "id": "w56",
+      "segment_id": "s0",
+      "text": "先",
+      "start_s": 19.66,
+      "end_s": 19.88,
+      "probability": 0.989267,
+      "char_start": 77,
+      "char_end": 78
+    },
+    {
+      "id": "w57",
+      "segment_id": "s0",
+      "text": "對",
+      "start_s": 19.88,
+      "end_s": 20.12,
+      "probability": 0.992664,
+      "char_start": 78,
+      "char_end": 79
+    },
+    {
+      "id": "w58",
+      "segment_id": "s0",
+      "text": "齊",
+      "start_s": 20.12,
+      "end_s": 20.34,
+      "probability": 0.99961,
+      "char_start": 79,
+      "char_end": 80
+    },
+    {
+      "id": "w59",
+      "segment_id": "s0",
+      "text": "再",
+      "start_s": 20.34,
+      "end_s": 20.64,
+      "probability": 0.959301,
+      "char_start": 80,
+      "char_end": 81
+    },
+    {
+      "id": "w60",
+      "segment_id": "s0",
+      "text": "談",
+      "start_s": 20.64,
+      "end_s": 20.88,
+      "probability": 0.899777,
+      "char_start": 81,
+      "char_end": 82
+    },
+    {
+      "id": "w61",
+      "segment_id": "s0",
+      "text": "樣",
+      "start_s": 20.88,
+      "end_s": 21.18,
+      "probability": 0.99277,
+      "char_start": 82,
+      "char_end": 83
+    },
+    {
+      "id": "w62",
+      "segment_id": "s0",
+      "text": "式,",
+      "start_s": 21.18,
+      "end_s": 21.48,
+      "probability": 0.995546,
+      "char_start": 83,
+      "char_end": 85
+    },
+    {
+      "id": "w63",
+      "segment_id": "s0",
+      "text": "這",
+      "start_s": 21.76,
+      "end_s": 21.96,
+      "probability": 0.994222,
+      "char_start": 85,
+      "char_end": 86
+    },
+    {
+      "id": "w64",
+      "segment_id": "s0",
+      "text": "就是",
+      "start_s": 21.96,
+      "end_s": 22.34,
+      "probability": 0.999038,
+      "char_start": 86,
+      "char_end": 88
+    },
+    {
+      "id": "w65",
+      "segment_id": "s0",
+      "text": "這",
+      "start_s": 22.34,
+      "end_s": 22.66,
+      "probability": 0.998154,
+      "char_start": 88,
+      "char_end": 89
+    },
+    {
+      "id": "w66",
+      "segment_id": "s0",
+      "text": "套",
+      "start_s": 22.66,
+      "end_s": 22.82,
+      "probability": 0.999667,
+      "char_start": 89,
+      "char_end": 90
+    },
+    {
+      "id": "w67",
+      "segment_id": "s0",
+      "text": "流",
+      "start_s": 22.82,
+      "end_s": 23.1,
+      "probability": 0.998698,
+      "char_start": 90,
+      "char_end": 91
+    },
+    {
+      "id": "w68",
+      "segment_id": "s0",
+      "text": "程",
+      "start_s": 23.1,
+      "end_s": 23.28,
+      "probability": 0.999705,
+      "char_start": 91,
+      "char_end": 92
+    },
+    {
+      "id": "w69",
+      "segment_id": "s0",
+      "text": "的",
+      "start_s": 23.28,
+      "end_s": 23.5,
+      "probability": 0.999188,
+      "char_start": 92,
+      "char_end": 93
+    },
+    {
+      "id": "w70",
+      "segment_id": "s0",
+      "text": "底",
+      "start_s": 23.5,
+      "end_s": 23.7,
+      "probability": 0.999564,
+      "char_start": 93,
+      "char_end": 94
+    },
+    {
+      "id": "w71",
+      "segment_id": "s0",
+      "text": "線。",
+      "start_s": 23.7,
+      "end_s": 23.92,
+      "probability": 0.996756,
+      "char_start": 94,
+      "char_end": 96
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T10:26:54Z",
+    "command": "faster-whisper medium (/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f) device=cpu compute_type=int8 language=zh word_timestamps=True beam_size=5 vad_filter=False :: tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+    "truth_class": "MACHINE_WEAK",
+    "engine": "faster-whisper (CTranslate2)",
+    "elapsed_s": 9.247,
+    "language_probability": 1.0,
+    "n_segments": 1,
+    "n_words": 72
+  }
+}

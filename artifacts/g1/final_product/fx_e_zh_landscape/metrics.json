@@ -2,8 +2,8 @@
   "schema": "semotion.metrics/1",
   "gate": "G1",
   "input_sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
-  "ir_sha256": "2d1fc62f43359effcca05e09c0c62a644abfe393e50bb3d38dff0cec7b3a12c3",
-  "render_sha256": "1151f5f87745e56ef4a99b6c1192a2e03af85edb51d72c58692f9572591beb95",
+  "ir_sha256": "2eff7a5f066711d8cb6de4777d2f173552859886ad86fbc43c97740045e62e0d",
+  "render_sha256": "800fc260c2e7e9a7a478f14d25877760ec59065f1f9d82bcaa209b598204d925",
   "timing": {
     "samples": 5,
     "elements": 11,
@@ -150,8 +150,8 @@
         "error_ms": 7.33,
         "detected": true,
         "measurable_against_truth": true,
-        "peak_mean_abs_diff": 21.35,
-        "detect_threshold": 1.068
+        "peak_mean_abs_diff": 18.1,
+        "detect_threshold": 0.905
       },
       {
         "element_id": "el_d10",
@@ -166,8 +166,8 @@
         "error_ms": 16.83,
         "detected": true,
         "measurable_against_truth": true,
-        "peak_mean_abs_diff": 17.172,
-        "detect_threshold": 0.859
+        "peak_mean_abs_diff": 13.712,
+        "detect_threshold": 0.8
       },
       {
         "element_id": "el_d11",
@@ -182,8 +182,8 @@
         "error_ms": null,
         "detected": true,
         "measurable_against_truth": false,
-        "peak_mean_abs_diff": 17.769,
-        "detect_threshold": 0.888
+        "peak_mean_abs_diff": 17.783,
+        "detect_threshold": 0.889
       }
     ],
     "source": "SYNTH_KNOWN",
@@ -253,9 +253,9 @@
       "sampled_frames": 89
     },
     "raster_containment": {
-      "changed_pixels": 70230,
-      "inside_declared_box": 69671,
-      "value": 0.00796,
+      "changed_pixels": 57503,
+      "inside_declared_box": 57007,
+      "value": 0.008626,
       "threshold": 0.03,
       "verdict": "PASS",
       "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"

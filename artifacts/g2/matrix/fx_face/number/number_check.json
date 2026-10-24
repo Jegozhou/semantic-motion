@@ -1,0 +1,101 @@
+{
+  "schema": "semotion.number_check/2",
+  "video": "artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4",
+  "ir": "artifacts/g2/matrix/fx_face/number/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_nu01",
+      "text": "三个",
+      "expected_value": 3.0,
+      "numeric_final": "3个",
+      "frame": 65,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
+      "box": [
+        399,
+        957,
+        282,
+        269
+      ],
+      "expected_match": {
+        "mean": 2.1365,
+        "p99": 16.1791,
+        "max": 52.5922,
+        "within_p99": 0.9998
+      },
+      "decoy_half_value_match": {
+        "mean": 4.7877,
+        "p99": 137.7333,
+        "max": 157.0667,
+        "within_p99": 0.978
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_nu02",
+      "text": "九成",
+      "expected_value": 90.0,
+      "numeric_final": "90%",
+      "frame": 94,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
+      "box": [
+        368,
+        957,
+        344,
+        269
+      ],
+      "expected_match": {
+        "mean": 2.2912,
+        "p99": 19.0215,
+        "max": 50.3333,
+        "within_p99": 0.9996
+      },
+      "decoy_half_value_match": {
+        "mean": 9.3119,
+        "p99": 139.6667,
+        "max": 158.0667,
+        "within_p99": 0.9426
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_nu03",
+      "text": "70%",
+      "expected_value": 70.0,
+      "numeric_final": "70%",
+      "frame": 400,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
+      "box": [
+        368,
+        957,
+        344,
+        269
+      ],
+      "expected_match": {
+        "mean": 2.2524,
+        "p99": 18.6743,
+        "max": 52.2131,
+        "within_p99": 0.9996
+      },
+      "decoy_half_value_match": {
+        "mean": 7.8532,
+        "p99": 139.6667,
+        "max": 157.4,
+        "within_p99": 0.9542
+      },
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 3,
+  "mismatches": 0,
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
+}

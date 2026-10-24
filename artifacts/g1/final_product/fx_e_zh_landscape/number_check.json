@@ -1,5 +1,5 @@
 {
-  "schema": "semotion.number_check/1",
+  "schema": "semotion.number_check/2",
   "video": "artifacts/g1/final_product/fx_e_zh_landscape/fx_e_zh_landscape_motion.mp4",
   "ir": "artifacts/g1/final_product/fx_e_zh_landscape/motion_ir.json",
   "checks": [
@@ -7,133 +7,179 @@
       "element_id": "el_d01",
       "text": "87%",
       "expected_value": 87.0,
-      "expected_kind": "percent",
-      "ocr_raw": "87%",
-      "ocr_variants": {
-        "psm8": "87%",
-        "psm13": "87%"
-      },
-      "observed_value": 87.0,
-      "frame": 101,
-      "t_s": 4.04,
+      "numeric_final": "87%",
+      "frame": 91,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         788,
         675,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 1.2939,
+        "p99": 22.0,
+        "max": 56.5033,
+        "within_p99": 0.9993
+      },
+      "decoy_half_value_match": {
+        "mean": 8.9989,
+        "p99": 132.3333,
+        "max": 151.5333,
+        "within_p99": 0.935
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_d02",
       "text": "3秒",
       "expected_value": 3.0,
-      "expected_kind": "unit",
-      "ocr_raw": "3秒",
-      "ocr_variants": {
-        "psm8": "3秒",
-        "psm13": "3秒"
-      },
-      "observed_value": 3.0,
-      "frame": 133,
-      "t_s": 5.32,
+      "numeric_final": "3秒",
+      "frame": 122,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         1241,
         384,
         282,
         269
       ],
+      "expected_match": {
+        "mean": 1.6987,
+        "p99": 20.1682,
+        "max": 51.0,
+        "within_p99": 0.9993
+      },
+      "decoy_half_value_match": {
+        "mean": 4.3186,
+        "p99": 136.6667,
+        "max": 160.0,
+        "within_p99": 0.9776
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_d03",
       "text": "2秒",
       "expected_value": 2.0,
-      "expected_kind": "unit",
-      "ocr_raw": "2秒",
-      "ocr_variants": {
-        "psm8": "2秒",
-        "psm13": "2秒"
-      },
-      "observed_value": 2.0,
-      "frame": 174,
-      "t_s": 6.96,
+      "numeric_final": "2秒",
+      "frame": 162,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         1241,
         384,
         282,
         269
       ],
+      "expected_match": {
+        "mean": 1.7263,
+        "p99": 21.5608,
+        "max": 54.3333,
+        "within_p99": 0.9994
+      },
+      "decoy_half_value_match": {
+        "mean": 5.0181,
+        "p99": 139.0,
+        "max": 155.0667,
+        "within_p99": 0.973
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_d05",
       "text": "三条",
       "expected_value": 3.0,
-      "expected_kind": "unit",
-      "ocr_raw": "3条",
-      "ocr_variants": {
-        "psm8": "3条",
-        "psm13": "3条"
-      },
-      "observed_value": 3.0,
-      "frame": 450,
-      "t_s": 18.0,
+      "numeric_final": "3条",
+      "frame": 438,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         1241,
         384,
         282,
         269
       ],
+      "expected_match": {
+        "mean": 1.7812,
+        "p99": 20.6011,
+        "max": 55.702,
+        "within_p99": 0.9992
+      },
+      "decoy_half_value_match": {
+        "mean": 4.4049,
+        "p99": 137.3333,
+        "max": 157.6667,
+        "within_p99": 0.9774
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_d07",
       "text": "50%",
       "expected_value": 50.0,
-      "expected_kind": "percent",
-      "ocr_raw": "50%",
-      "ocr_variants": {
-        "psm8": "50%",
-        "psm13": "50%"
-      },
-      "observed_value": 50.0,
-      "frame": 599,
-      "t_s": 23.96,
+      "numeric_final": "50%",
+      "frame": 576,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         788,
         675,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 1.3039,
+        "p99": 21.9797,
+        "max": 52.3333,
+        "within_p99": 0.9992
+      },
+      "decoy_half_value_match": {
+        "mean": 9.1839,
+        "p99": 132.6667,
+        "max": 158.6667,
+        "within_p99": 0.9337
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_d08",
       "text": "一半",
       "expected_value": 50.0,
-      "expected_kind": "percent",
-      "ocr_raw": "50%",
-      "ocr_variants": {
-        "psm8": "50%",
-        "psm13": "50%"
-      },
-      "observed_value": 50.0,
-      "frame": 658,
-      "t_s": 26.32,
+      "numeric_final": "50%",
+      "frame": 650,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         788,
         675,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 1.363,
+        "p99": 22.0925,
+        "max": 57.1817,
+        "within_p99": 0.9994
+      },
+      "decoy_half_value_match": {
+        "mean": 7.1296,
+        "p99": 132.3333,
+        "max": 152.8667,
+        "within_p99": 0.9505
+      },
       "status": "PASS"
     }
   ],
   "verdict": "PASS",
   "readable": 6,
   "mismatches": 0,
-  "unreadable": [],
-  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
-  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
 }

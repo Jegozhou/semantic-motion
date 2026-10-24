@@ -1,5 +1,5 @@
 {
-  "schema": "semotion.number_check/1",
+  "schema": "semotion.number_check/2",
   "video": "artifacts/g1/final_calibration/fx_t3_zh_phrase/fx_t3_zh_phrase_motion.mp4",
   "ir": "artifacts/g1/final_calibration/fx_t3_zh_phrase/motion_ir.json",
   "checks": [
@@ -7,112 +7,151 @@
       "element_id": "el_cal01",
       "text": "九成",
       "expected_value": 90.0,
-      "expected_kind": "percent",
-      "ocr_raw": "90%",
-      "ocr_variants": {
-        "psm8": "90%",
-        "psm13": "90%"
-      },
-      "observed_value": 90.0,
-      "frame": 34,
-      "t_s": 1.36,
+      "numeric_final": "90%",
+      "frame": 21,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         368,
         1016,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 2.356,
+        "p99": 21.4469,
+        "max": 50.0,
+        "within_p99": 0.9992
+      },
+      "decoy_half_value_match": {
+        "mean": 9.0657,
+        "p99": 133.6667,
+        "max": 153.5333,
+        "within_p99": 0.9423
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_cal04",
       "text": "六次",
       "expected_value": 6.0,
-      "expected_kind": "unit",
-      "ocr_raw": "6次",
-      "ocr_variants": {
-        "psm8": "6次",
-        "psm13": "6次"
-      },
-      "observed_value": 6.0,
-      "frame": 143,
-      "t_s": 5.72,
+      "numeric_final": "6次",
+      "frame": 130,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         399,
         1016,
         282,
         269
       ],
+      "expected_match": {
+        "mean": 2.3,
+        "p99": 20.8298,
+        "max": 51.0,
+        "within_p99": 0.9991
+      },
+      "decoy_half_value_match": {
+        "mean": 5.9493,
+        "p99": 132.6667,
+        "max": 149.5333,
+        "within_p99": 0.9679
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_cal05",
       "text": "两倍",
       "expected_value": 2.0,
-      "expected_kind": "unit",
-      "ocr_raw": "2倍",
-      "ocr_variants": {
-        "psm8": "2倍",
-        "psm13": "2倍"
-      },
-      "observed_value": 2.0,
-      "frame": 191,
-      "t_s": 7.64,
+      "numeric_final": "2倍",
+      "frame": 176,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         399,
         1016,
         282,
         269
       ],
+      "expected_match": {
+        "mean": 2.4037,
+        "p99": 21.7647,
+        "max": 53.583,
+        "within_p99": 0.9988
+      },
+      "decoy_half_value_match": {
+        "mean": 5.5699,
+        "p99": 132.8667,
+        "max": 151.5333,
+        "within_p99": 0.9724
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_cal21",
       "text": "一半",
       "expected_value": 50.0,
-      "expected_kind": "percent",
-      "ocr_raw": "50%",
-      "ocr_variants": {
-        "psm8": "50%",
-        "psm13": "50%"
-      },
-      "observed_value": 50.0,
-      "frame": 769,
-      "t_s": 30.76,
+      "numeric_final": "50%",
+      "frame": 756,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         368,
         1016,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 2.2427,
+        "p99": 20.8159,
+        "max": 47.3333,
+        "within_p99": 0.9992
+      },
+      "decoy_half_value_match": {
+        "mean": 8.0441,
+        "p99": 133.6667,
+        "max": 151.2,
+        "within_p99": 0.9504
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_cal23",
       "text": "四步",
       "expected_value": 4.0,
-      "expected_kind": "unit",
-      "ocr_raw": "4步",
-      "ocr_variants": {
-        "psm8": "4步",
-        "psm13": "4步"
-      },
-      "observed_value": 4.0,
-      "frame": 847,
-      "t_s": 33.88,
+      "numeric_final": "4步",
+      "frame": 836,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         399,
         1016,
         282,
         269
       ],
+      "expected_match": {
+        "mean": 2.2727,
+        "p99": 20.6667,
+        "max": 53.8405,
+        "within_p99": 0.9995
+      },
+      "decoy_half_value_match": {
+        "mean": 6.775,
+        "p99": 133.6667,
+        "max": 149.5333,
+        "within_p99": 0.9617
+      },
       "status": "PASS"
     }
   ],
   "verdict": "PASS",
   "readable": 5,
   "mismatches": 0,
-  "unreadable": [],
-  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
-  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
 }

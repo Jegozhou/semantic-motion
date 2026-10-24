@@ -1,0 +1,742 @@
+{
+  "schema": "semotion.transcript/1",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+    "duration_s": 24.0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "language": "en",
+  "model": {
+    "name": "faster-whisper",
+    "family": "whisper",
+    "size": "medium",
+    "device": "cpu",
+    "compute_type": "int8",
+    "version": "1.2.1",
+    "ctranslate2_version": "4.8.3",
+    "path": "/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f",
+    "beam_size": 5,
+    "word_timestamps": true
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start_s": 0.0,
+      "end_s": 3.12,
+      "text": "We begin this year and this administration in the midst of",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s1",
+      "start_s": 3.12,
+      "end_s": 6.46,
+      "text": "an unprecedented crisis that calls for unprecedented action.",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s2",
+      "start_s": 7.46,
+      "end_s": 10.36,
+      "text": "Just this week, we saw more people file for unemployment",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s3",
+      "start_s": 10.36,
+      "end_s": 12.64,
+      "text": "than at any time in the last 26 years.",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s4",
+      "start_s": 13.18,
+      "end_s": 15.04,
+      "text": "And experts agree that if nothing is done,",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s5",
+      "start_s": 15.36,
+      "end_s": 17.42,
+      "text": "the unemployment rate could reach double digits.",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s6",
+      "start_s": 18.14,
+      "end_s": 23.82,
+      "text": "Our economy could fall a trillion dollars short of its",
+      "avg_logprob": -0.172839,
+      "no_speech_prob": 0.010061
+    },
+    {
+      "id": "s7",
+      "start_s": 23.82,
+      "end_s": 23.84,
+      "text": "Bye.",
+      "avg_logprob": -0.905196,
+      "no_speech_prob": 0.605571
+    }
+  ],
+  "words": [
+    {
+      "id": "w0",
+      "segment_id": "s0",
+      "text": "We",
+      "start_s": 0.0,
+      "end_s": 0.24,
+      "probability": 0.759983,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w1",
+      "segment_id": "s0",
+      "text": "begin",
+      "start_s": 0.24,
+      "end_s": 0.54,
+      "probability": 0.947116,
+      "char_start": 3,
+      "char_end": 8
+    },
+    {
+      "id": "w2",
+      "segment_id": "s0",
+      "text": "this",
+      "start_s": 0.54,
+      "end_s": 0.8,
+      "probability": 0.997554,
+      "char_start": 9,
+      "char_end": 13
+    },
+    {
+      "id": "w3",
+      "segment_id": "s0",
+      "text": "year",
+      "start_s": 0.8,
+      "end_s": 1.08,
+      "probability": 0.998936,
+      "char_start": 14,
+      "char_end": 18
+    },
+    {
+      "id": "w4",
+      "segment_id": "s0",
+      "text": "and",
+      "start_s": 1.08,
+      "end_s": 1.28,
+      "probability": 0.508582,
+      "char_start": 19,
+      "char_end": 22
+    },
+    {
+      "id": "w5",
+      "segment_id": "s0",
+      "text": "this",
+      "start_s": 1.28,
+      "end_s": 1.46,
+      "probability": 0.994078,
+      "char_start": 23,
+      "char_end": 27
+    },
+    {
+      "id": "w6",
+      "segment_id": "s0",
+      "text": "administration",
+      "start_s": 1.46,
+      "end_s": 2.08,
+      "probability": 0.908384,
+      "char_start": 28,
+      "char_end": 42
+    },
+    {
+      "id": "w7",
+      "segment_id": "s0",
+      "text": "in",
+      "start_s": 2.08,
+      "end_s": 2.56,
+      "probability": 0.830677,
+      "char_start": 43,
+      "char_end": 45
+    },
+    {
+      "id": "w8",
+      "segment_id": "s0",
+      "text": "the",
+      "start_s": 2.56,
+      "end_s": 2.66,
+      "probability": 0.999052,
+      "char_start": 46,
+      "char_end": 49
+    },
+    {
+      "id": "w9",
+      "segment_id": "s0",
+      "text": "midst",
+      "start_s": 2.66,
+      "end_s": 2.88,
+      "probability": 0.999561,
+      "char_start": 50,
+      "char_end": 55
+    },
+    {
+      "id": "w10",
+      "segment_id": "s0",
+      "text": "of",
+      "start_s": 2.88,
+      "end_s": 3.12,
+      "probability": 0.999044,
+      "char_start": 56,
+      "char_end": 58
+    },
+    {
+      "id": "w11",
+      "segment_id": "s1",
+      "text": "an",
+      "start_s": 3.12,
+      "end_s": 3.38,
+      "probability": 0.993481,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w12",
+      "segment_id": "s1",
+      "text": "unprecedented",
+      "start_s": 3.38,
+      "end_s": 3.96,
+      "probability": 0.974522,
+      "char_start": 3,
+      "char_end": 16
+    },
+    {
+      "id": "w13",
+      "segment_id": "s1",
+      "text": "crisis",
+      "start_s": 3.96,
+      "end_s": 4.42,
+      "probability": 0.998849,
+      "char_start": 17,
+      "char_end": 23
+    },
+    {
+      "id": "w14",
+      "segment_id": "s1",
+      "text": "that",
+      "start_s": 4.42,
+      "end_s": 4.72,
+      "probability": 0.996216,
+      "char_start": 24,
+      "char_end": 28
+    },
+    {
+      "id": "w15",
+      "segment_id": "s1",
+      "text": "calls",
+      "start_s": 4.72,
+      "end_s": 4.98,
+      "probability": 0.999056,
+      "char_start": 29,
+      "char_end": 34
+    },
+    {
+      "id": "w16",
+      "segment_id": "s1",
+      "text": "for",
+      "start_s": 4.98,
+      "end_s": 5.36,
+      "probability": 0.999731,
+      "char_start": 35,
+      "char_end": 38
+    },
+    {
+      "id": "w17",
+      "segment_id": "s1",
+      "text": "unprecedented",
+      "start_s": 5.36,
+      "end_s": 6.0,
+      "probability": 0.9945,
+      "char_start": 39,
+      "char_end": 52
+    },
+    {
+      "id": "w18",
+      "segment_id": "s1",
+      "text": "action.",
+      "start_s": 6.0,
+      "end_s": 6.46,
+      "probability": 0.999201,
+      "char_start": 53,
+      "char_end": 60
+    },
+    {
+      "id": "w19",
+      "segment_id": "s2",
+      "text": "Just",
+      "start_s": 7.46,
+      "end_s": 7.66,
+      "probability": 0.997707,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w20",
+      "segment_id": "s2",
+      "text": "this",
+      "start_s": 7.66,
+      "end_s": 7.92,
+      "probability": 0.999779,
+      "char_start": 5,
+      "char_end": 9
+    },
+    {
+      "id": "w21",
+      "segment_id": "s2",
+      "text": "week,",
+      "start_s": 7.92,
+      "end_s": 8.1,
+      "probability": 0.999827,
+      "char_start": 10,
+      "char_end": 15
+    },
+    {
+      "id": "w22",
+      "segment_id": "s2",
+      "text": "we",
+      "start_s": 8.2,
+      "end_s": 8.28,
+      "probability": 0.999722,
+      "char_start": 16,
+      "char_end": 18
+    },
+    {
+      "id": "w23",
+      "segment_id": "s2",
+      "text": "saw",
+      "start_s": 8.28,
+      "end_s": 8.48,
+      "probability": 0.999559,
+      "char_start": 19,
+      "char_end": 22
+    },
+    {
+      "id": "w24",
+      "segment_id": "s2",
+      "text": "more",
+      "start_s": 8.48,
+      "end_s": 8.78,
+      "probability": 0.999473,
+      "char_start": 23,
+      "char_end": 27
+    },
+    {
+      "id": "w25",
+      "segment_id": "s2",
+      "text": "people",
+      "start_s": 8.78,
+      "end_s": 9.12,
+      "probability": 0.999827,
+      "char_start": 28,
+      "char_end": 34
+    },
+    {
+      "id": "w26",
+      "segment_id": "s2",
+      "text": "file",
+      "start_s": 9.12,
+      "end_s": 9.56,
+      "probability": 0.997099,
+      "char_start": 35,
+      "char_end": 39
+    },
+    {
+      "id": "w27",
+      "segment_id": "s2",
+      "text": "for",
+      "start_s": 9.56,
+      "end_s": 9.88,
+      "probability": 0.998128,
+      "char_start": 40,
+      "char_end": 43
+    },
+    {
+      "id": "w28",
+      "segment_id": "s2",
+      "text": "unemployment",
+      "start_s": 9.88,
+      "end_s": 10.36,
+      "probability": 0.998466,
+      "char_start": 44,
+      "char_end": 56
+    },
+    {
+      "id": "w29",
+      "segment_id": "s3",
+      "text": "than",
+      "start_s": 10.36,
+      "end_s": 10.6,
+      "probability": 0.996106,
+      "char_start": 0,
+      "char_end": 4
+    },
+    {
+      "id": "w30",
+      "segment_id": "s3",
+      "text": "at",
+      "start_s": 10.6,
+      "end_s": 10.8,
+      "probability": 0.985261,
+      "char_start": 5,
+      "char_end": 7
+    },
+    {
+      "id": "w31",
+      "segment_id": "s3",
+      "text": "any",
+      "start_s": 10.8,
+      "end_s": 11.08,
+      "probability": 0.988488,
+      "char_start": 8,
+      "char_end": 11
+    },
+    {
+      "id": "w32",
+      "segment_id": "s3",
+      "text": "time",
+      "start_s": 11.08,
+      "end_s": 11.26,
+      "probability": 0.999347,
+      "char_start": 12,
+      "char_end": 16
+    },
+    {
+      "id": "w33",
+      "segment_id": "s3",
+      "text": "in",
+      "start_s": 11.26,
+      "end_s": 11.4,
+      "probability": 0.998367,
+      "char_start": 17,
+      "char_end": 19
+    },
+    {
+      "id": "w34",
+      "segment_id": "s3",
+      "text": "the",
+      "start_s": 11.4,
+      "end_s": 11.46,
+      "probability": 0.998575,
+      "char_start": 20,
+      "char_end": 23
+    },
+    {
+      "id": "w35",
+      "segment_id": "s3",
+      "text": "last",
+      "start_s": 11.46,
+      "end_s": 11.7,
+      "probability": 0.996427,
+      "char_start": 24,
+      "char_end": 28
+    },
+    {
+      "id": "w36",
+      "segment_id": "s3",
+      "text": "26",
+      "start_s": 11.7,
+      "end_s": 12.14,
+      "probability": 0.994234,
+      "char_start": 29,
+      "char_end": 31
+    },
+    {
+      "id": "w37",
+      "segment_id": "s3",
+      "text": "years.",
+      "start_s": 12.14,
+      "end_s": 12.64,
+      "probability": 0.999659,
+      "char_start": 32,
+      "char_end": 38
+    },
+    {
+      "id": "w38",
+      "segment_id": "s4",
+      "text": "And",
+      "start_s": 13.18,
+      "end_s": 13.38,
+      "probability": 0.986906,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w39",
+      "segment_id": "s4",
+      "text": "experts",
+      "start_s": 13.38,
+      "end_s": 13.58,
+      "probability": 0.998213,
+      "char_start": 4,
+      "char_end": 11
+    },
+    {
+      "id": "w40",
+      "segment_id": "s4",
+      "text": "agree",
+      "start_s": 13.58,
+      "end_s": 13.96,
+      "probability": 0.96184,
+      "char_start": 12,
+      "char_end": 17
+    },
+    {
+      "id": "w41",
+      "segment_id": "s4",
+      "text": "that",
+      "start_s": 13.96,
+      "end_s": 14.1,
+      "probability": 0.996482,
+      "char_start": 18,
+      "char_end": 22
+    },
+    {
+      "id": "w42",
+      "segment_id": "s4",
+      "text": "if",
+      "start_s": 14.1,
+      "end_s": 14.28,
+      "probability": 0.976017,
+      "char_start": 23,
+      "char_end": 25
+    },
+    {
+      "id": "w43",
+      "segment_id": "s4",
+      "text": "nothing",
+      "start_s": 14.28,
+      "end_s": 14.52,
+      "probability": 0.999419,
+      "char_start": 26,
+      "char_end": 33
+    },
+    {
+      "id": "w44",
+      "segment_id": "s4",
+      "text": "is",
+      "start_s": 14.52,
+      "end_s": 14.74,
+      "probability": 0.998924,
+      "char_start": 34,
+      "char_end": 36
+    },
+    {
+      "id": "w45",
+      "segment_id": "s4",
+      "text": "done,",
+      "start_s": 14.74,
+      "end_s": 15.04,
+      "probability": 0.99968,
+      "char_start": 37,
+      "char_end": 42
+    },
+    {
+      "id": "w46",
+      "segment_id": "s5",
+      "text": "the",
+      "start_s": 15.36,
+      "end_s": 15.5,
+      "probability": 0.998223,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w47",
+      "segment_id": "s5",
+      "text": "unemployment",
+      "start_s": 15.5,
+      "end_s": 15.94,
+      "probability": 0.999472,
+      "char_start": 4,
+      "char_end": 16
+    },
+    {
+      "id": "w48",
+      "segment_id": "s5",
+      "text": "rate",
+      "start_s": 15.94,
+      "end_s": 16.2,
+      "probability": 0.999079,
+      "char_start": 17,
+      "char_end": 21
+    },
+    {
+      "id": "w49",
+      "segment_id": "s5",
+      "text": "could",
+      "start_s": 16.2,
+      "end_s": 16.42,
+      "probability": 0.998542,
+      "char_start": 22,
+      "char_end": 27
+    },
+    {
+      "id": "w50",
+      "segment_id": "s5",
+      "text": "reach",
+      "start_s": 16.42,
+      "end_s": 16.78,
+      "probability": 0.998841,
+      "char_start": 28,
+      "char_end": 33
+    },
+    {
+      "id": "w51",
+      "segment_id": "s5",
+      "text": "double",
+      "start_s": 16.78,
+      "end_s": 17.1,
+      "probability": 0.996079,
+      "char_start": 34,
+      "char_end": 40
+    },
+    {
+      "id": "w52",
+      "segment_id": "s5",
+      "text": "digits.",
+      "start_s": 17.1,
+      "end_s": 17.42,
+      "probability": 0.976904,
+      "char_start": 41,
+      "char_end": 48
+    },
+    {
+      "id": "w53",
+      "segment_id": "s6",
+      "text": "Our",
+      "start_s": 18.14,
+      "end_s": 18.36,
+      "probability": 0.997538,
+      "char_start": 0,
+      "char_end": 3
+    },
+    {
+      "id": "w54",
+      "segment_id": "s6",
+      "text": "economy",
+      "start_s": 18.36,
+      "end_s": 18.72,
+      "probability": 0.999775,
+      "char_start": 4,
+      "char_end": 11
+    },
+    {
+      "id": "w55",
+      "segment_id": "s6",
+      "text": "could",
+      "start_s": 18.72,
+      "end_s": 18.98,
+      "probability": 0.998724,
+      "char_start": 12,
+      "char_end": 17
+    },
+    {
+      "id": "w56",
+      "segment_id": "s6",
+      "text": "fall",
+      "start_s": 18.98,
+      "end_s": 19.26,
+      "probability": 0.999505,
+      "char_start": 18,
+      "char_end": 22
+    },
+    {
+      "id": "w57",
+      "segment_id": "s6",
+      "text": "a",
+      "start_s": 19.26,
+      "end_s": 19.54,
+      "probability": 0.956492,
+      "char_start": 23,
+      "char_end": 24
+    },
+    {
+      "id": "w58",
+      "segment_id": "s6",
+      "text": "trillion",
+      "start_s": 19.54,
+      "end_s": 19.76,
+      "probability": 0.996208,
+      "char_start": 25,
+      "char_end": 33
+    },
+    {
+      "id": "w59",
+      "segment_id": "s6",
+      "text": "dollars",
+      "start_s": 19.76,
+      "end_s": 20.08,
+      "probability": 0.995015,
+      "char_start": 34,
+      "char_end": 41
+    },
+    {
+      "id": "w60",
+      "segment_id": "s6",
+      "text": "short",
+      "start_s": 20.08,
+      "end_s": 20.4,
+      "probability": 0.998598,
+      "char_start": 42,
+      "char_end": 47
+    },
+    {
+      "id": "w61",
+      "segment_id": "s6",
+      "text": "of",
+      "start_s": 20.4,
+      "end_s": 20.6,
+      "probability": 0.99881,
+      "char_start": 48,
+      "char_end": 50
+    },
+    {
+      "id": "w62",
+      "segment_id": "s6",
+      "text": "its",
+      "start_s": 20.6,
+      "end_s": 23.82,
+      "probability": 0.99547,
+      "char_start": 51,
+      "char_end": 54
+    },
+    {
+      "id": "w63",
+      "segment_id": "s7",
+      "text": "Bye.",
+      "start_s": 23.82,
+      "end_s": 23.84,
+      "probability": 0.076751,
+      "char_start": 0,
+      "char_end": 4
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:31:21Z",
+    "command": "faster-whisper medium (/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f) device=cpu compute_type=int8 language=en word_timestamps=True beam_size=5 vad_filter=False :: tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "truth_class": "MACHINE_WEAK",
+    "engine": "faster-whisper (CTranslate2)",
+    "elapsed_s": 12.881,
+    "language_probability": 1.0,
+    "n_segments": 8,
+    "n_words": 64
+  }
+}

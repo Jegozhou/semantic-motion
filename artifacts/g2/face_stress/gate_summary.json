@@ -1,0 +1,95 @@
+{
+  "gate": "G2",
+  "style": "calibration",
+  "started_utc": "2026-10-24T10:44:05Z",
+  "finished_utc": "2026-10-24T10:44:11Z",
+  "fixtures": [
+    "fx_face_zh_portrait"
+  ],
+  "results": [
+    {
+      "fixture": "fx_face_zh_portrait",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g2/face_stress/fx_face_zh_portrait/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 8,
+        "p50_ms": 24.21,
+        "p90_ms": 51.4,
+        "max_ms": 84.1,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g2/face_stress/fx_face_zh_portrait/fx_face_zh_portrait_motion.mp4",
+      "review_frames": [
+        "artifacts/g2/face_stress/frames/fx_face_zh_portrait_motion_t01.72.png",
+        "artifacts/g2/face_stress/frames/fx_face_zh_portrait_motion_t02.40.png",
+        "artifacts/g2/face_stress/frames/fx_face_zh_portrait_motion_t03.56.png"
+      ]
+    }
+  ],
+  "pooled_timing": {
+    "n": 8,
+    "p50_ms": 24.21,
+    "p90_ms": 51.4,
+    "max_ms": 84.1,
+    "threshold_p90_ms": 100.0,
+    "verdict": "PASS",
+    "samples_needed_for_p90_claim": 50,
+    "claim_scope": "exploratory only (<50 independent events)",
+    "rows": [
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "card",
+        "error_ms": 9.46
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "number",
+        "error_ms": 29.08
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "list",
+        "error_ms": 2.67
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "card",
+        "error_ms": 12.33
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "card",
+        "error_ms": 84.1
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "keyword",
+        "error_ms": 51.4
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "card",
+        "error_ms": 37.38
+      },
+      {
+        "fixture": "fx_face_zh_portrait",
+        "effect": "card",
+        "error_ms": 19.35
+      }
+    ]
+  },
+  "determinism": null,
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

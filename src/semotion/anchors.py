@@ -314,6 +314,114 @@ def _make_anchor(seg: dict[str, Any], words: list[dict[str, Any]], kind: str,
     return anchor
 
 
+
+# --------------------------------------------------------------------- English
+# Chinese-first product, but ASR and the anchor layer must not silently produce
+# nothing for English footage (the public-domain real-face fixture is English).
+# These rules are intentionally simple and explainable; they never invent times.
+EN_STOPWORDS = frozenset("""
+a an the and or but if then than that this these those there here
+is are was were be been being am do does did done doing have has had having
+i you he she it we they me him her us them my your his its our their
+of to in on at for from by with about into over after before under above
+as so because while when where which who whom whose what how why
+not no nor very just also too only still even much many more most some any
+can could will would shall should may might must ought
+said says say get got go going goes come came make made take took
+""".split())
+
+EN_NUMBER_WORDS = {
+    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+    "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12,
+    "twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60,
+    "seventy": 70, "eighty": 80, "ninety": 90, "hundred": 100, "thousand": 1000,
+    "million": 1_000_000, "billion": 1_000_000_000, "half": 0.5, "dozen": 12,
+}
+EN_ORDINALS = ("first", "second", "third", "fourth", "fifth", "finally", "lastly",
+               "next", "then")
+EN_CONCLUSION = ("so", "therefore", "because", "thus", "hence", "that's why",
+                 "the point is", "in short")
+_RE_EN_NUMBER = re.compile(r"\b(\d+(?:\.\d+)?)\s*(%|percent)?\b|\b(" +
+                           "|".join(sorted(EN_NUMBER_WORDS, key=len, reverse=True)) + r")\b",
+                           re.IGNORECASE)
+
+
+def _en_words_in_span(words: list[dict[str, Any]], c0: int, c1: int) -> list[dict[str, Any]]:
+    """Words whose recorded character span overlaps [c0, c1)."""
+    out = []
+    for w in words:
+        ws, we = w.get("char_start"), w.get("char_end")
+        if ws is None or we is None:
+            continue
+        if ws < c1 and we > c0:
+            out.append(w)
+    return out
+
+
+def _classify_english(segments: list[dict[str, Any]],
+                      per_segment_words: dict[str, list[dict[str, Any]]]
+                      ) -> list[dict[str, Any]]:
+    """Minimal English rule pass: numbers, ordinal steps, content keywords, cards."""
+    cands: list[dict[str, Any]] = []
+    ordinal_seen = 0
+    for seg in segments:
+        words = per_segment_words.get(seg.get("id", ""), [])
+        if not words:
+            continue
+        lower = (seg.get("text") or "").strip()
+        if not lower:
+            continue
+        low = lower.lower()
+
+        # numbers / percentages / spelled-out quantities
+        for m in _RE_EN_NUMBER.finditer(lower):
+            span_words = _en_words_in_span(words, m.start(), m.end())
+            anchor = _make_anchor(seg, span_words, "number", m.group(0), 0.86, "en_number",
+                                  span=(m.start(), m.end()))
+            if anchor:
+                cands.append(anchor)
+
+        # ordinal steps
+        for ord_word in EN_ORDINALS:
+            for m in re.finditer(r"\b" + re.escape(ord_word) + r"\b", low):
+                span_words = _en_words_in_span(words, m.start(), m.end())
+                anchor = _make_anchor(seg, span_words, "list_item", m.group(0), 0.84,
+                                      "en_ordinal", span=(m.start(), m.end()))
+                if anchor:
+                    cands.append(anchor)
+                    ordinal_seen += 1
+                break
+
+        # conclusion markers on a whole sentence
+        if any(marker in low for marker in EN_CONCLUSION) and len(words) >= 5:
+            anchor = _make_anchor(seg, words, "card", lower, 0.62, "en_conclusion",
+                                  span=(0, len(lower)))
+            if anchor:
+                cands.append(anchor)
+
+        # content keywords: long, high-confidence, non-stopword tokens
+        scored = []
+        for w in words:
+            token = re.sub(r"[^A-Za-z']", "", str(w.get("text", ""))).lower()
+            prob = float(w.get("probability") or 0.0)
+            if len(token) < 5 or token in EN_STOPWORDS or prob < 0.75:
+                continue
+            scored.append((prob + 0.02 * len(token), token, w))
+        scored.sort(key=lambda x: -x[0])
+        for _, token, w in scored[:2]:
+            anchor = _make_anchor(seg, [w], "keyword", str(w.get("text", "")).strip(),
+                                  0.74, "en_content_word")
+            if anchor:
+                cands.append(anchor)
+
+    # a run of >=2 ordinals is a step list; a single one is just a keyword
+    if ordinal_seen < 2:
+        for c in cands:
+            if c["kind"] == "list_item":
+                c["kind"] = "keyword"
+    return cands
+
+
 def classify(transcript: dict[str, Any], *, use_cache: bool = True,
              write_cache: bool = True) -> dict[str, Any]:
     """Classify a transcript into semantic anchors (``semotion.anchors/1``).
@@ -406,6 +514,9 @@ def classify(transcript: dict[str, Any], *, use_cache: bool = True,
                                 "card_clause", span=(c0, c1))
             if card:
                 candidates.append(card)
+
+    if not candidates or str(transcript.get("language") or "").lower().startswith("en"):
+        candidates = _classify_english(segments, per_segment_words) or candidates
 
     for marker in final_markers:
         if ordinal_count >= 2:

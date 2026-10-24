@@ -59,8 +59,44 @@ _PALETTES = {
 }
 
 
+def composite_portrait(bg: Path, portrait: Path, box: list[int], dest: Path,
+                       *, radius_ratio: float = 0.10) -> Path:
+    """Place a still portrait photo into the designed scene (test fixture only).
+
+    The scene stays generated artwork; the *face* is a real photograph so that face
+    detection / face-avoidance can be exercised with a genuine face. Any fixture
+    using this must be labelled as a portrait composite, never as real footage.
+    """
+    from PIL import Image, ImageDraw, ImageFilter
+
+    base = Image.open(bg).convert("RGB")
+    face = Image.open(portrait).convert("RGB")
+    x, y, w, h = box
+    # cover-crop to the target box, keep the head near the top
+    scale = max(w / face.width, h / face.height)
+    face = face.resize((int(face.width * scale + 0.5), int(face.height * scale + 0.5)),
+                       Image.LANCZOS)
+    left = (face.width - w) // 2
+    top = int((face.height - h) * 0.12)
+    face = face.crop((left, max(0, top), left + w, max(0, top) + h))
+
+    mask = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, w - 1, h - 1],
+                                           radius=int(min(w, h) * radius_ratio), fill=255)
+    shadow = Image.new("L", base.size, 0)
+    sd = ImageDraw.Draw(shadow)
+    sd.rounded_rectangle([x - 18, y - 12, x + w + 18, y + h + 26],
+                         radius=int(min(w, h) * radius_ratio), fill=90)
+    shadow = shadow.filter(ImageFilter.GaussianBlur(24))
+    base = Image.composite(Image.new("RGB", base.size, (0, 0, 0)), base, shadow)
+    base.paste(face, (x, y), mask)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    base.save(dest, "PNG")
+    return dest
+
+
 def make_background(width: int, height: int, palette: str, dest: Path,
-                    *, label: str = "", seed: int = 7) -> Path:
+                    *, label: str = "", seed: int = 7, person: bool = True) -> Path:
     """Deterministic designed background with a soft presenter zone.
 
     This is generated graphic artwork, not footage: it exists so the pipeline can
@@ -91,6 +127,11 @@ def make_background(width: int, height: int, palette: str, dest: Path,
     # presenter zone: rounded shoulders + head silhouette (designed, no real face)
     d = ImageDraw.Draw(img, "RGBA")
     cx = width // 2
+    if not person:
+        # a portrait photo will be composited on top; keep the backdrop clean
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        img.save(dest, "PNG")
+        return dest
     head_r = int(min(width, height) * 0.085)
     head_cy = int(height * 0.36)
     body_w = int(width * 0.46)
@@ -261,7 +302,15 @@ def build_fixture(spec: dict, out_root: Path, *, work: Path | None = None,
     def _scene_video(scene: dict, dest: Path, log_name: str) -> Path:
         bg = make_background(width, height, scene.get("palette", palette),
                              work / f"bg_{scene['index']}.png",
-                             label=f"{fid}_s{scene['index']}", seed=int(spec.get("seed", 7)) + scene["index"])
+                             label=f"{fid}_s{scene['index']}",
+                             seed=int(spec.get("seed", 7)) + scene["index"],
+                             person=not bool(spec.get("portrait")))
+        portrait_spec = spec.get("portrait")
+        if portrait_spec:
+            pbox = portrait_spec.get("box") or [
+                int(width * 0.16), int(height * 0.10), int(width * 0.68), int(height * 0.72)]
+            bg = composite_portrait(bg, Path(portrait_spec["path"]), [int(v) for v in pbox],
+                                    work / f"bg_{scene['index']}_portrait.png")
         m = scene.get("camera_motion", motion)
         vf = "format=yuv420p"
         if m == "slow_zoom":
@@ -313,7 +362,9 @@ def build_fixture(spec: dict, out_root: Path, *, work: Path | None = None,
                    "end_s": round(sc["end_s"], 6),
                    "start_frame": int(round(sc["start_s"] * fps)),
                    "end_frame": int(round(min(sc["end_s"], total_dur) * fps))} for sc in scenes],
-        "design": "generated graphic artwork (no real person)",
+        "design": ("generated graphic artwork with a real portrait photo composited in"
+                   if spec.get("portrait") else "generated graphic artwork (no real person)"),
+        "portrait": spec.get("portrait"),
         "units": truth,
         "audio_assembly": {
             "lead_in_s": lead, "gap_s": gap, "tail_s": tail,

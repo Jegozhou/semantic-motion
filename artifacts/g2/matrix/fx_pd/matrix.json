@@ -1,0 +1,104 @@
+{
+  "schema": "semotion.effect_matrix/1",
+  "fixture": "fx_pd_real_16x9_a",
+  "created_utc": "2026-10-24T10:46:05Z",
+  "cells": [
+    {
+      "fixture": "fx_pd_real_16x9_a",
+      "effect": "keyword",
+      "elements": 13,
+      "ir_hash": "fc28169e478e041e",
+      "rendered": "artifacts/g2/matrix/fx_pd/keyword/fx_pd_real_16x9_a_keyword.mp4",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 0,
+        "p50_ms": null,
+        "p90_ms": null,
+        "max_ms": null
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 108,
+        "out_of_bounds": 0.0,
+        "containment": 0.000258,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_pd_real_16x9_a",
+      "effect": "number",
+      "elements": 1,
+      "ir_hash": "797b590a973be98d",
+      "rendered": "artifacts/g2/matrix/fx_pd/number/fx_pd_real_16x9_a_number.mp4",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 0,
+        "p50_ms": null,
+        "p90_ms": null,
+        "max_ms": null
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 9,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": "PASS"
+    },
+    {
+      "fixture": "fx_pd_real_16x9_a",
+      "effect": "list",
+      "status": "NO_ANCHORS",
+      "note": "this material has no anchor of this effect family — NOT RUN, not a code failure"
+    },
+    {
+      "fixture": "fx_pd_real_16x9_a",
+      "effect": "card",
+      "status": "NO_ANCHORS",
+      "note": "this material has no anchor of this effect family — NOT RUN, not a code failure"
+    },
+    {
+      "fixture": "fx_pd_real_16x9_a",
+      "effect": "combo",
+      "elements": 14,
+      "ir_hash": "8a330359a6b5104f",
+      "rendered": "artifacts/g2/matrix/fx_pd/combo/fx_pd_real_16x9_a_combo.mp4",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 0,
+        "p50_ms": null,
+        "p90_ms": null,
+        "max_ms": null
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 111,
+        "out_of_bounds": 0.0,
+        "containment": 0.000242,
+        "collision": 0.0
+      },
+      "number_check": "PASS"
+    }
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g2/matrix/fx_b/keyword/fx_b_zh_landscape_keyword.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpwnfx90ia.s16le
+
+
+render manifest: artifacts/g2/matrix/fx_b/keyword/render_manifest.json
+verdict: PASS

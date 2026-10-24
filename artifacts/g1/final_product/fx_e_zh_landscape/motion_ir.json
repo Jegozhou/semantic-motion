@@ -26,8 +26,8 @@
     "transcript_schema": "semotion.transcript/1",
     "transcript_sha256": "2a0983a3020dcb98ab171ab36242ae338cd327bd5e2708f2e6baab87508805e8",
     "anchors_schema": "semotion.anchors/1",
-    "anchors_sha256": "ee72eb6ee03d46ce6a4cbbd55f68ccc0edd0e3bd4150ada5dcee283a2eb1a46b",
-    "decisions_sha256": "ce77379199845be2084ef3bd5309b938fb6450aefaef05d2ce45570f101d2d8f",
+    "anchors_sha256": "662eeb5d433f375825098eea8fded26231fa2d610dac7efbf742da37041e93e0",
+    "decisions_sha256": "9b98ee170d601a305aeed7fe4b152509c166de5235ab8fed6547f1bcbeea5e94",
     "anchors": [
       {
         "id": "a00",
@@ -782,8 +782,8 @@
         "content": {
           "text": "第一步",
           "items": [
-            "步先定标题",
-            "步再定数字"
+            "先定标题",
+            "再定数字"
           ],
           "items_raw": [
             "第一步",
@@ -809,7 +809,7 @@
         "content": {
           "text": "第三步",
           "items": [
-            "步才排节奏"
+            "才排节奏"
           ],
           "items_raw": [
             "第三步"
@@ -1564,7 +1564,7 @@
         "color": "#F5F7FA",
         "accent": "#F2B233",
         "bg": "rgba(10,13,22,0.82)",
-        "font_size_px": 56,
+        "font_size_px": 46,
         "padding_px": 36,
         "radius_px": 28,
         "align": "left",
@@ -1587,8 +1587,8 @@
       "content": {
         "text": "第一步",
         "items": [
-          "步先定标题",
-          "步再定数字"
+          "先定标题",
+          "再定数字"
         ],
         "item_onsets_s": [
           0.0,
@@ -1597,13 +1597,13 @@
         "rows": [
           {
             "marker": "1",
-            "text": "步先定标题",
+            "text": "先定标题",
             "at_s": 0.0,
             "text_at_s": 0.0
           },
           {
             "marker": "2",
-            "text": "步再定数字",
+            "text": "再定数字",
             "at_s": 1.96,
             "text_at_s": 1.96
           }
@@ -1619,16 +1619,16 @@
         "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
         "confidence": 0.9,
         "reason": "sequence_of_2_steps",
-        "effect_params_sha256": "84aceddfe48122b002bc39417c664234d6d8ffcacdc29d37e3bcf15f42d6cfd4"
+        "effect_params_sha256": "1394cc241507cd10cc211aaaa2cb34444aecf4ab41e1b3a9443156cd4eba0f85"
       },
       "layout": {
         "mode": "static_safe",
         "zone": "card",
         "box": [
           1228,
-          296,
+          343,
           308,
-          412
+          227
         ],
         "avoid_face": true,
         "face_safe_margin_px": 32,
@@ -1638,7 +1638,7 @@
         "warnings": [],
         "intrinsic": {
           "width": 308,
-          "height": 412
+          "height": 227
         }
       }
     },
@@ -1666,7 +1666,7 @@
         "color": "#F5F7FA",
         "accent": "#F2B233",
         "bg": "rgba(10,13,22,0.82)",
-        "font_size_px": 56,
+        "font_size_px": 46,
         "padding_px": 36,
         "radius_px": 28,
         "align": "left",
@@ -1689,7 +1689,7 @@
       "content": {
         "text": "第三步",
         "items": [
-          "步才排节奏"
+          "才排节奏"
         ],
         "item_onsets_s": [
           0.0
@@ -1697,7 +1697,7 @@
         "rows": [
           {
             "marker": "1",
-            "text": "步才排节奏",
+            "text": "才排节奏",
             "at_s": 0.0,
             "text_at_s": 0.0
           }
@@ -1709,16 +1709,16 @@
         "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
         "confidence": 0.9,
         "reason": "sequence_of_1_steps",
-        "effect_params_sha256": "0a9a9f7fc76475b2322fef760d197ca3ab0407bf8d961d57c80f56f399776fb5"
+        "effect_params_sha256": "fe3bcf4ebfe710e13a09331f2f60e36c0119bd86e6633479f8347dec0c45078d"
       },
       "layout": {
         "mode": "static_safe",
         "zone": "card",
         "box": [
           1228,
-          342,
+          364,
           308,
-          230
+          140
         ],
         "avoid_face": true,
         "face_safe_margin_px": 32,
@@ -1728,7 +1728,7 @@
         "warnings": [],
         "intrinsic": {
           "width": 308,
-          "height": 230
+          "height": 140
         }
       }
     },
@@ -1820,7 +1820,7 @@
     "loudness_target_db": null
   },
   "provenance": {
-    "generated_utc": "2026-10-24T10:12:24Z",
+    "generated_utc": "2026-10-24T10:43:55Z",
     "tool_versions": {
       "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
       "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
@@ -1836,6 +1836,6 @@
     "build_warnings": [],
     "skipped_decisions": [],
     "n_elements": 11,
-    "ir_sha256": "2d1fc62f43359effcca05e09c0c62a644abfe393e50bb3d38dff0cec7b3a12c3"
+    "ir_sha256": "2eff7a5f066711d8cb6de4777d2f173552859886ad86fbc43c97740045e62e0d"
   }
 }

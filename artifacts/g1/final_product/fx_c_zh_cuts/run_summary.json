@@ -1,7 +1,7 @@
 {
   "gate": "G1",
-  "started_utc": "2026-10-24T10:12:11Z",
-  "finished_utc": "2026-10-24T10:12:16Z",
+  "started_utc": "2026-10-24T10:43:42Z",
+  "finished_utc": "2026-10-24T10:43:46Z",
   "input": {
     "video": "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
     "sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
@@ -44,7 +44,7 @@
     {
       "step": "asr",
       "status": "ok",
-      "seconds": 0.03
+      "seconds": 0.02
     },
     {
       "step": "vision",
@@ -69,12 +69,12 @@
     {
       "step": "render",
       "status": "ok",
-      "seconds": 3.46
+      "seconds": 3.38
     },
     {
       "step": "verify",
       "status": "ok",
-      "seconds": 0.52
+      "seconds": 0.5
     }
   ],
   "exit": 0

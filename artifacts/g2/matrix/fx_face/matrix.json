@@ -1,0 +1,146 @@
+{
+  "schema": "semotion.effect_matrix/1",
+  "fixture": "fx_face_zh_portrait",
+  "created_utc": "2026-10-24T10:42:19Z",
+  "cells": [
+    {
+      "fixture": "fx_face_zh_portrait",
+      "effect": "keyword",
+      "elements": 6,
+      "ir_hash": "a5e1e2850b91f183",
+      "rendered": "artifacts/g2/matrix/fx_face/keyword/fx_face_zh_portrait_keyword.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 3,
+        "p50_ms": 19.35,
+        "p90_ms": 77.37,
+        "max_ms": 77.37
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 83,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_face_zh_portrait",
+      "effect": "number",
+      "elements": 3,
+      "ir_hash": "d6b1b57065f5ed19",
+      "rendered": "artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 1,
+        "p50_ms": 29.08,
+        "p90_ms": 29.08,
+        "max_ms": 29.08
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 32,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": "PASS"
+    },
+    {
+      "fixture": "fx_face_zh_portrait",
+      "effect": "list",
+      "elements": 1,
+      "ir_hash": "5b1250646ded749b",
+      "rendered": "artifacts/g2/matrix/fx_face/list/fx_face_zh_portrait_list.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 1,
+        "p50_ms": 2.67,
+        "p90_ms": 2.67,
+        "max_ms": 2.67
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 18,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_face_zh_portrait",
+      "effect": "card",
+      "elements": 5,
+      "ir_hash": "75f3a922ccc2d56c",
+      "rendered": "artifacts/g2/matrix/fx_face/card/fx_face_zh_portrait_card.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 5,
+        "p50_ms": 19.35,
+        "p90_ms": 44.1,
+        "max_ms": 44.1
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 142,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_face_zh_portrait",
+      "effect": "combo",
+      "elements": 13,
+      "ir_hash": "ddf147bd80cdb7f2",
+      "rendered": "artifacts/g2/matrix/fx_face/combo/fx_face_zh_portrait_combo.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 8,
+        "p50_ms": 24.21,
+        "p90_ms": 51.4,
+        "max_ms": 84.1
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 198,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": "PASS"
+    }
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

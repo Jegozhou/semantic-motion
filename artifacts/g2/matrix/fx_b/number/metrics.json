@@ -1,0 +1,159 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G2",
+  "input_sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6",
+  "ir_sha256": "ba68b30f4bdae3edc83902e01edd91ea6f6735d632c3e3c3799b496be3e898da",
+  "render_sha256": "2f5dbaec0daf76a502d0a482738820bfb66d06555b18ad70023695022cb425ab",
+  "timing": {
+    "samples": 0,
+    "elements": 2,
+    "detected_onsets": 2,
+    "rows": [
+      {
+        "element_id": "el_nu01",
+        "effect": "number",
+        "text": "三个",
+        "window_start_s": 2.72,
+        "rendered_onset_s": 2.72,
+        "anchor_start_s": 2.7,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 19.098,
+        "detect_threshold": 0.955
+      },
+      {
+        "element_id": "el_nu02",
+        "effect": "number",
+        "text": "70%",
+        "window_start_s": 11.84,
+        "rendered_onset_s": 11.84,
+        "anchor_start_s": 11.82,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 29.609,
+        "detect_threshold": 1.48
+      }
+    ],
+    "source": "SYNTH_KNOWN",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 2,
+      "p50_ms": 20.0,
+      "max_ms": 20.0
+    },
+    "p50_ms": null,
+    "p90_ms": null,
+    "max_ms": null,
+    "verdict": "NOT RUN",
+    "note": "truth file present but no element onset could be matched to an independent unit start (anchors inside longer units) — this is NOT RUN, not a pass and not an environment block"
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 0,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 29,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 29,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 2,
+      "sampled_frames": 29
+    },
+    "raster_containment": {
+      "changed_pixels": 24946,
+      "inside_declared_box": 24464,
+      "value": 0.019322,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 0,
+      "frames_with_faces": 0,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 2,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 26.18,
+    "duration_rendered_s": 26.197,
+    "duration_delta_s": 0.017,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 651,
+    "frames_rendered": 651,
+    "audio": {
+      "src": {
+        "n_samples": 2514944,
+        "duration_s": 26.197333,
+        "rms_db": -22.009,
+        "peak_db": -6.662
+      },
+      "rendered": {
+        "n_samples": 2514944,
+        "duration_s": 26.197333,
+        "rms_db": -22.01,
+        "peak_db": -6.662
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.001,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "NOT RUN",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+    "rendered": "artifacts/g2/matrix/fx_b/number/fx_b_zh_landscape_number.mp4",
+    "truth": "tests/fixtures/clips/fx_b_zh_landscape/ground_truth.json",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

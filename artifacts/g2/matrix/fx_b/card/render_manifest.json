@@ -1,0 +1,134 @@
+{
+  "schema": "semotion.render/1",
+  "ir_sha256": "748639719d1395314c688f01a1f9aa9634c0ec7fb4b5b8c5c1ea994317d735e9",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+    "sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6"
+  },
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g2/matrix/fx_b/card/fx_b_zh_landscape_card.mp4",
+    "sha256": "40c382b5876e0ac2b3ce57277933a8f3269b469be8779083328fa3199edd3c71",
+    "size_bytes": 740395,
+    "duration_s": 26.197,
+    "n_frames": 651,
+    "width": 1920,
+    "height": 1080,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "pix_fmt": "yuv420p"
+  },
+  "audio": {
+    "pcm_sha256": "d69a032dfee80e38fb843a86d595b6923ded2db282c645cb02ab3d215ab84655",
+    "source": "passthrough_decode_encode",
+    "delta_vs_source_s": 0.0,
+    "rms_delta_db": 0.001,
+    "correlation": 0.999998,
+    "method": "decoded 48 kHz stereo PCM: duration + RMS energy + zero-mean correlation vs source (AAC re-encode prevents sample-exact identity)",
+    "source_duration_s": 26.197333
+  },
+  "overlay": {
+    "fps": 25.0,
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13",
+    "rendered_frames": 109,
+    "empty_frames": 0,
+    "elements": [
+      {
+        "id": "el_ca01",
+        "type": "card",
+        "z": 30,
+        "start_frame": 51,
+        "end_frame": 105,
+        "frames": 54,
+        "frames_dir": "artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13/el_ca01"
+      },
+      {
+        "id": "el_ca02",
+        "type": "card",
+        "z": 30,
+        "start_frame": 396,
+        "end_frame": 451,
+        "frames": 55,
+        "frames_dir": "artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13/el_ca02"
+      }
+    ],
+    "frames_retained": false
+  },
+  "commands": [
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4 -framerate 25 -start_number 51 -i artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13/el_ca01/f%05d.png -framerate 25 -start_number 396 -i artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13/el_ca02/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.040000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.040000)*lt(t,4.200000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+15.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.840000)*lt(t,18.040000)'\"'\"'[v1];[v1]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_b/card/fx_b_zh_landscape_card.mp4"
+  ],
+  "command_argv": [
+    "ffmpeg",
+    "-hide_banner",
+    "-y",
+    "-v",
+    "error",
+    "-i",
+    "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+    "-framerate",
+    "25",
+    "-start_number",
+    "51",
+    "-i",
+    "artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13/el_ca01/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "396",
+    "-i",
+    "artifacts/tmp/render_fx_b_zh_landscape_card_748639719d13/el_ca02/f%05d.png",
+    "-filter_complex",
+    "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.040000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,2.040000)*lt(t,4.200000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+15.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,15.840000)*lt(t,18.040000)'[v1];[v1]format=yuv420p[vout]",
+    "-map",
+    "[vout]",
+    "-map",
+    "0:a?",
+    "-r",
+    "25",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "192k",
+    "-ar",
+    "48000",
+    "-movflags",
+    "+faststart",
+    "artifacts/g2/matrix/fx_b/card/fx_b_zh_landscape_card.mp4"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "created_utc": "2026-10-24T10:42:48Z",
+  "preview": false,
+  "checks": {
+    "duration_delta_s": 0.017,
+    "duration_tolerance_s": 0.04,
+    "source_video_stream_duration_s": 26.04,
+    "output_video_stream_duration_s": 26.04,
+    "source_audio_stream_duration_s": 26.18,
+    "output_audio_stream_duration_s": 26.197,
+    "audio_stream_delta_s": 0.017,
+    "frames_expected": 651,
+    "source_decoded_frames": 651,
+    "frames_out_vs_source_decoded": 0,
+    "frames_expected_vs_source_decoded": 0,
+    "frame_count_note": "expected frames come from the IR (container nb_frames first); duration*fps may differ by a few frames when the container pads the audio tail — that is not a fault",
+    "resolution_expected": [
+      1920,
+      1080
+    ],
+    "verdict": "PASS",
+    "problems": []
+  },
+  "log": "artifacts/g2/matrix/fx_b/card/logs/render_fx_b_zh_landscape_card.log",
+  "manifest_path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g2/matrix/fx_b/card/render_manifest.json"
+}

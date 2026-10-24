@@ -1,5 +1,5 @@
 {
-  "schema": "semotion.number_check/1",
+  "schema": "semotion.number_check/2",
   "video": "artifacts/g1/final_product/fx_c_zh_cuts/fx_c_zh_cuts_motion.mp4",
   "ir": "artifacts/g1/final_product/fx_c_zh_cuts/motion_ir.json",
   "checks": [
@@ -7,49 +7,67 @@
       "element_id": "el_d06",
       "text": "九成",
       "expected_value": 90.0,
-      "expected_kind": "percent",
-      "ocr_raw": "90%",
-      "ocr_variants": {
-        "psm8": "90%",
-        "psm13": "90%"
-      },
-      "observed_value": 90.0,
-      "frame": 368,
-      "t_s": 14.72,
+      "numeric_final": "90%",
+      "frame": 358,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         368,
         1016,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 2.7085,
+        "p99": 20.3333,
+        "max": 49.6667,
+        "within_p99": 0.9994
+      },
+      "decoy_half_value_match": {
+        "mean": 9.3995,
+        "p99": 134.0,
+        "max": 153.6,
+        "within_p99": 0.9425
+      },
       "status": "PASS"
     },
     {
       "element_id": "el_d07",
       "text": "10%",
       "expected_value": 10.0,
-      "expected_kind": "percent",
-      "ocr_raw": "10%",
-      "ocr_variants": {
-        "psm8": "10%",
-        "psm13": "10%"
-      },
-      "observed_value": 10.0,
-      "frame": 458,
-      "t_s": 18.32,
+      "numeric_final": "10%",
+      "frame": 432,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         368,
         1016,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 2.8194,
+        "p99": 25.0196,
+        "max": 49.0,
+        "within_p99": 0.9995
+      },
+      "decoy_half_value_match": {
+        "mean": 13.7675,
+        "p99": 112.5333,
+        "max": 125.6,
+        "within_p99": 0.8902
+      },
       "status": "PASS"
     }
   ],
   "verdict": "PASS",
   "readable": 2,
   "mismatches": 0,
-  "unreadable": [],
-  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
-  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
 }

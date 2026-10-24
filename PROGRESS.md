@@ -1,7 +1,7 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：G0 PASS；**G1 PASS**（真实成片 + IR + 指标；校准集 56 事件 P90=50.15 ms）；G2 进行中。
+> 最近更新：G0 PASS；G1 PASS（校准集 56 事件 P90=50.15 ms）；**G2 PASS**（四类动效矩阵 + 真实人脸避脸 0/198 + 数值确定性校验）；G3 进行中。
 
 ## 0. 当前状态一屏
 
@@ -9,8 +9,8 @@
 |---|---|---|
 | **G0 预检与基线** | **PASS** | `ENVIRONMENT.md`、`artifacts/env/env_probe.json`、`artifacts/g0/baseline_report.json`（verdict=PASS）、`reports/gate-G0.md` |
 | G1 最小语义闭环 | **PASS** | 链路已打通：`artifacts/g1/runner/gate_summary.json`（fx_a：timing/position/render PASS，n=3 探索性）、`artifacts/g1/pd_a/`（真实人脸素材：position/render PASS）；**待 ≥50 独立事件校准素材** |
-| G2 四类动效 | **IN PROGRESS** | 依赖 G1（已完成）；正在做逐项/组合/双画幅/双素材验收 |
-| G3 高级稳定性 | NOT RUN | 依赖 G2 |
+| G2 四类动效 | **PASS** | `reports/gate-G2.md`；20 格动效矩阵、真实人脸 198 帧遮脸 0、数值确定性校验全 PASS |
+| G3 高级稳定性 | **IN PROGRESS** | 依赖 G2（已完成）；镜头/运动降级、局部重渲染、异常恢复、回归 |
 | G4 完整交付 | NOT RUN | 依赖 G3 |
 
 预算：本地零付费；已用磁盘 < 2 GB（不含 1.42 GB whisper medium 缓存，位于 `/Volumes/ZHITAI/models` 与 `~/.cache/whisper`）；并发子智能体 2（上限 3）。
@@ -72,7 +72,18 @@
 
 **度量反向验证（证明指标不是空转）**：把 400×120 的框故意压在真实人脸框上 → `position=FAIL`（observed=1.0、planned=1.0）；把 onset 故意延后 300ms → `timing=FAIL`（300.0ms）。证据脚本输出见对话记录与 `artifacts/g1/probe/`。
 
-## 2. 进行中（G1）
+## 1.6 G2 最终验收（PASS，2026-10-24 18:5x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| 四类动效单项 + 组合 | 20 格矩阵：18 格可测全 PASS，2 格 NO_ANCHORS（英文素材限制） | `artifacts/g2/matrix/*/matrix.json`、`reports/gate-G2.md` |
+| 画幅 | 9:16（fx_a/fx_face）与 16:9（fx_b/fx_pd）均通过 | 同上 |
+| 真实人脸避脸 | fx_face：人脸 125/125 帧检出；**观测遮挡 0/198 帧**、越界 0、包含性 0 | `artifacts/g2/face_stress/fx_face_zh_portrait/metrics.json` |
+| 数值语义 | 确定性复算（期望 vs 半值对照）全部 PASS | 各 `number_check.json`（schema v2） |
+| 两条不同素材成片 | fx_a（合成）+ fx_pd_real_16x9_a（公有领域真人）+ fx_face（真人肖像合成） | `artifacts/g2/matrix/` |
+| 回归测试 | 92 passed | `.venv/bin/python -m pytest tests/ -q` |
+
+## 2. 进行中（G1 过程记录，保留）
 
 | 子任务 | Owner | 写域 | 状态 | 备注 |
 |---|---|---|---|---|

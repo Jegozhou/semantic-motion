@@ -300,8 +300,10 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
     }
     if not errors:
         base.update({"p50_ms": None, "p90_ms": None, "max_ms": None,
-                     "verdict": NOT_RUN if not truth else BLOCKED,
-                     "note": "no element had an independent target onset"})
+                     "verdict": NOT_RUN,
+                     "note": ("truth file present but no element onset could be matched to an "
+                              "independent unit start (anchors inside longer units) — this is "
+                              "NOT RUN, not a pass and not an environment block")})
         return base
     e = sorted(errors)
     p90 = e[max(0, int(round(0.9 * (len(e) - 1))))]

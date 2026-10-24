@@ -1,0 +1,82 @@
+{
+  "gate": "G2",
+  "started_utc": "2026-10-24T10:44:05Z",
+  "finished_utc": "2026-10-24T10:44:11Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+    "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf",
+    "truth": "tests/fixtures/clips/fx_face_zh_portrait/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g2/face_stress/fx_face_zh_portrait/transcript.json",
+    "vision": "artifacts/g2/face_stress/fx_face_zh_portrait/vision.json",
+    "anchors": "artifacts/g2/face_stress/fx_face_zh_portrait/anchors.json",
+    "plan": "artifacts/g2/face_stress/fx_face_zh_portrait/plan.json",
+    "motion_ir": "artifacts/g2/face_stress/fx_face_zh_portrait/motion_ir.json",
+    "render": "artifacts/g2/face_stress/fx_face_zh_portrait/fx_face_zh_portrait_motion.mp4",
+    "render_manifest": "artifacts/g2/face_stress/fx_face_zh_portrait/render_manifest.json",
+    "metrics": "artifacts/g2/face_stress/fx_face_zh_portrait/metrics.json"
+  },
+  "decisions": {
+    "decisions": 13,
+    "by_effect": {
+      "card": 5,
+      "number": 3,
+      "list": 1,
+      "keyword": 4
+    },
+    "skipped": 0,
+    "coverage": 0.628
+  },
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 8,
+    "p50_ms": 24.21,
+    "p90_ms": 51.4,
+    "max_ms": 84.1,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.03
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.02
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.0
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.06
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 4.54
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.77
+    }
+  ],
+  "exit": 0
+}

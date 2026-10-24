@@ -118,8 +118,17 @@ def _norm(text: str) -> str:
     return "".join(ch for ch in str(text) if ch.isalnum())
 
 
-_ORDINAL_PREFIX = ("第一个", "第一", "第二个", "第二", "第三个", "第三", "第四个", "第四",
-                   "首先", "其次", "然后", "最后", "接着", "另外")
+_ORDINAL_BASE = ("第一", "第二", "第三", "第四", "第五", "第六", "第七", "第八")
+_ORDINAL_MEASURES = ("步", "个", "点", "条", "种", "项", "招", "件事", "部分")
+# Longest-first stripping: "第一步" before "第一", otherwise "第一步是对齐" loses only
+# the ordinal and keeps a dangling measure word ("步是对齐").
+_ORDINAL_PREFIX = tuple(sorted(
+    [f"{base}{m}是" for base in _ORDINAL_BASE for m in _ORDINAL_MEASURES]
+    + [f"{base}{m}" for base in _ORDINAL_BASE for m in _ORDINAL_MEASURES]
+    + [f"{base}是" for base in _ORDINAL_BASE]
+    + list(_ORDINAL_BASE)
+    + ["首先", "其次", "然后", "最后", "接着", "另外"]
+    , key=len, reverse=True))
 
 
 def _transcript_slice(transcript: dict | None, t0: float, t1: float) -> str:
@@ -164,8 +173,8 @@ def _compose_list_items(group: list[dict], all_items: list[dict],
             if joined.startswith(pre):
                 joined = joined[len(pre):].strip("，,。.、；;：: ")
                 break
-        joined = joined.strip("，,。.、；;：: ")
-        out.append(joined if joined else str(g.get("text", "")))
+        joined = to_simplified(joined.strip("，,。.、；;：: "))
+        out.append(joined if joined else to_simplified(str(g.get("text", ""))))
     return out
 
 

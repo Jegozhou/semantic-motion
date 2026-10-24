@@ -7,24 +7,209 @@
   "anchors": [
     {
       "id": "a00",
+      "kind": "keyword",
+      "text": "administration",
+      "start_s": 1.46,
+      "end_s": 2.08,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w6"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "midstof",
+      "start_s": 2.66,
+      "end_s": 3.12,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w9",
+        "w10"
+      ],
+      "rule": "en_content_word+phrase_merge",
+      "merged_words": 2
+    },
+    {
+      "id": "a02",
+      "kind": "keyword",
+      "text": "unprecedented",
+      "start_s": 3.38,
+      "end_s": 3.96,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w12"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a03",
+      "kind": "keyword",
+      "text": "unprecedented",
+      "start_s": 5.36,
+      "end_s": 6.0,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w17"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a04",
+      "kind": "keyword",
+      "text": "people",
+      "start_s": 8.78,
+      "end_s": 9.12,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w25"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a05",
+      "kind": "keyword",
+      "text": "unemployment",
+      "start_s": 9.88,
+      "end_s": 10.36,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w28"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a06",
       "kind": "number",
       "text": "26",
       "start_s": 11.7,
       "end_s": 12.14,
-      "confidence": 0.88,
+      "confidence": 0.86,
       "source": "ASR_ALIGNED",
       "segment_id": "s3",
       "word_ids": [
         "w36"
       ],
-      "rule": "arabic_number"
+      "rule": "en_number"
+    },
+    {
+      "id": "a07",
+      "kind": "keyword",
+      "text": "years",
+      "start_s": 12.14,
+      "end_s": 12.64,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s3",
+      "word_ids": [
+        "w37"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a08",
+      "kind": "keyword",
+      "text": "experts",
+      "start_s": 13.38,
+      "end_s": 13.58,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s4",
+      "word_ids": [
+        "w39"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a09",
+      "kind": "keyword",
+      "text": "nothing",
+      "start_s": 14.28,
+      "end_s": 14.52,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s4",
+      "word_ids": [
+        "w43"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a10",
+      "kind": "keyword",
+      "text": "unemployment",
+      "start_s": 15.5,
+      "end_s": 15.94,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s5",
+      "word_ids": [
+        "w47"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a11",
+      "kind": "keyword",
+      "text": "double",
+      "start_s": 16.78,
+      "end_s": 17.1,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s5",
+      "word_ids": [
+        "w51"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a12",
+      "kind": "keyword",
+      "text": "economy",
+      "start_s": 18.36,
+      "end_s": 18.72,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s6",
+      "word_ids": [
+        "w54"
+      ],
+      "rule": "en_content_word"
+    },
+    {
+      "id": "a13",
+      "kind": "keyword",
+      "text": "trillion",
+      "start_s": 19.54,
+      "end_s": 19.76,
+      "confidence": 0.74,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s6",
+      "word_ids": [
+        "w58"
+      ],
+      "rule": "en_content_word"
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T09:31:21Z",
+    "created_utc": "2026-10-24T10:20:25Z",
     "method": "asr_word_spans+rule_classifier",
-    "n_anchors": 1,
+    "n_anchors": 14,
     "kinds": {
+      "keyword": 13,
       "number": 1
     },
     "truth_class": "MACHINE_WEAK",

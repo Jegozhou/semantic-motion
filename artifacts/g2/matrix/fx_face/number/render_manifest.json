@@ -1,0 +1,149 @@
+{
+  "schema": "semotion.render/1",
+  "ir_sha256": "d6b1b57065f5ed19fbab1fa296609d58ad755469b6f1e243944853b8f9336a70",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+    "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf"
+  },
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4",
+    "sha256": "21f9980d7e767ef8f91065de8326581954c241bdc59717218df2624204a0f664",
+    "size_bytes": 1077691,
+    "duration_s": 24.92,
+    "n_frames": 623,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "pix_fmt": "yuv420p"
+  },
+  "audio": {
+    "pcm_sha256": "4014746bc7041b13587b47d486fe98a1c5f07525106782e28b9334a34fcbde8d",
+    "source": "passthrough_decode_encode",
+    "delta_vs_source_s": 0.0,
+    "rms_delta_db": 0.001,
+    "correlation": 0.999998,
+    "method": "decoded 48 kHz stereo PCM: duration + RMS energy + zero-mean correlation vs source (AAC re-encode prevents sample-exact identity)",
+    "source_duration_s": 24.917333
+  },
+  "overlay": {
+    "fps": 25.0,
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5",
+    "rendered_frames": 63,
+    "empty_frames": 0,
+    "elements": [
+      {
+        "id": "el_nu01",
+        "type": "number",
+        "z": 20,
+        "start_frame": 57,
+        "end_frame": 79,
+        "frames": 22,
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu01"
+      },
+      {
+        "id": "el_nu02",
+        "type": "number",
+        "z": 20,
+        "start_frame": 86,
+        "end_frame": 109,
+        "frames": 23,
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu02"
+      },
+      {
+        "id": "el_nu03",
+        "type": "number",
+        "z": 20,
+        "start_frame": 392,
+        "end_frame": 410,
+        "frames": 18,
+        "frames_dir": "artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu03"
+      }
+    ],
+    "frames_retained": false
+  },
+  "commands": [
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4 -framerate 25 -start_number 57 -i artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu01/f%05d.png -framerate 25 -start_number 86 -i artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu02/f%05d.png -framerate 25 -start_number 392 -i artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu03/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,2.280000)*lt(t,3.160000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,3.440000)*lt(t,4.360000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,15.680000)*lt(t,16.400000)'\"'\"'[v2];[v2]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 25 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4"
+  ],
+  "command_argv": [
+    "ffmpeg",
+    "-hide_banner",
+    "-y",
+    "-v",
+    "error",
+    "-i",
+    "tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+    "-framerate",
+    "25",
+    "-start_number",
+    "57",
+    "-i",
+    "artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu01/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "86",
+    "-i",
+    "artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu02/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "392",
+    "-i",
+    "artifacts/tmp/render_fx_face_zh_portrait_number_d6b1b57065f5/el_nu03/f%05d.png",
+    "-filter_complex",
+    "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+2.280000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,2.280000)*lt(t,3.160000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+3.440000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,3.440000)*lt(t,4.360000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+15.680000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,15.680000)*lt(t,16.400000)'[v2];[v2]format=yuv420p[vout]",
+    "-map",
+    "[vout]",
+    "-map",
+    "0:a?",
+    "-r",
+    "25",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "192k",
+    "-ar",
+    "48000",
+    "-movflags",
+    "+faststart",
+    "artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "created_utc": "2026-10-24T10:42:03Z",
+  "preview": false,
+  "checks": {
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.04,
+    "source_video_stream_duration_s": 24.92,
+    "output_video_stream_duration_s": 24.92,
+    "source_audio_stream_duration_s": 24.917,
+    "output_audio_stream_duration_s": 24.917,
+    "audio_stream_delta_s": 0.0,
+    "frames_expected": 623,
+    "source_decoded_frames": 623,
+    "frames_out_vs_source_decoded": 0,
+    "frames_expected_vs_source_decoded": 0,
+    "frame_count_note": "expected frames come from the IR (container nb_frames first); duration*fps may differ by a few frames when the container pads the audio tail — that is not a fault",
+    "resolution_expected": [
+      1080,
+      1920
+    ],
+    "verdict": "PASS",
+    "problems": []
+  },
+  "log": "artifacts/g2/matrix/fx_face/number/logs/render_fx_face_zh_portrait_number.log",
+  "manifest_path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g2/matrix/fx_face/number/render_manifest.json"
+}

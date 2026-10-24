@@ -1,0 +1,200 @@
+{
+  "fixture_id": "fx_face_zh_portrait",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+  "abs_path": "tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+  "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf",
+  "duration_s": 24.92,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25.0,
+  "n_frames": 623,
+  "language": "zh",
+  "voice": "Tingting",
+  "rate": 175,
+  "camera_motion": [
+    "static"
+  ],
+  "palette": [
+    "studio_warm"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 24.928479,
+      "start_frame": 0,
+      "end_frame": 623
+    }
+  ],
+  "design": "generated graphic artwork with a real portrait photo composited in",
+  "portrait": {
+    "path": "assets/media/portraits/obama_official.jpg",
+    "box": [
+      172,
+      192,
+      736,
+      760
+    ],
+    "license": "CC BY 3.0 — Pete Souza, Official portrait of Barack Obama, Wikimedia Commons",
+    "note": "Real photographed face composited into generated artwork. TEST FIXTURE ONLY — never present as real footage."
+  },
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "大家好",
+      "role": "plain",
+      "start_s": 0.5,
+      "end_s": 1.270542,
+      "start_frame": 12,
+      "end_frame": 32,
+      "duration_s": 0.770542,
+      "audio_sha256": "6e2d87c8dc4aa30af37293a3756bee29041661094bc2ee19d39a60d669a8e77a",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "先看三个数字",
+      "role": "number",
+      "start_s": 1.590542,
+      "end_s": 3.090917,
+      "start_frame": 40,
+      "end_frame": 77,
+      "duration_s": 1.500375,
+      "audio_sha256": "eba1003d12ac414e44fc7aede2574e2e84577ad2508bae2be13a0deaa152d261",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "九成的失败来自时间",
+      "role": "number",
+      "start_s": 3.410917,
+      "end_s": 5.482667,
+      "start_frame": 85,
+      "end_frame": 137,
+      "duration_s": 2.07175,
+      "audio_sha256": "7cc67364627b2ac22259c84741e587548e556d51271ccc602cbed1d6ecf8b929",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "第一步是对齐",
+      "role": "list_item",
+      "start_s": 5.802667,
+      "end_s": 7.107667,
+      "start_frame": 145,
+      "end_frame": 178,
+      "duration_s": 1.305,
+      "audio_sha256": "aa0afe82922741d1e6a4661142de9817ac2781356c6428502e894e55f3ea4d68",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "第二步是布局",
+      "role": "list_item",
+      "start_s": 7.427667,
+      "end_s": 8.755896,
+      "start_frame": 186,
+      "end_frame": 219,
+      "duration_s": 1.328229,
+      "audio_sha256": "3423364a4ad4d312053c1dbea97d9fdd1775c25de7a42c64a9e9559b3f7da2f9",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "第三步是渲染",
+      "role": "list_item",
+      "start_s": 9.075896,
+      "end_s": 10.508604,
+      "start_frame": 227,
+      "end_frame": 263,
+      "duration_s": 1.432708,
+      "audio_sha256": "829cf46760419e4279f1bc174d7294560b9cecc05f558e6328487a128e75cc2d",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "关键是别挡住脸",
+      "role": "keyword",
+      "start_s": 10.828604,
+      "end_s": 12.522625,
+      "start_frame": 271,
+      "end_frame": 313,
+      "duration_s": 1.694021,
+      "audio_sha256": "62be277879ad4a25ffd4d0431d5b4ebe3a36c806e191b873affaf213234ee437",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u08",
+      "text": "所以我们先测遮挡",
+      "role": "keyword",
+      "start_s": 12.842625,
+      "end_s": 14.655958,
+      "start_frame": 321,
+      "end_frame": 366,
+      "duration_s": 1.813333,
+      "audio_sha256": "a71e4291d74ebb0986ee57bfaa86f1f69d625788dc8dc46b1dfc0a8078752848",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u09",
+      "text": "百分之七十的返工",
+      "role": "number",
+      "start_s": 14.975958,
+      "end_s": 16.682583,
+      "start_frame": 374,
+      "end_frame": 417,
+      "duration_s": 1.706625,
+      "audio_sha256": "ef485106640df6f7affd883adb760f5660f89b9cef672ce70f354cb2db0cca28",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u10",
+      "text": "都出在时间不对",
+      "role": "plain",
+      "start_s": 17.002583,
+      "end_s": 18.620646,
+      "start_frame": 425,
+      "end_frame": 466,
+      "duration_s": 1.618062,
+      "audio_sha256": "3093fbfe8aaed68cde38ee5a5735ea2e9d741a15b7d0cba8ab35cfaee765e2d8",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u11",
+      "text": "结论是先对齐再谈样式",
+      "role": "keyword",
+      "start_s": 18.940646,
+      "end_s": 21.395542,
+      "start_frame": 474,
+      "end_frame": 535,
+      "duration_s": 2.454896,
+      "audio_sha256": "1fca1897cfdd5fd370deadbd6f288aa684075162fba606965f299cc387a9e4a5",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u12",
+      "text": "这就是这套流程的底线",
+      "role": "plain",
+      "start_s": 21.715542,
+      "end_s": 23.908479,
+      "start_frame": 543,
+      "end_frame": 598,
+      "duration_s": 2.192938,
+      "audio_sha256": "2332bec999ec8d092420722b89f5ea58fccd49c5a3e73e4f5b3256530dc96d4a",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.5,
+    "gap_s": 0.32,
+    "tail_s": 0.7,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

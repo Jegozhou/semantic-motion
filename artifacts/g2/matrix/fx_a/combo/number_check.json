@@ -1,0 +1,73 @@
+{
+  "schema": "semotion.number_check/2",
+  "video": "artifacts/g2/matrix/fx_a/combo/fx_a_zh_portrait_combo.mp4",
+  "ir": "artifacts/g2/matrix/fx_a/combo/motion_ir.json",
+  "checks": [
+    {
+      "element_id": "el_cal04",
+      "text": "九成",
+      "expected_value": 90.0,
+      "numeric_final": "90%",
+      "frame": 204,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "expected_match": {
+        "mean": 2.3271,
+        "p99": 21.3333,
+        "max": 49.2614,
+        "within_p99": 0.9992
+      },
+      "decoy_half_value_match": {
+        "mean": 9.0488,
+        "p99": 133.6667,
+        "max": 152.5333,
+        "within_p99": 0.9423
+      },
+      "status": "PASS"
+    },
+    {
+      "element_id": "el_cal06",
+      "text": "三个",
+      "expected_value": 3.0,
+      "numeric_final": "3个",
+      "frame": 256,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
+      "box": [
+        399,
+        1016,
+        282,
+        269
+      ],
+      "expected_match": {
+        "mean": 2.1069,
+        "p99": 18.6667,
+        "max": 47.2471,
+        "within_p99": 0.9994
+      },
+      "decoy_half_value_match": {
+        "mean": 5.942,
+        "p99": 133.6667,
+        "max": 149.8667,
+        "within_p99": 0.9676
+      },
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS",
+  "readable": 2,
+  "mismatches": 0,
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
+}

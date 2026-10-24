@@ -1,5 +1,5 @@
 {
-  "schema": "semotion.number_check/1",
+  "schema": "semotion.number_check/2",
   "video": "artifacts/g1/final_product/fx_a_zh_portrait/fx_a_zh_portrait_motion.mp4",
   "ir": "artifacts/g1/final_product/fx_a_zh_portrait/motion_ir.json",
   "checks": [
@@ -7,28 +7,39 @@
       "element_id": "el_d03",
       "text": "九成",
       "expected_value": 90.0,
-      "expected_kind": "percent",
-      "ocr_raw": "90%",
-      "ocr_variants": {
-        "psm8": "90%",
-        "psm13": "90%"
-      },
-      "observed_value": 90.0,
-      "frame": 216,
-      "t_s": 8.64,
+      "numeric_final": "90%",
+      "frame": 204,
+      "t_rel_s": 0.32,
+      "alpha_at_frame": 1.0,
       "box": [
         368,
         1016,
         344,
         269
       ],
+      "expected_match": {
+        "mean": 2.3604,
+        "p99": 21.3725,
+        "max": 50.0,
+        "within_p99": 0.9992
+      },
+      "decoy_half_value_match": {
+        "mean": 9.0687,
+        "p99": 134.0,
+        "max": 153.2,
+        "within_p99": 0.9424
+      },
       "status": "PASS"
     }
   ],
   "verdict": "PASS",
   "readable": 1,
   "mismatches": 0,
-  "unreadable": [],
-  "coverage_note": "values are OCR-verified on the rendered final frame; unreadable crops are reported, not counted as passes",
-  "method": "render final frame -> crop IR box -> tesseract digits-only OCR"
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
 }

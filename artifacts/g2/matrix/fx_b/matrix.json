@@ -1,0 +1,146 @@
+{
+  "schema": "semotion.effect_matrix/1",
+  "fixture": "fx_b_zh_landscape",
+  "created_utc": "2026-10-24T10:42:54Z",
+  "cells": [
+    {
+      "fixture": "fx_b_zh_landscape",
+      "effect": "keyword",
+      "elements": 5,
+      "ir_hash": "e75e35376a589570",
+      "rendered": "artifacts/g2/matrix/fx_b/keyword/fx_b_zh_landscape_keyword.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 2,
+        "p50_ms": 27.61,
+        "p90_ms": 49.77,
+        "max_ms": 49.77
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 73,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_b_zh_landscape",
+      "effect": "number",
+      "elements": 2,
+      "ir_hash": "ba68b30f4bdae3ed",
+      "rendered": "artifacts/g2/matrix/fx_b/number/fx_b_zh_landscape_number.mp4",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 0,
+        "p50_ms": null,
+        "p90_ms": null,
+        "max_ms": null
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 29,
+        "out_of_bounds": 0.0,
+        "containment": 0.019322,
+        "collision": 0.0
+      },
+      "number_check": "PASS"
+    },
+    {
+      "fixture": "fx_b_zh_landscape",
+      "effect": "list",
+      "elements": 1,
+      "ir_hash": "ef185d54aa50f47f",
+      "rendered": "artifacts/g2/matrix/fx_b/list/fx_b_zh_landscape_list.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 1,
+        "p50_ms": 12.94,
+        "p90_ms": 12.94,
+        "max_ms": 12.94
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 18,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_b_zh_landscape",
+      "effect": "card",
+      "elements": 2,
+      "ir_hash": "748639719d139531",
+      "rendered": "artifacts/g2/matrix/fx_b/card/fx_b_zh_landscape_card.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 1,
+        "p50_ms": 5.44,
+        "p90_ms": 5.44,
+        "max_ms": 5.44
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 55,
+        "out_of_bounds": 0.0,
+        "containment": 0.0,
+        "collision": 0.0
+      },
+      "number_check": null
+    },
+    {
+      "fixture": "fx_b_zh_landscape",
+      "effect": "combo",
+      "elements": 11,
+      "ir_hash": "a3aa9beca10a0bd8",
+      "rendered": "artifacts/g2/matrix/fx_b/combo/fx_b_zh_landscape_combo.mp4",
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 5,
+        "p50_ms": 12.94,
+        "p90_ms": 13.4,
+        "max_ms": 13.4
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "observed_face_samples": 148,
+        "out_of_bounds": 0.0,
+        "containment": 0.004894,
+        "collision": 0.0
+      },
+      "number_check": "PASS"
+    }
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

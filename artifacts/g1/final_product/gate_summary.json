@@ -1,8 +1,8 @@
 {
   "gate": "G1",
   "style": "smart_balanced",
-  "started_utc": "2026-10-24T10:12:03Z",
-  "finished_utc": "2026-10-24T10:12:31Z",
+  "started_utc": "2026-10-24T10:43:34Z",
+  "finished_utc": "2026-10-24T10:44:05Z",
   "fixtures": [
     "fx_a_zh_portrait",
     "fx_b_zh_landscape",
@@ -254,7 +254,24 @@
       }
     ]
   },
-  "determinism": null,
+  "determinism": {
+    "runs": 2,
+    "frames": [
+      605,
+      605
+    ],
+    "frame_hashes_equal": true,
+    "max_pixel_diff": 0.0,
+    "mean_pixel_diff": 0.0,
+    "verdict": "PASS",
+    "policy": "pixel-identical required (tolerance=0); byte-identical MP4 not required",
+    "sha256": [
+      "c10411d194a31f1f46d9c85ef1f7c1c67b08a448d0eeff8e73591de88c06e3bb",
+      "c10411d194a31f1f46d9c85ef1f7c1c67b08a448d0eeff8e73591de88c06e3bb"
+    ],
+    "fixture": "fx_a_zh_portrait",
+    "rerender_stdout": "Motion/artifacts/g1/final_product/fx_a_zh_portrait/fx_a_zh_portrait_motion_rerender.mp4\",\n    \"sha256\": \"c10411d194a31f1f46d9c85ef1f7c1c67b08a448d0eeff8e73591de88c06e3bb\",\n    \"size_bytes\": 736164,\n    \"duration_s\": 24.2,\n    \"n_frames\": 605,\n    \"width\": 1080,\n    \"height\": 1920,\n    \"fps\": 25.0,\n    \"video_codec\": \"h264\",\n    \"audio_codec\": \"aac\",\n    \"pix_fmt\": \"yuv420p\"\n  },\n  \"commands\": 1\n}\n"
+  },
   "tool_versions": {
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"

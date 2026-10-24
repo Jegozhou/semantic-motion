@@ -1,0 +1,16 @@
+{
+  "schema": "semotion.number_check/2",
+  "video": "artifacts/g2/matrix/fx_face/keyword/fx_face_zh_portrait_keyword.mp4",
+  "ir": "artifacts/g2/matrix/fx_face/keyword/motion_ir.json",
+  "checks": [],
+  "verdict": "NOT RUN",
+  "readable": 0,
+  "mismatches": 0,
+  "method": "deterministic re-render comparison: expected tile composited over the source crop vs the actual rendered crop, with a decoy value proving the test can fail",
+  "tolerance": {
+    "mean_abs": 3.5,
+    "p99_abs": 40,
+    "decoy_p99_min": 80,
+    "decoy_mean_mult": 1.6
+  }
+}

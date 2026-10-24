@@ -26,7 +26,7 @@
     "transcript_schema": "semotion.transcript/1",
     "transcript_sha256": "883255e960f607a1be7c3afd1108798f1834cff2199b342ab3f7891b2415874d",
     "anchors_schema": "semotion.anchors/1",
-    "anchors_sha256": "79da6394d7e4262664f321affd3dc30f9bec7e36db2d13975ce4fb5aefb10561",
+    "anchors_sha256": "f17cb19537e0da8c65a20d8384a7dcfe8949b72d86f9e39140ee5cdd89993f28",
     "decisions_sha256": "57ecd50b5b6e34d5b47a2d9cbf0335ab6007352a8f99eb2ffb0bffa8c7da7fcf",
     "anchors": [
       {
@@ -877,7 +877,7 @@
     "loudness_target_db": null
   },
   "provenance": {
-    "generated_utc": "2026-10-24T10:12:07Z",
+    "generated_utc": "2026-10-24T10:43:38Z",
     "tool_versions": {
       "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
       "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
@@ -893,6 +893,6 @@
     "build_warnings": [],
     "skipped_decisions": [],
     "n_elements": 4,
-    "ir_sha256": "ee660c7cf3f7793dd53f8d08473c6a72058e5bff670ae7c72ad40eeb778ef544"
+    "ir_sha256": "e3c9a2ef1ad290ca4069d8ed3ba59a2770f128b6a26ce0ef7491cf41baa5881e"
   }
 }

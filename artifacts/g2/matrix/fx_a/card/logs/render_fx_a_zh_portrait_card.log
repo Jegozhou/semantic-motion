@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g2/matrix/fx_a/card/fx_a_zh_portrait_card.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmplimlbfdh.s16le
+
+
+render manifest: artifacts/g2/matrix/fx_a/card/render_manifest.json
+verdict: PASS

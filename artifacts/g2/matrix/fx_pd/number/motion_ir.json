@@ -1,0 +1,607 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "duration_s": 24.0,
+    "n_frames": 720,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 720,
+    "timebase": {
+      "num": 1,
+      "den": 30
+    }
+  },
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "style": "matrix_number",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "aa4a857d54f6e521a49aa0e6e35c37c5cd94da377a35272e6776c814371a9811",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "6cbf3a69a24bc43b25dd06247573f23f9453610b3f7953073305cb2c11233c70",
+    "decisions_sha256": "b3a817f0066c9828a6daf9d3b93df6535f02f073b2249e874f6c83a83c3ac441",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "administration",
+        "start_s": 1.51,
+        "end_s": 2.08,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w6"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 50,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 1.51,
+          "search_window_s": [
+            1.21,
+            1.71
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.024809,
+          "asr_start_s": 1.46
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "midstof",
+        "start_s": 2.85,
+        "end_s": 3.12,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w9",
+          "w10"
+        ],
+        "rule": "en_content_word+phrase_merge",
+        "merged_words": 2,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 190,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 2.85,
+          "search_window_s": [
+            2.41,
+            2.91
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.013629,
+          "asr_start_s": 2.66
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "keyword",
+        "text": "unprecedented",
+        "start_s": 3.24,
+        "end_s": 3.96,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w12"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -140,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 3.24,
+          "search_window_s": [
+            3.13,
+            3.63
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.015207,
+          "asr_start_s": 3.38
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "keyword",
+        "text": "unprecedented",
+        "start_s": 5.22,
+        "end_s": 6.0,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w17"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -140,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 5.22,
+          "search_window_s": [
+            5.11,
+            5.61
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.016766,
+          "asr_start_s": 5.36
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "keyword",
+        "text": "people",
+        "start_s": 8.98,
+        "end_s": 9.12,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w25"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 200,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 8.98,
+          "search_window_s": [
+            8.52,
+            9.03
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.008609,
+          "asr_start_s": 8.78
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "keyword",
+        "text": "unemployment",
+        "start_s": 9.71,
+        "end_s": 10.36,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w28"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 9.71,
+          "search_window_s": [
+            9.63,
+            10.14
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.005197,
+          "asr_start_s": 9.88
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "number",
+        "text": "26",
+        "start_s": 11.67,
+        "end_s": 12.14,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w36"
+        ],
+        "rule": "en_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 11.67,
+          "search_window_s": [
+            11.45,
+            11.95
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.003235,
+          "asr_start_s": 11.7
+        }
+      },
+      {
+        "id": "a07",
+        "kind": "keyword",
+        "text": "years",
+        "start_s": 12.08,
+        "end_s": 12.64,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w37"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -60,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 12.08,
+          "search_window_s": [
+            11.89,
+            12.39
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.003726,
+          "asr_start_s": 12.14
+        }
+      },
+      {
+        "id": "a08",
+        "kind": "keyword",
+        "text": "experts",
+        "start_s": 13.44,
+        "end_s": 13.58,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w39"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 60,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 13.44,
+          "search_window_s": [
+            13.13,
+            13.63
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.020076,
+          "asr_start_s": 13.38
+        }
+      },
+      {
+        "id": "a09",
+        "kind": "keyword",
+        "text": "nothing",
+        "start_s": 14.3,
+        "end_s": 14.52,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w43"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 20,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 14.3,
+          "search_window_s": [
+            14.03,
+            14.53
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.057524,
+          "asr_start_s": 14.28
+        }
+      },
+      {
+        "id": "a10",
+        "kind": "keyword",
+        "text": "unemployment",
+        "start_s": 15.63,
+        "end_s": 15.94,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w47"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 15.63,
+          "search_window_s": [
+            15.25,
+            15.75
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.004846,
+          "asr_start_s": 15.5
+        }
+      },
+      {
+        "id": "a11",
+        "kind": "keyword",
+        "text": "double",
+        "start_s": 16.74,
+        "end_s": 17.1,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w51"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -40,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 16.74,
+          "search_window_s": [
+            16.53,
+            17.03
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.001946,
+          "asr_start_s": 16.78
+        }
+      },
+      {
+        "id": "a12",
+        "kind": "keyword",
+        "text": "economy",
+        "start_s": 18.33,
+        "end_s": 18.72,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w54"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 18.33,
+          "search_window_s": [
+            18.11,
+            18.61
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.00415,
+          "asr_start_s": 18.36
+        }
+      },
+      {
+        "id": "a13",
+        "kind": "keyword",
+        "text": "trillion",
+        "start_s": 19.37,
+        "end_s": 19.76,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w58"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 19.37,
+          "search_window_s": [
+            19.28,
+            19.79
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.002268,
+          "asr_start_s": 19.54
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "nu01",
+        "anchor_id": "a06",
+        "anchor_ids": [
+          "a06"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "matrix_number",
+        "confidence": 0.86,
+        "decision_model": "matrix-v1",
+        "content": {
+          "text": "26",
+          "items": null
+        },
+        "window": {
+          "start_s": 11.67,
+          "end_s": 12.59
+        }
+      }
+    ],
+    "transcript_text": "Webeginthisyearandthisadministrationinthemidstofanunprecedentedcrisisthatcallsforunprecedentedaction.Justthisweek,wesawmorepeoplefileforunemploymentthanatanytimeinthelast26years.Andexpertsagreethatifnothingisdone,theunemploymentratecouldreachdoubledigits.OureconomycouldfallatrilliondollarsshortofitsBye.",
+    "face_safe": {
+      "bbox_union": [
+        491,
+        87,
+        280,
+        392
+      ],
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_nu01"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_nu01",
+      "type": "number",
+      "anchor_ref": "a06",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 11.666667,
+        "end_s": 12.6,
+        "start_frame": 350,
+        "end_frame": 378,
+        "hold_s": 0.46,
+        "anchor_start_s": 11.67,
+        "anchor_end_s": 12.14
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 56,
+        "padding_px": 27,
+        "radius_px": 17,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "26",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 26.0,
+          "unit": "",
+          "kind": "plain",
+          "final": "26",
+          "decimals": 0,
+          "label": "26"
+        },
+        "numeric_display": "26"
+      },
+      "provenance": {
+        "decision_id": "nu01",
+        "decision_model": "matrix-v1",
+        "prompt_summary": "matrix-v1",
+        "confidence": 0.86,
+        "reason": "matrix_number",
+        "effect_params_sha256": "694258d7efc9343f9a7545d566ee0d98860e795175e8215badddea34ea5dbc36"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          934,
+          262,
+          150,
+          181
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 150,
+          "height": 181
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T10:45:56Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 720,
+      "source": "nb_frames",
+      "container_duration_s": 24.0,
+      "duration_fps_frames": 720
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 1,
+    "ir_sha256": "797b590a973be98d2ae7f36f3e03e6f5fadfcd5dd85656f2409358031745107f"
+  }
+}

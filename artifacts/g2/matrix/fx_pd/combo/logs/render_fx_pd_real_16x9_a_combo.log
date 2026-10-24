@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g2/matrix/fx_pd/combo/fx_pd_real_16x9_a_combo.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmphweg1sqd.s16le
+
+
+render manifest: artifacts/g2/matrix/fx_pd/combo/render_manifest.json
+verdict: PASS

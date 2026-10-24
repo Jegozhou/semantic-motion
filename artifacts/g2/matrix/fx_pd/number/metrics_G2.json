@@ -1,0 +1,143 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G2",
+  "input_sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+  "ir_sha256": "797b590a973be98d2ae7f36f3e03e6f5fadfcd5dd85656f2409358031745107f",
+  "render_sha256": "191a3b4153de38e7b4e61cbd7b2dd4e0581ea978ecfbc34e2fb2c8bab40eebfa",
+  "timing": {
+    "samples": 0,
+    "elements": 1,
+    "detected_onsets": 1,
+    "rows": [
+      {
+        "element_id": "el_nu01",
+        "effect": "number",
+        "text": "26",
+        "window_start_s": 11.666667,
+        "rendered_onset_s": 11.7,
+        "anchor_start_s": 11.67,
+        "fidelity_ms": 30.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 37.948,
+        "detect_threshold": 1.897
+      }
+    ],
+    "source": "none",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 1,
+      "p50_ms": 30.0,
+      "max_ms": 30.0
+    },
+    "p50_ms": null,
+    "p90_ms": null,
+    "max_ms": null,
+    "verdict": "NOT RUN",
+    "note": "truth file present but no element onset could be matched to an independent unit start (anchors inside longer units) — this is NOT RUN, not a pass and not an environment block"
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 2,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 9,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 9,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 1,
+      "sampled_frames": 9
+    },
+    "raster_containment": {
+      "changed_pixels": 5510,
+      "inside_declared_box": 5510,
+      "value": 0.0,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 120,
+      "frames_with_faces": 120,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 3,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 24.0,
+    "duration_rendered_s": 24.0,
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.033333,
+    "frames_src": 720,
+    "frames_rendered": 720,
+    "audio": {
+      "src": {
+        "n_samples": 2304000,
+        "duration_s": 24.0,
+        "rms_db": -32.335,
+        "peak_db": -11.665
+      },
+      "rendered": {
+        "n_samples": 2304000,
+        "duration_s": 24.0,
+        "rms_db": -32.337,
+        "peak_db": -11.666
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.002,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "NOT RUN",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "rendered": "artifacts/g2/matrix/fx_pd/number/fx_pd_real_16x9_a_number.mp4",
+    "truth": null,
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

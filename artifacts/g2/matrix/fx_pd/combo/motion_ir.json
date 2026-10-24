@@ -1,0 +1,1920 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "duration_s": 24.0,
+    "n_frames": 720,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 720,
+    "timebase": {
+      "num": 1,
+      "den": 30
+    }
+  },
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "style": "calibration_combo",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "aa4a857d54f6e521a49aa0e6e35c37c5cd94da377a35272e6776c814371a9811",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "6cbf3a69a24bc43b25dd06247573f23f9453610b3f7953073305cb2c11233c70",
+    "decisions_sha256": "be20deadf1c8641faf93bfc7026ff54194f688996ca68e58cb9102f9385d1ece",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "administration",
+        "start_s": 1.51,
+        "end_s": 2.08,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w6"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 50,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 1.51,
+          "search_window_s": [
+            1.21,
+            1.71
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.024809,
+          "asr_start_s": 1.46
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "midstof",
+        "start_s": 2.85,
+        "end_s": 3.12,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w9",
+          "w10"
+        ],
+        "rule": "en_content_word+phrase_merge",
+        "merged_words": 2,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 190,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 2.85,
+          "search_window_s": [
+            2.41,
+            2.91
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.013629,
+          "asr_start_s": 2.66
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "keyword",
+        "text": "unprecedented",
+        "start_s": 3.24,
+        "end_s": 3.96,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w12"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -140,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 3.24,
+          "search_window_s": [
+            3.13,
+            3.63
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.015207,
+          "asr_start_s": 3.38
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "keyword",
+        "text": "unprecedented",
+        "start_s": 5.22,
+        "end_s": 6.0,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w17"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -140,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 5.22,
+          "search_window_s": [
+            5.11,
+            5.61
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.016766,
+          "asr_start_s": 5.36
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "keyword",
+        "text": "people",
+        "start_s": 8.98,
+        "end_s": 9.12,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w25"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 200,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 8.98,
+          "search_window_s": [
+            8.52,
+            9.03
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.008609,
+          "asr_start_s": 8.78
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "keyword",
+        "text": "unemployment",
+        "start_s": 9.71,
+        "end_s": 10.36,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w28"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 9.71,
+          "search_window_s": [
+            9.63,
+            10.14
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.005197,
+          "asr_start_s": 9.88
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "number",
+        "text": "26",
+        "start_s": 11.67,
+        "end_s": 12.14,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w36"
+        ],
+        "rule": "en_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 11.67,
+          "search_window_s": [
+            11.45,
+            11.95
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.003235,
+          "asr_start_s": 11.7
+        }
+      },
+      {
+        "id": "a07",
+        "kind": "keyword",
+        "text": "years",
+        "start_s": 12.08,
+        "end_s": 12.64,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w37"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -60,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 12.08,
+          "search_window_s": [
+            11.89,
+            12.39
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.003726,
+          "asr_start_s": 12.14
+        }
+      },
+      {
+        "id": "a08",
+        "kind": "keyword",
+        "text": "experts",
+        "start_s": 13.44,
+        "end_s": 13.58,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w39"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 60,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 13.44,
+          "search_window_s": [
+            13.13,
+            13.63
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.020076,
+          "asr_start_s": 13.38
+        }
+      },
+      {
+        "id": "a09",
+        "kind": "keyword",
+        "text": "nothing",
+        "start_s": 14.3,
+        "end_s": 14.52,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w43"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 20,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 14.3,
+          "search_window_s": [
+            14.03,
+            14.53
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.057524,
+          "asr_start_s": 14.28
+        }
+      },
+      {
+        "id": "a10",
+        "kind": "keyword",
+        "text": "unemployment",
+        "start_s": 15.63,
+        "end_s": 15.94,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w47"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 15.63,
+          "search_window_s": [
+            15.25,
+            15.75
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.004846,
+          "asr_start_s": 15.5
+        }
+      },
+      {
+        "id": "a11",
+        "kind": "keyword",
+        "text": "double",
+        "start_s": 16.74,
+        "end_s": 17.1,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w51"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -40,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 16.74,
+          "search_window_s": [
+            16.53,
+            17.03
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.001946,
+          "asr_start_s": 16.78
+        }
+      },
+      {
+        "id": "a12",
+        "kind": "keyword",
+        "text": "economy",
+        "start_s": 18.33,
+        "end_s": 18.72,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w54"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -30,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 18.33,
+          "search_window_s": [
+            18.11,
+            18.61
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.00415,
+          "asr_start_s": 18.36
+        }
+      },
+      {
+        "id": "a13",
+        "kind": "keyword",
+        "text": "trillion",
+        "start_s": 19.37,
+        "end_s": 19.76,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w58"
+        ],
+        "rule": "en_content_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 19.37,
+          "search_window_s": [
+            19.28,
+            19.79
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.002268,
+          "asr_start_s": 19.54
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "cal01",
+        "anchor_id": "a00",
+        "anchor_ids": [
+          "a00"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "administration",
+          "items": null
+        },
+        "window": {
+          "start_s": 1.51,
+          "end_s": 2.53
+        }
+      },
+      {
+        "id": "cal02",
+        "anchor_id": "a01",
+        "anchor_ids": [
+          "a01"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "midstof",
+          "items": null
+        },
+        "window": {
+          "start_s": 2.85,
+          "end_s": 3.19
+        }
+      },
+      {
+        "id": "cal03",
+        "anchor_id": "a02",
+        "anchor_ids": [
+          "a02"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "unprecedented",
+          "items": null
+        },
+        "window": {
+          "start_s": 3.24,
+          "end_s": 4.41
+        }
+      },
+      {
+        "id": "cal04",
+        "anchor_id": "a03",
+        "anchor_ids": [
+          "a03"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "unprecedented",
+          "items": null
+        },
+        "window": {
+          "start_s": 5.22,
+          "end_s": 6.45
+        }
+      },
+      {
+        "id": "cal05",
+        "anchor_id": "a04",
+        "anchor_ids": [
+          "a04"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "people",
+          "items": null
+        },
+        "window": {
+          "start_s": 8.98,
+          "end_s": 9.57
+        }
+      },
+      {
+        "id": "cal06",
+        "anchor_id": "a05",
+        "anchor_ids": [
+          "a05"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "unemployment",
+          "items": null
+        },
+        "window": {
+          "start_s": 9.71,
+          "end_s": 10.81
+        }
+      },
+      {
+        "id": "cal07",
+        "anchor_id": "a06",
+        "anchor_ids": [
+          "a06"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.86,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "26",
+          "items": null
+        },
+        "window": {
+          "start_s": 11.67,
+          "end_s": 12.03
+        }
+      },
+      {
+        "id": "cal08",
+        "anchor_id": "a07",
+        "anchor_ids": [
+          "a07"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "years",
+          "items": null
+        },
+        "window": {
+          "start_s": 12.08,
+          "end_s": 13.09
+        }
+      },
+      {
+        "id": "cal09",
+        "anchor_id": "a08",
+        "anchor_ids": [
+          "a08"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "experts",
+          "items": null
+        },
+        "window": {
+          "start_s": 13.44,
+          "end_s": 14.03
+        }
+      },
+      {
+        "id": "cal10",
+        "anchor_id": "a09",
+        "anchor_ids": [
+          "a09"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "nothing",
+          "items": null
+        },
+        "window": {
+          "start_s": 14.3,
+          "end_s": 14.97
+        }
+      },
+      {
+        "id": "cal11",
+        "anchor_id": "a10",
+        "anchor_ids": [
+          "a10"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "unemployment",
+          "items": null
+        },
+        "window": {
+          "start_s": 15.63,
+          "end_s": 16.39
+        }
+      },
+      {
+        "id": "cal12",
+        "anchor_id": "a11",
+        "anchor_ids": [
+          "a11"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "double",
+          "items": null
+        },
+        "window": {
+          "start_s": 16.74,
+          "end_s": 17.55
+        }
+      },
+      {
+        "id": "cal13",
+        "anchor_id": "a12",
+        "anchor_ids": [
+          "a12"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "economy",
+          "items": null
+        },
+        "window": {
+          "start_s": 18.33,
+          "end_s": 19.17
+        }
+      },
+      {
+        "id": "cal14",
+        "anchor_id": "a13",
+        "anchor_ids": [
+          "a13"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "calibration_all_anchors",
+        "confidence": 0.74,
+        "decision_model": "rules-v1-calibration",
+        "content": {
+          "text": "trillion",
+          "items": null
+        },
+        "window": {
+          "start_s": 19.37,
+          "end_s": 20.21
+        }
+      }
+    ],
+    "transcript_text": "Webeginthisyearandthisadministrationinthemidstofanunprecedentedcrisisthatcallsforunprecedentedaction.Justthisweek,wesawmorepeoplefileforunemploymentthanatanytimeinthelast26years.Andexpertsagreethatifnothingisdone,theunemploymentratecouldreachdoubledigits.OureconomycouldfallatrilliondollarsshortofitsBye.",
+    "face_safe": {
+      "bbox_union": [
+        491,
+        87,
+        280,
+        392
+      ],
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_cal01",
+        "el_cal02",
+        "el_cal03",
+        "el_cal04",
+        "el_cal05",
+        "el_cal06",
+        "el_cal07",
+        "el_cal08",
+        "el_cal09",
+        "el_cal10",
+        "el_cal11",
+        "el_cal12",
+        "el_cal13",
+        "el_cal14"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_cal01",
+      "type": "keyword",
+      "anchor_ref": "a00",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 1.5,
+        "end_s": 2.533333,
+        "start_frame": 45,
+        "end_frame": 76,
+        "hold_s": 0.453333,
+        "anchor_start_s": 1.51,
+        "anchor_end_s": 2.08
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "administration"
+      },
+      "provenance": {
+        "decision_id": "cal01",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "598476f45e3487221265998255c05463e2b7ea30dafbd76ddb2562010e78e8ed"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          811,
+          233,
+          397,
+          238
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 397,
+          "height": 238
+        }
+      }
+    },
+    {
+      "id": "el_cal02",
+      "type": "keyword",
+      "anchor_ref": "a01",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.866667,
+        "end_s": 3.2,
+        "start_frame": 86,
+        "end_frame": 96,
+        "hold_s": 0.08,
+        "anchor_start_s": 2.85,
+        "anchor_end_s": 3.12
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "midstof"
+      },
+      "provenance": {
+        "decision_id": "cal02",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "a3bac05457f64a6a5cc515889cfefe7a4c20d2dfd5e7100317e48cc1f927dab3"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          870,
+          275,
+          279,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 279,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal03",
+      "type": "keyword",
+      "anchor_ref": "a02",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 3.233333,
+        "end_s": 4.4,
+        "start_frame": 97,
+        "end_frame": 132,
+        "hold_s": 0.44,
+        "anchor_start_s": 3.24,
+        "anchor_end_s": 3.96
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "unprecedented"
+      },
+      "provenance": {
+        "decision_id": "cal03",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "bbf68c45619b9b4b4e51af646b3d818ba5130b417f2f73ddef65f09ea797f41b"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          805,
+          233,
+          408,
+          238
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 408,
+          "height": 238
+        }
+      }
+    },
+    {
+      "id": "el_cal04",
+      "type": "keyword",
+      "anchor_ref": "a03",
+      "anchor_refs": [
+        "a03"
+      ],
+      "window": {
+        "start_s": 5.233333,
+        "end_s": 6.466667,
+        "start_frame": 157,
+        "end_frame": 194,
+        "hold_s": 0.466667,
+        "anchor_start_s": 5.22,
+        "anchor_end_s": 6.0
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "unprecedented"
+      },
+      "provenance": {
+        "decision_id": "cal04",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "d40db2634e385cdea7a440a823cf525549a97a620ec286a1777c99dc7f638b56"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          805,
+          233,
+          408,
+          238
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 408,
+          "height": 238
+        }
+      }
+    },
+    {
+      "id": "el_cal05",
+      "type": "keyword",
+      "anchor_ref": "a04",
+      "anchor_refs": [
+        "a04"
+      ],
+      "window": {
+        "start_s": 8.966667,
+        "end_s": 9.566667,
+        "start_frame": 269,
+        "end_frame": 287,
+        "hold_s": 0.446667,
+        "anchor_start_s": 8.98,
+        "anchor_end_s": 9.12
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "people"
+      },
+      "provenance": {
+        "decision_id": "cal05",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "e8627704df1f0171d13008e72d3b7cd335401d262791a0c764bca03e50113534"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          882,
+          275,
+          255,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 255,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal06",
+      "type": "keyword",
+      "anchor_ref": "a05",
+      "anchor_refs": [
+        "a05"
+      ],
+      "window": {
+        "start_s": 9.7,
+        "end_s": 10.8,
+        "start_frame": 291,
+        "end_frame": 324,
+        "hold_s": 0.44,
+        "anchor_start_s": 9.71,
+        "anchor_end_s": 10.36
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "unemployment"
+      },
+      "provenance": {
+        "decision_id": "cal06",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "be6e4d3bd70008b8e9e0839e8957ca131e65226260be8039a3ef3339d2901cbf"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          805,
+          233,
+          409,
+          238
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 409,
+          "height": 238
+        }
+      }
+    },
+    {
+      "id": "el_cal07",
+      "type": "number",
+      "anchor_ref": "a06",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 11.666667,
+        "end_s": 12.033333,
+        "start_frame": 350,
+        "end_frame": 361,
+        "hold_s": 0.0,
+        "anchor_start_s": 11.67,
+        "anchor_end_s": 12.14
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 56,
+        "padding_px": 27,
+        "radius_px": 17,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "26",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 26.0,
+          "unit": "",
+          "kind": "plain",
+          "final": "26",
+          "decimals": 0,
+          "label": "26"
+        },
+        "numeric_display": "26"
+      },
+      "provenance": {
+        "decision_id": "cal07",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.86,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "97ae0dcde35f72cffddb45c0dc64b9b14b3cfd5aaa09a588aeaf5a8fabad4a87"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          934,
+          262,
+          150,
+          181
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 150,
+          "height": 181
+        }
+      }
+    },
+    {
+      "id": "el_cal08",
+      "type": "keyword",
+      "anchor_ref": "a07",
+      "anchor_refs": [
+        "a07"
+      ],
+      "window": {
+        "start_s": 12.066667,
+        "end_s": 13.1,
+        "start_frame": 362,
+        "end_frame": 393,
+        "hold_s": 0.46,
+        "anchor_start_s": 12.08,
+        "anchor_end_s": 12.64
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "years"
+      },
+      "provenance": {
+        "decision_id": "cal08",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "ec2365496bece70afa641a86de7f903e4933ae91f1ba5f25897041b7d9042838"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          906,
+          275,
+          207,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 207,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal09",
+      "type": "keyword",
+      "anchor_ref": "a08",
+      "anchor_refs": [
+        "a08"
+      ],
+      "window": {
+        "start_s": 13.433333,
+        "end_s": 14.033333,
+        "start_frame": 403,
+        "end_frame": 421,
+        "hold_s": 0.453333,
+        "anchor_start_s": 13.44,
+        "anchor_end_s": 13.58
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "experts"
+      },
+      "provenance": {
+        "decision_id": "cal09",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "367677a17d87f70962b7f38368ba883ed08064662e441696475c0d95849b50f1"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          875,
+          275,
+          269,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 269,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal10",
+      "type": "keyword",
+      "anchor_ref": "a09",
+      "anchor_refs": [
+        "a09"
+      ],
+      "window": {
+        "start_s": 14.3,
+        "end_s": 14.966667,
+        "start_frame": 429,
+        "end_frame": 449,
+        "hold_s": 0.446667,
+        "anchor_start_s": 14.3,
+        "anchor_end_s": 14.52
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "nothing"
+      },
+      "provenance": {
+        "decision_id": "cal10",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "1909f140139271b28da64325c0f2d941cc44742c27c402005e40e390c3d36f9e"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          868,
+          275,
+          282,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 282,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal11",
+      "type": "keyword",
+      "anchor_ref": "a10",
+      "anchor_refs": [
+        "a10"
+      ],
+      "window": {
+        "start_s": 15.633333,
+        "end_s": 16.4,
+        "start_frame": 469,
+        "end_frame": 492,
+        "hold_s": 0.46,
+        "anchor_start_s": 15.63,
+        "anchor_end_s": 15.94
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "unemployment"
+      },
+      "provenance": {
+        "decision_id": "cal11",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "06a610aa23136aa5c8f3a2a13eb8ec5068eb74f534cd9b4e8a947393ccaa13e9"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          805,
+          233,
+          409,
+          238
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 409,
+          "height": 238
+        }
+      }
+    },
+    {
+      "id": "el_cal12",
+      "type": "keyword",
+      "anchor_ref": "a11",
+      "anchor_refs": [
+        "a11"
+      ],
+      "window": {
+        "start_s": 16.733333,
+        "end_s": 17.533333,
+        "start_frame": 502,
+        "end_frame": 526,
+        "hold_s": 0.433333,
+        "anchor_start_s": 16.74,
+        "anchor_end_s": 17.1
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "double"
+      },
+      "provenance": {
+        "decision_id": "cal12",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "eab354c1edcab5cfaa03dbd22eb7a2a8b154e82e5bb8b360dbb136e8994ed14b"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          880,
+          275,
+          259,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 259,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal13",
+      "type": "keyword",
+      "anchor_ref": "a12",
+      "anchor_refs": [
+        "a12"
+      ],
+      "window": {
+        "start_s": 18.333333,
+        "end_s": 19.166667,
+        "start_frame": 550,
+        "end_frame": 575,
+        "hold_s": 0.446667,
+        "anchor_start_s": 18.33,
+        "anchor_end_s": 18.72
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "economy"
+      },
+      "provenance": {
+        "decision_id": "cal13",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "24df0d94d13876f7c91f1b68761065bd0784c36487c40562dd7865e9a2033e51"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          847,
+          275,
+          325,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 325,
+          "height": 155
+        }
+      }
+    },
+    {
+      "id": "el_cal14",
+      "type": "keyword",
+      "anchor_ref": "a13",
+      "anchor_refs": [
+        "a13"
+      ],
+      "window": {
+        "start_s": 19.366667,
+        "end_s": 20.2,
+        "start_frame": 581,
+        "end_frame": 606,
+        "hold_s": 0.44,
+        "anchor_start_s": 19.37,
+        "anchor_end_s": 19.76
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 19,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "trillion"
+      },
+      "provenance": {
+        "decision_id": "cal14",
+        "decision_model": "rules-v1-calibration",
+        "prompt_summary": "rule_engine (calibration)",
+        "confidence": 0.74,
+        "reason": "calibration_all_anchors",
+        "effect_params_sha256": "b12d762a7fd7c8843d3eb8e0246ad41c18a7d4fb273189cc1236817ee159da45"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          886,
+          275,
+          247,
+          155
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 247,
+          "height": 155
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T10:46:00Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 720,
+      "source": "nb_frames",
+      "container_duration_s": 24.0,
+      "duration_fps_frames": 720
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 14,
+    "ir_sha256": "8a330359a6b5104f8823feaf9eeb1a51ec2ac1021a8ec782b1c1e468723304b3"
+  }
+}
