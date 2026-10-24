@@ -163,6 +163,7 @@ def cmd_run(a) -> int:
     """Full pipeline: input video -> transcript -> vision -> anchors -> plan -> IR
     -> render -> metrics. Uses fixture ground truth when the input is a fixture."""
     from . import anchors, asr, ir as ir_mod, render as render_mod, semantic, verify, vision
+    from . import remotion_bridge
 
     outdir = Path(a.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -214,8 +215,21 @@ def cmd_run(a) -> int:
 
         canvas = {"width": transcript["source"]["width"], "height": transcript["source"]["height"],
                   "fps": transcript["source"]["fps"]}
-        plan = step("plan", lambda: semantic.decide(anchors_doc, vis, canvas, style=a.style,
-                                                   transcript=transcript))
+
+        def _plan():
+            decisions_path = getattr(a, "decisions", None)
+            if decisions_path:
+                from . import llm_director
+                doc = llm_director.load_decisions(Path(decisions_path))
+                errors = llm_director.validate_decisions(doc, anchors_doc, transcript)
+                if errors:
+                    _dump({"errors": errors}, outdir / "llm_decision_errors.json")
+                    raise media.MediaError("E_IR_INVALID",
+                                           f"LLM decisions rejected: {errors[:3]}")
+                return llm_director.to_plan(doc, anchors_doc, canvas)
+            return semantic.decide(anchors_doc, vis, canvas, style=a.style, transcript=transcript)
+
+        plan = step("plan", _plan)
         _dump(plan, outdir / "plan.json")
 
         ir_doc = step("ir", lambda: ir_mod.build(transcript, vis, anchors_doc, plan, video, canvas))
@@ -226,14 +240,30 @@ def cmd_run(a) -> int:
             return EXIT_IR
         ir_mod.dump(ir_doc, outdir / "motion_ir.json")
 
+        cues: list[dict] = []
+        if getattr(a, "captions", False):
+            from . import llm_director
+            cues = llm_director.caption_cues(transcript, canvas,
+                                             max_chars=22 if canvas["height"] > canvas["width"] else 30)
+            _dump({"schema": "semotion.captions/1", "cues": cues}, outdir / "captions.json")
+
         rendered = outdir / f"{video.stem}_motion.mp4"
-        man = step("render", lambda: render_mod.render(ir_doc, video, rendered, preview=a.preview))
+        if getattr(a, "backend", "ffmpeg") == "remotion":
+            man = step("render", lambda: remotion_bridge.render(
+                ir_doc, video, rendered, preview=a.preview, captions=cues,
+                log_dir=outdir / "logs"))
+        else:
+            man = step("render", lambda: render_mod.render(ir_doc, video, rendered,
+                                                          preview=a.preview))
         _dump(man, outdir / "render_manifest.json")
 
+        band = None
+        if cues:
+            band = (int(canvas["height"] * 0.84), int(canvas["height"]))
         m = step("verify", lambda: verify.metrics(
             ir_doc, man, source=video, rendered=rendered,
             truth_json=truth if (truth and Path(truth).exists()) else None,
-            vision=vis, gate=a.gate, work=outdir))
+            vision=vis, gate=a.gate, work=outdir, caption_band=band))
         _dump(m, outdir / "metrics.json")
 
         summary = {
@@ -250,6 +280,8 @@ def cmd_run(a) -> int:
                 "metrics": str(outdir / "metrics.json"),
             },
             "decisions": semantic.summarize(plan),
+            "backend": getattr(a, "backend", "ffmpeg"),
+            "captions": len(cues) if getattr(a, "captions", False) else 0,
             "verdicts": m["verdicts"],
             "timing": {k: m["timing"].get(k) for k in
                        ("samples", "p50_ms", "p90_ms", "max_ms", "source", "verdict")},
@@ -375,6 +407,11 @@ def build_parser() -> argparse.ArgumentParser:
     ru.add_argument("--gate", default="G1")
     ru.add_argument("--preview", action="store_true")
     ru.add_argument("--force", action="store_true")
+    ru.add_argument("--backend", choices=("ffmpeg", "remotion"), default="ffmpeg",
+                    help="render backend: local Pillow/ffmpeg (default) or Remotion")
+    ru.add_argument("--decisions", help="LLM decisions JSON (semotion.llm-decisions/1); "
+                                        "when given, the LLM plan replaces the rule director")
+    ru.add_argument("--captions", action="store_true", help="burn word-synced captions")
     ru.set_defaults(func=cmd_run)
 
     return p

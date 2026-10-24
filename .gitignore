@@ -1,0 +1,14 @@
+# runtime / generated
+.venv/
+__pycache__/
+*.pyc
+artifacts/tmp/
+artifacts/cache/
+artifacts/regress/
+remotion/node_modules/
+remotion/out/
+remotion/public/source.mp4
+remotion/public/props.json
+remotion/public/_frames/
+delivery/*/_frames/
+.DS_Store

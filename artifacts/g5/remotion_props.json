@@ -1,0 +1,399 @@
+{
+  "schema": "semotion.remotion-props/1",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "durationInFrames": 623
+  },
+  "source": {
+    "file": "source.mp4",
+    "audio": true
+  },
+  "captions": [],
+  "captionSafeBottomPx": 0,
+  "elements": [
+    {
+      "id": "el_cal01",
+      "effect": "card",
+      "startFrame": 40,
+      "endFrame": 56,
+      "box": [
+        252,
+        995,
+        576,
+        194
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(16,21,33,0.78)",
+        "fontPx": 78,
+        "radius": 30,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 7,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "先看三个数字"
+      }
+    },
+    {
+      "id": "el_cal02",
+      "effect": "number",
+      "startFrame": 57,
+      "endFrame": 79,
+      "box": [
+        399,
+        957,
+        282,
+        269
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.80)",
+        "fontPx": 84,
+        "radius": 26,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "三个",
+        "value": 3.0,
+        "prefix": "",
+        "suffix": "个",
+        "decimals": 0
+      }
+    },
+    {
+      "id": "el_cal03",
+      "effect": "number",
+      "startFrame": 86,
+      "endFrame": 109,
+      "box": [
+        368,
+        957,
+        344,
+        269
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.80)",
+        "fontPx": 84,
+        "radius": 26,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "九成",
+        "value": 90.0,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 0
+      }
+    },
+    {
+      "id": "el_cal04",
+      "effect": "list",
+      "startFrame": 145,
+      "endFrame": 172,
+      "box": [
+        315,
+        886,
+        450,
+        166
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.82)",
+        "fontPx": 64,
+        "radius": 28,
+        "align": "left",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 5,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "第一步",
+        "items": [
+          {
+            "text": "第一步",
+            "startFrame": 145
+          }
+        ]
+      }
+    },
+    {
+      "id": "el_cal06",
+      "effect": "card",
+      "startFrame": 186,
+      "endFrame": 226,
+      "box": [
+        252,
+        995,
+        576,
+        194
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(16,21,33,0.78)",
+        "fontPx": 78,
+        "radius": 30,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 7,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "第二步是布局"
+      }
+    },
+    {
+      "id": "el_cal08",
+      "effect": "card",
+      "startFrame": 227,
+      "endFrame": 270,
+      "box": [
+        252,
+        995,
+        576,
+        194
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(16,21,33,0.78)",
+        "fontPx": 78,
+        "radius": 30,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 7,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "第三步是渲染"
+      }
+    },
+    {
+      "id": "el_cal09",
+      "effect": "keyword",
+      "startFrame": 271,
+      "endFrame": 320,
+      "box": [
+        168,
+        976,
+        744,
+        232
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 96,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "关键是别挡住脸"
+      }
+    },
+    {
+      "id": "el_cal11",
+      "effect": "card",
+      "startFrame": 322,
+      "endFrame": 382,
+      "box": [
+        174,
+        995,
+        732,
+        194
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(16,21,33,0.78)",
+        "fontPx": 78,
+        "radius": 30,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 7,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "所以我们先测遮挡"
+      }
+    },
+    {
+      "id": "el_cal12",
+      "effect": "number",
+      "startFrame": 392,
+      "endFrame": 410,
+      "box": [
+        368,
+        957,
+        344,
+        269
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.80)",
+        "fontPx": 84,
+        "radius": 26,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "70%",
+        "value": 70.0,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 0
+      }
+    },
+    {
+      "id": "el_cal14",
+      "effect": "card",
+      "startFrame": 474,
+      "endFrame": 496,
+      "box": [
+        96,
+        995,
+        888,
+        194
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(16,21,33,0.78)",
+        "fontPx": 78,
+        "radius": 30,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 7,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "结论是先对齐再谈样式"
+      }
+    },
+    {
+      "id": "el_cal15",
+      "effect": "keyword",
+      "startFrame": 497,
+      "endFrame": 527,
+      "box": [
+        312,
+        976,
+        456,
+        232
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 96,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "先对齐再"
+      }
+    },
+    {
+      "id": "el_cal16",
+      "effect": "keyword",
+      "startFrame": 567,
+      "endFrame": 590,
+      "box": [
+        408,
+        976,
+        264,
+        232
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 96,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "流程"
+      }
+    },
+    {
+      "id": "el_cal17",
+      "effect": "keyword",
+      "startFrame": 592,
+      "endFrame": 609,
+      "box": [
+        408,
+        976,
+        264,
+        232
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 96,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "底线"
+      }
+    }
+  ]
+}

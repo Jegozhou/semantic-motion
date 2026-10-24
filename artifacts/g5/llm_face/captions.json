@@ -1,0 +1,500 @@
+{
+  "schema": "semotion.captions/1",
+  "cues": [
+    {
+      "startFrame": 16,
+      "endFrame": 29,
+      "lines": [
+        "大家好"
+      ],
+      "words": [
+        {
+          "text": "大家好,",
+          "startFrame": 16,
+          "endFrame": 29
+        }
+      ]
+    },
+    {
+      "startFrame": 44,
+      "endFrame": 86,
+      "lines": [
+        "先看三个数字"
+      ],
+      "words": [
+        {
+          "text": "先",
+          "startFrame": 44,
+          "endFrame": 48
+        },
+        {
+          "text": "看",
+          "startFrame": 48,
+          "endFrame": 55
+        },
+        {
+          "text": "三",
+          "startFrame": 55,
+          "endFrame": 62
+        },
+        {
+          "text": "个",
+          "startFrame": 62,
+          "endFrame": 68,
+          "raw_text": "個"
+        },
+        {
+          "text": "数",
+          "startFrame": 68,
+          "endFrame": 74,
+          "raw_text": "數"
+        },
+        {
+          "text": "字,",
+          "startFrame": 74,
+          "endFrame": 86
+        }
+      ]
+    },
+    {
+      "startFrame": 89,
+      "endFrame": 137,
+      "lines": [
+        "九成的失败来自时间"
+      ],
+      "words": [
+        {
+          "text": "九",
+          "startFrame": 89,
+          "endFrame": 92
+        },
+        {
+          "text": "成",
+          "startFrame": 92,
+          "endFrame": 98
+        },
+        {
+          "text": "的",
+          "startFrame": 98,
+          "endFrame": 104
+        },
+        {
+          "text": "失",
+          "startFrame": 104,
+          "endFrame": 108
+        },
+        {
+          "text": "败",
+          "startFrame": 108,
+          "endFrame": 112,
+          "raw_text": "敗"
+        },
+        {
+          "text": "来",
+          "startFrame": 112,
+          "endFrame": 119,
+          "raw_text": "來"
+        },
+        {
+          "text": "自",
+          "startFrame": 119,
+          "endFrame": 125
+        },
+        {
+          "text": "时间,",
+          "startFrame": 125,
+          "endFrame": 137,
+          "raw_text": "時間,"
+        }
+      ]
+    },
+    {
+      "startFrame": 149,
+      "endFrame": 182,
+      "lines": [
+        "第一步是对齐"
+      ],
+      "words": [
+        {
+          "text": "第一",
+          "startFrame": 149,
+          "endFrame": 154
+        },
+        {
+          "text": "步",
+          "startFrame": 154,
+          "endFrame": 160
+        },
+        {
+          "text": "是",
+          "startFrame": 160,
+          "endFrame": 164
+        },
+        {
+          "text": "对",
+          "startFrame": 164,
+          "endFrame": 172,
+          "raw_text": "對"
+        },
+        {
+          "text": "齐,",
+          "startFrame": 172,
+          "endFrame": 182,
+          "raw_text": "齊,"
+        }
+      ]
+    },
+    {
+      "startFrame": 190,
+      "endFrame": 221,
+      "lines": [
+        "第二步是布局"
+      ],
+      "words": [
+        {
+          "text": "第二",
+          "startFrame": 190,
+          "endFrame": 196
+        },
+        {
+          "text": "步",
+          "startFrame": 196,
+          "endFrame": 203
+        },
+        {
+          "text": "是",
+          "startFrame": 203,
+          "endFrame": 208
+        },
+        {
+          "text": "布",
+          "startFrame": 208,
+          "endFrame": 214,
+          "raw_text": "佈"
+        },
+        {
+          "text": "局,",
+          "startFrame": 214,
+          "endFrame": 221
+        }
+      ]
+    },
+    {
+      "startFrame": 231,
+      "endFrame": 268,
+      "lines": [
+        "第三步是渲染"
+      ],
+      "words": [
+        {
+          "text": "第三",
+          "startFrame": 231,
+          "endFrame": 238
+        },
+        {
+          "text": "步",
+          "startFrame": 238,
+          "endFrame": 246
+        },
+        {
+          "text": "是",
+          "startFrame": 246,
+          "endFrame": 251
+        },
+        {
+          "text": "渲",
+          "startFrame": 251,
+          "endFrame": 258
+        },
+        {
+          "text": "染,",
+          "startFrame": 258,
+          "endFrame": 268
+        }
+      ]
+    },
+    {
+      "startFrame": 274,
+      "endFrame": 315,
+      "lines": [
+        "关键是别挡住脸"
+      ],
+      "words": [
+        {
+          "text": "关",
+          "startFrame": 274,
+          "endFrame": 279,
+          "raw_text": "關"
+        },
+        {
+          "text": "键",
+          "startFrame": 279,
+          "endFrame": 284,
+          "raw_text": "鍵"
+        },
+        {
+          "text": "是",
+          "startFrame": 284,
+          "endFrame": 289
+        },
+        {
+          "text": "别",
+          "startFrame": 289,
+          "endFrame": 294,
+          "raw_text": "別"
+        },
+        {
+          "text": "挡",
+          "startFrame": 294,
+          "endFrame": 300,
+          "raw_text": "擋"
+        },
+        {
+          "text": "住",
+          "startFrame": 300,
+          "endFrame": 306
+        },
+        {
+          "text": "脸,",
+          "startFrame": 306,
+          "endFrame": 315,
+          "raw_text": "臉,"
+        }
+      ]
+    },
+    {
+      "startFrame": 326,
+      "endFrame": 371,
+      "lines": [
+        "所以我们先测遮挡"
+      ],
+      "words": [
+        {
+          "text": "所以",
+          "startFrame": 326,
+          "endFrame": 332
+        },
+        {
+          "text": "我们",
+          "startFrame": 332,
+          "endFrame": 342,
+          "raw_text": "我們"
+        },
+        {
+          "text": "先",
+          "startFrame": 342,
+          "endFrame": 351
+        },
+        {
+          "text": "测",
+          "startFrame": 351,
+          "endFrame": 356,
+          "raw_text": "測"
+        },
+        {
+          "text": "遮",
+          "startFrame": 356,
+          "endFrame": 360
+        },
+        {
+          "text": "挡,",
+          "startFrame": 360,
+          "endFrame": 371,
+          "raw_text": "擋,"
+        }
+      ]
+    },
+    {
+      "startFrame": 390,
+      "endFrame": 421,
+      "lines": [
+        "70%的反攻"
+      ],
+      "words": [
+        {
+          "text": "70",
+          "startFrame": 390,
+          "endFrame": 398
+        },
+        {
+          "text": "%",
+          "startFrame": 398,
+          "endFrame": 399
+        },
+        {
+          "text": "的",
+          "startFrame": 399,
+          "endFrame": 406
+        },
+        {
+          "text": "反",
+          "startFrame": 406,
+          "endFrame": 411
+        },
+        {
+          "text": "攻,",
+          "startFrame": 411,
+          "endFrame": 421
+        }
+      ]
+    },
+    {
+      "startFrame": 426,
+      "endFrame": 466,
+      "lines": [
+        "都出在时间不对"
+      ],
+      "words": [
+        {
+          "text": "都",
+          "startFrame": 426,
+          "endFrame": 432
+        },
+        {
+          "text": "出",
+          "startFrame": 432,
+          "endFrame": 437
+        },
+        {
+          "text": "在",
+          "startFrame": 437,
+          "endFrame": 444
+        },
+        {
+          "text": "时间",
+          "startFrame": 444,
+          "endFrame": 454,
+          "raw_text": "時間"
+        },
+        {
+          "text": "不对,",
+          "startFrame": 454,
+          "endFrame": 466,
+          "raw_text": "不對,"
+        }
+      ]
+    },
+    {
+      "startFrame": 476,
+      "endFrame": 537,
+      "lines": [
+        "结论是先对齐再谈样式"
+      ],
+      "words": [
+        {
+          "text": "结",
+          "startFrame": 476,
+          "endFrame": 481,
+          "raw_text": "結"
+        },
+        {
+          "text": "论",
+          "startFrame": 481,
+          "endFrame": 486,
+          "raw_text": "論"
+        },
+        {
+          "text": "是",
+          "startFrame": 486,
+          "endFrame": 492
+        },
+        {
+          "text": "先",
+          "startFrame": 492,
+          "endFrame": 497
+        },
+        {
+          "text": "对",
+          "startFrame": 497,
+          "endFrame": 503,
+          "raw_text": "對"
+        },
+        {
+          "text": "齐",
+          "startFrame": 503,
+          "endFrame": 508,
+          "raw_text": "齊"
+        },
+        {
+          "text": "再",
+          "startFrame": 508,
+          "endFrame": 516
+        },
+        {
+          "text": "谈",
+          "startFrame": 516,
+          "endFrame": 522,
+          "raw_text": "談"
+        },
+        {
+          "text": "样",
+          "startFrame": 522,
+          "endFrame": 530,
+          "raw_text": "樣"
+        },
+        {
+          "text": "式,",
+          "startFrame": 530,
+          "endFrame": 537
+        }
+      ]
+    },
+    {
+      "startFrame": 544,
+      "endFrame": 598,
+      "lines": [
+        "这就是这套流程的底线"
+      ],
+      "words": [
+        {
+          "text": "这",
+          "startFrame": 544,
+          "endFrame": 549,
+          "raw_text": "這"
+        },
+        {
+          "text": "就是",
+          "startFrame": 549,
+          "endFrame": 558
+        },
+        {
+          "text": "这",
+          "startFrame": 558,
+          "endFrame": 566,
+          "raw_text": "這"
+        },
+        {
+          "text": "套",
+          "startFrame": 566,
+          "endFrame": 570
+        },
+        {
+          "text": "流",
+          "startFrame": 570,
+          "endFrame": 578
+        },
+        {
+          "text": "程",
+          "startFrame": 578,
+          "endFrame": 582
+        },
+        {
+          "text": "的",
+          "startFrame": 582,
+          "endFrame": 588
+        },
+        {
+          "text": "底",
+          "startFrame": 588,
+          "endFrame": 592
+        },
+        {
+          "text": "线。",
+          "startFrame": 592,
+          "endFrame": 598,
+          "raw_text": "線。"
+        }
+      ]
+    }
+  ]
+}

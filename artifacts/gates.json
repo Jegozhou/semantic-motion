@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-24T11:38:45Z",
+  "updated_utc": "2026-10-24T14:04:07Z",
   "gates": {
     "G0": {
       "verdict": "PASS",
@@ -26,6 +26,12 @@
       "report": "reports/gate-G4.md",
       "evidence": "artifacts/delivery/skill_check.json",
       "final_report": "reports/FINAL-REPORT.md"
+    },
+    "G5": {
+      "verdict": "PASS",
+      "report": "reports/gate-G5.md",
+      "evidence": "artifacts/g5/",
+      "contract": "docs/REMOTION.md"
     }
   },
   "regression": "artifacts/regression/summary.json",

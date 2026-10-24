@@ -325,7 +325,8 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
 
 
 def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
-              fps: float, width: int, height: int, *, max_samples: int = 240) -> dict[str, Any]:
+              fps: float, width: int, height: int, *, max_samples: int = 240,
+              caption_band: tuple[int, int] | None = None) -> dict[str, Any]:
     faces = _face_boxes_by_frame(vision.get("faces", []))
     elements = ir.get("elements", [])
 
@@ -382,6 +383,15 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
             # mask is a flat grayscale frame of width 192; rebuild 2D and map back
             hh = mask.size // LOW_W
             m2 = mask.reshape(hh, LOW_W)
+            if caption_band is not None:
+                # Burned captions are not IR elements: exclude their band from the
+                # element geometry checks (they have their own timing metric).
+                y0b = max(0, int(caption_band[0] * hh / height))
+                y1b = min(hh, int(caption_band[1] * hh / height) + 1)
+                m2 = m2.copy()
+                m2[y0b:y1b, :] = False
+                if not m2.any():
+                    continue
             ys, xs = np.nonzero(m2)
             if xs.size == 0:
                 continue
@@ -557,7 +567,8 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
 
 def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
             truth_json: Path | None = None, vision: dict | None = None,
-            gate: str = "G1", work: Path | None = None) -> dict[str, Any]:
+            gate: str = "G1", work: Path | None = None,
+            caption_band: tuple[int, int] | None = None) -> dict[str, Any]:
     """Compute the full metric set for one render of one IR."""
     source, rendered = Path(source), Path(rendered)
     fps = float(ir["source"]["fps"])
@@ -570,7 +581,9 @@ def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
     out_frames = _gray_frames(rendered)
     global_noise = _global_noise(ir, out_frames, src_frames)
     timing = _timing(ir, out_frames, src_frames, truth, fps, global_noise)
-    position = _position(ir, out_frames, src_frames, vision or {}, fps, width, height)
+    position = _position(ir, out_frames, src_frames, vision or {}, fps, width, height,
+                         caption_band=caption_band)
+    position["caption_band_excluded"] = list(caption_band) if caption_band else None
 
     src_audio = _audio_stats(source)
     out_audio = _audio_stats(rendered)
@@ -656,14 +669,22 @@ def _worst(vals: list[str]) -> str:
     return PASS
 
 
-def determinism(ir: dict, first: Path, second: Path, *, tolerance: int = 0) -> dict[str, Any]:
-    """Frame-level reproducibility check between two renders of the same IR."""
+def determinism(ir: dict, first: Path, second: Path, *, tolerance: float = 0.0) -> dict[str, Any]:
+    """Frame-level reproducibility check between two renders of the same IR.
+
+    ``tolerance`` is the maximum mean absolute pixel difference allowed per frame.
+    0 means pixel-identical. The Pillow/ffmpeg backend is pixel-identical; the
+    Remotion backend re-rasterises in Chrome and differs by encoder/AA noise
+    (~1e-5), which is why an explicit, measured tolerance exists (spec §3.5 permits
+    "pixel hash or an explicit tolerance"; byte-identical MP4 is never required).
+    """
     first, second = Path(first), Path(second)
     ha = media.video_frame_hashes(first)
     hb = media.video_frame_hashes(second)
     equal = ha == hb
     diff = media.frame_diff(first, second)
-    ok = equal if tolerance == 0 else (diff["max_diff"] is not None and diff["max_diff"] <= tolerance)
+    ok = equal if tolerance == 0 else (
+        diff["max_diff"] is not None and diff["max_diff"] <= tolerance)
     return {
         "runs": 2,
         "frames": [len(ha), len(hb)],
@@ -671,6 +692,9 @@ def determinism(ir: dict, first: Path, second: Path, *, tolerance: int = 0) -> d
         "max_pixel_diff": diff["max_diff"],
         "mean_pixel_diff": diff["mean_diff"],
         "verdict": PASS if ok else FAIL,
-        "policy": f"pixel-identical required (tolerance={tolerance}); byte-identical MP4 not required",
+        "policy": (f"pixel-identical required (tolerance={tolerance})"
+                   if tolerance == 0 else
+                   f"decoded frames must stay within mean |Δ| <= {tolerance}"),
+        "tolerance": tolerance,
         "sha256": [media.sha256_file(first), media.sha256_file(second)],
     }

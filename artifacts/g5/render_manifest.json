@@ -1,0 +1,53 @@
+{
+  "schema": "semotion.render/1",
+  "backend": "remotion",
+  "ir_sha256": "893b0b086c13bc0722a7d1771ce758100255ef6274fc60af35e99bda1fb75670",
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g5/probe_face_remotion.mp4",
+    "sha256": "b2fff3ac3bb8a7bd2ac2681b37cd77a42f76b38d2dc842a6b34a518cbf943434",
+    "size_bytes": 2091315,
+    "duration_s": 24.92,
+    "n_frames": 623,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac"
+  },
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+    "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf",
+    "duration_s": 24.92,
+    "n_frames": 623
+  },
+  "audio": {
+    "source": {
+      "n_samples": 2392064,
+      "duration_s": 24.917333,
+      "rms_db": -22.06
+    },
+    "rendered": {
+      "n_samples": 2392064,
+      "duration_s": 24.917333,
+      "rms_db": -22.069
+    },
+    "duration_delta_s": 0.0,
+    "rms_delta_db": 0.009
+  },
+  "overlay": {
+    "backend": "remotion",
+    "elements": 13,
+    "captions": 0
+  },
+  "commands": [
+    "/Volumes/ZHITAI/SemanticMotion/remotion/node_modules/.bin/remotion render src/index.ts Main /Volumes/ZHITAI/SemanticMotion/artifacts/g5/probe_face_remotion.mp4 --props=public/props.json --log=error --concurrency=2 --codec=h264 --crf=18 --pixel-format=yuv420p --audio-codec=aac --timeout=60000 --browser-executable=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers",
+    "node": "v24.15.0",
+    "remotion": "4.0.538",
+    "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  },
+  "created_utc": "2026-10-24T13:39:31Z"
+}

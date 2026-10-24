@@ -1,0 +1,114 @@
+{
+  "schema": "semotion.llm-decisions/1",
+  "decision_model": "deepseek-v4.1-flash",
+  "prompt_summary": "克制优先：保留开场痛点、核心论点、一个精确数字、三步列表与收尾名词共 5 个元素；同段重复词取更强者；省掉与列表重复的“三个”和重复卡片；时间全部交给锚点",
+  "created_utc": "2026-10-24T13:52:00Z",
+  "decisions": [
+    {
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "开场点题：“痛点”是观众代入的问题词，2 字短词适合关键词强调；前半句“大家好”是寒暄，不加",
+      "hold_s": 0.3,
+      "confidence": 0.78,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "spring_pop",
+        "avoid_face": true
+      }
+    },
+    {
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "本节论点：“其实是节奏”才是难点结论；与 a01“最难的地方”同段重复，取信息量更高的这一句做一个关键词",
+      "hold_s": 0.3,
+      "confidence": 0.8,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "spring_pop",
+        "avoid_face": true
+      }
+    },
+    {
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "可量化结论“九成”（=90%）：用数字动效精确计数到 90%，避免只当普通词闪过；数字不改写、不四舍五入",
+      "hold_s": 0.35,
+      "confidence": 0.86,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "count_up",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "九成"
+      }
+    },
+    {
+      "anchor_id": "a06",
+      "anchor_ids": [
+        "a06",
+        "a07",
+        "a08"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "第一/第二/第三是并列三步，合并成一个列表按口播顺序逐行揭示，比三条独立关键词更克制、也更符合“三个问题”的结构",
+      "hold_s": 0.45,
+      "confidence": 0.9,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "stagger_rows",
+        "avoid_face": true
+      },
+      "content": {
+        "items": [
+          "不知道什么时候加字",
+          "加了又挡住脸",
+          "该一次就要重做一遍"
+        ]
+      }
+    },
+    {
+      "anchor_id": "a09",
+      "anchor_ids": [
+        "a09"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "收尾方案落在“流程”这个名词上：2 字短词用关键词轻强调即可，不加卡片（片尾 20.8s 后空间紧张、且没有更完整的结论句）",
+      "hold_s": 0.3,
+      "confidence": 0.74,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "spring_pop",
+        "avoid_face": true
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "anchor_id": "a01",
+      "reason": "与 a02 同段且语义更弱（“最难的地方”被下一句“其实是节奏”补全），同段只留一个关键词"
+    },
+    {
+      "anchor_id": "a04",
+      "reason": "“都卡在三个问题”与紧随其后的三步列表重复；卡片占地最大，宁可用列表承载结构"
+    },
+    {
+      "anchor_id": "a05",
+      "reason": "“三个”是 a04/列表已经表达的计数；加数字动效会与列表在同一 10 秒内抢预算（会到 5 个，超每 10s≤4）"
+    }
+  ]
+}

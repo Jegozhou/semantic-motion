@@ -1,0 +1,17 @@
+{
+  "runs": 2,
+  "frames": [
+    605,
+    605
+  ],
+  "frame_hashes_equal": false,
+  "max_pixel_diff": 3.472222222222222e-05,
+  "mean_pixel_diff": 3.4435261707988977e-07,
+  "verdict": "PASS",
+  "policy": "decoded frames must stay within mean |Δ| <= 0.5",
+  "tolerance": 0.5,
+  "sha256": [
+    "d9e659cc046e6d4d75cdff5d3f751fdad1bd074e1e51360cbf3ecf72dfd1bb9c",
+    "a49fceeda02281779cc90493c67bac730cc3127ad309a951f1bd14634157a723"
+  ]
+}

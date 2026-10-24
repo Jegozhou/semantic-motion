@@ -1,0 +1,181 @@
+{
+  "schema": "semotion.llm-decisions/1",
+  "decision_model": "deepseek-v4.1-flash",
+  "prompt_summary": "叙事弧优先：两个数字（三个/九成）→ 三步列表 → 避脸原则关键词 → 70% 统计 → 结论卡片 → 收尾“底线”；重复卡片与“所以”等连接词一律跳过；每 10s 不超过 3-4 个",
+  "created_utc": "2026-10-24T13:52:00Z",
+  "decisions": [
+    {
+      "anchor_id": "a01",
+      "anchor_ids": [
+        "a01"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "“三个数字”是开篇承诺的信息结构：用数字动效强调数量 3，引导观众预期后续三点；比卡片更省画面、也不遮脸",
+      "hold_s": 0.3,
+      "confidence": 0.86,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "count_up",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "三个"
+      }
+    },
+    {
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "“九成”（=90%）是可量化结论：必须精确计数到 90%，不能模糊成“很多”；数字语义保留原文，不改写成别的词",
+      "hold_s": 0.3,
+      "confidence": 0.86,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "count_up",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "九成"
+      }
+    },
+    {
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03",
+        "a04",
+        "a06"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "第一步/第二步/第三步是并列流程，合并成一个列表逐行揭示（对齐→布局→渲染）；对应的“第二步是布局/第三步是渲染”卡片是列表行的重复，跳过以省空间",
+      "hold_s": 0.45,
+      "confidence": 0.9,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "stagger_rows",
+        "avoid_face": true
+      },
+      "content": {
+        "items": [
+          "对齐",
+          "布局",
+          "渲染"
+        ]
+      }
+    },
+    {
+      "anchor_id": "a08",
+      "anchor_ids": [
+        "a08"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "“关键是别挡住脸”是全文最重要的原则句：7 字关键词比卡片更不占画面，也不容易压到人脸安全框",
+      "hold_s": 0.3,
+      "confidence": 0.8,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "spring_pop",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "关键是别挡住脸"
+      }
+    },
+    {
+      "anchor_id": "a11",
+      "anchor_ids": [
+        "a11"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "“70%”是关键统计，计数必须精确收敛到 70；这是全片唯一带百分号的数字，值得占用一个元素",
+      "hold_s": 0.3,
+      "confidence": 0.92,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "count_up",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "70%"
+      }
+    },
+    {
+      "anchor_id": "a13",
+      "anchor_ids": [
+        "a13"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "结论句“结论是先对齐再谈样式”需要完整呈现，卡片承载最合适；窗口在 18.95s 开始，避开 70% 数字与结尾画面",
+      "hold_s": 0.5,
+      "confidence": 0.62,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "fade_up",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "结论是先对齐再谈样式"
+      }
+    },
+    {
+      "anchor_id": "a16",
+      "anchor_ids": [
+        "a16"
+      ],
+      "effect": "keyword",
+      "emphasis": "medium",
+      "reason": "收尾“底线”2 字点题，用关键词轻收；此处不再叠卡片，避免结尾同时出现两个大块文字",
+      "hold_s": 0.3,
+      "confidence": 0.78,
+      "params": {
+        "accent": "#F2B233",
+        "enter": "spring_pop",
+        "avoid_face": true
+      },
+      "content": {
+        "text": "底线"
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "anchor_id": "a00",
+      "reason": "“先看三个数字”是引导句，数量语义已由更精确的 a01“三个”承担；同一时刻只留一个元素"
+    },
+    {
+      "anchor_id": "a05",
+      "reason": "“第二步是布局”与列表第二行重复；卡片占地大，列表已表达"
+    },
+    {
+      "anchor_id": "a07",
+      "reason": "“第三步是渲染”与列表第三行重复，同上"
+    },
+    {
+      "anchor_id": "a09",
+      "reason": "“所以”是连接词，本身不承载信息；结论由后续卡片表达"
+    },
+    {
+      "anchor_id": "a10",
+      "reason": "“所以我们先测遮挡”与 a08 的避脸原则语义重叠，且紧接 a08，叠加会显得拥挤"
+    },
+    {
+      "anchor_id": "a12",
+      "reason": "“结论”只是标签词，a13 已承载完整结论句，重复"
+    },
+    {
+      "anchor_id": "a14",
+      "reason": "“先对齐再”是 a13 卡片句子的片段，卡片已覆盖"
+    },
+    {
+      "anchor_id": "a15",
+      "reason": "结尾“流程”只是名词指代，收尾已有 a16“底线”，不再加元素"
+    }
+  ]
+}

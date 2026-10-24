@@ -1,7 +1,7 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：**G0–G4 全部 PASS，项目完成阶段性交付**。最终回归 11/11（`artifacts/regression/summary.json`）；未完成项 L1–L9 见 `reports/FINAL-REPORT.md` §6。
+> 最近更新：**G0–G4 PASS，G5（LLM 选动效 + Remotion 渲染 + 逐词字幕）PASS**。G5 证据见 `reports/gate-G5.md` 与 `artifacts/g5/`。
 
 ## 0. 当前状态一屏
 
@@ -94,6 +94,19 @@
 | 异常恢复 | 非法 IR / 不可写目标 / 损坏输入 / 失败续跑：4/4 | 同上 `recovery` |
 | 自动回归 | **11/11 步骤 PASS，3 分 42 秒** | `artifacts/regression/summary.json` |
 | 回归测试 | 92 passed | `.venv/bin/python -m pytest tests/ -q` |
+
+## 1.9 G5 — LLM 导演 + Remotion 后端 + 字幕（PASS，2026-10-24 22:0x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| Remotion 渲染后端 | 4.0.538 + 系统 Chrome；1080×1920 605/623 帧，约 50 s | `artifacts/g5/llm_a/`、`artifacts/g5/llm_face/` |
+| LLM 导演 | fx_a 5 元素 / fx_face 7 元素，8 条规则校验通过 | `artifacts/llm/*.decisions.json` |
+| 指标 | timing P90 23.54 / 29.08 ms；遮脸 0/133、0/150；框外像素 0；切镜 PASS | 各 `metrics.json` |
+| 字幕 | 词级帧号、简体、无行尾标点、重复文案抑制（4/2 条） | `captions.json`、`remotion_props.json` |
+| 可复现 | 两次渲染 max_pixel_diff 3.5e-05（显式容差 0.5）→ PASS | `artifacts/g5/determinism/` |
+| 测试 | 144 passed（含 52 项 LLM/字幕） | `pytest tests/ -q` |
+| 契约 | `docs/REMOTION.md`（props/决策/字幕/8 条校验） | — |
+| 许可 | Remotion License（个人/≤3 员工/非营利免费；更大营利组织需购证） | `reports/licenses.md` §3.5 |
 
 ## 1.8 G4 最终交付（PASS，2026-10-24 19:4x）
 

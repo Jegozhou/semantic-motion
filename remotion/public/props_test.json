@@ -1,0 +1,23 @@
+{
+  "schema": "semotion.remotion-props/1",
+  "canvas": {"width": 1080, "height": 1920, "fps": 25, "durationInFrames": 250},
+  "source": {"file": "source.mp4", "audio": true},
+  "captions": [
+    {"startFrame": 10, "endFrame": 70, "lines": ["先看三个数字"], "words": [{"text": "先看三个数字", "startFrame": 10, "endFrame": 70}]},
+    {"startFrame": 80, "endFrame": 140, "lines": ["第一步是对齐"], "words": [{"text": "第一步是对齐", "startFrame": 80, "endFrame": 140}]},
+    {"startFrame": 150, "endFrame": 240, "lines": ["关键是别挡住脸"], "words": [{"text": "关键是别挡住脸", "startFrame": 150, "endFrame": 240}]}
+  ],
+  "elements": [
+    {"id": "e1", "effect": "keyword", "startFrame": 10, "endFrame": 70, "box": [214, 1180, 652, 232],
+     "content": {"text": "三个数字"}, "style": {"accent": "#F2B233", "fg": "#F5F7FA", "bg": "rgba(12,16,28,0.88)", "fontPx": 86, "radius": 28, "align": "center", "weight": 700},
+     "motion": {"enterDurFrames": 8, "exitDurFrames": 5}},
+    {"id": "e2", "effect": "number", "startFrame": 80, "endFrame": 140, "box": [368, 1016, 344, 269],
+     "content": {"text": "九成", "value": 90, "prefix": "", "suffix": "%", "decimals": 0},
+     "style": {"accent": "#F2B233", "fg": "#F5F7FA", "bg": "rgba(12,16,28,0.88)", "fontPx": 86, "radius": 28, "align": "center", "weight": 700},
+     "motion": {"enterDurFrames": 8, "exitDurFrames": 5}},
+    {"id": "e3", "effect": "list", "startFrame": 150, "endFrame": 240, "box": [213, 1040, 654, 300],
+     "content": {"text": "步骤", "items": [{"text": "对齐", "startFrame": 150}, {"text": "布局", "startFrame": 175}, {"text": "渲染", "startFrame": 200}]},
+     "style": {"accent": "#F2B233", "fg": "#F5F7FA", "bg": "rgba(12,16,28,0.88)", "fontPx": 78, "radius": 28, "align": "left", "weight": 700},
+     "motion": {"enterDurFrames": 8, "exitDurFrames": 6}}
+  ]
+}

@@ -1,0 +1,924 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 24.2,
+    "n_frames": 605,
+    "frame_source": "nb_frames",
+    "duration_fps_frames": 605,
+    "timebase": {
+      "num": 1,
+      "den": 25
+    }
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "5e68ccd74fc814e7bb20a10f4a895eaff8c9144c92d5803ebf2bbe9df69bb16a",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "945c0222b9ed9a1f3e688e8d8f2ee622d9d17e81c0df850d63883cc987fb4498",
+    "decisions_sha256": "e2ed3329eb936f912a405fe41bc08b1d81d82d85ae531eaf3fa04313e898db2b",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "痛点",
+        "start_s": 3.32,
+        "end_s": 3.94,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w7",
+          "w8"
+        ],
+        "rule": "emphasis_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 20,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 3.32,
+          "search_window_s": [
+            3.05,
+            3.55
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.115096,
+          "asr_start_s": 3.3
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "最难的地方",
+        "start_s": 5.04,
+        "end_s": 6.02,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w13",
+          "w14",
+          "w15",
+          "w16"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 4,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 80,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 5.04,
+          "search_window_s": [
+            4.71,
+            5.21
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.124182,
+          "asr_start_s": 4.96
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "keyword",
+        "text": "其实是节奏",
+        "start_s": 6.36,
+        "end_s": 7.66,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w17",
+          "w18",
+          "w19",
+          "w20"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 4,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -160,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 6.36,
+          "search_window_s": [
+            6.27,
+            6.77
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.012529,
+          "asr_start_s": 6.52
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "number",
+        "text": "九成",
+        "start_s": 7.85,
+        "end_s": 8.36,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w21",
+          "w22"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -70,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 7.85,
+          "search_window_s": [
+            7.67,
+            8.17
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.007834,
+          "asr_start_s": 7.92
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "card",
+        "text": "都卡在三个问题",
+        "start_s": 9.33,
+        "end_s": 11.04,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -90,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 9.33,
+          "search_window_s": [
+            9.17,
+            9.67
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.005703,
+          "asr_start_s": 9.42
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "number",
+        "text": "三个",
+        "start_s": 9.91,
+        "end_s": 10.56,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w29",
+          "w30"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 9.91,
+          "search_window_s": [
+            9.83,
+            10.33
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.129961,
+          "asr_start_s": 10.08
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "list_item",
+        "text": "第一",
+        "start_s": 11.36,
+        "end_s": 11.8,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w32"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -60,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 11.36,
+          "search_window_s": [
+            11.17,
+            11.67
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.002898,
+          "asr_start_s": 11.42
+        }
+      },
+      {
+        "id": "a07",
+        "kind": "list_item",
+        "text": "第二",
+        "start_s": 14.28,
+        "end_s": 14.76,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w38"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -80,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 14.28,
+          "search_window_s": [
+            14.11,
+            14.61
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.002891,
+          "asr_start_s": 14.36
+        }
+      },
+      {
+        "id": "a08",
+        "kind": "list_item",
+        "text": "第三",
+        "start_s": 16.75,
+        "end_s": 17.3,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w45"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -130,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "silence_exit",
+          "onset_s": 16.75,
+          "search_window_s": [
+            16.62,
+            17.13
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.027347,
+          "asr_start_s": 16.88
+        }
+      },
+      {
+        "id": "a09",
+        "kind": "process",
+        "text": "流程",
+        "start_s": 20.81,
+        "end_s": 21.66,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w58",
+          "w59"
+        ],
+        "rule": "process_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -150,
+          "accepted": true,
+          "window_ms": 250,
+          "detector": "energy_rise",
+          "onset_s": 20.81,
+          "search_window_s": [
+            20.71,
+            21.21
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.120743,
+          "asr_start_s": 20.96
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "d01",
+        "anchor_id": "a00",
+        "anchor_ids": [
+          "a00"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "开场点题：“痛点”是观众代入的问题词，2 字短词适合关键词强调；前半句“大家好”是寒暄，不加",
+        "confidence": 0.78,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "痛点",
+          "items": null
+        },
+        "window": {
+          "start_s": 3.32,
+          "end_s": 4.24
+        }
+      },
+      {
+        "id": "d02",
+        "anchor_id": "a02",
+        "anchor_ids": [
+          "a02"
+        ],
+        "effect": "keyword",
+        "emphasis": "high",
+        "reason": "本节论点：“其实是节奏”才是难点结论；与 a01“最难的地方”同段重复，取信息量更高的这一句做一个关键词",
+        "confidence": 0.8,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "其实是节奏",
+          "items": null
+        },
+        "window": {
+          "start_s": 6.36,
+          "end_s": 7.81
+        }
+      },
+      {
+        "id": "d03",
+        "anchor_id": "a03",
+        "anchor_ids": [
+          "a03"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "可量化结论“九成”（=90%）：用数字动效精确计数到 90%，避免只当普通词闪过；数字不改写、不四舍五入",
+        "confidence": 0.86,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "九成",
+          "items": null
+        },
+        "window": {
+          "start_s": 7.85,
+          "end_s": 8.71
+        }
+      },
+      {
+        "id": "d04",
+        "anchor_id": "a06",
+        "anchor_ids": [
+          "a06",
+          "a07",
+          "a08"
+        ],
+        "effect": "list",
+        "emphasis": "high",
+        "reason": "第一/第二/第三是并列三步，合并成一个列表按口播顺序逐行揭示，比三条独立关键词更克制、也更符合“三个问题”的结构",
+        "confidence": 0.9,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "第一",
+          "items": [
+            "不知道什么时候加字",
+            "加了又挡住脸",
+            "该一次就要重做一遍"
+          ]
+        },
+        "window": {
+          "start_s": 11.36,
+          "end_s": 17.75
+        }
+      },
+      {
+        "id": "d05",
+        "anchor_id": "a09",
+        "anchor_ids": [
+          "a09"
+        ],
+        "effect": "keyword",
+        "emphasis": "medium",
+        "reason": "收尾方案落在“流程”这个名词上：2 字短词用关键词轻强调即可，不加卡片（片尾 20.8s 后空间紧张、且没有更完整的结论句）",
+        "confidence": 0.74,
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "content": {
+          "text": "流程",
+          "items": null
+        },
+        "window": {
+          "start_s": 20.81,
+          "end_s": 21.96
+        }
+      }
+    ],
+    "transcript_text": "大家好,今天聊一个真实的痛点。抠播视频最难的地方,其实是节奏。九成的剪辑,都卡在三个问题。第一,不知道什么时候加字。第二,加了又挡住脸。第三,该一次就要重做一遍。我们把这套流程,做成了自动化。",
+    "face_safe": {
+      "bbox_union": null,
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_d01",
+        "el_d02",
+        "el_d03",
+        "el_d04",
+        "el_d05"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_d01",
+      "type": "keyword",
+      "anchor_ref": "a00",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 3.32,
+        "end_s": 4.24,
+        "start_frame": 83,
+        "end_frame": 106,
+        "hold_s": 0.3,
+        "anchor_start_s": 3.32,
+        "anchor_end_s": 3.94
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 96,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "痛点"
+      },
+      "provenance": {
+        "decision_id": "d01",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 克制优先：保留开场痛点、核心论点、一个精确数字、三步列表与收尾名词共 5 个元素；同段重复词取更强者；省掉与列表重复的“三个”和重复卡片；时间全部交给锚点",
+        "confidence": 0.78,
+        "reason": "开场点题：“痛点”是观众代入的问题词，2 字短词适合关键词强调；前半句“大家好”是寒暄，不加",
+        "effect_params_sha256": "f8f9cd5f03d4223a0fef2ebc6f52546e2a14b9329690f4cc22bb371ef03af615"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          408,
+          1035,
+          264,
+          232
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 264,
+          "height": 232
+        }
+      }
+    },
+    {
+      "id": "el_d02",
+      "type": "keyword",
+      "anchor_ref": "a02",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 6.36,
+        "end_s": 7.8,
+        "start_frame": 159,
+        "end_frame": 195,
+        "hold_s": 0.14,
+        "anchor_start_s": 6.36,
+        "anchor_end_s": 7.66
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 96,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "其实是节奏"
+      },
+      "provenance": {
+        "decision_id": "d02",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 克制优先：保留开场痛点、核心论点、一个精确数字、三步列表与收尾名词共 5 个元素；同段重复词取更强者；省掉与列表重复的“三个”和重复卡片；时间全部交给锚点",
+        "confidence": 0.8,
+        "reason": "本节论点：“其实是节奏”才是难点结论；与 a01“最难的地方”同段重复，取信息量更高的这一句做一个关键词",
+        "effect_params_sha256": "162a575eb69df2b85ca70d79bad579af13b1fec53eba3392c277d8ca981dcb61"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          264,
+          1035,
+          552,
+          232
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 552,
+          "height": 232
+        }
+      }
+    },
+    {
+      "id": "el_d03",
+      "type": "number",
+      "anchor_ref": "a03",
+      "anchor_refs": [
+        "a03"
+      ],
+      "window": {
+        "start_s": 7.84,
+        "end_s": 8.72,
+        "start_frame": 196,
+        "end_frame": 218,
+        "hold_s": 0.36,
+        "anchor_start_s": 7.85,
+        "anchor_end_s": 8.36
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 84,
+        "padding_px": 40,
+        "radius_px": 26,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "九成",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 90.0,
+          "unit": "%",
+          "kind": "percent",
+          "final": "90%",
+          "decimals": 0,
+          "label": "九成"
+        },
+        "numeric_display": "90%"
+      },
+      "provenance": {
+        "decision_id": "d03",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 克制优先：保留开场痛点、核心论点、一个精确数字、三步列表与收尾名词共 5 个元素；同段重复词取更强者；省掉与列表重复的“三个”和重复卡片；时间全部交给锚点",
+        "confidence": 0.86,
+        "reason": "可量化结论“九成”（=90%）：用数字动效精确计数到 90%，避免只当普通词闪过；数字不改写、不四舍五入",
+        "effect_params_sha256": "3f1459e510bdff518361bf4ebd9093ea42efa72958ef38cbfcba0dc8c8da204a"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          368,
+          1016,
+          344,
+          269
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 344,
+          "height": 269
+        }
+      }
+    },
+    {
+      "id": "el_d04",
+      "type": "list",
+      "anchor_ref": "a06",
+      "anchor_refs": [
+        "a06",
+        "a07",
+        "a08"
+      ],
+      "window": {
+        "start_s": 11.36,
+        "end_s": 17.76,
+        "start_frame": 284,
+        "end_frame": 444,
+        "hold_s": 0.46,
+        "anchor_start_s": 11.36,
+        "anchor_end_s": 17.3
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 58,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "left",
+        "min_width_px": 670,
+        "line_height": 1.35
+      },
+      "motion": {
+        "enter": {
+          "type": "reveal",
+          "dur_s": 0.2,
+          "ease": "out_cubic",
+          "per_item": true
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "第一",
+        "items": [
+          "不知道什么时候加字",
+          "加了又挡住脸",
+          "该一次就要重做一遍"
+        ],
+        "item_onsets_s": [
+          0.0,
+          2.92,
+          5.39
+        ],
+        "rows": [
+          {
+            "marker": "1",
+            "text": "不知道什么时候加字",
+            "at_s": 0.0,
+            "text_at_s": 0.0
+          },
+          {
+            "marker": "2",
+            "text": "加了又挡住脸",
+            "at_s": 2.92,
+            "text_at_s": 2.92
+          },
+          {
+            "marker": "3",
+            "text": "该一次就要重做一遍",
+            "at_s": 5.39,
+            "text_at_s": 5.39
+          }
+        ],
+        "anchor_rows": [
+          "a06",
+          "a07",
+          "a08"
+        ]
+      },
+      "provenance": {
+        "decision_id": "d04",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 克制优先：保留开场痛点、核心论点、一个精确数字、三步列表与收尾名词共 5 个元素；同段重复词取更强者；省掉与列表重复的“三个”和重复卡片；时间全部交给锚点",
+        "confidence": 0.9,
+        "reason": "第一/第二/第三是并列三步，合并成一个列表按口播顺序逐行揭示，比三条独立关键词更克制、也更符合“三个问题”的结构",
+        "effect_params_sha256": "df076157851e0d1e63260a7a9a465cf633cc9385d5138849e7e0cfcbfeda5864"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          205,
+          941,
+          670,
+          375
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 670,
+          "height": 375
+        }
+      }
+    },
+    {
+      "id": "el_d05",
+      "type": "keyword",
+      "anchor_ref": "a09",
+      "anchor_refs": [
+        "a09"
+      ],
+      "window": {
+        "start_s": 20.8,
+        "end_s": 21.96,
+        "start_frame": 520,
+        "end_frame": 549,
+        "hold_s": 0.3,
+        "anchor_start_s": 20.81,
+        "anchor_end_s": 21.66
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "regular",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(12,16,28,0.72)",
+        "font_size_px": 86,
+        "padding_px": 36,
+        "radius_px": 28,
+        "align": "center",
+        "accent_line": true
+      },
+      "motion": {
+        "enter": {
+          "type": "pop_up",
+          "dur_s": 0.26,
+          "ease": "out_cubic",
+          "scale_from": 0.86
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "流程"
+      },
+      "provenance": {
+        "decision_id": "d05",
+        "decision_model": "llm:deepseek-v4.1-flash",
+        "prompt_summary": "llm_director: data-only JSON, schema-validated, no code execution; prompt_summary: 克制优先：保留开场痛点、核心论点、一个精确数字、三步列表与收尾名词共 5 个元素；同段重复词取更强者；省掉与列表重复的“三个”和重复卡片；时间全部交给锚点",
+        "confidence": 0.74,
+        "reason": "收尾方案落在“流程”这个名词上：2 字短词用关键词轻强调即可，不加卡片（片尾 20.8s 后空间紧张、且没有更完整的结论句）",
+        "effect_params_sha256": "a65704ce25f8c842b01b3245e09207c9a9f863291fc05997fd6b2665b9c941e4"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "title",
+        "box": [
+          741,
+          121,
+          244,
+          217
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": null,
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 244,
+          "height": 217
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T14:00:40Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "frame_count": {
+      "n_frames": 605,
+      "source": "nb_frames",
+      "container_duration_s": 24.2,
+      "duration_fps_frames": 605
+    },
+    "build_warnings": [],
+    "skipped_decisions": [],
+    "n_elements": 5,
+    "ir_sha256": "90850539a636f2be10719c819e77f48a94fa48bf179fe65a7e987d56f719ddf8"
+  }
+}

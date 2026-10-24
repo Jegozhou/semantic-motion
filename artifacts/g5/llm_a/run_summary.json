@@ -1,0 +1,83 @@
+{
+  "gate": "G5",
+  "started_utc": "2026-10-24T14:00:40Z",
+  "finished_utc": "2026-10-24T14:01:31Z",
+  "input": {
+    "video": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+    "truth": "tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json"
+  },
+  "artifacts": {
+    "transcript": "artifacts/g5/llm_a/transcript.json",
+    "vision": "artifacts/g5/llm_a/vision.json",
+    "anchors": "artifacts/g5/llm_a/anchors.json",
+    "plan": "artifacts/g5/llm_a/plan.json",
+    "motion_ir": "artifacts/g5/llm_a/motion_ir.json",
+    "render": "artifacts/g5/llm_a/fx_a_zh_portrait_motion.mp4",
+    "render_manifest": "artifacts/g5/llm_a/render_manifest.json",
+    "metrics": "artifacts/g5/llm_a/metrics.json"
+  },
+  "decisions": {
+    "decisions": 5,
+    "by_effect": {
+      "keyword": 3,
+      "number": 1,
+      "list": 1
+    },
+    "skipped": 3,
+    "coverage": 0.445
+  },
+  "backend": "remotion",
+  "captions": 14,
+  "verdicts": {
+    "timing": "PASS",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "timing": {
+    "samples": 3,
+    "p50_ms": 5.75,
+    "p90_ms": 23.54,
+    "max_ms": 23.54,
+    "source": "SYNTH_KNOWN",
+    "verdict": "PASS"
+  },
+  "steps": [
+    {
+      "step": "asr",
+      "status": "ok",
+      "seconds": 0.09
+    },
+    {
+      "step": "vision",
+      "status": "ok",
+      "seconds": 0.03
+    },
+    {
+      "step": "anchors",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "plan",
+      "status": "ok",
+      "seconds": 0.01
+    },
+    {
+      "step": "ir",
+      "status": "ok",
+      "seconds": 0.06
+    },
+    {
+      "step": "render",
+      "status": "ok",
+      "seconds": 50.86
+    },
+    {
+      "step": "verify",
+      "status": "ok",
+      "seconds": 0.67
+    }
+  ],
+  "exit": 0
+}

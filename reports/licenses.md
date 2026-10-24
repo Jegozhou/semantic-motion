@@ -19,6 +19,9 @@
 | pytest | 9.1.1 | MIT | 低 | 仅开发 |
 | Noto Sans CJK SC `assets/fonts/NotoSansSC-Regular.otf` | notofonts/noto-cjk | **SIL OFL 1.1**（原文见 `assets/fonts/OFL.txt`） | 低 | ✅ 可随产品分发，须保留许可证与版权声明 |
 | ffmpeg / ffprobe | 8.1（homebrew，`--enable-gpl --enable-libx264 --enable-libx265`） | **GPL-3.0**（该构建） | **高** | 作为**外部依赖**调用，不随 Skill 分发；闭源分发需改用 LGPL 构建或 `videotoolbox` 编码路径 |
+| Remotion（可选渲染后端） | 4.0.538 (`remotion`, `@remotion/cli`, `@remotion/renderer`) | **Remotion License**（双轨） | **中** | 个人 / ≤3 员工的营利组织 / 非营利 / 评估期可**免费**（含商用）；更大规模营利组织需购买 Company License。若不符合免费条件，可改用默认 `pillow_ffmpeg` 后端或替换为 Apache-2.0 的 Revideo |
+| React / ReactDOM（Remotion 依赖） | 18.x | MIT | 低 | ✅ |
+| Chrome / chrome-headless-shell | 系统 Google Chrome（路径 `--browser-executable`） | Google Chrome 许可 | 低 | 仅本机渲染使用，不分发；首次 `npx remotion browser ensure` 曾下载 headless shell 但启动失败，改用系统 Chrome |
 | macOS `say` | 系统 | Apple 许可 | 中 | 仅用于生成本地测试素材，不分发 |
 
 ## 2. 系统/开发工具（非分发）
@@ -39,11 +42,19 @@
 | fx_pd_real_16x9_a / _b | Wikimedia Commons「Weekly Address (2009-01-24)」 | **Public domain**（美国政府作品，17 U.S.C. §105） | 真实影像测试 |
 | 肖像照片 `assets/media/portraits/obama_official.jpg` | Wikimedia Commons「Official portrait of Barack Obama」 | **CC BY 3.0**（Pete Souza） | 仅用于 fx_face_* 测试夹具（照片合成），**不得作为真实拍摄素材对外发布**；如需公开须署名 |
 
+## 3.5 渲染后端许可矩阵
+
+| 后端 | 许可 | 免费条件 | 建议 |
+|---|---|---|---|
+| `pillow_ffmpeg`（默认） | 项目自有代码 + ffmpeg(GPL, 外部依赖) | 无条件（ffmpeg 自备） | 闭源分发首选 |
+| `remotion`（可选） | Remotion License | 个人 / ≤3 员工 / 非营利 / 评估 | 超出范围须购证或改用默认后端 |
+
 ## 4. 分发前必须完成（当前未做）
 
 - [ ] ffmpeg 交付方式二选一：要求用户自备（推荐，脚本已做版本探测与明确报错）或改为 LGPL/videotoolbox 构建。
 - [ ] YuNet/WIDER FACE 条款复核，或替换为自训练/许可更清晰的检测模型。
 - [ ] 若公开示例成片包含 `fx_face_*`（含 CC BY 肖像），须显著署名 Pete Souza / CC BY 3.0。
+- [ ] 若对外分发 Remotion 后端，先确认组织规模是否符合 Remotion 免费条款（>3 员工营利组织需 Company License）。
 - [ ] 公开发布时附带 `assets/fonts/OFL.txt`。
 
 ## 5. 生成方式声明（干净室）

@@ -1,0 +1,632 @@
+{
+  "schema": "semotion.remotion-props/1",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "durationInFrames": 605
+  },
+  "source": {
+    "file": "source.mp4",
+    "audio": true
+  },
+  "captions": [
+    {
+      "startFrame": 16,
+      "endFrame": 29,
+      "lines": [
+        "大家好"
+      ],
+      "words": [
+        {
+          "text": "大家好,",
+          "startFrame": 16,
+          "endFrame": 29
+        }
+      ]
+    },
+    {
+      "startFrame": 44,
+      "endFrame": 98,
+      "lines": [
+        "今天聊一个真实的痛点"
+      ],
+      "words": [
+        {
+          "text": "今天",
+          "startFrame": 44,
+          "endFrame": 52
+        },
+        {
+          "text": "聊",
+          "startFrame": 52,
+          "endFrame": 58
+        },
+        {
+          "text": "一个",
+          "startFrame": 58,
+          "endFrame": 66
+        },
+        {
+          "text": "真",
+          "startFrame": 66,
+          "endFrame": 74
+        },
+        {
+          "text": "实",
+          "startFrame": 74,
+          "endFrame": 78
+        },
+        {
+          "text": "的",
+          "startFrame": 78,
+          "endFrame": 82
+        },
+        {
+          "text": "痛",
+          "startFrame": 82,
+          "endFrame": 86
+        },
+        {
+          "text": "点。",
+          "startFrame": 86,
+          "endFrame": 98
+        }
+      ]
+    },
+    {
+      "startFrame": 106,
+      "endFrame": 150,
+      "lines": [
+        "抠播视频最难的地方"
+      ],
+      "words": [
+        {
+          "text": "抠",
+          "startFrame": 106,
+          "endFrame": 107
+        },
+        {
+          "text": "播",
+          "startFrame": 107,
+          "endFrame": 113
+        },
+        {
+          "text": "视",
+          "startFrame": 113,
+          "endFrame": 120
+        },
+        {
+          "text": "频",
+          "startFrame": 120,
+          "endFrame": 124
+        },
+        {
+          "text": "最",
+          "startFrame": 124,
+          "endFrame": 130
+        },
+        {
+          "text": "难",
+          "startFrame": 130,
+          "endFrame": 136
+        },
+        {
+          "text": "的",
+          "startFrame": 136,
+          "endFrame": 140
+        },
+        {
+          "text": "地方,",
+          "startFrame": 140,
+          "endFrame": 150
+        }
+      ]
+    },
+    {
+      "startFrame": 163,
+      "endFrame": 192,
+      "lines": [
+        "其实是节奏"
+      ],
+      "words": [
+        {
+          "text": "其实",
+          "startFrame": 163,
+          "endFrame": 170
+        },
+        {
+          "text": "是",
+          "startFrame": 170,
+          "endFrame": 178
+        },
+        {
+          "text": "节",
+          "startFrame": 178,
+          "endFrame": 184
+        },
+        {
+          "text": "奏。",
+          "startFrame": 184,
+          "endFrame": 192
+        }
+      ]
+    },
+    {
+      "startFrame": 198,
+      "endFrame": 230,
+      "lines": [
+        "九成的剪辑"
+      ],
+      "words": [
+        {
+          "text": "九",
+          "startFrame": 198,
+          "endFrame": 203
+        },
+        {
+          "text": "成",
+          "startFrame": 203,
+          "endFrame": 209
+        },
+        {
+          "text": "的",
+          "startFrame": 209,
+          "endFrame": 214
+        },
+        {
+          "text": "剪",
+          "startFrame": 214,
+          "endFrame": 220
+        },
+        {
+          "text": "辑,",
+          "startFrame": 220,
+          "endFrame": 230
+        }
+      ]
+    },
+    {
+      "startFrame": 236,
+      "endFrame": 276,
+      "lines": [
+        "都卡在三个问题"
+      ],
+      "words": [
+        {
+          "text": "都",
+          "startFrame": 236,
+          "endFrame": 240
+        },
+        {
+          "text": "卡",
+          "startFrame": 240,
+          "endFrame": 246
+        },
+        {
+          "text": "在",
+          "startFrame": 246,
+          "endFrame": 252
+        },
+        {
+          "text": "三",
+          "startFrame": 252,
+          "endFrame": 260
+        },
+        {
+          "text": "个",
+          "startFrame": 260,
+          "endFrame": 264
+        },
+        {
+          "text": "问题。",
+          "startFrame": 264,
+          "endFrame": 276
+        }
+      ]
+    },
+    {
+      "startFrame": 286,
+      "endFrame": 295,
+      "lines": [
+        "第一"
+      ],
+      "words": [
+        {
+          "text": "第一,",
+          "startFrame": 286,
+          "endFrame": 295
+        }
+      ]
+    },
+    {
+      "startFrame": 302,
+      "endFrame": 350,
+      "lines": [
+        "不知道什么时候加字"
+      ],
+      "words": [
+        {
+          "text": "不知道",
+          "startFrame": 302,
+          "endFrame": 318
+        },
+        {
+          "text": "什么",
+          "startFrame": 318,
+          "endFrame": 326
+        },
+        {
+          "text": "时候",
+          "startFrame": 326,
+          "endFrame": 336
+        },
+        {
+          "text": "加",
+          "startFrame": 336,
+          "endFrame": 344
+        },
+        {
+          "text": "字。",
+          "startFrame": 344,
+          "endFrame": 350
+        }
+      ]
+    },
+    {
+      "startFrame": 359,
+      "endFrame": 369,
+      "lines": [
+        "第二"
+      ],
+      "words": [
+        {
+          "text": "第二,",
+          "startFrame": 359,
+          "endFrame": 369
+        }
+      ]
+    },
+    {
+      "startFrame": 380,
+      "endFrame": 414,
+      "lines": [
+        "加了又挡住脸"
+      ],
+      "words": [
+        {
+          "text": "加",
+          "startFrame": 380,
+          "endFrame": 384
+        },
+        {
+          "text": "了",
+          "startFrame": 384,
+          "endFrame": 387
+        },
+        {
+          "text": "又",
+          "startFrame": 387,
+          "endFrame": 392
+        },
+        {
+          "text": "挡",
+          "startFrame": 392,
+          "endFrame": 396
+        },
+        {
+          "text": "住",
+          "startFrame": 396,
+          "endFrame": 403
+        },
+        {
+          "text": "脸。",
+          "startFrame": 403,
+          "endFrame": 414
+        }
+      ]
+    },
+    {
+      "startFrame": 422,
+      "endFrame": 432,
+      "lines": [
+        "第三"
+      ],
+      "words": [
+        {
+          "text": "第三,",
+          "startFrame": 422,
+          "endFrame": 432
+        }
+      ]
+    },
+    {
+      "startFrame": 442,
+      "endFrame": 493,
+      "lines": [
+        "该一次就要重做一遍"
+      ],
+      "words": [
+        {
+          "text": "该",
+          "startFrame": 442,
+          "endFrame": 446
+        },
+        {
+          "text": "一次",
+          "startFrame": 446,
+          "endFrame": 456
+        },
+        {
+          "text": "就",
+          "startFrame": 456,
+          "endFrame": 464
+        },
+        {
+          "text": "要",
+          "startFrame": 464,
+          "endFrame": 469
+        },
+        {
+          "text": "重",
+          "startFrame": 469,
+          "endFrame": 475
+        },
+        {
+          "text": "做",
+          "startFrame": 475,
+          "endFrame": 481
+        },
+        {
+          "text": "一",
+          "startFrame": 481,
+          "endFrame": 487
+        },
+        {
+          "text": "遍。",
+          "startFrame": 487,
+          "endFrame": 493
+        }
+      ]
+    },
+    {
+      "startFrame": 500,
+      "endFrame": 542,
+      "lines": [
+        "我们把这套流程"
+      ],
+      "words": [
+        {
+          "text": "我们",
+          "startFrame": 500,
+          "endFrame": 506
+        },
+        {
+          "text": "把",
+          "startFrame": 506,
+          "endFrame": 513
+        },
+        {
+          "text": "这",
+          "startFrame": 513,
+          "endFrame": 519
+        },
+        {
+          "text": "套",
+          "startFrame": 519,
+          "endFrame": 524
+        },
+        {
+          "text": "流",
+          "startFrame": 524,
+          "endFrame": 532
+        },
+        {
+          "text": "程,",
+          "startFrame": 532,
+          "endFrame": 542
+        }
+      ]
+    },
+    {
+      "startFrame": 550,
+      "endFrame": 580,
+      "lines": [
+        "做成了自动化"
+      ],
+      "words": [
+        {
+          "text": "做",
+          "startFrame": 550,
+          "endFrame": 554
+        },
+        {
+          "text": "成",
+          "startFrame": 554,
+          "endFrame": 560
+        },
+        {
+          "text": "了",
+          "startFrame": 560,
+          "endFrame": 566
+        },
+        {
+          "text": "自",
+          "startFrame": 566,
+          "endFrame": 570
+        },
+        {
+          "text": "动",
+          "startFrame": 570,
+          "endFrame": 576
+        },
+        {
+          "text": "化。",
+          "startFrame": 576,
+          "endFrame": 580
+        }
+      ]
+    }
+  ],
+  "captionSafeBottomPx": 0,
+  "elements": [
+    {
+      "id": "el_d01",
+      "effect": "keyword",
+      "startFrame": 83,
+      "endFrame": 106,
+      "box": [
+        408,
+        1035,
+        264,
+        232
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 96,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "痛点"
+      }
+    },
+    {
+      "id": "el_d02",
+      "effect": "keyword",
+      "startFrame": 159,
+      "endFrame": 195,
+      "box": [
+        264,
+        1035,
+        552,
+        232
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 96,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "其实是节奏"
+      }
+    },
+    {
+      "id": "el_d03",
+      "effect": "number",
+      "startFrame": 196,
+      "endFrame": 218,
+      "box": [
+        368,
+        1016,
+        344,
+        269
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.80)",
+        "fontPx": 84,
+        "radius": 26,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "九成",
+        "value": 90.0,
+        "prefix": "",
+        "suffix": "%",
+        "decimals": 0
+      }
+    },
+    {
+      "id": "el_d04",
+      "effect": "list",
+      "startFrame": 284,
+      "endFrame": 444,
+      "box": [
+        205,
+        941,
+        670,
+        375
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.82)",
+        "fontPx": 58,
+        "radius": 28,
+        "align": "left",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 5,
+        "exitDurFrames": 5
+      },
+      "content": {
+        "text": "第一",
+        "items": [
+          {
+            "text": "不知道什么时候加字",
+            "startFrame": 284
+          },
+          {
+            "text": "加了又挡住脸",
+            "startFrame": 284
+          },
+          {
+            "text": "该一次就要重做一遍",
+            "startFrame": 284
+          }
+        ]
+      }
+    },
+    {
+      "id": "el_d05",
+      "effect": "keyword",
+      "startFrame": 520,
+      "endFrame": 549,
+      "box": [
+        741,
+        121,
+        244,
+        217
+      ],
+      "style": {
+        "accent": "#F2B233",
+        "fg": "#F5F7FA",
+        "bg": "rgba(12,16,28,0.72)",
+        "fontPx": 86,
+        "radius": 28,
+        "align": "center",
+        "weight": 700
+      },
+      "motion": {
+        "enterDurFrames": 6,
+        "exitDurFrames": 4
+      },
+      "content": {
+        "text": "流程"
+      }
+    }
+  ]
+}
