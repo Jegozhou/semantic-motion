@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Semantic Motion CLI wrapper — runs the bundled engine inside its private virtualenv.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENGINE="$(cd "$HERE/../engine" && pwd)"
+SM_HOME="${SM_HOME:-$HOME/.semantic-motion}"
+PY="${SM_PYTHON:-$SM_HOME/venv/bin/python}"
+if [ ! -x "$PY" ]; then
+  echo "Semantic Motion is not installed yet. Run:  bash \"$HERE/setup.sh\"" >&2
+  exit 3
+fi
+export PYTHONPATH="$ENGINE${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONUNBUFFERED=1
+exec "$PY" -m semantic_motion "$@"

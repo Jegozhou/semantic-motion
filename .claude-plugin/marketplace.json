@@ -1,0 +1,14 @@
+{
+  "name": "semantic-motion",
+  "owner": { "name": "Jegozhou" },
+  "metadata": { "description": "Semantic Motion — AI motion director for talking-head video", "version": "0.1.0" },
+  "plugins": [
+    {
+      "name": "semantic-motion",
+      "source": "./",
+      "description": "Add semantically-timed, face-aware motion graphics to talking-head videos (zh/en, 16:9/9:16), with QA and natural-language revisions.",
+      "version": "0.1.0",
+      "category": "media"
+    }
+  ]
+}

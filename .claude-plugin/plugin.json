@@ -1,0 +1,10 @@
+{
+  "name": "semantic-motion",
+  "version": "0.1.0",
+  "description": "Semantic motion graphics for talking-head video: understands what is said, decides what to visualise, anchors every graphic to the spoken words, places it around the speaker without covering the face, renders, self-checks and revises in natural language.",
+  "author": { "name": "Jegozhou" },
+  "homepage": "https://github.com/Jegozhou/semantic-motion",
+  "repository": "https://github.com/Jegozhou/semantic-motion",
+  "license": "MIT",
+  "keywords": ["video", "motion-graphics", "talking-head", "subtitles", "editing", "口播", "动效", "包装"]
+}

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.smproj/
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.wav
+*.mp3
+/models/
+.venv/
+venv/
+.DS_Store
