@@ -1,0 +1,218 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "duration_s": 24.0,
+    "n_frames": 720,
+    "timebase": {
+      "num": 1,
+      "den": 30
+    }
+  },
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_sha256": "aa4a857d54f6e521a49aa0e6e35c37c5cd94da377a35272e6776c814371a9811",
+    "anchors_schema": "semotion.anchors/1",
+    "anchors_sha256": "80f2446ac4c6d9ce4a77be668139d00464e2df19fd2749ebb5bcb7471a04fda3",
+    "decisions_sha256": "d143e54f6b75d889fa13995a25c750d3f7f6eb44637cc9abd9ca1e81dc4c6d49",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "number",
+        "text": "26",
+        "start_s": 11.67,
+        "end_s": 12.14,
+        "confidence": 0.88,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w36"
+        ],
+        "rule": "arabic_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -30,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 11.67,
+          "search_window_s": [
+            11.45,
+            11.95
+          ],
+          "quiet_threshold": 0.003477,
+          "climb": 0.003235,
+          "asr_start_s": 11.7
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "d01",
+        "anchor_id": "a00",
+        "anchor_ids": [
+          "a00"
+        ],
+        "effect": "number",
+        "emphasis": "high",
+        "reason": "quantified_claim",
+        "confidence": 0.88,
+        "decision_model": "rules-v1-smart-balanced",
+        "content": {
+          "text": "26"
+        },
+        "window": {
+          "start_s": 11.67,
+          "end_s": 12.49
+        }
+      }
+    ],
+    "transcript_text": "Webeginthisyearandthisadministrationinthemidstofanunprecedentedcrisisthatcallsforunprecedentedaction.Justthisweek,wesawmorepeoplefileforunemploymentthanatanytimeinthelast26years.Andexpertsagreethatifnothingisdone,theunemploymentratecouldreachdoubledigits.OureconomycouldfallatrilliondollarsshortofitsBye.",
+    "face_safe": {
+      "bbox_union": [
+        491,
+        87,
+        280,
+        392
+      ],
+      "margin_px": 32,
+      "source": "vision.face_tracks[].bbox_union union"
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_d01"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_d01",
+      "type": "number",
+      "anchor_ref": "a00",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 11.666667,
+        "end_s": 12.4,
+        "start_frame": 350,
+        "end_frame": 372
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "accent": "#F2B233",
+        "bg": "rgba(10,13,22,0.80)",
+        "font_size_px": 56,
+        "padding_px": 27,
+        "radius_px": 17,
+        "align": "center",
+        "accent_line": false
+      },
+      "motion": {
+        "enter": {
+          "type": "fade_up",
+          "dur_s": 0.24,
+          "ease": "out_cubic",
+          "scale_from": 0.94
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.18,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "26",
+        "numeric": {
+          "start": 0,
+          "end": 2,
+          "value": 26.0,
+          "unit": "",
+          "kind": "plain",
+          "final": "26",
+          "decimals": 0,
+          "label": "26"
+        },
+        "numeric_display": "26"
+      },
+      "provenance": {
+        "decision_id": "d01",
+        "decision_model": "rules-v1-smart-balanced",
+        "prompt_summary": "rule_engine (no LLM): semantic roles + rhythm budget + confidence gate",
+        "confidence": 0.88,
+        "reason": "quantified_claim",
+        "effect_params_sha256": "a3464fa50e755dc3c3966fa3a269ff0a8e12939b6977b67bca73148c5177780e"
+      },
+      "layout": {
+        "mode": "static_safe",
+        "zone": "card",
+        "box": [
+          885,
+          262,
+          150,
+          181
+        ],
+        "avoid_face": true,
+        "face_safe_margin_px": 32,
+        "face_union": [
+          491,
+          87,
+          280,
+          392
+        ],
+        "degraded": false,
+        "reason": "",
+        "warnings": [],
+        "intrinsic": {
+          "width": 150,
+          "height": 181
+        }
+      }
+    }
+  ],
+  "collision_ok": [],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "video_codec": "h264",
+    "pix_fmt": "yuv420p",
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "loudness_target_db": null
+  },
+  "provenance": {
+    "generated_utc": "2026-10-24T09:31:21Z",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "host": "macOS-arm64",
+    "policy": "schema-validated declarative primitives only; no code execution",
+    "build_warnings": [
+      "d01: window clamped to anchor tolerance (11.670-12.390s)"
+    ],
+    "skipped_decisions": [],
+    "n_elements": 1,
+    "ir_sha256": "2d215f89814649035a6eff83783f174a3c2c4560027d9341f486e8aef4b417bc"
+  }
+}

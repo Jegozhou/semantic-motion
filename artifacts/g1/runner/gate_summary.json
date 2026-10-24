@@ -1,0 +1,86 @@
+{
+  "gate": "G1",
+  "started_utc": "2026-10-24T09:32:10Z",
+  "finished_utc": "2026-10-24T09:32:18Z",
+  "fixtures": [
+    "fx_a_zh_portrait"
+  ],
+  "results": [
+    {
+      "fixture": "fx_a_zh_portrait",
+      "exit": 0,
+      "stdout_tail": "{\"timing\": \"PASS\", \"position\": \"PASS\", \"render\": \"PASS\"}\nrun summary: artifacts/g1/runner/fx_a_zh_portrait/run_summary.json\n",
+      "stderr_tail": "",
+      "run_summary": true,
+      "metrics": true,
+      "verdicts": {
+        "timing": "PASS",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "timing": {
+        "samples": 3,
+        "p50_ms": 45.75,
+        "p90_ms": 67.96,
+        "max_ms": 67.96,
+        "source": "SYNTH_KNOWN",
+        "verdict": "PASS"
+      },
+      "rendered": "artifacts/g1/runner/fx_a_zh_portrait/fx_a_zh_portrait_motion.mp4",
+      "review_frames": [
+        "artifacts/g1/runner/frames/fx_a_zh_portrait_motion_t03.44.png",
+        "artifacts/g1/runner/frames/fx_a_zh_portrait_motion_t07.96.png",
+        "artifacts/g1/runner/frames/fx_a_zh_portrait_motion_t09.44.png"
+      ]
+    }
+  ],
+  "pooled_timing": {
+    "n": 3,
+    "p50_ms": 45.75,
+    "p90_ms": 67.96,
+    "max_ms": 67.96,
+    "threshold_p90_ms": 100.0,
+    "verdict": "PASS",
+    "samples_needed_for_p90_claim": 50,
+    "claim_scope": "exploratory only (<50 independent events)",
+    "rows": [
+      {
+        "fixture": "fx_a_zh_portrait",
+        "effect": "number",
+        "error_ms": 45.75
+      },
+      {
+        "fixture": "fx_a_zh_portrait",
+        "effect": "card",
+        "error_ms": 67.96
+      },
+      {
+        "fixture": "fx_a_zh_portrait",
+        "effect": "list",
+        "error_ms": 36.81
+      }
+    ]
+  },
+  "determinism": {
+    "runs": 2,
+    "frames": [
+      605,
+      605
+    ],
+    "frame_hashes_equal": true,
+    "max_pixel_diff": 0.0,
+    "mean_pixel_diff": 0.0,
+    "verdict": "PASS",
+    "policy": "pixel-identical required (tolerance=0); byte-identical MP4 not required",
+    "sha256": [
+      "34d709ae803a5b82fa2be65a6e43d1a06da82581b80c829995aab6d016347ba5",
+      "34d709ae803a5b82fa2be65a6e43d1a06da82581b80c829995aab6d016347ba5"
+    ],
+    "fixture": "fx_a_zh_portrait",
+    "rerender_stdout": "emanticMotion/artifacts/g1/runner/fx_a_zh_portrait/fx_a_zh_portrait_motion_rerender.mp4\",\n    \"sha256\": \"34d709ae803a5b82fa2be65a6e43d1a06da82581b80c829995aab6d016347ba5\",\n    \"size_bytes\": 726550,\n    \"duration_s\": 24.2,\n    \"n_frames\": 605,\n    \"width\": 1080,\n    \"height\": 1920,\n    \"fps\": 25.0,\n    \"video_codec\": \"h264\",\n    \"audio_codec\": \"aac\",\n    \"pix_fmt\": \"yuv420p\"\n  },\n  \"commands\": 1\n}\n"
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

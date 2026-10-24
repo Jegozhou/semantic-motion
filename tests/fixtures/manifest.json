@@ -1,0 +1,642 @@
+{
+  "schema": "semotion.manifest/1",
+  "contract": "contracts-1.0.0",
+  "updated_utc": "2026-10-24T17:40:00Z",
+  "created_utc": "2026-10-24T17:40:00Z",
+  "owner": "speech-vision",
+  "paths_are_relative_to": "project root",
+  "split_policy": {
+    "dev": [
+      "fx_a_zh_portrait",
+      "fx_b_zh_landscape",
+      "fx_c_zh_cuts",
+      "fx_d_zh_portrait",
+      "fx_e_zh_landscape",
+      "fx_test_cuts",
+      "fx_pd_real_16x9_a",
+      "fx_pd_real_16x9_b"
+    ],
+    "holdout": [],
+    "note": "No holdout material exists yet, so every test is non-blind and must be reported as internal regression, not independent blind evaluation (spec §4/§5). Reserve future clips (especially human-labelled ones) as holdout before tuning on them."
+  },
+  "truth_policy": {
+    "HUMAN": "independent human word/event labels — none available yet (timing acceptance NOT RUN)",
+    "SYNTH_KNOWN": "per-unit TTS assembly with ffprobe-measured onsets — engineering calibration only",
+    "MACHINE_WEAK": "ASR/model output — development regression only, never an independent truth"
+  },
+  "counts": {
+    "fixtures": 8,
+    "synth_known_units": 69,
+    "synth_known_clips": 6,
+    "real_pd_clips": 2,
+    "with_detectable_face": 2
+  },
+  "fixtures": [
+    {
+      "id": "fx_a_zh_portrait",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json",
+      "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+      "duration_s": 24.2,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 605,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "voice": "Tingting (zh_CN), 175 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_a_zh_portrait.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Portrait 9:16 calibration clip: 14 per-unit TTS units (greeting, keyword emphasis, 九成/三个 numbers, 第一/第二/第三 list, closing keyword).",
+      "person_position": "designed presenter silhouette (no real person): head ellipse centered at x=0.50, y≈0.36·H; shoulders lower third",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 24.216042,
+          "start_frame": 0,
+          "end_frame": 605
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time"
+      ],
+      "units": {
+        "count": 14,
+        "roles": {
+          "keyword": 3,
+          "list_item": 6,
+          "number": 2,
+          "plain": 3
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": "artifacts/vision/fx_a_zh_portrait.vision.json"
+      },
+      "usable_for": [
+        "timing (SYNTH_KNOWN)",
+        "ASR regression",
+        "anchors",
+        "9:16 layout"
+      ],
+      "not_usable_for": [
+        "realHumanTiming",
+        "face_protection",
+        "real-footage robustness"
+      ],
+      "timing_truth": true,
+      "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
+    },
+    {
+      "id": "fx_b_zh_landscape",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_b_zh_landscape/ground_truth.json",
+      "sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6",
+      "duration_s": 26.18,
+      "width": 1920,
+      "height": 1080,
+      "aspect": "16:9",
+      "fps": 25.0,
+      "n_frames": 654,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "voice": "Tingting (zh_CN), 175 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_b_zh_landscape.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Landscape 16:9 calibration clip: 8 units, one explicit number (三个) + 70% percentage, a 3-item step list (第一/第二/第三), two conclusion sentences (所以 / 先说结论).",
+      "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 26.180396,
+          "start_frame": 0,
+          "end_frame": 655
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time"
+      ],
+      "units": {
+        "count": 8,
+        "roles": {
+          "keyword": 2,
+          "list_item": 3,
+          "number": 2,
+          "plain": 1
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": "artifacts/vision/fx_b_zh_landscape.vision.json"
+      },
+      "usable_for": [
+        "timing (SYNTH_KNOWN)",
+        "16:9 layout",
+        "G2 number/list/conclusion anchors"
+      ],
+      "not_usable_for": [
+        "realHumanTiming",
+        "face_protection"
+      ],
+      "timing_truth": true,
+      "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
+    },
+    {
+      "id": "fx_c_zh_cuts",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_c_zh_cuts/ground_truth.json",
+      "sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
+      "duration_s": 20.08,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 502,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "voice": "Tingting (zh_CN), 175 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_c_zh_cuts.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Multi-shot 9:16 calibration clip: 7 units across 3 shots cut at 8.0 s / 16.0 s; shots 2 and 3 carry camera motion (slow_pan / slow_zoom).",
+      "person_position": "designed presenter silhouette (no real person), same composition in all 3 shots",
+      "camera_motion": [
+        "static",
+        "slow_pan",
+        "slow_zoom"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 8.0,
+          "start_frame": 0,
+          "end_frame": 200
+        },
+        {
+          "index": 1,
+          "start_s": 8.0,
+          "end_s": 16.0,
+          "start_frame": 200,
+          "end_frame": 400
+        },
+        {
+          "index": 2,
+          "start_s": 16.0,
+          "end_s": 20.082583,
+          "start_frame": 400,
+          "end_frame": 502
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time",
+        "shot_time"
+      ],
+      "units": {
+        "count": 7,
+        "roles": {
+          "keyword": 1,
+          "list_item": 3,
+          "number": 3
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": "artifacts/vision/fx_c_zh_cuts.vision.json"
+      },
+      "usable_for": [
+        "G3 shot-cut detection",
+        "re-layout after cut",
+        "camera-motion degradation"
+      ],
+      "not_usable_for": [
+        "realHumanTiming",
+        "face_protection"
+      ],
+      "timing_truth": true,
+      "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
+    },
+    {
+      "id": "fx_d_zh_portrait",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_d_zh_portrait/ground_truth.json",
+      "sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
+      "duration_s": 46.633,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 1166,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "voice": "Meijia (zh_TW), 180 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_d_zh_portrait.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Portrait 9:16 timing-sample clip (second TTS voice, slow_zoom camera): 20 units whose openings are anchor-worthy (其实/三个/第一.../六次/底线/所以/最难/第一次/第二个/最后) to grow the independent timing event count.",
+      "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
+      "camera_motion": [
+        "slow_zoom"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 46.633,
+          "start_frame": 0,
+          "end_frame": 1166
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time"
+      ],
+      "units": {
+        "count": 20,
+        "roles": {
+          "keyword": 6,
+          "list_item": 8,
+          "number": 3,
+          "plain": 3
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": "artifacts/vision/fx_d_zh_portrait.vision.json"
+      },
+      "usable_for": [
+        "timing sample size (SYNTH_KNOWN)",
+        "second voice",
+        "slow_zoom onset accuracy"
+      ],
+      "not_usable_for": [
+        "realHumanTiming",
+        "face_protection"
+      ],
+      "timing_truth": true,
+      "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
+    },
+    {
+      "id": "fx_e_zh_landscape",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_e_zh_landscape/ground_truth.json",
+      "sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+      "duration_s": 40.64,
+      "width": 1920,
+      "height": 1080,
+      "aspect": "16:9",
+      "fps": 25.0,
+      "n_frames": 1016,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "voice": "Tingting (zh_CN), 178 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_e_zh_landscape.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Landscape 16:9 timing-sample clip: 17 units with percentages (百分之八十七 / 百分之五十 / 一半), a 3-step list, three conclusion sentences (所以 / 结论是 / 结论很清楚).",
+      "person_position": "designed presenter silhouette (no real person): head centered, y≈0.36·H",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 40.653958,
+          "start_frame": 0,
+          "end_frame": 1016
+        }
+      ],
+      "label_types": [
+        "speech",
+        "word_time",
+        "unit_time"
+      ],
+      "units": {
+        "count": 17,
+        "roles": {
+          "keyword": 3,
+          "list_item": 6,
+          "number": 5,
+          "plain": 3
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": "artifacts/vision/fx_e_zh_landscape.vision.json"
+      },
+      "usable_for": [
+        "timing sample size (SYNTH_KNOWN)",
+        "16:9",
+        "G2 percentage/conclusion anchors"
+      ],
+      "not_usable_for": [
+        "realHumanTiming",
+        "face_protection"
+      ],
+      "timing_truth": true,
+      "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
+    },
+    {
+      "id": "fx_test_cuts",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_test_cuts/fx_test_cuts.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_test_cuts/ground_truth.json",
+      "sha256": "74bed52956706e6741c2c19176f9aaba18f1a0f31068370f4cbb6af23fd9642c",
+      "duration_s": 7.4,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 185,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; timing measured on each unit wav by ffprobe during assembly",
+        "voice": "Tingting (zh_CN), 175 wpm",
+        "visuals": "program-generated graphic artwork (Pillow), fixed seed",
+        "spec": "tests/fixtures/specs/fx_test_cuts.json"
+      },
+      "license": "synthetic (macOS say + generated artwork), no third-party rights",
+      "summary": "Lead smoke-test clip for the fixtures builder's multi-shot support: 3 units, 2 shots cut at 5.0 s, shot 2 slow_pan.",
+      "person_position": "designed presenter silhouette (no real person)",
+      "camera_motion": [
+        "static",
+        "slow_pan"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 5.0,
+          "start_frame": 0,
+          "end_frame": 125
+        },
+        {
+          "index": 1,
+          "start_s": 5.0,
+          "end_s": 7.404292,
+          "start_frame": 125,
+          "end_frame": 185
+        }
+      ],
+      "label_types": [
+        "speech",
+        "unit_time",
+        "shot_time"
+      ],
+      "units": {
+        "count": 3,
+        "roles": {
+          "keyword": 1,
+          "plain": 2
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 0,
+          "face_tracks": 0
+        },
+        "note": "no detectable face by design (generated artwork) — YuNet returns 0; face-protection metrics must use the REAL_PD fixtures",
+        "evidence": null
+      },
+      "usable_for": [
+        "fixtures builder smoke test"
+      ],
+      "not_usable_for": [
+        "timing acceptance (too few units)",
+        "realHumanTiming"
+      ],
+      "timing_truth": true,
+      "note": "Synthetic prosody is not real speech: valid for engineering calibration, not a real-human validation set."
+    },
+    {
+      "id": "fx_pd_real_16x9_a",
+      "kind": "REAL_PD",
+      "truth_class": "MACHINE_WEAK",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+      "ground_truth": null,
+      "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+      "duration_s": 24.0,
+      "width": 1280,
+      "height": 720,
+      "aspect": "16:9",
+      "fps": 30.0,
+      "n_frames": 720,
+      "language": "en",
+      "source": {
+        "type": "real_public_domain",
+        "name": "Weekly Address (2009-01-24), small.ogv",
+        "provider": "Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/wiki/File:Weekly_Address_(2009-01-24),_small.ogv",
+        "attribution_required": false,
+        "derived_from": "assets/media/pd_weekly_address_2009-01-24.ogv",
+        "trim_start_s": 6.0,
+        "trim_duration_s": 24.0,
+        "processing": "trimmed and upscaled 854x480 -> 1280x720 (ffmpeg)"
+      },
+      "license": "Public domain (U.S. Government work, 17 U.S.C. §105)",
+      "summary": "Real talking-head footage of a real person (US weekly address, public domain), English speech; trimmed segment 6-30 s of the source.",
+      "person_position": "real presenter, face box [491, 87, 280, 392] px (measured with YuNet), coverage 1.0",
+      "camera_motion": "static",
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 24.0,
+          "start_frame": 0,
+          "end_frame": 720
+        }
+      ],
+      "label_types": [
+        "face",
+        "speech"
+      ],
+      "units": {
+        "count": 0,
+        "roles": {},
+        "truth_source": "NONE"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 120,
+          "face_tracks": 1,
+          "bbox_union": [
+            491,
+            87,
+            280,
+            392
+          ],
+          "coverage": 1.0
+        },
+        "note": "real face present; used for avoid-face / overlap-rate metrics",
+        "evidence": "artifacts/vision/fx_pd_real_16x9_a.vision.json"
+      },
+      "usable_for": [
+        "face protection / avoid-face layout",
+        "real-footage robustness smoke test",
+        "timing via weak labels only (MACHINE_WEAK)"
+      ],
+      "not_usable_for": [
+        "timing accuracy acceptance: there are NO human word/event labels",
+        "P90 timing claims",
+        "Chinese speech accuracy"
+      ],
+      "timing_truth": false,
+      "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts can only be used for development regression, never as an independent timing truth."
+    },
+    {
+      "id": "fx_pd_real_16x9_b",
+      "kind": "REAL_PD",
+      "truth_class": "MACHINE_WEAK",
+      "split": "dev",
+      "path": "tests/fixtures/clips/fx_pd_real_16x9_b/fx_pd_real_16x9_b.mp4",
+      "ground_truth": null,
+      "sha256": "b463bcba53983f5ec95029ada62171efdd6d4a8137fd7fa4cac131a5099b04ff",
+      "duration_s": 24.0,
+      "width": 1280,
+      "height": 720,
+      "aspect": "16:9",
+      "fps": 30.0,
+      "n_frames": 720,
+      "language": "en",
+      "source": {
+        "type": "real_public_domain",
+        "name": "Weekly Address (2009-01-24), small.ogv",
+        "provider": "Wikimedia Commons",
+        "url": "https://commons.wikimedia.org/wiki/File:Weekly_Address_(2009-01-24),_small.ogv",
+        "attribution_required": false,
+        "derived_from": "assets/media/pd_weekly_address_2009-01-24.ogv",
+        "trim_start_s": 66.0,
+        "trim_duration_s": 24.0,
+        "processing": "trimmed and upscaled 854x480 -> 1280x720 (ffmpeg)"
+      },
+      "license": "Public domain (U.S. Government work, 17 U.S.C. §105)",
+      "summary": "Real talking-head footage of a real person (US weekly address, public domain), English speech; trimmed segment 66-90 s of the source.",
+      "person_position": "real presenter, face box [490, 97, 288, 381] px (measured with YuNet), coverage 1.0",
+      "camera_motion": "static",
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 24.0,
+          "start_frame": 0,
+          "end_frame": 720
+        }
+      ],
+      "label_types": [
+        "face",
+        "speech"
+      ],
+      "units": {
+        "count": 0,
+        "roles": {},
+        "truth_source": "NONE"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 120,
+          "face_tracks": 1,
+          "bbox_union": [
+            490,
+            97,
+            288,
+            381
+          ],
+          "coverage": 1.0
+        },
+        "note": "real face present; used for avoid-face / overlap-rate metrics",
+        "evidence": "artifacts/vision/fx_pd_real_16x9_b.vision.json"
+      },
+      "usable_for": [
+        "face protection / avoid-face layout",
+        "real-footage robustness smoke test",
+        "timing via weak labels only (MACHINE_WEAK)"
+      ],
+      "not_usable_for": [
+        "timing accuracy acceptance: there are NO human word/event labels",
+        "P90 timing claims",
+        "Chinese speech accuracy"
+      ],
+      "timing_truth": false,
+      "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts can only be used for development regression, never as an independent timing truth."
+    }
+  ]
+}

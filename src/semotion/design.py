@@ -36,6 +36,8 @@ ZONE_ORDER = {
 
 # typography degradation ladder, applied to the style font size
 FONT_RATIOS = (1.0, 0.92, 0.84, 0.76, 0.68)
+# typography floors per effect (reference-canvas px, scaled to the canvas)
+FONT_FLOOR_PX = {"keyword": 72, "number": 60, "list": 56, "card": 64, "caption": 48}
 FACE_OVERLAP_RATIO = 0.01
 COLLISION_AREA_RATIO = 0.05
 EDGE_MARGIN_PX = 16
@@ -224,12 +226,13 @@ def layout(element: dict, canvas: dict, vision: dict, occupied: list[dict]) -> d
     base_style = dict(element.get("style") or {})
     base_font = int(base_style.get("font_size_px") or base.scaled(84, canvas))
     pad = int(base_style.get("padding_px") or base.scaled(36, canvas))
+    font_floor = max(12, int(round(FONT_FLOOR_PX.get(kind, 56) * base.canvas_scale(canvas))))
     warnings: list[str] = []
 
     best: dict[str, Any] | None = None      # most tolerable degraded candidate
     for ratio in FONT_RATIOS:
         style = dict(base_style)
-        style["font_size_px"] = max(12, int(round(base_font * ratio)))
+        style["font_size_px"] = max(12, font_floor, int(round(base_font * ratio)))
         probe = dict(element)
         probe["style"] = style
         for zone_name in order:
@@ -274,7 +277,7 @@ def layout(element: dict, canvas: dict, vision: dict, occupied: list[dict]) -> d
         zone_name = "card"
     ratio = FONT_RATIOS[-1]
     style = dict(base_style)
-    style["font_size_px"] = max(12, int(round(base_font * ratio)))
+    style["font_size_px"] = max(12, font_floor, int(round(base_font * ratio)))
     probe = {"style": style, "type": kind, "content": element.get("content") or {}}
     try:
         spec = _measure_stable(probe, canvas, max(80.0, zone[2] - 2 * pad))
@@ -310,7 +313,7 @@ def _result(zone: str, box: Sequence[int], style: dict, spec: dict, info: dict, 
         "degraded": bool(degraded),
         "reason": reason,
         "warnings": warnings,
-        "style": {"font_size_px": int(style.get("font_size_px")),
+        "style": {"font_size_px": int(spec.get("font_px") or style.get("font_size_px")),
                   "padding_px": int(style.get("padding_px") or 0),
                   "radius_px": int(style.get("radius_px") or 0)},
         "intrinsic": {"width": int(spec.get("width") or 0),

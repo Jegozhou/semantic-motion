@@ -1,0 +1,285 @@
+{
+  "fixture_id": "fx_t2_zh_phrase",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_t2_zh_phrase/fx_t2_zh_phrase.mp4",
+  "abs_path": "tests/fixtures/clips/fx_t2_zh_phrase/fx_t2_zh_phrase.mp4",
+  "sha256": "3f30cba10a5f0f275f61aa30a587a1b929ed1f7b526c7ebe84f2be945f246609",
+  "duration_s": 37.555,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25.0,
+  "n_frames": 939,
+  "language": "zh",
+  "voice": "Tingting",
+  "rate": 168,
+  "camera_motion": [
+    "static"
+  ],
+  "palette": [
+    "studio_night"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 37.555646,
+      "start_frame": 0,
+      "end_frame": 939
+    }
+  ],
+  "design": "generated graphic artwork (no real person)",
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "其实剪辑不难",
+      "role": "keyword",
+      "start_s": 0.5,
+      "end_s": 1.99125,
+      "start_frame": 12,
+      "end_frame": 50,
+      "duration_s": 1.49125,
+      "audio_sha256": "680812bdc5a628d8b24e6b004f9a74f02a28303e5ed7ed52b0e759fcb5b777ec",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "痛点是没有结构",
+      "role": "keyword",
+      "start_s": 2.49125,
+      "end_s": 4.049854,
+      "start_frame": 62,
+      "end_frame": 101,
+      "duration_s": 1.558604,
+      "audio_sha256": "652b276e402a1e5c2b1080d2964577bf2694585d8b6c64dac3216148122950ec",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "误区是加太多",
+      "role": "keyword",
+      "start_s": 4.549854,
+      "end_s": 6.027729,
+      "start_frame": 114,
+      "end_frame": 151,
+      "duration_s": 1.477875,
+      "audio_sha256": "5ab6d562869186f801c0f5fd37b6a190701eeec9c8a895ec62267678624f45cb",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "真相是观众会走",
+      "role": "keyword",
+      "start_s": 6.527729,
+      "end_s": 8.244646,
+      "start_frame": 163,
+      "end_frame": 206,
+      "duration_s": 1.716917,
+      "audio_sha256": "fa3c073f1e9ea460f9a624118f375aef12f476094e85f8158ea01aa52b5d6474",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "秘诀是节奏",
+      "role": "keyword",
+      "start_s": 8.744646,
+      "end_s": 9.805833,
+      "start_frame": 219,
+      "end_frame": 245,
+      "duration_s": 1.061187,
+      "audio_sha256": "ef5dfa47bc729acbb4ba25510b46936f0247f365d71574ea89b3d7d9d7fc7071",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "关键是时间",
+      "role": "keyword",
+      "start_s": 10.305833,
+      "end_s": 11.558687,
+      "start_frame": 258,
+      "end_frame": 289,
+      "duration_s": 1.252854,
+      "audio_sha256": "24e7cb796246eb589875cf10b886abd75326b1ed6e7e954c28efee21b62abbcb",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "重点是信息",
+      "role": "keyword",
+      "start_s": 12.058687,
+      "end_s": 13.333854,
+      "start_frame": 301,
+      "end_frame": 333,
+      "duration_s": 1.275167,
+      "audio_sha256": "fb4f3b2a7afa9b1101bd81b9d45d2d5979c4542036a37a4c10d65ef0dafbf26f",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u08",
+      "text": "核心是内容",
+      "role": "keyword",
+      "start_s": 13.833854,
+      "end_s": 15.06025,
+      "start_frame": 346,
+      "end_frame": 377,
+      "duration_s": 1.226396,
+      "audio_sha256": "8ee92cded3cf091449f7922c7a7ca264d63357dfec2dadddbad5722f97ab82c3",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u09",
+      "text": "本质是取舍",
+      "role": "keyword",
+      "start_s": 15.56025,
+      "end_s": 16.721208,
+      "start_frame": 389,
+      "end_frame": 418,
+      "duration_s": 1.160958,
+      "audio_sha256": "4ab6acada06b92b6d6115131f2bfafd320a32b6a1884729563cc74a77be35a87",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u10",
+      "text": "先说结论再改",
+      "role": "keyword",
+      "start_s": 17.221208,
+      "end_s": 18.802854,
+      "start_frame": 431,
+      "end_frame": 470,
+      "duration_s": 1.581646,
+      "audio_sha256": "0f15bc483a2237c8a935a8414981e1efeefa8477dd3975c8d68acf217693ac52",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u11",
+      "text": "结论是少即是多",
+      "role": "keyword",
+      "start_s": 19.302854,
+      "end_s": 20.945042,
+      "start_frame": 483,
+      "end_frame": 524,
+      "duration_s": 1.642187,
+      "audio_sha256": "6a5e9d6d64894ecd866d53587a35a6805cb071f8dd85b7b88a344180e346abb5",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u12",
+      "text": "所以先排序",
+      "role": "keyword",
+      "start_s": 21.445042,
+      "end_s": 22.6895,
+      "start_frame": 536,
+      "end_frame": 567,
+      "duration_s": 1.244458,
+      "audio_sha256": "6e2ac5f1132c9afe2bd6ff99d8cfb94ecf519db0ae0524a0a92afc690c06d1d1",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u13",
+      "text": "因此要克制",
+      "role": "keyword",
+      "start_s": 23.1895,
+      "end_s": 24.342396,
+      "start_frame": 580,
+      "end_frame": 609,
+      "duration_s": 1.152896,
+      "audio_sha256": "e50d2c3f9eade4c08b01ce61c77fdff2fde72e4b441a6ead7ab9414a581d8337",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u14",
+      "text": "总之别贪多",
+      "role": "keyword",
+      "start_s": 24.842396,
+      "end_s": 26.054521,
+      "start_frame": 621,
+      "end_frame": 651,
+      "duration_s": 1.212125,
+      "audio_sha256": "27b40a2ac99bfecfefc7a490dde242405019ef2477db422d135509586b84dca4",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u15",
+      "text": "首先定标题",
+      "role": "list_item",
+      "start_s": 26.554521,
+      "end_s": 27.972167,
+      "start_frame": 664,
+      "end_frame": 699,
+      "duration_s": 1.417646,
+      "audio_sha256": "09fab6c3989614a48d2ca4d5c49559f4bfa15735761c5351c9321a2427bf9e31",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u16",
+      "text": "其次定数字",
+      "role": "list_item",
+      "start_s": 28.472167,
+      "end_s": 29.626729,
+      "start_frame": 712,
+      "end_frame": 741,
+      "duration_s": 1.154562,
+      "audio_sha256": "96416720d3e574c814949fe323f65fe4c7490c0c04385b742b2f11ca68fa06a9",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u17",
+      "text": "最后定节奏",
+      "role": "list_item",
+      "start_s": 30.126729,
+      "end_s": 31.315625,
+      "start_frame": 753,
+      "end_frame": 783,
+      "duration_s": 1.188896,
+      "audio_sha256": "7d0c6bb54ea4c5c117791a1a006edfca15342d015ac4b04b6eeeaddaffc3a14c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u18",
+      "text": "一是定结构",
+      "role": "list_item",
+      "start_s": 31.815625,
+      "end_s": 32.910458,
+      "start_frame": 795,
+      "end_frame": 823,
+      "duration_s": 1.094833,
+      "audio_sha256": "f57b397d24345a39512b6513423296a12c0ae3e35b473bee16be02f25cdd3e5d",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u19",
+      "text": "二是定节奏",
+      "role": "list_item",
+      "start_s": 33.410458,
+      "end_s": 34.553458,
+      "start_frame": 835,
+      "end_frame": 864,
+      "duration_s": 1.143,
+      "audio_sha256": "40d9b27f22b7e74bf72acb229e94b935f3cbadfd175add76e8a2819f49bf21f8",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u20",
+      "text": "三是定动效",
+      "role": "list_item",
+      "start_s": 35.053458,
+      "end_s": 36.355646,
+      "start_frame": 876,
+      "end_frame": 909,
+      "duration_s": 1.302188,
+      "audio_sha256": "bfc1cdf94e6390ef61d1c265855d9f921ccc161a583b641993243c7dff49c9e1",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.5,
+    "gap_s": 0.5,
+    "tail_s": 0.7,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

@@ -19,14 +19,26 @@ from . import effects
 from .effects import base
 
 
+# First-frame visibility: the rendered onset must land on the IR's start frame.
+# Starting from alpha 0 would make the metric sampler miss the first frame(s);
+# these floors keep the entrance perceptually soft but immediately measurable.
+ENTER_ALPHA_FLOOR = {"pop_up": 0.55, "scale_in": 0.55, "fade_up": 0.55, "fade": 0.35}
+ENTER_SCALE_FLOOR = {"pop_up": 0.86, "scale_in": 0.96}
+
+
 def _enter(eased: float, motion: dict) -> tuple[float, float]:
     """Return (alpha, scale) for the entrance at progress ``eased`` in [0,1]."""
     etype = str((motion.get("enter") or {}).get("type") or "pop_up")
-    if etype in ("reveal", "fade"):
-        return eased, 1.0
-    scale_from = float((motion.get("enter") or {}).get("scale_from") or 0.9)
+    if etype == "reveal":
+        return 1.0, 1.0          # rows reveal individually (see effects/list.py)
+    floor = ENTER_ALPHA_FLOOR.get(etype, 0.55)
+    alpha = floor + (1.0 - floor) * eased
+    if etype in ("fade", "fade_up") and etype not in ENTER_SCALE_FLOOR:
+        return alpha, 1.0
+    scale_from = float((motion.get("enter") or {}).get("scale_from")
+                       or ENTER_SCALE_FLOOR.get(etype, 0.9))
     scale = 1.0 + (scale_from - 1.0) * (1.0 - eased)
-    return eased, scale
+    return alpha, scale
 
 
 def _exit_alpha(t_rel: float, window_s: float, motion: dict) -> float:

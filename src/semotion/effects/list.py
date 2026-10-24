@@ -53,30 +53,54 @@ def measure(element: dict, canvas: dict, *, max_text_width: float | None = None,
 
     marker_d = int(round(font_px * 0.70))
     marker_gap = int(round(font_px * 0.38))
-    marker_font = base.load_font(font_path, max(10, int(round(font_px * 0.42))))
     row_gap = int(round(font_px * 0.42))
-    asc, desc = base.text_block_metrics(font)
-    step = int(round(font_px * base.LINE_HEIGHT_FACTOR))
+    line_factor = float(st.get("line_height") or 1.35)
 
     max_w = float(max_text_width) if max_text_width else float(base.scaled(880, canvas))
-    text_max = max(60.0, max_w - marker_d - marker_gap)
+    # a step list is a prominent element: never a narrow column in the middle
+    min_w = int(st.get("min_width_px") or round(0.60 * float(canvas.get("width") or 1080)))
+    max_w = max(max_w, float(min_w))
+    text_max = max(60.0, max_w - 2 * pad - marker_d - marker_gap)
 
     rows = _rows(element)
-    laid: list[dict] = []
+    # prefer single-line steps: fit the type inside the 56-68 px band before wrapping
+    min_font = max(10, int(round(56 * base.canvas_scale(canvas))))
+    chosen = font_px
+    for size in range(font_px, min_font - 1, -2):
+        f = base.load_font(font_path, size)
+        md = int(round(size * 0.70))
+        mg = int(round(size * 0.38))
+        tmax = max(60.0, max_w - 2 * pad - md - mg)
+        if all(len(base.wrap_text(r["text"], f, tmax, base.MAX_LINES)) <= 1 for r in rows):
+            chosen = size
+            break
+    else:
+        chosen = min_font
+    if chosen != font_px:
+        font_px = chosen
+        font = base.load_font(font_path, font_px)
+        marker_d = int(round(font_px * 0.70))
+        marker_gap = int(round(font_px * 0.38))
+        row_gap = int(round(font_px * 0.42))
+        text_max = max(60.0, max_w - 2 * pad - marker_d - marker_gap)
+    marker_font = base.load_font(font_path, max(10, int(round(font_px * 0.42))))
+    asc, desc = base.text_block_metrics(font)
+    step = int(round(font_px * line_factor))
     widest = 0.0
     total_h = 0
+    laid: list[dict] = []
     for i, r in enumerate(rows):
         lines = base.wrap_text(r["text"], font, text_max, base.MAX_LINES)
         line_w = max([base.text_width(font, ln) for ln in lines] or [0.0])
         n_lines = max(1, len(lines))
         row_h = max(marker_d, (n_lines - 1) * step + asc + desc)
-        laid.append({**r, "lines": lines, "row_h": row_h, "line_w": line_w,
-                     "marker": r["marker"]})
+        laid.append({**r, "lines": lines, "row_h": row_h, "line_w": line_w})
         widest = max(widest, line_w)
         total_h += row_h + (row_gap if i < len(rows) - 1 else 0)
 
-    content_w = int(marker_d + marker_gap + widest)
-    width = content_w + 2 * pad
+    text_w = int(marker_d + marker_gap + widest)
+    width = max(text_w + 2 * pad, int(min_w))
+    content_w = width - 2 * pad
     height = total_h + 2 * pad
     return {"kind": "list", "rows": laid, "font_px": font_px, "font": font,
             "marker_font": marker_font, "marker_d": marker_d, "marker_gap": marker_gap,
@@ -111,7 +135,7 @@ def draw(element: dict, canvas: dict, spec: dict, t_rel: float, window_s: float,
             y += row_h + spec["row_gap"]
             continue
         p = base.out_cubic(min(1.0, t_local / 0.20))
-        alpha = p
+        alpha = 0.55 + 0.45 * p          # visible on the reveal frame itself
         rise = int(round((1.0 - p) * 8))
         layer = Image.new("RGBA", (w, row_h + 8), (0, 0, 0, 0))
         d = ImageDraw.Draw(layer)
@@ -126,9 +150,10 @@ def draw(element: dict, canvas: dict, spec: dict, t_rel: float, window_s: float,
                fill=(18, 16, 12, 255), anchor="mm")
         # step text: its own anchor can arrive a little later than the marker
         t_text = t_rel - float(row.get("text_at_s") or at)
-        text_alpha = base.out_cubic(min(1.0, max(0.0, t_text) / 0.20))
-        if text_alpha <= 0:
+        if t_text < 0:
             text_alpha = 0.0
+        else:
+            text_alpha = 0.45 + 0.55 * base.out_cubic(min(1.0, t_text / 0.20))
         text_x = pad + marker_d + gap
         lines = row["lines"]
         n = max(1, len(lines))

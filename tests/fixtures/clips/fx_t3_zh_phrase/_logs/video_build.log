@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -loop 1 -framerate 25.0 -i tests/fixtures/clips/fx_t3_zh_phrase/_work/bg_0.png -t 39.0018 -vf format=yuv420p -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -g 25 tests/fixtures/clips/fx_t3_zh_phrase/_work/video.mp4
+

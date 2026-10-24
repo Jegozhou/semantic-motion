@@ -1,0 +1,117 @@
+{
+  "id": "fx_t2_zh_phrase",
+  "voice": "Tingting",
+  "rate": 158,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "gap_s": 0.6,
+  "lead_in_s": 0.5,
+  "tail_s": 0.7,
+  "palette": "studio_night",
+  "camera_motion": "static",
+  "seed": 102,
+  "purpose": "TIMING CALIBRATION ONLY (SYNTH_KNOWN). Every 5-9 character unit starts with a phrase the anchor rules must emit, so an anchor can be matched to an independent assembly-truth onset by prefix. Not for aesthetics / real-footage claims.",
+  "units": [
+    {
+      "id": "u01",
+      "text": "其实剪辑不难",
+      "role": "keyword"
+    },
+    {
+      "id": "u02",
+      "text": "痛点是没有结构",
+      "role": "keyword"
+    },
+    {
+      "id": "u03",
+      "text": "误区是加太多",
+      "role": "keyword"
+    },
+    {
+      "id": "u04",
+      "text": "真相是观众会走",
+      "role": "keyword"
+    },
+    {
+      "id": "u05",
+      "text": "秘诀是节奏",
+      "role": "keyword"
+    },
+    {
+      "id": "u06",
+      "text": "关键是时间",
+      "role": "keyword"
+    },
+    {
+      "id": "u07",
+      "text": "重点是信息",
+      "role": "keyword"
+    },
+    {
+      "id": "u08",
+      "text": "核心是内容",
+      "role": "keyword"
+    },
+    {
+      "id": "u09",
+      "text": "本质是取舍",
+      "role": "keyword"
+    },
+    {
+      "id": "u10",
+      "text": "先说结论再改",
+      "role": "keyword"
+    },
+    {
+      "id": "u11",
+      "text": "结论是少即是多",
+      "role": "keyword"
+    },
+    {
+      "id": "u12",
+      "text": "所以先排序",
+      "role": "keyword"
+    },
+    {
+      "id": "u13",
+      "text": "因此要克制",
+      "role": "keyword"
+    },
+    {
+      "id": "u14",
+      "text": "总之别贪多",
+      "role": "keyword"
+    },
+    {
+      "id": "u15",
+      "text": "首先定标题",
+      "role": "list_item"
+    },
+    {
+      "id": "u16",
+      "text": "其次定数字",
+      "role": "list_item"
+    },
+    {
+      "id": "u17",
+      "text": "最后定节奏",
+      "role": "list_item"
+    },
+    {
+      "id": "u18",
+      "text": "一是定结构",
+      "role": "list_item"
+    },
+    {
+      "id": "u19",
+      "text": "二是定节奏",
+      "role": "list_item"
+    },
+    {
+      "id": "u20",
+      "text": "三是定动效",
+      "role": "list_item"
+    }
+  ]
+}

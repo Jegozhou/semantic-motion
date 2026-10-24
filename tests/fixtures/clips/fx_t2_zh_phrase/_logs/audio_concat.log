@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -f concat -safe 0 -i tests/fixtures/clips/fx_t2_zh_phrase/_work/audio.ffconcat -c:a pcm_s16le -ar 48000 -ac 1 tests/fixtures/clips/fx_t2_zh_phrase/_work/narration.wav
+

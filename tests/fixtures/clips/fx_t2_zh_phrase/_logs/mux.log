@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -i tests/fixtures/clips/fx_t2_zh_phrase/_work/video.mp4 -i tests/fixtures/clips/fx_t2_zh_phrase/_work/narration.wav -c:v copy -c:a aac -b:a 160k -ac 2 -ar 48000 -shortest -movflags +faststart tests/fixtures/clips/fx_t2_zh_phrase/fx_t2_zh_phrase.mp4
+

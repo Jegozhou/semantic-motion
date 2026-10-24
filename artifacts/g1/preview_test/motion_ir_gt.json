@@ -22,7 +22,7 @@
   "style": "smart_balanced",
   "semantic": {
     "transcript_schema": "semotion.transcript/1",
-    "transcript_sha256": "9b06821a21cd95ff227ccf261916008ace661d2697b1a9494dcfa1f53fab0824",
+    "transcript_sha256": "958da63e92c6dba3c6aa1d66622324e37dda22f115e0bb669f7cbf7d3c41987e",
     "anchors_schema": "semotion.anchors/1",
     "anchors_sha256": "f8ffc86310c12d716babcdc093d334373d61ff618e6974d4e6da6b9f00eb0c10",
     "decisions_sha256": "41a31e69078f4d65915269310792f601965654d039dce974acf6bddb40a88961",
@@ -356,9 +356,12 @@
       ],
       "window": {
         "start_s": 1.6,
-        "end_s": 4.0,
+        "end_s": 4.24,
         "start_frame": 40,
-        "end_frame": 100
+        "end_frame": 106,
+        "hold_s": 0.508042,
+        "anchor_start_s": 1.590542,
+        "anchor_end_s": 3.731958
       },
       "style": {
         "font_family": "NotoSansSC",
@@ -396,7 +399,7 @@
         "prompt_summary": "",
         "confidence": 0.9,
         "reason": "test",
-        "effect_params_sha256": "d74d8d8fd79e4bf821f279c8efe2bbd87f98b05dec17c1346c2c5d8d8132f622"
+        "effect_params_sha256": "704f6d909c010ae79f18530c6a1b32105eec777dcd3cb993caf5c151c399b914"
       },
       "layout": {
         "mode": "static_safe",
@@ -428,9 +431,12 @@
       ],
       "window": {
         "start_s": 6.32,
-        "end_s": 7.76,
+        "end_s": 7.8,
         "start_frame": 158,
-        "end_frame": 194
+        "end_frame": 195,
+        "hold_s": 0.28575,
+        "anchor_start_s": 6.336458,
+        "anchor_end_s": 7.51425
       },
       "style": {
         "font_family": "NotoSansSC",
@@ -468,7 +474,7 @@
         "prompt_summary": "",
         "confidence": 0.9,
         "reason": "test",
-        "effect_params_sha256": "3cfb87ed866ea5e316788fcf341c04fbf8b9b9a8f52bea1f6eed5040a7fe3a83"
+        "effect_params_sha256": "de68ae30b6e7feb22d85e62ed7157ea546a8028dfcd8a821f7c49f1ffa6abe38"
       },
       "layout": {
         "mode": "static_safe",
@@ -500,9 +506,12 @@
       ],
       "window": {
         "start_s": 7.84,
-        "end_s": 9.28,
+        "end_s": 9.36,
         "start_frame": 196,
-        "end_frame": 232
+        "end_frame": 234,
+        "hold_s": 0.347958,
+        "anchor_start_s": 7.83425,
+        "anchor_end_s": 9.012042
       },
       "style": {
         "font_family": "NotoSansSC",
@@ -551,7 +560,7 @@
         "prompt_summary": "",
         "confidence": 0.9,
         "reason": "test",
-        "effect_params_sha256": "1c3d3af3c1269c11385c78a83183cff2a2b5402f3e4f03c26b8f1f1e25b525f1"
+        "effect_params_sha256": "5208824e5630571115dc46df13a2578d21182770447a406d8dc3fff81d3b7198"
       },
       "layout": {
         "mode": "static_safe",
@@ -588,9 +597,12 @@
       ],
       "window": {
         "start_s": 11.36,
-        "end_s": 19.92,
+        "end_s": 20.12,
         "start_frame": 284,
-        "end_frame": 498
+        "end_frame": 503,
+        "hold_s": 0.451771,
+        "anchor_start_s": 11.362979,
+        "anchor_end_s": 19.668229
       },
       "style": {
         "font_family": "NotoSansSC",
@@ -600,10 +612,12 @@
         "color": "#F5F7FA",
         "accent": "#F2B233",
         "bg": "rgba(10,13,22,0.82)",
-        "font_size_px": 72,
+        "font_size_px": 64,
         "padding_px": 36,
         "radius_px": 28,
-        "align": "left"
+        "align": "left",
+        "min_width_px": 670,
+        "line_height": 1.35
       },
       "motion": {
         "enter": {
@@ -671,16 +685,16 @@
         "prompt_summary": "",
         "confidence": 0.9,
         "reason": "test",
-        "effect_params_sha256": "865708e7f527d4cefefe912b2677568ccdf8c8f0672e250cc25a49058184fb3c"
+        "effect_params_sha256": "b306f3a3f8e8eb51895ca83ac2179043251b1e3f256082f5106be2d8f330b88d"
       },
       "layout": {
         "mode": "static_safe",
         "zone": "card",
         "box": [
-          141,
-          665,
-          797,
-          447
+          205,
+          632,
+          670,
+          580
         ],
         "avoid_face": true,
         "face_safe_margin_px": 32,
@@ -689,8 +703,8 @@
         "reason": "",
         "warnings": [],
         "intrinsic": {
-          "width": 797,
-          "height": 447
+          "width": 670,
+          "height": 580
         }
       }
     },
@@ -703,9 +717,12 @@
       ],
       "window": {
         "start_s": 21.84,
-        "end_s": 23.44,
+        "end_s": 23.48,
         "start_frame": 546,
-        "end_frame": 586
+        "end_frame": 587,
+        "hold_s": 0.283958,
+        "anchor_start_s": 21.844604,
+        "anchor_end_s": 23.196042
       },
       "style": {
         "font_family": "NotoSansSC",
@@ -743,7 +760,7 @@
         "prompt_summary": "",
         "confidence": 0.9,
         "reason": "test",
-        "effect_params_sha256": "8c1e62ea12c840c1482b6205c47f37be15aead39102ab2b2604b897026a6b266"
+        "effect_params_sha256": "73ec88f37d033e9c540956d2a2241c581b1324d73b3e837a5d5273aa8a9005d7"
       },
       "layout": {
         "mode": "static_safe",
@@ -779,22 +796,16 @@
     "loudness_target_db": null
   },
   "provenance": {
-    "generated_utc": "2026-10-24T09:29:55Z",
+    "generated_utc": "2026-10-24T09:33:03Z",
     "tool_versions": {
       "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
       "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
     },
     "host": "macOS-arm64",
     "policy": "schema-validated declarative primitives only; no code execution",
-    "build_warnings": [
-      "d01: window clamped to anchor tolerance (1.591-3.982s)",
-      "d02: window clamped to anchor tolerance (6.336-7.764s)",
-      "d03: window clamped to anchor tolerance (7.834-9.262s)",
-      "d04: window clamped to anchor tolerance (11.363-19.918s)",
-      "d05: window clamped to anchor tolerance (21.845-23.446s)"
-    ],
+    "build_warnings": [],
     "skipped_decisions": [],
     "n_elements": 5,
-    "ir_sha256": "4ebdc65dd968f794946d6a80ab9b61172bcb978dfa9e9e46fc8803d305de7a63"
+    "ir_sha256": "3783ef6f4b71e9eb63d6d81e2f235ffded59be47b3cbf694af90391c098ccc94"
   }
 }

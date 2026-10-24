@@ -1,0 +1,140 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G1",
+  "input_sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
+  "ir_sha256": "2d215f89814649035a6eff83783f174a3c2c4560027d9341f486e8aef4b417bc",
+  "render_sha256": "6c377fc7d2aa28b3b6d48e0308a3ccf9946c09b3c6ad439cb9acb23ae79115ac",
+  "timing": {
+    "samples": 0,
+    "elements": 1,
+    "detected_onsets": 1,
+    "rows": [
+      {
+        "element_id": "el_d01",
+        "effect": "number",
+        "text": "26",
+        "window_start_s": 11.666667,
+        "rendered_onset_s": 11.7,
+        "anchor_start_s": 11.67,
+        "fidelity_ms": 30.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false
+      }
+    ],
+    "source": "none",
+    "threshold_p90_ms": 100.0,
+    "fidelity": {
+      "samples": 1,
+      "p50_ms": 30.0,
+      "max_ms": 30.0
+    },
+    "p50_ms": null,
+    "p90_ms": null,
+    "max_ms": null,
+    "verdict": "NOT RUN",
+    "note": "no element had an independent target onset: SYNTH_KNOWN truth is unit-granular and this IR only animates intra-unit words"
+  },
+  "position": {
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 2,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 7,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 7,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "windows_with_visible_change": 1,
+      "sampled_frames": 7
+    },
+    "raster_containment": {
+      "changed_pixels": 4259,
+      "inside_declared_box": 4259,
+      "value": 0.0,
+      "threshold": 0.03,
+      "verdict": "PASS",
+      "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 120,
+      "frames_with_faces": 120,
+      "note": "no faces detected ⇒ face metrics are vacuous PASS, reported as such in the gate report"
+    },
+    "sampling": {
+      "stride_frames": 3,
+      "grid": "192px wide grayscale diff"
+    }
+  },
+  "render": {
+    "duration_src_s": 24.0,
+    "duration_rendered_s": 24.0,
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.033333,
+    "frames_src": 720,
+    "frames_rendered": 720,
+    "audio": {
+      "src": {
+        "n_samples": 2304000,
+        "duration_s": 24.0,
+        "rms_db": -32.335,
+        "peak_db": -11.665
+      },
+      "rendered": {
+        "n_samples": 2304000,
+        "duration_s": 24.0,
+        "rms_db": -32.337,
+        "peak_db": -11.666
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.002,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "NOT RUN",
+    "position": "PASS",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
+    "rendered": "artifacts/g1/pd_a/fx_pd_real_16x9_a_motion.mp4",
+    "truth": null,
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

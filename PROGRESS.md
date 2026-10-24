@@ -1,14 +1,14 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：G0 完成，G1 并行开发中（2026-10-24）
+> 最近更新：G0 PASS；G1 链路已打通（真实成片+指标），等待校准素材凑够 ≥50 独立事件后判定。
 
 ## 0. 当前状态一屏
 
 | 闸门 | 状态 | 证据 |
 |---|---|---|
 | **G0 预检与基线** | **PASS** | `ENVIRONMENT.md`、`artifacts/env/env_probe.json`、`artifacts/g0/baseline_report.json`（verdict=PASS）、`reports/gate-G0.md` |
-| G1 最小语义闭环 | **IN PROGRESS** | 并行实现中，尚无端到端成片（不得报完成） |
+| G1 最小语义闭环 | **IN PROGRESS** | 链路已打通：`artifacts/g1/runner/gate_summary.json`（fx_a：timing/position/render PASS，n=3 探索性）、`artifacts/g1/pd_a/`（真实人脸素材：position/render PASS）；**待 ≥50 独立事件校准素材** |
 | G2 四类动效 | NOT RUN | 依赖 G1 |
 | G3 高级稳定性 | NOT RUN | 依赖 G2 |
 | G4 完整交付 | NOT RUN | 依赖 G3 |
@@ -43,6 +43,22 @@
 - 已生成：`fx_a_zh_portrait`（1080×1920，14 个语音单元，24.20 s）
 - 真值：`tests/fixtures/clips/fx_a_zh_portrait/ground_truth.json`（units[] 含 start_s/end_s/start_frame/end_frame/audio_sha256，truth=SYNTH_KNOWN）
 - 多镜头能力：`scenes` + `cuts_at_s`，已用 `fx_test_cuts` 验证（5.0 s 切镜，slow_pan 第二镜头）
+
+## 1.5 G1 已跑通的实测（2026-10-24 17:4x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| 端到端（竖屏合成素材 fx_a） | `run --fixture fx_a_zh_portrait` 全链路 | `artifacts/g1/runner/fx_a_zh_portrait/run_summary.json` |
+| 时间（真实渲染 onset vs 独立单元真值） | P50 45.8ms / P90 68.0ms / max 68.0ms，**n=3（探索性，不作 P90 达标宣称）** | 同上 `metrics.json` → `timing.rows` |
+| 渲染保真度（onset vs IR 锚点） | 中位 40ms = 1 帧 | `metrics.json` → `timing.fidelity` |
+| 位置（计划值） | 遮脸 0、越界 0、碰撞 0 | `metrics.json` → `position.planned` |
+| 位置（观测值：渲染帧 vs 源帧差异包围盒） | 遮脸 0、越界 0 | `position.observed` |
+| 栅格包含性（画布外/框外像素占比） | 0.0（138,548/138,548 像素在声明框内） | `position.raster_containment` |
+| 可复现性（同 IR 渲染两次） | **逐帧哈希完全一致**，605/605 帧 | `gate_summary.json` → `determinism` |
+| 真实人脸素材（PD，1280×720，英文） | 1 个 number 元素 `[885,262,150,181]`，与人脸 union `[491,87,280,392]` 交集 0；position/render PASS | `artifacts/g1/pd_a/`、抽帧 `/tmp/pd_render.png`（人工目检） |
+| 数值语义准确性 | 锚点「九成」→ 计数动画终值 **90%**（人工抽帧核对 8.55s） | 目检；自动化校验待补 |
+
+**度量反向验证（证明指标不是空转）**：把 400×120 的框故意压在真实人脸框上 → `position=FAIL`（observed=1.0、planned=1.0）；把 onset 故意延后 300ms → `timing=FAIL`（300.0ms）。证据脚本输出见对话记录与 `artifacts/g1/probe/`。
 
 ## 2. 进行中（G1）
 

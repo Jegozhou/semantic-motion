@@ -34,7 +34,8 @@ IR_VERSION = "1.0.0"
 SOURCE_SCHEMA = "semotion.transcript/1"
 ANCHOR_SCHEMA = "semotion.anchors/1"
 
-ANCHOR_TOLERANCE_S = 0.25           # docs/INTERFACES.md §3.5 invariant 2
+ANCHOR_TOLERANCE_S = 0.25           # start may not precede the anchor by more than this
+HOLD_TOLERANCE_S = 0.80             # end may trail the anchor end by at most this (hold_s)
 FACE_OVERLAP_RATIO = 0.01           # invariant 4 / spec §6
 CANVAS_EDGE_MARGIN_PX = 16          # never paint into the last pixels of the frame
 FACE_SAFE_MARGIN_PX = 32            # default outward margin around the face union
@@ -184,9 +185,11 @@ def _style_for(effect: str, emphasis: str, canvas: dict) -> dict[str, Any]:
                      "radius_px": scaled(26, canvas), "align": "center",
                      "accent_line": False, "bg": "rgba(10,13,22,0.80)"})
     elif effect == "list":
-        base.update({"font_size_px": scaled(72, canvas), "padding_px": scaled(36, canvas),
+        base.update({"font_size_px": scaled(64, canvas), "padding_px": scaled(36, canvas),
                      "radius_px": scaled(28, canvas), "align": "left",
-                     "bg": "rgba(10,13,22,0.82)"})
+                     "bg": "rgba(10,13,22,0.82)",
+                     "min_width_px": int(round(0.62 * float((canvas or {}).get("width") or 1080))),
+                     "line_height": 1.35})
     elif effect == "card":
         base.update({"font_size_px": scaled(78, canvas), "padding_px": scaled(40, canvas),
                      "radius_px": scaled(30, canvas), "align": "left",
@@ -299,38 +302,35 @@ def build(transcript: dict, vision: dict, anchors: dict, plan: dict,
             continue
         bounds = _window_bounds(refs, idx)
         win = dec.get("window") or {}
-        start = float(win.get("start_s", bounds[0] if bounds else 0.0))
-        end = float(win.get("end_s", bounds[1] if bounds else start + 1.0))
-        start = max(0.0, start)
-        end = min(duration, end)
-        adjusted = False
+        start = max(0.0, float(win.get("start_s", bounds[0] if bounds else 0.0)))
+        end = min(duration, float(win.get("end_s", bounds[1] if bounds else start + 1.0)))
         if bounds:
             low = max(0.0, bounds[0] - ANCHOR_TOLERANCE_S)
-            high = min(duration, bounds[1] + ANCHOR_TOLERANCE_S)
+            high = min(duration, bounds[1] + HOLD_TOLERANCE_S)
             if start < low:
-                start, adjusted = low, True
+                warnings.append(f"{dec.get('id')}: onset clamped to anchor start -250ms "
+                                f"({start:.3f}->{low:.3f}s)")
+                start = low
             if end > high:
-                end, adjusted = high, True
+                warnings.append(f"{dec.get('id')}: end clamped to anchor end +800ms hold "
+                                f"({end:.3f}->{high:.3f}s)")
+                end = high
         if end <= start:
             skipped.append({"decision": dec.get("id"), "reason": "empty_window"})
             continue
         sf, ef = int(round(start * fps)), int(round(end * fps))
         sf = max(0, min(sf, n_frames - 2))
         ef = max(sf + 2, min(ef, n_frames))
-        # frame snapping must stay inside the anchor tolerance as well
+        # frame snapping must respect the onset tolerance and the hold budget
         if bounds:
-            high = min(duration, bounds[1] + ANCHOR_TOLERANCE_S) + 0.5 / fps + FPS_EPS
             low = max(0.0, bounds[0] - ANCHOR_TOLERANCE_S) - 0.5 / fps - FPS_EPS
-            while ef > sf + 2 and ef / fps > high:
-                ef -= 1
-                adjusted = True
+            high = min(duration, bounds[1] + HOLD_TOLERANCE_S) + 0.5 / fps + FPS_EPS
             while sf < ef - 2 and sf / fps < low:
                 sf += 1
-                adjusted = True
-        if adjusted:
-            warnings.append(f"{dec.get('id')}: window clamped to anchor tolerance "
-                            f"({start:.3f}-{end:.3f}s)")
+            while ef > sf + 2 and ef / fps > high:
+                ef -= 1
         start_s, end_s = sf / fps, ef / fps
+        hold_s = round(max(0.0, end_s - bounds[1]), 6) if bounds else 0.0
 
         content: dict[str, Any] = {"text": str((dec.get("content") or {}).get("text")
                                                or (idx[refs[0]].get("text") if refs else ""))}
@@ -363,7 +363,10 @@ def build(transcript: dict, vision: dict, anchors: dict, plan: dict,
             "anchor_ref": refs[0],
             "anchor_refs": refs,
             "window": {"start_s": round(start_s, 6), "end_s": round(end_s, 6),
-                       "start_frame": sf, "end_frame": ef},
+                       "start_frame": sf, "end_frame": ef,
+                       "hold_s": hold_s,
+                       "anchor_start_s": round(bounds[0], 6) if bounds else None,
+                       "anchor_end_s": round(bounds[1], 6) if bounds else None},
             "style": _style_for(effect, str(dec.get("emphasis") or "medium"),
                                 {"width": width, "height": height}),
             "motion": _motion_for(effect, str(dec.get("emphasis") or "medium")),
@@ -467,12 +470,14 @@ def _resolve_overlaps(elements: list[dict], fps: float,
             prev_refs = [str(r) for r in (out[-1].get("anchor_refs") or [])]
             anchor_end = max((float((idx or {}).get(r, {}).get("end_s", 0.0))
                               for r in prev_refs), default=0.0)
-            floor_frame = max(int(round(anchor_end * fps)) - int(round(ANCHOR_TOLERANCE_S * fps)),
+            floor_frame = max(int(round(anchor_end * fps)),
                               out[-1]["window"]["start_frame"] + 2)
-            if trimmed >= floor_frame and trimmed >= out[-1]["window"]["start_frame"] + 2:
-                warnings.append(f"{out[-1]['id']}: tail trimmed to avoid overlap with {el['id']}")
+            if trimmed >= floor_frame:
+                warnings.append(f"{out[-1]['id']}: hold trimmed to avoid overlap with {el['id']}")
                 out[-1]["window"]["end_frame"] = trimmed
                 out[-1]["window"]["end_s"] = round(trimmed / fps, 6)
+                out[-1]["window"]["hold_s"] = round(
+                    max(0.0, out[-1]["window"]["end_s"] - anchor_end), 6)
                 last_end = ef
                 out.append(el)
                 continue
@@ -582,9 +587,26 @@ def validate(ir: dict) -> list[str]:
                 if s_s < lo - ANCHOR_TOLERANCE_S - grace:
                     errs.append(f"{eid}: start {s_s:.3f}s is before anchor start {lo:.3f}s "
                                 f"-{ANCHOR_TOLERANCE_S}s tolerance")
-                if e_s > hi + ANCHOR_TOLERANCE_S + grace:
-                    errs.append(f"{eid}: end {e_s:.3f}s is after anchor end {hi:.3f}s "
-                                f"+{ANCHOR_TOLERANCE_S}s tolerance")
+                if e_s > hi + HOLD_TOLERANCE_S + grace:
+                    errs.append(f"{eid}: end {e_s:.3f}s trails anchor end {hi:.3f}s by "
+                                f"{e_s - hi:.3f}s (> {HOLD_TOLERANCE_S}s hold)")
+                elif e_s > hi + 1e-6:
+                    hold = win.get("hold_s")
+                    expected = e_s - hi
+                    if hold is None:
+                        errs.append(f"{eid}: window trails the anchor by {expected:.3f}s but "
+                                    "window.hold_s is not declared")
+                    else:
+                        try:
+                            hv = float(hold)
+                        except (TypeError, ValueError):
+                            hv = -1.0
+                        if abs(hv - expected) > grace:
+                            errs.append(f"{eid}: window.hold_s={hold} does not match "
+                                        f"end_s-anchor_end={expected:.3f}s")
+                        if hv > HOLD_TOLERANCE_S + grace:
+                            errs.append(f"{eid}: window.hold_s={hv}s exceeds "
+                                        f"{HOLD_TOLERANCE_S}s")
 
         # -- invariant 3: box on canvas
         lay = el.get("layout") or {}

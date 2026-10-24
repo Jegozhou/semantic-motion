@@ -1,0 +1,117 @@
+{
+  "id": "fx_t1_zh_phrase",
+  "voice": "Tingting",
+  "rate": 158,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "gap_s": 0.6,
+  "lead_in_s": 0.5,
+  "tail_s": 0.7,
+  "palette": "studio_night",
+  "camera_motion": "static",
+  "seed": 101,
+  "purpose": "TIMING CALIBRATION ONLY (SYNTH_KNOWN). Every 5-9 character unit starts with a phrase the anchor rules must emit, so an anchor can be matched to an independent assembly-truth onset by prefix. Not for aesthetics / real-footage claims.",
+  "units": [
+    {
+      "id": "u01",
+      "text": "九成的人会拖延",
+      "role": "number"
+    },
+    {
+      "id": "u02",
+      "text": "三个步骤就够",
+      "role": "number"
+    },
+    {
+      "id": "u03",
+      "text": "六次刚好够用",
+      "role": "number"
+    },
+    {
+      "id": "u04",
+      "text": "一半来自删减",
+      "role": "number"
+    },
+    {
+      "id": "u05",
+      "text": "两倍的时间浪费",
+      "role": "number"
+    },
+    {
+      "id": "u06",
+      "text": "三成是无效动效",
+      "role": "number"
+    },
+    {
+      "id": "u07",
+      "text": "关键是节奏",
+      "role": "keyword"
+    },
+    {
+      "id": "u08",
+      "text": "重点是留白",
+      "role": "keyword"
+    },
+    {
+      "id": "u09",
+      "text": "核心是克制",
+      "role": "keyword"
+    },
+    {
+      "id": "u10",
+      "text": "其实是顺序",
+      "role": "keyword"
+    },
+    {
+      "id": "u11",
+      "text": "底线是先保人",
+      "role": "keyword"
+    },
+    {
+      "id": "u12",
+      "text": "最难的是取舍",
+      "role": "keyword"
+    },
+    {
+      "id": "u13",
+      "text": "第一步对齐",
+      "role": "list_item"
+    },
+    {
+      "id": "u14",
+      "text": "第二步布局",
+      "role": "list_item"
+    },
+    {
+      "id": "u15",
+      "text": "第三步渲染",
+      "role": "list_item"
+    },
+    {
+      "id": "u16",
+      "text": "结论是自动化",
+      "role": "keyword"
+    },
+    {
+      "id": "u17",
+      "text": "所以我们先对齐",
+      "role": "keyword"
+    },
+    {
+      "id": "u18",
+      "text": "总之先减法",
+      "role": "keyword"
+    },
+    {
+      "id": "u19",
+      "text": "相比加特效",
+      "role": "keyword"
+    },
+    {
+      "id": "u20",
+      "text": "最终要可编辑",
+      "role": "keyword"
+    }
+  ]
+}
