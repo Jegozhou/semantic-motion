@@ -1,6 +1,6 @@
 {
   "schema": "semotion.verify2/1",
-  "verdict": "FAIL",
+  "verdict": "PASS",
   "checks": {
     "render_integrity": {
       "source": {
@@ -413,72 +413,94 @@
       "method": "glyph pixels = overlay pixels close to style.color; background = rendered pixels around them (scrim included); WCAG ratio per 24px block, minimum block wins"
     },
     "text_onset": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "tolerance_frames": 1,
+      "ink_mode": "ink_pass",
+      "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
       "by_element": {
         "el_1_c8961792": {
-          "verdict": "FAIL",
-          "text_onset_frame": null,
-          "ink_onset_delta_frames": null,
           "window_start_frame": 0,
+          "anchor_onset_frame": 0,
           "gate_pixels": 32,
-          "max_ink_pixels": 0,
-          "method": "glyph-coloured overlay pixels above scrim luminance",
-          "problems": [
-            "no measurable ink anywhere in the window"
-          ]
+          "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+          "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+          "verdict": "PASS",
+          "text_onset_frame": 0,
+          "ink_onset_delta_frames": 0,
+          "ink_pixels_at_onset": 12033,
+          "max_ink_pixels": 16332,
+          "warning": null,
+          "problems": [],
+          "ink_rgb": null,
+          "scrim_luma_at_first": null
         },
         "el_1_cede221a": {
-          "verdict": "FAIL",
-          "text_onset_frame": null,
-          "ink_onset_delta_frames": null,
           "window_start_frame": 50,
-          "gate_pixels": 42,
-          "max_ink_pixels": 0,
-          "method": "glyph-coloured overlay pixels above scrim luminance",
-          "problems": [
-            "no measurable ink anywhere in the window"
-          ]
+          "anchor_onset_frame": 50,
+          "gate_pixels": 32,
+          "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+          "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+          "verdict": "PASS",
+          "text_onset_frame": 50,
+          "ink_onset_delta_frames": 0,
+          "ink_pixels_at_onset": 14154,
+          "max_ink_pixels": 27395,
+          "warning": null,
+          "problems": [],
+          "ink_rgb": null,
+          "scrim_luma_at_first": null
         },
         "el_3_ac80487a": {
-          "verdict": "FAIL",
-          "text_onset_frame": null,
-          "ink_onset_delta_frames": null,
           "window_start_frame": 280,
-          "gate_pixels": 56,
-          "max_ink_pixels": 0,
-          "method": "glyph-coloured overlay pixels above scrim luminance",
-          "problems": [
-            "no measurable ink anywhere in the window"
-          ]
+          "anchor_onset_frame": 280,
+          "gate_pixels": 32,
+          "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+          "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+          "verdict": "PASS",
+          "text_onset_frame": 280,
+          "ink_onset_delta_frames": 0,
+          "ink_pixels_at_onset": 8376,
+          "max_ink_pixels": 24284,
+          "warning": null,
+          "problems": [],
+          "ink_rgb": null,
+          "scrim_luma_at_first": null
         },
         "el_1_511529f3": {
-          "verdict": "FAIL",
-          "text_onset_frame": null,
-          "ink_onset_delta_frames": null,
           "window_start_frame": 540,
-          "gate_pixels": 24,
-          "max_ink_pixels": 0,
-          "method": "glyph-coloured overlay pixels above scrim luminance",
-          "problems": [
-            "no measurable ink anywhere in the window"
-          ]
+          "anchor_onset_frame": 540,
+          "gate_pixels": 32,
+          "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+          "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+          "verdict": "PASS",
+          "text_onset_frame": 540,
+          "ink_onset_delta_frames": 0,
+          "ink_pixels_at_onset": 8561,
+          "max_ink_pixels": 8773,
+          "warning": null,
+          "problems": [],
+          "ink_rgb": null,
+          "scrim_luma_at_first": null
         },
         "el_1_69d37695": {
-          "verdict": "FAIL",
-          "text_onset_frame": null,
-          "ink_onset_delta_frames": null,
           "window_start_frame": 567,
-          "gate_pixels": 34,
-          "max_ink_pixels": 0,
-          "method": "glyph-coloured overlay pixels above scrim luminance",
-          "problems": [
-            "no measurable ink anywhere in the window"
-          ]
+          "anchor_onset_frame": 567,
+          "gate_pixels": 32,
+          "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+          "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+          "verdict": "PASS",
+          "text_onset_frame": 567,
+          "ink_onset_delta_frames": 0,
+          "ink_pixels_at_onset": 16150,
+          "max_ink_pixels": 19877,
+          "warning": null,
+          "problems": [],
+          "ink_rgb": null,
+          "scrim_luma_at_first": null
         }
       },
-      "method": "strict first-ink-frame measurement on the overlay-only pass; the scrim/backdrop is excluded by colour + luminance separation, not by trusting the box",
-      "honesty": "requires the overlay-only pass; without it this check is NOT RUN rather than inferred from the final frame"
+      "method": "strict first-ink-frame measurement: renderer ink-only pass, element-box luma > 12, count > 32 px; scrim/captions are not in that pass, so a scrim can never satisfy this check",
+      "honesty": "without final_ink.mp4 the overlay-pass heuristic is reported but the verdict is NOT RUN"
     },
     "displayed_text": {
       "verdict": "PASS",
@@ -1124,65 +1146,14 @@
     "person_occlusion": "PASS",
     "existing_text_collision": "PASS",
     "legibility": "PASS",
-    "text_onset": "FAIL",
+    "text_onset": "PASS",
     "displayed_text": "PASS",
     "scrim": "PASS",
     "layout": "PASS",
     "timing": "PASS",
     "determinism": "PASS"
   },
-  "failing_elements": {
-    "el_1_c8961792": {
-      "occlusion": "PASS",
-      "text": "PASS",
-      "legibility": "PASS",
-      "timing": "PASS",
-      "displayed_text": "PASS",
-      "text_onset": "FAIL",
-      "scrim": "PASS",
-      "layout": "PASS"
-    },
-    "el_1_cede221a": {
-      "occlusion": "PASS",
-      "text": "PASS",
-      "legibility": "PASS",
-      "timing": "PASS",
-      "displayed_text": "PASS",
-      "text_onset": "FAIL",
-      "scrim": "PASS",
-      "layout": "PASS"
-    },
-    "el_3_ac80487a": {
-      "occlusion": "PASS",
-      "text": "PASS",
-      "legibility": "PASS",
-      "timing": "PASS",
-      "displayed_text": "PASS",
-      "text_onset": "FAIL",
-      "scrim": "PASS",
-      "layout": "PASS"
-    },
-    "el_1_511529f3": {
-      "occlusion": "PASS",
-      "text": "PASS",
-      "legibility": "PASS",
-      "timing": "PASS",
-      "displayed_text": "PASS",
-      "text_onset": "FAIL",
-      "scrim": "PASS",
-      "layout": "PASS"
-    },
-    "el_1_69d37695": {
-      "occlusion": "PASS",
-      "text": "PASS",
-      "legibility": "PASS",
-      "timing": "PASS",
-      "displayed_text": "PASS",
-      "text_onset": "FAIL",
-      "scrim": "PASS",
-      "layout": "PASS"
-    }
-  },
+  "failing_elements": {},
   "elements": [
     {
       "id": "el_1_c8961792",
@@ -1201,7 +1172,7 @@
         "anchor_start_s": 0.0,
         "anchor_end_s": 2.02
       },
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "footprint": {
         "union_px": 64020,
         "max_frame_px": 63758,
@@ -1299,16 +1270,20 @@
         "problems": []
       },
       "text_onset": {
-        "verdict": "FAIL",
-        "text_onset_frame": null,
-        "ink_onset_delta_frames": null,
         "window_start_frame": 0,
+        "anchor_onset_frame": 0,
         "gate_pixels": 32,
-        "max_ink_pixels": 0,
-        "method": "glyph-coloured overlay pixels above scrim luminance",
-        "problems": [
-          "no measurable ink anywhere in the window"
-        ]
+        "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+        "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+        "verdict": "PASS",
+        "text_onset_frame": 0,
+        "ink_onset_delta_frames": 0,
+        "ink_pixels_at_onset": 12033,
+        "max_ink_pixels": 16332,
+        "warning": null,
+        "problems": [],
+        "ink_rgb": null,
+        "scrim_luma_at_first": null
       },
       "scrim": {
         "id": "el_1_c8961792",
@@ -1412,7 +1387,7 @@
         "anchor_start_s": 2.02,
         "anchor_end_s": 3.7
       },
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "footprint": {
         "union_px": 83676,
         "max_frame_px": 82974,
@@ -1510,16 +1485,20 @@
         "problems": []
       },
       "text_onset": {
-        "verdict": "FAIL",
-        "text_onset_frame": null,
-        "ink_onset_delta_frames": null,
         "window_start_frame": 50,
-        "gate_pixels": 42,
-        "max_ink_pixels": 0,
-        "method": "glyph-coloured overlay pixels above scrim luminance",
-        "problems": [
-          "no measurable ink anywhere in the window"
-        ]
+        "anchor_onset_frame": 50,
+        "gate_pixels": 32,
+        "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+        "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+        "verdict": "PASS",
+        "text_onset_frame": 50,
+        "ink_onset_delta_frames": 0,
+        "ink_pixels_at_onset": 14154,
+        "max_ink_pixels": 27395,
+        "warning": null,
+        "problems": [],
+        "ink_rgb": null,
+        "scrim_luma_at_first": null
       },
       "scrim": {
         "id": "el_1_cede221a",
@@ -1623,7 +1602,7 @@
         "anchor_start_s": 11.18,
         "anchor_end_s": 16.54
       },
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "footprint": {
         "union_px": 112512,
         "max_frame_px": 112342,
@@ -1721,16 +1700,20 @@
         "problems": []
       },
       "text_onset": {
-        "verdict": "FAIL",
-        "text_onset_frame": null,
-        "ink_onset_delta_frames": null,
         "window_start_frame": 280,
-        "gate_pixels": 56,
-        "max_ink_pixels": 0,
-        "method": "glyph-coloured overlay pixels above scrim luminance",
-        "problems": [
-          "no measurable ink anywhere in the window"
-        ]
+        "anchor_onset_frame": 280,
+        "gate_pixels": 32,
+        "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+        "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+        "verdict": "PASS",
+        "text_onset_frame": 280,
+        "ink_onset_delta_frames": 0,
+        "ink_pixels_at_onset": 8376,
+        "max_ink_pixels": 24284,
+        "warning": null,
+        "problems": [],
+        "ink_rgb": null,
+        "scrim_luma_at_first": null
       },
       "scrim": {
         "id": "el_3_ac80487a",
@@ -1834,7 +1817,7 @@
         "anchor_start_s": 21.58,
         "anchor_end_s": 22.68
       },
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "footprint": {
         "union_px": 47492,
         "max_frame_px": 47284,
@@ -1932,16 +1915,20 @@
         "problems": []
       },
       "text_onset": {
-        "verdict": "FAIL",
-        "text_onset_frame": null,
-        "ink_onset_delta_frames": null,
         "window_start_frame": 540,
-        "gate_pixels": 24,
-        "max_ink_pixels": 0,
-        "method": "glyph-coloured overlay pixels above scrim luminance",
-        "problems": [
-          "no measurable ink anywhere in the window"
-        ]
+        "anchor_onset_frame": 540,
+        "gate_pixels": 32,
+        "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+        "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+        "verdict": "PASS",
+        "text_onset_frame": 540,
+        "ink_onset_delta_frames": 0,
+        "ink_pixels_at_onset": 8561,
+        "max_ink_pixels": 8773,
+        "warning": null,
+        "problems": [],
+        "ink_rgb": null,
+        "scrim_luma_at_first": null
       },
       "scrim": {
         "id": "el_1_511529f3",
@@ -2045,7 +2032,7 @@
         "anchor_start_s": 22.68,
         "anchor_end_s": 24.32
       },
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "footprint": {
         "union_px": 67488,
         "max_frame_px": 67275,
@@ -2143,16 +2130,20 @@
         "problems": []
       },
       "text_onset": {
-        "verdict": "FAIL",
-        "text_onset_frame": null,
-        "ink_onset_delta_frames": null,
         "window_start_frame": 567,
-        "gate_pixels": 34,
-        "max_ink_pixels": 0,
-        "method": "glyph-coloured overlay pixels above scrim luminance",
-        "problems": [
-          "no measurable ink anywhere in the window"
-        ]
+        "anchor_onset_frame": 567,
+        "gate_pixels": 32,
+        "ink_source": "artifacts/v2/final_zq/final_ink.mp4",
+        "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+        "verdict": "PASS",
+        "text_onset_frame": 567,
+        "ink_onset_delta_frames": 0,
+        "ink_pixels_at_onset": 16150,
+        "max_ink_pixels": 19877,
+        "warning": null,
+        "problems": [],
+        "ink_rgb": null,
+        "scrim_luma_at_first": null
       },
       "scrim": {
         "id": "el_1_69d37695",
@@ -2244,6 +2235,7 @@
     "source": "inputs/zhengqinwen_25s.mp4",
     "rendered": "artifacts/v2/final_zq/final.mp4",
     "overlay_only": "artifacts/v2/final_zq/final_overlay.mp4",
+    "ink_only": "artifacts/v2/final_zq/final_ink.mp4",
     "second_render": "artifacts/v2/final_zq_2/final.mp4",
     "masks": "artifacts/v2/final_zq/perception.json",
     "ir_sha256": null

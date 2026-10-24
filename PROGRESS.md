@@ -16,6 +16,8 @@
 | 端到端命令 | **DONE** | `python -m semotion.pipeline run --video … --out …` |
 | 真实素材成片 | **DONE** | `delivery/06_v2_real_footage_16x9/final.mp4`（CC BY 3.0 采访，1920×920，25 s） |
 | 双跑确定性 | **DONE** | 625/625 帧 mean \|Δ\| = 0.0（`artifacts/v2/final_zq/qa/qa_metrics.json`） |
+| 严格 ink 起始帧（真正的"字落在词上"） | **DONE** | 5/5 元素 `ink_onset_delta_frames = 0`（ink-only pass，严格阈值 1 帧） |
+| 渲染后质检总判定 | **PASS** | 11/11 项 PASS：`artifacts/v2/final_zq/qa/qa_metrics.json` |
 | Skill 安装 | **DONE（仓库内已热加载）**；`~/.claude` 与 `~/.dsh` 的写入被本会话沙箱拒绝 | `.dsh/skills/semantic-motion/`、`scripts/install_skill.py`（用户侧一条命令即可） |
 | 人工真值时间验收 | **NOT RUN** | 无真人标注语料；合成真值不能冒充真人精度 |
 
