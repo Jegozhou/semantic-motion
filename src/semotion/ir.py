@@ -435,6 +435,22 @@ def build(transcript: dict, vision: dict, anchors: dict, plan: dict,
         element["layout"] = {k: v for k, v in lay.items() if k != "style"}
         if lay.get("degraded"):
             warnings.append(f"{element['id']}: layout degraded ({lay.get('reason')})")
+            # Subject protection outranks showing the overlay: if even the degraded
+            # slot covers the face beyond the 1% contract, drop the element instead of
+            # violating invariant 4 (the spec's goal is zero face occlusion).
+            if face_union:
+                from .effects.base import expand_box, rect_inter_area
+                safe = expand_box(face_union, face_margin)
+                face_area = float(safe[2] * safe[3]) or 1.0
+                box = lay.get("box") or [0, 0, 0, 0]
+                ratio = rect_inter_area(box, safe) / face_area
+                if ratio > FACE_OVERLAP_RATIO:
+                    skipped.append({"decision": dec.get("id"),
+                                    "reason": f"no_face_free_space:{ratio:.1%}"})
+                    warnings.append(
+                        f"{element['id']}: dropped — degraded slot still covers "
+                        f"{ratio:.1%} of the face-safe box")
+                    continue
         zoom = lay.get("box") or [0, 0, 1, 1]
         occupied.append({"id": element["id"], "box": list(zoom),
                          "window": dict(element["window"])})
@@ -698,11 +714,17 @@ def validate(ir: dict) -> list[str]:
                 errs.append(f"{eid}: allow_face_overlap needs a recorded reason")
 
         # -- invariant 8: text provenance
-        text = _norm_text((el.get("content") or {}).get("text") or "")
+        # Generated copy must be traceable to the transcript (no invented facts).
+        # An explicit human edit is exempt, but it must say so in the IR:
+        #   content.edited = true (+ optional content.edit_note)
+        content = el.get("content") or {}
+        text = _norm_text(content.get("text") or "")
         if not text:
             errs.append(f"{eid}: content.text is empty")
-        elif text not in anchor_norm and (not transcript_norm or text not in transcript_norm):
-            errs.append(f"{eid}: content.text {text[:40]!r} not found in anchors or transcript")
+        elif not content.get("edited") and text not in anchor_norm and \
+                (not transcript_norm or text not in transcript_norm):
+            errs.append(f"{eid}: content.text {text[:40]!r} not found in anchors or transcript "
+                        f"(mark content.edited=true for an intentional human edit)")
         try:
             if int((el.get("style") or {}).get("font_size_px") or 0) <= 0:
                 errs.append(f"{eid}: style.font_size_px must be > 0")
@@ -710,10 +732,15 @@ def validate(ir: dict) -> list[str]:
             errs.append(f"{eid}: style.font_size_px is not numeric")
 
     # -- invariant 5: tracks
+    # A zero-overlay IR (a deliberate "no motion" decision) is valid: the render is a
+    # clean pass-through. Tracks may then be an empty list, but must still be a list.
     tracks = ir.get("tracks")
-    if not isinstance(tracks, list) or not tracks:
-        errs.append("tracks must be a non-empty list")
+    elements = ir.get("elements")
+    if not isinstance(tracks, list):
+        errs.append("tracks must be a list")
         tracks = []
+    elif not tracks and elements:
+        errs.append("tracks must be a non-empty list when elements exist")
     owner: dict[str, int] = {}
     for t in tracks:
         tid = t.get("id") if isinstance(t, dict) else None

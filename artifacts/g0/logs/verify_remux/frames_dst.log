@@ -1,2 +1,2 @@
-$ ffmpeg -v error -y -i artifacts/g0/baseline_remux.mp4 -vf scale=320:180:flags=bilinear,format=rgb24 -f rawvideo /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmppns_o5ov.raw
+$ ffmpeg -v error -y -i artifacts/g0/baseline_remux.mp4 -vf scale=320:180:flags=bilinear,format=rgb24 -f rawvideo /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpb7faq4h7.raw
 

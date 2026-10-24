@@ -1,8 +1,8 @@
 {
   "gate": "G1",
   "style": "calibration",
-  "started_utc": "2026-10-24T10:43:08Z",
-  "finished_utc": "2026-10-24T10:43:34Z",
+  "started_utc": "2026-10-24T11:21:09Z",
+  "finished_utc": "2026-10-24T11:21:37Z",
   "fixtures": [
     "fx_t1_zh_phrase",
     "fx_t2_zh_phrase",

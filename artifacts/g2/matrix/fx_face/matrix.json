@@ -1,13 +1,13 @@
 {
   "schema": "semotion.effect_matrix/1",
   "fixture": "fx_face_zh_portrait",
-  "created_utc": "2026-10-24T10:42:19Z",
+  "created_utc": "2026-10-24T11:22:34Z",
   "cells": [
     {
       "fixture": "fx_face_zh_portrait",
       "effect": "keyword",
       "elements": 6,
-      "ir_hash": "a5e1e2850b91f183",
+      "ir_hash": "5be47785c8970b08",
       "rendered": "artifacts/g2/matrix/fx_face/keyword/fx_face_zh_portrait_keyword.mp4",
       "verdicts": {
         "timing": "PASS",
@@ -34,7 +34,7 @@
       "fixture": "fx_face_zh_portrait",
       "effect": "number",
       "elements": 3,
-      "ir_hash": "d6b1b57065f5ed19",
+      "ir_hash": "2fd964a8a2cdb1f7",
       "rendered": "artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4",
       "verdicts": {
         "timing": "PASS",
@@ -61,7 +61,7 @@
       "fixture": "fx_face_zh_portrait",
       "effect": "list",
       "elements": 1,
-      "ir_hash": "5b1250646ded749b",
+      "ir_hash": "44e56d92394bcda9",
       "rendered": "artifacts/g2/matrix/fx_face/list/fx_face_zh_portrait_list.mp4",
       "verdicts": {
         "timing": "PASS",
@@ -88,7 +88,7 @@
       "fixture": "fx_face_zh_portrait",
       "effect": "card",
       "elements": 5,
-      "ir_hash": "75f3a922ccc2d56c",
+      "ir_hash": "2f019458c903e99b",
       "rendered": "artifacts/g2/matrix/fx_face/card/fx_face_zh_portrait_card.mp4",
       "verdicts": {
         "timing": "PASS",
@@ -115,7 +115,7 @@
       "fixture": "fx_face_zh_portrait",
       "effect": "combo",
       "elements": 13,
-      "ir_hash": "ddf147bd80cdb7f2",
+      "ir_hash": "f8e8c4df034fa8b0",
       "rendered": "artifacts/g2/matrix/fx_face/combo/fx_face_zh_portrait_combo.mp4",
       "verdicts": {
         "timing": "PASS",

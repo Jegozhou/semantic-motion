@@ -1,8 +1,8 @@
 {
   "gate": "G1",
   "style": "smart_balanced",
-  "started_utc": "2026-10-24T10:43:34Z",
-  "finished_utc": "2026-10-24T10:44:05Z",
+  "started_utc": "2026-10-24T11:21:37Z",
+  "finished_utc": "2026-10-24T11:22:11Z",
   "fixtures": [
     "fx_a_zh_portrait",
     "fx_b_zh_landscape",

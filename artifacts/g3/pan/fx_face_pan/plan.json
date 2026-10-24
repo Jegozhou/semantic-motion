@@ -1,0 +1,189 @@
+{
+  "schema": "semotion.plan/1",
+  "style": "calibration",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "duration_s": 21.381,
+  "decisions": [
+    {
+      "id": "cal01",
+      "anchor_id": "a00",
+      "anchor_ids": [
+        "a00"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第一步",
+        "items": null
+      },
+      "window": {
+        "start_s": 2.12,
+        "end_s": 3.11
+      }
+    },
+    {
+      "id": "cal03",
+      "anchor_id": "a02",
+      "anchor_ids": [
+        "a02"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第二步保持文字清晰",
+        "items": null
+      },
+      "window": {
+        "start_s": 3.94,
+        "end_s": 6.34
+      }
+    },
+    {
+      "id": "cal04",
+      "anchor_id": "a03",
+      "anchor_ids": [
+        "a03"
+      ],
+      "effect": "keyword",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.8,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "关键是不要追著人",
+        "items": null
+      },
+      "window": {
+        "start_s": 6.39,
+        "end_s": 8.55
+      }
+    },
+    {
+      "id": "cal06",
+      "anchor_id": "a05",
+      "anchor_ids": [
+        "a05"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "切换到第二个镜头",
+        "items": null
+      },
+      "window": {
+        "start_s": 10.99,
+        "end_s": 11.73
+      }
+    },
+    {
+      "id": "cal07",
+      "anchor_id": "a06",
+      "anchor_ids": [
+        "a06"
+      ],
+      "effect": "list",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.9,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第二个",
+        "items": null
+      },
+      "window": {
+        "start_s": 11.78,
+        "end_s": 12.71
+      }
+    },
+    {
+      "id": "cal09",
+      "anchor_id": "a08",
+      "anchor_ids": [
+        "a08"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "第三步重新计算安全区",
+        "items": null
+      },
+      "window": {
+        "start_s": 13.18,
+        "end_s": 15.94
+      }
+    },
+    {
+      "id": "cal10",
+      "anchor_id": "a09",
+      "anchor_ids": [
+        "a09"
+      ],
+      "effect": "number",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.92,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "80%",
+        "items": null
+      },
+      "window": {
+        "start_s": 15.99,
+        "end_s": 17.41
+      }
+    },
+    {
+      "id": "cal12",
+      "anchor_id": "a11",
+      "anchor_ids": [
+        "a11"
+      ],
+      "effect": "card",
+      "emphasis": "high",
+      "reason": "calibration_all_anchors",
+      "confidence": 0.62,
+      "decision_model": "rules-v1-calibration",
+      "content": {
+        "text": "结论是静态布局更稳",
+        "items": null
+      },
+      "window": {
+        "start_s": 18.48,
+        "end_s": 21.01
+      }
+    }
+  ],
+  "notes": {
+    "policy": "calibration: every non-plain anchor animated, windows tiled; used ONLY to measure timing, never presented as product output",
+    "skipped": [
+      {
+        "anchor_id": "a04",
+        "reason": "straddles_cut_at_9.00s_no_clean_room"
+      }
+    ],
+    "budget": null,
+    "overlay_coverage": 0.6515
+  },
+  "provenance": {
+    "method": "rule_engine (calibration)",
+    "decision_model": "rules-v1-calibration",
+    "anchor_count": 12,
+    "decided_count": 8
+  }
+}

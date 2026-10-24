@@ -1,6 +1,6 @@
 {
   "probe_version": "2",
-  "timestamp_utc": "2026-10-24T08:56:04Z",
+  "timestamp_utc": "2026-10-24T11:20:50Z",
   "project_root": "/Volumes/ZHITAI/SemanticMotion",
   "host": {
     "platform": "macOS-26.2-arm64-arm-64bit",
@@ -12,8 +12,8 @@
     "cpu": "Apple M4",
     "ncpu": 10,
     "mem_gb": 16,
-    "disk_free_gb_volume": 307,
-    "disk_free_gb_root": 3
+    "disk_free_gb_volume": 304,
+    "disk_free_gb_root": 21
   },
   "paths": {
     "ffmpeg": "/opt/homebrew/bin/ffmpeg",
@@ -118,7 +118,7 @@
   },
   "network": {
     "pypi": "200",
-    "huggingface": "200",
+    "huggingface": "000",
     "wikimedia_upload": "301",
     "github": "200"
   }

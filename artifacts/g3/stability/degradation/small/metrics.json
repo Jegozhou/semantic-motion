@@ -1,0 +1,262 @@
+{
+  "schema": "semotion.metrics/1",
+  "gate": "G3",
+  "input_sha256": "75ac1208c0860fa88e7deac17cbd7b5fd8bdd695fa7cbe74ce7616981353c181",
+  "ir_sha256": "0a20d1238f90ec6f12618add707f0b520339484bbda0abeaa64bbe72396dcdac",
+  "render_sha256": "a1b7e871f72042dff07870543c91f5693c1c17b9389f11d93f8f54745ac0741f",
+  "timing": {
+    "samples": 0,
+    "elements": 8,
+    "detected_onsets": 8,
+    "rows": [
+      {
+        "element_id": "el_cal01",
+        "effect": "list",
+        "text": "第一步",
+        "window_start_s": 2.12,
+        "rendered_onset_s": 2.12,
+        "anchor_start_s": 2.12,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 23.201,
+        "detect_threshold": 1.16
+      },
+      {
+        "element_id": "el_cal03",
+        "effect": "card",
+        "text": "第二步保持文字清晰",
+        "window_start_s": 3.92,
+        "rendered_onset_s": 3.92,
+        "anchor_start_s": 3.94,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 25.334,
+        "detect_threshold": 1.267
+      },
+      {
+        "element_id": "el_cal04",
+        "effect": "keyword",
+        "text": "关键是不要追著人",
+        "window_start_s": 6.4,
+        "rendered_onset_s": 6.44,
+        "anchor_start_s": 6.39,
+        "fidelity_ms": 50.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 32.63,
+        "detect_threshold": 16.315
+      },
+      {
+        "element_id": "el_cal06",
+        "effect": "card",
+        "text": "切换到第二个镜头",
+        "window_start_s": 11.0,
+        "rendered_onset_s": 11.0,
+        "anchor_start_s": 10.99,
+        "fidelity_ms": 10.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 20.782,
+        "detect_threshold": 1.039
+      },
+      {
+        "element_id": "el_cal07",
+        "effect": "list",
+        "text": "第二个",
+        "window_start_s": 11.76,
+        "rendered_onset_s": 11.76,
+        "anchor_start_s": 11.78,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 21.695,
+        "detect_threshold": 10.847
+      },
+      {
+        "element_id": "el_cal09",
+        "effect": "card",
+        "text": "第三步重新计算安全区",
+        "window_start_s": 13.2,
+        "rendered_onset_s": 13.2,
+        "anchor_start_s": 13.18,
+        "fidelity_ms": 20.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 25.179,
+        "detect_threshold": 1.259
+      },
+      {
+        "element_id": "el_cal10",
+        "effect": "number",
+        "text": "80%",
+        "window_start_s": 16.0,
+        "rendered_onset_s": 16.04,
+        "anchor_start_s": 15.99,
+        "fidelity_ms": 50.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 22.626,
+        "detect_threshold": 11.313
+      },
+      {
+        "element_id": "el_cal12",
+        "effect": "card",
+        "text": "结论是静态布局更稳",
+        "window_start_s": 18.48,
+        "rendered_onset_s": 18.48,
+        "anchor_start_s": 18.48,
+        "fidelity_ms": 0.0,
+        "target_onset_s": null,
+        "truth_unit": null,
+        "error_ms": null,
+        "detected": true,
+        "measurable_against_truth": false,
+        "peak_mean_abs_diff": 25.214,
+        "detect_threshold": 1.261
+      }
+    ],
+    "source": "none",
+    "threshold_p90_ms": 100.0,
+    "measurement": "localised per-element box diff (mean |Δ|) vs pre-window noise floor",
+    "fidelity": {
+      "samples": 8,
+      "p50_ms": 20.0,
+      "max_ms": 50.0
+    },
+    "p50_ms": null,
+    "p90_ms": null,
+    "max_ms": null,
+    "verdict": "NOT RUN",
+    "note": "truth file present but no element onset could be matched to an independent unit start (anchors inside longer units) — this is NOT RUN, not a pass and not an environment block"
+  },
+  "position": {
+    "subject_motion": {
+      "tracks": 1,
+      "max_center_displacement_px": 29.95,
+      "frames": 107,
+      "policy": "static_safe: overlay boxes are pinned and the face union is treated as an obstacle (no claim of visual tracking)",
+      "min_clearance_px": 53.0,
+      "clearance_samples": 32
+    },
+    "cut_safety": {
+      "shots": 2,
+      "violations": [],
+      "verdict": "PASS",
+      "policy": "an overlay must not straddle a camera cut (30 ms guard band)"
+    },
+    "planned": {
+      "face_overlap": {
+        "value": 0.0,
+        "hits": 0,
+        "samples": 32,
+        "threshold": 0.0,
+        "verdict": "PASS"
+      },
+      "out_of_bounds_elements": {
+        "value": 0.0,
+        "count": 0,
+        "threshold": 0,
+        "verdict": "PASS"
+      }
+    },
+    "observed": {
+      "face_overlap": {
+        "verdict": "NOT RUN",
+        "note": "canvas 320x568: re-encode noise is the same order as the overlay signal, so pixel-difference metrics are not reliable here — reported NOT RUN instead of a vacuous pass"
+      },
+      "out_of_bounds": {
+        "verdict": "NOT RUN",
+        "note": "canvas 320x568: re-encode noise is the same order as the overlay signal, so pixel-difference metrics are not reliable here — reported NOT RUN instead of a vacuous pass"
+      },
+      "windows_with_visible_change": 8,
+      "sampled_frames": 175
+    },
+    "raster_containment": {
+      "value": null,
+      "verdict": "NOT RUN",
+      "note": "canvas 320x568: re-encode noise is the same order as the overlay signal, so pixel-difference metrics are not reliable here — reported NOT RUN instead of a vacuous pass"
+    },
+    "collision": {
+      "value": 0.0,
+      "pairs": 0,
+      "compared_pairs": 0,
+      "threshold": 0.01,
+      "verdict": "PASS"
+    },
+    "face_detection": {
+      "faces_detected": 107,
+      "frames_with_faces": 107,
+      "note": "canvas 320x568: re-encode noise is the same order as the overlay signal, so pixel-difference metrics are not reliable here — reported NOT RUN instead of a vacuous pass"
+    },
+    "sampling": {
+      "stride_frames": 2,
+      "grid": "192px wide grayscale diff",
+      "observed_diff_threshold": 8.0,
+      "low_resolution": true
+    }
+  },
+  "render": {
+    "duration_src_s": 21.397,
+    "duration_rendered_s": 21.397,
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.04,
+    "frames_src": 534,
+    "frames_rendered": 534,
+    "audio": {
+      "src": {
+        "n_samples": 2054144,
+        "duration_s": 21.397333,
+        "rms_db": -21.655,
+        "peak_db": -6.392
+      },
+      "rendered": {
+        "n_samples": 2054144,
+        "duration_s": 21.397333,
+        "rms_db": -21.659,
+        "peak_db": -6.408
+      },
+      "duration_delta_s": 0.0,
+      "rms_delta_db": 0.004,
+      "method": "decoded PCM statistics (AAC re-encode prevents sample-exact identity)",
+      "pass": true
+    },
+    "verdict": "PASS"
+  },
+  "verdicts": {
+    "timing": "NOT RUN",
+    "position": "NOT RUN",
+    "render": "PASS"
+  },
+  "evidence": {
+    "source": "artifacts/g3/stability/degradation/small_source/small.mp4",
+    "rendered": "artifacts/g3/stability/degradation/small/render.mp4",
+    "truth": null,
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    }
+  }
+}

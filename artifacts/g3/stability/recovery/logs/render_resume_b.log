@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g3/stability/recovery/resume_b.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmp8qpeirpw.s16le
+
+
+render manifest: artifacts/g3/stability/recovery/render_manifest.json
+verdict: PASS

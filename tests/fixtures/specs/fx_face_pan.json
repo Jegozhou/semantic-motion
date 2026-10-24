@@ -1,0 +1,31 @@
+{
+  "id": "fx_face_pan",
+  "voice": "Tingting",
+  "rate": 175,
+  "width": 1080, "height": 1920, "fps": 25,
+  "gap_s": 0.3, "lead_in_s": 0.4, "tail_s": 0.6,
+  "scenes": [
+    {"palette": "studio_warm", "camera_motion": "slow_pan"},
+    {"palette": "studio_night", "camera_motion": "slow_zoom"}
+  ],
+  "cuts_at_s": [9.0],
+  "seed": 31,
+  "portrait": {
+    "path": "assets/media/portraits/obama_official.jpg",
+    "box": [206, 150, 668, 720],
+    "license": "CC BY 3.0 — Pete Souza, Official portrait of Barack Obama, Wikimedia Commons",
+    "note": "Real photographed face composited into generated artwork. TEST FIXTURE ONLY."
+  },
+  "purpose": "G3 stability: camera motion (pan + zoom) with a real moving face across a shot cut; used to test static-safe degradation and tracking residual reporting.",
+  "units": [
+    {"id": "u01", "text": "镜头开始移动", "role": "plain"},
+    {"id": "u02", "text": "第一步稳定画面", "role": "list_item"},
+    {"id": "u03", "text": "第二步保持文字清晰", "role": "list_item"},
+    {"id": "u04", "text": "关键是不要追着人跑", "role": "keyword"},
+    {"id": "u05", "text": "九成的抖动都能避免", "role": "number"},
+    {"id": "u06", "text": "切换到第二个镜头", "role": "plain"},
+    {"id": "u07", "text": "第三步重新计算安全区", "role": "list_item"},
+    {"id": "u08", "text": "百分之八十的误差在这里", "role": "number"},
+    {"id": "u09", "text": "结论是静态布局更稳", "role": "keyword"}
+  ]
+}

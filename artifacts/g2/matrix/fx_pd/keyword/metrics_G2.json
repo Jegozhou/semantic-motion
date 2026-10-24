@@ -2,7 +2,7 @@
   "schema": "semotion.metrics/1",
   "gate": "G2",
   "input_sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1",
-  "ir_sha256": "fc28169e478e041e379e6bf81bdef66d93530de595bb064ce700f5ba8af12814",
+  "ir_sha256": "de29238e407714de79d65dfe20477a1b07132b6f770fab5191e0ee5922899d15",
   "render_sha256": "b9879006a7b71f3955bb7a82a01e863c113522e2ea774cb7e11ec8cd604a6a16",
   "timing": {
     "samples": 0,
@@ -233,6 +233,20 @@
     "note": "truth file present but no element onset could be matched to an independent unit start (anchors inside longer units) — this is NOT RUN, not a pass and not an environment block"
   },
   "position": {
+    "subject_motion": {
+      "tracks": 1,
+      "max_center_displacement_px": 83.07,
+      "frames": 120,
+      "policy": "static_safe: overlay boxes are pinned and the face union is treated as an obstacle (no claim of visual tracking)",
+      "min_clearance_px": 45.0,
+      "clearance_samples": 30
+    },
+    "cut_safety": {
+      "shots": 1,
+      "violations": [],
+      "verdict": "PASS",
+      "policy": "an overlay must not straddle a camera cut (30 ms guard band)"
+    },
     "planned": {
       "face_overlap": {
         "value": 0.0,
@@ -288,7 +302,8 @@
     },
     "sampling": {
       "stride_frames": 3,
-      "grid": "192px wide grayscale diff"
+      "grid": "192px wide grayscale diff",
+      "observed_diff_threshold": 8.0
     }
   },
   "render": {

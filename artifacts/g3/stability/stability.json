@@ -1,0 +1,238 @@
+{
+  "schema": "semotion.stability/1",
+  "fixture": "fx_face_pan",
+  "created_utc": "2026-10-24T11:22:56Z",
+  "degradation": [
+    {
+      "name": "no_face_detected",
+      "schema": "semotion.motion-ir/1",
+      "elements": 8,
+      "validate_errors": [],
+      "all_boxes_in_canvas": true,
+      "degraded_elements": [],
+      "dropped_for_face_safety": [],
+      "warnings": [],
+      "render": "ok",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "out_of_bounds": 0.0,
+        "containment": 0.0
+      },
+      "metrics": "artifacts/g3/stability/degradation/no_face/metrics.json",
+      "verdict": "PASS"
+    },
+    {
+      "name": "face_covers_center",
+      "schema": "semotion.motion-ir/1",
+      "elements": 8,
+      "validate_errors": [],
+      "all_boxes_in_canvas": true,
+      "degraded_elements": [],
+      "dropped_for_face_safety": [],
+      "warnings": [],
+      "render": "ok",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "out_of_bounds": 0.0,
+        "containment": 0.0
+      },
+      "metrics": "artifacts/g3/stability/degradation/huge_face/metrics.json",
+      "verdict": "PASS"
+    },
+    {
+      "schema": "semotion.motion-ir/1",
+      "elements": 0,
+      "validate_errors": [],
+      "all_boxes_in_canvas": true,
+      "degraded_elements": [],
+      "dropped_for_face_safety": [
+        {
+          "decision": "cal01",
+          "reason": "no_face_free_space:2.8%"
+        },
+        {
+          "decision": "cal03",
+          "reason": "no_face_free_space:2.6%"
+        },
+        {
+          "decision": "cal04",
+          "reason": "no_face_free_space:2.9%"
+        },
+        {
+          "decision": "cal06",
+          "reason": "no_face_free_space:2.3%"
+        },
+        {
+          "decision": "cal07",
+          "reason": "no_face_free_space:2.8%"
+        },
+        {
+          "decision": "cal09",
+          "reason": "no_face_free_space:2.8%"
+        },
+        {
+          "decision": "cal10",
+          "reason": "no_face_free_space:1.6%"
+        },
+        {
+          "decision": "cal12",
+          "reason": "no_face_free_space:2.6%"
+        }
+      ],
+      "warnings": [
+        "el_cal01: layout degraded (no conflict-free slot; best zone=card face_overlap=2.8% occupied_overlap=0.0%)",
+        "el_cal01: dropped — degraded slot still covers 2.8% of the face-safe box",
+        "el_cal03: layout degraded (no conflict-free slot; best zone=card face_overlap=2.6% occupied_overlap=0.0%)",
+        "el_cal03: dropped — degraded slot still covers 2.6% of the face-safe box",
+        "el_cal04: layout degraded (no conflict-free slot; best zone=title face_overlap=2.9% occupied_overlap=0.0%)",
+        "el_cal04: dropped — degraded slot still covers 2.9% of the face-safe box",
+        "el_cal06: layout degraded (no conflict-free slot; best zone=card face_overlap=2.3% occupied_overlap=0.0%)",
+        "el_cal06: dropped — degraded slot still covers 2.3% of the face-safe box"
+      ],
+      "render": "ok",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "PASS",
+        "render": "PASS"
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": 0.0,
+        "out_of_bounds": 0.0,
+        "containment": 0.0
+      },
+      "metrics": "artifacts/g3/stability/degradation/full_face/metrics.json",
+      "verdict": "PASS",
+      "name": "face_covers_nearly_everything",
+      "degradation_exercised": true
+    },
+    {
+      "name": "small_canvas_320x568",
+      "schema": "semotion.motion-ir/1",
+      "elements": 8,
+      "validate_errors": [],
+      "all_boxes_in_canvas": true,
+      "degraded_elements": [],
+      "dropped_for_face_safety": [],
+      "warnings": [
+        "transcript.source.sha256 != source sha256 (ffd53944c3f9 vs 75ac1208c086)"
+      ],
+      "render": "ok",
+      "verdicts": {
+        "timing": "NOT RUN",
+        "position": "NOT RUN",
+        "render": "PASS"
+      },
+      "position": {
+        "planned_face": 0.0,
+        "observed_face": null,
+        "out_of_bounds": null,
+        "containment": null
+      },
+      "metrics": "artifacts/g3/stability/degradation/small/metrics.json",
+      "verdict": "PASS"
+    },
+    {
+      "name": "empty_plan_zero_motion",
+      "elements": 0,
+      "validate_errors": [],
+      "render": "ok",
+      "detail": {
+        "frames": 534,
+        "duration_s": 21.397
+      },
+      "verdict": "PASS"
+    }
+  ],
+  "partial_update": {
+    "verdict": "PASS",
+    "target_element": "el_cal03",
+    "original_text": "第二步保持文字清晰",
+    "edited_text": "第二步保持文字清晰（改）",
+    "ir_hash_changed": true,
+    "identical_ir_reproducible": {
+      "runs": 2,
+      "frames": [
+        534,
+        534
+      ],
+      "frame_hashes_equal": true,
+      "max_pixel_diff": 0.0,
+      "mean_pixel_diff": 0.0,
+      "verdict": "PASS",
+      "policy": "pixel-identical required (tolerance=0); byte-identical MP4 not required",
+      "sha256": [
+        "094d87c73321fd8cd21c5daa3a4498cbe2c015db43557008a1ee29adfbefe245",
+        "094d87c73321fd8cd21c5daa3a4498cbe2c015db43557008a1ee29adfbefe245"
+      ]
+    },
+    "outside_window_unchanged": true,
+    "outside_window_max_mean_diff": 0.0549,
+    "outside_frames_compared": 80,
+    "inside_window_changed": true,
+    "inside_max_mean_diff": 6.8632,
+    "invalid_edit_rejected": {
+      "errors": [
+        "el_cal03: layout.box [-50, -50, 200, 200] is not fully inside canvas 1080x1920"
+      ]
+    },
+    "artifacts": {
+      "base": "artifacts/g3/stability/partial/base.mp4",
+      "changed": "artifacts/g3/stability/partial/changed.mp4",
+      "changed_ir": "artifacts/g3/stability/partial/changed_ir.json"
+    }
+  },
+  "recovery": [
+    {
+      "name": "invalid_ir_refused",
+      "validation_errors": true,
+      "verdict": "PASS"
+    },
+    {
+      "name": "unwritable_destination",
+      "error_code": "OSError",
+      "partial_file_exists": false,
+      "verdict": "PASS"
+    },
+    {
+      "name": "corrupt_input_then_retry",
+      "error_code": "E_IR_INVALID",
+      "retry_ok": true,
+      "verdict": "PASS"
+    },
+    {
+      "name": "resume_after_failure_reproducible",
+      "runs": 2,
+      "frames": [
+        534,
+        534
+      ],
+      "frame_hashes_equal": true,
+      "max_pixel_diff": 0.0,
+      "mean_pixel_diff": 0.0,
+      "verdict": "PASS",
+      "policy": "pixel-identical required (tolerance=0); byte-identical MP4 not required",
+      "sha256": [
+        "094d87c73321fd8cd21c5daa3a4498cbe2c015db43557008a1ee29adfbefe245",
+        "094d87c73321fd8cd21c5daa3a4498cbe2c015db43557008a1ee29adfbefe245"
+      ]
+    }
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "verdict": "PASS"
+}

@@ -350,6 +350,18 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
                 planned_face_hits += 1
 
     # ---- observed geometry (changed pixels vs source)
+    # Compression noise scales inversely with resolution: at 320px wide a CRF-18
+    # re-encode alone can exceed a fixed |Δ|>8 gate and fake a full-frame "overlay".
+    noise_frames = [i for i in range(len(rendered))
+                    if not any(int(e["window"]["start_frame"]) - 2 <= i < int(e["window"]["end_frame"]) + 2
+                               for e in elements)]
+    if noise_frames:
+        nf = noise_frames[len(noise_frames) // 2]
+        base_d = np.abs(rendered[nf].astype(np.int32) - source[nf].astype(np.int32))
+        obs_thr = float(max(8.0, np.percentile(base_d, 99.5) * 1.5 + 4.0))
+    else:
+        obs_thr = 8.0
+
     obs_face_hits = 0
     obs_frames = 0
     obs_oob = 0
@@ -362,7 +374,7 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
         observed_any = False
         for fr in range(lo, hi, stride):
             d = np.abs(rendered[fr].astype(np.int32) - source[fr].astype(np.int32))
-            mask = d > 8
+            mask = d > obs_thr
             if not mask.any():
                 continue
             observed_any = True
@@ -423,7 +435,88 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
             d.update(extra)
         return d
 
+    # ---- subject motion + static-safe clearance + cut safety
+    tracks = vision.get("face_tracks") or []
+    motion = {"tracks": len(tracks), "max_center_displacement_px": 0.0, "frames": 0}
+    for tr in tracks:
+        fr = tr.get("frames") or []
+        if len(fr) < 2:
+            continue
+        cx = [f["box"][0] + f["box"][2] / 2.0 for f in fr]
+        cy = [f["box"][1] + f["box"][3] / 2.0 for f in fr]
+        disp = max((max(cx) - min(cx)) ** 2 + (max(cy) - min(cy)) ** 2,
+                   (max(cx) - min(cx)) ** 2) ** 0.5
+        motion["max_center_displacement_px"] = round(
+            max(motion["max_center_displacement_px"], disp), 2)
+        motion["frames"] = max(motion["frames"], len(fr))
+    motion["policy"] = ("static_safe: overlay boxes are pinned and the face union is treated "
+                       "as an obstacle (no claim of visual tracking)")
+
+    clearances: list[float] = []
+    for el in elements:
+        box = el["layout"]["box"]
+        wnd = el["window"]
+        for fr in range(int(wnd["start_frame"]), int(wnd["end_frame"]), max(1, int(fps // 2))):
+            for f in _nearest_faces(faces, fr):
+                dx = max(box[0] - (f[0] + f[2]), f[0] - (box[0] + box[2]), 0.0)
+                dy = max(box[1] - (f[1] + f[3]), f[1] - (box[1] + box[3]), 0.0)
+                clearances.append((dx * dx + dy * dy) ** 0.5)
+    motion["min_clearance_px"] = round(min(clearances), 2) if clearances else None
+    motion["clearance_samples"] = len(clearances)
+
+    shots = [s for s in (vision.get("shots") or []) if s.get("end_s")]
+    cut_violations = []
+    if len(shots) > 1:
+        cuts = [float(s["start_s"]) for s in shots[1:]]
+        for el in elements:
+            ws, we = float(el["window"]["start_s"]), float(el["window"]["end_s"])
+            for c in cuts:
+                if ws + 1e-6 < c < we - 1e-6:
+                    cut_violations.append({"element": el["id"], "cut_s": c})
+    cut_check = {
+        "shots": len(shots),
+        "violations": cut_violations,
+        "verdict": PASS if not cut_violations else FAIL,
+        "policy": "an overlay must not straddle a camera cut (30 ms guard band)",
+    }
+
+    low_res = width < 480 or height < 480
+    if low_res:
+        note = (f"canvas {width}x{height}: re-encode noise is the same order as the overlay "
+                "signal, so pixel-difference metrics are not reliable here — reported NOT RUN "
+                "instead of a vacuous pass")
+        return {
+            "subject_motion": motion,
+            "cut_safety": cut_check,
+            "planned": {
+                "face_overlap": {"value": round(planned_face_hits / planned_frames, 6) if planned_frames else 0.0,
+                                 "hits": planned_face_hits, "samples": planned_frames,
+                                 "threshold": FACE_OVERLAP_THRESHOLD,
+                                 "verdict": PASS if planned_face_hits == 0 else FAIL},
+                "out_of_bounds_elements": {"value": planned_oob / max(1, len(elements)),
+                                           "count": planned_oob, "threshold": 0,
+                                           "verdict": PASS if planned_oob == 0 else FAIL},
+            },
+            "observed": {"face_overlap": {"verdict": NOT_RUN, "note": note},
+                         "out_of_bounds": {"verdict": NOT_RUN, "note": note},
+                         "windows_with_visible_change": observed_windows,
+                         "sampled_frames": obs_frames},
+            "raster_containment": {"value": None, "verdict": NOT_RUN, "note": note},
+            "collision": {
+                "value": round(collision_pairs / compared, 6) if compared else 0.0,
+                "pairs": collision_pairs, "compared_pairs": compared,
+                "threshold": COLLISION_THRESHOLD,
+                "verdict": PASS if (not compared or collision_pairs / compared <= COLLISION_THRESHOLD) else FAIL,
+            },
+            "face_detection": {"faces_detected": sum(len(v) for v in faces.values()),
+                               "frames_with_faces": len(faces), "note": note},
+            "sampling": {"stride_frames": stride, "grid": "192px wide grayscale diff",
+                         "observed_diff_threshold": round(obs_thr, 2), "low_resolution": True},
+        }
+
     return {
+        "subject_motion": motion,
+        "cut_safety": cut_check,
         "planned": {
             "face_overlap": _rate(planned_face_hits, planned_frames, FACE_OVERLAP_THRESHOLD),
             "out_of_bounds_elements": {"value": planned_oob / max(1, len(elements)),
@@ -457,7 +550,8 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
                            "frames_with_faces": len(faces),
                            "note": "no faces detected ⇒ face metrics are vacuous PASS, "
                                    "reported as such in the gate report"},
-        "sampling": {"stride_frames": stride, "grid": "192px wide grayscale diff"},
+        "sampling": {"stride_frames": stride, "grid": "192px wide grayscale diff",
+                     "observed_diff_threshold": round(obs_thr, 2)},
     }
 
 
@@ -512,6 +606,7 @@ def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
             position["observed"]["out_of_bounds"]["verdict"],
             position["collision"]["verdict"],
             position["raster_containment"]["verdict"],
+            position["cut_safety"]["verdict"],
         ]),
         "render": render_check["verdict"],
     }

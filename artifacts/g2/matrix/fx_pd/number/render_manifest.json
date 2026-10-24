@@ -1,6 +1,6 @@
 {
   "schema": "semotion.render/1",
-  "ir_sha256": "797b590a973be98d2ae7f36f3e03e6f5fadfcd5dd85656f2409358031745107f",
+  "ir_sha256": "9d46cb2478bd8efb56ccf65325dbc10d2580307f0edf1dacebf87f545ef1ee31",
   "source": {
     "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4",
     "sha256": "818053e086e3f07157089f96f4110952af8eaec89a288a610bf1c752b2697ee1"
@@ -29,7 +29,7 @@
   },
   "overlay": {
     "fps": 30.0,
-    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_pd_real_16x9_a_number_797b590a973b",
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_pd_real_16x9_a_number_9d46cb2478bd",
     "rendered_frames": 28,
     "empty_frames": 0,
     "elements": [
@@ -40,13 +40,13 @@
         "start_frame": 350,
         "end_frame": 378,
         "frames": 28,
-        "frames_dir": "artifacts/tmp/render_fx_pd_real_16x9_a_number_797b590a973b/el_nu01"
+        "frames_dir": "artifacts/tmp/render_fx_pd_real_16x9_a_number_9d46cb2478bd/el_nu01"
       }
     ],
     "frames_retained": false
   },
   "commands": [
-    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4 -framerate 30 -start_number 350 -i artifacts/tmp/render_fx_pd_real_16x9_a_number_797b590a973b/el_nu01/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+11.666667/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.666667)*lt(t,12.600000)'\"'\"'[v0];[v0]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 30 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_pd/number/fx_pd_real_16x9_a_number.mp4"
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_pd_real_16x9_a/fx_pd_real_16x9_a.mp4 -framerate 30 -start_number 350 -i artifacts/tmp/render_fx_pd_real_16x9_a_number_9d46cb2478bd/el_nu01/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+11.666667/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.666667)*lt(t,12.600000)'\"'\"'[v0];[v0]format=yuv420p[vout]' -map '[vout]' -map '0:a?' -r 30 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g2/matrix/fx_pd/number/fx_pd_real_16x9_a_number.mp4"
   ],
   "command_argv": [
     "ffmpeg",
@@ -61,7 +61,7 @@
     "-start_number",
     "350",
     "-i",
-    "artifacts/tmp/render_fx_pd_real_16x9_a_number_797b590a973b/el_nu01/f%05d.png",
+    "artifacts/tmp/render_fx_pd_real_16x9_a_number_9d46cb2478bd/el_nu01/f%05d.png",
     "-filter_complex",
     "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+11.666667/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,11.666667)*lt(t,12.600000)'[v0];[v0]format=yuv420p[vout]",
     "-map",
@@ -92,7 +92,7 @@
     "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
     "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
   },
-  "created_utc": "2026-10-24T10:45:58Z",
+  "created_utc": "2026-10-24T11:22:43Z",
   "preview": false,
   "checks": {
     "duration_delta_s": 0.0,

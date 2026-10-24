@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -i tests/fixtures/clips/fx_face_pan/_work/u02.aiff -ac 1 -ar 48000 -c:a pcm_s16le tests/fixtures/clips/fx_face_pan/_work/u02.wav
+

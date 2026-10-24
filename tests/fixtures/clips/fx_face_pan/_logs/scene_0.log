@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -loop 1 -framerate 25.0 -i tests/fixtures/clips/fx_face_pan/_work/bg_0_portrait.png -t 9.0000 -vf 'zoompan=z='"'"'1.08'"'"':x='"'"'(iw-iw/zoom)*(on/(225*1.0))'"'"':y='"'"'ih/2-(ih/zoom/2)'"'"':d=1:s=1080x1920:fps=25.0,format=yuv420p' -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p -g 25 tests/fixtures/clips/fx_face_pan/_work/scene_0.mp4
+

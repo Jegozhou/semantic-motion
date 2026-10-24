@@ -1,7 +1,7 @@
 {
   "schema": "semotion.number_check/2",
-  "video": "artifacts/g1/final_product/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
-  "ir": "artifacts/g1/final_product/fx_d_zh_portrait/motion_ir.json",
+  "video": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/final_product/fx_d_zh_portrait/fx_d_zh_portrait_motion.mp4",
+  "ir": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/final_product/fx_d_zh_portrait/motion_ir.json",
   "checks": [
     {
       "element_id": "el_d05",

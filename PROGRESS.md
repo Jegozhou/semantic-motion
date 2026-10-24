@@ -1,7 +1,7 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：G0 PASS；G1 PASS（校准集 56 事件 P90=50.15 ms）；**G2 PASS**（四类动效矩阵 + 真实人脸避脸 0/198 + 数值确定性校验）；G3 进行中。
+> 最近更新：G0 / G1 / G2 / **G3 全部 PASS**；自动回归 11/11（`artifacts/regression/summary.json`）；G4 进行中。
 
 ## 0. 当前状态一屏
 
@@ -10,8 +10,8 @@
 | **G0 预检与基线** | **PASS** | `ENVIRONMENT.md`、`artifacts/env/env_probe.json`、`artifacts/g0/baseline_report.json`（verdict=PASS）、`reports/gate-G0.md` |
 | G1 最小语义闭环 | **PASS** | 链路已打通：`artifacts/g1/runner/gate_summary.json`（fx_a：timing/position/render PASS，n=3 探索性）、`artifacts/g1/pd_a/`（真实人脸素材：position/render PASS）；**待 ≥50 独立事件校准素材** |
 | G2 四类动效 | **PASS** | `reports/gate-G2.md`；20 格动效矩阵、真实人脸 198 帧遮脸 0、数值确定性校验全 PASS |
-| G3 高级稳定性 | **IN PROGRESS** | 依赖 G2（已完成）；镜头/运动降级、局部重渲染、异常恢复、回归 |
-| G4 完整交付 | NOT RUN | 依赖 G3 |
+| G3 高级稳定性 | **PASS** | `reports/gate-G3.md`；切镜安全 0 违规、人脸位移 103px/净距 192px、5 个降级场景、局部修改、4 类异常恢复、自动回归 11/11 |
+| G4 完整交付 | **IN PROGRESS** | 依赖 G3（已完成）；Skill 入口、指南、许可终审 |
 
 预算：本地零付费；已用磁盘 < 2 GB（不含 1.42 GB whisper medium 缓存，位于 `/Volumes/ZHITAI/models` 与 `~/.cache/whisper`）；并发子智能体 2（上限 3）。
 
@@ -81,6 +81,18 @@
 | 真实人脸避脸 | fx_face：人脸 125/125 帧检出；**观测遮挡 0/198 帧**、越界 0、包含性 0 | `artifacts/g2/face_stress/fx_face_zh_portrait/metrics.json` |
 | 数值语义 | 确定性复算（期望 vs 半值对照）全部 PASS | 各 `number_check.json`（schema v2） |
 | 两条不同素材成片 | fx_a（合成）+ fx_pd_real_16x9_a（公有领域真人）+ fx_face（真人肖像合成） | `artifacts/g2/matrix/` |
+| 回归测试 | 92 passed | `.venv/bin/python -m pytest tests/ -q` |
+
+## 1.7 G3 最终验收（PASS，2026-10-24 19:2x）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| 镜头变化 | fx_face_pan（2 镜头，9.0 s 切点）：跨切点覆层 **0**；修复"延后导致 601 ms 脱节"→ max 27.94 ms | `artifacts/g3/pan/fx_face_pan/metrics.json` |
+| 人物运动 | 人脸中心位移 103.41 px；覆层固定、最小净距 192 px；遮脸 0/175 帧（static-safe，不宣称跟随） | 同上 |
+| 自动降级 | 5 场景全 PASS：无人脸 / 人脸居中 / 人脸近满屏（丢弃全部覆层）/ 320×568 小画幅（像素指标 NOT RUN）/ 空计划透传 | `artifacts/g3/stability/stability.json` |
+| 局部修改 | 单元素编辑：窗内 6.86、窗外 0.0549；非法修改被拒；原 IR 回退逐帧一致 | 同上 `partial_update` |
+| 异常恢复 | 非法 IR / 不可写目标 / 损坏输入 / 失败续跑：4/4 | 同上 `recovery` |
+| 自动回归 | **11/11 步骤 PASS，3 分 42 秒** | `artifacts/regression/summary.json` |
 | 回归测试 | 92 passed | `.venv/bin/python -m pytest tests/ -q` |
 
 ## 2. 进行中（G1 过程记录，保留）

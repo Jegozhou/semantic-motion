@@ -1,0 +1,220 @@
+{
+  "schema": "semotion.regression/1",
+  "gate": "G3",
+  "created_utc": "2026-10-24T11:24:03Z",
+  "quick": false,
+  "steps": [
+    {
+      "step": "pytest",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/",
+        "-q"
+      ],
+      "exit": 0,
+      "seconds": 28.4,
+      "stdout_tail": "........................................................................ [ 78%]\n....................                                                     [100%]\n92 passed in 28.29s\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "env_probe",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/env_probe.py",
+        "artifacts/env/env_probe.json"
+      ],
+      "exit": 0,
+      "seconds": 16.8,
+      "stdout_tail": "OK -> artifacts/env/env_probe.json (4440 bytes)\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "baseline",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "-m",
+        "semotion.cli",
+        "baseline",
+        "run",
+        "--input",
+        "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+        "--out",
+        "artifacts/g0"
+      ],
+      "exit": 0,
+      "seconds": 2.6,
+      "stdout_tail": "{\n  \"verdict\": \"PASS\",\n  \"outputs\": {\n    \"remux\": {\n      \"path\": \"artifacts/g0/baseline_remux.mp4\",\n      \"sha256\": \"15ccc9a9d82cadca62258fd643f33d5db15b038b0aea23ec6e317745b27790f0\",\n      \"size_bytes\": 985609\n    },\n    \"reencode\": {\n      \"path\": \"artifacts/g0/baseline_reencode.mp4\",\n      \"sha256\": \"e48ba4f4e279b5da567202867ba150607f7edd31d8d054a446bc35d87230b691\",\n      \"size_bytes\": 593157\n    }\n  }\n}\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "gate_g1_calibration",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/gate_runner.py",
+        "--gate",
+        "G1",
+        "--out",
+        "artifacts/g1/final_calibration",
+        "--fixtures",
+        "fx_t1_zh_phrase",
+        "fx_t2_zh_phrase",
+        "fx_t3_zh_phrase",
+        "--style",
+        "calibration"
+      ],
+      "exit": 0,
+      "seconds": 28.1,
+      "stdout_tail": "gate summary -> artifacts/g1/final_calibration/gate_summary.json\n  fx_t1_zh_phrase          {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  fx_t2_zh_phrase          {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  fx_t3_zh_phrase          {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  pooled timing  n=56 p50=18.7ms p90=50.15ms max=86.15ms -> PASS (P90 claim)\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "gate_g1_product",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/gate_runner.py",
+        "--gate",
+        "G1",
+        "--out",
+        "artifacts/g1/final_product",
+        "--fixtures",
+        "fx_a_zh_portrait",
+        "fx_b_zh_landscape",
+        "fx_c_zh_cuts",
+        "fx_d_zh_portrait",
+        "fx_e_zh_landscape",
+        "--determinism"
+      ],
+      "exit": 0,
+      "seconds": 33.7,
+      "stdout_tail": "gate summary -> artifacts/g1/final_product/gate_summary.json\n  fx_a_zh_portrait         {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  fx_b_zh_landscape        {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  fx_c_zh_cuts             {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  fx_d_zh_portrait         {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  fx_e_zh_landscape        {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  pooled timing  n=19 p50=16.83ms p90=22.04ms max=24.87ms -> PASS (exploratory only (<50 independent events))\n  determinism    PASS (frame_hashes_equal=True)\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "effect_matrix_fx_face",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/effect_matrix.py",
+        "--fixture",
+        "fx_face_zh_portrait",
+        "--out",
+        "artifacts/g2/matrix/fx_face"
+      ],
+      "exit": 0,
+      "seconds": 23.7,
+      "stdout_tail": "[matrix] fx_face_zh_portrait / keyword ...\n[matrix] fx_face_zh_portrait / number ...\n[matrix] fx_face_zh_portrait / list ...\n[matrix] fx_face_zh_portrait / card ...\n[matrix] fx_face_zh_portrait / combo ...\n  keyword  elements=6 {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 3, 'p50_ms': 19.35, 'p90_ms': 77.37, 'max_ms': 77.37} num=None\n  number   elements=3 {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 1, 'p50_ms': 29.08, 'p90_ms': 29.08, 'max_ms': 29.08} num=PASS\n  list     elements=1 {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 1, 'p50_ms': 2.67, 'p90_ms': 2.67, 'max_ms': 2.67} num=None\n  card     elements=5 {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 5, 'p50_ms': 19.35, 'p90_ms': 44.1, 'max_ms': 44.1} num=None\n  combo    elements=13 {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 8, 'p50_ms': 24.21, 'p90_ms': 51.4, 'max_ms': 84.1} num=PASS\nmatrix -> artifacts/g2/matrix/fx_face/matrix.json\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "effect_matrix_fx_pd",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/effect_matrix.py",
+        "--fixture",
+        "fx_pd_real_16x9_a",
+        "--out",
+        "artifacts/g2/matrix/fx_pd"
+      ],
+      "exit": 0,
+      "seconds": 15.2,
+      "stdout_tail": "[matrix] fx_pd_real_16x9_a / keyword ...\n[matrix] fx_pd_real_16x9_a / number ...\n[matrix] fx_pd_real_16x9_a / list ...\n[matrix] fx_pd_real_16x9_a / card ...\n[matrix] fx_pd_real_16x9_a / combo ...\n  keyword  elements=13 {'timing': 'NOT RUN', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 0, 'p50_ms': None, 'p90_ms': None, 'max_ms': None} num=None\n  number   elements=1 {'timing': 'NOT RUN', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 0, 'p50_ms': None, 'p90_ms': None, 'max_ms': None} num=PASS\n  list     elements=None NO_ANCHORS timing=None num=None\n  card     elements=None NO_ANCHORS timing=None num=None\n  combo    elements=14 {'timing': 'NOT RUN', 'position': 'PASS', 'render': 'PASS'} timing={'samples': 0, 'p50_ms': None, 'p90_ms': None, 'max_ms': None} num=PASS\nmatrix -> artifacts/g2/matrix/fx_pd/matrix.json\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "gate_g2_face_stress",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/gate_runner.py",
+        "--gate",
+        "G2",
+        "--out",
+        "artifacts/g2/face_stress",
+        "--fixtures",
+        "fx_face_zh_portrait",
+        "--style",
+        "calibration"
+      ],
+      "exit": 0,
+      "seconds": 6.2,
+      "stdout_tail": "gate summary -> artifacts/g2/face_stress/gate_summary.json\n  fx_face_zh_portrait      {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  pooled timing  n=8 p50=24.21ms p90=51.4ms max=84.1ms -> PASS (exploratory only (<50 independent events))\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "g3_stability",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/g3_stability.py",
+        "--out",
+        "artifacts/g3/stability"
+      ],
+      "exit": 0,
+      "seconds": 56.1,
+      "stdout_tail": "  degradation no_face_detected         PASS elements=8 degraded=0\n  degradation face_covers_center       PASS elements=8 degraded=0\n  degradation face_covers_nearly_everything PASS elements=0 degraded=0\n  degradation small_canvas_320x568     PASS elements=8 degraded=0\n  degradation empty_plan_zero_motion   PASS elements=0 degraded=0\n  partial_update            PASS\n  recovery invalid_ir_refused               PASS\n  recovery unwritable_destination           PASS\n  recovery corrupt_input_then_retry         PASS\n  recovery resume_after_failure_reproducible PASS\nPASS -> artifacts/g3/stability/stability.json\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "gate_g3_motion",
+      "argv": [
+        "/Volumes/ZHITAI/SemanticMotion/.venv/bin/python",
+        "scripts/gate_runner.py",
+        "--gate",
+        "G3",
+        "--out",
+        "artifacts/g3/pan",
+        "--fixtures",
+        "fx_face_pan",
+        "--style",
+        "calibration"
+      ],
+      "exit": 0,
+      "seconds": 6.7,
+      "stdout_tail": "gate summary -> artifacts/g3/pan/gate_summary.json\n  fx_face_pan              {'timing': 'PASS', 'position': 'PASS', 'render': 'PASS'}\n  pooled timing  n=5 p50=24.48ms p90=27.94ms max=27.94ms -> PASS (exploratory only (<50 independent events))\n",
+      "stderr_tail": "",
+      "verdict": "PASS"
+    },
+    {
+      "step": "numeric_semantics",
+      "verdict": "PASS",
+      "details": [
+        {
+          "fixture": "fx_a_zh_portrait",
+          "verdict": "PASS"
+        },
+        {
+          "fixture": "fx_b_zh_landscape",
+          "verdict": "PASS"
+        },
+        {
+          "fixture": "fx_c_zh_cuts",
+          "verdict": "PASS"
+        },
+        {
+          "fixture": "fx_d_zh_portrait",
+          "verdict": "PASS"
+        },
+        {
+          "fixture": "fx_e_zh_landscape",
+          "verdict": "PASS"
+        }
+      ]
+    }
+  ],
+  "verdict": "PASS",
+  "counts": {
+    "PASS": 11
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

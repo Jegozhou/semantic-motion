@@ -103,14 +103,11 @@ def _apply_shot_policy(decisions: list[dict], vision: dict, skipped: list[dict])
             d["notes"] = f"trimmed_before_cut_at_{nxt:.2f}s"
             out.append(d)
             continue
-        # the anchor itself sits on the cut: start after the cut instead
-        shifted_start = nxt + CUT_GUARD_S
-        if we - shifted_start >= MIN_ELEMENT_AFTER_GUARD_S:
-            d = {**d, "window": {"start_s": round(shifted_start, 6), "end_s": round(we, 6)}}
-            d["notes"] = f"shifted_after_cut_at_{nxt:.2f}s"
-            out.append(d)
-            continue
-        skipped.append({"anchor_id": d["anchor_id"], "reason": f"crosses_cut_at_{nxt:.2f}s"})
+        # No clean room before the cut: skip the element. Shifting the window past
+        # the cut would desync the overlay from the spoken word (a 600 ms error),
+        # which is worse than not showing it at all.
+        skipped.append({"anchor_id": d["anchor_id"],
+                        "reason": f"straddles_cut_at_{nxt:.2f}s_no_clean_room"})
     return out
 
 
@@ -214,7 +211,7 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
         return base * (0.5 + conf) + length_bonus
 
     if calibration:
-        return _calibration_plan(items, canvas, duration)
+        return _calibration_plan(items, canvas, duration, vision)
 
     # Pre-filter: drop filler words; keep at most one loose keyword per ASR segment
     # so a single sentence cannot produce a stack of one-word overlays.
@@ -467,7 +464,8 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
     return plan
 
 
-def _calibration_plan(items: list[dict], canvas: dict, duration: float) -> dict:
+def _calibration_plan(items: list[dict], canvas: dict, duration: float,
+                      vision: dict | None = None) -> dict:
     """One element per non-plain anchor, windows tiled so they never overlap."""
     rows = [a for a in items if a.get("kind") not in (None, "", "plain")
             and _conf(a) >= MIN_CONFIDENCE]
@@ -494,6 +492,9 @@ def _calibration_plan(items: list[dict], canvas: dict, duration: float) -> dict:
             "content": {"text": to_simplified(a.get("text", "")), "items": None},
             "window": {"start_s": round(start, 6), "end_s": round(end, 6)},
         })
+    skipped: list[dict] = []
+    decisions = _apply_shot_policy(decisions, vision or {}, skipped)
+
     return {
         "schema": "semotion.plan/1",
         "style": STYLE_CALIBRATION,
@@ -504,7 +505,7 @@ def _calibration_plan(items: list[dict], canvas: dict, duration: float) -> dict:
         "notes": {
             "policy": "calibration: every non-plain anchor animated, windows tiled; "
                       "used ONLY to measure timing, never presented as product output",
-            "skipped": [],
+            "skipped": skipped,
             "budget": None,
             "overlay_coverage": round(sum(
                 d["window"]["end_s"] - d["window"]["start_s"] for d in decisions) / max(duration, 1e-6), 4),

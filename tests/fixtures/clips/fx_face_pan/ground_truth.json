@@ -1,0 +1,173 @@
+{
+  "fixture_id": "fx_face_pan",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_face_pan/fx_face_pan.mp4",
+  "abs_path": "tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4",
+  "sha256": "ffd53944c3f9821704b6be632444e3462ea1354737fb50baf244e779d47e3759",
+  "duration_s": 21.381,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25.0,
+  "n_frames": 534,
+  "language": "zh",
+  "voice": "Tingting",
+  "rate": 175,
+  "camera_motion": [
+    "slow_pan",
+    "slow_zoom"
+  ],
+  "palette": [
+    "studio_warm",
+    "studio_night"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 9.0,
+      "start_frame": 0,
+      "end_frame": 225
+    },
+    {
+      "index": 1,
+      "start_s": 9.0,
+      "end_s": 21.380833,
+      "start_frame": 225,
+      "end_frame": 535
+    }
+  ],
+  "design": "generated graphic artwork with a real portrait photo composited in",
+  "portrait": {
+    "path": "assets/media/portraits/obama_official.jpg",
+    "box": [
+      206,
+      150,
+      668,
+      720
+    ],
+    "license": "CC BY 3.0 — Pete Souza, Official portrait of Barack Obama, Wikimedia Commons",
+    "note": "Real photographed face composited into generated artwork. TEST FIXTURE ONLY."
+  },
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "镜头开始移动",
+      "role": "plain",
+      "start_s": 0.4,
+      "end_s": 1.809979,
+      "start_frame": 10,
+      "end_frame": 45,
+      "duration_s": 1.409979,
+      "audio_sha256": "023eb844214e0b69f66e429c85829c4ea8f145081429931bc9c42e0c0faf68df",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "第一步稳定画面",
+      "role": "list_item",
+      "start_s": 2.109979,
+      "end_s": 3.635562,
+      "start_frame": 53,
+      "end_frame": 91,
+      "duration_s": 1.525583,
+      "audio_sha256": "728bbabf3c71ce76897052dd2b9b0045f75cbde37c114ade6f816d1ab0715376",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "第二步保持文字清晰",
+      "role": "list_item",
+      "start_s": 3.935562,
+      "end_s": 6.088083,
+      "start_frame": 98,
+      "end_frame": 152,
+      "duration_s": 2.152521,
+      "audio_sha256": "34f0260c58b197c34b617140a47681ae445c3c802011143f022f09d87bfbc176",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "关键是不要追着人跑",
+      "role": "keyword",
+      "start_s": 6.388083,
+      "end_s": 8.418792,
+      "start_frame": 160,
+      "end_frame": 210,
+      "duration_s": 2.030708,
+      "audio_sha256": "5ef41038d4e6d660a8778fcb248efe2dbb24aed12fec944c50dccf681d84439e",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "九成的抖动都能避免",
+      "role": "number",
+      "start_s": 8.718792,
+      "end_s": 10.674458,
+      "start_frame": 218,
+      "end_frame": 267,
+      "duration_s": 1.955667,
+      "audio_sha256": "e2816fee724e09767037ab6c4469a1c1b76a2b0dd8109bb055690cc39dae46dc",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "切换到第二个镜头",
+      "role": "plain",
+      "start_s": 10.974458,
+      "end_s": 12.872063,
+      "start_frame": 274,
+      "end_frame": 322,
+      "duration_s": 1.897604,
+      "audio_sha256": "b019d23c86605341faf1772a7a016edfd30c0ab72c6b8b632447bb6a4f1f475e",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "第三步重新计算安全区",
+      "role": "list_item",
+      "start_s": 13.172063,
+      "end_s": 15.6845,
+      "start_frame": 329,
+      "end_frame": 392,
+      "duration_s": 2.512437,
+      "audio_sha256": "b638accb15fa3e71c050107ab537f48498487ec9ee2d133377e4cc45ef9b875f",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u08",
+      "text": "百分之八十的误差在这里",
+      "role": "number",
+      "start_s": 15.9845,
+      "end_s": 18.155521,
+      "start_frame": 400,
+      "end_frame": 454,
+      "duration_s": 2.171021,
+      "audio_sha256": "dcf0709e62d42bb71f4b5c805c16d156dece8c8d0592e07d92316d63fe1c714d",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u09",
+      "text": "结论是静态布局更稳",
+      "role": "keyword",
+      "start_s": 18.455521,
+      "end_s": 20.480833,
+      "start_frame": 461,
+      "end_frame": 512,
+      "duration_s": 2.025313,
+      "audio_sha256": "b9d78aa58c67794ce1f0842cd197423ac3be773c3998e55d424eb57b42d0cd3c",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.4,
+    "gap_s": 0.3,
+    "tail_s": 0.6,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

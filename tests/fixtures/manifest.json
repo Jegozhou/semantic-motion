@@ -2,7 +2,7 @@
   "schema": "semotion.manifest/1",
   "contract": "contracts-1.0.0",
   "created_utc": "2026-10-24T17:45:00Z",
-  "updated_utc": "2026-10-24T17:56:00Z",
+  "updated_utc": "2026-10-24T11:16:42Z",
   "owner": "speech-vision",
   "paths_are_relative_to": "project root",
   "split_policy": {
@@ -14,7 +14,9 @@
       "fx_e_zh_landscape",
       "fx_test_cuts",
       "fx_pd_real_16x9_a",
-      "fx_pd_real_16x9_b"
+      "fx_pd_real_16x9_b",
+      "fx_face_zh_portrait",
+      "fx_face_pan"
     ],
     "calibration": [
       "fx_t1_zh_phrase",
@@ -30,9 +32,9 @@
     "MACHINE_WEAK": "ASR/model output — development regression only, never an independent truth"
   },
   "counts": {
-    "fixtures": 11,
+    "fixtures": 13,
     "synth_known_clips": 9,
-    "synth_known_units": 129,
+    "synth_known_units": 150,
     "calibration_clips": 3,
     "calibration_units": 60,
     "real_pd_clips": 2,
@@ -915,6 +917,170 @@
       ],
       "timing_truth": false,
       "note": "No human word-level labels. Per spec §5, MACHINE_WEAK transcripts are development regression only, never an independent timing truth."
+    },
+    {
+      "id": "fx_face_zh_portrait",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "purpose": "G2 face-avoidance fixture (Chinese speech + real photographed face)",
+      "path": "tests/fixtures/clips/fx_face_zh_portrait/fx_face_zh_portrait.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_face_zh_portrait/ground_truth.json",
+      "sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf",
+      "duration_s": 24.92,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 623,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; unit onsets measured during assembly (never from ASR)",
+        "voice": "Tingting (zh_CN), 175 wpm",
+        "visuals": "program-generated background with a composited CC BY 3.0 portrait photo (rounded card); TEST FIXTURE ONLY",
+        "spec": "tests/fixtures/specs/fx_face_zh_portrait.json"
+      },
+      "license": "composite: generated artwork (project) + portrait photo CC BY 3.0 (Pete Souza, Official portrait of Barack Obama, Wikimedia Commons)",
+      "summary": "9:16 Chinese clip with a real detectable face plus numbers, a three-step list and keyword/card lines, so all four P1 effects can be checked against a genuine face box.",
+      "person_position": "real photographed face composited into generated artwork; YuNet face union reported under face_detection",
+      "camera_motion": [
+        "static"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 24.928479,
+          "start_frame": 0,
+          "end_frame": 623
+        }
+      ],
+      "label_types": [
+        "speech",
+        "unit_time"
+      ],
+      "units": {
+        "count": 12,
+        "roles": {
+          "plain": 3,
+          "number": 3,
+          "list_item": 3,
+          "keyword": 3
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 125,
+          "face_tracks": 1
+        },
+        "face_union": [
+          471,
+          374,
+          284,
+          357
+        ],
+        "note": "real photographed face; detected by YuNet for face-avoidance tests"
+      },
+      "usable_for": [
+        "face protection / avoid-face layout with real detectable face",
+        "G2 effect matrix (keyword/number/list/card) on a real face",
+        "timing calibration (SYNTH_KNOWN unit onsets)"
+      ],
+      "timing_truth": true,
+      "not_usable_for": [
+        "real footage claims (this is a photograph composited into generated artwork)",
+        "aesthetics sign-off (no human review)",
+        "holdout evaluation (fixture is dev)"
+      ]
+    },
+    {
+      "id": "fx_face_pan",
+      "kind": "SYNTH_KNOWN",
+      "truth_class": "SYNTH_KNOWN",
+      "split": "dev",
+      "purpose": "G3 stability fixture: camera pan+zoom across a shot cut with a moving real face",
+      "path": "tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4",
+      "ground_truth": "tests/fixtures/clips/fx_face_pan/ground_truth.json",
+      "sha256": "ffd53944c3f9821704b6be632444e3462ea1354737fb50baf244e779d47e3759",
+      "duration_s": 21.381,
+      "width": 1080,
+      "height": 1920,
+      "aspect": "9:16",
+      "fps": 25.0,
+      "n_frames": 534,
+      "language": "zh",
+      "source": {
+        "type": "synthetic_tts",
+        "detail": "macOS `say` per-unit TTS concatenated with fixed silence gaps; unit onsets measured during assembly (never from ASR)",
+        "voice": "Tingting (zh_CN), 175 wpm",
+        "visuals": "program-generated two-shot scene (slow pan, then slow zoom) with a composited CC BY 3.0 portrait photo; TEST FIXTURE ONLY",
+        "spec": "tests/fixtures/specs/fx_face_pan.json"
+      },
+      "license": "composite: generated artwork (project) + portrait photo CC BY 3.0 (Pete Souza, Official portrait of Barack Obama, Wikimedia Commons)",
+      "summary": "9:16 two-shot clip (cut at 9.0 s) with camera motion and a moving real face; used for cut-safety, static-safe layout and subject-motion residual reporting.",
+      "person_position": "real photographed face composited into generated artwork; YuNet face union reported under face_detection",
+      "camera_motion": [
+        "slow_pan",
+        "slow_zoom"
+      ],
+      "shots": [
+        {
+          "index": 0,
+          "start_s": 0.0,
+          "end_s": 9.0,
+          "start_frame": 0,
+          "end_frame": 225
+        },
+        {
+          "index": 1,
+          "start_s": 9.0,
+          "end_s": 21.380833,
+          "start_frame": 225,
+          "end_frame": 535
+        }
+      ],
+      "label_types": [
+        "speech",
+        "unit_time"
+      ],
+      "units": {
+        "count": 9,
+        "roles": {
+          "plain": 2,
+          "list_item": 3,
+          "keyword": 2,
+          "number": 2
+        },
+        "truth_source": "SYNTH_KNOWN: per-unit TTS assembly, ffprobe-measured; never derived from ASR"
+      },
+      "face_detection": {
+        "measured": {
+          "faces": 107,
+          "face_tracks": 1
+        },
+        "face_union": [
+          435,
+          242,
+          359,
+          418
+        ],
+        "note": "real photographed face; detected by YuNet for face-avoidance tests"
+      },
+      "usable_for": [
+        "camera motion (pan/zoom) robustness",
+        "shot-cut safety",
+        "static-safe degradation",
+        "subject-motion residual reporting",
+        "timing calibration (SYNTH_KNOWN unit onsets)"
+      ],
+      "timing_truth": true,
+      "not_usable_for": [
+        "real footage claims (photograph composited into generated artwork)",
+        "aesthetics sign-off (no human review)",
+        "holdout evaluation (fixture is dev)"
+      ]
     }
   ]
 }

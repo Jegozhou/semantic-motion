@@ -1,4 +1,4 @@
-$ ffmpeg -v error -y -i artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmp8nfsohhe.s16le
+$ ffmpeg -v error -y -i artifacts/g2/matrix/fx_face/number/fx_face_zh_portrait_number.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpj03psgei.s16le
 
 
 render manifest: artifacts/g2/matrix/fx_face/number/render_manifest.json

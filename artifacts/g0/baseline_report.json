@@ -2,7 +2,7 @@
   "gate": "G0",
   "input": {
     "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
-    "sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
     "info": {
       "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
       "duration": 24.2,
@@ -14,19 +14,20 @@
       "n_video_streams": 1,
       "n_audio_streams": 1,
       "rotation": 0,
-      "raw": null
+      "raw": null,
+      "stream_frames": 605
     }
   },
   "outputs": {
     "remux": {
       "path": "artifacts/g0/baseline_remux.mp4",
-      "sha256": "087463e8c436f1af5b68aab7ae0c2a752f6a477c38cfc83690a5a36709230112",
-      "size_bytes": 522917
+      "sha256": "15ccc9a9d82cadca62258fd643f33d5db15b038b0aea23ec6e317745b27790f0",
+      "size_bytes": 985609
     },
     "reencode": {
       "path": "artifacts/g0/baseline_reencode.mp4",
-      "sha256": "661f8be7294fd5eaf817a577c57a0c1910511f08a394f18d28aa1b4b997306f4",
-      "size_bytes": 553936
+      "sha256": "e48ba4f4e279b5da567202867ba150607f7edd31d8d054a446bc35d87230b691",
+      "size_bytes": 593157
     }
   },
   "verification": {
@@ -34,8 +35,8 @@
       "operation": "stream_copy",
       "src": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
       "dst": "artifacts/g0/baseline_remux.mp4",
-      "src_sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
-      "dst_sha256": "087463e8c436f1af5b68aab7ae0c2a752f6a477c38cfc83690a5a36709230112",
+      "src_sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+      "dst_sha256": "15ccc9a9d82cadca62258fd643f33d5db15b038b0aea23ec6e317745b27790f0",
       "checks": {
         "duration": {
           "src_s": 24.2,
@@ -84,14 +85,14 @@
         "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
         "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
       },
-      "timestamp_utc": "2026-10-24T08:57:49Z"
+      "timestamp_utc": "2026-10-24T11:21:08Z"
     },
     "reencode": {
       "operation": "reencode",
       "src": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
       "dst": "artifacts/g0/baseline_reencode.mp4",
-      "src_sha256": "67ea5476d154eb347927930be6be54b70025cdfa1a9432c250f97a90bb6c2789",
-      "dst_sha256": "661f8be7294fd5eaf817a577c57a0c1910511f08a394f18d28aa1b4b997306f4",
+      "src_sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+      "dst_sha256": "e48ba4f4e279b5da567202867ba150607f7edd31d8d054a446bc35d87230b691",
       "checks": {
         "duration": {
           "src_s": 24.2,
@@ -120,8 +121,8 @@
           "frames_compared": 605,
           "frames_a": 605,
           "frames_b": 605,
-          "max_diff": 0.011822916666666667,
-          "mean_diff": 0.005831525482093664,
+          "max_diff": 0.029045138888888888,
+          "mean_diff": 0.008038424012855832,
           "tolerance_mean_abs": 12.0,
           "pass": true
         },
@@ -135,7 +136,7 @@
         "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
         "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
       },
-      "timestamp_utc": "2026-10-24T08:57:50Z"
+      "timestamp_utc": "2026-10-24T11:21:09Z"
     }
   },
   "verdict": "PASS",
@@ -147,5 +148,5 @@
     "remux": "ffmpeg -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c copy -movflags +faststart artifacts/g0/baseline_remux.mp4",
     "reencode": "ffmpeg -y -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g0/baseline_reencode.mp4"
   },
-  "timestamp_utc": "2026-10-24T08:57:50Z"
+  "timestamp_utc": "2026-10-24T11:21:09Z"
 }

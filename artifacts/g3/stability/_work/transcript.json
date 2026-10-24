@@ -1,0 +1,770 @@
+{
+  "schema": "semotion.transcript/1",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4",
+    "sha256": "ffd53944c3f9821704b6be632444e3462ea1354737fb50baf244e779d47e3759",
+    "duration_s": 21.381,
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "language": "zh",
+  "model": {
+    "name": "faster-whisper",
+    "family": "whisper",
+    "size": "medium",
+    "device": "cpu",
+    "compute_type": "int8",
+    "version": "1.2.1",
+    "ctranslate2_version": "4.8.3",
+    "path": "/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f",
+    "beam_size": 5,
+    "word_timestamps": true
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start_s": 0.0,
+      "end_s": 2.04,
+      "text": "鏡頭開始移動",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s1",
+      "start_s": 2.04,
+      "end_s": 3.88,
+      "text": "第一步穩定畫面",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s2",
+      "start_s": 3.88,
+      "end_s": 6.36,
+      "text": "第二步保持文字清晰",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s3",
+      "start_s": 6.36,
+      "end_s": 8.68,
+      "text": "關鍵是不要追著人跑",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s4",
+      "start_s": 8.68,
+      "end_s": 11.0,
+      "text": "九成的抖動都能避免",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s5",
+      "start_s": 11.0,
+      "end_s": 13.08,
+      "text": "切換到第二個鏡頭",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s6",
+      "start_s": 13.08,
+      "end_s": 15.88,
+      "text": "第三步重新計算安全區",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s7",
+      "start_s": 15.88,
+      "end_s": 18.26,
+      "text": "80%的誤差在這裡",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    },
+    {
+      "id": "s8",
+      "start_s": 18.26,
+      "end_s": 20.56,
+      "text": "結論是靜態布局更穩",
+      "avg_logprob": -0.181878,
+      "no_speech_prob": 0.269758
+    }
+  ],
+  "words": [
+    {
+      "id": "w0",
+      "segment_id": "s0",
+      "text": "鏡",
+      "start_s": 0.0,
+      "end_s": 0.64,
+      "probability": 0.847133,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w1",
+      "segment_id": "s0",
+      "text": "頭",
+      "start_s": 0.64,
+      "end_s": 0.92,
+      "probability": 0.995011,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w2",
+      "segment_id": "s0",
+      "text": "開始",
+      "start_s": 0.92,
+      "end_s": 1.4,
+      "probability": 0.993865,
+      "char_start": 2,
+      "char_end": 4
+    },
+    {
+      "id": "w3",
+      "segment_id": "s0",
+      "text": "移",
+      "start_s": 1.4,
+      "end_s": 1.66,
+      "probability": 0.999537,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w4",
+      "segment_id": "s0",
+      "text": "動",
+      "start_s": 1.66,
+      "end_s": 2.04,
+      "probability": 0.999679,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w5",
+      "segment_id": "s1",
+      "text": "第一",
+      "start_s": 2.04,
+      "end_s": 2.46,
+      "probability": 0.264391,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w6",
+      "segment_id": "s1",
+      "text": "步",
+      "start_s": 2.46,
+      "end_s": 2.66,
+      "probability": 0.968209,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w7",
+      "segment_id": "s1",
+      "text": "穩",
+      "start_s": 2.66,
+      "end_s": 2.9,
+      "probability": 0.979505,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w8",
+      "segment_id": "s1",
+      "text": "定",
+      "start_s": 2.9,
+      "end_s": 3.12,
+      "probability": 0.999801,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w9",
+      "segment_id": "s1",
+      "text": "畫",
+      "start_s": 3.12,
+      "end_s": 3.44,
+      "probability": 0.997986,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w10",
+      "segment_id": "s1",
+      "text": "面",
+      "start_s": 3.44,
+      "end_s": 3.88,
+      "probability": 0.999767,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w11",
+      "segment_id": "s2",
+      "text": "第二",
+      "start_s": 3.88,
+      "end_s": 4.34,
+      "probability": 0.818141,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w12",
+      "segment_id": "s2",
+      "text": "步",
+      "start_s": 4.34,
+      "end_s": 4.54,
+      "probability": 0.994291,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w13",
+      "segment_id": "s2",
+      "text": "保",
+      "start_s": 4.54,
+      "end_s": 4.86,
+      "probability": 0.995025,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w14",
+      "segment_id": "s2",
+      "text": "持",
+      "start_s": 4.86,
+      "end_s": 5.08,
+      "probability": 0.999361,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w15",
+      "segment_id": "s2",
+      "text": "文",
+      "start_s": 5.08,
+      "end_s": 5.34,
+      "probability": 0.995287,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w16",
+      "segment_id": "s2",
+      "text": "字",
+      "start_s": 5.34,
+      "end_s": 5.52,
+      "probability": 0.999874,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w17",
+      "segment_id": "s2",
+      "text": "清",
+      "start_s": 5.52,
+      "end_s": 5.92,
+      "probability": 0.9983,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w18",
+      "segment_id": "s2",
+      "text": "晰",
+      "start_s": 5.92,
+      "end_s": 6.36,
+      "probability": 0.999671,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w19",
+      "segment_id": "s3",
+      "text": "關",
+      "start_s": 6.36,
+      "end_s": 6.68,
+      "probability": 0.953268,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w20",
+      "segment_id": "s3",
+      "text": "鍵",
+      "start_s": 6.68,
+      "end_s": 6.86,
+      "probability": 0.999773,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w21",
+      "segment_id": "s3",
+      "text": "是",
+      "start_s": 6.86,
+      "end_s": 7.12,
+      "probability": 0.995324,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w22",
+      "segment_id": "s3",
+      "text": "不要",
+      "start_s": 7.12,
+      "end_s": 7.48,
+      "probability": 0.997832,
+      "char_start": 3,
+      "char_end": 5
+    },
+    {
+      "id": "w23",
+      "segment_id": "s3",
+      "text": "追",
+      "start_s": 7.48,
+      "end_s": 7.74,
+      "probability": 0.996317,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w24",
+      "segment_id": "s3",
+      "text": "著",
+      "start_s": 7.74,
+      "end_s": 7.92,
+      "probability": 0.973241,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w25",
+      "segment_id": "s3",
+      "text": "人",
+      "start_s": 7.92,
+      "end_s": 8.1,
+      "probability": 0.995014,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w26",
+      "segment_id": "s3",
+      "text": "跑",
+      "start_s": 8.1,
+      "end_s": 8.68,
+      "probability": 0.997093,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w27",
+      "segment_id": "s4",
+      "text": "九",
+      "start_s": 8.68,
+      "end_s": 9.0,
+      "probability": 0.682072,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w28",
+      "segment_id": "s4",
+      "text": "成",
+      "start_s": 9.0,
+      "end_s": 9.26,
+      "probability": 0.999309,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w29",
+      "segment_id": "s4",
+      "text": "的",
+      "start_s": 9.26,
+      "end_s": 9.44,
+      "probability": 0.998597,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w30",
+      "segment_id": "s4",
+      "text": "抖",
+      "start_s": 9.44,
+      "end_s": 9.58,
+      "probability": 0.984978,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w31",
+      "segment_id": "s4",
+      "text": "動",
+      "start_s": 9.58,
+      "end_s": 9.74,
+      "probability": 0.998237,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w32",
+      "segment_id": "s4",
+      "text": "都",
+      "start_s": 9.74,
+      "end_s": 10.02,
+      "probability": 0.998575,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w33",
+      "segment_id": "s4",
+      "text": "能",
+      "start_s": 10.02,
+      "end_s": 10.22,
+      "probability": 0.997654,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w34",
+      "segment_id": "s4",
+      "text": "避",
+      "start_s": 10.22,
+      "end_s": 10.44,
+      "probability": 0.999633,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w35",
+      "segment_id": "s4",
+      "text": "免",
+      "start_s": 10.44,
+      "end_s": 11.0,
+      "probability": 0.999912,
+      "char_start": 8,
+      "char_end": 9
+    },
+    {
+      "id": "w36",
+      "segment_id": "s5",
+      "text": "切",
+      "start_s": 11.0,
+      "end_s": 11.3,
+      "probability": 0.977896,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w37",
+      "segment_id": "s5",
+      "text": "換",
+      "start_s": 11.3,
+      "end_s": 11.5,
+      "probability": 0.999713,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w38",
+      "segment_id": "s5",
+      "text": "到",
+      "start_s": 11.5,
+      "end_s": 11.82,
+      "probability": 0.998288,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w39",
+      "segment_id": "s5",
+      "text": "第二個",
+      "start_s": 11.82,
+      "end_s": 12.26,
+      "probability": 0.928357,
+      "char_start": 3,
+      "char_end": 6
+    },
+    {
+      "id": "w40",
+      "segment_id": "s5",
+      "text": "鏡",
+      "start_s": 12.26,
+      "end_s": 12.6,
+      "probability": 0.998326,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w41",
+      "segment_id": "s5",
+      "text": "頭",
+      "start_s": 12.6,
+      "end_s": 13.08,
+      "probability": 0.999274,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w42",
+      "segment_id": "s6",
+      "text": "第三",
+      "start_s": 13.08,
+      "end_s": 13.66,
+      "probability": 0.990472,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w43",
+      "segment_id": "s6",
+      "text": "步",
+      "start_s": 13.66,
+      "end_s": 13.86,
+      "probability": 0.99609,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w44",
+      "segment_id": "s6",
+      "text": "重",
+      "start_s": 13.86,
+      "end_s": 14.16,
+      "probability": 0.988145,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w45",
+      "segment_id": "s6",
+      "text": "新",
+      "start_s": 14.16,
+      "end_s": 14.4,
+      "probability": 0.998962,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w46",
+      "segment_id": "s6",
+      "text": "計",
+      "start_s": 14.4,
+      "end_s": 14.68,
+      "probability": 0.994934,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w47",
+      "segment_id": "s6",
+      "text": "算",
+      "start_s": 14.68,
+      "end_s": 14.86,
+      "probability": 0.999714,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w48",
+      "segment_id": "s6",
+      "text": "安全",
+      "start_s": 14.86,
+      "end_s": 15.38,
+      "probability": 0.998788,
+      "char_start": 7,
+      "char_end": 9
+    },
+    {
+      "id": "w49",
+      "segment_id": "s6",
+      "text": "區",
+      "start_s": 15.38,
+      "end_s": 15.88,
+      "probability": 0.996658,
+      "char_start": 9,
+      "char_end": 10
+    },
+    {
+      "id": "w50",
+      "segment_id": "s7",
+      "text": "80",
+      "start_s": 15.88,
+      "end_s": 16.68,
+      "probability": 0.856405,
+      "char_start": 0,
+      "char_end": 2
+    },
+    {
+      "id": "w51",
+      "segment_id": "s7",
+      "text": "%",
+      "start_s": 16.68,
+      "end_s": 16.96,
+      "probability": 0.991677,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w52",
+      "segment_id": "s7",
+      "text": "的",
+      "start_s": 16.96,
+      "end_s": 17.2,
+      "probability": 0.983116,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w53",
+      "segment_id": "s7",
+      "text": "誤",
+      "start_s": 17.2,
+      "end_s": 17.36,
+      "probability": 0.990239,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w54",
+      "segment_id": "s7",
+      "text": "差",
+      "start_s": 17.36,
+      "end_s": 17.56,
+      "probability": 0.99945,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w55",
+      "segment_id": "s7",
+      "text": "在",
+      "start_s": 17.56,
+      "end_s": 17.86,
+      "probability": 0.99784,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w56",
+      "segment_id": "s7",
+      "text": "這裡",
+      "start_s": 17.86,
+      "end_s": 18.26,
+      "probability": 0.965505,
+      "char_start": 7,
+      "char_end": 9
+    },
+    {
+      "id": "w57",
+      "segment_id": "s8",
+      "text": "結",
+      "start_s": 18.26,
+      "end_s": 18.74,
+      "probability": 0.974865,
+      "char_start": 0,
+      "char_end": 1
+    },
+    {
+      "id": "w58",
+      "segment_id": "s8",
+      "text": "論",
+      "start_s": 18.74,
+      "end_s": 18.98,
+      "probability": 0.999343,
+      "char_start": 1,
+      "char_end": 2
+    },
+    {
+      "id": "w59",
+      "segment_id": "s8",
+      "text": "是",
+      "start_s": 18.98,
+      "end_s": 19.2,
+      "probability": 0.996586,
+      "char_start": 2,
+      "char_end": 3
+    },
+    {
+      "id": "w60",
+      "segment_id": "s8",
+      "text": "靜",
+      "start_s": 19.2,
+      "end_s": 19.46,
+      "probability": 0.980936,
+      "char_start": 3,
+      "char_end": 4
+    },
+    {
+      "id": "w61",
+      "segment_id": "s8",
+      "text": "態",
+      "start_s": 19.46,
+      "end_s": 19.7,
+      "probability": 0.998859,
+      "char_start": 4,
+      "char_end": 5
+    },
+    {
+      "id": "w62",
+      "segment_id": "s8",
+      "text": "布",
+      "start_s": 19.7,
+      "end_s": 19.94,
+      "probability": 0.625868,
+      "char_start": 5,
+      "char_end": 6
+    },
+    {
+      "id": "w63",
+      "segment_id": "s8",
+      "text": "局",
+      "start_s": 19.94,
+      "end_s": 20.04,
+      "probability": 0.999785,
+      "char_start": 6,
+      "char_end": 7
+    },
+    {
+      "id": "w64",
+      "segment_id": "s8",
+      "text": "更",
+      "start_s": 20.04,
+      "end_s": 20.24,
+      "probability": 0.998939,
+      "char_start": 7,
+      "char_end": 8
+    },
+    {
+      "id": "w65",
+      "segment_id": "s8",
+      "text": "穩",
+      "start_s": 20.24,
+      "end_s": 20.56,
+      "probability": 0.998918,
+      "char_start": 8,
+      "char_end": 9
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T10:49:03Z",
+    "command": "faster-whisper medium (/Volumes/ZHITAI/cache/huggingface/hub/models--Systran--faster-whisper-medium/snapshots/08e178d48790749d25932bbc082711ddcfdfbc4f) device=cpu compute_type=int8 language=zh word_timestamps=True beam_size=5 vad_filter=False :: tests/fixtures/clips/fx_face_pan/fx_face_pan.mp4",
+    "truth_class": "MACHINE_WEAK",
+    "engine": "faster-whisper (CTranslate2)",
+    "elapsed_s": 10.486,
+    "language_probability": 1.0,
+    "n_segments": 9,
+    "n_words": 66
+  }
+}

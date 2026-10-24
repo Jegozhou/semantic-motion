@@ -1,0 +1,2 @@
+$ ffmpeg -v error -y -f concat -safe 0 -i tests/fixtures/clips/fx_face_pan/_work/scenes.ffconcat -c copy tests/fixtures/clips/fx_face_pan/_work/video.mp4
+

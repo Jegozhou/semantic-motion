@@ -2,7 +2,7 @@
   "schema": "semotion.metrics/1",
   "gate": "G2",
   "input_sha256": "c46e3ada4e96bd00ce3fb5ef1cd4f866bff30da41520f2efdd5b6b1ddf4845bf",
-  "ir_sha256": "d6b1b57065f5ed19fbab1fa296609d58ad755469b6f1e243944853b8f9336a70",
+  "ir_sha256": "2fd964a8a2cdb1f729a955654d04d48e071a4579a70cf8bd7cf008aa122684d0",
   "render_sha256": "21f9980d7e767ef8f91065de8326581954c241bdc59717218df2624204a0f664",
   "timing": {
     "samples": 1,
@@ -81,6 +81,20 @@
     "note": "rendered onset measured inside each element box; target = independent SYNTH_KNOWN unit start of a unit the anchor begins. ASR never defines the target. n<50 is exploratory, not a P90 claim."
   },
   "position": {
+    "subject_motion": {
+      "tracks": 1,
+      "max_center_displacement_px": 1.5,
+      "frames": 125,
+      "policy": "static_safe: overlay boxes are pinned and the face union is treated as an obstacle (no claim of visual tracking)",
+      "min_clearance_px": 226.0,
+      "clearance_samples": 6
+    },
+    "cut_safety": {
+      "shots": 1,
+      "violations": [],
+      "verdict": "PASS",
+      "policy": "an overlay must not straddle a camera cut (30 ms guard band)"
+    },
     "planned": {
       "face_overlap": {
         "value": 0.0,
@@ -136,7 +150,8 @@
     },
     "sampling": {
       "stride_frames": 2,
-      "grid": "192px wide grayscale diff"
+      "grid": "192px wide grayscale diff",
+      "observed_diff_threshold": 8.0
     }
   },
   "render": {
