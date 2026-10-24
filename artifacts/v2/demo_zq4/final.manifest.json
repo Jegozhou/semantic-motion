@@ -1,0 +1,46 @@
+{
+  "schema": "semotion.render/2",
+  "created_utc": "2026-10-24T15:32:03Z",
+  "source": {
+    "path": "inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "output": {
+    "path": "artifacts/v2/demo_zq4/final.mp4",
+    "sha256": "4d972f3de42f9679e21b315b060d94387b741f0aedac5692066d998efa139015",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "frames": 625,
+    "duration_s": 25.0,
+    "bytes": 2277946
+  },
+  "overlay_pass": "artifacts/v2/demo_zq4/final_overlay.mp4",
+  "ir": {
+    "schema": "semotion.motion-ir/2",
+    "elements": 5,
+    "sha256": "24f4bd93c5b17f3372c16fb649cd1aeb74d34d39bffb25033d5dc21f1f869e23"
+  },
+  "captions": {
+    "segments": 6
+  },
+  "encode": {
+    "video": "libx264",
+    "crf": 28,
+    "draft": true,
+    "audio": "aac 192k"
+  },
+  "elapsed_s": 28.84,
+  "fps_real": 21.67,
+  "tools": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "command_decode": "ffmpeg -v error -i inputs/zhengqinwen_25s.mp4 -vf fps=25.0,scale=1920:920:flags=lanczos -f rawvideo -pix_fmt rgb24 -",
+  "command_encode": "ffmpeg -v error -y -f rawvideo -pix_fmt rgb24 -s 1920x920 -r 25.0 -i - -i inputs/zhengqinwen_25s.mp4 -map 0:v:0 -map 1:a:0 -shortest -c:v libx264 -preset veryfast -crf 28 -pix_fmt yuv420p -profile:v high -level 4.2 -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/v2/demo_zq4/final.mp4"
+}

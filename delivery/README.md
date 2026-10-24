@@ -1,16 +1,13 @@
-# Delivery — Semantic Motion
+# Delivery bundle
 
-每个目录含成片、Motion IR、渲染清单、指标 JSON 与数值校验。
+Reference renders produced by the Semantic Motion pipeline. Each folder contains the
+MP4, its Motion IR, captions, metrics and storyboard.
 
-- `01_g1_keyword_number_9x16/` — 9:16 1080x1920 · 关键词+数字（Smart Balanced）
-- `02_g2_list_card_16x9/` — 16:9 1920x1080 · 列表+卡片+数字
-- `03_g2_real_face_avoidance/` — 9:16 · 真实人脸（合成夹具）· 四类动效组合
-- `04_g3_camera_cut_safety/` — 9:16 · 双镜头 pan/zoom + 真实人脸 · 切镜安全
-- `05_g1_real_footage_16x9/` — 16:9 1280x720 · 公有领域真人影像
+| folder | source | what it proves |
+|---|---|---|
+| `06_v2_real_footage_16x9/` | Wikimedia Commons interview (CC BY 3.0), real human speech, 1920×920, 25 s | **the v2 deliverable**: silhouette-aware scrim column, ink on the anchor frame, 0 px person/face/credit overlap, min contrast 6.43:1, double-render determinism 0.0 |
+| `01…05_*` | synthetic TTS fixtures and public-domain clips | v1 gates: effect matrix, cut safety, degradation scenarios |
+| `demo_*` | earlier v1/Remotion experiments | history — superseded by `06` for visual quality |
 
-## G5 — LLM 选动效 + Remotion + 字幕
-
-- `demo_llm_remotion/` — before/after + storyboard：LLM 决策 5 个元素（关键词/数字/列表）+ 逐词简体字幕
-- `demo_llm_face/` — 真实人脸素材：LLM 决策 7 个元素，遮脸 0
-- 成片与工程：`artifacts/g5/llm_a/`、`artifacts/g5/llm_face/`（含 `motion_ir.json`、`captions.json`、`remotion_props.json`、`metrics.json`）
-- 报告：`reports/gate-G5.md`；契约：`docs/REMOTION.md`
+`06` is the one to watch. `before_after.mp4` is a side-by-side of the untouched source and
+the finished render.

@@ -1,0 +1,691 @@
+{
+  "schema": "semotion.perception/1",
+  "ir_compatible": "semotion.vision/1",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/qa/base_clip.mp4",
+    "sha256": "9950eacad0e8d2bd507ef757a941cbaa391f6a86c9190c8adca5f141f272c59c",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "n_frames": 120,
+    "duration_s": 4.0
+  },
+  "backend": {
+    "name": "qa-demo-vision-helper",
+    "os": "macOS-arm64",
+    "requests": [
+      "segmentation",
+      "face"
+    ],
+    "note": "QA demo masks produced by build_demo.py (Apple Vision via pyobjc). NOT src/semotion/perception.py output; do not cite as the perception module."
+  },
+  "capabilities": {
+    "person_mask": true,
+    "body_pose": false,
+    "hands": false,
+    "existing_text": false,
+    "scene_cuts": false
+  },
+  "sample_hz": 5.0,
+  "frames": [
+    {
+      "frame": 0,
+      "t_s": 0.0,
+      "person_bbox": [
+        216,
+        64,
+        840,
+        656
+      ],
+      "mask": "masks/0000.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.29875,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          504,
+          164,
+          291,
+          291
+        ],
+        "conf": 0.844
+      }
+    },
+    {
+      "frame": 6,
+      "t_s": 0.2,
+      "person_bbox": [
+        216,
+        60,
+        840,
+        660
+      ],
+      "mask": "masks/0001.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.29849,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          507,
+          154,
+          285,
+          285
+        ],
+        "conf": 0.8609
+      }
+    },
+    {
+      "frame": 12,
+      "t_s": 0.4,
+      "person_bbox": [
+        216,
+        56,
+        836,
+        664
+      ],
+      "mask": "masks/0002.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.297396,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          505,
+          131,
+          280,
+          280
+        ],
+        "conf": 0.8527
+      }
+    },
+    {
+      "frame": 18,
+      "t_s": 0.6,
+      "person_bbox": [
+        220,
+        56,
+        832,
+        664
+      ],
+      "mask": "masks/0003.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.29625,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          508,
+          129,
+          267,
+          267
+        ],
+        "conf": 0.8411
+      }
+    },
+    {
+      "frame": 24,
+      "t_s": 0.8,
+      "person_bbox": [
+        220,
+        56,
+        832,
+        664
+      ],
+      "mask": "masks/0004.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.296771,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          506,
+          135,
+          276,
+          276
+        ],
+        "conf": 0.8561
+      }
+    },
+    {
+      "frame": 30,
+      "t_s": 1.0,
+      "person_bbox": [
+        220,
+        56,
+        832,
+        664
+      ],
+      "mask": "masks/0005.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.29651,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          507,
+          139,
+          278,
+          278
+        ],
+        "conf": 0.8414
+      }
+    },
+    {
+      "frame": 36,
+      "t_s": 1.2,
+      "person_bbox": [
+        216,
+        56,
+        836,
+        664
+      ],
+      "mask": "masks/0006.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.296962,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          503,
+          145,
+          288,
+          288
+        ],
+        "conf": 0.8825
+      }
+    },
+    {
+      "frame": 42,
+      "t_s": 1.4,
+      "person_bbox": [
+        216,
+        56,
+        836,
+        664
+      ],
+      "mask": "masks/0007.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.298073,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          511,
+          158,
+          285,
+          285
+        ],
+        "conf": 0.8775
+      }
+    },
+    {
+      "frame": 48,
+      "t_s": 1.6,
+      "person_bbox": [
+        216,
+        56,
+        836,
+        664
+      ],
+      "mask": "masks/0008.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.298559,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          510,
+          173,
+          293,
+          293
+        ],
+        "conf": 0.8711
+      }
+    },
+    {
+      "frame": 54,
+      "t_s": 1.8,
+      "person_bbox": [
+        216,
+        60,
+        836,
+        660
+      ],
+      "mask": "masks/0009.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.299271,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          516,
+          187,
+          288,
+          288
+        ],
+        "conf": 0.8572
+      }
+    },
+    {
+      "frame": 60,
+      "t_s": 2.0,
+      "person_bbox": [
+        216,
+        64,
+        836,
+        656
+      ],
+      "mask": "masks/0010.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.299705,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          510,
+          187,
+          296,
+          296
+        ],
+        "conf": 0.8646
+      }
+    },
+    {
+      "frame": 66,
+      "t_s": 2.2,
+      "person_bbox": [
+        216,
+        60,
+        836,
+        660
+      ],
+      "mask": "masks/0011.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.299826,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          508,
+          189,
+          292,
+          292
+        ],
+        "conf": 0.8761
+      }
+    },
+    {
+      "frame": 72,
+      "t_s": 2.4,
+      "person_bbox": [
+        216,
+        60,
+        836,
+        660
+      ],
+      "mask": "masks/0012.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.299444,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          508,
+          183,
+          296,
+          296
+        ],
+        "conf": 0.8825
+      }
+    },
+    {
+      "frame": 78,
+      "t_s": 2.6,
+      "person_bbox": [
+        216,
+        60,
+        836,
+        660
+      ],
+      "mask": "masks/0013.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.29908,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          499,
+          172,
+          296,
+          296
+        ],
+        "conf": 0.8649
+      }
+    },
+    {
+      "frame": 84,
+      "t_s": 2.8,
+      "person_bbox": [
+        216,
+        56,
+        836,
+        664
+      ],
+      "mask": "masks/0014.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.298438,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          494,
+          157,
+          293,
+          293
+        ],
+        "conf": 0.8612
+      }
+    },
+    {
+      "frame": 90,
+      "t_s": 3.0,
+      "person_bbox": [
+        220,
+        56,
+        832,
+        664
+      ],
+      "mask": "masks/0015.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.297378,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          506,
+          139,
+          290,
+          290
+        ],
+        "conf": 0.8736
+      }
+    },
+    {
+      "frame": 96,
+      "t_s": 3.2,
+      "person_bbox": [
+        220,
+        52,
+        832,
+        668
+      ],
+      "mask": "masks/0016.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.296753,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          509,
+          139,
+          294,
+          294
+        ],
+        "conf": 0.8581
+      }
+    },
+    {
+      "frame": 102,
+      "t_s": 3.4,
+      "person_bbox": [
+        220,
+        56,
+        832,
+        664
+      ],
+      "mask": "masks/0017.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.296181,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          500,
+          137,
+          280,
+          280
+        ],
+        "conf": 0.8492
+      }
+    },
+    {
+      "frame": 108,
+      "t_s": 3.6,
+      "person_bbox": [
+        220,
+        56,
+        828,
+        664
+      ],
+      "mask": "masks/0018.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.295972,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          503,
+          140,
+          283,
+          283
+        ],
+        "conf": 0.8498
+      }
+    },
+    {
+      "frame": 114,
+      "t_s": 3.8,
+      "person_bbox": [
+        220,
+        56,
+        828,
+        664
+      ],
+      "mask": "masks/0019.png",
+      "mask_scale": 4.0,
+      "mask_coverage": 0.296528,
+      "pose": null,
+      "hands": [],
+      "face": {
+        "bbox": [
+          498,
+          140,
+          290,
+          290
+        ],
+        "conf": 0.87
+      }
+    }
+  ],
+  "regions": {
+    "frame_size": [
+      1280,
+      720
+    ],
+    "face_union": [
+      494,
+      129,
+      312,
+      354
+    ],
+    "person_union": [
+      216,
+      52,
+      840,
+      668
+    ],
+    "hands_union": null,
+    "face_safe": [
+      462,
+      97,
+      376,
+      418
+    ],
+    "person_safe": [
+      184,
+      20,
+      904,
+      732
+    ],
+    "safe_margin_px": 32,
+    "existing_text": [],
+    "quiet_zones": [
+      {
+        "bbox": [
+          800,
+          32,
+          400,
+          340
+        ],
+        "kind": "background",
+        "score": 0.7942,
+        "person_overlap": 0.0,
+        "text_overlap": 0.0,
+        "edge_density": 0.0242,
+        "contrast_luma": 0.4193
+      },
+      {
+        "bbox": [
+          104,
+          32,
+          360,
+          340
+        ],
+        "kind": "background",
+        "score": 0.7903,
+        "person_overlap": 0.0,
+        "text_overlap": 0.0,
+        "edge_density": 0.0384,
+        "contrast_luma": 0.3923
+      },
+      {
+        "bbox": [
+          896,
+          296,
+          320,
+          200
+        ],
+        "kind": "background",
+        "score": 0.7825,
+        "person_overlap": 0.0,
+        "text_overlap": 0.0,
+        "edge_density": 0.0271,
+        "contrast_luma": 0.4271
+      },
+      {
+        "bbox": [
+          80,
+          296,
+          280,
+          180
+        ],
+        "kind": "background",
+        "score": 0.7737,
+        "person_overlap": 0.0,
+        "text_overlap": 0.0,
+        "edge_density": 0.0433,
+        "contrast_luma": 0.4148
+      }
+    ],
+    "person_coverage_curve": [
+      [
+        0.0,
+        0.29875
+      ],
+      [
+        0.2,
+        0.29849
+      ],
+      [
+        0.4,
+        0.297396
+      ],
+      [
+        0.6,
+        0.29625
+      ],
+      [
+        0.8,
+        0.296771
+      ],
+      [
+        1.0,
+        0.29651
+      ],
+      [
+        1.2,
+        0.296962
+      ],
+      [
+        1.4,
+        0.298073
+      ],
+      [
+        1.6,
+        0.298559
+      ],
+      [
+        1.8,
+        0.299271
+      ],
+      [
+        2.0,
+        0.299705
+      ],
+      [
+        2.2,
+        0.299826
+      ],
+      [
+        2.4,
+        0.299444
+      ],
+      [
+        2.6,
+        0.29908
+      ],
+      [
+        2.8,
+        0.298438
+      ],
+      [
+        3.0,
+        0.297378
+      ],
+      [
+        3.2,
+        0.296753
+      ],
+      [
+        3.4,
+        0.296181
+      ],
+      [
+        3.6,
+        0.295972
+      ],
+      [
+        3.8,
+        0.296528
+      ]
+    ],
+    "shots": [
+      {
+        "start_s": 0.0,
+        "end_s": 4.0
+      }
+    ]
+  }
+}

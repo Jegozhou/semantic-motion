@@ -1,0 +1,246 @@
+{
+  "fixture": "fx_a_zh_portrait",
+  "old_transcript_first_segment": {
+    "start_s": 0.64,
+    "end_s": 3.94,
+    "text": "大家好,今天聊一个真实的痛点。",
+    "first_word": {
+      "id": "w0",
+      "segment_id": "s0",
+      "text": "大家好,",
+      "start_s": 0.64,
+      "end_s": 1.16,
+      "probability": 0.919907,
+      "char_start": 0,
+      "char_end": 4
+    }
+  },
+  "old_per_unit": [
+    {
+      "unit_id": "u01",
+      "text": "大家好",
+      "truth_start_s": 0.5,
+      "nearest_word_start_s": 0.64,
+      "word_error_ms": 140.0,
+      "nearest_naive_char_ms": 140.0
+    },
+    {
+      "unit_id": "u02",
+      "text": "今天聊一个真实的痛点",
+      "truth_start_s": 1.590542,
+      "nearest_word_start_s": 1.78,
+      "word_error_ms": 189.46,
+      "nearest_naive_char_ms": 189.46
+    },
+    {
+      "unit_id": "u03",
+      "text": "口播视频最难的地方",
+      "truth_start_s": 4.051958,
+      "nearest_word_start_s": 4.22,
+      "word_error_ms": 168.04,
+      "nearest_naive_char_ms": 168.04
+    },
+    {
+      "unit_id": "u04",
+      "text": "其实是节奏",
+      "truth_start_s": 6.336458,
+      "nearest_word_start_s": 6.52,
+      "word_error_ms": 183.54,
+      "nearest_naive_char_ms": 183.54
+    },
+    {
+      "unit_id": "u05",
+      "text": "九成的剪辑",
+      "truth_start_s": 7.83425,
+      "nearest_word_start_s": 7.92,
+      "word_error_ms": 85.75,
+      "nearest_naive_char_ms": 85.75
+    },
+    {
+      "unit_id": "u06",
+      "text": "都卡在三个问题",
+      "truth_start_s": 9.332042,
+      "nearest_word_start_s": 9.42,
+      "word_error_ms": 87.96,
+      "nearest_naive_char_ms": 87.96
+    },
+    {
+      "unit_id": "u07",
+      "text": "第一",
+      "truth_start_s": 11.362979,
+      "nearest_word_start_s": 11.42,
+      "word_error_ms": 57.02,
+      "nearest_naive_char_ms": 57.02
+    },
+    {
+      "unit_id": "u08",
+      "text": "不知道什么时候加字",
+      "truth_start_s": 12.117229,
+      "nearest_word_start_s": 12.1,
+      "word_error_ms": -17.23,
+      "nearest_naive_char_ms": -17.23
+    },
+    {
+      "unit_id": "u09",
+      "text": "第二",
+      "truth_start_s": 14.283188,
+      "nearest_word_start_s": 14.36,
+      "word_error_ms": 76.81,
+      "nearest_naive_char_ms": 76.81
+    },
+    {
+      "unit_id": "u10",
+      "text": "加了又挡住脸",
+      "truth_start_s": 15.049042,
+      "nearest_word_start_s": 15.18,
+      "word_error_ms": 130.96,
+      "nearest_naive_char_ms": 130.96
+    },
+    {
+      "unit_id": "u11",
+      "text": "第三",
+      "truth_start_s": 16.744208,
+      "nearest_word_start_s": 16.88,
+      "word_error_ms": 135.79,
+      "nearest_naive_char_ms": 135.79
+    },
+    {
+      "unit_id": "u12",
+      "text": "改一次就要重做一遍",
+      "truth_start_s": 17.602958,
+      "nearest_word_start_s": 17.7,
+      "word_error_ms": 97.04,
+      "nearest_naive_char_ms": 97.04
+    },
+    {
+      "unit_id": "u13",
+      "text": "我们把这套流程",
+      "truth_start_s": 19.988229,
+      "nearest_word_start_s": 20.0,
+      "word_error_ms": 11.77,
+      "nearest_naive_char_ms": 11.77
+    },
+    {
+      "unit_id": "u14",
+      "text": "做成了自动化",
+      "truth_start_s": 21.844604,
+      "nearest_word_start_s": 22.02,
+      "word_error_ms": 175.4,
+      "nearest_naive_char_ms": 175.4
+    }
+  ],
+  "new_per_unit": [
+    {
+      "unit_id": "u01",
+      "text": "大家好",
+      "truth_start_s": 0.5,
+      "predicted_start_s": 0.5,
+      "predicted_char": "大",
+      "error_ms": 0.0
+    },
+    {
+      "unit_id": "u02",
+      "text": "今天聊一个真实的痛点",
+      "truth_start_s": 1.590542,
+      "predicted_start_s": 1.59,
+      "predicted_char": "今",
+      "error_ms": -0.54
+    },
+    {
+      "unit_id": "u03",
+      "text": "口播视频最难的地方",
+      "truth_start_s": 4.051958,
+      "predicted_start_s": 4.05,
+      "predicted_char": "抠",
+      "error_ms": -1.96
+    },
+    {
+      "unit_id": "u04",
+      "text": "其实是节奏",
+      "truth_start_s": 6.336458,
+      "predicted_start_s": 6.34,
+      "predicted_char": "其",
+      "error_ms": 3.54
+    },
+    {
+      "unit_id": "u05",
+      "text": "九成的剪辑",
+      "truth_start_s": 7.83425,
+      "predicted_start_s": 7.84,
+      "predicted_char": "九",
+      "error_ms": 5.75
+    },
+    {
+      "unit_id": "u06",
+      "text": "都卡在三个问题",
+      "truth_start_s": 9.332042,
+      "predicted_start_s": 9.34,
+      "predicted_char": "都",
+      "error_ms": 7.96
+    },
+    {
+      "unit_id": "u07",
+      "text": "第一",
+      "truth_start_s": 11.362979,
+      "predicted_start_s": 11.37,
+      "predicted_char": "第",
+      "error_ms": 7.02
+    },
+    {
+      "unit_id": "u08",
+      "text": "不知道什么时候加字",
+      "truth_start_s": 12.117229,
+      "predicted_start_s": 12.12,
+      "predicted_char": "不",
+      "error_ms": 2.77
+    },
+    {
+      "unit_id": "u09",
+      "text": "第二",
+      "truth_start_s": 14.283188,
+      "predicted_start_s": 14.29,
+      "predicted_char": "第",
+      "error_ms": 6.81
+    },
+    {
+      "unit_id": "u10",
+      "text": "加了又挡住脸",
+      "truth_start_s": 15.049042,
+      "predicted_start_s": 15.05,
+      "predicted_char": "加",
+      "error_ms": 0.96
+    },
+    {
+      "unit_id": "u11",
+      "text": "第三",
+      "truth_start_s": 16.744208,
+      "predicted_start_s": 16.75,
+      "predicted_char": "第",
+      "error_ms": 5.79
+    },
+    {
+      "unit_id": "u12",
+      "text": "改一次就要重做一遍",
+      "truth_start_s": 17.602958,
+      "predicted_start_s": 17.61,
+      "predicted_char": "该",
+      "error_ms": 7.04
+    },
+    {
+      "unit_id": "u13",
+      "text": "我们把这套流程",
+      "truth_start_s": 19.988229,
+      "predicted_start_s": 19.99,
+      "predicted_char": "我",
+      "error_ms": 1.77
+    },
+    {
+      "unit_id": "u14",
+      "text": "做成了自动化",
+      "truth_start_s": 21.844604,
+      "predicted_start_s": 21.85,
+      "predicted_char": "做",
+      "error_ms": 5.4
+    }
+  ]
+}

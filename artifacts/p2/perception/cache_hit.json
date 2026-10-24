@@ -1,0 +1,10 @@
+{
+  "cache": "hit",
+  "cold_runtime_s": 18.746,
+  "debug_sheet_identical": true,
+  "json_identical_to_cold": true,
+  "mask_pngs_identical": true,
+  "n_samples": 125,
+  "runtime_s": 0.054,
+  "schema": "semotion.perception-cache/1"
+}

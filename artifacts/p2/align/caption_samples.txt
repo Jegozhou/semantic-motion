@@ -1,0 +1,26 @@
+caption before/after (task-3b; respect_segments + word guard)
+fx_a_zh_portrait: before 10 cues / mid-word starts 0 / min display 0.92s  ->  after 7 cues / mid-word starts 0 / min display 2.12s
+zhengqinwen_25s: before 6 cues / mid-word starts 0 / min display 1.68s  ->  after 10 cues / mid-word starts 0 / min display 1.32s
+
+== fx_a_zh_portrait (CJK, 25 fps, after) ==
+cue  start_frame  end_frame  frames  duration  lines
+cue0          12         93      81      3.24  大家好,今天聊一个真实的痛点
+cue1         101        189      88      3.52  抠播视频最难的地方,其实是节奏
+cue2         196        274      78      3.12  九成的剪辑,都卡在三个问题
+cue3         284        350      66      2.64  第一,不知道什么时候加字
+cue4         357        410      53      2.12  第二,加了又挡住脸
+cue5         419        490      71      2.84  第三,该一次就要重做一遍
+cue6         500        580      80      3.20  我们把这套流程,做成了自动化
+
+== zhengqinwen_25s (CJK, 25 fps, after) ==
+cue  start_frame  end_frame  frames  duration  lines
+cue0          12         48      36      1.44  奥运会是我的梦想没错
+cue1          48        138      90      3.60  但是我还有其他的梦想等着我去实现我的目标
+cue2         143        198      55      2.20  我的梦想其实还远远没有结束
+cue3         208        279      71      2.84  网球最好的一点就是它永远都有比赛
+cue4         279        319      40      1.60  每一年我们都有比赛
+cue5         326        393      67      2.68  每一年都有更大的困难
+cue6         393        441      48      1.92  更大的山坡等着你去战胜
+cue7         455        518      63      2.52  因为如果我觉得太过于满足的话
+cue8         518        567      49      1.96  你可能就会停滞在一个位置
+cue9         567        600      33      1.32  没有办法向前进步

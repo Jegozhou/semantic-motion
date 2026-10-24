@@ -1,0 +1,1739 @@
+{
+  "schema": "semotion.motion-ir/2",
+  "ir_version": "2.1.0",
+  "style": "smart_balanced",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "theme": {
+    "accent": "#EBC898",
+    "ink": "#F7F8FA",
+    "scrim": "#070A10",
+    "surface_is_dark": true
+  },
+  "semantic": {
+    "language": "zh",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "card",
+        "text": "奥运会是我的梦想没错",
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s0",
+        "word_ids": [
+          "w0",
+          "w1",
+          "w2",
+          "w3",
+          "w4",
+          "w5",
+          "w6",
+          "w7",
+          "w8"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "但是我还有其他的梦想",
+        "start_s": 2.02,
+        "end_s": 3.7,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s1",
+        "word_ids": [
+          "w9",
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "list_item",
+        "text": "每一年我们都有比赛",
+        "start_s": 11.18,
+        "end_s": 12.94,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s4",
+        "word_ids": [
+          "w47",
+          "w48",
+          "w49",
+          "w50",
+          "w51",
+          "w52",
+          "w53"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "list_item",
+        "text": "每一年都有更大的困难",
+        "start_s": 12.94,
+        "end_s": 15.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s5",
+        "word_ids": [
+          "w54",
+          "w55",
+          "w56",
+          "w57",
+          "w58",
+          "w59",
+          "w60",
+          "w61"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "list_item",
+        "text": "更大的山坡",
+        "start_s": 15.54,
+        "end_s": 16.54,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s6",
+        "word_ids": [
+          "w62",
+          "w63",
+          "w64",
+          "w65"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "card",
+        "text": "停滞在一个位置",
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s8",
+        "word_ids": [
+          "w85",
+          "w86",
+          "w87",
+          "w88",
+          "w89",
+          "w90"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "keyword",
+        "text": "没有办法向前进步",
+        "start_s": 22.68,
+        "end_s": 24.32,
+        "confidence": 0.85,
+        "source": "LLM_SPAN",
+        "segment_id": "s9",
+        "word_ids": [
+          "w91",
+          "w92",
+          "w93",
+          "w94",
+          "w95",
+          "w96",
+          "w97"
+        ],
+        "rule": "llm_word_span",
+        "refine": {
+          "method": "llm_word_span",
+          "delta_ms": 0,
+          "accepted": true
+        }
+      }
+    ],
+    "decisions_sha256": "bba3798f1fdf692c6e00fc70337c2d271d35e310c117c0fb39bfed67bcb49326"
+  },
+  "perception": {
+    "schema": "semotion.perception/1",
+    "person_union": [
+      524,
+      152,
+      892,
+      768
+    ],
+    "face_union": [
+      943,
+      236,
+      296,
+      311
+    ],
+    "hands_union": [
+      1021,
+      667,
+      303,
+      253
+    ],
+    "existing_text": [
+      {
+        "bbox": [
+          708,
+          865,
+          159,
+          44
+        ],
+        "t0": 0.0,
+        "t1": 24.4,
+        "kind": "logo",
+        "text": "新京报",
+        "conf": 0.7934
+      }
+    ],
+    "quiet_zone_count": 12,
+    "used": true
+  },
+  "elements": [
+    {
+      "id": "el_1_c8961792",
+      "type": "card",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "start_frame": 0,
+        "end_frame": 50,
+        "hold_s": 0.5,
+        "anchor_start_s": 0.0,
+        "anchor_end_s": 2.02
+      },
+      "box": [
+        1563,
+        321,
+        330,
+        194
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1443,
+          0,
+          477,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "title": "奥运会是我的梦想没错",
+        "body": "",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "card",
+        "width": 330,
+        "height": 194,
+        "pad": 6,
+        "display_px": 0,
+        "title_px": 53,
+        "body_px": 26,
+        "kicker_px": 18,
+        "pitch": 70,
+        "lines": [
+          "奥运会是",
+          "我的梦想没错"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.75,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1519,
+          46,
+          374,
+          745
+        ],
+        "category": "side",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1519,
+              46,
+              374,
+              745
+            ],
+            "quiet": 0.607,
+            "status": "ok",
+            "box": [
+              1563,
+              321,
+              330,
+              194
+            ],
+            "fit_w": 330,
+            "fit_h": 194,
+            "score": 0.585
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              27,
+              46,
+              394,
+              745
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              27,
+              321,
+              383,
+              194
+            ],
+            "fit_w": 383,
+            "fit_h": 194,
+            "score": 0.54
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              335,
+              197
+            ],
+            "quiet": 0.904,
+            "status": "ok",
+            "box": [
+              1520,
+              310,
+              335,
+              177
+            ],
+            "fit_w": 335,
+            "fit_h": 177,
+            "score": 0.5393
+          },
+          {
+            "treatment": "card",
+            "zone": "zone4",
+            "text_area": [
+              1536,
+              534,
+              319,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1551,
+              544,
+              288,
+              177
+            ],
+            "fit_w": 288,
+            "fit_h": 177,
+            "score": 0.5164
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              335,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1520,
+              436,
+              335,
+              177
+            ],
+            "fit_w": 335,
+            "fit_h": 177,
+            "score": 0.5124
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              76,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              81,
+              274,
+              336,
+              177
+            ],
+            "fit_w": 336,
+            "fit_h": 177,
+            "score": 0.499
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              76,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              81,
+              400,
+              336,
+              177
+            ],
+            "fit_w": 336,
+            "fit_h": 177,
+            "score": 0.4955
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.945,
+            "status": "ok",
+            "box": [
+              879,
+              56,
+              300,
+              80
+            ],
+            "fit_w": 300,
+            "fit_h": 80,
+            "score": 0.4708
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a00",
+        "decision_confidence": 0.82,
+        "emphasis": "high",
+        "reason": "开篇立命题：整句「奥运会是我的梦想没错」是这段话的题眼，卡片比关键词更适合承载完整命题；放在人物右侧留白，不压脸"
+      }
+    },
+    {
+      "id": "el_1_cede221a",
+      "type": "keyword",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 2.02,
+        "end_s": 4.0,
+        "start_frame": 50,
+        "end_frame": 100,
+        "hold_s": 0.3,
+        "anchor_start_s": 2.02,
+        "anchor_end_s": 3.7
+      },
+      "box": [
+        1526,
+        304,
+        367,
+        228
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1443,
+          0,
+          477,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "但是我还有其他的梦想",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 367,
+        "height": 228,
+        "pad": 6,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "但是我还有",
+          "其他的梦想"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1519,
+          46,
+          374,
+          745
+        ],
+        "category": "side",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1519,
+              46,
+              374,
+              745
+            ],
+            "quiet": 0.607,
+            "status": "ok",
+            "box": [
+              1526,
+              304,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.6792
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              27,
+              46,
+              391,
+              745
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              27,
+              304,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              335,
+              197
+            ],
+            "quiet": 0.904,
+            "status": "ok",
+            "box": [
+              1545,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5204
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.945,
+            "status": "ok",
+            "box": [
+              781,
+              56,
+              497,
+              80
+            ],
+            "fit_w": 497,
+            "fit_h": 80,
+            "score": 0.5109
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              98
+            ],
+            "quiet": 0.771,
+            "status": "ok",
+            "box": [
+              598,
+              27,
+              722,
+              98
+            ],
+            "fit_w": 722,
+            "fit_h": 98,
+            "score": 0.5026
+          },
+          {
+            "treatment": "card",
+            "zone": "zone4",
+            "text_area": [
+              1536,
+              534,
+              319,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1553,
+              534,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4945
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              335,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1545,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4935
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              76,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              107,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a01",
+        "decision_confidence": 0.84,
+        "emphasis": "high",
+        "reason": "转折句「但是我还有其他的梦想」是全段的语义转折，7 个字做关键词强调比卡片更克制，也不会和开篇卡片形成两个大块"
+      }
+    },
+    {
+      "id": "el_3_ac80487a",
+      "type": "list",
+      "anchor_refs": [
+        "a02",
+        "a03",
+        "a04"
+      ],
+      "window": {
+        "start_s": 11.18,
+        "end_s": 16.99,
+        "start_frame": 280,
+        "end_frame": 425,
+        "hold_s": 0.45,
+        "anchor_start_s": 11.18,
+        "anchor_end_s": 16.54
+      },
+      "box": [
+        1523,
+        289,
+        370,
+        258
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1443,
+          0,
+          477,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 11.18
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 12.94
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 15.54
+          }
+        ],
+        "kicker": "",
+        "items": [
+          "每一年我们都有比赛",
+          "每一年都有更大的困难",
+          "更大的山坡"
+        ]
+      },
+      "fit": {
+        "kind": "list",
+        "width": 370,
+        "height": 258,
+        "pad": 6,
+        "display_px": 0,
+        "title_px": 34,
+        "body_px": 0,
+        "kicker_px": 18,
+        "pitch": 45,
+        "lines": [],
+        "body_lines": [],
+        "kicker": "要点",
+        "rows": [
+          {
+            "marker": "1",
+            "text": "每一年我们都有比赛",
+            "at_s": 0.0,
+            "lines": [
+              "每一年我们都有比赛"
+            ]
+          },
+          {
+            "marker": "2",
+            "text": "每一年都有更大的困难",
+            "at_s": 1.76,
+            "lines": [
+              "每一年",
+              "都有更大的困难"
+            ]
+          },
+          {
+            "marker": "3",
+            "text": "更大的山坡",
+            "at_s": 4.36,
+            "lines": [
+              "更大的山坡"
+            ]
+          }
+        ],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "rows",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.8,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1519,
+          46,
+          374,
+          745
+        ],
+        "category": "side",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1519,
+              46,
+              374,
+              745
+            ],
+            "quiet": 0.607,
+            "status": "ok",
+            "box": [
+              1523,
+              289,
+              370,
+              258
+            ],
+            "fit_w": 370,
+            "fit_h": 258,
+            "score": 0.5993
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              335,
+              197
+            ],
+            "quiet": 0.904,
+            "status": "ok",
+            "box": [
+              1522,
+              300,
+              331,
+              197
+            ],
+            "fit_w": 331,
+            "fit_h": 197,
+            "score": 0.4779
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.945,
+            "status": "ok",
+            "box": [
+              798,
+              56,
+              462,
+              80
+            ],
+            "fit_w": 462,
+            "fit_h": 80,
+            "score": 0.4733
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              27,
+              46,
+              394,
+              745
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              27,
+              319,
+              374,
+              199
+            ],
+            "fit_w": 374,
+            "fit_h": 199,
+            "score": 0.46
+          },
+          {
+            "treatment": "card",
+            "zone": "zone4",
+            "text_area": [
+              1536,
+              534,
+              319,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1546,
+              534,
+              298,
+              197
+            ],
+            "fit_w": 298,
+            "fit_h": 197,
+            "score": 0.4541
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              335,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1522,
+              426,
+              331,
+              197
+            ],
+            "fit_w": 331,
+            "fit_h": 197,
+            "score": 0.451
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              76,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              83,
+              264,
+              331,
+              197
+            ],
+            "fit_w": 331,
+            "fit_h": 197,
+            "score": 0.4378
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              76,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              83,
+              390,
+              331,
+              197
+            ],
+            "fit_w": 331,
+            "fit_h": 197,
+            "score": 0.4343
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a02",
+        "decision_confidence": 0.86,
+        "emphasis": "high",
+        "reason": "「每一年都有比赛 / 更大的困难 / 更大的山坡」是递进结构，合并成一个三行列表按口播顺序逐行揭示，比三个独立关键词更能表达层层加码"
+      }
+    },
+    {
+      "id": "el_1_511529f3",
+      "type": "card",
+      "anchor_refs": [
+        "a05"
+      ],
+      "window": {
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "start_frame": 540,
+        "end_frame": 567,
+        "hold_s": 0.45,
+        "anchor_start_s": 21.58,
+        "anchor_end_s": 22.68
+      },
+      "box": [
+        1669,
+        321,
+        224,
+        194
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1439,
+          0,
+          481,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "title": "停滞在一个位置",
+        "body": "",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "card",
+        "width": 224,
+        "height": 194,
+        "pad": 6,
+        "display_px": 0,
+        "title_px": 53,
+        "body_px": 26,
+        "kicker_px": 18,
+        "pitch": 70,
+        "lines": [
+          "停滞在",
+          "一个位置"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.75,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1515,
+          46,
+          378,
+          745
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1515,
+              46,
+              378,
+              745
+            ],
+            "quiet": 0.607,
+            "status": "ok",
+            "box": [
+              1669,
+              321,
+              224,
+              194
+            ],
+            "fit_w": 224,
+            "fit_h": 194,
+            "score": 0.6992
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              335,
+              197
+            ],
+            "quiet": 0.904,
+            "status": "ok",
+            "box": [
+              1591,
+              310,
+              192,
+              177
+            ],
+            "fit_w": 192,
+            "fit_h": 177,
+            "score": 0.5493
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              27,
+              46,
+              394,
+              745
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              27,
+              356,
+              383,
+              124
+            ],
+            "fit_w": 383,
+            "fit_h": 124,
+            "score": 0.54
+          },
+          {
+            "treatment": "card",
+            "zone": "zone4",
+            "text_area": [
+              1536,
+              534,
+              319,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1599,
+              544,
+              192,
+              177
+            ],
+            "fit_w": 192,
+            "fit_h": 177,
+            "score": 0.5235
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              335,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1591,
+              436,
+              192,
+              177
+            ],
+            "fit_w": 192,
+            "fit_h": 177,
+            "score": 0.5224
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              76,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              81,
+              305,
+              336,
+              114
+            ],
+            "fit_w": 336,
+            "fit_h": 114,
+            "score": 0.499
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              76,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              81,
+              431,
+              336,
+              114
+            ],
+            "fit_w": 336,
+            "fit_h": 114,
+            "score": 0.4955
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.945,
+            "status": "ok",
+            "box": [
+              924,
+              56,
+              210,
+              80
+            ],
+            "fit_w": 210,
+            "fit_h": 80,
+            "score": 0.474
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a05",
+        "decision_confidence": 0.85,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_69d37695",
+      "type": "keyword",
+      "anchor_refs": [
+        "a06"
+      ],
+      "window": {
+        "start_s": 22.68,
+        "end_s": 24.57,
+        "start_frame": 567,
+        "end_frame": 614,
+        "hold_s": 0.25,
+        "anchor_start_s": 22.68,
+        "anchor_end_s": 24.32
+      },
+      "box": [
+        1526,
+        304,
+        367,
+        228
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1443,
+          0,
+          477,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "没有办法向前进步",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 367,
+        "height": 228,
+        "pad": 6,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "没有办",
+          "法向前进步"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1519,
+          46,
+          374,
+          745
+        ],
+        "category": "side",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1519,
+              46,
+              374,
+              745
+            ],
+            "quiet": 0.607,
+            "status": "ok",
+            "box": [
+              1526,
+              304,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.6783
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              27,
+              46,
+              394,
+              745
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              27,
+              304,
+              367,
+              228
+            ],
+            "fit_w": 367,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              335,
+              197
+            ],
+            "quiet": 0.904,
+            "status": "ok",
+            "box": [
+              1545,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5195
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.945,
+            "status": "ok",
+            "box": [
+              745,
+              56,
+              568,
+              80
+            ],
+            "fit_w": 568,
+            "fit_h": 80,
+            "score": 0.5108
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              98
+            ],
+            "quiet": 0.771,
+            "status": "ok",
+            "box": [
+              669,
+              27,
+              580,
+              98
+            ],
+            "fit_w": 580,
+            "fit_h": 98,
+            "score": 0.5025
+          },
+          {
+            "treatment": "card",
+            "zone": "zone4",
+            "text_area": [
+              1536,
+              534,
+              319,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1553,
+              534,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4936
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              335,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1545,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4926
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              76,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              107,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a06",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": "结尾对照句「没有办法向前进步」与前面的「停滞」构成因果，取后半句做轻强调；a05「停滞在一个位置」与它语义连续，再加卡片会过密，故放弃"
+      }
+    }
+  ],
+  "layout_audit": {
+    "decisions": [
+      {
+        "group": 0,
+        "decision": "place",
+        "element": "el_1_c8961792",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 0.0,
+        "box": [
+          1563,
+          321,
+          330,
+          194
+        ],
+        "text": "奥运会是我的梦想没错"
+      },
+      {
+        "group": 1,
+        "decision": "place",
+        "element": "el_1_cede221a",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 2.02,
+        "box": [
+          1526,
+          304,
+          367,
+          228
+        ],
+        "text": "但是我还有其他的梦想"
+      },
+      {
+        "group": 2,
+        "decision": "place",
+        "element": "el_3_ac80487a",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 11.18,
+        "box": [
+          1523,
+          289,
+          370,
+          258
+        ],
+        "text": ""
+      },
+      {
+        "group": 3,
+        "decision": "place",
+        "element": "el_1_511529f3",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 21.58,
+        "box": [
+          1669,
+          321,
+          224,
+          194
+        ],
+        "text": "停滞在一个位置"
+      },
+      {
+        "group": 4,
+        "decision": "place",
+        "element": "el_1_69d37695",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 22.68,
+        "box": [
+          1526,
+          304,
+          367,
+          228
+        ],
+        "text": "没有办法向前进步"
+      }
+    ],
+    "coverage": 0.512,
+    "perception_used": true,
+    "text_obstacles": 1
+  },
+  "provenance": {
+    "director": "semotion.design2/2",
+    "truth_class": "MACHINE",
+    "note": "windows derive from measured anchor onsets; placement rejects any box that touches the person silhouette, burned-in text or captions"
+  }
+}

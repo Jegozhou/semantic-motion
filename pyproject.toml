@@ -3,7 +3,13 @@ name = "semotion"
 version = "0.1.0"
 description = "Semantic Motion — semantic-driven motion graphics for talking-head video"
 requires-python = ">=3.11"
-dependencies = ["numpy>=2.0", "pillow>=11", "opencv-python-headless>=4.10"]
+dependencies = [
+    "numpy>=2.0",
+    "pillow>=11",
+    "opencv-python-headless>=4.10",
+    "jieba>=0.42",
+    "pyobjc-framework-Vision>=10.0; sys_platform == 'darwin'",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

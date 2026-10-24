@@ -1,0 +1,131 @@
+{
+  "schema": "semotion.motion-ir/1",
+  "ir_version": "1.0.0",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/qa/base_clip.mp4",
+    "sha256": "9950eacad0e8d2bd507ef757a941cbaa391f6a86c9190c8adca5f141f272c59c",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0,
+    "duration_s": 4.0,
+    "n_frames": 120,
+    "frame_source": "nb_frames",
+    "timebase": {
+      "num": 1,
+      "den": 30
+    }
+  },
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30.0
+  },
+  "style": "smart_balanced",
+  "semantic": {
+    "transcript_schema": "semotion.transcript/1",
+    "transcript_text": "QA CHECK",
+    "anchors": [
+      {
+        "id": "a_demo",
+        "kind": "keyword",
+        "text": "QA CHECK",
+        "start_s": 1.0,
+        "end_s": 2.5,
+        "confidence": 1.0,
+        "source": "QA_DEMO",
+        "segment_id": "s0",
+        "word_ids": []
+      }
+    ],
+    "face_safe": {
+      "bbox_union": [
+        462,
+        97,
+        376,
+        418
+      ],
+      "margin_px": 32
+    }
+  },
+  "tracks": [
+    {
+      "id": "t_content",
+      "z": 20,
+      "elements": [
+        "el_demo"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "el_demo",
+      "type": "keyword",
+      "anchor_ref": "a_demo",
+      "anchor_refs": [
+        "a_demo"
+      ],
+      "window": {
+        "start_s": 1.0,
+        "end_s": 2.5,
+        "start_frame": 30,
+        "end_frame": 75,
+        "hold_s": 0.0,
+        "anchor_start_s": 1.0,
+        "anchor_end_s": 2.5
+      },
+      "style": {
+        "font_family": "NotoSansSC",
+        "font_file": "NotoSansSC-Regular.otf",
+        "font_path": "assets/fonts/NotoSansSC-Regular.otf",
+        "weight": "bold",
+        "color": "#F5F7FA",
+        "bg": "rgba(10,13,22,0.82)",
+        "font_size_px": 64,
+        "padding_px": 24,
+        "radius_px": 20,
+        "align": "center"
+      },
+      "motion": {
+        "enter": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "out_cubic"
+        },
+        "exit": {
+          "type": "fade",
+          "dur_s": 0.2,
+          "ease": "in_quad"
+        }
+      },
+      "content": {
+        "text": "QA CHECK"
+      },
+      "layout": {
+        "mode": "qa_demo",
+        "zone": "zone:background",
+        "box": [
+          114,
+          32,
+          340,
+          340
+        ],
+        "avoid_face": true,
+        "allow_face_overlap": true,
+        "allow_face_reason": "QA demo: deliberately over the face",
+        "reason": "deliberately painted over the face",
+        "intrinsic": {
+          "width": 340,
+          "height": 340
+        },
+        "repaired": true
+      }
+    }
+  ],
+  "collision_ok": [],
+  "provenance": {
+    "generator": "artifacts/p2/qa/scripts/build_demo.py (QA evidence only)",
+    "policy": "a deliberately bad overlay for the v2 QA demo; the IR is a real semotion.motion-ir/1 document so repair.py can mutate it",
+    "host": "macOS-arm64",
+    "ir_sha256": "9ada446b98667ff22064f8277d598fdc81a986526fa871cd53afc46a4e6b4d6a"
+  }
+}

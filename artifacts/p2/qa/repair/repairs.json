@@ -1,0 +1,110 @@
+{
+  "schema": "semotion.repair/1",
+  "noop": false,
+  "policy": "deterministic ladder: retime -> relocate/shrink -> scrim -> drop; text/effect/anchor semantics are never changed",
+  "inputs": {
+    "ir_sha256_in": "2b1d85aff181a70125ce25c3948ba7298e6660a3a5916d122b1be946210f986b",
+    "ir_sha256_out": "9ada446b98667ff22064f8277d598fdc81a986526fa871cd53afc46a4e6b4d6a",
+    "metrics": {
+      "verdict": "FAIL",
+      "failing_elements": [
+        "el_demo"
+      ]
+    },
+    "masks": {
+      "path": "artifacts/p2/qa/perception_demo.json",
+      "backend": "qa-demo-vision-helper",
+      "quiet_zones": 4,
+      "sample_hz": 5.0
+    },
+    "canvas": [
+      1280,
+      720
+    ],
+    "safe_margin_px": 32
+  },
+  "repairs": [
+    {
+      "element_id": "el_demo",
+      "checks_failed": [
+        "face",
+        "person"
+      ],
+      "action": "relocate",
+      "reason": "overlay footprint touched the person/face/text or violated layout",
+      "before": {
+        "box": [
+          500,
+          90,
+          340,
+          340
+        ],
+        "font_size_px": 64,
+        "bg": "rgba(10,13,22,0.82)",
+        "backdrop": null,
+        "window": {
+          "start_s": 1.0,
+          "end_s": 2.5,
+          "start_frame": 30,
+          "end_frame": 75,
+          "hold_s": 0.0
+        }
+      },
+      "after": {
+        "box": [
+          114,
+          32,
+          340,
+          340
+        ],
+        "font_size_px": 64,
+        "bg": "rgba(10,13,22,0.82)",
+        "backdrop": null,
+        "window": {
+          "start_s": 1.0,
+          "end_s": 2.5,
+          "start_frame": 30,
+          "end_frame": 75,
+          "hold_s": 0.0
+        }
+      },
+      "evidence": {
+        "placement": {
+          "issues": {
+            "person": "5444 px of the person mask overlap the box over its window (grid (320, 180))",
+            "face": "box intersects the face / face-safe area"
+          },
+          "person_overlap_px_before": 5444,
+          "chosen_zone": "zone:background",
+          "box_before": [
+            500,
+            90,
+            340,
+            340
+          ],
+          "box_after": [
+            114,
+            32,
+            340,
+            340
+          ],
+          "scale": 1.0,
+          "font_before": 64,
+          "font_after": 64,
+          "backdrop_after": null
+        }
+      }
+    }
+  ],
+  "dropped": [],
+  "unfixable": [],
+  "summary": {
+    "elements_in": 1,
+    "elements_out": 1,
+    "repaired": 1,
+    "dropped": 0,
+    "unfixable": 0,
+    "idempotent_noop": false
+  },
+  "validation_errors": []
+}

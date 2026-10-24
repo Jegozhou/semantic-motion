@@ -412,7 +412,7 @@
     }
   ],
   "provenance": {
-    "created_utc": "2026-10-24T14:02:56Z",
+    "created_utc": "2026-10-24T15:48:10Z",
     "method": "calibration:asr_word_nearest_to_synth_truth",
     "n_anchors": 14,
     "truth_class": "SYNTH_KNOWN",
@@ -421,7 +421,7 @@
       "window_ms": 250,
       "hop_ms": 10,
       "energy": "rms",
-      "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+      "video": "/Volumes/ZHITAI/Semantic Motion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
       "video_sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
       "n_anchors": 14,
       "n_accepted": 14,

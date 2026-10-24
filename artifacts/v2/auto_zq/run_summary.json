@@ -1,0 +1,45 @@
+{
+  "schema": "semotion.run/2",
+  "video": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "elements": 4,
+  "coverage": 0.2228,
+  "captions": 10,
+  "perception_used": true,
+  "render": {
+    "path": "artifacts/v2/auto_zq/final.mp4",
+    "sha256": "8f6f226b282096b1bd364af4ab25a247455d5b72e760cef6336b804f5128a958",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "frames": 625,
+    "duration_s": 25.0,
+    "bytes": 2476871
+  },
+  "elapsed_s": 9.6,
+  "artifacts": {
+    "final.mp4": "artifacts/v2/auto_zq/final.mp4",
+    "final_overlay.mp4": "artifacts/v2/auto_zq/final_overlay.mp4",
+    "motion_ir.json": "artifacts/v2/auto_zq/motion_ir.json",
+    "captions.json": "artifacts/v2/auto_zq/captions.json",
+    "captions.srt": "artifacts/v2/auto_zq/captions.srt",
+    "captions.ass": "artifacts/v2/auto_zq/captions.ass",
+    "storyboard.png": "artifacts/v2/auto_zq/storyboard.png",
+    "perception.json": "artifacts/v2/auto_zq/perception.json",
+    "alignment.json": "artifacts/v2/auto_zq/alignment.json",
+    "anchors.json": "artifacts/v2/auto_zq/anchors.json"
+  },
+  "checks": {}
+}

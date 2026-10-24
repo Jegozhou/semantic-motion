@@ -1,0 +1,38 @@
+{
+  "schema": "semotion.repair/1",
+  "noop": true,
+  "policy": "deterministic ladder: retime -> relocate/shrink -> scrim -> drop; text/effect/anchor semantics are never changed",
+  "inputs": {
+    "ir_sha256_in": "9ada446b98667ff22064f8277d598fdc81a986526fa871cd53afc46a4e6b4d6a",
+    "ir_sha256_out": "9ada446b98667ff22064f8277d598fdc81a986526fa871cd53afc46a4e6b4d6a",
+    "metrics": {
+      "verdict": "FAIL",
+      "failing_elements": [
+        "el_demo"
+      ]
+    },
+    "masks": {
+      "path": "artifacts/p2/qa/perception_demo.json",
+      "backend": "qa-demo-vision-helper",
+      "quiet_zones": 4,
+      "sample_hz": 5.0
+    },
+    "canvas": [
+      1280,
+      720
+    ],
+    "safe_margin_px": 32
+  },
+  "repairs": [],
+  "dropped": [],
+  "unfixable": [],
+  "summary": {
+    "elements_in": 1,
+    "elements_out": 1,
+    "repaired": 0,
+    "dropped": 0,
+    "unfixable": 0,
+    "idempotent_noop": true
+  },
+  "validation_errors": []
+}

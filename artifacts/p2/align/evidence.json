@@ -1,0 +1,612 @@
+{
+  "schema": "semotion.align.evidence/1",
+  "generated_by": "artifacts/p2/align/evidence.py",
+  "note": "Character-onset accuracy is measured only against SYNTH_KNOWN (per-unit TTS assembly) truth. zhengqinwen_25s has no human labels: for it we report monotonicity, duration distribution, envelope-peak agreement and a visual timeline, not an error.",
+  "fixture_fx_a": {
+    "n_units": 14,
+    "n_scored": 14,
+    "character_onset_error": {
+      "p50_ms": 4.47,
+      "p90_ms": 7.04,
+      "max_ms": 7.96,
+      "mean_ms": 4.09,
+      "bias_ms": 3.74
+    },
+    "old_pipeline_word_onset": {
+      "mode": "word",
+      "n": 14,
+      "p50_ms": 114.0,
+      "p90_ms": 181.1,
+      "max_ms": 189.46,
+      "bias_ms": 108.74
+    },
+    "old_pipeline_naive_char": {
+      "mode": "naive_char",
+      "n": 14,
+      "p50_ms": 114.0,
+      "p90_ms": 181.1,
+      "max_ms": 189.46,
+      "bias_ms": 108.74
+    },
+    "monotonicity_violations": 0,
+    "syllable_ms": {
+      "n": 82,
+      "min": 140.0,
+      "p10": 170.0,
+      "median": 220.0,
+      "p90": 280.0,
+      "max": 340.0
+    },
+    "captions": {
+      "n_cues": 7,
+      "mid_word_cue_starts": 0,
+      "segment_boundary_breaks": 6,
+      "min_duration_s": 2.12,
+      "max_duration_s": 3.52,
+      "max_line_chars": 15,
+      "problems": [],
+      "options": {
+        "respect_segments": true,
+        "respect_words": true
+      },
+      "first_cue": "大家好,今天聊一个真实的痛点",
+      "files": {
+        "json": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/align/fx_a_zh_portrait.captions.json",
+        "srt": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/align/fx_a_zh_portrait.srt",
+        "ass": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/align/fx_a_zh_portrait.ass"
+      },
+      "before_task_3b": {
+        "n_cues": 10,
+        "mid_word_cue_starts": 0,
+        "segment_boundary_breaks": 6,
+        "min_duration_s": 0.92,
+        "max_duration_s": 3.52,
+        "max_line_chars": 15,
+        "problems": [],
+        "options": {
+          "respect_segments": false,
+          "respect_words": false
+        },
+        "first_cue": "大家好,今天聊一个真实的痛点"
+      }
+    },
+    "caveat": "n=14 independent units: this is the fixture acceptance number, not a robust P90 claim. The pooled number below uses n=147.",
+    "old_first_segment": {
+      "segment_start_s": 0.64,
+      "first_word_start_s": 0.64,
+      "first_word_text": "大家好,",
+      "truth_first_unit_start_s": 0.5,
+      "new_first_char_start_s": 0.5,
+      "new_first_char_text": "大"
+    }
+  },
+  "real_zhengqinwen_25s": {
+    "duration_s": 25.002688,
+    "n_chars": 123,
+    "n_syllables": 123,
+    "n_chunks": 16,
+    "monotonicity_violations": 0,
+    "syllable_ms": {
+      "n": 123,
+      "min": 90.0,
+      "p10": 120.0,
+      "median": 150.0,
+      "p90": 200.0,
+      "max": 280.0
+    },
+    "onset_vs_local_peaks": {
+      "nearest_peak_ms": {
+        "n": 123,
+        "median_ms": 0.0,
+        "p90_ms": 10.0,
+        "within_50ms_rate": 0.9756,
+        "within_80ms_rate": 0.9837
+      },
+      "point_biserial_r": 0.4321,
+      "onset_percentile_mean": 0.8605,
+      "contrast_ratio": 2.303,
+      "peak_hit_rate": 0.7642
+    },
+    "low_confidence_syllables": 0,
+    "segment_anchor_dev_ms": {
+      "start_median": 90.0,
+      "end_median": 150.0
+    },
+    "captions": {
+      "n_cues": 10,
+      "mid_word_cue_starts": 0,
+      "segment_boundary_breaks": 9,
+      "min_duration_s": 1.32,
+      "max_duration_s": 3.6,
+      "max_line_chars": 20,
+      "problems": [],
+      "options": {
+        "respect_segments": true,
+        "respect_words": true
+      },
+      "first_cue": "奥运会是我的梦想没错",
+      "files": {
+        "json": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/align/zhengqinwen_25s.captions.json",
+        "srt": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/align/zhengqinwen_25s.srt",
+        "ass": "/Volumes/ZHITAI/Semantic Motion/artifacts/p2/align/zhengqinwen_25s.ass"
+      },
+      "before_task_3b": {
+        "n_cues": 6,
+        "mid_word_cue_starts": 0,
+        "segment_boundary_breaks": 1,
+        "min_duration_s": 1.68,
+        "max_duration_s": 5.8,
+        "max_line_chars": 22,
+        "problems": [],
+        "options": {
+          "respect_segments": false,
+          "respect_words": false
+        },
+        "first_cue": "奥运会是我的梦想没错但是我还有其他的梦想"
+      },
+      "cue_list": [
+        {
+          "start_frame": 12,
+          "end_frame": 48,
+          "duration_s": 1.44,
+          "lines": [
+            "奥运会是我的梦想没错"
+          ],
+          "segment_ids": [
+            "s0"
+          ]
+        },
+        {
+          "start_frame": 48,
+          "end_frame": 138,
+          "duration_s": 3.6,
+          "lines": [
+            "但是我还有其他的梦想等着我去实现我的目标"
+          ],
+          "segment_ids": [
+            "s1"
+          ]
+        },
+        {
+          "start_frame": 143,
+          "end_frame": 198,
+          "duration_s": 2.2,
+          "lines": [
+            "我的梦想其实还远远没有结束"
+          ],
+          "segment_ids": [
+            "s2"
+          ]
+        },
+        {
+          "start_frame": 208,
+          "end_frame": 279,
+          "duration_s": 2.84,
+          "lines": [
+            "网球最好的一点就是它永远都有比赛"
+          ],
+          "segment_ids": [
+            "s3"
+          ]
+        },
+        {
+          "start_frame": 279,
+          "end_frame": 319,
+          "duration_s": 1.6,
+          "lines": [
+            "每一年我们都有比赛"
+          ],
+          "segment_ids": [
+            "s4"
+          ]
+        },
+        {
+          "start_frame": 326,
+          "end_frame": 393,
+          "duration_s": 2.68,
+          "lines": [
+            "每一年都有更大的困难"
+          ],
+          "segment_ids": [
+            "s5"
+          ]
+        },
+        {
+          "start_frame": 393,
+          "end_frame": 441,
+          "duration_s": 1.92,
+          "lines": [
+            "更大的山坡等着你去战胜"
+          ],
+          "segment_ids": [
+            "s6"
+          ]
+        },
+        {
+          "start_frame": 455,
+          "end_frame": 518,
+          "duration_s": 2.52,
+          "lines": [
+            "因为如果我觉得太过于满足的话"
+          ],
+          "segment_ids": [
+            "s7"
+          ]
+        },
+        {
+          "start_frame": 518,
+          "end_frame": 567,
+          "duration_s": 1.96,
+          "lines": [
+            "你可能就会停滞在一个位置"
+          ],
+          "segment_ids": [
+            "s8"
+          ]
+        },
+        {
+          "start_frame": 567,
+          "end_frame": 600,
+          "duration_s": 1.32,
+          "lines": [
+            "没有办法向前进步"
+          ],
+          "segment_ids": [
+            "s9"
+          ]
+        }
+      ]
+    },
+    "old_first_segment": {
+      "segment_start_s": 0.0,
+      "first_word_text": "奥",
+      "first_word_start_s": 0.0,
+      "second_word_text": "运",
+      "second_word_start_s": 0.66,
+      "new_first_char_text": "奥",
+      "new_first_char_start_s": 0.5,
+      "speech_island_start_s": 0.5
+    },
+    "caveat": "No human-labelled real corpus exists for this clip. These are plausibility checks (monotonicity, duration distribution, envelope-peak agreement), not an accuracy measurement; the timeline PNG is for human inspection."
+  },
+  "pooled_fixtures": {
+    "n_fixtures": 10,
+    "n_units": 147,
+    "n_scored": 147,
+    "new_character_onset": {
+      "n": 147,
+      "p50_ms": 2.75,
+      "p90_ms": 7.56,
+      "p95_ms": 8.13,
+      "max_ms": 108.17,
+      "mean_ms": 5.25,
+      "bias_ms": 4.97,
+      "per_fixture": [
+        {
+          "fixture": "fx_a_zh_portrait",
+          "n": 14,
+          "p90_ms": 7.04,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_b_zh_landscape",
+          "n": 8,
+          "p90_ms": 6.74,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_c_zh_cuts",
+          "n": 7,
+          "p90_ms": 6.17,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_d_zh_portrait",
+          "n": 20,
+          "p90_ms": 7.5,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_e_zh_landscape",
+          "n": 17,
+          "p90_ms": 7.31,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_face_pan",
+          "n": 9,
+          "p90_ms": 6.02,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_face_zh_portrait",
+          "n": 12,
+          "p90_ms": 7.37,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t1_zh_phrase",
+          "n": 20,
+          "p90_ms": 7.61,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t2_zh_phrase",
+          "n": 20,
+          "p90_ms": 7.63,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t3_zh_phrase",
+          "n": 20,
+          "p90_ms": 7.89,
+          "monotonicity_violations": 0
+        }
+      ]
+    },
+    "old_pipeline_word_onset": {
+      "n": 147,
+      "p50_ms": 132.35,
+      "p90_ms": 226.43,
+      "p95_ms": 274.85,
+      "max_ms": 555.96,
+      "mean_ms": 139.47,
+      "bias_ms": 3.06
+    },
+    "old_pipeline_naive_char": {
+      "n": 147,
+      "p50_ms": 127.37,
+      "p90_ms": 199.58,
+      "p95_ms": 245.56,
+      "max_ms": 555.96,
+      "mean_ms": 127.14,
+      "bias_ms": 8.3
+    },
+    "uniform_segment_split_baseline": {
+      "n": 147,
+      "p50_ms": 97.63,
+      "p90_ms": 151.76,
+      "p95_ms": 164.05,
+      "max_ms": 198.69,
+      "mean_ms": 93.93,
+      "bias_ms": -2.77
+    },
+    "negative_control_shuffled_envelope": {
+      "n": 147,
+      "p50_ms": 44.96,
+      "p90_ms": 98.88,
+      "p95_ms": 114.89,
+      "max_ms": 153.81,
+      "mean_ms": 50.15,
+      "bias_ms": 34.97,
+      "per_fixture": [
+        {
+          "fixture": "fx_a_zh_portrait",
+          "n": 14,
+          "p90_ms": 94.03,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_b_zh_landscape",
+          "n": 8,
+          "p90_ms": 85.22,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_c_zh_cuts",
+          "n": 7,
+          "p90_ms": 54.6,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_d_zh_portrait",
+          "n": 20,
+          "p90_ms": 118.96,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_e_zh_landscape",
+          "n": 17,
+          "p90_ms": 93.92,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_face_pan",
+          "n": 9,
+          "p90_ms": 96.68,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_face_zh_portrait",
+          "n": 12,
+          "p90_ms": 84.42,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t1_zh_phrase",
+          "n": 20,
+          "p90_ms": 86.34,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t2_zh_phrase",
+          "n": 20,
+          "p90_ms": 78.93,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t3_zh_phrase",
+          "n": 20,
+          "p90_ms": 74.27,
+          "monotonicity_violations": 0
+        }
+      ]
+    },
+    "ablation_attack_refinement": {
+      "n": 147,
+      "p50_ms": 11.21,
+      "p90_ms": 16.01,
+      "p95_ms": 17.79,
+      "max_ms": 20.0,
+      "mean_ms": 11.28,
+      "bias_ms": -11.09,
+      "per_fixture": [
+        {
+          "fixture": "fx_a_zh_portrait",
+          "n": 14,
+          "p90_ms": 16.44,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_b_zh_landscape",
+          "n": 8,
+          "p90_ms": 16.0,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_c_zh_cuts",
+          "n": 7,
+          "p90_ms": 19.64,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_d_zh_portrait",
+          "n": 20,
+          "p90_ms": 12.63,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_e_zh_landscape",
+          "n": 17,
+          "p90_ms": 13.79,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_face_pan",
+          "n": 9,
+          "p90_ms": 16.07,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_face_zh_portrait",
+          "n": 12,
+          "p90_ms": 17.5,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t1_zh_phrase",
+          "n": 20,
+          "p90_ms": 17.6,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t2_zh_phrase",
+          "n": 20,
+          "p90_ms": 14.53,
+          "monotonicity_violations": 0
+        },
+        {
+          "fixture": "fx_t3_zh_phrase",
+          "n": 20,
+          "p90_ms": 16.04,
+          "monotonicity_violations": 0
+        }
+      ]
+    },
+    "caveat": "SYNTH_KNOWN = per-unit TTS concatenated on a measured timeline. Pauses between units make this easier than continuous human speech; the n=147 pooled P90 is a dev-set number."
+  },
+  "negative_control_real_speech": {
+    "fitted": {
+      "percentile_against_real_envelope": {
+        "n": 123,
+        "mean": 0.8605,
+        "median": 0.9355
+      },
+      "energy_contrast_against_real_envelope": 2.303
+    },
+    "shuffled_evidence": {
+      "percentile_against_real_envelope": {
+        "n": 123,
+        "mean": 0.4799,
+        "median": 0.4839
+      },
+      "energy_contrast_against_real_envelope": 0.944
+    },
+    "explanation": "Both alignments are scored against the original (unshuffled) onset envelope. When the evidence is shuffled the predicted onsets move off the real peaks, so their local percentile/contrast drop. This is a plausibility control, not an error measurement: real speech has no human-labelled truth in this repo."
+  },
+  "captions_before_after": {
+    "fx_a_zh_portrait": {
+      "before": {
+        "n_cues": 10,
+        "mid_word_cue_starts": 0,
+        "segment_boundary_breaks": 6,
+        "min_duration_s": 0.92,
+        "max_duration_s": 3.52,
+        "max_line_chars": 15,
+        "problems": [],
+        "options": {
+          "respect_segments": false,
+          "respect_words": false
+        },
+        "first_cue": "大家好,今天聊一个真实的痛点"
+      },
+      "after": {
+        "n_cues": 7,
+        "mid_word_cue_starts": 0,
+        "segment_boundary_breaks": 6,
+        "min_duration_s": 2.12,
+        "max_duration_s": 3.52,
+        "max_line_chars": 15,
+        "problems": [],
+        "options": {
+          "respect_segments": true,
+          "respect_words": true
+        },
+        "first_cue": "大家好,今天聊一个真实的痛点"
+      }
+    },
+    "zhengqinwen_25s": {
+      "before": {
+        "n_cues": 6,
+        "mid_word_cue_starts": 0,
+        "segment_boundary_breaks": 1,
+        "min_duration_s": 1.68,
+        "max_duration_s": 5.8,
+        "max_line_chars": 22,
+        "problems": [],
+        "options": {
+          "respect_segments": false,
+          "respect_words": false
+        },
+        "first_cue": "奥运会是我的梦想没错但是我还有其他的梦想"
+      },
+      "after": {
+        "n_cues": 10,
+        "mid_word_cue_starts": 0,
+        "segment_boundary_breaks": 9,
+        "min_duration_s": 1.32,
+        "max_duration_s": 3.6,
+        "max_line_chars": 20,
+        "problems": [],
+        "options": {
+          "respect_segments": true,
+          "respect_words": true
+        },
+        "first_cue": "奥运会是我的梦想没错"
+      }
+    },
+    "note": "before = task-3 behaviour (respect_segments=False, respect_words=False); after = task-3b defaults (segment-respecting cues + ASR word guard)"
+  },
+  "caption_rules": {
+    "cjk_max_chars_per_line": 24,
+    "cjk_target_chars_per_line": 22,
+    "cjk_max_lines": 2,
+    "latin_max_chars_per_line": 42,
+    "min_display_s": 0.9,
+    "merge_gap_s": 0.18,
+    "font_cjk": "Noto Sans SC",
+    "font_latin": "Inter",
+    "respect_segments_default": "on when the alignment carries ASR segment ids",
+    "respect_words_default": true
+  }
+}

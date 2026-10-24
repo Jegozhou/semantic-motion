@@ -1,0 +1,90 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+  "transcript_sha256": null,
+  "duration_s": 25.002688,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "keyword",
+      "text": "但是我还有其",
+      "start_s": 1.91,
+      "end_s": 2.87,
+      "confidence": 0.78,
+      "source": "RULE_V2",
+      "segment_id": "s1",
+      "word_ids": [
+        "w10",
+        "w11",
+        "w12",
+        "w13",
+        "w14",
+        "w15"
+      ],
+      "items": []
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "其实还远远没",
+      "start_s": 6.15,
+      "end_s": 7.01,
+      "confidence": 0.78,
+      "source": "RULE_V2",
+      "segment_id": "s2",
+      "word_ids": [
+        "w34",
+        "w35",
+        "w36",
+        "w37",
+        "w38",
+        "w39"
+      ],
+      "items": []
+    },
+    {
+      "id": "a02",
+      "kind": "keyword",
+      "text": "就是它永远都",
+      "start_s": 9.64,
+      "end_s": 10.41,
+      "confidence": 0.72,
+      "source": "RULE_V2",
+      "segment_id": "s3",
+      "word_ids": [
+        "w50",
+        "w51",
+        "w52",
+        "w53",
+        "w54",
+        "w55"
+      ],
+      "items": []
+    },
+    {
+      "id": "a03",
+      "kind": "keyword",
+      "text": "因为如果我觉",
+      "start_s": 18.2,
+      "end_s": 19.21,
+      "confidence": 0.78,
+      "source": "RULE_V2",
+      "segment_id": "s7",
+      "word_ids": [
+        "w89",
+        "w90",
+        "w91",
+        "w92",
+        "w93",
+        "w94"
+      ],
+      "items": []
+    }
+  ],
+  "provenance": {
+    "method": "semotion.pipeline.auto_anchors (deterministic rules)",
+    "n_anchors": 4,
+    "truth_class": "MACHINE"
+  }
+}

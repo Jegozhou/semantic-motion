@@ -1,0 +1,1963 @@
+{
+  "schema": "semotion.motion-ir/2",
+  "ir_version": "2.1.0",
+  "style": "smart_balanced",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a",
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0,
+    "duration_s": 25.0,
+    "frames": 625
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 920,
+    "fps": 25.0
+  },
+  "theme": {
+    "accent": "#EBC898",
+    "ink": "#F7F8FA",
+    "scrim": "#070A10",
+    "surface_is_dark": true
+  },
+  "semantic": {
+    "language": "zh",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "但是我还有其",
+        "start_s": 1.91,
+        "end_s": 2.87,
+        "confidence": 0.78,
+        "source": "RULE_V2",
+        "segment_id": "s1",
+        "word_ids": [
+          "w10",
+          "w11",
+          "w12",
+          "w13",
+          "w14",
+          "w15"
+        ],
+        "items": []
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "其实还远远没",
+        "start_s": 6.15,
+        "end_s": 7.01,
+        "confidence": 0.78,
+        "source": "RULE_V2",
+        "segment_id": "s2",
+        "word_ids": [
+          "w34",
+          "w35",
+          "w36",
+          "w37",
+          "w38",
+          "w39"
+        ],
+        "items": []
+      },
+      {
+        "id": "a02",
+        "kind": "keyword",
+        "text": "就是它永远都",
+        "start_s": 9.64,
+        "end_s": 10.41,
+        "confidence": 0.72,
+        "source": "RULE_V2",
+        "segment_id": "s3",
+        "word_ids": [
+          "w50",
+          "w51",
+          "w52",
+          "w53",
+          "w54",
+          "w55"
+        ],
+        "items": []
+      },
+      {
+        "id": "a03",
+        "kind": "keyword",
+        "text": "因为如果我觉",
+        "start_s": 18.2,
+        "end_s": 19.21,
+        "confidence": 0.78,
+        "source": "RULE_V2",
+        "segment_id": "s7",
+        "word_ids": [
+          "w89",
+          "w90",
+          "w91",
+          "w92",
+          "w93",
+          "w94"
+        ],
+        "items": []
+      }
+    ],
+    "decisions_sha256": null
+  },
+  "perception": {
+    "schema": "semotion.perception/1",
+    "person_union": [
+      524,
+      152,
+      892,
+      768
+    ],
+    "face_union": [
+      943,
+      236,
+      296,
+      311
+    ],
+    "hands_union": [
+      1021,
+      667,
+      303,
+      253
+    ],
+    "existing_text": [
+      {
+        "bbox": [
+          708,
+          865,
+          159,
+          44
+        ],
+        "t0": 0.0,
+        "t1": 24.4,
+        "kind": "logo",
+        "text": "新京报",
+        "conf": 0.7934
+      }
+    ],
+    "quiet_zone_count": 12,
+    "used": true
+  },
+  "elements": [
+    {
+      "id": "el_1_57ea3876",
+      "type": "keyword",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 1.91,
+        "end_s": 3.32,
+        "start_frame": 48,
+        "end_frame": 83,
+        "hold_s": 0.45,
+        "anchor_start_s": 1.91,
+        "anchor_end_s": 2.87
+      },
+      "box": [
+        1434,
+        354,
+        438,
+        136
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1344,
+          0,
+          576,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1088
+          ],
+          [
+            182,
+            1120
+          ],
+          [
+            201,
+            1140
+          ],
+          [
+            220,
+            1148
+          ],
+          [
+            239,
+            1156
+          ],
+          [
+            258,
+            1160
+          ],
+          [
+            277,
+            1164
+          ],
+          [
+            297,
+            1172
+          ],
+          [
+            316,
+            1176
+          ],
+          [
+            335,
+            1184
+          ],
+          [
+            354,
+            1184
+          ],
+          [
+            373,
+            1188
+          ],
+          [
+            392,
+            1192
+          ],
+          [
+            412,
+            1192
+          ],
+          [
+            431,
+            1192
+          ],
+          [
+            450,
+            1196
+          ],
+          [
+            469,
+            1196
+          ],
+          [
+            488,
+            1200
+          ],
+          [
+            507,
+            1204
+          ],
+          [
+            527,
+            1232
+          ],
+          [
+            546,
+            1236
+          ],
+          [
+            565,
+            1236
+          ],
+          [
+            584,
+            1236
+          ],
+          [
+            603,
+            1224
+          ],
+          [
+            622,
+            1264
+          ],
+          [
+            642,
+            1284
+          ],
+          [
+            661,
+            1292
+          ],
+          [
+            680,
+            1300
+          ],
+          [
+            699,
+            1308
+          ],
+          [
+            718,
+            1316
+          ],
+          [
+            737,
+            1324
+          ],
+          [
+            757,
+            1328
+          ],
+          [
+            776,
+            1336
+          ],
+          [
+            795,
+            1344
+          ],
+          [
+            814,
+            1352
+          ],
+          [
+            833,
+            1356
+          ],
+          [
+            852,
+            1364
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1404
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "但是我还有其",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 438,
+        "height": 136,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "但是我还有其"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1424,
+          165,
+          448,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1424,
+              165,
+              448,
+              515
+            ],
+            "quiet": 0.797,
+            "status": "ok",
+            "box": [
+              1434,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.6441
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              434,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              308,
+              225,
+              228
+            ],
+            "fit_w": 225,
+            "fit_h": 228,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1535,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5191
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              816,
+              56,
+              426,
+              80
+            ],
+            "fit_w": 426,
+            "fit_h": 80,
+            "score": 0.5107
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1535,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4928
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              117,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              117,
+              390,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4716
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.784,
+            "status": "ok",
+            "box": [
+              512,
+              56,
+              426,
+              80
+            ],
+            "fit_w": 426,
+            "fit_h": 80,
+            "score": 0.4469
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a00",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_b69f0f83",
+      "type": "keyword",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 6.15,
+        "end_s": 7.5,
+        "start_frame": 154,
+        "end_frame": 188,
+        "hold_s": 0.45,
+        "anchor_start_s": 6.15,
+        "anchor_end_s": 7.01
+      },
+      "box": [
+        1434,
+        354,
+        438,
+        136
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1352,
+          0,
+          568,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1084
+          ],
+          [
+            182,
+            1120
+          ],
+          [
+            201,
+            1152
+          ],
+          [
+            220,
+            1164
+          ],
+          [
+            239,
+            1172
+          ],
+          [
+            258,
+            1176
+          ],
+          [
+            277,
+            1180
+          ],
+          [
+            297,
+            1188
+          ],
+          [
+            316,
+            1188
+          ],
+          [
+            335,
+            1196
+          ],
+          [
+            354,
+            1196
+          ],
+          [
+            373,
+            1196
+          ],
+          [
+            392,
+            1200
+          ],
+          [
+            412,
+            1204
+          ],
+          [
+            431,
+            1208
+          ],
+          [
+            450,
+            1208
+          ],
+          [
+            469,
+            1208
+          ],
+          [
+            488,
+            1208
+          ],
+          [
+            507,
+            1212
+          ],
+          [
+            527,
+            1228
+          ],
+          [
+            546,
+            1244
+          ],
+          [
+            565,
+            1248
+          ],
+          [
+            584,
+            1248
+          ],
+          [
+            603,
+            1240
+          ],
+          [
+            622,
+            1268
+          ],
+          [
+            642,
+            1288
+          ],
+          [
+            661,
+            1300
+          ],
+          [
+            680,
+            1304
+          ],
+          [
+            699,
+            1316
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1328
+          ],
+          [
+            757,
+            1336
+          ],
+          [
+            776,
+            1344
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1356
+          ],
+          [
+            833,
+            1364
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1404
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "其实还远远没",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 438,
+        "height": 136,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "其实还远远没"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1431,
+          165,
+          441,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1431,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1434,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.7453
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              441,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1535,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5202
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              816,
+              56,
+              426,
+              80
+            ],
+            "fit_w": 426,
+            "fit_h": 80,
+            "score": 0.5104
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              81
+            ],
+            "quiet": 0.769,
+            "status": "ok",
+            "box": [
+              740,
+              27,
+              438,
+              81
+            ],
+            "fit_w": 438,
+            "fit_h": 81,
+            "score": 0.504
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1535,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.494
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              117,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              117,
+              390,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4716
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a01",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_307ede45",
+      "type": "keyword",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 9.64,
+        "end_s": 10.99,
+        "start_frame": 241,
+        "end_frame": 275,
+        "hold_s": 0.45,
+        "anchor_start_s": 9.64,
+        "anchor_end_s": 10.41
+      },
+      "box": [
+        1434,
+        354,
+        438,
+        136
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1356,
+          0,
+          564,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1104
+          ],
+          [
+            182,
+            1136
+          ],
+          [
+            201,
+            1164
+          ],
+          [
+            220,
+            1180
+          ],
+          [
+            239,
+            1188
+          ],
+          [
+            258,
+            1192
+          ],
+          [
+            277,
+            1196
+          ],
+          [
+            297,
+            1200
+          ],
+          [
+            316,
+            1204
+          ],
+          [
+            335,
+            1208
+          ],
+          [
+            354,
+            1212
+          ],
+          [
+            373,
+            1212
+          ],
+          [
+            392,
+            1216
+          ],
+          [
+            412,
+            1220
+          ],
+          [
+            431,
+            1220
+          ],
+          [
+            450,
+            1220
+          ],
+          [
+            469,
+            1220
+          ],
+          [
+            488,
+            1220
+          ],
+          [
+            507,
+            1224
+          ],
+          [
+            527,
+            1240
+          ],
+          [
+            546,
+            1252
+          ],
+          [
+            565,
+            1260
+          ],
+          [
+            584,
+            1260
+          ],
+          [
+            603,
+            1256
+          ],
+          [
+            622,
+            1272
+          ],
+          [
+            642,
+            1292
+          ],
+          [
+            661,
+            1304
+          ],
+          [
+            680,
+            1312
+          ],
+          [
+            699,
+            1320
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1332
+          ],
+          [
+            757,
+            1340
+          ],
+          [
+            776,
+            1348
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1360
+          ],
+          [
+            833,
+            1368
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1380
+          ],
+          [
+            891,
+            1404
+          ],
+          [
+            910,
+            1416
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "就是它永远都",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 438,
+        "height": 136,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "就是它永远都"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1434,
+          165,
+          438,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1434,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1434,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.7421
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              444,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1535,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5169
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              816,
+              56,
+              426,
+              80
+            ],
+            "fit_w": 426,
+            "fit_h": 80,
+            "score": 0.511
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1535,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4907
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              117,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              117,
+              390,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4716
+          },
+          {
+            "treatment": "card",
+            "zone": "zone3",
+            "text_area": [
+              418,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.784,
+            "status": "ok",
+            "box": [
+              512,
+              56,
+              426,
+              80
+            ],
+            "fit_w": 426,
+            "fit_h": 80,
+            "score": 0.4482
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a02",
+        "decision_confidence": 0.72,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_8e0e8dbb",
+      "type": "keyword",
+      "anchor_refs": [
+        "a03"
+      ],
+      "window": {
+        "start_s": 18.2,
+        "end_s": 19.66,
+        "start_frame": 455,
+        "end_frame": 492,
+        "hold_s": 0.45,
+        "anchor_start_s": 18.2,
+        "anchor_end_s": 19.21
+      },
+      "box": [
+        1434,
+        354,
+        438,
+        136
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          1356,
+          0,
+          564,
+          920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22,
+        "profile": [
+          [
+            162,
+            1096
+          ],
+          [
+            182,
+            1124
+          ],
+          [
+            201,
+            1156
+          ],
+          [
+            220,
+            1172
+          ],
+          [
+            239,
+            1176
+          ],
+          [
+            258,
+            1184
+          ],
+          [
+            277,
+            1188
+          ],
+          [
+            297,
+            1192
+          ],
+          [
+            316,
+            1200
+          ],
+          [
+            335,
+            1204
+          ],
+          [
+            354,
+            1204
+          ],
+          [
+            373,
+            1208
+          ],
+          [
+            392,
+            1212
+          ],
+          [
+            412,
+            1216
+          ],
+          [
+            431,
+            1216
+          ],
+          [
+            450,
+            1212
+          ],
+          [
+            469,
+            1216
+          ],
+          [
+            488,
+            1216
+          ],
+          [
+            507,
+            1220
+          ],
+          [
+            527,
+            1240
+          ],
+          [
+            546,
+            1252
+          ],
+          [
+            565,
+            1252
+          ],
+          [
+            584,
+            1252
+          ],
+          [
+            603,
+            1244
+          ],
+          [
+            622,
+            1272
+          ],
+          [
+            642,
+            1292
+          ],
+          [
+            661,
+            1304
+          ],
+          [
+            680,
+            1312
+          ],
+          [
+            699,
+            1316
+          ],
+          [
+            718,
+            1324
+          ],
+          [
+            737,
+            1332
+          ],
+          [
+            757,
+            1336
+          ],
+          [
+            776,
+            1344
+          ],
+          [
+            795,
+            1352
+          ],
+          [
+            814,
+            1356
+          ],
+          [
+            833,
+            1364
+          ],
+          [
+            852,
+            1372
+          ],
+          [
+            872,
+            1372
+          ],
+          [
+            891,
+            1316
+          ],
+          [
+            910,
+            1268
+          ]
+        ],
+        "profile_side": "right"
+      },
+      "content": {
+        "text": "因为如果我觉",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 438,
+        "height": 136,
+        "pad": 6,
+        "font_size_px": 71,
+        "min_font_px": 41,
+        "display_px": 71,
+        "title_px": 0,
+        "body_px": 26,
+        "kicker_px": 19,
+        "pitch": 92,
+        "lines": [
+          "因为如果我觉"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "zone_box": [
+          1434,
+          165,
+          438,
+          515
+        ],
+        "category": "side",
+        "reason": "",
+        "candidates": [
+          {
+            "treatment": "scrim_right",
+            "zone": "col_right",
+            "text_area": [
+              1434,
+              165,
+              438,
+              515
+            ],
+            "quiet": 0.798,
+            "status": "ok",
+            "box": [
+              1434,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.7429
+          },
+          {
+            "treatment": "scrim_left",
+            "zone": "col_left",
+            "text_area": [
+              48,
+              165,
+              444,
+              515
+            ],
+            "quiet": 0.5,
+            "status": "ok",
+            "box": [
+              48,
+              354,
+              438,
+              136
+            ],
+            "fit_w": 438,
+            "fit_h": 136,
+            "score": 0.5372
+          },
+          {
+            "treatment": "card",
+            "zone": "zone0",
+            "text_area": [
+              1520,
+              300,
+              314,
+              197
+            ],
+            "quiet": 0.903,
+            "status": "ok",
+            "box": [
+              1535,
+              300,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.5177
+          },
+          {
+            "treatment": "card",
+            "zone": "zone1",
+            "text_area": [
+              722,
+              58,
+              615,
+              77
+            ],
+            "quiet": 0.944,
+            "status": "ok",
+            "box": [
+              816,
+              56,
+              426,
+              80
+            ],
+            "fit_w": 426,
+            "fit_h": 80,
+            "score": 0.5107
+          },
+          {
+            "treatment": "band_top",
+            "zone": "band_top",
+            "text_area": [
+              115,
+              27,
+              1689,
+              81
+            ],
+            "quiet": 0.769,
+            "status": "ok",
+            "box": [
+              740,
+              27,
+              438,
+              81
+            ],
+            "fit_w": 438,
+            "fit_h": 81,
+            "score": 0.5042
+          },
+          {
+            "treatment": "card",
+            "zone": "zone2",
+            "text_area": [
+              1520,
+              426,
+              314,
+              197
+            ],
+            "quiet": 0.837,
+            "status": "ok",
+            "box": [
+              1535,
+              426,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4914
+          },
+          {
+            "treatment": "card",
+            "zone": "zone5",
+            "text_area": [
+              86,
+              264,
+              346,
+              197
+            ],
+            "quiet": 0.745,
+            "status": "ok",
+            "box": [
+              117,
+              264,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4751
+          },
+          {
+            "treatment": "card",
+            "zone": "zone6",
+            "text_area": [
+              86,
+              390,
+              346,
+              197
+            ],
+            "quiet": 0.736,
+            "status": "ok",
+            "box": [
+              117,
+              390,
+              284,
+              197
+            ],
+            "fit_w": 284,
+            "fit_h": 197,
+            "score": 0.4716
+          }
+        ]
+      },
+      "provenance": {
+        "decision_id": "a03",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    }
+  ],
+  "layout_audit": {
+    "decisions": [
+      {
+        "group": 0,
+        "decision": "place",
+        "element": "el_1_57ea3876",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 1.91,
+        "box": [
+          1434,
+          354,
+          438,
+          136
+        ],
+        "text": "但是我还有其"
+      },
+      {
+        "group": 1,
+        "decision": "place",
+        "element": "el_1_b69f0f83",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 6.15,
+        "box": [
+          1434,
+          354,
+          438,
+          136
+        ],
+        "text": "其实还远远没"
+      },
+      {
+        "group": 2,
+        "decision": "place",
+        "element": "el_1_307ede45",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 9.64,
+        "box": [
+          1434,
+          354,
+          438,
+          136
+        ],
+        "text": "就是它永远都"
+      },
+      {
+        "group": 3,
+        "decision": "place",
+        "element": "el_1_8e0e8dbb",
+        "treatment": "scrim_right",
+        "zone": "col_right",
+        "start_s": 18.2,
+        "box": [
+          1434,
+          354,
+          438,
+          136
+        ],
+        "text": "因为如果我觉"
+      }
+    ],
+    "coverage": 0.2228,
+    "perception_used": true,
+    "text_obstacles": 1
+  },
+  "provenance": {
+    "director": "semotion.design2/2",
+    "truth_class": "MACHINE",
+    "note": "windows derive from measured anchor onsets; placement rejects any box that touches the person silhouette, burned-in text or captions"
+  }
+}

@@ -1,7 +1,34 @@
 # PROGRESS.md — Semantic Motion 可恢复进度台账
 
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
-> 最近更新：**G0–G4 PASS，G5（LLM 选动效 + Remotion 渲染 + 逐词字幕）PASS**。G5 证据见 `reports/gate-G5.md` 与 `artifacts/g5/`。
+> 最近更新：**v2 交付完成（2026-10-24 23:5x）**。v2 用「轮廓感知布局 + 排版化动效 + 渲染后客观质检」替换了 v1 的「人脸框 + 半透明面板」，真实素材成片全项 PASS。证据：`reports/FINAL-REPORT-V2.md`、`artifacts/v2/final_zq/`。
+
+## v2 状态一屏
+
+| 项 | 状态 | 证据 |
+|---|---|---|
+| 轮廓感知感知层（Apple Vision：人像掩码/姿态/手/烧录文字/安静区） | **DONE** | `src/semotion/perception.py`、`artifacts/p2/perception/`（125 采样，冷启 18.7 s，缓存 0.05 s，2 次确定性一致） |
+| 词/字级时间对齐（DP + 声学停顿） | **DONE** | `src/semotion/align.py`；合成真值 pooled n=147 **P50 2.75 / P90 7.56 ms**，打乱对照 98.88 ms |
+| 字幕（按语义段，≤2 行，词内不断） | **DONE** | `src/semotion/captions.py`；真实素材 10 cues，min display 1.32 s，mid-word 0 |
+| v2 设计系统 + 程序化动效 | **DONE** | `src/semotion/{theme2,effects2,design2,render2}.py`、`docs/DESIGN.md` |
+| 轮廓感知布局（scrim 沿人像逐行淡出） | **DONE** | `motion_ir.json → backdrop.profile`；5/5 元素人像重叠 **0 px** |
+| 渲染后客观质检 + 修复器 | **DONE** | `src/semotion/verify2.py`、`repair.py`、`docs/QA.md`；负向对照（故意遮脸→FAIL→修复→PASS）在 `artifacts/p2/qa/` |
+| 端到端命令 | **DONE** | `python -m semotion.pipeline run --video … --out …` |
+| 真实素材成片 | **DONE** | `delivery/06_v2_real_footage_16x9/final.mp4`（CC BY 3.0 采访，1920×920，25 s） |
+| 双跑确定性 | **DONE** | 625/625 帧 mean \|Δ\| = 0.0（`artifacts/v2/final_zq/qa/qa_metrics.json`） |
+| Skill 安装 | **DONE（仓库内已热加载）**；`~/.claude` 与 `~/.dsh` 的写入被本会话沙箱拒绝 | `.dsh/skills/semantic-motion/`、`scripts/install_skill.py`（用户侧一条命令即可） |
+| 人工真值时间验收 | **NOT RUN** | 无真人标注语料；合成真值不能冒充真人精度 |
+
+**v2 一键复现**
+
+```bash
+cd "/Volumes/ZHITAI/Semantic Motion" && export PYTHONPATH=src
+.venv/bin/python -m semotion.pipeline run --video inputs/zhengqinwen_25s.mp4 --out out/ref \
+  --anchors artifacts/dl/anchors_llm.json --decisions artifacts/llm/download_zhengqinwen.decisions.json
+```
+
+---
+
 
 ## 0. 当前状态一屏
 

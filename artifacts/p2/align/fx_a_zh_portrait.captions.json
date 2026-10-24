@@ -1,0 +1,277 @@
+{
+  "schema": "semotion.captions/1",
+  "source": {
+    "alignment_schema": "semotion.alignment/1",
+    "path": "/Volumes/ZHITAI/Semantic Motion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "duration_s": 24.192,
+    "fps": 25.0,
+    "width": 1080,
+    "height": 1920,
+    "language": "zh"
+  },
+  "style": {
+    "cjk": {
+      "max_lines": 2,
+      "target_chars_per_line": 22,
+      "max_chars_per_line": 24,
+      "min_chars_per_line": 6,
+      "target_cue_chars": 30,
+      "max_cue_chars": 44
+    },
+    "latin": {
+      "max_lines": 2,
+      "target_chars_per_line": 38,
+      "max_chars_per_line": 42,
+      "min_chars_per_line": 8,
+      "target_cue_chars": 58,
+      "max_cue_chars": 84
+    },
+    "min_display_s": 0.9,
+    "merge_gap_s": 0.18,
+    "pause_break_s": 0.35,
+    "sentence_punct": "。！？!?…",
+    "clause_punct": "，,、；;：:",
+    "strip_trailing_punct": true,
+    "font_cjk": "Noto Sans SC",
+    "font_latin": "Inter"
+  },
+  "options": {
+    "respect_segments": true,
+    "respect_words": true
+  },
+  "cues": [
+    {
+      "id": "cue0",
+      "start_frame": 12,
+      "end_frame": 93,
+      "start_s": 0.48,
+      "end_s": 3.72,
+      "duration_s": 3.24,
+      "lines": [
+        "大家好,今天聊一个真实的痛点"
+      ],
+      "text": "大家好,今天聊一个真实的痛点",
+      "display_text": "大家好,今天聊一个真实的痛点",
+      "char_count": 14,
+      "max_line_chars": 14,
+      "word_ids": [
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "w4",
+        "w5",
+        "w6",
+        "w7",
+        "w8",
+        "w9",
+        "w10",
+        "w11",
+        "w12"
+      ],
+      "segment_ids": [
+        "s0"
+      ]
+    },
+    {
+      "id": "cue1",
+      "start_frame": 101,
+      "end_frame": 189,
+      "start_s": 4.04,
+      "end_s": 7.56,
+      "duration_s": 3.52,
+      "lines": [
+        "抠播视频最难的地方,其实是节奏"
+      ],
+      "text": "抠播视频最难的地方,其实是节奏",
+      "display_text": "抠播视频最难的地方,其实是节奏",
+      "char_count": 15,
+      "max_line_chars": 15,
+      "word_ids": [
+        "w13",
+        "w14",
+        "w15",
+        "w16",
+        "w17",
+        "w18",
+        "w19",
+        "w20",
+        "w21",
+        "w22",
+        "w23",
+        "w24",
+        "w25",
+        "w26"
+      ],
+      "segment_ids": [
+        "s1"
+      ]
+    },
+    {
+      "id": "cue2",
+      "start_frame": 196,
+      "end_frame": 274,
+      "start_s": 7.84,
+      "end_s": 10.96,
+      "duration_s": 3.12,
+      "lines": [
+        "九成的剪辑,都卡在三个问题"
+      ],
+      "text": "九成的剪辑,都卡在三个问题",
+      "display_text": "九成的剪辑,都卡在三个问题",
+      "char_count": 13,
+      "max_line_chars": 13,
+      "word_ids": [
+        "w27",
+        "w28",
+        "w29",
+        "w30",
+        "w31",
+        "w32",
+        "w33",
+        "w34",
+        "w35",
+        "w36",
+        "w37",
+        "w38"
+      ],
+      "segment_ids": [
+        "s2"
+      ]
+    },
+    {
+      "id": "cue3",
+      "start_frame": 284,
+      "end_frame": 350,
+      "start_s": 11.36,
+      "end_s": 14.0,
+      "duration_s": 2.64,
+      "lines": [
+        "第一,不知道什么时候加字"
+      ],
+      "text": "第一,不知道什么时候加字",
+      "display_text": "第一,不知道什么时候加字",
+      "char_count": 12,
+      "max_line_chars": 12,
+      "word_ids": [
+        "w39",
+        "w40",
+        "w41",
+        "w42",
+        "w43",
+        "w44",
+        "w45",
+        "w46",
+        "w47",
+        "w48",
+        "w49"
+      ],
+      "segment_ids": [
+        "s3"
+      ]
+    },
+    {
+      "id": "cue4",
+      "start_frame": 357,
+      "end_frame": 410,
+      "start_s": 14.28,
+      "end_s": 16.4,
+      "duration_s": 2.12,
+      "lines": [
+        "第二,加了又挡住脸"
+      ],
+      "text": "第二,加了又挡住脸",
+      "display_text": "第二,加了又挡住脸",
+      "char_count": 9,
+      "max_line_chars": 9,
+      "word_ids": [
+        "w50",
+        "w51",
+        "w52",
+        "w53",
+        "w54",
+        "w55",
+        "w56",
+        "w57"
+      ],
+      "segment_ids": [
+        "s4"
+      ]
+    },
+    {
+      "id": "cue5",
+      "start_frame": 419,
+      "end_frame": 490,
+      "start_s": 16.76,
+      "end_s": 19.6,
+      "duration_s": 2.84,
+      "lines": [
+        "第三,该一次就要重做一遍"
+      ],
+      "text": "第三,该一次就要重做一遍",
+      "display_text": "第三,该一次就要重做一遍",
+      "char_count": 12,
+      "max_line_chars": 12,
+      "word_ids": [
+        "w58",
+        "w59",
+        "w60",
+        "w61",
+        "w62",
+        "w63",
+        "w64",
+        "w65",
+        "w66",
+        "w67",
+        "w68"
+      ],
+      "segment_ids": [
+        "s5"
+      ]
+    },
+    {
+      "id": "cue6",
+      "start_frame": 500,
+      "end_frame": 580,
+      "start_s": 20.0,
+      "end_s": 23.2,
+      "duration_s": 3.2,
+      "lines": [
+        "我们把这套流程,做成了自动化"
+      ],
+      "text": "我们把这套流程,做成了自动化",
+      "display_text": "我们把这套流程,做成了自动化",
+      "char_count": 14,
+      "max_line_chars": 14,
+      "word_ids": [
+        "w69",
+        "w70",
+        "w71",
+        "w72",
+        "w73",
+        "w74",
+        "w75",
+        "w76",
+        "w77",
+        "w78",
+        "w79",
+        "w80",
+        "w81"
+      ],
+      "segment_ids": [
+        "s6"
+      ]
+    }
+  ],
+  "quality": {
+    "n_cues": 7,
+    "mid_word_cue_starts": 0,
+    "segment_boundary_breaks": 6,
+    "n_lines": 7,
+    "max_line_chars": 15,
+    "min_duration_s": 2.12,
+    "max_duration_s": 3.52,
+    "mean_duration_s": 2.954286,
+    "violations": []
+  }
+}

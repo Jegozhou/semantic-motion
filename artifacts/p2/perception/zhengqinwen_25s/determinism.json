@@ -1,0 +1,15 @@
+{
+  "cache_run1": "miss",
+  "cache_run2": "miss",
+  "debug_sheet_identical": true,
+  "json_diff": [],
+  "json_identical": true,
+  "mask_count_run1": 125,
+  "mask_count_run2": 125,
+  "mask_diff": [],
+  "masks_identical": true,
+  "runtime_run1_s": 18.746,
+  "runtime_run2_s": 18.165,
+  "schema": "semotion.perception-determinism/1",
+  "verdict": "PASS"
+}

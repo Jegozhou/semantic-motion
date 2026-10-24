@@ -1,0 +1,1830 @@
+{
+  "schema": "semotion.verify2/1",
+  "verdict": "FAIL",
+  "checks": {
+    "render_integrity": {
+      "source": {
+        "path": "inputs/zhengqinwen_25s.mp4",
+        "width": 1920,
+        "height": 920,
+        "fps": 25.0,
+        "frames": 625,
+        "duration_s": 25.0,
+        "sha256": "4eb8b5510c932da8a711f552d48b4b7572ee1d90967e35cacfb64e89cb2e6d3a"
+      },
+      "rendered": {
+        "path": "artifacts/v2/demo_zq5/final.mp4",
+        "width": 1920,
+        "height": 920,
+        "fps": 25.0,
+        "frames": 625,
+        "duration_s": 25.0,
+        "sha256": "47364e16c4c5b441cf8b8e53181fa3f6dfd2d5941ff0b3378237641155936e68"
+      },
+      "duration_delta_s": 0.0,
+      "audio_rms_delta_db": 0.023,
+      "problems": [],
+      "verdict": "PASS"
+    },
+    "footprint": {
+      "verdict": "PASS",
+      "threshold_pixel_delta": 12.0,
+      "noise_floor_p99_9": null,
+      "noise_frames_sampled": 0,
+      "overlay_only": true,
+      "by_element": [
+        {
+          "id": "el_1_c8961792",
+          "union_px": 60338,
+          "max_frame_px": 53440,
+          "visible_frames": 50,
+          "bbox": [
+            1542,
+            325,
+            330,
+            194
+          ]
+        },
+        {
+          "id": "el_1_cede221a",
+          "union_px": 64832,
+          "max_frame_px": 54546,
+          "visible_frames": 50,
+          "bbox": [
+            1536,
+            318,
+            336,
+            208
+          ]
+        },
+        {
+          "id": "el_3_ac80487a",
+          "union_px": 72978,
+          "max_frame_px": 63276,
+          "visible_frames": 145,
+          "bbox": [
+            1529,
+            302,
+            343,
+            240
+          ]
+        },
+        {
+          "id": "el_1_511529f3",
+          "union_px": 43456,
+          "max_frame_px": 41272,
+          "visible_frames": 27,
+          "bbox": [
+            1648,
+            325,
+            224,
+            194
+          ]
+        },
+        {
+          "id": "el_1_69d37695",
+          "union_px": 64764,
+          "max_frame_px": 56607,
+          "visible_frames": 47,
+          "bbox": [
+            1580,
+            308,
+            292,
+            228
+          ]
+        }
+      ],
+      "concurrent_pairs_evaluated": 0,
+      "concurrent_footprint_collisions": []
+    },
+    "person_occlusion": {
+      "verdict": "PASS",
+      "face_overlap_px_total": 0,
+      "face_threshold_px": 0,
+      "max_person_frame_fraction": 0.0,
+      "max_person_fraction": 0.0,
+      "person_frame_threshold": 0.002,
+      "person_person_threshold": 0.005,
+      "worst_frame": null,
+      "worst_element": null,
+      "worst_frame_face": null,
+      "worst_element_face": null,
+      "by_element": [
+        {
+          "id": "el_1_c8961792",
+          "verdict": "PASS",
+          "problems": [],
+          "face_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "max_person_fraction": 0.0,
+          "worst_person_frame": null
+        },
+        {
+          "id": "el_1_cede221a",
+          "verdict": "PASS",
+          "problems": [],
+          "face_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "max_person_fraction": 0.0,
+          "worst_person_frame": null
+        },
+        {
+          "id": "el_3_ac80487a",
+          "verdict": "PASS",
+          "problems": [],
+          "face_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "max_person_fraction": 0.0,
+          "worst_person_frame": null
+        },
+        {
+          "id": "el_1_511529f3",
+          "verdict": "PASS",
+          "problems": [],
+          "face_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "max_person_fraction": 0.0,
+          "worst_person_frame": null
+        },
+        {
+          "id": "el_1_69d37695",
+          "verdict": "PASS",
+          "problems": [],
+          "face_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "max_person_fraction": 0.0,
+          "worst_person_frame": null
+        }
+      ],
+      "mask": {
+        "path": "artifacts/v2/perc_zq.json",
+        "backend": "apple-vision",
+        "capabilities": {
+          "body_pose": true,
+          "existing_text": true,
+          "hands": true,
+          "person_mask": true,
+          "scene_cuts": true
+        },
+        "sample_hz": 5.0,
+        "grid": [
+          480,
+          230
+        ],
+        "honesty": "mask producer is external; verify2 does not validate its segmentation quality, only consumes it"
+      },
+      "method": "footprint ∩ person mask on the mask's native grid (max-pooled, conservative); face mask = face bounding box, exact pixels"
+    },
+    "existing_text_collision": {
+      "verdict": "PASS",
+      "regions": 11,
+      "max_overlap_px": 0,
+      "threshold_px": 0,
+      "worst_frame": null,
+      "worst_element": null,
+      "by_element": [
+        {
+          "id": "el_1_c8961792",
+          "verdict": "PASS",
+          "overlap_px": 0,
+          "frames": []
+        },
+        {
+          "id": "el_1_cede221a",
+          "verdict": "PASS",
+          "overlap_px": 0,
+          "frames": []
+        },
+        {
+          "id": "el_3_ac80487a",
+          "verdict": "PASS",
+          "overlap_px": 0,
+          "frames": []
+        },
+        {
+          "id": "el_1_511529f3",
+          "verdict": "PASS",
+          "overlap_px": 0,
+          "frames": []
+        },
+        {
+          "id": "el_1_69d37695",
+          "verdict": "PASS",
+          "overlap_px": 0,
+          "frames": []
+        }
+      ],
+      "honesty": "0 regions means the mask document found no burned-in text; that is reported as NOT RUN, not as a pass"
+    },
+    "legibility": {
+      "verdict": "PASS",
+      "min_contrast": 5.4533,
+      "offending_element": "el_1_511529f3",
+      "threshold": 4.5,
+      "frames_sampled": 15,
+      "by_element": {
+        "el_1_c8961792": {
+          "verdict": "PASS",
+          "min_contrast": 8.1017,
+          "frames_sampled": 3,
+          "worst_frame": {
+            "frame": 10,
+            "contrast": 8.1017,
+            "contrast_global": 12.312,
+            "contrast_vs_source": 1.8273,
+            "glyph_pixels": 11432,
+            "background_pixels": 42858,
+            "glyph_rgb": [
+              235,
+              240,
+              248
+            ],
+            "background_rgb": [
+              38,
+              43,
+              57
+            ],
+            "source_rgb": [
+              161,
+              180,
+              218
+            ],
+            "min_block_glyph_pixels": 142,
+            "background_fallback": null,
+            "glyph_color_distance": 10.01,
+            "glyph_assignment": "colour-match"
+          },
+          "glyph_pixels": 11432,
+          "contrast_global": 12.312,
+          "contrast_vs_source": 1.8273
+        },
+        "el_1_cede221a": {
+          "verdict": "PASS",
+          "min_contrast": 7.6553,
+          "frames_sampled": 3,
+          "worst_frame": {
+            "frame": 60,
+            "contrast": 7.6553,
+            "contrast_global": 11.8496,
+            "contrast_vs_source": 1.9925,
+            "glyph_pixels": 17345,
+            "background_pixels": 41113,
+            "glyph_rgb": [
+              237,
+              241,
+              248
+            ],
+            "background_rgb": [
+              41,
+              47,
+              59
+            ],
+            "source_rgb": [
+              155,
+              173,
+              209
+            ],
+            "min_block_glyph_pixels": 20,
+            "background_fallback": null,
+            "glyph_color_distance": 8.11,
+            "glyph_assignment": "colour-match"
+          },
+          "glyph_pixels": 17345,
+          "contrast_global": 11.8496,
+          "contrast_vs_source": 1.9925
+        },
+        "el_3_ac80487a": {
+          "verdict": "PASS",
+          "min_contrast": 6.5435,
+          "frames_sampled": 3,
+          "worst_frame": {
+            "frame": 352,
+            "contrast": 6.5435,
+            "contrast_global": 11.2823,
+            "contrast_vs_source": 1.8731,
+            "glyph_pixels": 4628,
+            "background_pixels": 69011,
+            "glyph_rgb": [
+              231,
+              236,
+              245
+            ],
+            "background_rgb": [
+              41,
+              47,
+              60
+            ],
+            "source_rgb": [
+              156,
+              175,
+              210
+            ],
+            "min_block_glyph_pixels": 42,
+            "background_fallback": null,
+            "glyph_color_distance": 14.08,
+            "glyph_assignment": "colour-match"
+          },
+          "glyph_pixels": 4628,
+          "contrast_global": 11.2823,
+          "contrast_vs_source": 1.8731
+        },
+        "el_1_511529f3": {
+          "verdict": "PASS",
+          "min_contrast": 5.4533,
+          "frames_sampled": 3,
+          "worst_frame": {
+            "frame": 545,
+            "contrast": 5.4533,
+            "contrast_global": 10.3849,
+            "contrast_vs_source": 1.7518,
+            "glyph_pixels": 3532,
+            "background_pixels": 34471,
+            "glyph_rgb": [
+              222,
+              227,
+              236
+            ],
+            "background_rgb": [
+              42,
+              47,
+              60
+            ],
+            "source_rgb": [
+              155,
+              174,
+              202
+            ],
+            "min_block_glyph_pixels": 18,
+            "background_fallback": null,
+            "glyph_color_distance": 23.14,
+            "glyph_assignment": "colour-match"
+          },
+          "glyph_pixels": 3532,
+          "contrast_global": 10.3849,
+          "contrast_vs_source": 1.7518
+        },
+        "el_1_69d37695": {
+          "verdict": "PASS",
+          "min_contrast": 10.1766,
+          "frames_sampled": 3,
+          "worst_frame": {
+            "frame": 591,
+            "contrast": 10.1766,
+            "contrast_global": 12.4852,
+            "contrast_vs_source": 1.9427,
+            "glyph_pixels": 15292,
+            "background_pixels": 42551,
+            "glyph_rgb": [
+              237,
+              242,
+              249
+            ],
+            "background_rgb": [
+              38,
+              44,
+              56
+            ],
+            "source_rgb": [
+              156,
+              176,
+              216
+            ],
+            "min_block_glyph_pixels": 84,
+            "background_fallback": null,
+            "glyph_color_distance": 8.27,
+            "glyph_assignment": "colour-match"
+          },
+          "glyph_pixels": 15292,
+          "contrast_global": 12.4852,
+          "contrast_vs_source": 1.9427
+        }
+      },
+      "method": "glyph pixels = overlay pixels close to style.color; background = rendered pixels around them (scrim included); WCAG ratio per 24px block, minimum block wins"
+    },
+    "displayed_text": {
+      "verdict": "PASS",
+      "not_run_elements": [
+        "el_1_c8961792",
+        "el_3_ac80487a",
+        "el_1_511529f3"
+      ],
+      "elements": 2,
+      "by_element": {
+        "el_1_cede221a": {
+          "frame": 75,
+          "ir_text": "但是我还有其他的梦想",
+          "verdict": "PASS",
+          "ocr_text": "但是我还有其他的梦想",
+          "ocr_normalised": "但是我还有其他的梦想",
+          "ir_normalised": "但是我还有其他的梦想",
+          "ocr_confidence": 1.0,
+          "matched_chars": 10,
+          "char_recall": 1.0,
+          "ellipsis": false,
+          "problems": []
+        },
+        "el_1_69d37695": {
+          "frame": 590,
+          "ir_text": "没有办法向前进步",
+          "verdict": "PASS",
+          "ocr_text": "没有办法向前进步",
+          "ocr_normalised": "没有办法向前进步",
+          "ir_normalised": "没有办法向前进步",
+          "ocr_confidence": 1.0,
+          "matched_chars": 8,
+          "char_recall": 1.0,
+          "ellipsis": false,
+          "problems": []
+        },
+        "el_1_c8961792": {
+          "verdict": "NOT RUN",
+          "note": "element has no text"
+        },
+        "el_3_ac80487a": {
+          "verdict": "NOT RUN",
+          "note": "element has no text"
+        },
+        "el_1_511529f3": {
+          "verdict": "NOT RUN",
+          "note": "element has no text"
+        }
+      },
+      "method": "Apple Vision OCR (accurate, zh-Hans+en-US) on the overlay-only layer at the mid-hold frame; IR text must be a subsequence of the normalised OCR output and no ellipsis may appear",
+      "honesty": "OCR can misread glyphs; a FAIL here is a measured discrepancy, not proof of a rendering bug — inspect ocr_text. An element with no text is NOT RUN."
+    },
+    "scrim": {
+      "verdict": "FAIL",
+      "elements": 5,
+      "by_element": [
+        {
+          "id": "el_1_c8961792",
+          "kind": "scrim_right",
+          "alpha": 0.86,
+          "backdrop_box": [
+            1464,
+            0,
+            456,
+            920
+          ],
+          "visible_frames": 50,
+          "person_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "worst_person_frame": null,
+          "text_overlap_px": 1047702,
+          "text_contrast": 8.1017,
+          "text_contrast_vs_source": 1.8273,
+          "verdict": "FAIL",
+          "problems": [
+            "scrim covers 1047702 px of burned-in text (existing_text overlap must be 0)"
+          ]
+        },
+        {
+          "id": "el_1_cede221a",
+          "kind": "scrim_right",
+          "alpha": 0.86,
+          "backdrop_box": [
+            1464,
+            0,
+            456,
+            920
+          ],
+          "visible_frames": 50,
+          "person_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "worst_person_frame": null,
+          "text_overlap_px": 1503794,
+          "text_contrast": 7.6553,
+          "text_contrast_vs_source": 1.9925,
+          "verdict": "FAIL",
+          "problems": [
+            "scrim covers 1503794 px of burned-in text (existing_text overlap must be 0)"
+          ]
+        },
+        {
+          "id": "el_3_ac80487a",
+          "kind": "scrim_right",
+          "alpha": 0.86,
+          "backdrop_box": [
+            1464,
+            0,
+            456,
+            920
+          ],
+          "visible_frames": 145,
+          "person_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "worst_person_frame": null,
+          "text_overlap_px": 4826824,
+          "text_contrast": 6.5435,
+          "text_contrast_vs_source": 1.8731,
+          "verdict": "FAIL",
+          "problems": [
+            "scrim covers 4826824 px of burned-in text (existing_text overlap must be 0)"
+          ]
+        },
+        {
+          "id": "el_1_511529f3",
+          "kind": "scrim_right",
+          "alpha": 0.86,
+          "backdrop_box": [
+            1460,
+            0,
+            460,
+            920
+          ],
+          "visible_frames": 27,
+          "person_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "worst_person_frame": null,
+          "text_overlap_px": 687070,
+          "text_contrast": 5.4533,
+          "text_contrast_vs_source": 1.7518,
+          "verdict": "FAIL",
+          "problems": [
+            "scrim covers 687070 px of burned-in text (existing_text overlap must be 0)"
+          ]
+        },
+        {
+          "id": "el_1_69d37695",
+          "kind": "scrim_right",
+          "alpha": 0.86,
+          "backdrop_box": [
+            1464,
+            0,
+            456,
+            920
+          ],
+          "visible_frames": 47,
+          "person_overlap_px": 0,
+          "max_person_frame_fraction": 0.0,
+          "worst_person_frame": null,
+          "text_overlap_px": 1392942,
+          "text_contrast": 10.1766,
+          "text_contrast_vs_source": 1.9427,
+          "verdict": "FAIL",
+          "problems": [
+            "scrim covers 1392942 px of burned-in text (existing_text overlap must be 0)"
+          ]
+        }
+      ],
+      "method": "backdrop kind scrim*/band*: rendered footprint inside the projected backdrop box ∩ person mask must be 0 px; text contrast is measured on rendered pixels (legibility check), not on the scrim colour",
+      "honesty": "0 elements means the IR declares no scrim/band backdrop; that is reported as NOT RUN, not as a pass"
+    },
+    "layout": {
+      "safe_margin_px": 32,
+      "footprint_margin_frac": 0.025,
+      "elements": [
+        {
+          "id": "el_1_c8961792",
+          "type": "card",
+          "box": [
+            1542,
+            325,
+            330,
+            194
+          ],
+          "margins_px": {
+            "left": 1542,
+            "top": 325,
+            "right": 48,
+            "bottom": 401
+          },
+          "on_canvas": true,
+          "safe_margin_px": 32,
+          "safe": true,
+          "font_size_px": 26,
+          "font_floor_px": 59,
+          "font_floor_note": "26px is a v2 multi-size typography value (card/list title or body); no shared floor contract with the v1 59px floor — NOT enforced",
+          "footprint_bbox": [
+            1542,
+            325,
+            330,
+            194
+          ],
+          "footprint_margins_px": {
+            "left": 1542,
+            "top": 325,
+            "right": 48,
+            "bottom": 401
+          },
+          "footprint_margin_requirement_px": [
+            48,
+            23
+          ],
+          "footprint_margin_ok": true,
+          "verdict": "PASS",
+          "problems": []
+        },
+        {
+          "id": "el_1_cede221a",
+          "type": "keyword",
+          "box": [
+            1535,
+            318,
+            337,
+            208
+          ],
+          "margins_px": {
+            "left": 1535,
+            "top": 318,
+            "right": 48,
+            "bottom": 394
+          },
+          "on_canvas": true,
+          "safe_margin_px": 32,
+          "safe": true,
+          "font_size_px": 65,
+          "font_floor_px": 66,
+          "font_floor_note": null,
+          "footprint_bbox": [
+            1536,
+            318,
+            336,
+            208
+          ],
+          "footprint_margins_px": {
+            "left": 1536,
+            "top": 318,
+            "right": 48,
+            "bottom": 394
+          },
+          "footprint_margin_requirement_px": [
+            48,
+            23
+          ],
+          "footprint_margin_ok": true,
+          "verdict": "FAIL",
+          "problems": [
+            "font 65px < floor 66px"
+          ]
+        },
+        {
+          "id": "el_3_ac80487a",
+          "type": "list",
+          "box": [
+            1529,
+            302,
+            343,
+            240
+          ],
+          "margins_px": {
+            "left": 1529,
+            "top": 302,
+            "right": 48,
+            "bottom": 378
+          },
+          "on_canvas": true,
+          "safe_margin_px": 32,
+          "safe": true,
+          "font_size_px": 0,
+          "font_floor_px": 52,
+          "font_floor_note": "0px is a v2 multi-size typography value (card/list title or body); no shared floor contract with the v1 52px floor — NOT enforced",
+          "footprint_bbox": [
+            1529,
+            302,
+            343,
+            240
+          ],
+          "footprint_margins_px": {
+            "left": 1529,
+            "top": 302,
+            "right": 48,
+            "bottom": 378
+          },
+          "footprint_margin_requirement_px": [
+            48,
+            23
+          ],
+          "footprint_margin_ok": true,
+          "verdict": "PASS",
+          "problems": []
+        },
+        {
+          "id": "el_1_511529f3",
+          "type": "card",
+          "box": [
+            1648,
+            325,
+            224,
+            194
+          ],
+          "margins_px": {
+            "left": 1648,
+            "top": 325,
+            "right": 48,
+            "bottom": 401
+          },
+          "on_canvas": true,
+          "safe_margin_px": 32,
+          "safe": true,
+          "font_size_px": 26,
+          "font_floor_px": 59,
+          "font_floor_note": "26px is a v2 multi-size typography value (card/list title or body); no shared floor contract with the v1 59px floor — NOT enforced",
+          "footprint_bbox": [
+            1648,
+            325,
+            224,
+            194
+          ],
+          "footprint_margins_px": {
+            "left": 1648,
+            "top": 325,
+            "right": 48,
+            "bottom": 401
+          },
+          "footprint_margin_requirement_px": [
+            48,
+            23
+          ],
+          "footprint_margin_ok": true,
+          "verdict": "PASS",
+          "problems": []
+        },
+        {
+          "id": "el_1_69d37695",
+          "type": "keyword",
+          "box": [
+            1576,
+            308,
+            296,
+            228
+          ],
+          "margins_px": {
+            "left": 1576,
+            "top": 308,
+            "right": 48,
+            "bottom": 384
+          },
+          "on_canvas": true,
+          "safe_margin_px": 32,
+          "safe": true,
+          "font_size_px": 71,
+          "font_floor_px": 66,
+          "font_floor_note": null,
+          "footprint_bbox": [
+            1580,
+            308,
+            292,
+            228
+          ],
+          "footprint_margins_px": {
+            "left": 1580,
+            "top": 308,
+            "right": 48,
+            "bottom": 384
+          },
+          "footprint_margin_requirement_px": [
+            48,
+            23
+          ],
+          "footprint_margin_ok": true,
+          "verdict": "PASS",
+          "problems": []
+        }
+      ],
+      "collisions": [],
+      "footprint_collisions": [],
+      "collision_threshold": 0.01,
+      "footprint_collision_threshold": 0.005,
+      "verdict": "FAIL"
+    },
+    "timing": {
+      "verdict": "PASS",
+      "tolerance_frames": 1,
+      "frame_quantum_ms": 40.0,
+      "by_element": [
+        {
+          "id": "el_1_c8961792",
+          "verdict": "PASS",
+          "appearance_frame": 0,
+          "disappearance_frame": 50,
+          "window_start_frame": 0,
+          "window_end_frame": 50,
+          "anchor_onset_frame": 0,
+          "signed_error_start_frames": 0,
+          "signed_error_anchor_frames": 0,
+          "signed_error_exit_frames": 0,
+          "signed_error_start_ms": 0.0,
+          "signed_error_anchor_ms": 0.0,
+          "signed_error_exit_ms": 0.0,
+          "tolerance_frames": 1,
+          "gate_pixels": 320,
+          "problems": []
+        },
+        {
+          "id": "el_1_cede221a",
+          "verdict": "PASS",
+          "appearance_frame": 50,
+          "disappearance_frame": 100,
+          "window_start_frame": 50,
+          "window_end_frame": 100,
+          "anchor_onset_frame": 50,
+          "signed_error_start_frames": 0,
+          "signed_error_anchor_frames": 0,
+          "signed_error_exit_frames": 0,
+          "signed_error_start_ms": 0.0,
+          "signed_error_anchor_ms": 0.0,
+          "signed_error_exit_ms": 0.0,
+          "tolerance_frames": 1,
+          "gate_pixels": 350,
+          "problems": []
+        },
+        {
+          "id": "el_3_ac80487a",
+          "verdict": "PASS",
+          "appearance_frame": 280,
+          "disappearance_frame": 425,
+          "window_start_frame": 280,
+          "window_end_frame": 425,
+          "anchor_onset_frame": 280,
+          "signed_error_start_frames": 0,
+          "signed_error_anchor_frames": 0,
+          "signed_error_exit_frames": 0,
+          "signed_error_start_ms": 0.0,
+          "signed_error_anchor_ms": 0.0,
+          "signed_error_exit_ms": 0.0,
+          "tolerance_frames": 1,
+          "gate_pixels": 412,
+          "problems": []
+        },
+        {
+          "id": "el_1_511529f3",
+          "verdict": "PASS",
+          "appearance_frame": 540,
+          "disappearance_frame": 567,
+          "window_start_frame": 540,
+          "window_end_frame": 567,
+          "anchor_onset_frame": 540,
+          "signed_error_start_frames": 0,
+          "signed_error_anchor_frames": 0,
+          "signed_error_exit_frames": 0,
+          "signed_error_start_ms": 0.0,
+          "signed_error_anchor_ms": 0.0,
+          "signed_error_exit_ms": 0.0,
+          "tolerance_frames": 1,
+          "gate_pixels": 217,
+          "problems": []
+        },
+        {
+          "id": "el_1_69d37695",
+          "verdict": "PASS",
+          "appearance_frame": 567,
+          "disappearance_frame": 614,
+          "window_start_frame": 567,
+          "window_end_frame": 614,
+          "anchor_onset_frame": 567,
+          "signed_error_start_frames": 0,
+          "signed_error_anchor_frames": 0,
+          "signed_error_exit_frames": 0,
+          "signed_error_start_ms": 0.0,
+          "signed_error_anchor_ms": 0.0,
+          "signed_error_exit_ms": 0.0,
+          "tolerance_frames": 1,
+          "gate_pixels": 337,
+          "problems": []
+        }
+      ],
+      "method": "appearance = first frame whose in-box footprint exceeds max(0.5 % of the box, 3x pre-window noise); disappearance = last visible + 1"
+    },
+    "determinism": {
+      "verdict": "NOT RUN",
+      "note": "no second render supplied",
+      "tolerance_mean": 0.05,
+      "tolerance_max": 32
+    }
+  },
+  "verdicts": {
+    "render_integrity": "PASS",
+    "footprint": "PASS",
+    "person_occlusion": "PASS",
+    "existing_text_collision": "PASS",
+    "legibility": "PASS",
+    "displayed_text": "PASS",
+    "scrim": "FAIL",
+    "layout": "FAIL",
+    "timing": "PASS",
+    "determinism": "NOT RUN"
+  },
+  "failing_elements": {
+    "el_1_c8961792": {
+      "occlusion": "PASS",
+      "text": "PASS",
+      "legibility": "PASS",
+      "timing": "PASS",
+      "displayed_text": "NOT RUN",
+      "scrim": "FAIL",
+      "layout": "PASS"
+    },
+    "el_1_cede221a": {
+      "occlusion": "PASS",
+      "text": "PASS",
+      "legibility": "PASS",
+      "timing": "PASS",
+      "displayed_text": "PASS",
+      "scrim": "FAIL",
+      "layout": "FAIL"
+    },
+    "el_3_ac80487a": {
+      "occlusion": "PASS",
+      "text": "PASS",
+      "legibility": "PASS",
+      "timing": "PASS",
+      "displayed_text": "NOT RUN",
+      "scrim": "FAIL",
+      "layout": "PASS"
+    },
+    "el_1_511529f3": {
+      "occlusion": "PASS",
+      "text": "PASS",
+      "legibility": "PASS",
+      "timing": "PASS",
+      "displayed_text": "NOT RUN",
+      "scrim": "FAIL",
+      "layout": "PASS"
+    },
+    "el_1_69d37695": {
+      "occlusion": "PASS",
+      "text": "PASS",
+      "legibility": "PASS",
+      "timing": "PASS",
+      "displayed_text": "PASS",
+      "scrim": "FAIL",
+      "layout": "PASS"
+    }
+  },
+  "elements": [
+    {
+      "id": "el_1_c8961792",
+      "type": "card",
+      "box": [
+        1542,
+        325,
+        330,
+        194
+      ],
+      "window": {
+        "start_s": 0.0,
+        "end_s": 2.02,
+        "start_frame": 0,
+        "end_frame": 50,
+        "anchor_start_s": 0.0,
+        "anchor_end_s": 2.02
+      },
+      "verdict": "FAIL",
+      "footprint": {
+        "union_px": 60338,
+        "max_frame_px": 53440,
+        "visible_frames": 50,
+        "bbox": [
+          1542,
+          325,
+          330,
+          194
+        ]
+      },
+      "occlusion": {
+        "verdict": "PASS",
+        "face_overlap_px": 0,
+        "face_overlap_frames": [],
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "max_person_fraction": 0.0,
+        "worst_person_frame": null
+      },
+      "existing_text": {
+        "verdict": "PASS",
+        "overlap_px": 0,
+        "frames": []
+      },
+      "legibility": {
+        "verdict": "PASS",
+        "min_contrast": 8.1017,
+        "frames_sampled": 3,
+        "worst_frame": {
+          "frame": 10,
+          "contrast": 8.1017,
+          "contrast_global": 12.312,
+          "contrast_vs_source": 1.8273,
+          "glyph_pixels": 11432,
+          "background_pixels": 42858,
+          "glyph_rgb": [
+            235,
+            240,
+            248
+          ],
+          "background_rgb": [
+            38,
+            43,
+            57
+          ],
+          "source_rgb": [
+            161,
+            180,
+            218
+          ],
+          "min_block_glyph_pixels": 142,
+          "background_fallback": null,
+          "glyph_color_distance": 10.01,
+          "glyph_assignment": "colour-match"
+        },
+        "glyph_pixels": 11432,
+        "contrast_global": 12.312,
+        "contrast_vs_source": 1.8273
+      },
+      "displayed_text": {
+        "verdict": "NOT RUN",
+        "note": "element has no text"
+      },
+      "scrim": {
+        "id": "el_1_c8961792",
+        "kind": "scrim_right",
+        "alpha": 0.86,
+        "backdrop_box": [
+          1464,
+          0,
+          456,
+          920
+        ],
+        "visible_frames": 50,
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "worst_person_frame": null,
+        "text_overlap_px": 1047702,
+        "text_contrast": 8.1017,
+        "text_contrast_vs_source": 1.8273,
+        "verdict": "FAIL",
+        "problems": [
+          "scrim covers 1047702 px of burned-in text (existing_text overlap must be 0)"
+        ]
+      },
+      "layout": {
+        "id": "el_1_c8961792",
+        "type": "card",
+        "box": [
+          1542,
+          325,
+          330,
+          194
+        ],
+        "margins_px": {
+          "left": 1542,
+          "top": 325,
+          "right": 48,
+          "bottom": 401
+        },
+        "on_canvas": true,
+        "safe_margin_px": 32,
+        "safe": true,
+        "font_size_px": 26,
+        "font_floor_px": 59,
+        "font_floor_note": "26px is a v2 multi-size typography value (card/list title or body); no shared floor contract with the v1 59px floor — NOT enforced",
+        "footprint_bbox": [
+          1542,
+          325,
+          330,
+          194
+        ],
+        "footprint_margins_px": {
+          "left": 1542,
+          "top": 325,
+          "right": 48,
+          "bottom": 401
+        },
+        "footprint_margin_requirement_px": [
+          48,
+          23
+        ],
+        "footprint_margin_ok": true,
+        "verdict": "PASS",
+        "problems": []
+      },
+      "timing": {
+        "verdict": "PASS",
+        "appearance_frame": 0,
+        "disappearance_frame": 50,
+        "window_start_frame": 0,
+        "window_end_frame": 50,
+        "anchor_onset_frame": 0,
+        "signed_error_start_frames": 0,
+        "signed_error_anchor_frames": 0,
+        "signed_error_exit_frames": 0,
+        "signed_error_start_ms": 0.0,
+        "signed_error_anchor_ms": 0.0,
+        "signed_error_exit_ms": 0.0,
+        "tolerance_frames": 1,
+        "gate_pixels": 320,
+        "problems": []
+      }
+    },
+    {
+      "id": "el_1_cede221a",
+      "type": "keyword",
+      "box": [
+        1535,
+        318,
+        337,
+        208
+      ],
+      "window": {
+        "start_s": 2.02,
+        "end_s": 4.0,
+        "start_frame": 50,
+        "end_frame": 100,
+        "anchor_start_s": 2.02,
+        "anchor_end_s": 3.7
+      },
+      "verdict": "FAIL",
+      "footprint": {
+        "union_px": 64832,
+        "max_frame_px": 54546,
+        "visible_frames": 50,
+        "bbox": [
+          1536,
+          318,
+          336,
+          208
+        ]
+      },
+      "occlusion": {
+        "verdict": "PASS",
+        "face_overlap_px": 0,
+        "face_overlap_frames": [],
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "max_person_fraction": 0.0,
+        "worst_person_frame": null
+      },
+      "existing_text": {
+        "verdict": "PASS",
+        "overlap_px": 0,
+        "frames": []
+      },
+      "legibility": {
+        "verdict": "PASS",
+        "min_contrast": 7.6553,
+        "frames_sampled": 3,
+        "worst_frame": {
+          "frame": 60,
+          "contrast": 7.6553,
+          "contrast_global": 11.8496,
+          "contrast_vs_source": 1.9925,
+          "glyph_pixels": 17345,
+          "background_pixels": 41113,
+          "glyph_rgb": [
+            237,
+            241,
+            248
+          ],
+          "background_rgb": [
+            41,
+            47,
+            59
+          ],
+          "source_rgb": [
+            155,
+            173,
+            209
+          ],
+          "min_block_glyph_pixels": 20,
+          "background_fallback": null,
+          "glyph_color_distance": 8.11,
+          "glyph_assignment": "colour-match"
+        },
+        "glyph_pixels": 17345,
+        "contrast_global": 11.8496,
+        "contrast_vs_source": 1.9925
+      },
+      "displayed_text": {
+        "frame": 75,
+        "ir_text": "但是我还有其他的梦想",
+        "verdict": "PASS",
+        "ocr_text": "但是我还有其他的梦想",
+        "ocr_normalised": "但是我还有其他的梦想",
+        "ir_normalised": "但是我还有其他的梦想",
+        "ocr_confidence": 1.0,
+        "matched_chars": 10,
+        "char_recall": 1.0,
+        "ellipsis": false,
+        "problems": []
+      },
+      "scrim": {
+        "id": "el_1_cede221a",
+        "kind": "scrim_right",
+        "alpha": 0.86,
+        "backdrop_box": [
+          1464,
+          0,
+          456,
+          920
+        ],
+        "visible_frames": 50,
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "worst_person_frame": null,
+        "text_overlap_px": 1503794,
+        "text_contrast": 7.6553,
+        "text_contrast_vs_source": 1.9925,
+        "verdict": "FAIL",
+        "problems": [
+          "scrim covers 1503794 px of burned-in text (existing_text overlap must be 0)"
+        ]
+      },
+      "layout": {
+        "id": "el_1_cede221a",
+        "type": "keyword",
+        "box": [
+          1535,
+          318,
+          337,
+          208
+        ],
+        "margins_px": {
+          "left": 1535,
+          "top": 318,
+          "right": 48,
+          "bottom": 394
+        },
+        "on_canvas": true,
+        "safe_margin_px": 32,
+        "safe": true,
+        "font_size_px": 65,
+        "font_floor_px": 66,
+        "font_floor_note": null,
+        "footprint_bbox": [
+          1536,
+          318,
+          336,
+          208
+        ],
+        "footprint_margins_px": {
+          "left": 1536,
+          "top": 318,
+          "right": 48,
+          "bottom": 394
+        },
+        "footprint_margin_requirement_px": [
+          48,
+          23
+        ],
+        "footprint_margin_ok": true,
+        "verdict": "FAIL",
+        "problems": [
+          "font 65px < floor 66px"
+        ]
+      },
+      "timing": {
+        "verdict": "PASS",
+        "appearance_frame": 50,
+        "disappearance_frame": 100,
+        "window_start_frame": 50,
+        "window_end_frame": 100,
+        "anchor_onset_frame": 50,
+        "signed_error_start_frames": 0,
+        "signed_error_anchor_frames": 0,
+        "signed_error_exit_frames": 0,
+        "signed_error_start_ms": 0.0,
+        "signed_error_anchor_ms": 0.0,
+        "signed_error_exit_ms": 0.0,
+        "tolerance_frames": 1,
+        "gate_pixels": 350,
+        "problems": []
+      }
+    },
+    {
+      "id": "el_3_ac80487a",
+      "type": "list",
+      "box": [
+        1529,
+        302,
+        343,
+        240
+      ],
+      "window": {
+        "start_s": 11.18,
+        "end_s": 16.99,
+        "start_frame": 280,
+        "end_frame": 425,
+        "anchor_start_s": 11.18,
+        "anchor_end_s": 16.54
+      },
+      "verdict": "FAIL",
+      "footprint": {
+        "union_px": 72978,
+        "max_frame_px": 63276,
+        "visible_frames": 145,
+        "bbox": [
+          1529,
+          302,
+          343,
+          240
+        ]
+      },
+      "occlusion": {
+        "verdict": "PASS",
+        "face_overlap_px": 0,
+        "face_overlap_frames": [],
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "max_person_fraction": 0.0,
+        "worst_person_frame": null
+      },
+      "existing_text": {
+        "verdict": "PASS",
+        "overlap_px": 0,
+        "frames": []
+      },
+      "legibility": {
+        "verdict": "PASS",
+        "min_contrast": 6.5435,
+        "frames_sampled": 3,
+        "worst_frame": {
+          "frame": 352,
+          "contrast": 6.5435,
+          "contrast_global": 11.2823,
+          "contrast_vs_source": 1.8731,
+          "glyph_pixels": 4628,
+          "background_pixels": 69011,
+          "glyph_rgb": [
+            231,
+            236,
+            245
+          ],
+          "background_rgb": [
+            41,
+            47,
+            60
+          ],
+          "source_rgb": [
+            156,
+            175,
+            210
+          ],
+          "min_block_glyph_pixels": 42,
+          "background_fallback": null,
+          "glyph_color_distance": 14.08,
+          "glyph_assignment": "colour-match"
+        },
+        "glyph_pixels": 4628,
+        "contrast_global": 11.2823,
+        "contrast_vs_source": 1.8731
+      },
+      "displayed_text": {
+        "verdict": "NOT RUN",
+        "note": "element has no text"
+      },
+      "scrim": {
+        "id": "el_3_ac80487a",
+        "kind": "scrim_right",
+        "alpha": 0.86,
+        "backdrop_box": [
+          1464,
+          0,
+          456,
+          920
+        ],
+        "visible_frames": 145,
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "worst_person_frame": null,
+        "text_overlap_px": 4826824,
+        "text_contrast": 6.5435,
+        "text_contrast_vs_source": 1.8731,
+        "verdict": "FAIL",
+        "problems": [
+          "scrim covers 4826824 px of burned-in text (existing_text overlap must be 0)"
+        ]
+      },
+      "layout": {
+        "id": "el_3_ac80487a",
+        "type": "list",
+        "box": [
+          1529,
+          302,
+          343,
+          240
+        ],
+        "margins_px": {
+          "left": 1529,
+          "top": 302,
+          "right": 48,
+          "bottom": 378
+        },
+        "on_canvas": true,
+        "safe_margin_px": 32,
+        "safe": true,
+        "font_size_px": 0,
+        "font_floor_px": 52,
+        "font_floor_note": "0px is a v2 multi-size typography value (card/list title or body); no shared floor contract with the v1 52px floor — NOT enforced",
+        "footprint_bbox": [
+          1529,
+          302,
+          343,
+          240
+        ],
+        "footprint_margins_px": {
+          "left": 1529,
+          "top": 302,
+          "right": 48,
+          "bottom": 378
+        },
+        "footprint_margin_requirement_px": [
+          48,
+          23
+        ],
+        "footprint_margin_ok": true,
+        "verdict": "PASS",
+        "problems": []
+      },
+      "timing": {
+        "verdict": "PASS",
+        "appearance_frame": 280,
+        "disappearance_frame": 425,
+        "window_start_frame": 280,
+        "window_end_frame": 425,
+        "anchor_onset_frame": 280,
+        "signed_error_start_frames": 0,
+        "signed_error_anchor_frames": 0,
+        "signed_error_exit_frames": 0,
+        "signed_error_start_ms": 0.0,
+        "signed_error_anchor_ms": 0.0,
+        "signed_error_exit_ms": 0.0,
+        "tolerance_frames": 1,
+        "gate_pixels": 412,
+        "problems": []
+      }
+    },
+    {
+      "id": "el_1_511529f3",
+      "type": "card",
+      "box": [
+        1648,
+        325,
+        224,
+        194
+      ],
+      "window": {
+        "start_s": 21.58,
+        "end_s": 22.68,
+        "start_frame": 540,
+        "end_frame": 567,
+        "anchor_start_s": 21.58,
+        "anchor_end_s": 22.68
+      },
+      "verdict": "FAIL",
+      "footprint": {
+        "union_px": 43456,
+        "max_frame_px": 41272,
+        "visible_frames": 27,
+        "bbox": [
+          1648,
+          325,
+          224,
+          194
+        ]
+      },
+      "occlusion": {
+        "verdict": "PASS",
+        "face_overlap_px": 0,
+        "face_overlap_frames": [],
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "max_person_fraction": 0.0,
+        "worst_person_frame": null
+      },
+      "existing_text": {
+        "verdict": "PASS",
+        "overlap_px": 0,
+        "frames": []
+      },
+      "legibility": {
+        "verdict": "PASS",
+        "min_contrast": 5.4533,
+        "frames_sampled": 3,
+        "worst_frame": {
+          "frame": 545,
+          "contrast": 5.4533,
+          "contrast_global": 10.3849,
+          "contrast_vs_source": 1.7518,
+          "glyph_pixels": 3532,
+          "background_pixels": 34471,
+          "glyph_rgb": [
+            222,
+            227,
+            236
+          ],
+          "background_rgb": [
+            42,
+            47,
+            60
+          ],
+          "source_rgb": [
+            155,
+            174,
+            202
+          ],
+          "min_block_glyph_pixels": 18,
+          "background_fallback": null,
+          "glyph_color_distance": 23.14,
+          "glyph_assignment": "colour-match"
+        },
+        "glyph_pixels": 3532,
+        "contrast_global": 10.3849,
+        "contrast_vs_source": 1.7518
+      },
+      "displayed_text": {
+        "verdict": "NOT RUN",
+        "note": "element has no text"
+      },
+      "scrim": {
+        "id": "el_1_511529f3",
+        "kind": "scrim_right",
+        "alpha": 0.86,
+        "backdrop_box": [
+          1460,
+          0,
+          460,
+          920
+        ],
+        "visible_frames": 27,
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "worst_person_frame": null,
+        "text_overlap_px": 687070,
+        "text_contrast": 5.4533,
+        "text_contrast_vs_source": 1.7518,
+        "verdict": "FAIL",
+        "problems": [
+          "scrim covers 687070 px of burned-in text (existing_text overlap must be 0)"
+        ]
+      },
+      "layout": {
+        "id": "el_1_511529f3",
+        "type": "card",
+        "box": [
+          1648,
+          325,
+          224,
+          194
+        ],
+        "margins_px": {
+          "left": 1648,
+          "top": 325,
+          "right": 48,
+          "bottom": 401
+        },
+        "on_canvas": true,
+        "safe_margin_px": 32,
+        "safe": true,
+        "font_size_px": 26,
+        "font_floor_px": 59,
+        "font_floor_note": "26px is a v2 multi-size typography value (card/list title or body); no shared floor contract with the v1 59px floor — NOT enforced",
+        "footprint_bbox": [
+          1648,
+          325,
+          224,
+          194
+        ],
+        "footprint_margins_px": {
+          "left": 1648,
+          "top": 325,
+          "right": 48,
+          "bottom": 401
+        },
+        "footprint_margin_requirement_px": [
+          48,
+          23
+        ],
+        "footprint_margin_ok": true,
+        "verdict": "PASS",
+        "problems": []
+      },
+      "timing": {
+        "verdict": "PASS",
+        "appearance_frame": 540,
+        "disappearance_frame": 567,
+        "window_start_frame": 540,
+        "window_end_frame": 567,
+        "anchor_onset_frame": 540,
+        "signed_error_start_frames": 0,
+        "signed_error_anchor_frames": 0,
+        "signed_error_exit_frames": 0,
+        "signed_error_start_ms": 0.0,
+        "signed_error_anchor_ms": 0.0,
+        "signed_error_exit_ms": 0.0,
+        "tolerance_frames": 1,
+        "gate_pixels": 217,
+        "problems": []
+      }
+    },
+    {
+      "id": "el_1_69d37695",
+      "type": "keyword",
+      "box": [
+        1576,
+        308,
+        296,
+        228
+      ],
+      "window": {
+        "start_s": 22.68,
+        "end_s": 24.57,
+        "start_frame": 567,
+        "end_frame": 614,
+        "anchor_start_s": 22.68,
+        "anchor_end_s": 24.32
+      },
+      "verdict": "FAIL",
+      "footprint": {
+        "union_px": 64764,
+        "max_frame_px": 56607,
+        "visible_frames": 47,
+        "bbox": [
+          1580,
+          308,
+          292,
+          228
+        ]
+      },
+      "occlusion": {
+        "verdict": "PASS",
+        "face_overlap_px": 0,
+        "face_overlap_frames": [],
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "max_person_fraction": 0.0,
+        "worst_person_frame": null
+      },
+      "existing_text": {
+        "verdict": "PASS",
+        "overlap_px": 0,
+        "frames": []
+      },
+      "legibility": {
+        "verdict": "PASS",
+        "min_contrast": 10.1766,
+        "frames_sampled": 3,
+        "worst_frame": {
+          "frame": 591,
+          "contrast": 10.1766,
+          "contrast_global": 12.4852,
+          "contrast_vs_source": 1.9427,
+          "glyph_pixels": 15292,
+          "background_pixels": 42551,
+          "glyph_rgb": [
+            237,
+            242,
+            249
+          ],
+          "background_rgb": [
+            38,
+            44,
+            56
+          ],
+          "source_rgb": [
+            156,
+            176,
+            216
+          ],
+          "min_block_glyph_pixels": 84,
+          "background_fallback": null,
+          "glyph_color_distance": 8.27,
+          "glyph_assignment": "colour-match"
+        },
+        "glyph_pixels": 15292,
+        "contrast_global": 12.4852,
+        "contrast_vs_source": 1.9427
+      },
+      "displayed_text": {
+        "frame": 590,
+        "ir_text": "没有办法向前进步",
+        "verdict": "PASS",
+        "ocr_text": "没有办法向前进步",
+        "ocr_normalised": "没有办法向前进步",
+        "ir_normalised": "没有办法向前进步",
+        "ocr_confidence": 1.0,
+        "matched_chars": 8,
+        "char_recall": 1.0,
+        "ellipsis": false,
+        "problems": []
+      },
+      "scrim": {
+        "id": "el_1_69d37695",
+        "kind": "scrim_right",
+        "alpha": 0.86,
+        "backdrop_box": [
+          1464,
+          0,
+          456,
+          920
+        ],
+        "visible_frames": 47,
+        "person_overlap_px": 0,
+        "max_person_frame_fraction": 0.0,
+        "worst_person_frame": null,
+        "text_overlap_px": 1392942,
+        "text_contrast": 10.1766,
+        "text_contrast_vs_source": 1.9427,
+        "verdict": "FAIL",
+        "problems": [
+          "scrim covers 1392942 px of burned-in text (existing_text overlap must be 0)"
+        ]
+      },
+      "layout": {
+        "id": "el_1_69d37695",
+        "type": "keyword",
+        "box": [
+          1576,
+          308,
+          296,
+          228
+        ],
+        "margins_px": {
+          "left": 1576,
+          "top": 308,
+          "right": 48,
+          "bottom": 384
+        },
+        "on_canvas": true,
+        "safe_margin_px": 32,
+        "safe": true,
+        "font_size_px": 71,
+        "font_floor_px": 66,
+        "font_floor_note": null,
+        "footprint_bbox": [
+          1580,
+          308,
+          292,
+          228
+        ],
+        "footprint_margins_px": {
+          "left": 1580,
+          "top": 308,
+          "right": 48,
+          "bottom": 384
+        },
+        "footprint_margin_requirement_px": [
+          48,
+          23
+        ],
+        "footprint_margin_ok": true,
+        "verdict": "PASS",
+        "problems": []
+      },
+      "timing": {
+        "verdict": "PASS",
+        "appearance_frame": 567,
+        "disappearance_frame": 614,
+        "window_start_frame": 567,
+        "window_end_frame": 614,
+        "anchor_onset_frame": 567,
+        "signed_error_start_frames": 0,
+        "signed_error_anchor_frames": 0,
+        "signed_error_exit_frames": 0,
+        "signed_error_start_ms": 0.0,
+        "signed_error_anchor_ms": 0.0,
+        "signed_error_exit_ms": 0.0,
+        "tolerance_frames": 1,
+        "gate_pixels": 337,
+        "problems": []
+      }
+    }
+  ],
+  "inputs": {
+    "source": "inputs/zhengqinwen_25s.mp4",
+    "rendered": "artifacts/v2/demo_zq5/final.mp4",
+    "overlay_only": "artifacts/v2/demo_zq5/final_overlay.mp4",
+    "second_render": null,
+    "masks": "artifacts/v2/perc_zq.json",
+    "ir_sha256": null
+  },
+  "thresholds": {
+    "person_frame_max": 0.002,
+    "person_person_max": 0.005,
+    "face_max_px": 0,
+    "text_max_px": 0,
+    "min_contrast": 4.5,
+    "timing_tolerance_frames": 1,
+    "safe_margin_px": 32,
+    "collision_area_ratio": 0.01,
+    "footprint_margin_frac": 0.025,
+    "footprint_collision_ratio": 0.005,
+    "displayed_text": "IR text must be a subsequence of normalised overlay OCR; ellipsis = FAIL",
+    "determinism_mean": 0.05,
+    "determinism_max": 32
+  },
+  "notes": [
+    "every number is measured on decoded frames of the delivered MP4",
+    "face mask = face bounding box (conservative); person mask comes from the perception contract and is not re-validated by verify2",
+    "contrast is measured against the rendered local background (scrim included); contrast_vs_source is reported as an honesty check",
+    "determinism tolerance is explicit: mean |Δ| and max |Δ| on decoded frames",
+    "displayed text is OCR of the isolated overlay pass (mid-hold); OCR errors are possible and ocr_text is included for inspection",
+    "rendered footprint must keep 2.5 % of canvas width/height from the edges and two elements' footprints may overlap at most 0.5 % of the smaller box",
+    "scrim/band backdrops are checked separately: alpha region ∩ person must be 0 and text contrast is measured on rendered pixels"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "contact_sheet": "artifacts/v2/qa_zq5/contact_sheet.png",
+  "worst_crop": null
+}

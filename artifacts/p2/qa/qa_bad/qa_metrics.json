@@ -1,0 +1,611 @@
+{
+  "schema": "semotion.verify2/1",
+  "verdict": "FAIL",
+  "checks": {
+    "render_integrity": {
+      "source": {
+        "path": "artifacts/p2/qa/base_clip.mp4",
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "frames": 120,
+        "duration_s": 4.0,
+        "sha256": "9950eacad0e8d2bd507ef757a941cbaa391f6a86c9190c8adca5f141f272c59c"
+      },
+      "rendered": {
+        "path": "artifacts/p2/qa/final_bad.mp4",
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "frames": 120,
+        "duration_s": 4.0,
+        "sha256": "a624b18a3a809c65acf87388b5dbd06611dae76164733151562a6f3de0e7846d"
+      },
+      "duration_delta_s": 0.0,
+      "audio_rms_delta_db": 0.023,
+      "problems": [],
+      "verdict": "PASS"
+    },
+    "footprint": {
+      "verdict": "PASS",
+      "threshold_pixel_delta": 4,
+      "noise_floor_p99_9": null,
+      "noise_frames_sampled": 0,
+      "overlay_only": true,
+      "by_element": [
+        {
+          "id": "el_demo",
+          "union_px": 115313,
+          "max_frame_px": 115313,
+          "visible_frames": 45,
+          "bbox": [
+            500,
+            90,
+            340,
+            340
+          ]
+        }
+      ],
+      "concurrent_pairs_evaluated": 0,
+      "concurrent_footprint_collisions": []
+    },
+    "person_occlusion": {
+      "verdict": "FAIL",
+      "face_overlap_px_total": 6719704,
+      "face_threshold_px": 0,
+      "max_person_frame_fraction": 0.09338541666666667,
+      "max_person_fraction": 0.3108373814480685,
+      "person_frame_threshold": 0.002,
+      "person_person_threshold": 0.005,
+      "worst_frame": 61,
+      "worst_element": "el_demo",
+      "worst_frame_face": 37,
+      "worst_element_face": "el_demo",
+      "by_element": [
+        {
+          "id": "el_demo",
+          "verdict": "FAIL",
+          "problems": [
+            "face overlap 6719704 px > 0",
+            "person overlap 0.09339 of frame > 0.002",
+            "person overlap 0.31084 of person > 0.005"
+          ],
+          "policy": "silhouette",
+          "face_overlap_px": 6719704,
+          "hand_overlap_px": 0,
+          "max_person_frame_fraction": 0.09338541666666667,
+          "max_person_fraction": 0.3108373814480685,
+          "worst_person_frame": 61
+        }
+      ],
+      "mask": {
+        "path": "artifacts/p2/qa/perception_demo.json",
+        "backend": "qa-demo-vision-helper",
+        "capabilities": {
+          "person_mask": true,
+          "body_pose": false,
+          "hands": false,
+          "existing_text": false,
+          "scene_cuts": false
+        },
+        "sample_hz": 5.0,
+        "grid": [
+          320,
+          180
+        ],
+        "honesty": "mask producer is external; verify2 does not validate its segmentation quality, only consumes it"
+      },
+      "method": "footprint ∩ person mask on the mask's native grid (max-pooled, conservative); face mask = face bounding box, exact pixels"
+    },
+    "existing_text_collision": {
+      "verdict": "NOT RUN",
+      "regions": 0,
+      "regions_source": null,
+      "max_overlap_px": 0,
+      "threshold_px": 0,
+      "worst_frame": null,
+      "worst_element": null,
+      "by_element": [
+        {
+          "id": "el_demo",
+          "verdict": "NOT RUN",
+          "overlap_px": 0,
+          "frames": []
+        }
+      ],
+      "honesty": "0 regions with an IR-filtered list is a measured pass (no protected text); no protected-text source at all is NOT RUN"
+    },
+    "legibility": {
+      "verdict": "PASS",
+      "min_contrast": 13.1278,
+      "offending_element": "el_demo",
+      "threshold": 4.5,
+      "frames_sampled": 3,
+      "by_element": {
+        "el_demo": {
+          "verdict": "PASS",
+          "min_contrast": 13.1278,
+          "frames_sampled": 3,
+          "worst_frame": {
+            "frame": 66,
+            "contrast": 13.1278,
+            "contrast_global": 14.7672,
+            "contrast_vs_source": 4.1259,
+            "glyph_pixels": 3394,
+            "background_pixels": 108639,
+            "glyph_rgb": [
+              243,
+              244,
+              248
+            ],
+            "background_rgb": [
+              37,
+              30,
+              34
+            ],
+            "source_rgb": [
+              150,
+              109,
+              89
+            ],
+            "min_block_glyph_pixels": 21,
+            "background_fallback": null,
+            "glyph_color_distance": 3.36,
+            "glyph_assignment": "colour-match"
+          },
+          "glyph_pixels": 3394,
+          "contrast_global": 14.7672,
+          "contrast_vs_source": 4.1259
+        }
+      },
+      "method": "glyph pixels = overlay pixels close to style.color; background = rendered pixels around them (scrim included); WCAG ratio per 24px block, minimum block wins"
+    },
+    "text_onset": {
+      "verdict": "PASS",
+      "tolerance_frames": 1,
+      "ink_mode": "ink_pass",
+      "ink_source": "artifacts/p2/qa/ink_bad.mp4",
+      "by_element": {
+        "el_demo": {
+          "window_start_frame": 30,
+          "anchor_onset_frame": 30,
+          "gate_pixels": 32,
+          "ink_source": "artifacts/p2/qa/ink_bad.mp4",
+          "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+          "verdict": "PASS",
+          "text_onset_frame": 30,
+          "ink_onset_delta_frames": 0,
+          "ink_pixels_at_onset": 4337,
+          "max_ink_pixels": 4337,
+          "warning": null,
+          "problems": [],
+          "ink_rgb": null,
+          "scrim_luma_at_first": null
+        }
+      },
+      "method": "strict first-ink-frame measurement: renderer ink-only pass, element-box luma > 12, count > 32 px; scrim/captions are not in that pass, so a scrim can never satisfy this check",
+      "honesty": "without final_ink.mp4 the overlay-pass heuristic is reported but the verdict is NOT RUN"
+    },
+    "displayed_text": {
+      "verdict": "PASS",
+      "not_run_elements": [],
+      "elements": 1,
+      "by_element": {
+        "el_demo": {
+          "ir_text": "QA CHECK",
+          "verdict": "PASS",
+          "frame": 52,
+          "frames_tried": [
+            {
+              "frame": 52,
+              "ocr_chars": 7,
+              "matched_chars": 7,
+              "ellipsis": false
+            },
+            {
+              "frame": 61,
+              "ocr_chars": 7,
+              "matched_chars": 7,
+              "ellipsis": false
+            },
+            {
+              "frame": 68,
+              "ocr_chars": 7,
+              "matched_chars": 7,
+              "ellipsis": false
+            }
+          ],
+          "ocr_text": "QA CHECK",
+          "ocr_normalised": "qacheck",
+          "ir_normalised": "qacheck",
+          "ocr_confidence": 0.5,
+          "matched_chars": 7,
+          "char_recall": 1.0,
+          "ellipsis": false,
+          "problems": []
+        }
+      },
+      "method": "Apple Vision OCR (accurate, zh-Hans+en-US, traditional->simplified folded) on the overlay-only layer at 50/70/85 % of the window; the best-matching frame must contain the whole IR text as a subsequence with no ellipsis",
+      "honesty": "OCR can misread glyphs; a FAIL here is a measured discrepancy, not proof of a rendering bug — inspect ocr_text/frames_tried. Elements with no text are NOT RUN."
+    },
+    "scrim": {
+      "verdict": "NOT RUN",
+      "elements": 0,
+      "by_element": [],
+      "method": "backdrop kind scrim*/band*: rendered footprint inside the projected backdrop box ∩ person mask must be 0 px; text contrast is measured on rendered pixels (legibility check), not on the scrim colour",
+      "honesty": "0 elements means the IR declares no scrim/band backdrop; that is reported as NOT RUN, not as a pass"
+    },
+    "layout": {
+      "safe_margin_px": 32,
+      "footprint_margin_frac": 0.025,
+      "elements": [
+        {
+          "id": "el_demo",
+          "type": "keyword",
+          "box": [
+            500,
+            90,
+            340,
+            340
+          ],
+          "margins_px": {
+            "left": 500,
+            "top": 90,
+            "right": 440,
+            "bottom": 290
+          },
+          "on_canvas": true,
+          "safe_margin_px": 32,
+          "safe": true,
+          "font_size_px": 64,
+          "font_floor_px": 48,
+          "font_floor_note": null,
+          "font_floor_warning": null,
+          "font_floor_source": "v1_legacy_floor",
+          "footprint_bbox": [
+            500,
+            90,
+            340,
+            340
+          ],
+          "footprint_margins_px": {
+            "left": 500,
+            "top": 90,
+            "right": 440,
+            "bottom": 290
+          },
+          "footprint_margin_requirement_px": [
+            32,
+            18
+          ],
+          "footprint_margin_ok": true,
+          "verdict": "PASS",
+          "problems": []
+        }
+      ],
+      "collisions": [],
+      "footprint_collisions": [],
+      "collision_threshold": 0.01,
+      "footprint_collision_threshold": 0.005,
+      "verdict": "PASS"
+    },
+    "timing": {
+      "verdict": "PASS",
+      "tolerance_frames": 1,
+      "frame_quantum_ms": 33.33,
+      "by_element": [
+        {
+          "id": "el_demo",
+          "verdict": "PASS",
+          "appearance_frame": 30,
+          "disappearance_frame": 75,
+          "window_start_frame": 30,
+          "window_end_frame": 75,
+          "anchor_onset_frame": 30,
+          "signed_error_start_frames": 0,
+          "signed_error_anchor_frames": 0,
+          "signed_error_exit_frames": 0,
+          "signed_error_start_ms": 0.0,
+          "signed_error_anchor_ms": 0.0,
+          "signed_error_exit_ms": 0.0,
+          "tolerance_frames": 1,
+          "gate_pixels": 578,
+          "problems": []
+        }
+      ],
+      "method": "appearance = first frame whose in-box footprint exceeds max(0.5 % of the box, 3x pre-window noise); disappearance = last visible + 1"
+    },
+    "determinism": {
+      "verdict": "NOT RUN",
+      "note": "no second render supplied",
+      "tolerance_mean": 0.05,
+      "tolerance_max": 32
+    }
+  },
+  "verdicts": {
+    "render_integrity": "PASS",
+    "footprint": "PASS",
+    "person_occlusion": "FAIL",
+    "existing_text_collision": "NOT RUN",
+    "legibility": "PASS",
+    "text_onset": "PASS",
+    "displayed_text": "PASS",
+    "scrim": "NOT RUN",
+    "layout": "PASS",
+    "timing": "PASS",
+    "determinism": "NOT RUN"
+  },
+  "failing_elements": {
+    "el_demo": {
+      "occlusion": "FAIL",
+      "text": "NOT RUN",
+      "legibility": "PASS",
+      "timing": "PASS",
+      "displayed_text": "PASS",
+      "text_onset": "PASS",
+      "scrim": null,
+      "layout": "PASS"
+    }
+  },
+  "elements": [
+    {
+      "id": "el_demo",
+      "type": "keyword",
+      "box": [
+        500,
+        90,
+        340,
+        340
+      ],
+      "window": {
+        "start_s": 1.0,
+        "end_s": 2.5,
+        "start_frame": 30,
+        "end_frame": 75,
+        "anchor_start_s": 1.0,
+        "anchor_end_s": 2.5
+      },
+      "verdict": "FAIL",
+      "footprint": {
+        "union_px": 115313,
+        "max_frame_px": 115313,
+        "visible_frames": 45,
+        "bbox": [
+          500,
+          90,
+          340,
+          340
+        ]
+      },
+      "occlusion": {
+        "verdict": "FAIL",
+        "policy": "silhouette",
+        "face_overlap_px": 6719704,
+        "face_overlap_frames": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "hand_overlap_px": 0,
+        "hand_overlap_frames": [],
+        "person_overlap_px": 240072,
+        "max_person_frame_fraction": 0.093385,
+        "max_person_fraction": 0.310837,
+        "worst_person_frame": 61
+      },
+      "existing_text": {
+        "verdict": "NOT RUN",
+        "overlap_px": 0,
+        "frames": []
+      },
+      "legibility": {
+        "verdict": "PASS",
+        "min_contrast": 13.1278,
+        "frames_sampled": 3,
+        "worst_frame": {
+          "frame": 66,
+          "contrast": 13.1278,
+          "contrast_global": 14.7672,
+          "contrast_vs_source": 4.1259,
+          "glyph_pixels": 3394,
+          "background_pixels": 108639,
+          "glyph_rgb": [
+            243,
+            244,
+            248
+          ],
+          "background_rgb": [
+            37,
+            30,
+            34
+          ],
+          "source_rgb": [
+            150,
+            109,
+            89
+          ],
+          "min_block_glyph_pixels": 21,
+          "background_fallback": null,
+          "glyph_color_distance": 3.36,
+          "glyph_assignment": "colour-match"
+        },
+        "glyph_pixels": 3394,
+        "contrast_global": 14.7672,
+        "contrast_vs_source": 4.1259
+      },
+      "displayed_text": {
+        "ir_text": "QA CHECK",
+        "verdict": "PASS",
+        "frame": 52,
+        "frames_tried": [
+          {
+            "frame": 52,
+            "ocr_chars": 7,
+            "matched_chars": 7,
+            "ellipsis": false
+          },
+          {
+            "frame": 61,
+            "ocr_chars": 7,
+            "matched_chars": 7,
+            "ellipsis": false
+          },
+          {
+            "frame": 68,
+            "ocr_chars": 7,
+            "matched_chars": 7,
+            "ellipsis": false
+          }
+        ],
+        "ocr_text": "QA CHECK",
+        "ocr_normalised": "qacheck",
+        "ir_normalised": "qacheck",
+        "ocr_confidence": 0.5,
+        "matched_chars": 7,
+        "char_recall": 1.0,
+        "ellipsis": false,
+        "problems": []
+      },
+      "text_onset": {
+        "window_start_frame": 30,
+        "anchor_onset_frame": 30,
+        "gate_pixels": 32,
+        "ink_source": "artifacts/p2/qa/ink_bad.mp4",
+        "method": "ink-only pass (final_ink.mp4): element-box pixels with luma > 12, gate 32 px",
+        "verdict": "PASS",
+        "text_onset_frame": 30,
+        "ink_onset_delta_frames": 0,
+        "ink_pixels_at_onset": 4337,
+        "max_ink_pixels": 4337,
+        "warning": null,
+        "problems": [],
+        "ink_rgb": null,
+        "scrim_luma_at_first": null
+      },
+      "scrim": null,
+      "layout": {
+        "id": "el_demo",
+        "type": "keyword",
+        "box": [
+          500,
+          90,
+          340,
+          340
+        ],
+        "margins_px": {
+          "left": 500,
+          "top": 90,
+          "right": 440,
+          "bottom": 290
+        },
+        "on_canvas": true,
+        "safe_margin_px": 32,
+        "safe": true,
+        "font_size_px": 64,
+        "font_floor_px": 48,
+        "font_floor_note": null,
+        "font_floor_warning": null,
+        "font_floor_source": "v1_legacy_floor",
+        "footprint_bbox": [
+          500,
+          90,
+          340,
+          340
+        ],
+        "footprint_margins_px": {
+          "left": 500,
+          "top": 90,
+          "right": 440,
+          "bottom": 290
+        },
+        "footprint_margin_requirement_px": [
+          32,
+          18
+        ],
+        "footprint_margin_ok": true,
+        "verdict": "PASS",
+        "problems": []
+      },
+      "timing": {
+        "verdict": "PASS",
+        "appearance_frame": 30,
+        "disappearance_frame": 75,
+        "window_start_frame": 30,
+        "window_end_frame": 75,
+        "anchor_onset_frame": 30,
+        "signed_error_start_frames": 0,
+        "signed_error_anchor_frames": 0,
+        "signed_error_exit_frames": 0,
+        "signed_error_start_ms": 0.0,
+        "signed_error_anchor_ms": 0.0,
+        "signed_error_exit_ms": 0.0,
+        "tolerance_frames": 1,
+        "gate_pixels": 578,
+        "problems": []
+      }
+    }
+  ],
+  "inputs": {
+    "source": "artifacts/p2/qa/base_clip.mp4",
+    "rendered": "artifacts/p2/qa/final_bad.mp4",
+    "overlay_only": "artifacts/p2/qa/overlay_bad.mp4",
+    "ink_only": "artifacts/p2/qa/ink_bad.mp4",
+    "second_render": null,
+    "masks": "artifacts/p2/qa/perception_demo.json",
+    "ir_sha256": "2b1d85aff181a70125ce25c3948ba7298e6660a3a5916d122b1be946210f986b"
+  },
+  "thresholds": {
+    "person_frame_max": 0.002,
+    "person_person_max": 0.005,
+    "face_max_px": 0,
+    "text_max_px": 0,
+    "min_contrast": 4.5,
+    "timing_tolerance_frames": 1,
+    "safe_margin_px": 32,
+    "collision_area_ratio": 0.01,
+    "footprint_margin_frac": 0.025,
+    "footprint_collision_ratio": 0.005,
+    "displayed_text": "IR text must be a subsequence of normalised overlay OCR; ellipsis = FAIL",
+    "font_floor_frac": 0.045,
+    "font_floor": "IR fit.min_font_px is authoritative; legacy v1 floor is a hard check for style.font_size_px; otherwise a warning",
+    "lower_third": "face/hand overlap = 0; body overlap reported, not a failure",
+    "text_onset_tolerance_frames": 1,
+    "text_onset": "first ink pixel frame on the overlay-only pass must be within 1 frame of the window start",
+    "determinism_mean": 0.05,
+    "determinism_max": 32
+  },
+  "notes": [
+    "every number is measured on decoded frames of the delivered MP4",
+    "face mask = face bounding box (conservative); person mask comes from the perception contract and is not re-validated by verify2",
+    "contrast is measured against the rendered local background (scrim included); contrast_vs_source is reported as an honesty check",
+    "determinism tolerance is explicit: mean |Δ| and max |Δ| on decoded frames",
+    "displayed text is OCR of the isolated overlay pass (mid-hold); OCR errors are possible and ocr_text is included for inspection",
+    "rendered footprint must keep 2.5 % of canvas width/height from the edges and two elements' footprints may overlap at most 0.5 % of the smaller box",
+    "scrim/band backdrops are checked separately: alpha region ∩ person must be 0 (lower_third: face/hands only) and text contrast is measured on rendered pixels",
+    "text_onset is strict (ink, not scrim): overlay-only pass required; a dark scrim does not satisfy it",
+    "protected burned-in text comes from ir.perception.existing_text when present (design2 filters venue signage); otherwise from the mask document"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "contact_sheet": "artifacts/p2/qa/qa_bad/contact_sheet.png",
+  "worst_crop": "artifacts/p2/qa/qa_bad/worst_occlusion_crop.png"
+}

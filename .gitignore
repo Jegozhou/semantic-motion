@@ -12,3 +12,9 @@ remotion/public/props.json
 remotion/public/_frames/
 delivery/*/_frames/
 .DS_Store
+artifacts/spike/
+artifacts/v2/*/masks/
+artifacts/v2/*/*_overlay.mp4
+artifacts/v2/*/*_ink.mp4
+artifacts/v2/*/final.mp4
+artifacts/v2/final_zq_2/

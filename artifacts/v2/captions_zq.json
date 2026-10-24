@@ -1,0 +1,302 @@
+{
+  "schema": "semotion.captions/1",
+  "source": {
+    "alignment_schema": "semotion.alignment/1",
+    "path": "/Volumes/ZHITAI/Semantic Motion/inputs/zhengqinwen_25s.mp4",
+    "duration_s": 25.002688,
+    "fps": 25.0,
+    "width": 1920,
+    "height": 920,
+    "language": "zh"
+  },
+  "style": {
+    "cjk": {
+      "max_lines": 2,
+      "target_chars_per_line": 22,
+      "max_chars_per_line": 24,
+      "min_chars_per_line": 6,
+      "target_cue_chars": 30,
+      "max_cue_chars": 44
+    },
+    "latin": {
+      "max_lines": 2,
+      "target_chars_per_line": 38,
+      "max_chars_per_line": 42,
+      "min_chars_per_line": 8,
+      "target_cue_chars": 58,
+      "max_cue_chars": 84
+    },
+    "min_display_s": 0.9,
+    "merge_gap_s": 0.18,
+    "pause_break_s": 0.35,
+    "sentence_punct": "。！？!?…",
+    "clause_punct": "，,、；;：:",
+    "strip_trailing_punct": true,
+    "font_cjk": "PingFang SC",
+    "font_latin": "Arial"
+  },
+  "cues": [
+    {
+      "id": "cue0",
+      "start_frame": 12,
+      "end_frame": 86,
+      "start_s": 0.48,
+      "end_s": 3.44,
+      "duration_s": 2.96,
+      "lines": [
+        "奥运会是我的梦想没错但是我还有其他的梦想"
+      ],
+      "text": "奥运会是我的梦想没错但是我还有其他的梦想",
+      "display_text": "奥运会是我的梦想没错但是我还有其他的梦想",
+      "char_count": 20,
+      "max_line_chars": 20,
+      "word_ids": [
+        "w0",
+        "w1",
+        "w2",
+        "w3",
+        "w4",
+        "w5",
+        "w6",
+        "w7",
+        "w8",
+        "w9",
+        "w10",
+        "w11",
+        "w12",
+        "w13",
+        "w14",
+        "w15",
+        "w16",
+        "w17",
+        "w18",
+        "w19"
+      ],
+      "segment_ids": [
+        "s0",
+        "s1"
+      ]
+    },
+    {
+      "id": "cue1",
+      "start_frame": 96,
+      "end_frame": 184,
+      "start_s": 3.84,
+      "end_s": 7.36,
+      "duration_s": 3.52,
+      "lines": [
+        "等着我去实现我的目标我的梦想其实还远远没有结"
+      ],
+      "text": "等着我去实现我的目标我的梦想其实还远远没有结",
+      "display_text": "等着我去实现我的目标我的梦想其实还远远没有结",
+      "char_count": 22,
+      "max_line_chars": 22,
+      "word_ids": [
+        "w20",
+        "w21",
+        "w22",
+        "w23",
+        "w24",
+        "w25",
+        "w26",
+        "w27",
+        "w28",
+        "w29",
+        "w30",
+        "w31",
+        "w32",
+        "w33",
+        "w34",
+        "w35",
+        "w36",
+        "w37",
+        "w38",
+        "w39",
+        "w40",
+        "w41"
+      ],
+      "segment_ids": [
+        "s1",
+        "s2"
+      ]
+    },
+    {
+      "id": "cue2",
+      "start_frame": 194,
+      "end_frame": 307,
+      "start_s": 7.76,
+      "end_s": 12.28,
+      "duration_s": 4.52,
+      "lines": [
+        "束网球最好的一点就是它永",
+        "远都有比赛每一年我们都有比"
+      ],
+      "text": "束网球最好的一点就是它永远都有比赛每一年我们都有比",
+      "display_text": "束网球最好的一点就是它永远都有比赛每一年我们都有比",
+      "char_count": 25,
+      "max_line_chars": 13,
+      "word_ids": [
+        "w42",
+        "w43",
+        "w44",
+        "w45",
+        "w46",
+        "w47",
+        "w48",
+        "w49",
+        "w50",
+        "w51",
+        "w52",
+        "w53",
+        "w54",
+        "w55",
+        "w56",
+        "w57",
+        "w58",
+        "w59",
+        "w60",
+        "w61",
+        "w62",
+        "w63",
+        "w64",
+        "w65",
+        "w66"
+      ],
+      "segment_ids": [
+        "s2",
+        "s3",
+        "s4"
+      ]
+    },
+    {
+      "id": "cue3",
+      "start_frame": 316,
+      "end_frame": 358,
+      "start_s": 12.64,
+      "end_s": 14.32,
+      "duration_s": 1.68,
+      "lines": [
+        "赛每一年都有更"
+      ],
+      "text": "赛每一年都有更",
+      "display_text": "赛每一年都有更",
+      "char_count": 7,
+      "max_line_chars": 7,
+      "word_ids": [
+        "w67",
+        "w68",
+        "w69",
+        "w70",
+        "w71",
+        "w72",
+        "w73"
+      ],
+      "segment_ids": [
+        "s4",
+        "s5"
+      ]
+    },
+    {
+      "id": "cue4",
+      "start_frame": 372,
+      "end_frame": 441,
+      "start_s": 14.88,
+      "end_s": 17.64,
+      "duration_s": 2.76,
+      "lines": [
+        "大的困难更大的山坡等着你去战胜"
+      ],
+      "text": "大的困难更大的山坡等着你去战胜",
+      "display_text": "大的困难更大的山坡等着你去战胜",
+      "char_count": 15,
+      "max_line_chars": 15,
+      "word_ids": [
+        "w74",
+        "w75",
+        "w76",
+        "w77",
+        "w78",
+        "w79",
+        "w80",
+        "w81",
+        "w82",
+        "w83",
+        "w84",
+        "w85",
+        "w86",
+        "w87",
+        "w88"
+      ],
+      "segment_ids": [
+        "s5",
+        "s6"
+      ]
+    },
+    {
+      "id": "cue5",
+      "start_frame": 455,
+      "end_frame": 600,
+      "start_s": 18.2,
+      "end_s": 24.0,
+      "duration_s": 5.8,
+      "lines": [
+        "因为如果我觉得太过于满足的话你可能",
+        "就会停滞在一个位置没有办法向前进步"
+      ],
+      "text": "因为如果我觉得太过于满足的话你可能就会停滞在一个位置没有办法向前进步",
+      "display_text": "因为如果我觉得太过于满足的话你可能就会停滞在一个位置没有办法向前进步",
+      "char_count": 34,
+      "max_line_chars": 17,
+      "word_ids": [
+        "w89",
+        "w90",
+        "w91",
+        "w92",
+        "w93",
+        "w94",
+        "w95",
+        "w96",
+        "w97",
+        "w98",
+        "w99",
+        "w100",
+        "w101",
+        "w102",
+        "w103",
+        "w104",
+        "w105",
+        "w106",
+        "w107",
+        "w108",
+        "w109",
+        "w110",
+        "w111",
+        "w112",
+        "w113",
+        "w114",
+        "w115",
+        "w116",
+        "w117",
+        "w118",
+        "w119",
+        "w120",
+        "w121",
+        "w122"
+      ],
+      "segment_ids": [
+        "s7",
+        "s8",
+        "s9"
+      ]
+    }
+  ],
+  "quality": {
+    "n_cues": 6,
+    "n_lines": 8,
+    "max_line_chars": 22,
+    "min_duration_s": 1.68,
+    "max_duration_s": 5.8,
+    "mean_duration_s": 3.54,
+    "violations": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "decode_size": [
+    1280,
+    614
+  ],
+  "note": "mean wall time per sampled frame over the first 30 samples of the 25 s clip at the production decode size (1280x614, 5 Hz); the first frame includes per-process model warmup, so the OCR mean is ~1.3x the steady-state value. 'all_in_one_call' runs the five requests through a single performRequests_error_ call (the production path).",
+  "per_request_ms": {
+    "all_in_one_call": 127.93,
+    "face": 8.68,
+    "hands": 5.08,
+    "ocr": 119.71,
+    "pose": 8.59,
+    "segmentation": 12.75
+  },
+  "platform": "Apple M4 / macOS",
+  "sample_hz": 5.0,
+  "samples": 30,
+  "schema": "semotion.perception-timings/1",
+  "seg_quality": "balanced",
+  "video": "inputs/zhengqinwen_25s.mp4"
+}

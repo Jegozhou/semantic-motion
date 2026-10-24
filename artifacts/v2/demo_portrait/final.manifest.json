@@ -1,0 +1,44 @@
+{
+  "schema": "semotion.render/2",
+  "created_utc": "2026-10-24T15:19:34Z",
+  "source": {
+    "path": "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 24.2,
+    "frames": 605
+  },
+  "output": {
+    "path": "artifacts/v2/demo_portrait/final.mp4",
+    "sha256": "2e4129fdb9ad1685a3fa1ae256cee66ef79293ca9cc4673ea02646931eafa363",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "frames": 605,
+    "duration_s": 24.2,
+    "bytes": 611453
+  },
+  "overlay_pass": "artifacts/v2/demo_portrait/final_overlay.mp4",
+  "ir": {
+    "schema": "semotion.motion-ir/2",
+    "elements": 6,
+    "sha256": "bac6431e25b102b44dc057b32a7a4a4d5108cd73373675cb513983da11f8f12c"
+  },
+  "captions": null,
+  "encode": {
+    "video": "libx264",
+    "crf": 28,
+    "draft": true,
+    "audio": "aac 192k"
+  },
+  "elapsed_s": 7.5,
+  "fps_real": 80.67,
+  "tools": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "command_decode": "ffmpeg -v error -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -vf fps=25.0,scale=1080:1920:flags=lanczos -f rawvideo -pix_fmt rgb24 -",
+  "command_encode": "ffmpeg -v error -y -f rawvideo -pix_fmt rgb24 -s 1080x1920 -r 25.0 -i - -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -map 0:v:0 -map 1:a:0 -shortest -c:v libx264 -preset veryfast -crf 28 -pix_fmt yuv420p -profile:v high -level 4.2 -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/v2/demo_portrait/final.mp4"
+}

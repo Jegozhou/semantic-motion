@@ -1,0 +1,1384 @@
+{
+  "schema": "semotion.motion-ir/2",
+  "ir_version": "2.0.0",
+  "style": "smart_balanced",
+  "source": {
+    "path": "/Volumes/ZHITAI/Semantic Motion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df",
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0,
+    "duration_s": 24.2,
+    "frames": 605
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25.0
+  },
+  "theme": {
+    "accent": "#829CEB",
+    "ink": "#F7F8FA",
+    "scrim": "#070A10",
+    "surface_is_dark": true
+  },
+  "semantic": {
+    "anchors_schema": null,
+    "language": "zh",
+    "anchors": [
+      {
+        "id": "a00",
+        "kind": "keyword",
+        "text": "痛点",
+        "start_s": 3.32,
+        "end_s": 3.94,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s0",
+        "word_ids": [
+          "w7",
+          "w8"
+        ],
+        "rule": "emphasis_word",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 20,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "energy_rise",
+          "onset_s": 3.32,
+          "search_window_s": [
+            3.05,
+            3.55
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.115096,
+          "asr_start_s": 3.3
+        }
+      },
+      {
+        "id": "a01",
+        "kind": "keyword",
+        "text": "最难的地方",
+        "start_s": 5.04,
+        "end_s": 6.02,
+        "confidence": 0.78,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w13",
+          "w14",
+          "w15",
+          "w16"
+        ],
+        "rule": "emphasis_word+phrase_merge",
+        "merged_words": 4,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": 80,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "energy_rise",
+          "onset_s": 5.04,
+          "search_window_s": [
+            4.71,
+            5.21
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.124182,
+          "asr_start_s": 4.96
+        }
+      },
+      {
+        "id": "a02",
+        "kind": "keyword",
+        "text": "其实是节奏",
+        "start_s": 6.36,
+        "end_s": 7.66,
+        "confidence": 0.8,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s1",
+        "word_ids": [
+          "w17",
+          "w18",
+          "w19",
+          "w20"
+        ],
+        "rule": "contrast_marker+phrase_merge",
+        "merged_words": 4,
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -160,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 6.36,
+          "search_window_s": [
+            6.27,
+            6.77
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.012529,
+          "asr_start_s": 6.52
+        }
+      },
+      {
+        "id": "a03",
+        "kind": "number",
+        "text": "九成",
+        "start_s": 7.85,
+        "end_s": 8.36,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w21",
+          "w22"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -70,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 7.85,
+          "search_window_s": [
+            7.67,
+            8.17
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.007834,
+          "asr_start_s": 7.92
+        }
+      },
+      {
+        "id": "a04",
+        "kind": "card",
+        "text": "都卡在三个问题",
+        "start_s": 9.33,
+        "end_s": 11.04,
+        "confidence": 0.62,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w26",
+          "w27",
+          "w28",
+          "w29",
+          "w30",
+          "w31"
+        ],
+        "rule": "card_clause",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -90,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 9.33,
+          "search_window_s": [
+            9.17,
+            9.67
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.005703,
+          "asr_start_s": 9.42
+        }
+      },
+      {
+        "id": "a05",
+        "kind": "number",
+        "text": "三个",
+        "start_s": 9.91,
+        "end_s": 10.56,
+        "confidence": 0.86,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s2",
+        "word_ids": [
+          "w29",
+          "w30"
+        ],
+        "rule": "chinese_number",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -170,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "energy_rise",
+          "onset_s": 9.91,
+          "search_window_s": [
+            9.83,
+            10.33
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.129961,
+          "asr_start_s": 10.08
+        }
+      },
+      {
+        "id": "a06",
+        "kind": "list_item",
+        "text": "第一",
+        "start_s": 11.36,
+        "end_s": 11.8,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s3",
+        "word_ids": [
+          "w32"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -60,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 11.36,
+          "search_window_s": [
+            11.17,
+            11.67
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.002898,
+          "asr_start_s": 11.42
+        }
+      },
+      {
+        "id": "a07",
+        "kind": "list_item",
+        "text": "第二",
+        "start_s": 14.28,
+        "end_s": 14.76,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s4",
+        "word_ids": [
+          "w38"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -80,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 14.28,
+          "search_window_s": [
+            14.11,
+            14.61
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.002891,
+          "asr_start_s": 14.36
+        }
+      },
+      {
+        "id": "a08",
+        "kind": "list_item",
+        "text": "第三",
+        "start_s": 16.75,
+        "end_s": 17.3,
+        "confidence": 0.9,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s5",
+        "word_ids": [
+          "w45"
+        ],
+        "rule": "ordinal",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -130,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "silence_exit",
+          "onset_s": 16.75,
+          "search_window_s": [
+            16.62,
+            17.13
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.027347,
+          "asr_start_s": 16.88
+        }
+      },
+      {
+        "id": "a09",
+        "kind": "process",
+        "text": "流程",
+        "start_s": 20.81,
+        "end_s": 21.66,
+        "confidence": 0.74,
+        "source": "ASR_ALIGNED",
+        "segment_id": "s6",
+        "word_ids": [
+          "w58",
+          "w59"
+        ],
+        "rule": "process_marker",
+        "refine": {
+          "method": "energy_onset",
+          "delta_ms": -150,
+          "accepted": true,
+          "window_ms": 500,
+          "detector": "energy_rise",
+          "onset_s": 20.81,
+          "search_window_s": [
+            20.71,
+            21.21
+          ],
+          "quiet_threshold": 0.002738,
+          "climb": 0.120743,
+          "asr_start_s": 20.96
+        }
+      }
+    ],
+    "decisions_sha256": null
+  },
+  "perception": {
+    "schema": null,
+    "person_union": null,
+    "face_union": null,
+    "existing_text": [],
+    "quiet_zones": [
+      {
+        "id": "d_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "score": 0.7922,
+        "source": "derived",
+        "person_overlap": 0.0,
+        "text_overlap": 0.0,
+        "edge_density": 0.0009595240699127316,
+        "kind": "side"
+      },
+      {
+        "id": "d_left",
+        "box": [
+          0,
+          0,
+          205,
+          1920
+        ],
+        "score": 0.7919,
+        "source": "derived",
+        "person_overlap": 0.0,
+        "text_overlap": 0.0,
+        "edge_density": 0.0010177058400586247,
+        "kind": "side"
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "el_1_4b6ca1db",
+      "type": "keyword",
+      "anchor_refs": [
+        "a00"
+      ],
+      "window": {
+        "start_s": 3.32,
+        "end_s": 4.67,
+        "start_frame": 83,
+        "end_frame": 117,
+        "hold_s": 0.45,
+        "anchor_start_s": 3.32,
+        "anchor_end_s": 3.94
+      },
+      "box": [
+        916,
+        823,
+        116,
+        100
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "痛点",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 116,
+        "height": 100,
+        "pad": 6,
+        "display_px": 52,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 14,
+        "pitch": 68,
+        "lines": [
+          "痛点"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "zone_box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "reason": "",
+        "candidates": [
+          {
+            "zone": "d_right",
+            "treatment": "scrim_right",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              916,
+              823,
+              116,
+              100
+            ],
+            "tier": 1.0,
+            "score": 0.6246,
+            "fit_w": 116,
+            "fit_h": 100
+          },
+          {
+            "zone": "d_left",
+            "treatment": "scrim_left",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              48,
+              823,
+              116,
+              100
+            ],
+            "tier": 1.0,
+            "score": 0.5944,
+            "fit_w": 116,
+            "fit_h": 100
+          }
+        ],
+        "degraded": true
+      },
+      "provenance": {
+        "decision_id": "a00",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_e566dafd",
+      "type": "keyword",
+      "anchor_refs": [
+        "a01"
+      ],
+      "window": {
+        "start_s": 5.04,
+        "end_s": 6.36,
+        "start_frame": 126,
+        "end_frame": 159,
+        "hold_s": 0.45,
+        "anchor_start_s": 5.04,
+        "anchor_end_s": 6.02
+      },
+      "box": [
+        916,
+        755,
+        116,
+        236
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "最难的地方",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 116,
+        "height": 236,
+        "pad": 6,
+        "display_px": 52,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 14,
+        "pitch": 68,
+        "lines": [
+          "最难",
+          "的地",
+          "方"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "zone_box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "reason": "",
+        "candidates": [
+          {
+            "zone": "d_right",
+            "treatment": "scrim_right",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              916,
+              755,
+              116,
+              236
+            ],
+            "tier": 1.0,
+            "score": 0.7146,
+            "fit_w": 116,
+            "fit_h": 236
+          },
+          {
+            "zone": "d_left",
+            "treatment": "scrim_left",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              48,
+              755,
+              116,
+              236
+            ],
+            "tier": 1.0,
+            "score": 0.5944,
+            "fit_w": 116,
+            "fit_h": 236
+          }
+        ],
+        "degraded": true
+      },
+      "provenance": {
+        "decision_id": "a01",
+        "decision_confidence": 0.78,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_103fbc0b",
+      "type": "keyword",
+      "anchor_refs": [
+        "a02"
+      ],
+      "window": {
+        "start_s": 6.36,
+        "end_s": 7.85,
+        "start_frame": 159,
+        "end_frame": 196,
+        "hold_s": 0.45,
+        "anchor_start_s": 6.36,
+        "anchor_end_s": 7.66
+      },
+      "box": [
+        916,
+        755,
+        116,
+        236
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "其实是节奏",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 116,
+        "height": 236,
+        "pad": 6,
+        "display_px": 52,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 14,
+        "pitch": 68,
+        "lines": [
+          "其实",
+          "是节",
+          "奏"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "zone_box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "reason": "",
+        "candidates": [
+          {
+            "zone": "d_right",
+            "treatment": "scrim_right",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              916,
+              755,
+              116,
+              236
+            ],
+            "tier": 1.0,
+            "score": 0.7146,
+            "fit_w": 116,
+            "fit_h": 236
+          },
+          {
+            "zone": "d_left",
+            "treatment": "scrim_left",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              48,
+              755,
+              116,
+              236
+            ],
+            "tier": 1.0,
+            "score": 0.5944,
+            "fit_w": 116,
+            "fit_h": 236
+          }
+        ],
+        "degraded": true
+      },
+      "provenance": {
+        "decision_id": "a02",
+        "decision_confidence": 0.8,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_bc77d835",
+      "type": "stat",
+      "anchor_refs": [
+        "a03"
+      ],
+      "window": {
+        "start_s": 7.85,
+        "end_s": 9.2,
+        "start_frame": 196,
+        "end_frame": 230,
+        "hold_s": 0.45,
+        "anchor_start_s": 7.85,
+        "anchor_end_s": 8.36
+      },
+      "box": [
+        895,
+        804,
+        137,
+        139
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "value": 90.0,
+        "display": "九成",
+        "unit": "%",
+        "label": "",
+        "decimals": 0,
+        "kicker": ""
+      },
+      "fit": {
+        "kind": "stat",
+        "width": 137,
+        "height": 139,
+        "pad": 6,
+        "display_px": 84,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 13,
+        "pitch": 0,
+        "lines": [],
+        "body_lines": [],
+        "kicker": "数据",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "90",
+        "unit": "%",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "count",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.95,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "zone_box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "reason": "",
+        "candidates": [
+          {
+            "zone": "d_right",
+            "treatment": "scrim_right",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "reason": "text_does_not_fit_zone",
+            "fit_w": 137,
+            "tier": 0.84,
+            "box": [
+              895,
+              804,
+              137,
+              139
+            ],
+            "score": 0.6995,
+            "fit_h": 139
+          },
+          {
+            "zone": "d_left",
+            "treatment": "scrim_left",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "reason": "text_does_not_fit_zone",
+            "fit_w": 137,
+            "tier": 0.84,
+            "box": [
+              48,
+              804,
+              137,
+              139
+            ],
+            "score": 0.5794,
+            "fit_h": 139
+          }
+        ],
+        "degraded": true
+      },
+      "provenance": {
+        "decision_id": "a03",
+        "decision_confidence": 0.86,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_2_eb835b67",
+      "type": "list",
+      "anchor_refs": [
+        "a07",
+        "a08"
+      ],
+      "window": {
+        "start_s": 14.28,
+        "end_s": 17.75,
+        "start_frame": 357,
+        "end_frame": 444,
+        "hold_s": 0.45,
+        "anchor_start_s": 14.28,
+        "anchor_end_s": 17.3
+      },
+      "box": [
+        923,
+        810,
+        109,
+        126
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "rows": [
+          {
+            "marker": "1",
+            "text": "第二",
+            "at_s": 14.28
+          },
+          {
+            "marker": "2",
+            "text": "第三",
+            "at_s": 16.75
+          }
+        ],
+        "kicker": "",
+        "items": [
+          "第二",
+          "第三"
+        ]
+      },
+      "fit": {
+        "kind": "list",
+        "width": 109,
+        "height": 126,
+        "pad": 6,
+        "display_px": 0,
+        "title_px": 30,
+        "body_px": 0,
+        "kicker_px": 13,
+        "pitch": 40,
+        "lines": [],
+        "body_lines": [],
+        "kicker": "要点",
+        "rows": [
+          {
+            "marker": "1",
+            "text": "第二",
+            "at_s": 0.0,
+            "lines": [
+              "第二"
+            ]
+          },
+          {
+            "marker": "2",
+            "text": "第三",
+            "at_s": 2.47,
+            "lines": [
+              "第三"
+            ]
+          }
+        ],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": false,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "rows",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        },
+        "stagger_s": 0.0
+      },
+      "priority": 0.8,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "zone_box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "reason": "",
+        "candidates": [
+          {
+            "zone": "d_right",
+            "treatment": "scrim_right",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              923,
+              810,
+              109,
+              126
+            ],
+            "tier": 1.0,
+            "score": 0.7142,
+            "fit_w": 109,
+            "fit_h": 126
+          },
+          {
+            "zone": "d_left",
+            "treatment": "scrim_left",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              48,
+              810,
+              109,
+              126
+            ],
+            "tier": 1.0,
+            "score": 0.5941,
+            "fit_w": 109,
+            "fit_h": 126
+          }
+        ],
+        "degraded": true
+      },
+      "provenance": {
+        "decision_id": "a07",
+        "decision_confidence": 0.9,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    },
+    {
+      "id": "el_1_63435d23",
+      "type": "keyword",
+      "anchor_refs": [
+        "a09"
+      ],
+      "window": {
+        "start_s": 20.81,
+        "end_s": 22.16,
+        "start_frame": 520,
+        "end_frame": 554,
+        "hold_s": 0.45,
+        "anchor_start_s": 20.81,
+        "anchor_end_s": 21.66
+      },
+      "box": [
+        916,
+        823,
+        116,
+        100
+      ],
+      "backdrop": {
+        "kind": "scrim_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "alpha": 0.86,
+        "blur_px": 0,
+        "enter_s": 0.34,
+        "exit_s": 0.22
+      },
+      "content": {
+        "text": "流程",
+        "kicker": "",
+        "emphasis": []
+      },
+      "fit": {
+        "kind": "keyword",
+        "width": 116,
+        "height": 100,
+        "pad": 6,
+        "display_px": 52,
+        "title_px": 0,
+        "body_px": 19,
+        "kicker_px": 14,
+        "pitch": 68,
+        "lines": [
+          "流程"
+        ],
+        "body_lines": [],
+        "kicker": "",
+        "rows": [],
+        "bars": [],
+        "compare": {},
+        "quote": {},
+        "rule": true,
+        "align": "left",
+        "num_str": "",
+        "unit": "",
+        "label": "",
+        "emphasis": []
+      },
+      "motion": {
+        "enter": {
+          "style": "wipe",
+          "dur_s": 0.42,
+          "ease": "out_expo",
+          "offset_y": 12
+        },
+        "exit": {
+          "dur_s": 0.18,
+          "ease": "in_quad",
+          "offset_y": -6
+        },
+        "hold": {
+          "style": "none"
+        }
+      },
+      "priority": 0.7,
+      "layout": {
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "zone_box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "reason": "",
+        "candidates": [
+          {
+            "zone": "d_right",
+            "treatment": "scrim_right",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              916,
+              823,
+              116,
+              100
+            ],
+            "tier": 1.0,
+            "score": 0.7146,
+            "fit_w": 116,
+            "fit_h": 100
+          },
+          {
+            "zone": "d_left",
+            "treatment": "scrim_left",
+            "max_w": 160,
+            "max_h": 1479,
+            "status": "ok",
+            "box": [
+              48,
+              823,
+              116,
+              100
+            ],
+            "tier": 1.0,
+            "score": 0.5944,
+            "fit_w": 116,
+            "fit_h": 100
+          }
+        ],
+        "degraded": true
+      },
+      "provenance": {
+        "decision_id": "a09",
+        "decision_confidence": 0.74,
+        "emphasis": "medium",
+        "reason": ""
+      }
+    }
+  ],
+  "layout_audit": {
+    "decisions": [
+      {
+        "group": 0,
+        "decision": "place",
+        "element": "el_1_4b6ca1db",
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "tier": 1.0,
+        "start_s": 3.32,
+        "box": [
+          916,
+          823,
+          116,
+          100
+        ]
+      },
+      {
+        "group": 1,
+        "decision": "place",
+        "element": "el_1_e566dafd",
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "tier": 1.0,
+        "start_s": 5.04,
+        "box": [
+          916,
+          755,
+          116,
+          236
+        ]
+      },
+      {
+        "group": 2,
+        "decision": "place",
+        "element": "el_1_103fbc0b",
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "tier": 1.0,
+        "start_s": 6.36,
+        "box": [
+          916,
+          755,
+          116,
+          236
+        ]
+      },
+      {
+        "group": 3,
+        "decision": "place",
+        "element": "el_1_bc77d835",
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "tier": 1.615,
+        "start_s": 7.85,
+        "box": [
+          895,
+          804,
+          137,
+          139
+        ]
+      },
+      {
+        "group": 4,
+        "decision": "drop",
+        "reason": "density_budget",
+        "start_s": 9.33
+      },
+      {
+        "group": 5,
+        "decision": "drop",
+        "reason": "density_budget",
+        "start_s": 9.91
+      },
+      {
+        "group": 6,
+        "decision": "drop",
+        "reason": "density_budget",
+        "start_s": 11.36
+      },
+      {
+        "group": 7,
+        "decision": "place",
+        "element": "el_2_eb835b67",
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "tier": 1.0,
+        "start_s": 14.28,
+        "box": [
+          923,
+          810,
+          109,
+          126
+        ]
+      },
+      {
+        "group": 8,
+        "decision": "place",
+        "element": "el_1_63435d23",
+        "treatment": "scrim_right",
+        "zone": "d_right",
+        "tier": 1.0,
+        "start_s": 20.81,
+        "box": [
+          916,
+          823,
+          116,
+          100
+        ]
+      }
+    ],
+    "coverage": 0.4269,
+    "zones": [
+      {
+        "id": "d_right",
+        "box": [
+          873,
+          0,
+          207,
+          1920
+        ],
+        "score": 0.7922,
+        "source": "derived",
+        "kind": "side"
+      },
+      {
+        "id": "d_left",
+        "box": [
+          0,
+          0,
+          205,
+          1920
+        ],
+        "score": 0.7919,
+        "source": "derived",
+        "kind": "side"
+      }
+    ],
+    "perception_used": false
+  },
+  "provenance": {
+    "director": "semotion.design2/1",
+    "truth_class": "MACHINE",
+    "note": "every window derives from measured anchor onsets; no invented timestamps"
+  }
+}

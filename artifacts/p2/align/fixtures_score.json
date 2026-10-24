@@ -1,0 +1,1668 @@
+{
+  "schema": "semotion.align.evidence/1",
+  "kind": "SYNTH_KNOWN dev fixtures (per-unit TTS assembly truth)",
+  "params": null,
+  "n_fixtures": 10,
+  "n_units": 147,
+  "n_scored": 147,
+  "pooled_new": {
+    "n": 147,
+    "p50_ms": 2.75,
+    "p90_ms": 7.56,
+    "p95_ms": 8.13,
+    "max_ms": 108.17,
+    "mean_ms": 5.25,
+    "bias_ms": 4.97
+  },
+  "pooled_old_word": {
+    "n": 147,
+    "p50_ms": 132.35,
+    "p90_ms": 226.43,
+    "p95_ms": 274.85,
+    "max_ms": 555.96,
+    "mean_ms": 139.47,
+    "bias_ms": 3.06
+  },
+  "pooled_old_naive_char": {
+    "n": 147,
+    "p50_ms": 127.37,
+    "p90_ms": 199.58,
+    "p95_ms": 245.56,
+    "max_ms": 555.96,
+    "mean_ms": 127.14,
+    "bias_ms": 8.3
+  },
+  "elapsed_s": 1.04,
+  "skipped": [],
+  "fixtures": [
+    {
+      "fixture": "fx_a_zh_portrait",
+      "duration_s": 24.2,
+      "n_units": 14,
+      "n_scored": 14,
+      "n_chars": 82,
+      "n_syllables": 82,
+      "chunks": 14,
+      "feasible_chunks": 14,
+      "median_syllable_ms": 220.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9426,
+      "point_biserial_r": 0.4768,
+      "low_conf": 0,
+      "elapsed_s": 0.066,
+      "new": {
+        "n_units": 14,
+        "n_scored": 14,
+        "n_skipped": 0,
+        "p50_ms": 4.47,
+        "p90_ms": 7.04,
+        "max_ms": 7.96,
+        "mean_ms": 4.09,
+        "bias_ms": 3.74
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 14,
+        "p50_ms": 114.0,
+        "p90_ms": 181.1,
+        "max_ms": 189.46,
+        "bias_ms": 108.74
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 14,
+        "p50_ms": 114.0,
+        "p90_ms": 181.1,
+        "max_ms": 189.46,
+        "bias_ms": 108.74
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "大家好",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "大",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "今天聊一个真实的痛点",
+          "truth_start_s": 1.590542,
+          "predicted_start_s": 1.59,
+          "predicted_char": "今",
+          "error_ms": -0.54
+        },
+        {
+          "unit_id": "u03",
+          "text": "口播视频最难的地方",
+          "truth_start_s": 4.051958,
+          "predicted_start_s": 4.05,
+          "predicted_char": "抠",
+          "error_ms": -1.96
+        },
+        {
+          "unit_id": "u04",
+          "text": "其实是节奏",
+          "truth_start_s": 6.336458,
+          "predicted_start_s": 6.34,
+          "predicted_char": "其",
+          "error_ms": 3.54
+        },
+        {
+          "unit_id": "u05",
+          "text": "九成的剪辑",
+          "truth_start_s": 7.83425,
+          "predicted_start_s": 7.84,
+          "predicted_char": "九",
+          "error_ms": 5.75
+        },
+        {
+          "unit_id": "u06",
+          "text": "都卡在三个问题",
+          "truth_start_s": 9.332042,
+          "predicted_start_s": 9.34,
+          "predicted_char": "都",
+          "error_ms": 7.96
+        },
+        {
+          "unit_id": "u07",
+          "text": "第一",
+          "truth_start_s": 11.362979,
+          "predicted_start_s": 11.37,
+          "predicted_char": "第",
+          "error_ms": 7.02
+        },
+        {
+          "unit_id": "u08",
+          "text": "不知道什么时候加字",
+          "truth_start_s": 12.117229,
+          "predicted_start_s": 12.12,
+          "predicted_char": "不",
+          "error_ms": 2.77
+        },
+        {
+          "unit_id": "u09",
+          "text": "第二",
+          "truth_start_s": 14.283188,
+          "predicted_start_s": 14.29,
+          "predicted_char": "第",
+          "error_ms": 6.81
+        },
+        {
+          "unit_id": "u10",
+          "text": "加了又挡住脸",
+          "truth_start_s": 15.049042,
+          "predicted_start_s": 15.05,
+          "predicted_char": "加",
+          "error_ms": 0.96
+        },
+        {
+          "unit_id": "u11",
+          "text": "第三",
+          "truth_start_s": 16.744208,
+          "predicted_start_s": 16.75,
+          "predicted_char": "第",
+          "error_ms": 5.79
+        },
+        {
+          "unit_id": "u12",
+          "text": "改一次就要重做一遍",
+          "truth_start_s": 17.602958,
+          "predicted_start_s": 17.61,
+          "predicted_char": "该",
+          "error_ms": 7.04
+        },
+        {
+          "unit_id": "u13",
+          "text": "我们把这套流程",
+          "truth_start_s": 19.988229,
+          "predicted_start_s": 19.99,
+          "predicted_char": "我",
+          "error_ms": 1.77
+        },
+        {
+          "unit_id": "u14",
+          "text": "做成了自动化",
+          "truth_start_s": 21.844604,
+          "predicted_start_s": 21.85,
+          "predicted_char": "做",
+          "error_ms": 5.4
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_b_zh_landscape",
+      "duration_s": 26.18,
+      "n_units": 8,
+      "n_scored": 8,
+      "n_chars": 84,
+      "n_syllables": 87,
+      "chunks": 16,
+      "feasible_chunks": 16,
+      "median_syllable_ms": 230.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9496,
+      "point_biserial_r": 0.4782,
+      "low_conf": 0,
+      "elapsed_s": 0.065,
+      "new": {
+        "n_units": 8,
+        "n_scored": 8,
+        "n_skipped": 0,
+        "p50_ms": 3.79,
+        "p90_ms": 6.74,
+        "max_ms": 7.06,
+        "mean_ms": 3.44,
+        "bias_ms": 3.38
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 8,
+        "p50_ms": 156.02,
+        "p90_ms": 226.94,
+        "max_ms": 320.0,
+        "bias_ms": 152.13
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 8,
+        "p50_ms": 156.02,
+        "p90_ms": 226.94,
+        "max_ms": 320.0,
+        "bias_ms": 152.13
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "做口播动画，先看三个指标。",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "做",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "第一，字幕出现的时间。",
+          "truth_start_s": 3.892937,
+          "predicted_start_s": 3.9,
+          "predicted_char": "第",
+          "error_ms": 7.06
+        },
+        {
+          "unit_id": "u03",
+          "text": "第二，动效占用的画面。",
+          "truth_start_s": 6.426729,
+          "predicted_start_s": 6.43,
+          "predicted_char": "第",
+          "error_ms": 3.27
+        },
+        {
+          "unit_id": "u04",
+          "text": "第三，人物被遮挡的面积。",
+          "truth_start_s": 9.053396,
+          "predicted_start_s": 9.06,
+          "predicted_char": "第",
+          "error_ms": 6.6
+        },
+        {
+          "unit_id": "u05",
+          "text": "百分之七十的问题，都出在时间对齐。",
+          "truth_start_s": 11.819396,
+          "predicted_start_s": 11.82,
+          "predicted_char": "7",
+          "error_ms": 0.6
+        },
+        {
+          "unit_id": "u06",
+          "text": "所以我们先对齐，再谈样式。",
+          "truth_start_s": 15.834563,
+          "predicted_start_s": 15.84,
+          "predicted_char": "所",
+          "error_ms": 5.44
+        },
+        {
+          "unit_id": "u07",
+          "text": "这也是这套流程的底线。",
+          "truth_start_s": 19.085688,
+          "predicted_start_s": 19.09,
+          "predicted_char": "這",
+          "error_ms": 4.31
+        },
+        {
+          "unit_id": "u08",
+          "text": "先说结论，时间不对，一切白搭。",
+          "truth_start_s": 21.590229,
+          "predicted_start_s": 21.59,
+          "predicted_char": "先",
+          "error_ms": -0.23
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_c_zh_cuts",
+      "duration_s": 20.08,
+      "n_units": 7,
+      "n_scored": 7,
+      "n_chars": 63,
+      "n_syllables": 65,
+      "chunks": 7,
+      "feasible_chunks": 7,
+      "median_syllable_ms": 240.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9315,
+      "point_biserial_r": 0.4515,
+      "low_conf": 1,
+      "elapsed_s": 0.059,
+      "new": {
+        "n_units": 7,
+        "n_scored": 7,
+        "n_skipped": 0,
+        "p50_ms": 1.25,
+        "p90_ms": 6.17,
+        "max_ms": 8.35,
+        "mean_ms": 2.46,
+        "bias_ms": 1.64
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 7,
+        "p50_ms": 89.4,
+        "p90_ms": 248.98,
+        "max_ms": 440.0,
+        "bias_ms": 8.78
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 7,
+        "p50_ms": 65.29,
+        "p90_ms": 115.64,
+        "max_ms": 121.62,
+        "bias_ms": -58.36
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "第三种情况最难处理。",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "第",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "人物在动，镜头也在动。",
+          "truth_start_s": 2.929312,
+          "predicted_start_s": 2.93,
+          "predicted_char": "人",
+          "error_ms": 0.69
+        },
+        {
+          "unit_id": "u03",
+          "text": "第一，先锁定人脸。",
+          "truth_start_s": 5.671646,
+          "predicted_start_s": 5.68,
+          "predicted_char": "第",
+          "error_ms": 8.35
+        },
+        {
+          "unit_id": "u04",
+          "text": "第二，再判断镜头有没有切换。",
+          "truth_start_s": 7.961625,
+          "predicted_start_s": 7.96,
+          "predicted_char": "第",
+          "error_ms": -1.62
+        },
+        {
+          "unit_id": "u05",
+          "text": "第三，最后才排文字。",
+          "truth_start_s": 11.389396,
+          "predicted_start_s": 11.39,
+          "predicted_char": "第",
+          "error_ms": 0.6
+        },
+        {
+          "unit_id": "u06",
+          "text": "九成的情况都能稳住。",
+          "truth_start_s": 13.98125,
+          "predicted_start_s": 13.98,
+          "predicted_char": "字",
+          "error_ms": -1.25
+        },
+        {
+          "unit_id": "u07",
+          "text": "剩下的百分之十，交给人工。",
+          "truth_start_s": 16.225292,
+          "predicted_start_s": 16.23,
+          "predicted_char": "剩",
+          "error_ms": 4.71
+        }
+      ],
+      "warnings": [
+        "1 low-confidence syllables"
+      ]
+    },
+    {
+      "fixture": "fx_d_zh_portrait",
+      "duration_s": 46.633,
+      "n_units": 20,
+      "n_scored": 20,
+      "n_chars": 167,
+      "n_syllables": 167,
+      "chunks": 25,
+      "feasible_chunks": 25,
+      "median_syllable_ms": 220.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.949,
+      "point_biserial_r": 0.4854,
+      "low_conf": 0,
+      "elapsed_s": 0.105,
+      "new": {
+        "n_units": 20,
+        "n_scored": 20,
+        "n_skipped": 0,
+        "p50_ms": 0.8,
+        "p90_ms": 7.5,
+        "max_ms": 8.9,
+        "mean_ms": 2.82,
+        "bias_ms": 2.67
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 20,
+        "p50_ms": 141.55,
+        "p90_ms": 214.55,
+        "max_ms": 400.0,
+        "bias_ms": 121.67
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 20,
+        "p50_ms": 128.57,
+        "p90_ms": 182.02,
+        "max_ms": 210.54,
+        "bias_ms": 115.67
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "其实大多数人，都高估了动效。",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "其",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "以为做得越多，就越专业。",
+          "truth_start_s": 3.699562,
+          "predicted_start_s": 3.7,
+          "predicted_char": "以",
+          "error_ms": 0.44
+        },
+        {
+          "unit_id": "u03",
+          "text": "三个动效就够了。",
+          "truth_start_s": 6.339625,
+          "predicted_start_s": 6.34,
+          "predicted_char": "三",
+          "error_ms": 0.38
+        },
+        {
+          "unit_id": "u04",
+          "text": "第一，关键词只标一次。",
+          "truth_start_s": 8.179312,
+          "predicted_start_s": 8.18,
+          "predicted_char": "第",
+          "error_ms": 0.69
+        },
+        {
+          "unit_id": "u05",
+          "text": "第二，数字只停两秒。",
+          "truth_start_s": 10.822583,
+          "predicted_start_s": 10.83,
+          "predicted_char": "第",
+          "error_ms": 7.42
+        },
+        {
+          "unit_id": "u06",
+          "text": "第三，卡片别压住脸。",
+          "truth_start_s": 13.291708,
+          "predicted_start_s": 13.3,
+          "predicted_char": "第",
+          "error_ms": 8.29
+        },
+        {
+          "unit_id": "u07",
+          "text": "六次是每分钟上限。",
+          "truth_start_s": 15.8305,
+          "predicted_start_s": 15.83,
+          "predicted_char": "六",
+          "error_ms": -0.5
+        },
+        {
+          "unit_id": "u08",
+          "text": "底线是先保住人物。",
+          "truth_start_s": 18.031104,
+          "predicted_start_s": 18.04,
+          "predicted_char": "底",
+          "error_ms": 8.9
+        },
+        {
+          "unit_id": "u09",
+          "text": "所以我们把动效减半。",
+          "truth_start_s": 20.070667,
+          "predicted_start_s": 20.07,
+          "predicted_char": "所",
+          "error_ms": -0.67
+        },
+        {
+          "unit_id": "u10",
+          "text": "最难的是舍得删。",
+          "truth_start_s": 22.432667,
+          "predicted_start_s": 22.44,
+          "predicted_char": "最",
+          "error_ms": 7.33
+        },
+        {
+          "unit_id": "u11",
+          "text": "其实删掉反而更清楚。",
+          "truth_start_s": 24.272625,
+          "predicted_start_s": 24.28,
+          "predicted_char": "其",
+          "error_ms": 7.37
+        },
+        {
+          "unit_id": "u12",
+          "text": "第一版总会加太多。",
+          "truth_start_s": 26.880083,
+          "predicted_start_s": 26.88,
+          "predicted_char": "第",
+          "error_ms": -0.08
+        },
+        {
+          "unit_id": "u13",
+          "text": "第二版砍掉一半。",
+          "truth_start_s": 28.919646,
+          "predicted_start_s": 28.92,
+          "predicted_char": "第",
+          "error_ms": 0.35
+        },
+        {
+          "unit_id": "u14",
+          "text": "三个版本砍成一个。",
+          "truth_start_s": 30.750229,
+          "predicted_start_s": 30.75,
+          "predicted_char": "三",
+          "error_ms": -0.23
+        },
+        {
+          "unit_id": "u17",
+          "text": "第一次听都会怀疑。",
+          "truth_start_s": 32.867917,
+          "predicted_start_s": 32.87,
+          "predicted_char": "第",
+          "error_ms": 2.08
+        },
+        {
+          "unit_id": "u18",
+          "text": "第二个误区更常见。",
+          "truth_start_s": 34.919083,
+          "predicted_start_s": 34.92,
+          "predicted_char": "第",
+          "error_ms": 0.92
+        },
+        {
+          "unit_id": "u19",
+          "text": "最后才轮到排版。",
+          "truth_start_s": 37.097958,
+          "predicted_start_s": 37.1,
+          "predicted_char": "最",
+          "error_ms": 2.04
+        },
+        {
+          "unit_id": "u20",
+          "text": "所以别一上来就加动效。",
+          "truth_start_s": 39.07725,
+          "predicted_start_s": 39.08,
+          "predicted_char": "所",
+          "error_ms": 2.75
+        },
+        {
+          "unit_id": "u15",
+          "text": "剩下的是你的判断。",
+          "truth_start_s": 41.694667,
+          "predicted_start_s": 41.7,
+          "predicted_char": "剩",
+          "error_ms": 5.33
+        },
+        {
+          "unit_id": "u16",
+          "text": "下一期讲镜头切换。",
+          "truth_start_s": 43.709458,
+          "predicted_start_s": 43.71,
+          "predicted_char": "下",
+          "error_ms": 0.54
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_e_zh_landscape",
+      "duration_s": 40.64,
+      "n_units": 17,
+      "n_scored": 17,
+      "n_chars": 131,
+      "n_syllables": 138,
+      "chunks": 25,
+      "feasible_chunks": 25,
+      "median_syllable_ms": 230.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9413,
+      "point_biserial_r": 0.4739,
+      "low_conf": 0,
+      "elapsed_s": 0.091,
+      "new": {
+        "n_units": 17,
+        "n_scored": 17,
+        "n_skipped": 0,
+        "p50_ms": 2.73,
+        "p90_ms": 7.31,
+        "max_ms": 108.17,
+        "mean_ms": 9.7,
+        "bias_ms": 9.38
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 17,
+        "p50_ms": 140.94,
+        "p90_ms": 273.79,
+        "max_ms": 428.67,
+        "bias_ms": 64.67
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 17,
+        "p50_ms": 140.94,
+        "p90_ms": 273.79,
+        "max_ms": 428.67,
+        "bias_ms": 64.67
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "先看一组真实数据。",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "先",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "百分之八十七的人，三秒就划走。",
+          "truth_start_s": 2.648667,
+          "predicted_start_s": 2.65,
+          "predicted_char": "8",
+          "error_ms": 1.33
+        },
+        {
+          "unit_id": "u03",
+          "text": "两秒之后，注意力就散了。",
+          "truth_start_s": 6.141375,
+          "predicted_start_s": 6.14,
+          "predicted_char": "2",
+          "error_ms": -1.38
+        },
+        {
+          "unit_id": "u04",
+          "text": "所以重点必须前置。",
+          "truth_start_s": 8.895125,
+          "predicted_start_s": 8.9,
+          "predicted_char": "所",
+          "error_ms": 4.88
+        },
+        {
+          "unit_id": "u05",
+          "text": "第一，标题要短。",
+          "truth_start_s": 11.101354,
+          "predicted_start_s": 11.1,
+          "predicted_char": "第",
+          "error_ms": -1.35
+        },
+        {
+          "unit_id": "u06",
+          "text": "第二，数字要准。",
+          "truth_start_s": 13.112708,
+          "predicted_start_s": 13.12,
+          "predicted_char": "第",
+          "error_ms": 7.29
+        },
+        {
+          "unit_id": "u07",
+          "text": "第三，节奏要稳。",
+          "truth_start_s": 15.147271,
+          "predicted_start_s": 15.15,
+          "predicted_char": "第",
+          "error_ms": 2.73
+        },
+        {
+          "unit_id": "u08",
+          "text": "三条都做到，数据会变好。",
+          "truth_start_s": 17.181833,
+          "predicted_start_s": 17.29,
+          "predicted_char": "三",
+          "error_ms": 108.17
+        },
+        {
+          "unit_id": "u09",
+          "text": "结论是，少即是多。",
+          "truth_start_s": 20.362979,
+          "predicted_start_s": 20.37,
+          "predicted_char": "结",
+          "error_ms": 7.02
+        },
+        {
+          "unit_id": "u10",
+          "text": "百分之五十的效果来自删减。",
+          "truth_start_s": 22.734729,
+          "predicted_start_s": 22.74,
+          "predicted_char": "5",
+          "error_ms": 5.27
+        },
+        {
+          "unit_id": "u11",
+          "text": "一半的动效可以直接删掉。",
+          "truth_start_s": 25.658542,
+          "predicted_start_s": 25.66,
+          "predicted_char": "一",
+          "error_ms": 1.46
+        },
+        {
+          "unit_id": "u14",
+          "text": "第一步先定标题。",
+          "truth_start_s": 28.272667,
+          "predicted_start_s": 28.28,
+          "predicted_char": "第",
+          "error_ms": 7.33
+        },
+        {
+          "unit_id": "u15",
+          "text": "第二步再定数字。",
+          "truth_start_s": 30.237583,
+          "predicted_start_s": 30.24,
+          "predicted_char": "第",
+          "error_ms": 2.42
+        },
+        {
+          "unit_id": "u16",
+          "text": "第三步才排节奏。",
+          "truth_start_s": 32.063167,
+          "predicted_start_s": 32.07,
+          "predicted_char": "第",
+          "error_ms": 6.83
+        },
+        {
+          "unit_id": "u17",
+          "text": "结论很清楚，少即是多。",
+          "truth_start_s": 34.028083,
+          "predicted_start_s": 34.03,
+          "predicted_char": "结",
+          "error_ms": 1.92
+        },
+        {
+          "unit_id": "u12",
+          "text": "剩下的交给你。",
+          "truth_start_s": 36.899063,
+          "predicted_start_s": 36.9,
+          "predicted_char": "剩",
+          "error_ms": 0.94
+        },
+        {
+          "unit_id": "u13",
+          "text": "我们下期见。",
+          "truth_start_s": 38.535438,
+          "predicted_start_s": 38.54,
+          "predicted_char": "我",
+          "error_ms": 4.56
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_face_pan",
+      "duration_s": 21.381,
+      "n_units": 9,
+      "n_scored": 9,
+      "n_chars": 75,
+      "n_syllables": 78,
+      "chunks": 9,
+      "feasible_chunks": 9,
+      "median_syllable_ms": 220.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9483,
+      "point_biserial_r": 0.4769,
+      "low_conf": 0,
+      "elapsed_s": 0.068,
+      "new": {
+        "n_units": 9,
+        "n_scored": 9,
+        "n_skipped": 0,
+        "p50_ms": 4.44,
+        "p90_ms": 6.02,
+        "max_ms": 7.94,
+        "mean_ms": 3.45,
+        "bias_ms": 3.45
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 9,
+        "p50_ms": 69.98,
+        "p90_ms": 204.42,
+        "max_ms": 240.0,
+        "bias_ms": -35.44
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 9,
+        "p50_ms": 69.98,
+        "p90_ms": 204.42,
+        "max_ms": 240.0,
+        "bias_ms": -35.44
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "镜头开始移动",
+          "truth_start_s": 0.4,
+          "predicted_start_s": 0.4,
+          "predicted_char": "鏡",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "第一步稳定画面",
+          "truth_start_s": 2.109979,
+          "predicted_start_s": 2.11,
+          "predicted_char": "第",
+          "error_ms": 0.02
+        },
+        {
+          "unit_id": "u03",
+          "text": "第二步保持文字清晰",
+          "truth_start_s": 3.935562,
+          "predicted_start_s": 3.94,
+          "predicted_char": "第",
+          "error_ms": 4.44
+        },
+        {
+          "unit_id": "u04",
+          "text": "关键是不要追着人跑",
+          "truth_start_s": 6.388083,
+          "predicted_start_s": 6.39,
+          "predicted_char": "關",
+          "error_ms": 1.92
+        },
+        {
+          "unit_id": "u05",
+          "text": "九成的抖动都能避免",
+          "truth_start_s": 8.718792,
+          "predicted_start_s": 8.72,
+          "predicted_char": "九",
+          "error_ms": 1.21
+        },
+        {
+          "unit_id": "u06",
+          "text": "切换到第二个镜头",
+          "truth_start_s": 10.974458,
+          "predicted_start_s": 10.98,
+          "predicted_char": "切",
+          "error_ms": 5.54
+        },
+        {
+          "unit_id": "u07",
+          "text": "第三步重新计算安全区",
+          "truth_start_s": 13.172063,
+          "predicted_start_s": 13.18,
+          "predicted_char": "第",
+          "error_ms": 7.94
+        },
+        {
+          "unit_id": "u08",
+          "text": "百分之八十的误差在这里",
+          "truth_start_s": 15.9845,
+          "predicted_start_s": 15.99,
+          "predicted_char": "8",
+          "error_ms": 5.5
+        },
+        {
+          "unit_id": "u09",
+          "text": "结论是静态布局更稳",
+          "truth_start_s": 18.455521,
+          "predicted_start_s": 18.46,
+          "predicted_char": "結",
+          "error_ms": 4.48
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_face_zh_portrait",
+      "duration_s": 24.92,
+      "n_units": 12,
+      "n_scored": 12,
+      "n_chars": 83,
+      "n_syllables": 86,
+      "chunks": 12,
+      "feasible_chunks": 12,
+      "median_syllable_ms": 230.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9557,
+      "point_biserial_r": 0.4947,
+      "low_conf": 0,
+      "elapsed_s": 0.071,
+      "new": {
+        "n_units": 12,
+        "n_scored": 12,
+        "n_skipped": 0,
+        "p50_ms": 3.19,
+        "p90_ms": 7.37,
+        "max_ms": 7.42,
+        "mean_ms": 3.38,
+        "bias_ms": 3.03
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 12,
+        "p50_ms": 150.9,
+        "p90_ms": 212.05,
+        "max_ms": 555.96,
+        "bias_ms": 75.53
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 12,
+        "p50_ms": 150.9,
+        "p90_ms": 212.05,
+        "max_ms": 555.96,
+        "bias_ms": 75.53
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "大家好",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "大",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "先看三个数字",
+          "truth_start_s": 1.590542,
+          "predicted_start_s": 1.59,
+          "predicted_char": "先",
+          "error_ms": -0.54
+        },
+        {
+          "unit_id": "u03",
+          "text": "九成的失败来自时间",
+          "truth_start_s": 3.410917,
+          "predicted_start_s": 3.41,
+          "predicted_char": "九",
+          "error_ms": -0.92
+        },
+        {
+          "unit_id": "u04",
+          "text": "第一步是对齐",
+          "truth_start_s": 5.802667,
+          "predicted_start_s": 5.81,
+          "predicted_char": "第",
+          "error_ms": 7.33
+        },
+        {
+          "unit_id": "u05",
+          "text": "第二步是布局",
+          "truth_start_s": 7.427667,
+          "predicted_start_s": 7.43,
+          "predicted_char": "第",
+          "error_ms": 2.33
+        },
+        {
+          "unit_id": "u06",
+          "text": "第三步是渲染",
+          "truth_start_s": 9.075896,
+          "predicted_start_s": 9.08,
+          "predicted_char": "第",
+          "error_ms": 4.1
+        },
+        {
+          "unit_id": "u07",
+          "text": "关键是别挡住脸",
+          "truth_start_s": 10.828604,
+          "predicted_start_s": 10.83,
+          "predicted_char": "關",
+          "error_ms": 1.4
+        },
+        {
+          "unit_id": "u08",
+          "text": "所以我们先测遮挡",
+          "truth_start_s": 12.842625,
+          "predicted_start_s": 12.85,
+          "predicted_char": "所",
+          "error_ms": 7.37
+        },
+        {
+          "unit_id": "u09",
+          "text": "百分之七十的返工",
+          "truth_start_s": 14.975958,
+          "predicted_start_s": 14.98,
+          "predicted_char": "7",
+          "error_ms": 4.04
+        },
+        {
+          "unit_id": "u10",
+          "text": "都出在时间不对",
+          "truth_start_s": 17.002583,
+          "predicted_start_s": 17.01,
+          "predicted_char": "都",
+          "error_ms": 7.42
+        },
+        {
+          "unit_id": "u11",
+          "text": "结论是先对齐再谈样式",
+          "truth_start_s": 18.940646,
+          "predicted_start_s": 18.94,
+          "predicted_char": "結",
+          "error_ms": -0.65
+        },
+        {
+          "unit_id": "u12",
+          "text": "这就是这套流程的底线",
+          "truth_start_s": 21.715542,
+          "predicted_start_s": 21.72,
+          "predicted_char": "這",
+          "error_ms": 4.46
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_t1_zh_phrase",
+      "duration_s": 40.221,
+      "n_units": 20,
+      "n_scored": 20,
+      "n_chars": 115,
+      "n_syllables": 115,
+      "chunks": 20,
+      "feasible_chunks": 20,
+      "median_syllable_ms": 230.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9543,
+      "point_biserial_r": 0.4849,
+      "low_conf": 0,
+      "elapsed_s": 0.085,
+      "new": {
+        "n_units": 20,
+        "n_scored": 20,
+        "n_skipped": 0,
+        "p50_ms": 3.11,
+        "p90_ms": 7.61,
+        "max_ms": 85.67,
+        "mean_ms": 7.56,
+        "bias_ms": 7.28
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 20,
+        "p50_ms": 132.54,
+        "p90_ms": 209.33,
+        "max_ms": 240.0,
+        "bias_ms": -105.72
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 20,
+        "p50_ms": 125.2,
+        "p90_ms": 181.41,
+        "max_ms": 240.0,
+        "bias_ms": -45.72
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "九成的人会拖延",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "九",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "三个步骤就够",
+          "truth_start_s": 2.753792,
+          "predicted_start_s": 2.76,
+          "predicted_char": "三",
+          "error_ms": 6.21
+        },
+        {
+          "unit_id": "u03",
+          "text": "六次刚好够用",
+          "truth_start_s": 4.667583,
+          "predicted_start_s": 4.67,
+          "predicted_char": "六",
+          "error_ms": 2.42
+        },
+        {
+          "unit_id": "u04",
+          "text": "一半来自删减",
+          "truth_start_s": 6.712354,
+          "predicted_start_s": 6.72,
+          "predicted_char": "一",
+          "error_ms": 7.65
+        },
+        {
+          "unit_id": "u05",
+          "text": "两倍的时间浪费",
+          "truth_start_s": 8.686062,
+          "predicted_start_s": 8.69,
+          "predicted_char": "兩",
+          "error_ms": 3.94
+        },
+        {
+          "unit_id": "u06",
+          "text": "三成是无效动效",
+          "truth_start_s": 10.776187,
+          "predicted_start_s": 10.78,
+          "predicted_char": "三",
+          "error_ms": 3.81
+        },
+        {
+          "unit_id": "u07",
+          "text": "关键是节奏",
+          "truth_start_s": 13.189208,
+          "predicted_start_s": 13.19,
+          "predicted_char": "關",
+          "error_ms": 0.79
+        },
+        {
+          "unit_id": "u08",
+          "text": "重点是留白",
+          "truth_start_s": 14.972396,
+          "predicted_start_s": 14.98,
+          "predicted_char": "重",
+          "error_ms": 7.6
+        },
+        {
+          "unit_id": "u09",
+          "text": "核心是克制",
+          "truth_start_s": 16.824333,
+          "predicted_start_s": 16.91,
+          "predicted_char": "核",
+          "error_ms": 85.67
+        },
+        {
+          "unit_id": "u10",
+          "text": "其实是顺序",
+          "truth_start_s": 18.592688,
+          "predicted_start_s": 18.6,
+          "predicted_char": "其",
+          "error_ms": 7.31
+        },
+        {
+          "unit_id": "u11",
+          "text": "底线是先保人",
+          "truth_start_s": 20.393688,
+          "predicted_start_s": 20.4,
+          "predicted_char": "底",
+          "error_ms": 6.31
+        },
+        {
+          "unit_id": "u12",
+          "text": "最难的是取舍",
+          "truth_start_s": 22.391563,
+          "predicted_start_s": 22.39,
+          "predicted_char": "最",
+          "error_ms": -1.56
+        },
+        {
+          "unit_id": "u13",
+          "text": "第一步对齐",
+          "truth_start_s": 24.273333,
+          "predicted_start_s": 24.28,
+          "predicted_char": "第",
+          "error_ms": 6.67
+        },
+        {
+          "unit_id": "u14",
+          "text": "第二步布局",
+          "truth_start_s": 25.95775,
+          "predicted_start_s": 25.96,
+          "predicted_char": "第",
+          "error_ms": 2.25
+        },
+        {
+          "unit_id": "u15",
+          "text": "第三步渲染",
+          "truth_start_s": 27.688604,
+          "predicted_start_s": 27.69,
+          "predicted_char": "第",
+          "error_ms": 1.4
+        },
+        {
+          "unit_id": "u16",
+          "text": "结论是自动化",
+          "truth_start_s": 29.489104,
+          "predicted_start_s": 29.49,
+          "predicted_char": "結",
+          "error_ms": 0.9
+        },
+        {
+          "unit_id": "u17",
+          "text": "所以我们先对齐",
+          "truth_start_s": 31.475875,
+          "predicted_start_s": 31.48,
+          "predicted_char": "所",
+          "error_ms": 4.13
+        },
+        {
+          "unit_id": "u18",
+          "text": "总之先减法",
+          "truth_start_s": 33.668625,
+          "predicted_start_s": 33.67,
+          "predicted_char": "總",
+          "error_ms": 1.38
+        },
+        {
+          "unit_id": "u19",
+          "text": "相比加特效",
+          "truth_start_s": 35.48075,
+          "predicted_start_s": 35.48,
+          "predicted_char": "法",
+          "error_ms": -0.75
+        },
+        {
+          "unit_id": "u20",
+          "text": "最终要可编辑",
+          "truth_start_s": 37.360542,
+          "predicted_start_s": 37.36,
+          "predicted_char": "最",
+          "error_ms": -0.54
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_t2_zh_phrase",
+      "duration_s": 40.755,
+      "n_units": 20,
+      "n_scored": 20,
+      "n_chars": 109,
+      "n_syllables": 109,
+      "chunks": 20,
+      "feasible_chunks": 20,
+      "median_syllable_ms": 240.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.958,
+      "point_biserial_r": 0.4923,
+      "low_conf": 0,
+      "elapsed_s": 0.081,
+      "new": {
+        "n_units": 20,
+        "n_scored": 20,
+        "n_skipped": 0,
+        "p50_ms": 3.72,
+        "p90_ms": 7.63,
+        "max_ms": 86.15,
+        "mean_ms": 7.51,
+        "bias_ms": 7.2
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 20,
+        "p50_ms": 139.68,
+        "p90_ms": 212.66,
+        "max_ms": 440.0,
+        "bias_ms": -115.3
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 20,
+        "p50_ms": 127.23,
+        "p90_ms": 199.1,
+        "max_ms": 281.21,
+        "bias_ms": -122.3
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "其实剪辑不难",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "其",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "痛点是没有结构",
+          "truth_start_s": 2.65125,
+          "predicted_start_s": 2.65,
+          "predicted_char": "痛",
+          "error_ms": -1.25
+        },
+        {
+          "unit_id": "u03",
+          "text": "误区是加太多",
+          "truth_start_s": 4.869854,
+          "predicted_start_s": 4.87,
+          "predicted_char": "误",
+          "error_ms": 0.15
+        },
+        {
+          "unit_id": "u04",
+          "text": "真相是观众会走",
+          "truth_start_s": 7.007729,
+          "predicted_start_s": 7.01,
+          "predicted_char": "真",
+          "error_ms": 2.27
+        },
+        {
+          "unit_id": "u05",
+          "text": "秘诀是节奏",
+          "truth_start_s": 9.384646,
+          "predicted_start_s": 9.39,
+          "predicted_char": "秘",
+          "error_ms": 5.35
+        },
+        {
+          "unit_id": "u06",
+          "text": "关键是时间",
+          "truth_start_s": 11.105833,
+          "predicted_start_s": 11.11,
+          "predicted_char": "关",
+          "error_ms": 4.17
+        },
+        {
+          "unit_id": "u07",
+          "text": "重点是信息",
+          "truth_start_s": 13.018688,
+          "predicted_start_s": 13.02,
+          "predicted_char": "重",
+          "error_ms": 1.31
+        },
+        {
+          "unit_id": "u08",
+          "text": "核心是内容",
+          "truth_start_s": 14.953854,
+          "predicted_start_s": 15.04,
+          "predicted_char": "核",
+          "error_ms": 86.15
+        },
+        {
+          "unit_id": "u09",
+          "text": "本质是取舍",
+          "truth_start_s": 16.84025,
+          "predicted_start_s": 16.84,
+          "predicted_char": "本",
+          "error_ms": -0.25
+        },
+        {
+          "unit_id": "u10",
+          "text": "先说结论再改",
+          "truth_start_s": 18.661208,
+          "predicted_start_s": 18.66,
+          "predicted_char": "先",
+          "error_ms": -1.21
+        },
+        {
+          "unit_id": "u11",
+          "text": "结论是少即是多",
+          "truth_start_s": 20.902854,
+          "predicted_start_s": 20.91,
+          "predicted_char": "结",
+          "error_ms": 7.15
+        },
+        {
+          "unit_id": "u12",
+          "text": "所以先排序",
+          "truth_start_s": 23.205042,
+          "predicted_start_s": 23.21,
+          "predicted_char": "所",
+          "error_ms": 4.96
+        },
+        {
+          "unit_id": "u13",
+          "text": "因此要克制",
+          "truth_start_s": 25.1095,
+          "predicted_start_s": 25.11,
+          "predicted_char": "因",
+          "error_ms": 0.5
+        },
+        {
+          "unit_id": "u14",
+          "text": "总之别贪多",
+          "truth_start_s": 26.922396,
+          "predicted_start_s": 26.93,
+          "predicted_char": "总",
+          "error_ms": 7.6
+        },
+        {
+          "unit_id": "u15",
+          "text": "首先定标题",
+          "truth_start_s": 28.794521,
+          "predicted_start_s": 28.8,
+          "predicted_char": "首",
+          "error_ms": 5.48
+        },
+        {
+          "unit_id": "u16",
+          "text": "其次定数字",
+          "truth_start_s": 30.872167,
+          "predicted_start_s": 30.88,
+          "predicted_char": "其",
+          "error_ms": 7.83
+        },
+        {
+          "unit_id": "u17",
+          "text": "最后定节奏",
+          "truth_start_s": 32.686729,
+          "predicted_start_s": 32.69,
+          "predicted_char": "最",
+          "error_ms": 3.27
+        },
+        {
+          "unit_id": "u18",
+          "text": "一是定结构",
+          "truth_start_s": 34.535625,
+          "predicted_start_s": 34.54,
+          "predicted_char": "一",
+          "error_ms": 4.37
+        },
+        {
+          "unit_id": "u19",
+          "text": "二是定节奏",
+          "truth_start_s": 36.290458,
+          "predicted_start_s": 36.29,
+          "predicted_char": "二",
+          "error_ms": -0.46
+        },
+        {
+          "unit_id": "u20",
+          "text": "三是定动效",
+          "truth_start_s": 38.093458,
+          "predicted_start_s": 38.1,
+          "predicted_char": "三",
+          "error_ms": 6.54
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "fixture": "fx_t3_zh_phrase",
+      "duration_s": 41.0,
+      "n_units": 20,
+      "n_scored": 20,
+      "n_chars": 115,
+      "n_syllables": 115,
+      "chunks": 20,
+      "feasible_chunks": 20,
+      "median_syllable_ms": 250.0,
+      "monotonicity_violations": 0,
+      "onset_percentile_mean": 0.9546,
+      "point_biserial_r": 0.495,
+      "low_conf": 0,
+      "elapsed_s": 0.083,
+      "new": {
+        "n_units": 20,
+        "n_scored": 20,
+        "n_skipped": 0,
+        "p50_ms": 3.38,
+        "p90_ms": 7.89,
+        "max_ms": 8.29,
+        "mean_ms": 3.79,
+        "bias_ms": 3.49
+      },
+      "old_word": {
+        "mode": "word",
+        "n": 20,
+        "p50_ms": 133.69,
+        "p90_ms": 247.87,
+        "max_ms": 260.0,
+        "bias_ms": -102.51
+      },
+      "old_naive_char": {
+        "mode": "naive_char",
+        "n": 20,
+        "p50_ms": 131.71,
+        "p90_ms": 247.87,
+        "max_ms": 260.0,
+        "bias_ms": -87.51
+      },
+      "rows": [
+        {
+          "unit_id": "u01",
+          "text": "九成问题在时间",
+          "truth_start_s": 0.5,
+          "predicted_start_s": 0.5,
+          "predicted_char": "九",
+          "error_ms": 0.0
+        },
+        {
+          "unit_id": "u02",
+          "text": "三个动效就够",
+          "truth_start_s": 2.846667,
+          "predicted_start_s": 2.85,
+          "predicted_char": "三",
+          "error_ms": 3.33
+        },
+        {
+          "unit_id": "u03",
+          "text": "六次是上限",
+          "truth_start_s": 4.864958,
+          "predicted_start_s": 4.87,
+          "predicted_char": "六",
+          "error_ms": 5.04
+        },
+        {
+          "unit_id": "u04",
+          "text": "两倍效率提升",
+          "truth_start_s": 6.735583,
+          "predicted_start_s": 6.74,
+          "predicted_char": "兩",
+          "error_ms": 4.42
+        },
+        {
+          "unit_id": "u05",
+          "text": "第一步定标题",
+          "truth_start_s": 8.872146,
+          "predicted_start_s": 8.88,
+          "predicted_char": "第",
+          "error_ms": 7.85
+        },
+        {
+          "unit_id": "u06",
+          "text": "第二步定数字",
+          "truth_start_s": 10.870021,
+          "predicted_start_s": 10.87,
+          "predicted_char": "第",
+          "error_ms": -0.02
+        },
+        {
+          "unit_id": "u07",
+          "text": "第三步定节奏",
+          "truth_start_s": 12.751792,
+          "predicted_start_s": 12.76,
+          "predicted_char": "第",
+          "error_ms": 8.21
+        },
+        {
+          "unit_id": "u08",
+          "text": "结论是自动化",
+          "truth_start_s": 14.691625,
+          "predicted_start_s": 14.69,
+          "predicted_char": "結",
+          "error_ms": -1.63
+        },
+        {
+          "unit_id": "u09",
+          "text": "所以先对齐",
+          "truth_start_s": 16.678396,
+          "predicted_start_s": 16.68,
+          "predicted_char": "所",
+          "error_ms": 1.6
+        },
+        {
+          "unit_id": "u10",
+          "text": "总之先减法",
+          "truth_start_s": 18.534458,
+          "predicted_start_s": 18.54,
+          "predicted_char": "總",
+          "error_ms": 5.54
+        },
+        {
+          "unit_id": "u11",
+          "text": "关键是节奏",
+          "truth_start_s": 20.346583,
+          "predicted_start_s": 20.35,
+          "predicted_char": "關",
+          "error_ms": 3.42
+        },
+        {
+          "unit_id": "u12",
+          "text": "重点是留白",
+          "truth_start_s": 22.129771,
+          "predicted_start_s": 22.13,
+          "predicted_char": "重",
+          "error_ms": 0.23
+        },
+        {
+          "unit_id": "u13",
+          "text": "其实顺序最重要",
+          "truth_start_s": 23.981708,
+          "predicted_start_s": 23.99,
+          "predicted_char": "其",
+          "error_ms": 8.29
+        },
+        {
+          "unit_id": "u14",
+          "text": "最难是取舍",
+          "truth_start_s": 26.258729,
+          "predicted_start_s": 26.26,
+          "predicted_char": "最",
+          "error_ms": 1.27
+        },
+        {
+          "unit_id": "u15",
+          "text": "相比加动画",
+          "truth_start_s": 28.082458,
+          "predicted_start_s": 28.09,
+          "predicted_char": "相",
+          "error_ms": 7.54
+        },
+        {
+          "unit_id": "u16",
+          "text": "一半效果来自删",
+          "truth_start_s": 29.927417,
+          "predicted_start_s": 29.93,
+          "predicted_char": "一",
+          "error_ms": 2.58
+        },
+        {
+          "unit_id": "u17",
+          "text": "流程是四步",
+          "truth_start_s": 32.237813,
+          "predicted_start_s": 32.24,
+          "predicted_char": "流",
+          "error_ms": 2.19
+        },
+        {
+          "unit_id": "u18",
+          "text": "步骤是先对齐",
+          "truth_start_s": 34.002813,
+          "predicted_start_s": 34.01,
+          "predicted_char": "步",
+          "error_ms": 7.19
+        },
+        {
+          "unit_id": "u19",
+          "text": "首先锁定人脸",
+          "truth_start_s": 35.995979,
+          "predicted_start_s": 36.0,
+          "predicted_char": "首",
+          "error_ms": 4.02
+        },
+        {
+          "unit_id": "u20",
+          "text": "最终要可编辑",
+          "truth_start_s": 38.141333,
+          "predicted_start_s": 38.14,
+          "predicted_char": "最",
+          "error_ms": -1.33
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "note": "Nearest predicted character onset per truth unit (same rule as tests/eval_timing.py). SYNTH_KNOWN is concatenated per-unit TTS, not human speech; see docs/ALIGNMENT.md for coverage limits."
+}
