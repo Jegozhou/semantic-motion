@@ -29,8 +29,9 @@ from semotion.verify2 import (  # noqa: E402
     FAIL, NOT_RUN, PASS, PERSON_FRAME_MAX, PERSON_PERSON_MAX, compare_renders,
     diff_footprint, element_font_size, element_min_font, element_text,
     font_floor_px, glyph_and_contrast, is_subsequence, layout_checks, load_masks,
-    normalise_display_text, occlusion_metrics, timing_series_row, verify,
-    Verify2Error,
+    measure_caption_ink, caption_thresholds, caption_verdict, caption_policy_view,
+    discover_caption_cues, non_text_graphic_contrast, normalise_display_text,
+    occlusion_metrics, timing_series_row, verify, Verify2Error,
 )
 
 FFMPEG = "ffmpeg"
@@ -617,3 +618,129 @@ def test_scrim_person_overlap_fails(tmp_path):
     scrim = metrics["checks"]["scrim"]
     assert scrim["verdict"] == FAIL
     assert scrim["by_element"][0]["person_overlap_px"] > 0
+
+
+# --------------------------------------------------- caption typography (R5)
+def _caption_canvas(w=1920, h=920) -> np.ndarray:
+    return np.zeros((h, w, 3), np.uint8)
+
+
+def _draw_line(img, y0, y1, x0, x1, colour=(245, 247, 250)):
+    img[y0:y1, x0:x1] = colour
+    return img
+
+
+def test_caption_measure_and_verdict_landscape():
+    img = _caption_canvas()
+    _draw_line(img, 800, 844, 700, 1200)          # 44 px ink = 4.78 % H
+    m = measure_caption_ink(img, [])
+    assert m is not None
+    assert m["lines"] == 1
+    assert abs(m["ink_height_ratio"] - 44 / 920) < 1e-6
+    assert abs(m["ink_width_ratio"] - 500 / 1920) < 1e-6
+    th = caption_thresholds("landscape", {})
+    verdict, problems = caption_verdict(m, "landscape", th)
+    assert verdict == PASS, problems
+
+    two = _caption_canvas()
+    _draw_line(two, 700, 742, 650, 1250)
+    _draw_line(two, 790, 832, 650, 1250)
+    m2 = measure_caption_ink(two, [])
+    assert m2["lines"] == 2
+    assert caption_verdict(m2, "landscape", th)[0] == PASS
+
+
+def test_caption_negative_controls_landscape():
+    th = caption_thresholds("landscape", {})
+    # ink too small: 15 px = 1.6 % H (below 2.8 %)
+    small = _caption_canvas()
+    _draw_line(small, 860, 875, 700, 1200)
+    m = measure_caption_ink(small, [])
+    assert m["ink_height_ratio"] < 0.028
+    assert caption_verdict(m, "landscape", th)[0] == FAIL
+
+    # too wide: 1840 px = 95.8 % W
+    wide = _caption_canvas()
+    _draw_line(wide, 800, 844, 40, 1880)
+    m = measure_caption_ink(wide, [])
+    assert m["ink_width_ratio"] > 0.90
+    assert caption_verdict(m, "landscape", th)[0] == FAIL
+
+    # bottom margin 0
+    low = _caption_canvas()
+    _draw_line(low, 900, 920, 700, 1200)
+    m = measure_caption_ink(low, [])
+    assert m["bottom_margin_ratio"] < 0.045
+    assert caption_verdict(m, "landscape", th)[0] == FAIL
+
+    # caption ink over the face
+    face = _caption_canvas()
+    _draw_line(face, 800, 844, 700, 1200)
+    m = measure_caption_ink(face, [[700, 800, 300, 80]])
+    assert m["face_intersection_px"] > 0
+    assert caption_verdict(m, "landscape", th)[0] == FAIL
+
+
+def test_caption_portrait_envelope():
+    th = caption_thresholds("portrait", {})
+    img = _caption_canvas(1080, 1920)
+    _draw_line(img, 1600, 1665, 200, 900)         # 66 px = 3.44 % H
+    m = measure_caption_ink(img, [])
+    assert abs(m["bottom_margin_ratio"] - (1920 - 1665) / 1920) < 1e-6
+    assert caption_verdict(m, "portrait", th)[0] == PASS
+
+    low = _caption_canvas(1080, 1920)
+    _draw_line(low, 1800, 1865, 200, 900)         # bottom margin 2.9 %
+    m_low = measure_caption_ink(low, [])
+    assert m_low["bottom_margin_ratio"] < 0.11
+    assert caption_verdict(m_low, "portrait", th)[0] == FAIL
+
+    tiny = _caption_canvas(1080, 1920)
+    _draw_line(tiny, 1600, 1650, 200, 900)        # 50 px = 2.6 %
+    m_tiny = measure_caption_ink(tiny, [])
+    assert m_tiny["ink_height_ratio"] < 0.030
+    assert caption_verdict(m_tiny, "portrait", th)[0] == FAIL
+
+
+def test_caption_cue_discovery_and_policy_wiring():
+    import numpy as np
+    counts = np.array([0, 50, 60, 0, 0, 30, 40, 0])
+    cues = discover_caption_cues(counts, min_pixels=20, max_gap=2)
+    assert cues == [{"start_frame": 1, "end_frame": 3},
+                    {"start_frame": 5, "end_frame": 7}]
+    view = caption_policy_view({})
+    assert view["policy"]["name"] == "smart_balanced"
+    assert view["captions"]["max_lines"] == 2
+    assert view["captions"]["bottom_ratio"]["portrait"] == 0.13
+    # policy.qa override is honoured and reported
+    th = caption_thresholds("portrait", {"qa": {"caption_max_lines": 1,
+                                                "caption_bottom_min_portrait": 0.15}})
+    assert th["values"]["max_lines"] == 1
+    assert th["values"]["bottom_min"] == 0.15
+    assert "caption_bottom_min_portrait" in th["source"]
+
+
+# --------------------------------------------------- non-text graphics (R16)
+def test_non_text_graphics_contrast_report():
+    ink = np.zeros((100, 100, 3), np.uint8)
+    final = np.full((100, 100, 3), 35, np.uint8)
+    ink[10:30, 10:30] = (245, 247, 250)       # glyph block (excluded)
+    final[10:30, 10:30] = (245, 247, 250)
+    ink[45:49, 20:80] = (235, 200, 152)       # gold accent rule
+    final[45:49, 20:80] = (235, 200, 152)     # rendered over dark background
+    row = non_text_graphic_contrast(ink, final, [0, 0, 100, 100], (245, 247, 250))
+    assert row is not None
+    assert row["graphic_pixels"] >= 100
+    assert row["contrast"] >= 3.0, row
+    assert row["verdict"] == PASS
+
+    # a near-background gold rule is below the 3.0 floor
+    low_ink = np.zeros((100, 100, 3), np.uint8)
+    low_final = np.full((100, 100, 3), 210, np.uint8)
+    low_ink[45:49, 20:80] = (235, 200, 152)
+    low_final[45:49, 20:80] = (215, 200, 170)
+    low = non_text_graphic_contrast(low_ink, low_final, [0, 0, 100, 100],
+                                    (245, 247, 250))
+    assert low is not None
+    assert low["contrast"] < 3.0
+    assert low["verdict"] == FAIL

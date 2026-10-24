@@ -43,6 +43,9 @@ from decisions you author.
 * Python 3.11+ and a project venv with the dependencies in `requirements.lock`
   (Pillow, numpy, faster-whisper, pyobjc-framework-Vision).
 * Bundled fonts: Noto Sans SC (Bold/Medium), Inter. No system font is required.
+* Optional: a CJK CTC alignment model (~1.3 GB, `jonatasgrosman/wav2vec2-large-xlsr-53-chinese-zh-cn`)
+  is downloaded on first `--aligner ctc`. With `--aligner auto` (default) it is used only
+  when already cached; otherwise the fast envelope aligner runs.
 * This repository checkout. Set `SM_ROOT` to it.
 
 ```bash
@@ -81,9 +84,11 @@ Output:
 
 ## The five stages
 
-1. **Speak** — faster-whisper (local, cached) for text; `src/semotion/align.py` aligns
-   every character to the audio onset envelope with a monotonic DP. Whisper's Chinese
-   word timestamps are not trusted (they lag by ~0.2 s on real speech).
+1. **Speak** — faster-whisper (local, cached) for text. Two aligners put every character
+   on the timeline: `align.py` (onset-envelope DP, instant) and `forced.py` (acoustic CTC,
+   recommended for real human speech: it agrees with Whisper word starts at a median 50 ms
+   vs 150 ms for the envelope method). `--aligner auto` picks CTC when the model is
+   cached, else DP. Whisper's Chinese word timestamps are not trusted (they lag ~0.2 s).
 2. **See** — `src/semotion/perception.py` (Apple Vision) extracts a per-frame person
    mask, body pose, hands and OCR boxes for burned-in text, then ranks quiet zones.
 3. **Decide** — the agent (or a human) writes `decisions.json`; the deterministic
@@ -96,23 +101,47 @@ Output:
 
 ## Directing (this is what makes the output good)
 
-Read `out/talk/anchors.json` (and `alignment.json` when you need the exact words), then
-write `decisions.json`. Do not add motion mechanically to every sentence.
+**Direction is a model decision, not a rule.** The deterministic fallback exists so the
+tool is useful without a model; it is conservative and occasionally cuts a phrase at a
+pause that is not a word boundary. Prefer one of these two paths.
 
-Rules of taste:
+### Path A — you (the host agent) decide, no API key
 
-* **0–4 elements per 10 s**, ≥0.9 s apart, ≤58 % of runtime covered. Plain narration
-  stays plain.
-* Earn the graphic: a number, an enumeration, a contrast (“但是/其实/不是…而是”), a
-  conclusion (“就是/意味着”), a superlative.
-* One idea per element. 8–16 Chinese characters (≤ 2 lines). Never invent digits, names
-  or claims that are not in the transcript.
-* Numbers must be verbatim: if you show 90 %, the speaker must have said 九成 or 90 %.
-* Steps need ≥2 rows and must be spoken in order; use `effect: "list"` with
-  `anchor_ids` in speech order.
-* Do not animate filler (“大家好”, “然后呢”, “对”). Let the face carry it.
+```bash
+# 1) measure everything, stop before design
+python -m semotion.pipeline run --video talk.mp4 --out out/talk --brief-only
+# 2) read out/talk/director_brief.json, then write out/talk/decisions.json
+python -m semotion.pipeline run --video talk.mp4 --out out/talk \
+    --decisions out/talk/decisions.json
+```
 
-`decisions.json` (pass with `--decisions`):
+The brief contains only measured facts: candidate anchors with their exact times,
+features (numbers, enumerations, contrast), surrounding sentences, and where the speaker
+stands. It contains **no editable timestamps** — you may only reference candidate ids, so
+timing cannot drift.
+
+### Path B — a configured model decides
+
+```bash
+export SM_LLM_BASE_URL="https://api.example.com/v1"
+export SM_LLM_API_KEY="..."
+export SM_LLM_MODEL="..."
+python -m semotion.pipeline run --video talk.mp4 --out out/talk --director llm
+```
+
+`--director auto` (default) uses the model when configured and silently falls back to
+rules; `--director rules` forces the fallback; `--director off` renders a clean control
+with no overlays.
+
+### What earns a graphic
+
+* **0–4 elements per 10 s**, ≥0.9 s apart, ≤58 % of runtime covered (policy values).
+* A number, an enumeration, a contrast (“但是/其实/不是…而是”), a conclusion
+  (“就是/意味着”), a superlative. Not filler (“大家好”, “然后”, “对”).
+* One idea per element, 8–16 Chinese characters, ≤2 lines. Never invent digits, names or
+  claims. A list needs ≥2 anchors, in speech order.
+
+`decisions.json`:
 
 ```json
 {
@@ -137,9 +166,29 @@ Effects: `keyword` (display line + rule), `card` (kicker/title/body), `list` (nu
 row-by-row), `stat` (big number + label; counts up), `barchart` (`params.bars`),
 `compare` (`params.left/right`), `quote` (`params.attribution`).
 
-Everything spatial is automatic: never put a box over the speaker, the burned-in
-credits or the caption band. If no safe space exists the element is **dropped**, and the
-reason is recorded in `layout_audit`.
+Validation is strict and the rejection reason is written to `director_error.json`:
+unknown anchors, out-of-order lists, a re-claimed anchor, an emphasis substring that is
+not in the text, **a number the speaker did not say**, or a hold outside the policy
+envelope.
+
+Everything spatial is automatic: never put a box over the speaker, the burned-in credits
+or the caption band. If no safe space exists the element is **dropped**, and the reason is
+recorded in `layout_audit`. See `docs/LLM-DIRECTOR.md` for the full contract.
+
+### Captions
+
+Burned in by the renderer at broadcast-ish sizes derived from the BBC subtitle guidelines:
+line height 7.5 % of frame height in landscape, 4.2 % in portrait (≈47 px / ≈55 px for
+1080-wide), bottom safe area 5.2 % H landscape and 13 % H portrait, two lines maximum, and
+they lift above burned-in credits only within a capped range. `verify2` measures the
+rendered caption ink (height, width, lines, bottom margin, face distance) as a gate.
+
+### Policy instead of magic numbers
+
+`policies/smart_balanced.json` holds the budget, margins, type scale, motion durations,
+caption limits and QA thresholds, with provenance links. Pass `--policy my.json` to
+experiment; the resolved policy is recorded in the Motion IR. See
+`references/POLICY.md`.
 
 ## Editing a finished render
 

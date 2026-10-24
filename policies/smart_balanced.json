@@ -1,0 +1,191 @@
+{
+  "schema": "semotion.policy/1",
+  "name": "smart_balanced",
+  "version": "1.0.0",
+  "meta": {
+    "intent": "Editorial, restrained motion graphics for talking-head video. Type first, one accent sampled from the footage, compose beside the silhouette, never over the person.",
+    "provenance": [
+      "Material Design motion: easing/duration ranges for UI (transform 200-300 ms, fade 150-200 ms) https://m3.material.io/styles/motion/easing-and-duration",
+      "IBM Carbon motion: productive vs expressive durations; standard easing https://carbondesignsystem.com/elements/motion/overview/",
+      "Apple HIG motion: purposeful, optional, no gratuitous animation https://developer.apple.com/design/human-interface-guidelines/motion",
+      "BBC Subtitle Guidelines: 2 lines, reading speed, safe areas https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/",
+      "Netflix Timed Text Style Guide: line length, minimum duration, bottom safe area https://partnerhelp.netflixstudios.com/hc/en-us/articles/215758617",
+      "WCAG 2.2 SC 1.4.3 / 1.4.11: text contrast 4.5:1 https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "movis (keyframe/easing animation engine, draft quality, caching) https://github.com/rezoo/movis",
+      "clipify (host-agent semantic moment selection, word-by-word captions) https://github.com/louisedesdeleer/clipify",
+      "KazKozDev/auto-vertical-reframe (subject tracking with dead zone + motion lead) https://github.com/KazKozDev/auto-vertical-reframe",
+      "WhisperX (phoneme forced alignment + VAD chunking) https://github.com/m-bain/whisperX"
+    ],
+    "rule": "Every number here is a *default*, not a law. A model (or a human) may override per project; the pipeline records which policy produced the render."
+  },
+  "budget": {
+    "max_elements_per_10s": 4,
+    "min_gap_s": 0.85,
+    "max_coverage": 0.58,
+    "hold_s": 0.45,
+    "min_dwell_s": 1.35,
+    "caption_band": 0.14
+  },
+  "layout": {
+    "margin_ratio": 0.03,
+    "min_margin_px": 48,
+    "min_col_ratio": 0.19,
+    "min_band_ratio": 0.115,
+    "allow_torso": true,
+    "text_conf_min": 0.5,
+    "type_band": [
+      0.18,
+      0.74
+    ],
+    "treatment_pref": {
+      "keyword": {
+        "band_top": 0.1,
+        "scrim_right": 0.12,
+        "scrim_left": 0.1,
+        "band_bottom": 0.08,
+        "card": 0.04,
+        "lower_third": 0.0
+      },
+      "card": {
+        "scrim_right": 0.12,
+        "scrim_left": 0.1,
+        "card": 0.08,
+        "band_top": 0.05,
+        "band_bottom": 0.04,
+        "lower_third": 0.0
+      },
+      "list": {
+        "scrim_right": 0.12,
+        "scrim_left": 0.1,
+        "card": 0.08,
+        "band_top": 0.04,
+        "band_bottom": 0.04,
+        "lower_third": 0.0
+      },
+      "stat": {
+        "scrim_right": 0.12,
+        "scrim_left": 0.1,
+        "card": 0.08,
+        "band_top": 0.04,
+        "band_bottom": 0.04,
+        "lower_third": 0.0
+      },
+      "barchart": {
+        "card": 0.1,
+        "scrim_right": 0.08,
+        "band_top": 0.05,
+        "lower_third": 0.0
+      },
+      "compare": {
+        "card": 0.1,
+        "scrim_right": 0.08,
+        "band_top": 0.05,
+        "lower_third": 0.0
+      },
+      "quote": {
+        "band_top": 0.08,
+        "scrim_right": 0.1,
+        "card": 0.05,
+        "lower_third": 0.0
+      }
+    },
+    "weights": {
+      "quiet": 0.4,
+      "consistency": 0.1,
+      "type_fidelity": 0.08,
+      "face_distance": 0.06,
+      "torso_penalty": 0.18,
+      "scrim_bonus": 0.1
+    },
+    "scrim": {
+      "alpha": 0.86,
+      "ramp_soft_px": 46,
+      "vertical_falloff": 0.7
+    }
+  },
+  "type": {
+    "reference": {
+      "min_height": 640,
+      "width_factor": 0.62
+    },
+    "ratio": {
+      "display": 0.078,
+      "title": 0.058,
+      "body": 0.03,
+      "meta": 0.021,
+      "stat": 0.15,
+      "stat_unit": 0.052
+    },
+    "line_factor": {
+      "display": 1.3,
+      "title": 1.32,
+      "body": 1.52,
+      "meta": 1.45,
+      "stat": 1.0,
+      "stat_unit": 1.0
+    },
+    "max_lines": {
+      "keyword": 2,
+      "card": 2,
+      "list_row": 2
+    },
+    "min_tier": 0.55
+  },
+  "motion": {
+    "enter_s": 0.42,
+    "enter_ease": "out_expo",
+    "exit_s": 0.18,
+    "exit_ease": "in_quad",
+    "stagger_s": 0.075,
+    "preroll_s": 0.08,
+    "offset_y": 12,
+    "ink_floor": 0.8,
+    "scrim_enter_s": 0.34,
+    "scrim_exit_s": 0.22
+  },
+  "captions": {
+    "max_lines": 2,
+    "target_chars_cjk": 22,
+    "max_chars_cjk": 24,
+    "max_chars_latin": 42,
+    "min_display_s": 0.9,
+    "merge_gap_s": 0.18,
+    "bottom_ratio": {
+      "landscape": 0.052,
+      "portrait": 0.13
+    },
+    "size_ratio": 0.034,
+    "line_factor": 1.46,
+    "respect_segments": true,
+    "line_height_ratio": {
+      "landscape": 0.075,
+      "portrait": 0.048
+    },
+    "max_lift_ratio": 0.06,
+    "min_size_ratio": 0.018,
+    "max_size_ratio": 0.09,
+    "max_chars_cjk_portrait": 15,
+    "max_chars_cjk_landscape": 24
+  },
+  "qa": {
+    "contrast_min": 4.5,
+    "safe_margin_frac": 0.025,
+    "timing_tolerance_frames": 1,
+    "person_frame_max": 0.002,
+    "person_ratio_max": 0.005,
+    "reliability": 0.95,
+    "caption_max_lines": 2,
+    "caption_min_lines": 1,
+    "caption_ink_height_landscape": [
+      0.04,
+      0.06
+    ],
+    "caption_ink_height_portrait": [
+      0.024,
+      0.04
+    ],
+    "caption_bottom_min_landscape": 0.045,
+    "caption_bottom_min_portrait": 0.11,
+    "caption_width_max": 0.9
+  }
+}

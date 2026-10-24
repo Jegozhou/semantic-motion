@@ -23,6 +23,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 from . import effects2 as FX
 from . import media
+from . import policy as policy_mod
 from . import theme2 as T
 
 SCHEMA = "semotion.render/2"
@@ -47,10 +48,17 @@ class CaptionTrack:
         self.fps = fps
         self.book = book
         self.palette = palette
-        ref = T.reference_height(W, H)
-        self.size = max(20, int(round(0.034 * ref)))
-        self.bottom = bottom if bottom is not None else int(0.052 * H)
-        self.pitch = int(self.size * 1.46)
+        cap = (policy_mod.DEFAULT.captions or {})
+        portrait = H > W
+        aspect = "portrait" if portrait else "landscape"
+        line_height = float((cap.get("line_height_ratio") or {}).get(aspect, 0.075)) * H
+        factor = float(cap.get("line_factor") or 1.46)
+        lo = float(cap.get("min_size_ratio") or 0.018) * H
+        hi = float(cap.get("max_size_ratio") or 0.09) * H
+        self.size = int(max(lo, min(hi, round(line_height / max(1.0, factor)))))
+        base_bottom = int(float((cap.get("bottom_ratio") or {}).get(aspect, 0.052)) * H)
+        self.bottom = bottom if bottom is not None else base_bottom
+        self.pitch = int(self.size * factor)
         self._grad_cache: dict = {}
         self._tile_cache: dict = {}
 
@@ -162,10 +170,13 @@ def _scrim_2d(w: int, h: int, rgb, a: float, side: str,
         rows = np.arange(h, dtype=np.float32)
         edge = np.interp(rows, ys, xs, left=xs[0], right=xs[-1])
         cols = np.arange(w, dtype=np.float32) + float(x0)
+        # hard zero for a few pixels past the silhouette edge, then a soft ramp:
+        # guarantees the scrim never tints an anti-aliased person pixel
+        guard = 6.0
         if side == "right":
-            ramp = np.clip((cols[None, :] - edge[:, None]) / max(1.0, soft), 0.0, 1.0)
+            ramp = np.clip((cols[None, :] - edge[:, None] - guard) / max(1.0, soft), 0.0, 1.0)
         else:
-            ramp = np.clip((edge[:, None] - cols[None, :]) / max(1.0, soft), 0.0, 1.0)
+            ramp = np.clip((edge[:, None] - cols[None, :] - guard) / max(1.0, soft), 0.0, 1.0)
         al = al * ramp
     al = np.clip(al * v[:, None], 0, 255)
     out = hgrad.copy()
@@ -190,11 +201,11 @@ def _backdrop_image(el: dict, W: int, H: int, base: Image.Image | None) -> Image
         return _scrim_2d(w, h, rgb, a, "left", prof, x)
     if kind == "band_top":
         return T.linear_gradient((w, h), [
-            (0.0, (*rgb, int(255 * a))), (0.55, (*rgb, int(255 * a * 0.55))),
+            (0.0, (*rgb, int(255 * a))), (0.72, (*rgb, int(255 * a * 0.86))),
             (1.0, (*rgb, 0))], "v")
     if kind == "band_bottom":
         return T.linear_gradient((w, h), [
-            (0.0, (*rgb, 0)), (0.45, (*rgb, int(255 * a * 0.55))),
+            (0.0, (*rgb, 0)), (0.38, (*rgb, int(255 * a * 0.82))),
             (1.0, (*rgb, int(255 * a)))], "v")
     radius = int(min(w, h) * 0.10)
     blur = float(b.get("blur_px") or 24)
@@ -223,7 +234,7 @@ def _apply_alpha(img: Image.Image, op: float) -> Image.Image:
     return out
 
 
-def _element_transform(el: dict, t: float) -> tuple[float, int]:
+def _element_transform(el: dict, t: float) -> tuple[float, int, float]:
     m = el.get("motion") or {}
     enter = m.get("enter") or {}
     exit_ = m.get("exit") or {}
@@ -235,12 +246,16 @@ def _element_transform(el: dict, t: float) -> tuple[float, int]:
     op = 0.80 + 0.20 * T.ease("out_cubic",
                               T.progress(t, 0.0, max(0.06, min(0.18, edur * 0.42))))
     dy = (1 - ein) * float(enter.get("offset_y") or 0)
+    scale = 1.0
+    if str(enter.get("style") or "") in ("scale", "pop"):
+        s_from = float(enter.get("scale_from") or 0.94)
+        scale = s_from + (1.0 - s_from) * ein
     t_exit_start = max(0.0, dur - xdur)
     if t > t_exit_start and xdur > 0:
         xp = T.clamp((t - t_exit_start) / xdur)
         op *= (1 - T.ease("in_quad", xp))
         dy += -float(exit_.get("offset_y") or 0) * T.ease("in_quad", xp)
-    return T.clamp(op), int(round(dy))
+    return T.clamp(op), int(round(dy)), scale
 
 
 def _encode_cmd(out: Path, W: int, H: int, fps: float, has_audio: bool,
@@ -289,10 +304,19 @@ def render(ir: dict, source: str | Path, out: str | Path, *,
                  language=(ir.get("semantic") or {}).get("language") or "zh")
 
     elements: list[dict] = []
+    import copy as _copy
     for el in ir.get("elements") or []:
         e = dict(el)
         e["_scrim_rgb"] = palette.scrim
         e["_fit"] = _fit_from_dict(el.get("fit") or {})
+        ctx_e = ctx
+        if e.get("accent"):
+            pal = _copy.copy(palette)
+            pal.accent = T.rgba(e["accent"])
+            pal.accent_soft = T.alpha(pal.accent, 0.24)
+            ctx_e = _copy.copy(ctx)
+            ctx_e.palette = pal
+        e["_ctx"] = ctx_e
         elements.append(e)
     elements.sort(key=lambda e: float(e["window"]["start_s"]))
 
@@ -314,7 +338,13 @@ def render(ir: dict, source: str | Path, out: str | Path, *,
                     if conf >= 0.5:
                         tops.append(int(bb[1]))
             if tops:
-                bottom = max(int(0.035 * H), H - min(tops) + int(0.018 * H))
+                cap = policy_mod.DEFAULT.captions or {}
+                portrait = H > W
+                base = int(float((cap.get("bottom_ratio") or {}).get(
+                    "portrait" if portrait else "landscape", 0.052)) * H)
+                lift = int(float(cap.get("max_lift_ratio") or 0.06) * H)
+                bottom = max(int(0.035 * H), min(base + lift,
+                                                 H - min(tops) + int(0.018 * H)))
             cap_track = CaptionTrack(segs, W=W, H=H, fps=fps, book=book, palette=palette,
                                      bottom=bottom)
 
@@ -385,13 +415,19 @@ def render(ir: dict, source: str | Path, out: str | Path, *,
                 if not (win["start_s"] - 1e-6 <= t <= win["end_s"] + 1e-6):
                     continue
                 lt = t - win["start_s"]
-                img = FX.paint_element(e, ctx, e["_fit"], lt, dur=win["end_s"] - win["start_s"])
-                op, dy = _element_transform(e, lt)
+                img = FX.paint_element(e, e.get("_ctx") or ctx, e["_fit"], lt,
+                                       dur=win["end_s"] - win["start_s"])
+                op, dy, scale = _element_transform(e, lt)
                 if op <= 0.003:
                     continue
                 if op < 0.999:
                     img = _apply_alpha(img, op)
                 bx_, by_, bw_, bh_ = [int(v) for v in e["box"]]
+                if abs(scale - 1.0) > 0.001:
+                    nw, nh = max(1, int(img.width * scale)), max(1, int(img.height * scale))
+                    img = img.resize((nw, nh), Image.LANCZOS)
+                    bx_ += (bw_ - nw) // 2
+                    by_ += (bh_ - nh) // 2
                 box = (0, 0, min(bw_, img.width), min(bh_, img.height))
                 base.alpha_composite(img.crop(box), (bx_, by_ + dy))
                 if ov is not None:

@@ -3,6 +3,21 @@
 > 唯一事实来源。任何"完成"必须对应本文件中的证据路径；未运行写 `NOT RUN`，失败写 `FAIL`，受阻写 `BLOCKED`。
 > 最近更新：**v2 交付完成（2026-10-24 23:5x）**。v2 用「轮廓感知布局 + 排版化动效 + 渲染后客观质检」替换了 v1 的「人脸框 + 半透明面板」，真实素材成片全项 PASS。证据：`reports/FINAL-REPORT-V2.md`、`artifacts/v2/final_zq/`。
 
+## v2.1 — 研究驱动的改进（2026-10-25 01:xx）
+
+| 项 | 结果 | 证据 |
+|---|---|---|
+| OSS/标准最佳实践蒸馏（17 个来源，20 条建议） | DONE | `docs/BEST-PRACTICES.md`（721 行）、`artifacts/research/NOTES-raw.md` |
+| 已落地清单（R1–R20 状态） | DONE | `docs/IMPLEMENTED-FROM-RESEARCH.md` |
+| 决策去硬编码：模型/宿主 agent 导演 | DONE | `src/semotion/director.py`；`--brief-only` → `director_brief.json` → `decisions.json` 严格校验；`--director auto/llm/rules/off` |
+| 设计参数外置为可审计 policy | DONE | `policies/smart_balanced.json` + `src/semotion/policy.py`；IR 记录 policy 哈希；行为等价（同一 IR） |
+| 真实声学强制对齐（CTC） | DONE | `src/semotion/forced.py`；zh 合成 n=147：energy P90 7.56 ms / CTC 72.81 ms（合成真值对能量法结构性有利）；真实素材与 Whisper 词起点一致率 CTC 50 ms vs energy 150 ms；默认 `auto`（有缓存用 CTC） |
+| R3 类型感知列宽 + R4 时间窗内安静度 | DONE | `design2.candidates/_quietness/_scene_frames` |
+| R1/R2 BBC 字幕字号与安全区（横/竖） | DONE | 横屏实测 ink 45 px = 4.89 %H；竖屏字号 ≈55 px，底边 13 %H |
+| R7 决策参数不再静默丢弃（enter/accent） | DONE | IR `motion.enter.requested/applied`、`element.accent`，渲染实测生效 |
+| R5 字幕排版质检 | DONE | `verify2.caption_typography`（PASS） |
+| R16 非文字图形对比度 | DONE | `verify2.non_text_graphics`（PASS，advisory） |
+
 ## v2 状态一屏
 
 | 项 | 状态 | 证据 |

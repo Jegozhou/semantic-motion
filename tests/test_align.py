@@ -577,9 +577,13 @@ class TestCaptionSegmentsAndWords:
     def test_word_guard_can_fail_and_prevents_mid_word_cue_start(self):
         text = "".join("字" for _ in range(50))
         items = [(ch, 0.5 + 0.1 * i, 0.6 + 0.1 * i, "") for i, ch in enumerate(text)]
-        # one 3-character ASR word straddling the 44-character hard cap
+        # one 3-character ASR word straddling the *current* cue cap (derived from
+        # the policy + canvas, not the old 44-char constant)
+        probe = captions.build_captions(fake_alignment(items,
+                                                       groups=[f"g{i}" for i in range(50)]))
+        boundary = int(probe["style"]["cjk"]["max_cue_chars"])
         groups = [f"g{i}" for i in range(50)]
-        for k in (42, 43, 44):
+        for k in (boundary - 2, boundary - 1, boundary):
             groups[k] = "g-long"
         alignment = fake_alignment(items, groups=groups)
         unguarded = captions.build_captions(alignment, respect_words=False)

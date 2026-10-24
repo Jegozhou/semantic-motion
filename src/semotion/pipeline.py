@@ -27,7 +27,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Sequence
 
-from . import design2, media, render2, theme2 as T
+from . import design2, director, media, policy as policy_mod, render2, theme2 as T
 
 SCHEMA = "semotion.run/2"
 
@@ -64,6 +64,11 @@ class RunConfig:
     min_gap_s: float = 0.9
     language: str | None = None
     force: bool = False
+    policy: str | None = None
+    director_mode: str = "auto"     # auto | llm | rules | off
+    brief_only: bool = False
+    aligner: str = "auto"           # auto | energy | ctc (auto = CTC if cached, else DP)
+    consensus: bool = False         # also run CTC and record timing agreement
 
 
 def _log(msg: str) -> None:
@@ -268,6 +273,35 @@ def _has_number(text: str) -> bool:
     return bool(re.search(r"[零〇一二两三四五六七八九十百千万]+\s*(成|折|%|％)", text))
 
 
+def _timing_consensus(energy: dict, ctc: dict) -> dict:
+    """Compare two independent alignments char-by-char (no truth, only agreement)."""
+    a = energy.get("chars") or []
+    b = ctc.get("chars") or []
+    deltas: list[float] = []
+    per_char: list[dict] = []
+    for i in range(min(len(a), len(b))):
+        if str(a[i].get("text") or "") != str(b[i].get("text") or ""):
+            continue
+        d = (float(b[i].get("start_s") or 0.0) - float(a[i].get("start_s") or 0.0)) * 1000.0
+        deltas.append(abs(d))
+        per_char.append({"i": i, "char": a[i].get("text"), "delta_ms": round(d, 1)})
+    if not deltas:
+        return {"schema": "semotion.timing-consensus/1", "n": 0,
+                "note": "no comparable characters"}
+    deltas_sorted = sorted(deltas)
+    n = len(deltas_sorted)
+    return {
+        "schema": "semotion.timing-consensus/1",
+        "methods": [energy.get("method", {}).get("name"), ctc.get("method", {}).get("name")],
+        "n": n,
+        "median_abs_ms": round(deltas_sorted[n // 2], 1),
+        "p90_abs_ms": round(deltas_sorted[min(n - 1, int(n * 0.9))], 1),
+        "within_50ms_rate": round(sum(1 for d in deltas if d <= 50) / n, 4),
+        "per_char": per_char,
+        "honesty": "agreement between two machines is not accuracy; no human labels exist here",
+    }
+
+
 # --------------------------------------------------------------------- helpers
 def _run_module(module: str, argv: list[str], log: Path, timeout: int = 3600) -> int:
     cmd = [sys.executable, "-m", module] + argv
@@ -321,6 +355,8 @@ def run(cfg: RunConfig) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     log = out / "pipeline.log"
     log.write_text("", encoding="utf-8")
+    pol = policy_mod.load(cfg.policy)
+    _log(f"policy: {pol.name} v{pol.version} ({pol.sha256})")
     info = media.info(cfg.video)
     _log(f"source {info.width}x{info.height} @ {info.fps:.2f} fps, {info.duration:.2f}s")
 
@@ -334,9 +370,44 @@ def run(cfg: RunConfig) -> dict:
     if alignment_path.exists() and not cfg.force:
         alignment = json.loads(alignment_path.read_text(encoding="utf-8"))
     else:
-        _log("aligning characters to the audio envelope")
-        alignment = align_mod.align_video(cfg.video, transcript)
-        _write(alignment, alignment_path)
+        lang = (cfg.language or transcript.get("language") or "zh")
+        from . import forced as forced_mod
+        use_ctc = cfg.aligner == "ctc"
+        if cfg.aligner == "auto":
+            try:
+                use_ctc = bool(forced_mod.available(lang))
+            except Exception:
+                use_ctc = False
+            if not use_ctc:
+                _log("aligner: CTC model not cached — using the envelope DP "
+                     "(pass --aligner ctc to download it)")
+        if use_ctc:
+            _log(f"aligning characters with the CTC acoustic model ({lang})")
+            alignment = forced_mod.align_video(cfg.video, transcript, language=lang,
+                                               allow_download=(cfg.aligner == "ctc"))
+            _write(alignment, alignment_path)
+            _log(f"aligner: {alignment.get('method', {}).get('name')} "
+                 f"chars={len(alignment.get('chars') or [])}")
+        else:
+            _log("aligning characters to the audio envelope")
+            alignment = align_mod.align_video(cfg.video, transcript)
+            _write(alignment, alignment_path)
+
+    # optional consensus: an independent acoustic alignment, used only as a confidence signal
+    if cfg.consensus and not (alignment.get("method") or {}).get("name", "").startswith("ctc"):
+        try:
+            from . import forced as forced_mod
+            _log("consensus: cross-checking timing with the CTC model")
+            ctc = forced_mod.align_video(cfg.video, transcript, allow_download=False,
+                                         allow_fallback=True)
+            consensus = _timing_consensus(alignment, ctc)
+            alignment["consensus"] = consensus
+            _write(alignment, alignment_path)
+            _write(consensus, out / "alignment_consensus.json")
+            _log(f"consensus: n={consensus['n']} median|Δ|={consensus['median_abs_ms']} ms "
+                 f"within50={consensus['within_50ms_rate']:.0%}")
+        except Exception as exc:  # model absent or failed — never fatal
+            _log(f"consensus skipped: {exc}")
 
     perception = _ensure_perception(cfg, out, log)
     _log(f"perception: {len(perception.get('frames') or [])} samples, "
@@ -350,7 +421,8 @@ def run(cfg: RunConfig) -> dict:
             if cfg.captions_path:
                 captions_doc = _load(cfg.captions_path)
             else:
-                captions_doc = cap_mod.build_captions(alignment, fps=info.fps)
+                captions_doc = cap_mod.build_captions(alignment, fps=info.fps,
+                                                      width=info.width, height=info.height)
             if captions_doc:
                 _write(captions_doc, out / "captions.json")
                 try:
@@ -362,7 +434,6 @@ def run(cfg: RunConfig) -> dict:
         except Exception as exc:
             _log(f"captions unavailable: {exc}")
 
-    # anchors
     audio = None
     try:
         from . import align as _al
@@ -370,6 +441,8 @@ def run(cfg: RunConfig) -> dict:
     except Exception as exc:
         _log(f"audio envelope unavailable ({exc}); pause detection falls back to gaps")
         _rate = 16000
+
+    # anchors
     anchors_doc = _load(cfg.anchors)
     if anchors_doc:
         anchors = anchors_doc.get("anchors") or []
@@ -379,20 +452,63 @@ def run(cfg: RunConfig) -> dict:
                             min_gap_s=cfg.min_gap_s, audio=audio, rate=_rate)
         anchors = auto["anchors"]
         _write(auto, out / "anchors.json")
-        _log(f"anchors: {len(anchors)} (deterministic director)")
-    decisions = _load(cfg.decisions)
-    if decisions:
-        _log(f"director decisions: {len(decisions.get('decisions') or [])}")
+        _log(f"anchors: {len(anchors)} (deterministic candidates)")
 
-    source = {"path": str(Path(cfg.video).resolve()), "sha256": media.sha256_file(cfg.video),
-              "width": info.width, "height": info.height, "fps": info.fps,
-              "duration_s": info.duration, "frames": info.frame_count}
+    # director: the model (or the host agent) chooses what deserves motion
+    source_meta = {"path": str(Path(cfg.video).resolve()),
+                   "sha256": media.sha256_file(cfg.video),
+                   "width": info.width, "height": info.height, "fps": info.fps,
+                   "duration_s": info.duration, "frames": info.frame_count}
     canvas = {"width": info.width, "height": info.height, "fps": info.fps}
+    brief = director.build_brief(source=source_meta, canvas=canvas,
+                                 transcript=transcript, alignment=alignment,
+                                 anchors=anchors, perception=perception,
+                                 policy=pol, style="smart_balanced")
+    director.write_brief(brief, out / "director_brief.json")
+    decisions = _load(cfg.decisions)
+    director_info: dict = {"mode": cfg.director_mode, "source": "none"}
+    if decisions:
+        try:
+            decisions = director.validate_decisions(decisions, brief)
+            director_info = {"mode": "supplied", "source": "file",
+                             "decisions": len(decisions.get("decisions") or [])}
+            _log(f"director: {director_info['decisions']} supplied decisions (validated)")
+        except director.DecisionError as exc:
+            _log(f"director: supplied decisions rejected ({exc}); falling back")
+            decisions = None
+            director_info = {"mode": cfg.director_mode, "source": "file_rejected",
+                             "error": str(exc)}
+    if decisions is None and cfg.director_mode in ("auto", "llm"):
+        generated = director.direct(brief, out_dir=out)
+        if generated:
+            decisions = generated
+            director_info = {"mode": "llm", "source": "model",
+                             "model": (generated.get("director") or {}).get("model"),
+                             "decisions": len(generated.get("decisions") or []),
+                             "prompt_summary": generated.get("prompt_summary")}
+            _log(f"director: model chose {director_info['decisions']} elements")
+        elif cfg.director_mode == "llm":
+            raise SystemExit("director: --director llm requested but no usable model "
+                             "response (set SM_LLM_BASE_URL/SM_LLM_API_KEY/SM_LLM_MODEL)")
+        else:
+            director_info = {"mode": "rules", "source": "fallback",
+                             "reason": "no model configured"}
+    if cfg.brief_only:
+        summary = {"schema": SCHEMA, "video": source_meta,
+                   "brief": str(out / "director_brief.json"),
+                   "anchors": len(anchors), "policy": pol.as_dict(),
+                   "elapsed_s": round(time.time() - t0, 1)}
+        _write(summary, out / "run_summary.json")
+        _log(f"brief written -> {out / 'director_brief.json'} ({len(anchors)} candidates)")
+        return summary
+
+    source = source_meta
     frames = render2.grab_frames(cfg.video, [info.duration * f for f in
                                              (0.08, 0.25, 0.45, 0.65, 0.85)])
     dcfg = design2.DesignConfig(language=cfg.language or transcript.get("language") or "zh",
-                                min_gap_s=cfg.min_gap_s)
-    ir = design2.design(source=source, canvas=canvas, anchors=anchors,
+                                policy=pol)
+    ir = design2.design(source=source, canvas=canvas,
+                        anchors=([] if cfg.director_mode == "off" else anchors),
                         transcript=transcript, perception=perception,
                         vision=_load(out / "vision.json"), decisions=decisions,
                         frames=frames, cfg=dcfg)
@@ -464,6 +580,8 @@ def run(cfg: RunConfig) -> dict:
     summary = {
         "schema": SCHEMA,
         "video": source, "canvas": canvas,
+        "policy": pol.as_dict(),
+        "director": director_info,
         "elements": len(ir["elements"]),
         "coverage": ir["layout_audit"]["coverage"],
         "captions": len((captions_doc or {}).get("cues") or []),
@@ -509,7 +627,18 @@ def main(argv: Sequence[str] | None = None) -> int:
     r.add_argument("--captions", default="auto", choices=["auto", "off", "file"])
     r.add_argument("--captions-path")
     r.add_argument("--draft", action="store_true")
+    r.add_argument("--aligner", default="auto", choices=["auto", "energy", "ctc"],
+                   help="auto: CTC when cached else envelope DP; energy: fast DP; "
+                        "ctc: acoustic model (downloads ~1.3 GB if missing)")
+    r.add_argument("--consensus", action="store_true",
+                   help="also run the CTC aligner and record timing agreement")
     r.add_argument("--no-verify", action="store_true")
+    r.add_argument("--policy", help="design policy JSON (default policies/smart_balanced.json)")
+    r.add_argument("--director", default="auto", choices=["auto", "llm", "rules", "off"],
+                   help="auto: model if configured else rules; llm: require a model; "
+                        "rules: deterministic only; off: no elements")
+    r.add_argument("--brief-only", action="store_true",
+                   help="emit director_brief.json for the host agent and stop")
     r.add_argument("--no-repair", action="store_true",
                    help="verify but do not auto-repair failed layouts")
     r.add_argument("--max-repair-rounds", type=int, default=2)
@@ -524,7 +653,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                     captions_path=args.captions_path, draft=args.draft,
                     verify=not args.no_verify, auto_repair=not args.no_repair,
                     max_repair_rounds=args.max_repair_rounds,
-                    max_elements=args.max_elements,
+                    aligner=args.aligner, consensus=args.consensus,
+                    policy=args.policy, director_mode=args.director,
+                    brief_only=args.brief_only, max_elements=args.max_elements,
                     min_gap_s=args.min_gap, language=args.language, force=args.force)
     summary = run(cfg)
     verdict = (summary.get("checks") or {}).get("verdict")

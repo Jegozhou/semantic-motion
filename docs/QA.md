@@ -21,6 +21,7 @@ PYTHONPATH=src .venv/bin/python -m semotion.verify2 \
   --final final.mp4 \
   --overlay final_overlay.mp4 \
   --ink-only final_ink.mp4 \
+  --captions captions.json \
   --perception perc.json \
   --out metrics2.json
 
@@ -28,8 +29,8 @@ PYTHONPATH=src .venv/bin/python -m semotion.verify2 \
 PYTHONPATH=src .venv/bin/python -m semotion.verify2 \
   --ir motion_ir.json --source src.mp4 \
   --final run1/final.mp4 --overlay run1/final_overlay.mp4 \
-  --ink-only run1/final_ink.mp4 --perception perc.json \
-  --second-render run2/final.mp4 \
+  --ink-only run1/final_ink.mp4 --captions run1/captions.json \
+  --perception perc.json --second-render run2/final.mp4 \
   --out artifacts/qa/run1
 
 # tests (negative controls included)
@@ -50,7 +51,8 @@ Inputs that are optional and what happens without them:
 | input | used by | without it |
 |---|---|---|
 | `--overlay` | footprint, text onset heuristic, displayed text, scrim, person/face/text checks | footprint is a diff vs source (noisier); `displayed_text` → NOT RUN |
-| `--ink-only` | `text_onset` | heuristic diagnostic only, verdict NOT RUN |
+| `--ink-only` | `text_onset`, `non_text_graphics` | text onset heuristic only (NOT RUN); graphics NOT RUN |
+| `--captions` | `caption_typography` cue times | cues are auto-discovered from rendered caption ink |
 | `--perception` | person/face/hand masks, quiet zones, burned-in text fallback | person/hand checks → NOT RUN (never a vacuous pass) |
 | `--second-render` | determinism | NOT RUN |
 | `--ir` `perception.existing_text` | protected burned-in text (preferred over the mask document) | falls back to the mask document's `regions.existing_text` |
@@ -195,6 +197,53 @@ allows isolated codec/AA noise but not a different picture.
 
 ---
 
+### 2.12 `caption_typography` (R5)
+Measured from the overlay-only pass, where captions are the only bright ink in
+the bottom of the frame (elements and scrims are dark there; element boxes are
+excluded from the caption mask). Caption ink = luma > 60 below
+`CAPTION_REGION_TOP_FRAC = 0.55 H`; rows are grouped into line bands with a 2 px
+gap tolerance, so a 2-line cue is measured as two lines. Cue times come from
+`--captions captions.json` when supplied, otherwise the rendered ink is grouped
+into cues (consecutive frames with ≥ 20 caption pixels, ≤2-frame gaps); the cue
+frame with maximum ink is measured.
+
+Per cue: line count, per-line ink height/width, **ink height = tallest line band
+/ H**, **ink width = widest line band / W**, **bottom margin = H − lowest ink
+row / H**, caption ∩ face pixels and the nearest face-box distance. Thresholds
+(default, overridable through `policy.qa.caption_*`):
+
+| metric | landscape default | portrait default |
+|---|---|---|
+| lines | 1–2 | 1–2 |
+| ink height (% H) | 2.8–6.0 | 3.0–5.5 |
+| ink width (% W) | ≤ 90 | ≤ 90 |
+| bottom margin (% H) | ≥ 4.5, ≤ 13.2 | ≥ 11.0, ≤ 21.0 |
+
+`policy.qa.caption_*` keys override every threshold (the delivered policy now
+sets landscape ink height 4.0–6.0 % H and portrait 2.4–4.0 % H after the
+renderer/policy fixes); the JSON reports the values and their source
+(`policy.qa` keys vs `verify2 defaults`). The bottom ceiling is
+`policy.captions.bottom_ratio[aspect] + max_lift_ratio + 0.02 H`, so a legitimate
+lift to clear burned-in credits (the landscape render sits at ~12 % H) is not a
+violation; the lower bound stays the envelope floor.
+Caption/face intersections must be **0**; if no face box exists at the measured
+frame, the per-cue `face_check` is `NOT RUN` (reported separately, never a PASS).
+No caption ink anywhere → check `NOT RUN`, never a vacuous pass. Policy values
+used (`policy.name/version/source`, `captions.bottom_ratio`,
+`line_height_ratio`, `size_ratio`, QA overrides) and threshold sources are in the
+JSON.
+
+### 2.13 `non_text_graphics` (R16, advisory)
+Uses the ink-only pass: graphics = visible ink pixels in the element box that are
+not glyph-coloured and not the glyph shadow/anti-alias halo (11 px dilation;
+neutral-dark pixels excluded). The rendered graphic colour in the **final** frame
+is compared with the rendered local background next to it (scrim/picture), per
+pixel and as a mean; WCAG 1.4.11 floor **3.0**. Report-only: the check carries
+`advisory: true, affects_overall: false` and therefore never fails the build.
+Reported per element: contrast (mean), p10, min, median, graphic/background RGB,
+pixels, worst frame. Elements with no measured graphics are `NOT RUN`. No ink
+pass → `NOT RUN`.
+
 ## 3. Metrics JSON and contact sheet
 
 `qa_metrics.json` (`semotion.verify2/1`) contains `checks` (one object per check
@@ -291,6 +340,20 @@ measured silhouette/contrast proxies; audio aesthetics.
     PASS that looks bad. QA v2 cannot judge taste.
 11. **No network, no model calls, no wall-clock dependence** in the metrics JSON;
     the same inputs produce the same JSON (paths/hashes included).
+12. **Caption detection assumes captions live in the bottom 45 % of the frame**
+    (per the caption-band policy). A renderer that puts captions elsewhere would
+    be NOT RUN. Per-line ink height is glyph ink, not line pitch: at the portrait
+    policy (line height 4.2 % H, font ≈55 px) a CJK line measures ≈2.7 % H, i.e.
+    below the 3.0 % floor — that is a real envelope mismatch, not a measurement
+    error; the failure is reported with the numbers.
+13. **Scrim overlap uses the nearest 5 Hz mask sample and a luma 8–60 noise floor**
+    (bilinear upscale), because the overlay pass also contains captions and glyph
+    anti-aliasing that can be as dark as a scrim edge; bright ink and its 5 px halo
+    are excluded. Element occlusion keeps the stricter temporal mask union. A
+    scrim pixel overlap is reported in full-res pixels with its worst frame.
+14. **`non_text_graphics` cannot see a white hairline drawn at exactly the ink
+    colour** (indistinguishable from glyphs); those are covered by the text
+    contrast check. It is advisory by design and does not gate delivery.
 
 ---
 
@@ -301,7 +364,8 @@ measured silhouette/contrast proxies; audio aesthetics.
 | demo, deliberately bad overlay over the face | **FAIL** | face overlap **6,719,704 px**, 9.34 % of frame / 31.08 % of person, worst frame 61 | `artifacts/p2/qa/qa_bad/qa_metrics.json`, `worst_occlusion_crop.png` |
 | same clip after `repair.py` relocation | **PASS** | face 0 px, person 0.0 %, contrast 13.85, text onset frame 30/30 (+0), determinism mean/max 0.0 over 120 frames | `artifacts/p2/qa/qa_fixed/`, `artifacts/p2/qa/repair/repairs.json` |
 | v2 draft render (`demo_zq5`) | **PASS** | person 0.0, contrast 5.45, displayed text 5/5, scrim person 0, layout 48 px margin; `text_onset` NOT RUN (that draft predates the ink pass) | `artifacts/p2/qa/zq5/` |
-| v2 full-quality pair (`final_zq` / `final_zq_2`) | **PASS** | 11/11 checks; face/hand/person 0; contrast min 7.28; text onset all +0; OCR 5/5; scrim 0 px; determinism 625 frames mean/max 0.0 | `artifacts/p2/qa/final_zq/` |
+| v2 full-quality pair (`final_zq` / `final_zq_2`) | **PASS** | 13/13 checks (caption + graphics added); face/hand/person 0; contrast min 7.24; text onset all +0; OCR 5/5; scrim 0 px; captions 10 cues, 1 line, ink 4.89 % H, width 48.8 % W, bottom 11.96 % H, 0 face intersections; determinism 625 frames mean/max 0.0; graphics 5.8–7.0 | `artifacts/p2/qa/captions/landscape/` |
+| 9:16 real crop (`p3/portrait_run`) | **PASS** (one advisory) | captions: 10 cues, 1–2 lines, ink **3.073 % H**, width max **81.0 %** (wrapped cue 57.9 %), bottom 13.54 % H, 0 face intersections; legibility 5.84; scrim person 0 px; person/face/hand 0; text onset +0; OCR 5/5; `non_text_graphics` advisory FAIL (gold accent 1.16 on a bright wall — accepted, not gating) | `artifacts/p2/qa/captions/portrait/` |
 
 Demo reproduction: `artifacts/p2/qa/run_demo.sh` (or step-by-step commands in
 `artifacts/p2/qa/DEMO-REPORT.md`).

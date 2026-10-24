@@ -85,6 +85,16 @@ COLLISION_AREA_RATIO = 0.01       # >1 % of the smaller box = collision
 FOOTPRINT_MARGIN_FRAC = 0.025    # lead's rule: rendered footprint >= 2.5 % canvas margin
 FOOTPRINT_COLLISION_RATIO = 0.005  # >0.5 % of the smaller box = footprint collision
 FONT_FLOOR_FRAC = 0.045          # legacy-v2 warning floor: 4.5 % of min(canvas)
+
+# ---- caption typography (R5) + non-text graphics (R16) ----------------------
+CAPTION_INK_LUMA = 60.0          # overlay pass: captions are the bright ink below
+CAPTION_REGION_TOP_FRAC = 0.55   # captions live in the bottom 45 % of the frame
+CAPTION_MIN_LINES, CAPTION_MAX_LINES = 1, 2
+CAPTION_INK_HEIGHT = {"landscape": (0.028, 0.060), "portrait": (0.030, 0.055)}
+CAPTION_WIDTH_MAX = 0.90
+CAPTION_BOTTOM_MIN = {"landscape": 0.045, "portrait": 0.11}
+CAPTION_MIN_PIXELS = 20          # a cue frame must have at least this much ink
+NON_TEXT_CONTRAST_MIN = 3.0      # WCAG 1.4.11 non-text contrast floor
 FONT_FLOOR_PX = {"keyword": 72, "number": 60, "list": 56, "card": 64, "caption": 48}
 REF_W, REF_H = 1080, 1920
 OVERLAY_FOOTPRINT_THRESHOLD = 4   # overlay pass is on black; dark scrims matter
@@ -368,6 +378,33 @@ class MaskDoc:
                 if bbox:
                     hands.append([int(round(v)) for v in bbox[:4]])
         return union, faces, hands, (w, h)
+
+    def at_nearest(self, frame: int, fps: float) -> tuple[np.ndarray | None,
+                                                          list[list[int]],
+                                                          list[list[int]],
+                                                          tuple[int, int]]:
+        """Single nearest 5 Hz sample (no temporal union). Used by the scrim gate."""
+        if not self.frames:
+            return None, [], [], (0, 0)
+        t = frame / max(fps, 1e-9)
+        idx = min(range(len(self.frames)),
+                  key=lambda i: abs(float(self.frames[i].get(
+                      "t_s", float(self.frames[i].get("frame", 0)) / max(fps, 1e-9))) - t))
+        mask = self._load(idx)
+        faces: list[list[int]] = []
+        hands: list[list[int]] = []
+        face = self.frames[idx].get("face") or None
+        if face and face.get("bbox"):
+            faces.append([int(round(v)) for v in face["bbox"][:4]])
+        elif self.frames[idx].get("face_bbox"):
+            faces.append([int(round(v)) for v in self.frames[idx]["face_bbox"][:4]])
+        for hand in (self.frames[idx].get("hands") or []):
+            bbox = hand.get("bbox") if isinstance(hand, dict) else None
+            if bbox:
+                hands.append([int(round(v)) for v in bbox[:4]])
+        if mask is None:
+            return None, faces, hands, (0, 0)
+        return mask, faces, hands, (mask.shape[1], mask.shape[0])
 
     def existing_text(self, fps: float) -> list[dict[str, Any]]:
         out = []
@@ -891,6 +928,463 @@ def ocr_frame_text(rgb: np.ndarray) -> dict[str, Any]:
         tmp.unlink(missing_ok=True)
 
 
+# --------------------------------------------------- caption typography (R5)
+def _aspect_name(width: int, height: int) -> str:
+    return "portrait" if height > width else "landscape"
+
+
+def caption_thresholds(aspect: str, policy: dict[str, Any] | None = None
+                       ) -> dict[str, Any]:
+    """Aspect-aware caption envelope, policy.qa overrides first, defaults second."""
+    policy = policy or {}
+    qa = policy.get("qa") or {}
+    caps = policy.get("captions") or {}
+    defaults = {
+        "min_lines": CAPTION_MIN_LINES, "max_lines": CAPTION_MAX_LINES,
+        "ink_height": list(CAPTION_INK_HEIGHT.get(aspect, CAPTION_INK_HEIGHT["landscape"])),
+        "width_max": CAPTION_WIDTH_MAX,
+        "bottom_min": CAPTION_BOTTOM_MIN.get(aspect, CAPTION_BOTTOM_MIN["landscape"]),
+    }
+    source: list[str] = []
+    out = dict(defaults)
+    if "caption_max_lines" in qa:
+        out["max_lines"] = int(qa["caption_max_lines"])
+        source.append("caption_max_lines")
+    if "caption_min_lines" in qa:
+        out["min_lines"] = int(qa["caption_min_lines"])
+        source.append("caption_min_lines")
+    key = f"caption_ink_height_{aspect}"
+    if key in qa:
+        value = qa[key]
+        if isinstance(value, (list, tuple)) and len(value) >= 2:
+            out["ink_height"] = [float(value[0]), float(value[1])]
+            source.append(key)
+    if "caption_width_max" in qa:
+        out["width_max"] = float(qa["caption_width_max"])
+        source.append("caption_width_max")
+    key = f"caption_bottom_min_{aspect}"
+    if key in qa:
+        out["bottom_min"] = float(qa[key])
+        source.append(key)
+    # A legitimately lifted cue (burned-in credits) may go above the policy
+    # bottom_ratio by at most max_lift_ratio + 2 % H. The lower bound stays the
+    # envelope floor, not the policy target.
+    base = caps.get("bottom_ratio")
+    base_bottom = (float(base.get(aspect, 0.0)) if isinstance(base, dict)
+                   else float(base or 0.0)) or float(out["bottom_min"])
+    lift = float(caps.get("max_lift_ratio") or 0.06)
+    out["bottom_max"] = round(base_bottom + lift + 0.02, 6)
+    if caps:
+        source.append(f"policy.captions.bottom_ratio.{aspect}")
+        source.append("policy.captions.max_lift_ratio")
+    return {"values": out, "source": source or ["verify2 defaults"],
+            "policy_qa": sorted(qa.keys())}
+
+
+def caption_policy_view(ir: dict) -> dict[str, Any]:
+    """Resolve captions/qa policy used for the caption gate."""
+    try:
+        from . import policy as policy_mod
+        base = policy_mod.DEFAULT
+        cap = dict(base.captions or {})
+        qa = dict(base.qa or {})
+        view = {"name": base.name, "version": base.version, "source": base.source}
+    except Exception:  # pragma: no cover - policy is part of this repo
+        cap, qa = {}, {}
+        view = {"name": "embedded-fallback", "version": "0", "source": "verify2"}
+    embedded = ir.get("policy") if isinstance(ir.get("policy"), dict) else {}
+    for section in ("captions", "qa"):
+        if isinstance(embedded.get(section), dict):
+            merged = dict(cap if section == "captions" else qa)
+            merged.update(embedded[section])
+            if section == "captions":
+                cap = merged
+            else:
+                qa = merged
+    if embedded.get("name"):
+        view["name"] = embedded["name"]
+    return {"policy": view, "captions": cap, "qa": qa}
+
+
+def _row_runs(active: np.ndarray, max_gap: int = 2) -> list[tuple[int, int]]:
+    """Group a boolean row vector into runs, bridging gaps <= max_gap."""
+    runs: list[tuple[int, int]] = []
+    start = None
+    last = None
+    for i, value in enumerate(active):
+        if value:
+            if start is not None and last is not None and i - last > max_gap:
+                runs.append((start, last))
+                start = None
+            if start is None:
+                start = i
+            last = i
+        elif start is not None and last is not None and i - last > max_gap:
+            runs.append((start, last))
+            start = last = None
+    if start is not None and last is not None:
+        runs.append((start, last))
+    return runs
+
+
+def measure_caption_ink(overlay_rgb: np.ndarray, face_rects: Sequence[Sequence[int]],
+                        *, region_top_frac: float = CAPTION_REGION_TOP_FRAC,
+                        ink_luma: float = CAPTION_INK_LUMA,
+                        excluded_boxes: Sequence[Sequence[int]] = ()) -> dict[str, Any] | None:
+    """Measure one rendered caption frame from the overlay-only pass.
+
+    Caption ink is the bright text below ``region_top_frac * H`` (the overlay pass
+    puts the scrim and elements above it; the caption band is the only bright ink
+    down there). Rows are grouped into line bands with a 2 px gap tolerance, so a
+    two-line cue is reported as two lines with per-line ink height/width.
+    """
+    height, width = overlay_rgb.shape[:2]
+    y0 = max(0, min(height, int(round(region_top_frac * height))))
+    region = overlay_rgb[y0:].astype(np.int16)
+    luma = 0.2126 * region[..., 0] + 0.7152 * region[..., 1] + 0.0722 * region[..., 2]
+    mask = luma > ink_luma
+    for box in excluded_boxes:
+        bx, by, bw, bh = clip_box(box, width, height)
+        ya, yb = max(by, y0), min(by + bh, height)
+        if yb > ya and bw > 0:
+            mask[ya - y0:yb - y0, bx:bx + bw] = False
+    if int(mask.sum()) < CAPTION_MIN_PIXELS:
+        return None
+    row_counts = mask.sum(axis=1)
+    row_gate = max(3, int(round(0.002 * width)))
+    active = row_counts >= row_gate
+    bands = [(a, b) for a, b in _row_runs(active, max_gap=2) if b - a + 1 >= 2]
+    if not bands:
+        return None
+    ys, xs = np.nonzero(mask)
+    if xs.size == 0:
+        return None
+    bbox = [int(xs.min()), int(ys.min() + y0),
+            int(xs.max() - xs.min() + 1), int(ys.max() - ys.min() + 1)]
+    line_heights, line_widths, line_boxes = [], [], []
+    for a, b in bands:
+        sub = mask[a:b + 1]
+        cols = sub.any(axis=0)
+        xs_line = np.nonzero(cols)[0]
+        lx0, lx1 = int(xs_line.min()), int(xs_line.max())
+        line_heights.append(int(b - a + 1))
+        line_widths.append(int(lx1 - lx0 + 1))
+        line_boxes.append([lx0, int(a + y0), int(lx1 - lx0 + 1), int(b - a + 1)])
+    face_intersection = 0
+    nearest = None
+    bx0, by0_, bw, bh = bbox
+    bx1, by1 = bx0 + bw, by0_ + bh
+    for rect in face_rects:
+        rx, ry, rw, rh = (int(round(v)) for v in rect[:4])
+        ix0, iy0 = max(bx0, rx), max(by0_, ry)
+        ix1, iy1 = min(bx1, rx + rw), min(by1, ry + rh)
+        if ix1 > ix0 and iy1 > iy0:
+            face_intersection += int(mask[iy0 - y0:iy1 - y0, ix0:ix1].sum())
+        dx = max(0, rx - bx1, bx0 - (rx + rw))
+        dy = max(0, ry - by1, by0_ - (ry + rh))
+        dist = float((dx * dx + dy * dy) ** 0.5)
+        if nearest is None or dist < nearest:
+            nearest = dist
+    return {
+        "lines": len(bands),
+        "line_heights_px": line_heights,
+        "line_widths_px": line_widths,
+        "line_boxes": line_boxes,
+        "ink_height_px": max(line_heights),
+        "ink_width_px": max(line_widths),
+        "ink_height_ratio": round(max(line_heights) / height, 6),
+        "ink_width_ratio": round(max(line_widths) / width, 6),
+        "block_height_ratio": round(bh / height, 6),
+        "bottom_margin_ratio": round((height - (by0_ + bh)) / height, 6),
+        "bbox": bbox,
+        "face_intersection_px": face_intersection,
+        "face_distance_px": None if nearest is None else round(nearest, 2),
+        "region_top_frac": region_top_frac,
+    }
+
+
+def caption_verdict(metrics: dict[str, Any], aspect: str,
+                    thresholds: dict[str, Any]) -> tuple[str, list[str]]:
+    values = thresholds["values"]
+    problems: list[str] = []
+    lines = int(metrics["lines"])
+    if lines < int(values["min_lines"]) or lines > int(values["max_lines"]):
+        problems.append(f"{lines} line(s), envelope {values['min_lines']}–{values['max_lines']}")
+    lo, hi = values["ink_height"]
+    if not (float(lo) <= metrics["ink_height_ratio"] <= float(hi)):
+        problems.append(f"ink height {metrics['ink_height_ratio']:.4f} H outside "
+                        f"[{lo:.3f}, {hi:.3f}] ({aspect})")
+    if metrics["ink_width_ratio"] > float(values["width_max"]):
+        problems.append(f"ink width {metrics['ink_width_ratio']:.4f} W > "
+                        f"{values['width_max']:.2f} W")
+    if metrics["bottom_margin_ratio"] < float(values["bottom_min"]):
+        problems.append(f"bottom margin {metrics['bottom_margin_ratio']:.4f} H < "
+                        f"{values['bottom_min']:.3f} H ({aspect})")
+    if "bottom_max" in values and metrics["bottom_margin_ratio"] > float(values["bottom_max"]):
+        problems.append(f"bottom margin {metrics['bottom_margin_ratio']:.4f} H is lifted "
+                        f"above the allowed ceiling {values['bottom_max']:.3f} H")
+    if metrics["face_intersection_px"] > 0:
+        problems.append(f"caption ink covers {metrics['face_intersection_px']} px "
+                        f"of the face")
+    return (FAIL if problems else PASS), problems
+
+
+def discover_caption_cues(caption_counts: np.ndarray, *,
+                          min_pixels: int = CAPTION_MIN_PIXELS,
+                          max_gap: int = 2) -> list[dict[str, int]]:
+    """Group per-frame caption ink counts into cues (2-frame fade tolerance)."""
+    active = caption_counts >= max(1, min_pixels)
+    runs = _row_runs(active, max_gap=max_gap)
+    return [{"start_frame": int(a), "end_frame": int(b + 1)} for a, b in runs]
+
+
+def _caption_typography_check(ir: dict, overlay: str | Path | None,
+                              caption_counts: np.ndarray, width: int, height: int,
+                              fps: float, n_frames: int, boxes: dict[str, list[int]],
+                              mask_doc: MaskDoc | None,
+                              captions_path: str | Path | None = None,
+                              caption_rows: list[dict[str, Any]] | None = None
+                              ) -> dict[str, Any]:
+    """R5 caption typography gate, measured from the rendered overlay pass."""
+    view = caption_policy_view(ir)
+    aspect = _aspect_name(width, height)
+    thresholds = caption_thresholds(aspect, view)
+    base = {
+        "aspect": aspect,
+        "policy": {"name": view["policy"]["name"],
+                   "version": view["policy"]["version"],
+                   "source": view["policy"]["source"],
+                   "caption_band": (view["captions"] or {}).get("bottom_ratio"),
+                   "line_height_ratio": (view["captions"] or {}).get("line_height_ratio"),
+                   "size_ratio": (view["captions"] or {}).get("size_ratio")},
+        "thresholds": {"values": thresholds["values"],
+                       "source": thresholds["source"],
+                       "policy_qa_keys": thresholds["policy_qa"]},
+        "method": ("caption ink from the overlay-only pass below "
+                   f"{CAPTION_REGION_TOP_FRAC:.0%} H: luma > {CAPTION_INK_LUMA:g}, "
+                   "element boxes excluded; line bands from the row projection; "
+                   "per-line ink height/width; bottom margin to the lowest ink row; "
+                   "face boxes from the perception contract"),
+        "honesty": ("captions are measured only when the render actually contains "
+                    "them; no captions = NOT RUN, never a vacuous pass. Cue times "
+                    "come from --captions when supplied, else from the rendered ink."),
+    }
+    if overlay is None:
+        base.update({"verdict": NOT_RUN, "cues": 0,
+                     "note": "no overlay-only pass supplied; caption ink cannot be "
+                             "isolated from the picture"})
+        return base
+    if int(caption_counts.max(initial=0)) < CAPTION_MIN_PIXELS:
+        base.update({"verdict": NOT_RUN, "cues": 0,
+                     "note": "no caption ink found in the overlay pass (render has no "
+                             "captions)"})
+        return base
+    cues: list[dict[str, int]] = []
+    cues_source = "rendered_ink"
+    if captions_path is not None:
+        try:
+            doc = json.loads(Path(captions_path).read_text(encoding="utf-8"))
+            for cue in doc.get("cues") or []:
+                try:
+                    cues.append({"start_frame": int(cue["start_frame"]),
+                                 "end_frame": int(cue["end_frame"])})
+                except (KeyError, TypeError, ValueError):
+                    continue
+            cues_source = "captions_file"
+        except (OSError, json.JSONDecodeError, TypeError):
+            cues = []
+    if not cues:
+        cues = discover_caption_cues(caption_counts)
+        cues_source = "rendered_ink"
+    # choose one measurement frame per cue: max caption ink (hold), excluding fades
+    frames_to_decode: list[int] = []
+    chosen: list[int] = []
+    for cue in cues:
+        lo, hi = max(0, cue["start_frame"]), min(n_frames, cue["end_frame"])
+        if hi <= lo:
+            chosen.append(lo)
+            continue
+        seg = caption_counts[lo:hi]
+        frame = int(lo + int(np.argmax(seg)))
+        chosen.append(frame)
+        frames_to_decode.append(frame)
+    decoded = _decode_selected(Path(overlay), width, height, sorted(set(frames_to_decode))) \
+        if frames_to_decode else {}
+    excluded = list(boxes.values())
+    rows: list[dict[str, Any]] = []
+    for idx, (cue, frame) in enumerate(zip(cues, chosen)):
+        rgb = decoded.get(frame)
+        faces: list[list[int]] = []
+        if mask_doc is not None and mask_doc.has_person_mask:
+            _person, faces, _hands, _grid = mask_doc.at(frame, fps)
+        metrics = (measure_caption_ink(rgb, faces, excluded_boxes=excluded)
+                   if rgb is not None else None)
+        face_available = bool(faces)
+        row = {"cue": idx, "start_frame": cue["start_frame"],
+               "end_frame": cue["end_frame"], "measured_frame": frame,
+               "aspect": aspect, "face_boxes": len(faces)}
+        if metrics is None:
+            row.update({"verdict": FAIL, "face_check": "NOT RUN",
+                        "problems": ["no caption ink in the measured frame"]})
+        else:
+            verdict, problems = caption_verdict(metrics, aspect, thresholds)
+            face_check = ("NOT RUN" if not face_available else
+                          (FAIL if metrics["face_intersection_px"] > 0 else PASS))
+            row.update({**metrics, "verdict": verdict, "face_check": face_check,
+                        "problems": problems})
+        rows.append(row)
+    verdicts = [r["verdict"] for r in rows]
+    base.update({
+        "verdict": (FAIL if FAIL in verdicts else (PASS if rows else NOT_RUN)),
+        "cues": len(rows),
+        "cues_source": cues_source,
+        "face_check_verdict": _worst([r.get("face_check", NOT_RUN) for r in rows]),
+        "by_cue": rows,
+    })
+    return base
+
+
+# ------------------------------------------ non-text graphics contrast (R16)
+def non_text_graphic_contrast(ink_rgb: np.ndarray, final_rgb: np.ndarray,
+                              box: Sequence[float],
+                              ink_rgb_colour: tuple[int, int, int],
+                              *, color_distance: int = GLYPH_COLOR_DISTANCE
+                              ) -> dict[str, Any] | None:
+    """WCAG 1.4.11 contrast for non-glyph graphics (rules, hairlines, bars).
+
+    Graphic pixels are ink-pass pixels in the element box that are not glyphs and
+    not glyph shadows. Their *rendered* colour (final frame) is compared with the
+    rendered local background next to them (the scrim/picture), because that is the
+    adjacent colour a viewer sees — not the ink pass's colour over black and not
+    the un-scrimmed source. Advisory metric only.
+    """
+    x0, y0, bw, bh = clip_box(box, ink_rgb.shape[1], ink_rgb.shape[0])
+    if bw <= 0 or bh <= 0:
+        return None
+    ink = ink_rgb[y0:y0 + bh, x0:x0 + bw].astype(np.int16)
+    final = final_rgb[y0:y0 + bh, x0:x0 + bw].astype(np.float64)
+    ink_luma = 0.2126 * ink[..., 0] + 0.7152 * ink[..., 1] + 0.0722 * ink[..., 2]
+    visible = ink_luma > 12.0
+    if not visible.any():
+        return None
+    dist = np.abs(ink - np.array(ink_rgb_colour, dtype=np.int16)).max(axis=2)
+    glyphs = visible & (dist <= color_distance)
+    try:
+        import cv2
+        near = cv2.dilate(glyphs.astype(np.uint8),
+                          np.ones((11, 11), np.uint8)).astype(bool)
+    except Exception:  # pragma: no cover
+        near = glyphs.copy()
+        for dy in range(-5, 6):
+            for dx in range(-5, 6):
+                near |= np.roll(np.roll(glyphs, dy, axis=0), dx, axis=1)
+    maxc = ink.max(axis=2).astype(np.float64)
+    minc = ink.min(axis=2).astype(np.float64)
+    sat = (maxc - minc) / np.maximum(maxc, 1.0)
+    shadows = (maxc < 150) & (sat < 0.20)
+    graphics = visible & ~near & (dist > color_distance) & ~shadows
+    if int(graphics.sum()) < 20:
+        return None
+    # keep the core of the graphic (edges blend into the background)
+    cols = ink[graphics]
+    uniq, counts = np.unique(cols, axis=0, return_counts=True)
+    dominant = uniq[int(np.argmax(counts))].astype(np.int16)
+    core = graphics & (np.abs(ink - dominant).max(axis=2) <= 45)
+    if int(core.sum()) < 20:
+        core = graphics
+    # local background: a ring around the graphic, no visible ink allowed
+    try:
+        import cv2
+        ring = (cv2.dilate(core.astype(np.uint8), np.ones((15, 15), np.uint8)).astype(bool)
+                & ~cv2.dilate(core.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool)
+                & ~visible)
+    except Exception:  # pragma: no cover
+        ring = ~visible
+    if int(ring.sum()) < 20:
+        ring = ~visible
+    if int(ring.sum()) < 20:
+        return None
+    fg_rgb = final[core].mean(axis=0)
+    bg_rgb = final[ring].mean(axis=0)
+    l_fg = float(relative_luminance(fg_rgb))
+    l_bg = float(relative_luminance(bg_rgb))
+    contrast_mean = wcag_contrast(l_fg, l_bg)
+    # per-pixel view against the local background colour
+    px_luma = (0.2126 * final[core][:, 0] + 0.7152 * final[core][:, 1]
+               + 0.0722 * final[core][:, 2])
+    Lpx = relative_luminance(final[core])
+    ratio = (np.maximum(Lpx, l_bg) + 0.05) / (np.minimum(Lpx, l_bg) + 0.05)
+    verdict = PASS if contrast_mean >= NON_TEXT_CONTRAST_MIN else FAIL
+    return {
+        "graphic_pixels": int(core.sum()),
+        "contrast": round(float(contrast_mean), 4),
+        "contrast_p10": round(float(np.percentile(ratio, 10)), 4),
+        "contrast_min": round(float(np.min(ratio)), 4),
+        "contrast_median": round(float(np.median(ratio)), 4),
+        "graphic_rgb": [int(v) for v in fg_rgb.round()],
+        "background_rgb": [int(v) for v in bg_rgb.round()],
+        "dominant_ink_rgb": [int(v) for v in dominant],
+        "threshold": NON_TEXT_CONTRAST_MIN,
+        "verdict": verdict,
+    }
+
+
+def _non_text_graphics_check(ir: dict, ink: str | Path | None, rendered: str | Path,
+                             width: int, height: int, fps: float,
+                             boxes: dict[str, list[int]],
+                             count_series: dict[str, np.ndarray]) -> dict[str, Any]:
+    base = {"advisory": True, "affects_overall": False,
+            "threshold": NON_TEXT_CONTRAST_MIN,
+            "method": ("ink-only pass minus glyphs/shadows = graphics (accent rule, "
+                       "hairlines, bars); rendered colour in the final frame vs the "
+                       "rendered local background (scrim/picture); WCAG 1.4.11 3.0"),
+            "honesty": ("white hairlines at the exact ink colour are indistinguishable "
+                        "from glyphs and are covered by the text contrast check; this "
+                        "metric is advisory and never fails the build")}
+    if ink is None:
+        base.update({"verdict": NOT_RUN, "note": "no ink-only pass supplied"})
+        return base
+    elements_by_id = {str(e.get("id")): e for e in ir.get("elements") or []}
+    plan: list[tuple[str, list[int]]] = []
+    for eid, box in boxes.items():
+        series = count_series.get(eid)
+        if series is None:
+            continue
+        el = elements_by_id.get(eid) or {}
+        w = el.get("window") or {}
+        sf, ef = int(w.get("start_frame", 0)), int(w.get("end_frame", 0))
+        span = max(1, ef - sf)
+        frames = sorted({sf + int(round(span * f)) for f in (0.3, 0.6)})
+        plan.append((eid, [f for f in frames if 0 <= f < len(series)]))
+    all_frames = sorted({f for _, fs in plan for f in fs})
+    ink_frames = _decode_selected(Path(ink), width, height, all_frames) if all_frames else {}
+    out_frames = _decode_selected(Path(rendered), width, height, all_frames) if all_frames else {}
+    rows: list[dict[str, Any]] = []
+    for eid, frames in plan:
+        el = elements_by_id.get(eid) or {}
+        colour = element_ink(el, ir)
+        best: dict[str, Any] | None = None
+        for frame in frames:
+            if frame not in ink_frames or frame not in out_frames:
+                continue
+            row = non_text_graphic_contrast(ink_frames[frame], out_frames[frame],
+                                            boxes[eid], colour)
+            if row is None:
+                continue
+            if best is None or row["contrast"] < best["contrast"]:
+                best = {"frame": frame, **row}
+        rows.append({"id": eid, "ink_rgb": list(colour),
+                     "verdict": NOT_RUN if best is None else best["verdict"],
+                     "worst": best})
+    verdicts = [r["verdict"] for r in rows]
+    base.update({
+        "verdict": (FAIL if FAIL in verdicts else (PASS if rows else NOT_RUN)),
+        "by_element": rows,
+        "elements": len(rows),
+    })
+    return base
+
+
 # ---------------------------------------------------------------------- layout
 def layout_checks(ir: dict, width: int, height: int, *,
                   safe_margin_px: int = SAFE_MARGIN_PX,
@@ -1217,6 +1711,7 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
            masks: str | Path | MaskDoc | None = None,
            overlay: str | Path | None = None,
            ink: str | Path | None = None,
+           captions: str | Path | None = None,
            second_render: str | Path | None = None,
            out_dir: str | Path | None = None,
            safe_margin_px: int = SAFE_MARGIN_PX,
@@ -1327,6 +1822,7 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
     ink_meta: dict[str, dict[str, Any]] = {}
     ink_mode = "ink_pass" if ink is not None else (
         "overlay_heuristic" if overlay is not None else None)
+    caption_counts = np.zeros(n_frames, dtype=np.int64)
     union_fp = {eid: np.zeros((height, width), dtype=bool) for eid in boxes}
     per_element: dict[str, dict[str, Any]] = {}
     for eid in boxes:
@@ -1412,6 +1908,17 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
                 fp = overlay_footprint(ovl_rgb, threshold)
             else:
                 fp = diff_footprint(out_rgb, src_rgb, threshold)
+            if ovl_rgb is not None:
+                cy0 = int(round(CAPTION_REGION_TOP_FRAC * height))
+                region = ovl_rgb[cy0:].astype(np.int16)
+                cluma = (0.2126 * region[..., 0] + 0.7152 * region[..., 1]
+                         + 0.0722 * region[..., 2])
+                cmask = cluma > CAPTION_INK_LUMA
+                for _bx, _by, _bw, _bh in boxes.values():
+                    ya, yb = max(_by, cy0), min(_by + _bh, height)
+                    if yb > ya and _bw > 0:
+                        cmask[ya - cy0:yb - cy0, _bx:_bx + _bw] = False
+                caption_counts[frame_idx] = int(cmask.sum())
             person = face_rects = hand_rects = None
             if person_checked:
                 person, face_rects, hand_rects, _grid = mask_doc.at(  # type: ignore[union-attr]
@@ -1492,24 +1999,57 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
                 bd_box = backdrop_boxes.get(eid)
                 if bd_box is not None:
                     bdx, bdy, bdw, bdh = bd_box
-                    bd_count = int(fp[bdy:bdy + bdh, bdx:bdx + bdw].sum())
+                    # The overlay pass also contains captions and element glyphs.
+                    # A scrim is the dark alpha region; bright ink (captions, accent
+                    # type) is not scrim and must not be counted as scrim overlap.
+                    bd_fp = fp
+                    if ovl_rgb is not None:
+                        oluma = (0.2126 * ovl_rgb[..., 0].astype(np.int16)
+                                 + 0.7152 * ovl_rgb[..., 1].astype(np.int16)
+                                 + 0.0722 * ovl_rgb[..., 2].astype(np.int16))
+                        bright = oluma > CAPTION_INK_LUMA
+                        try:
+                            import cv2
+                            halo = cv2.dilate(bright.astype(np.uint8),
+                                              np.ones((11, 11), np.uint8)).astype(bool)
+                        except Exception:  # pragma: no cover
+                            halo = bright
+                        # scrim alpha = dark overlay, excluding caption/glyph ink and
+                        # its anti-aliased/shadow halo (which can be luma 8–60)
+                        bd_fp = fp & (oluma < CAPTION_INK_LUMA) & (oluma > 8) & ~halo
+                    bd_count = int(bd_fp[bdy:bdy + bdh, bdx:bdx + bdw].sum())
                     if bd_count > 0:
                         per_element[eid]["scrim_visible_frames"] += 1
-                        if person_checked:
-                            occ_bd = occlusion_metrics(fp, bd_box, person,
-                                                       face_rects or [], width * height)
-                            per_element[eid]["scrim_person_overlap_px"] += \
-                                occ_bd["person_overlap_px"]
-                            per_element[eid]["scrim_max_person_frame_fraction"] = max(
-                                per_element[eid]["scrim_max_person_frame_fraction"],
-                                occ_bd["person_frame_fraction"])
-                            if occ_bd["person_overlap_px"] > 0 and \
-                                    per_element[eid]["scrim_worst_frame"] is None:
-                                per_element[eid]["scrim_worst_frame"] = frame_idx
-                            per_element[eid]["scrim_face_overlap_px"] += \
-                                rects_overlap_px(fp, bd_box, face_rects or [])
-                            per_element[eid]["scrim_hand_overlap_px"] += \
-                                rects_overlap_px(fp, bd_box, hand_rects or [])
+                        if person_checked and mask_doc is not None:
+                            # The scrim gate uses the *nearest* 5 Hz sample and a
+                            # bilinear upscale (the contract's mask projection),
+                            # with a noise floor that is above H.264 ringing. The
+                            # element occlusion check keeps the stricter temporal
+                            # union because missing person pixels there is worse.
+                            person_n, faces_n, hands_n, _grid_n = mask_doc.at_nearest(
+                                frame_idx, fps)
+                            if person_n is not None:
+                                try:
+                                    import cv2
+                                    pf = cv2.resize(person_n, (width, height),
+                                                    interpolation=cv2.INTER_LINEAR) > 127
+                                except Exception:  # pragma: no cover
+                                    pf = np.array(Image.fromarray(person_n).resize(
+                                        (width, height), Image.BILINEAR)) > 127
+                                psub = pf[bdy:bdy + bdh, bdx:bdx + bdw]
+                                scrim_crop = bd_fp[bdy:bdy + bdh, bdx:bdx + bdw]
+                                overlap = int((scrim_crop & psub).sum())
+                                per_element[eid]["scrim_person_overlap_px"] += overlap
+                                if overlap > 0:
+                                    per_element[eid]["scrim_max_person_frame_fraction"] = max(
+                                        per_element[eid]["scrim_max_person_frame_fraction"],
+                                        overlap / float(width * height))
+                                    if per_element[eid]["scrim_worst_frame"] is None:
+                                        per_element[eid]["scrim_worst_frame"] = frame_idx
+                                per_element[eid]["scrim_face_overlap_px"] += \
+                                    rects_overlap_px(bd_fp, bd_box, faces_n or [])
+                                per_element[eid]["scrim_hand_overlap_px"] += \
+                                    rects_overlap_px(bd_fp, bd_box, hands_n or [])
                         if text_checked:
                             t = frame_idx / fps
                             active = [r for r in text_regions if r["t0"] <= t <= r["t1"]]
@@ -1522,7 +2062,7 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
                                     bd_text[y0t - bdy:y1t - bdy, x0t - bdx:x1t - bdx] = True
                             if bd_text.any():
                                 per_element[eid]["scrim_text_overlap_px"] += int(
-                                    np.logical_and(fp[bdy:bdy + bdh, bdx:bdx + bdw],
+                                    np.logical_and(bd_fp[bdy:bdy + bdh, bdx:bdx + bdw],
                                                    bd_text).sum())
             # rendered footprint collisions (lead rule: >0.5 % of the smaller box)
             active = [eid for eid, (bx, by, bw, bh) in boxes.items()
@@ -1744,12 +2284,27 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
                     else (PASS if scrim_rows else NOT_RUN)),
         "elements": len(scrim_rows),
         "by_element": scrim_rows,
-        "method": ("backdrop kind scrim*/band*: rendered footprint inside the projected "
-                   "backdrop box ∩ person mask must be 0 px; text contrast is measured "
-                   "on rendered pixels (legibility check), not on the scrim colour"),
+        "method": ("backdrop kind scrim*/band*: dark alpha region in the backdrop box "
+                   "(overlay luma 8–60; bright ink and its 5 px anti-alias/shadow halo "
+                   "excluded) ∩ person "
+                   "mask must be 0 px. Scrim overlap uses the nearest 5 Hz mask sample "
+                   "with bilinear upscale and an luma>8 noise floor (H.264 ringing is "
+                   "excluded); element occlusion keeps the stricter temporal union."),
         "honesty": ("0 elements means the IR declares no scrim/band backdrop; that is "
                     "reported as NOT RUN, not as a pass"),
     }
+
+    # ---- caption typography (R5): measured from the rendered overlay pass
+    caption_check = _caption_typography_check(
+        ir, overlay, caption_counts, width, height, fps, s_n, boxes, mask_doc,
+        captions_path=captions)
+    caption_check["verdict"] = (FAIL if caption_check["verdict"] == FAIL
+                                else (NOT_RUN if caption_check["verdict"] == NOT_RUN
+                                      else PASS))
+
+    # ---- non-text graphics contrast (R16, advisory: never fails the build)
+    graphics_check = _non_text_graphics_check(ir, ink, rendered_p, width, height, fps,
+                                              boxes, count_series)
 
     # ---- layout
     footprint_collision_rows = [
@@ -1828,12 +2383,17 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
         "text_onset": text_onset,
         "displayed_text": displayed,
         "scrim": scrim_check,
+        "caption_typography": caption_check,
+        "non_text_graphics": graphics_check,
         "layout": layout,
         "timing": timing_check,
         "determinism": det,
     }
     verdicts = {k: (v.get("verdict") if isinstance(v, dict) else v) for k, v in checks.items()}
-    overall = FAIL if FAIL in verdicts.values() else PASS
+    advisory = {k for k, v in checks.items()
+                if isinstance(v, dict) and v.get("affects_overall") is False}
+    core = [v for k, v in verdicts.items() if k not in advisory]
+    overall = FAIL if FAIL in core else PASS
     failing_elements = {}
     layout_by_id = {str(r.get("id")): r for r in layout["elements"]}
     displayed_by_id = displayed["by_element"]
@@ -1905,6 +2465,7 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
             "source": str(source_p), "rendered": str(rendered_p),
             "overlay_only": str(overlay) if overlay else None,
             "ink_only": str(ink) if ink else None,
+            "captions": str(captions) if captions else None,
             "second_render": str(second_render) if second_render else None,
             "masks": str(mask_doc.path) if mask_doc else None,
             "ir_sha256": (ir.get("provenance") or {}).get("ir_sha256"),
@@ -1927,6 +2488,12 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
             "text_onset_tolerance_frames": TIMING_TOLERANCE_FRAMES,
             "text_onset": "first ink pixel frame on the overlay-only pass must be within "
                           "1 frame of the window start",
+            "caption_typography": {"lines": [CAPTION_MIN_LINES, CAPTION_MAX_LINES],
+                                   "ink_height": CAPTION_INK_HEIGHT,
+                                   "width_max": CAPTION_WIDTH_MAX,
+                                   "bottom_min": CAPTION_BOTTOM_MIN,
+                                   "source": "policy.qa overrides, else defaults"},
+            "non_text_graphics_contrast": NON_TEXT_CONTRAST_MIN,
             "determinism_mean": DET_MEAN_TOL, "determinism_max": DET_MAX_TOL,
         },
         "notes": [
@@ -1944,6 +2511,11 @@ def verify(*, ir: dict, source: str | Path, rendered: str | Path,
             "(lower_third: face/hands only) and text contrast is measured on rendered pixels",
             "text_onset is strict (ink, not scrim): overlay-only pass required; a dark scrim "
             "does not satisfy it",
+            "caption_typography measures the rendered cue (line count, per-line ink "
+            "height/width, bottom margin, caption/face intersection); no captions = "
+            "NOT RUN",
+            "non_text_graphics is advisory (WCAG 1.4.11 3.0) and is excluded from the "
+            "overall verdict",
             "protected burned-in text comes from ir.perception.existing_text when present "
             "(design2 filters venue signage); otherwise from the mask document",
         ],
@@ -2364,6 +2936,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--ink-only", dest="ink_only",
                     help="renderer ink-only pass MP4 (glyphs on black, no scrim or "
                          "captions); required for a deterministic text_onset verdict")
+    ap.add_argument("--captions", dest="captions",
+                    help="optional captions.json; cue times come from it, the ink is "
+                         "still measured from the overlay pass")
     ap.add_argument("--second-render", help="second render of the same IR (determinism)")
     ap.add_argument("--out-dir", "--out", dest="out",
                     help="directory for qa_metrics.json + contact_sheet.png, or a "
@@ -2379,7 +2954,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     out_dir = (out.parent if out_json is not None else out)
     metrics = verify(ir=ir, source=args.source, rendered=args.rendered,
                      masks=args.masks, overlay=args.overlay_only,
-                     ink=args.ink_only,
+                     ink=args.ink_only, captions=args.captions,
                      second_render=args.second_render, out_dir=out_dir,
                      safe_margin_px=args.safe_margin_px,
                      footprint_threshold=args.footprint_threshold,

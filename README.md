@@ -45,9 +45,25 @@ export PYTHONPATH=src
 The pipeline runs: probe → ASR (local faster-whisper) → character alignment → Apple Vision
 perception → anchors/decisions → design → render (with captions) → QA.
 
-Directing is where taste enters. Read `out/talk/anchors.json`, write `decisions.json`
-(schema and rules in the skill), pass `--decisions`. Without it the deterministic fallback
-picks conservative moments — useful, never clever.
+Directing is where taste enters, and it is a **model decision, not a rule**:
+
+```bash
+# host agent decides (no API key): measure -> brief -> agent authors decisions -> render
+.venv/bin/python -m semotion.pipeline run --video talk.mp4 --out out/talk --brief-only
+.venv/bin/python -m semotion.pipeline run --video talk.mp4 --out out/talk \
+    --decisions out/talk/decisions.json
+
+# or any OpenAI-compatible endpoint decides
+SM_LLM_BASE_URL=... SM_LLM_API_KEY=... SM_LLM_MODEL=... \
+  .venv/bin/python -m semotion.pipeline run --video talk.mp4 --out out/talk --director llm
+```
+
+`director_brief.json` contains measured facts only (anchor ids, exact times, features,
+context); the model may only reference those ids, so it cannot invent timing. Decisions
+are validated: unknown anchors, out-of-order lists, or a number the speaker did not say
+are rejected with a reason. All thresholds (density, margins, type scale, motion, caption
+rules) live in [`policies/smart_balanced.json`](policies/smart_balanced.json) and are
+recorded in the IR; `--policy` overrides them. See [docs/LLM-DIRECTOR.md](docs/LLM-DIRECTOR.md).
 
 ## Architecture
 
@@ -55,7 +71,8 @@ picks conservative moments — useful, never clever.
 src/semotion/
   pipeline.py     one command: all stages, artifacts, summary
   asr.py          faster-whisper wrapper (local, cached)
-  align.py        char-level forced alignment on the onset envelope (monotonic DP)
+  align.py        char-level alignment on the onset envelope (monotonic DP)
+  forced.py       acoustic CTC forced alignment (XLSR-53 zh / letter CTC en), optional model
   captions.py     segment-respecting cues, ≤2 lines, SRT/ASS
   perception.py   Apple Vision: person mask, pose, hands, burned-in text, quiet zones
   anchors.py      semantic anchor extraction (v1 rules) + LLM span helpers
@@ -93,8 +110,10 @@ Full numbers and honest caveats: [`reports/FINAL-REPORT.md`](reports/FINAL-REPOR
 ## Honest limits
 
 * Timing truth is **synthetic** (TTS fixtures). Real human speech has no labelled corpus
-  here; on real clips we prove monotonicity and onset-envelope tracking, not ground-truth
-  accuracy.
+  here. The envelope aligner wins that synthetic metric by construction (a TTS splice is an
+  energy jump); on real speech the CTC aligner agrees with Whisper word starts at a median
+  50 ms vs 150 ms, which is why `--aligner auto` prefers CTC when its model is cached.
+  Neither is human-verified.
 * Apple Vision is **macOS-only**; on other platforms perception degrades to face boxes and
   the layout gets conservative.
 * Body pose returns nothing on tight head-and-shoulders crops; masks still carry the

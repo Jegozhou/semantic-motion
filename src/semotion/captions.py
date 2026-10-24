@@ -95,6 +95,45 @@ DEFAULT_STYLE: dict[str, Any] = {
 _TRAILING_PUNCT = re.compile(r"[\s，。、！？；：,.!?;:…—·~～\"“”‘’)\]}】》」』]+$")
 
 
+def _policy_char_budget(src: dict[str, Any], fps: float,
+                        width: int | None = None,
+                        height: int | None = None,
+                        cjk: bool = True) -> dict[str, int]:
+    """Rendered-width budget: how many glyphs actually fit on one line.
+
+    22 CJK characters at 63 px are 1386 px — wider than a 1080 px frame. The
+    budget is derived from the policy's caption type size and the canvas, not
+    guessed (BBC 3.1 / Netflix line-length rules).
+    """
+    try:
+        from . import policy as _policy
+        cap = _policy.DEFAULT.captions or {}
+        W = float(width or src.get("width") or 0)
+        H = float(height or src.get("height") or 0)
+        if not (W and H):
+            return {}
+        aspect = "portrait" if H > W else "landscape"
+        lh = float((cap.get("line_height_ratio") or {}).get(aspect, 0.075)) * H
+        font = max(1.0, lh / float(cap.get("line_factor") or 1.46))
+        usable = 0.90 * W
+        # CJK glyphs are ~1 em wide; Latin averages ~0.52 em, so a "character"
+        # budget must use the right advance or it wraps Latin far too early.
+        advance = font * (1.0 if cjk else 0.52)
+        max_chars = max(8, int(usable / advance))
+        cap_key = f"max_chars_{'cjk' if cjk else 'latin'}_{aspect}"
+        if cap.get(cap_key):
+            max_chars = min(max_chars, int(cap[cap_key]))
+        # a cue can only hold max_lines × per-line glyphs; without this the
+        # second line overflows the budget the validator checks
+        max_lines = 2
+        return {"max_chars_per_line": max_chars,
+                "target_chars_per_line": max(6, int(max_chars * 0.9)),
+                "max_cue_chars": max_chars * max_lines,
+                "target_cue_chars": max(8, int(max_chars * 1.7))}
+    except Exception:
+        return {}
+
+
 def _is_cjk_doc(language: Any) -> bool:
     return str(language or "").lower().startswith(("zh", "ja", "ko"))
 
@@ -555,7 +594,9 @@ def _cue_boundary_stats(cues: list[_Cue]) -> tuple[int, int]:
 def build_captions(alignment: dict[str, Any], *, fps: float | None = None,
                    style: dict[str, Any] | None = None,
                    respect_segments: bool | None = None,
-                   respect_words: bool = True) -> dict[str, Any]:
+                   respect_words: bool = True,
+                   width: int | None = None,
+                   height: int | None = None) -> dict[str, Any]:
     """Group an alignment document into frame-accurate caption cues.
 
     ``respect_segments`` (default auto: on when the alignment carries ASR segment
@@ -569,7 +610,11 @@ def build_captions(alignment: dict[str, Any], *, fps: float | None = None,
     language = src.get("language") or "zh"
     cjk = _is_cjk_doc(language)
     fps = float(fps if fps is not None else (src.get("fps") or 25.0))
-    cfg = {**DEFAULT_STYLE}
+    cfg = {k: (dict(v) if isinstance(v, dict) else v) for k, v in DEFAULT_STYLE.items()}
+    budget = _policy_char_budget(src, fps, width, height, cjk=cjk)
+    if budget:
+        key = "cjk" if cjk else "latin"
+        cfg[key].update(budget)
     if style:
         for key, value in style.items():
             if isinstance(value, dict) and isinstance(cfg.get(key), dict):

@@ -30,6 +30,7 @@ import numpy as np
 from PIL import Image
 
 from . import effects2 as FX
+from . import policy as policy_mod
 from . import theme2 as T
 
 SCHEMA = "semotion.motion-ir/2"
@@ -118,16 +119,42 @@ def _overlap_frac(box: Sequence[int], other: Sequence[int] | None) -> float:
 class DesignConfig:
     style: str = "smart_balanced"
     language: str = "zh"
-    hold_s: float = HOLD_S
-    max_elements_per_10s: int = MAX_ELEMENTS_PER_10S
-    min_gap_s: float = MIN_GAP_S
-    max_coverage: float = MAX_COVERAGE
-    caption_band: float = CAPTION_BAND
-    margin_ratio: float = 0.030
-    min_col_ratio: float = 0.19        # a side column narrower than this is a card
-    min_band_ratio: float = 0.115
-    allow_torso: bool = True           # lower-third fallback over clothing
-    text_conf_min: float = 0.50        # ignore low-confidence OCR noise (painting text)
+    policy: object | None = None
+    # every field below defaults to None and is filled from the policy; pass an
+    # explicit value only to override the policy for one run.
+    hold_s: float | None = None
+    max_elements_per_10s: int | None = None
+    min_gap_s: float | None = None
+    max_coverage: float | None = None
+    caption_band: float | None = None
+    margin_ratio: float | None = None
+    min_col_ratio: float | None = None
+    min_band_ratio: float | None = None
+    allow_torso: bool | None = None
+    text_conf_min: float | None = None
+    type_band: tuple[float, float] | None = None
+
+    def __post_init__(self):
+        if self.policy is None:
+            self.policy = policy_mod.DEFAULT
+        pol = self.policy
+        b, l = pol.budget, pol.layout
+        defaults = {
+            "hold_s": float(b.get("hold_s", HOLD_S)),
+            "max_elements_per_10s": int(b.get("max_elements_per_10s", MAX_ELEMENTS_PER_10S)),
+            "min_gap_s": float(b.get("min_gap_s", MIN_GAP_S)),
+            "max_coverage": float(b.get("max_coverage", MAX_COVERAGE)),
+            "caption_band": float(b.get("caption_band", CAPTION_BAND)),
+            "margin_ratio": float(l.get("margin_ratio", 0.03)),
+            "min_col_ratio": float(l.get("min_col_ratio", 0.19)),
+            "min_band_ratio": float(l.get("min_band_ratio", 0.115)),
+            "allow_torso": bool(l.get("allow_torso", True)),
+            "text_conf_min": float(l.get("text_conf_min", 0.5)),
+            "type_band": tuple(l.get("type_band", [0.18, 0.74])),
+        }
+        for k, v in defaults.items():
+            if getattr(self, k) is None:
+                setattr(self, k, v)
 
 
 @dataclass
@@ -174,13 +201,15 @@ class Designer:
         self.hands_union_all: list[int] | None = None
         self.existing_text: list[dict] = []
         self.quiet_zones: list[dict] = []
-        self.margin = int(max(48, self.cfg.margin_ratio * min(self.W, self.H)))
+        self.margin = int(max(float(self.cfg.policy.layout.get("min_margin_px", 48)),
+                              self.cfg.margin_ratio * min(self.W, self.H)))
         self._last_zone: str | None = None
         self._last_end: float = -99.0
         self._current_start: float = 0.0
         self._last_audit: list[dict] = []
         self._quiet_cache: dict = {}
         self._mask_cache: dict = {}
+        self._scene: tuple | None = None
         self.mask_scale = float((self.perception or {}).get("frames", [{}])[0].get("mask_scale") or 4.0) \
             if (self.perception or {}).get("frames") else 4.0
         self.perception_path = (self.perception or {}).get("_path")
@@ -340,7 +369,7 @@ class Designer:
         return (int(cols[0] * sx), int((cols[-1] + 1) * sx))
 
     def edge_profile(self, t0: float, t1: float, side: str = "right",
-                     samples: int = 48):
+                     samples: int = 96):
         """Per-row silhouette edge as [[y_px, x_px], ...] (source coordinates).
 
         A rectangular scrim would tint a moving shoulder; the renderer uses this
@@ -359,30 +388,83 @@ class Designer:
             y = int(self.H * (i + 0.5) / samples)
             if cols.size == 0:
                 continue
-            edge = int((cols[-1] + 1) * sx) if side == "right" else int(cols[0] * sx)
+            pad = max(10, int(0.012 * self.W))
+            edge = int((cols[-1] + 1) * sx) + pad if side == "right" else \
+                max(0, int(cols[0] * sx) - pad)
             out.append([y, edge])
         return out or None
 
     # ------------------------------------------------------------- quietness
-    def _quietness(self, box: Sequence[int]) -> float:
-        """0..1 smoothness of a region across sampled frames (1 = flat wall)."""
-        if not self.frames:
-            return 0.55
-        key = tuple(int(v) for v in box[:4])
+    def _scene_frames(self) -> tuple | None:
+        """Decode a small grey frame series once, for time-local quietness.
+
+        Quietness measured over the whole clip is wrong: a calm wall at 3 s can be
+        a busy gesture at 12 s. 5 Hz at 320 px is ~6 MB for a 25 s clip.
+        """
+        if self._scene is not None:
+            return self._scene or None
+        path = (self.source or {}).get("path")
+        if not path or not Path(path).exists():
+            self._scene = (); return None
+        try:
+            import subprocess
+            from . import media
+            cmd = [media.FFMPEG, "-v", "error", "-i", str(path),
+                   "-vf", "fps=5,scale=320:-2,format=gray", "-f", "rawvideo", "-"]
+            raw = subprocess.run(cmd, check=True, capture_output=True).stdout
+            W = 320
+            n = len(raw) // (W * 1) if raw else 0
+            # height is encoded in the scale filter output; derive from the first frame
+            # by probing the filter chain: use -2 with even height, so read dimensions once
+            # through a second cheap probe instead of guessing.
+            from . import media as _m
+            info = _m.info(path)
+            H = int(round(W * info.height / info.width / 2) * 2)
+            n = len(raw) // (W * H) if raw else 0
+            if n <= 0:
+                self._scene = (); return None
+            arr = np.frombuffer(raw[: n * W * H], dtype=np.uint8).reshape(n, H, W)
+            self._scene = (arr, 5.0)
+            return self._scene
+        except Exception:
+            self._scene = ()
+            return None
+
+    def _quietness(self, box: Sequence[int], t0: float | None = None,
+                   t1: float | None = None) -> float:
+        """0..1 smoothness of a region inside the element's own time window."""
+        key = (tuple(int(v) for v in box[:4]), None if t0 is None else round(t0, 2),
+               None if t1 is None else round(t1, 2))
         if key in self._quiet_cache:
             return self._quiet_cache[key]
-        x, y, w, h = key
+        x, y, w, h = key[0]
         vals = []
-        for img in self.frames[:5]:
-            a = np.asarray(img.convert("L"), dtype=np.float32)
-            crop = a[max(0, y):min(a.shape[0], y + h), max(0, x):min(a.shape[1], x + w)]
-            if crop.size < 64:
-                continue
-            if crop.shape[0] > 200:
-                st = max(1, crop.shape[0] // 200)
-                crop = crop[::st, ::st]
-            gy, gx = np.gradient(crop)
-            vals.append(float(np.mean(np.abs(gx) + np.abs(gy)) / 255.0))
+        scene = self._scene_frames()
+        if scene:
+            arr, hz = scene
+            n, H, W = arr.shape
+            sx = self.W / W
+            fx0 = max(0, int(x / sx)); fx1 = min(W, max(fx0 + 1, int((x + w) / sx)))
+            fy0 = max(0, int(y / sx)); fy1 = min(H, max(fy0 + 1, int((y + h) / sx)))
+            idx = [i for i in range(n)
+                   if (t0 is None or i / hz >= t0 - 0.05)
+                   and (t1 is None or i / hz <= t1 + 0.05)]
+            if not idx:
+                idx = list(range(n))[:5]
+            for i in idx[:: max(1, len(idx) // 5)]:
+                crop = arr[i, fy0:fy1, fx0:fx1].astype(np.float32)
+                if crop.size < 64:
+                    continue
+                gy, gx = np.gradient(crop)
+                vals.append(float(np.mean(np.abs(gx) + np.abs(gy)) / 255.0))
+        elif self.frames:
+            for img in self.frames[:5]:
+                a = np.asarray(img.convert("L"), dtype=np.float32)
+                crop = a[max(0, y):min(a.shape[0], y + h), max(0, x):min(a.shape[1], x + w)]
+                if crop.size < 64:
+                    continue
+                gy, gx = np.gradient(crop)
+                vals.append(float(np.mean(np.abs(gx) + np.abs(gy)) / 255.0))
         q = 0.55 if not vals else float(max(0.0, min(1.0, 1.0 - float(np.mean(vals)) / 0.085)))
         self._quiet_cache[key] = q
         return q
@@ -395,12 +477,13 @@ class Designer:
         pu = self.person_union_for(t0, t1)
         face = self.face_union_for(t0, t1)
         hands = self.hands_union_for(t0, t1)
-        band_y0, band_y1 = int(0.18 * H), int(0.74 * H)
+        tb = self.cfg.type_band or (0.18, 0.74)
+        band_y0, band_y1 = int(tb[0] * H), int(tb[1] * H)
         edges = self._band_edges(t0, t1, band_y0, band_y1)
         out: list[Candidate] = []
 
         def quiet(box, fallback=0.5):
-            q = self._quietness(box)
+            q = self._quietness(box, t0, t1)
             zone_best = 0.0
             for z in self.quiet_zones:
                 zb = z.get("bbox")
@@ -410,7 +493,9 @@ class Designer:
                     zone_best = max(zone_best, float(z.get("score") or 0.0))
             return max(q, zone_best * 0.95, fallback)
 
-        col_min = int(self.cfg.min_col_ratio * W)
+        # a column must hold at least ~3.2 display glyphs per line to be usable
+        display_px = T.type_px("display", W, H)
+        col_min = max(int(self.cfg.min_col_ratio * W), int(3.2 * display_px) + 24)
         if pu:
             p_right = edges[1] if edges else pu[0] + pu[2]
             p_left = edges[0] if edges else pu[0]
@@ -418,7 +503,7 @@ class Designer:
             if right_gap >= col_min:
                 x0 = p_right + m
                 inset = int(max(24, min(0.05 * W, right_gap * 0.14)))
-                if W - m - (x0 + inset) >= 180:
+                if W - m - (x0 + inset) >= max(180, int(3.0 * display_px)):
                     area = (x0 + inset, band_y0, W - m - (x0 + inset), band_y1 - band_y0)
                     out.append(Candidate("scrim_right", area, (x0, 0, W - x0, H),
                                          zone_id="col_right", quiet=quiet(area),
@@ -426,7 +511,7 @@ class Designer:
             left_gap = p_left - m
             if left_gap >= col_min:
                 inset = int(max(24, min(0.05 * W, left_gap * 0.14)))
-                if left_gap - inset - m >= 180:
+                if left_gap - inset - m >= max(180, int(3.0 * display_px)):
                     area = (m, band_y0, left_gap - m - inset, band_y1 - band_y0)
                     out.append(Candidate("scrim_left", area, (0, 0, pu[0] - m, H),
                                          zone_id="col_left", quiet=quiet(area)))
@@ -454,7 +539,7 @@ class Designer:
             zb0 = [int(v) for v in z["bbox"][:4]]
             x0 = max(zb0[0], m); y0 = max(zb0[1], top)
             zb = (x0, y0, min(zb0[2], W - x0 - m), min(zb0[3], bottom - y0))
-            if zb[2] < 0.20 * W or zb[3] < int(0.075 * H):
+            if zb[2] < max(0.20 * W, 2.6 * display_px) or zb[3] < int(0.075 * H):
                 continue
             if pu and _overlap_frac(zb, pu) > 0.0:
                 continue
@@ -648,6 +733,7 @@ class Designer:
             },
             "provenance": {
                 "director": "semotion.design2/2",
+                "policy": self.cfg.policy.as_dict(),
                 "truth_class": ("HUMAN" if (self.decisions or {}).get("decision_model") == "human"
                                 else "MACHINE"),
                 "note": ("windows derive from measured anchor onsets; placement rejects any "
@@ -706,6 +792,11 @@ class Designer:
                 audit.append(rec)
                 continue
             box = self._position(fit, c)
+            if box is None:
+                rec.update(status="rejected", reason="does_not_fit_area",
+                           fit_w=fit.width, fit_h=fit.height)
+                audit.append(rec)
+                continue
             rec.update(box=list(box), fit_w=fit.width, fit_h=fit.height)
             if c.treatment == "lower_third":
                 body_ok = not (face and _intersects(box, face)) and \
@@ -767,28 +858,35 @@ class Designer:
         else:
             tx = x + (w - bw) // 2
             ty = y + (h - bh) // 2
-        tx = max(0, min(tx, W - bw))
-        ty = max(0, min(ty, H - bh))
+        # the block must live inside the candidate's declared area (the dense part
+        # of a scrim/band). Clamping to the canvas instead lets type slide into the
+        # faint tail, which is exactly where contrast dies.
+        if bw > w or bh > h:
+            return None
+        tx = max(x, min(tx, x + w - bw))
+        ty = max(y, min(ty, y + h - bh))
         return _clamp_box((tx, ty, bw, bh), W, H)
 
     def _score(self, c: Candidate, fit: FX.Fit, box: Sequence[int],
                face: Sequence[int] | None, start: float) -> float:
-        s = 0.40 * c.quiet
-        s += PREF.get(fit.kind, PREF["keyword"]).get(c.treatment, 0.0)
+        w = self.cfg.policy.weight
+        s = w("quiet", 0.40) * c.quiet
+        s += self.cfg.policy.pref(fit.kind or "keyword", c.treatment, 0.0)
         if self._last_zone and c.zone_id == self._last_zone and 0 <= start - self._last_end < 9.0:
-            s += 0.10
+            s += w("consistency", 0.10)
         if fit.kind in ("keyword", "card"):
             want = T.type_px("display" if fit.kind == "keyword" else "title", self.W, self.H)
             got = fit.display_px or fit.title_px
-            s += 0.08 * max(0.0, min(1.0, (got / max(1, want) - 0.6) / 0.4))
+            s += w("type_fidelity", 0.08) * max(0.0, min(1.0, (got / max(1, want) - 0.6) / 0.4))
         if face:
             dx = max(0, box[0] - (face[0] + face[2]), face[0] - (box[0] + box[2]))
             dy = max(0, box[1] - (face[1] + face[3]), face[1] - (box[1] + box[3]))
-            s += 0.06 * min(1.0, math.hypot(dx, dy) / (0.22 * math.hypot(self.W, self.H)))
+            s += w("face_distance", 0.06) * min(
+                1.0, math.hypot(dx, dy) / (0.22 * math.hypot(self.W, self.H)))
         if c.category == "torso":
-            s -= 0.18
+            s -= w("torso_penalty", 0.18)
         if c.treatment in ("scrim_right", "scrim_left"):
-            s += 0.10          # an edge column reads more editorial than a floating card
+            s += w("scrim_bonus", 0.10)  # an edge column reads more editorial than a card
         return s
 
     def _element(self, group: dict, content: dict, fit: FX.Fit, box: Sequence[int],
@@ -801,21 +899,43 @@ class Designer:
                  "at_s": round(max(0.0, float(r.get("at_s") or 0.0) - start), 3),
                  "lines": r["lines"]} for r in fit.rows]
         t = group["type"]
+        params = group.get("params") or {}
+        default_style = {"keyword": "wipe", "card": "wipe", "quote": "wipe",
+                         "list": "rows", "stat": "count", "barchart": "bars",
+                         "compare": "columns"}.get(t, "fade_up")
+        requested = str(params.get("enter") or "").strip()
+        enter_map = {"scale_in": "scale", "spring_pop": "scale", "pop": "scale",
+                     "scale": "scale", "reveal": "wipe", "wipe": "wipe",
+                     "fade_up": "fade_up", "fade": "fade_up", "slide": "fade_up",
+                     "none": "none"}
+        applied = enter_map.get(requested, default_style)
         motion = {
-            "enter": {"style": {"keyword": "wipe", "card": "wipe", "quote": "wipe",
-                                "list": "rows", "stat": "count", "barchart": "bars",
-                                "compare": "columns"}.get(t, "fade_up"),
-                      "dur_s": 0.42, "ease": "out_expo", "offset_y": 12},
+            "enter": {"style": applied, "dur_s": 0.42, "ease": "out_expo",
+                      "offset_y": 12, "scale_from": 0.94},
             "exit": {"dur_s": 0.18, "ease": "in_quad", "offset_y": -6},
             "hold": {"style": "none"},
         }
+        if requested:
+            motion["enter"]["requested"] = requested
+            motion["enter"]["applied"] = applied
+        accent = None
+        raw_accent = str(params.get("accent") or "").strip()
+        if raw_accent:
+            import re as _re
+            if _re.fullmatch(r"#[0-9a-fA-F]{6}", raw_accent):
+                accent = raw_accent.upper()
+                motion["accent_requested"] = raw_accent
+            else:
+                motion["accent_rejected"] = raw_accent
         backdrop = None
         if c.backdrop:
             kind = {"scrim_right": "scrim_right", "scrim_left": "scrim_left",
                     "band_top": "band_top", "band_bottom": "band_bottom",
                     "lower_third": "band_bottom", "card": "card"}.get(c.treatment, "card")
+            pol = self.cfg.policy
             backdrop = {"kind": kind, "box": [int(v) for v in c.backdrop],
-                        "alpha": 0.86 if kind.startswith(("scrim", "band")) else 0.80,
+                        "alpha": float(pol.layout.get("scrim.alpha", 0.86))
+                        if kind.startswith(("scrim", "band")) else 0.80,
                         "blur_px": 26 if kind == "card" else 0,
                         "enter_s": 0.34, "exit_s": 0.22}
             if c.profile:
@@ -831,6 +951,7 @@ class Designer:
                        "anchor_start_s": round(float(group["anchors"][0].get("start_s") or start), 4),
                        "anchor_end_s": round(float(group["anchors"][-1].get("end_s") or end), 4)},
             "box": [int(v) for v in box],
+            "accent": accent,
             "backdrop": backdrop,
             "content": content,
             "fit": {"kind": fit.kind, "width": fit.width, "height": fit.height,

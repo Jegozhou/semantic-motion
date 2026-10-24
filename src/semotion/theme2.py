@@ -27,18 +27,20 @@ FONT_FILES = {
 # vertical weight axis for the Inter variable font
 LATIN_WEIGHT = {"regular": 450, "medium": 560, "semibold": 640, "bold": 720}
 
-# type scale, as a fraction of the canvas *reference height* (min(H, W*0.62))
-TYPE_RATIO = {"display": 0.078, "title": 0.058, "body": 0.030, "meta": 0.021,
-              "stat": 0.150, "stat_unit": 0.052}
-LINE_FACTOR = {"display": 1.30, "title": 1.32, "body": 1.52, "meta": 1.45,
-               "stat": 1.0, "stat_unit": 1.0}
-# a reference height keeps 16:9 and 9:16 type in the same optical range
-MIN_REF_HEIGHT = 640
+# Type scale comes from the design policy (policies/*.json) so it can be tuned
+# without editing code. The numbers below are the import-time default only.
+from .policy import DEFAULT as _POLICY  # noqa: E402  (policy has no package imports)
+
+TYPE_RATIO = dict(_POLICY.get("type.ratio", {}) or {})
+LINE_FACTOR = dict(_POLICY.get("type.line_factor", {}) or {})
+MIN_REF_HEIGHT = int(_POLICY.get("type.reference.min_height", 640))
+REF_WIDTH_FACTOR = float(_POLICY.get("type.reference.width_factor", 0.62))
+MAX_LINES = dict(_POLICY.get("type.max_lines", {}) or {})
 
 
 def reference_height(width: int, height: int) -> int:
-    """Optical reference for type sizes: portrait uses H, wide uses H*1.32-ish."""
-    return int(max(MIN_REF_HEIGHT, min(height, width * 0.62)))
+    """Optical reference for type sizes: portrait uses H, wide uses H*factor."""
+    return int(max(MIN_REF_HEIGHT, min(height, width * REF_WIDTH_FACTOR)))
 
 
 def type_px(kind: str, width: int, height: int, tier: float = 1.0) -> int:

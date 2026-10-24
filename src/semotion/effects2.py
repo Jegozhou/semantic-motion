@@ -22,6 +22,7 @@ from typing import Any, Sequence
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
+from . import policy as _policy_mod
 from . import theme2 as T
 
 SS = 2  # supersampling factor for all element rasterisation
@@ -191,8 +192,13 @@ def _kicker_width(text, ctx, px) -> float:
 def fit_element(element: dict, ctx: Ctx, max_w: float, max_h: float,
                 tier: float = 1.0) -> Fit | None:
     fit = _fit_element_inner(element, ctx, max_w, max_h, tier)
-    if fit is not None:
-        fit.min_px = max(10, int(round((fit.display_px or fit.title_px or fit.body_px) * 0.58)))
+    if fit is None:
+        return None
+    # a fit that does not actually fit must fail, so the caller shrinks or drops:
+    # silently clamping the box would paint text outside its scrim.
+    if fit.height > max_h or fit.width > max_w * 1.01:
+        return None
+    fit.min_px = max(10, int(round((fit.display_px or fit.title_px or fit.body_px) * 0.58)))
     return fit
 
 
@@ -211,7 +217,8 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         if not text:
             return None
         start = int(T.TYPE_RATIO["display"] * ref * tier)
-        got = _fitting_font(ctx, text, "display", max_w - 2 * pad, start, 2)
+        got = _fitting_font(ctx, text, "display", max_w - 2 * pad, start,
+                            int(T.MAX_LINES.get("keyword", 2)))
         if not got:
             return None
         _, dpx, lines = got
@@ -235,7 +242,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         if body_lines:
             h += int(dpx * 0.30) + len(body_lines) * T.line_pitch(bpx, "body")
         h += int(dpx * 0.62)  # breathing room for the accent rule
-        height = int(min(h, max_h))
+        height = int(h)
         return Fit(kind=kind, width=min(width, max_w), height=height, pad=pad,
                    display_px=dpx, body_px=bpx, kicker_px=kpx, pitch=pitch,
                    lines=lines, body_lines=body_lines, kicker=kicker,
@@ -255,7 +262,8 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         body_lines = T.wrap_text(body, bf_all, max_w - 2 * pad, max_lines=2) if body else []
         # title may use two lines; body needs the remaining height
         avail_h = max_h - (len(body_lines) * T.line_pitch(bpx, "body")) - int(bpx * 2.6)
-        got = _fitting_font(ctx, title, "display", max_w - 2 * pad, start, 2)
+        got = _fitting_font(ctx, title, "display", max_w - 2 * pad, start,
+                            int(T.MAX_LINES.get("card", 2)))
         if not got:
             return None
         _, tpx, lines = got
@@ -263,7 +271,8 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         while len(lines) * pitch > avail_h and tpx > int(start * 0.6):
             tpx = int(tpx * 0.92)
             font = ctx.book.get("display", tpx)
-            lines = T.wrap_text(title, font, max_w - 2 * pad, max_lines=2)
+            lines = T.wrap_text(title, font, max_w - 2 * pad,
+                                max_lines=int(T.MAX_LINES.get("card", 2)))
             pitch = T.line_pitch(tpx, "title")
         tw = max([T.text_width(ctx.book.get("display", tpx), ln) for ln in lines] or [0])
         bw = max([T.text_width(bf_all, ln) for ln in body_lines] or [0])
@@ -272,7 +281,9 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         h = int(kpx * 1.5) + int(tpx * 0.52) + len(lines) * pitch
         if body_lines:
             h += int(tpx * 0.28) + len(body_lines) * T.line_pitch(bpx, "body")
-        return Fit(kind=kind, width=min(width, max_w), height=int(min(h, max_h)),
+        if h > max_h:
+            return None
+        return Fit(kind=kind, width=min(width, max_w), height=int(h),
                    pad=pad, title_px=tpx, body_px=bpx, kicker_px=kpx, pitch=pitch,
                    lines=lines, body_lines=body_lines, kicker=kicker,
                    emphasis=c.get("emphasis") or [], align=c.get("align", "left"))
@@ -333,7 +344,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         for r in rows:
             h += len(r["lines"]) * pitch + row_gap
         h -= row_gap
-        return Fit(kind=kind, width=min(width, max_w), height=int(min(h, max_h)),
+        return Fit(kind=kind, width=min(width, max_w), height=int(h),
                    pad=pad, title_px=tpx, kicker_px=kpx, pitch=pitch, kicker=kicker,
                    rows=rows, emphasis=c.get("emphasis") or [])
 
@@ -363,7 +374,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
             h = int(kpx * 1.5) + int(npx * 0.3) + len(lines) * T.line_pitch(npx, "stat") \
                 + (int(npx * 0.26) + len(label_lines) * T.line_pitch(int(npx * 0.2), "body")
                    if label_lines else 0)
-            return Fit(kind=kind, width=min(width, max_w), height=int(min(h, max_h)),
+            return Fit(kind=kind, width=min(width, max_w), height=int(h),
                        pad=pad, display_px=npx, kicker_px=kpx, pitch=T.line_pitch(npx, "stat"),
                        lines=lines, kicker=kicker, label=label, unit=unit,
                        num_str=display, rule=True)
@@ -388,7 +399,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         h = int(kpx * 1.5) + int(npx * 0.22) + npx + \
             (int(npx * 0.16) + len(label_lines) * T.line_pitch(lpx, "body") if label_lines else 0) + \
             int(npx * 0.22)
-        return Fit(kind=kind, width=min(int(width), max_w), height=int(min(h, max_h)),
+        return Fit(kind=kind, width=min(int(width), max_w), height=int(h),
                    pad=pad, display_px=npx, body_px=lpx, kicker_px=kpx, kicker=kicker,
                    num_str=num_str, unit=unit, label="\n".join(label_lines), rule=True,
                    emphasis=[])
@@ -415,7 +426,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         width = int(max_w)
         h = int(kpx * 1.5) + (int(tpx * 1.4) if title else 0) + int(ref * 0.02)
         h += len(bars) * (bar_h + gap)
-        return Fit(kind=kind, width=min(width, max_w), height=int(min(h, max_h)),
+        return Fit(kind=kind, width=min(width, max_w), height=int(h),
                    pad=pad, title_px=tpx, body_px=lpx, kicker_px=kpx, kicker=kicker,
                    lines=[title] if title else [], bars=bars,
                    label=title, unit=str(c.get("unit") or ""),
@@ -433,7 +444,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         width = int(max_w)
         rows = max(len(left.get("items") or []), len(right.get("items") or []))
         h = int(kpx * 1.5) + int(tpx * 2.2) + rows * T.line_pitch(lpx, "body")
-        return Fit(kind=kind, width=min(width, max_w), height=int(min(h, max_h)),
+        return Fit(kind=kind, width=min(width, max_w), height=int(h),
                    pad=pad, title_px=tpx, body_px=lpx, kicker_px=kpx, kicker=kicker,
                    compare={"left": left, "right": right}, rule=False)
 
@@ -455,7 +466,7 @@ def _fit_element_inner(element: dict, ctx: Ctx, max_w: float, max_h: float,
         width = min(max_w, int(max(T.text_width(ctx.book.get("display", tpx), l) for l in lines)
                                + int(tpx * 0.75)) + 2 * pad)
         h = int(kpx * 1.5) + len(lines) * pitch + (int(tpx * 0.7) if attribution else 0)
-        return Fit(kind=kind, width=width, height=int(min(h, max_h)), pad=pad,
+        return Fit(kind=kind, width=width, height=int(h), pad=pad,
                    title_px=tpx, kicker_px=kpx, body_px=apx, pitch=pitch,
                    lines=lines, kicker=kicker, quote={"attribution": attribution},
                    rule=False, align="left")
