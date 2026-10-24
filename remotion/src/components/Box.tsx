@@ -1,7 +1,10 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
-import { ElementStyle } from "../theme";
+import { ElementStyle, PANELS } from "../theme";
 
+/**
+ * Panel surface + geometry. The box is exactly the IR layout box (never larger), so
+ * containment metrics stay meaningful; the visual depth comes from shadow/border.
+ */
 export const Box: React.FC<{
   box: [number, number, number, number];
   style: ElementStyle;
@@ -9,8 +12,10 @@ export const Box: React.FC<{
   opacity?: number;
   translateY?: number;
   children: React.ReactNode;
-}> = ({ box, style, scale = 1, opacity = 1, translateY = 0, children }) => {
+  padded?: boolean;
+}> = ({ box, style, scale = 1, opacity = 1, translateY = 0, children, padded = true }) => {
   const [x, y, w, h] = box;
+  const variant = style.variant ?? "glass";
   return (
     <div
       style={{
@@ -23,18 +28,31 @@ export const Box: React.FC<{
         transformOrigin: "center center",
         opacity,
         overflow: "hidden",
+        borderRadius: style.radius,
+        ...PANELS[variant],
       }}
     >
+      {/* warm corner glow — cheap depth cue that stays inside the box */}
+      <div
+        style={{
+          position: "absolute",
+          right: -80,
+          top: -80,
+          width: 220,
+          height: 220,
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${style.accent}33 0%, transparent 70%)`,
+          pointerEvents: "none",
+        }}
+      />
       <div
         style={{
           position: "absolute",
           inset: 0,
-          borderRadius: style.radius,
-          background: style.bg,
           display: "flex",
           alignItems: "center",
           justifyContent: style.align === "left" ? "flex-start" : "center",
-          padding: "18px 24px",
+          padding: padded ? "18px 26px" : 0,
           boxSizing: "border-box",
         }}
       >
