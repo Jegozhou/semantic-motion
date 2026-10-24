@@ -1,0 +1,726 @@
+{
+  "per_fixture": {
+    "fx_a_zh_portrait": {
+      "units": 14,
+      "segments": 7,
+      "words": 66,
+      "anchors": 10,
+      "kinds": {
+        "card": 1,
+        "keyword": 3,
+        "list_item": 3,
+        "number": 2,
+        "process": 1
+      },
+      "refine_accepted": 10,
+      "refine_rejected": 0,
+      "word_onset": {
+        "before": {
+          "n": 12,
+          "p50_ms": 110,
+          "p90_ms": 183,
+          "max_ms": 189,
+          "mean_ms": 108
+        },
+        "after": {
+          "n": 12,
+          "p50_ms": 4,
+          "p90_ms": 19,
+          "max_ms": 24,
+          "mean_ms": 8
+        },
+        "unmatched_units": 2
+      },
+      "anchor_onset": {
+        "samples": 6,
+        "before": {
+          "n": 6,
+          "p50_ms": 87,
+          "p90_ms": 160,
+          "max_ms": 184,
+          "mean_ms": 105
+        },
+        "after": {
+          "n": 6,
+          "p50_ms": 4,
+          "p90_ms": 20,
+          "max_ms": 24,
+          "mean_ms": 9
+        },
+        "unmatched_units": [
+          "u01",
+          "u02",
+          "u03",
+          "u08",
+          "u10",
+          "u12",
+          "u13",
+          "u14"
+        ],
+        "per_unit_after_ms": {
+          "u04": 24,
+          "u05": 16,
+          "u06": 2,
+          "u07": 3,
+          "u09": 3,
+          "u11": 6
+        },
+        "per_unit_before_ms": {
+          "u04": 184,
+          "u05": 86,
+          "u06": 88,
+          "u07": 57,
+          "u09": 77,
+          "u11": 136
+        }
+      },
+      "refine_deltas_ms": [
+        20,
+        80,
+        -160,
+        -70,
+        -90,
+        -170,
+        -60,
+        -80,
+        -130,
+        -150
+      ]
+    },
+    "fx_b_zh_landscape": {
+      "units": 8,
+      "segments": 1,
+      "words": 73,
+      "anchors": 12,
+      "kinds": {
+        "card": 2,
+        "conclusion": 2,
+        "keyword": 1,
+        "list_item": 3,
+        "number": 2,
+        "process": 2
+      },
+      "refine_accepted": 12,
+      "refine_rejected": 0,
+      "word_onset": {
+        "before": {
+          "n": 6,
+          "p50_ms": 156,
+          "p90_ms": 180,
+          "max_ms": 187,
+          "mean_ms": 143
+        },
+        "after": {
+          "n": 6,
+          "p50_ms": 4,
+          "p90_ms": 12,
+          "max_ms": 15,
+          "mean_ms": 6
+        },
+        "unmatched_units": 2
+      },
+      "anchor_onset": {
+        "samples": 5,
+        "before": {
+          "n": 5,
+          "p50_ms": 167,
+          "p90_ms": 181,
+          "max_ms": 187,
+          "mean_ms": 160
+        },
+        "after": {
+          "n": 5,
+          "p50_ms": 3,
+          "p90_ms": 13,
+          "max_ms": 15,
+          "mean_ms": 7
+        },
+        "unmatched_units": [
+          "u01",
+          "u05",
+          "u07"
+        ],
+        "per_unit_after_ms": {
+          "u02": 3,
+          "u03": 3,
+          "u04": 3,
+          "u06": 15,
+          "u08": 10
+        },
+        "per_unit_before_ms": {
+          "u02": 187,
+          "u03": 173,
+          "u04": 167,
+          "u06": 145,
+          "u08": 130
+        }
+      },
+      "refine_deltas_ms": [
+        -160,
+        80,
+        -190,
+        -170,
+        -170,
+        -40,
+        -130,
+        -130,
+        60,
+        -140,
+        160,
+        -120
+      ]
+    },
+    "fx_c_zh_cuts": {
+      "units": 7,
+      "segments": 7,
+      "words": 56,
+      "anchors": 9,
+      "kinds": {
+        "card": 1,
+        "keyword": 1,
+        "list_item": 5,
+        "number": 2
+      },
+      "refine_accepted": 9,
+      "refine_rejected": 0,
+      "word_onset": {
+        "before": {
+          "n": 6,
+          "p50_ms": 77,
+          "p90_ms": 117,
+          "max_ms": 122,
+          "mean_ms": 76
+        },
+        "after": {
+          "n": 6,
+          "p50_ms": 2,
+          "p90_ms": 12,
+          "max_ms": 19,
+          "mean_ms": 5
+        },
+        "unmatched_units": 1
+      },
+      "anchor_onset": {
+        "samples": 5,
+        "before": {
+          "n": 5,
+          "p50_ms": 112,
+          "p90_ms": 349,
+          "max_ms": 500,
+          "mean_ms": 172
+        },
+        "after": {
+          "n": 5,
+          "p50_ms": 2,
+          "p90_ms": 15,
+          "max_ms": 19,
+          "mean_ms": 7
+        },
+        "unmatched_units": [
+          "u02",
+          "u07"
+        ],
+        "per_unit_after_ms": {
+          "u01": 10,
+          "u03": 2,
+          "u04": 2,
+          "u05": 1,
+          "u06": 19
+        },
+        "per_unit_before_ms": {
+          "u01": 500,
+          "u03": 112,
+          "u04": 122,
+          "u05": 89,
+          "u06": 39
+        }
+      },
+      "refine_deltas_ms": [
+        510,
+        510,
+        -140,
+        110,
+        120,
+        90,
+        -90,
+        -20,
+        -80
+      ]
+    },
+    "fx_d_zh_portrait": {
+      "units": 20,
+      "segments": 2,
+      "words": 148,
+      "anchors": 26,
+      "kinds": {
+        "card": 5,
+        "conclusion": 2,
+        "keyword": 6,
+        "list_item": 8,
+        "number": 5
+      },
+      "refine_accepted": 26,
+      "refine_rejected": 0,
+      "word_onset": {
+        "before": {
+          "n": 19,
+          "p50_ms": 140,
+          "p90_ms": 203,
+          "max_ms": 251,
+          "mean_ms": 135
+        },
+        "after": {
+          "n": 19,
+          "p50_ms": 11,
+          "p90_ms": 19,
+          "max_ms": 22,
+          "mean_ms": 12
+        },
+        "unmatched_units": 1
+      },
+      "anchor_onset": {
+        "samples": 17,
+        "before": {
+          "n": 17,
+          "p50_ms": 130,
+          "p90_ms": 221,
+          "max_ms": 500,
+          "mean_ms": 150
+        },
+        "after": {
+          "n": 17,
+          "p50_ms": 10,
+          "p90_ms": 19,
+          "max_ms": 22,
+          "mean_ms": 12
+        },
+        "unmatched_units": [
+          "u02",
+          "u15",
+          "u16"
+        ],
+        "per_unit_after_ms": {
+          "u01": 10,
+          "u03": 10,
+          "u04": 11,
+          "u05": 7,
+          "u06": 8,
+          "u07": 9,
+          "u08": 9,
+          "u09": 19,
+          "u10": 17,
+          "u11": 7,
+          "u12": 10,
+          "u13": 10,
+          "u14": 20,
+          "u17": 12,
+          "u18": 11,
+          "u19": 22,
+          "u20": 13
+        },
+        "per_unit_before_ms": {
+          "u01": 500,
+          "u03": 120,
+          "u04": 19,
+          "u05": 77,
+          "u06": 168,
+          "u07": 50,
+          "u08": 49,
+          "u09": 251,
+          "u10": 127,
+          "u11": 127,
+          "u12": 180,
+          "u13": 140,
+          "u14": 130,
+          "u17": 152,
+          "u18": 201,
+          "u19": 122,
+          "u20": 143
+        }
+      },
+      "refine_deltas_ms": [
+        510,
+        -110,
+        -110,
+        30,
+        -50,
+        -70,
+        -100,
+        -160,
+        -40,
+        -40,
+        270,
+        270,
+        -110,
+        -120,
+        -170,
+        -130,
+        -170,
+        -110,
+        -110,
+        -140,
+        -190,
+        -190,
+        -170,
+        -100,
+        -130,
+        -130
+      ]
+    },
+    "fx_e_zh_landscape": {
+      "units": 17,
+      "segments": 3,
+      "words": 118,
+      "anchors": 19,
+      "kinds": {
+        "card": 3,
+        "conclusion": 3,
+        "keyword": 1,
+        "list_item": 6,
+        "number": 6
+      },
+      "refine_accepted": 19,
+      "refine_rejected": 0,
+      "word_onset": {
+        "before": {
+          "n": 13,
+          "p50_ms": 98,
+          "p90_ms": 161,
+          "max_ms": 243,
+          "mean_ms": 115
+        },
+        "after": {
+          "n": 13,
+          "p50_ms": 3,
+          "p90_ms": 17,
+          "max_ms": 38,
+          "mean_ms": 9
+        },
+        "unmatched_units": 4
+      },
+      "anchor_onset": {
+        "samples": 11,
+        "before": {
+          "n": 11,
+          "p50_ms": 98,
+          "p90_ms": 162,
+          "max_ms": 243,
+          "mean_ms": 117
+        },
+        "after": {
+          "n": 11,
+          "p50_ms": 3,
+          "p90_ms": 17,
+          "max_ms": 38,
+          "mean_ms": 9
+        },
+        "unmatched_units": [
+          "u01",
+          "u02",
+          "u03",
+          "u10",
+          "u12",
+          "u13"
+        ],
+        "per_unit_after_ms": {
+          "u04": 15,
+          "u05": 1,
+          "u06": 3,
+          "u07": 3,
+          "u08": 38,
+          "u09": 17,
+          "u11": 1,
+          "u14": 3,
+          "u15": 2,
+          "u16": 3,
+          "u17": 12
+        },
+        "per_unit_before_ms": {
+          "u04": 45,
+          "u05": 19,
+          "u06": 87,
+          "u07": 93,
+          "u08": 98,
+          "u09": 243,
+          "u11": 141,
+          "u14": 147,
+          "u15": 162,
+          "u16": 157,
+          "u17": 92
+        }
+      },
+      "refine_deltas_ms": [
+        90,
+        -90,
+        -20,
+        -30,
+        -30,
+        40,
+        -20,
+        -90,
+        -90,
+        -60,
+        260,
+        -180,
+        -140,
+        -150,
+        -160,
+        -160,
+        -160,
+        -160,
+        -80
+      ]
+    }
+  },
+  "totals": {
+    "units_total": 66,
+    "word_onset": {
+      "before": {
+        "n": 56,
+        "p50_ms": 128,
+        "p90_ms": 186,
+        "max_ms": 251,
+        "mean_ms": 119
+      },
+      "after": {
+        "n": 56,
+        "p50_ms": 8,
+        "p90_ms": 19,
+        "max_ms": 38,
+        "mean_ms": 9
+      },
+      "errors_before_ms": [
+        140,
+        189,
+        184,
+        86,
+        88,
+        57,
+        17,
+        77,
+        131,
+        136,
+        12,
+        175,
+        187,
+        173,
+        167,
+        145,
+        54,
+        130,
+        29,
+        112,
+        122,
+        89,
+        39,
+        65,
+        160,
+        120,
+        19,
+        77,
+        168,
+        50,
+        49,
+        251,
+        127,
+        127,
+        180,
+        140,
+        130,
+        152,
+        201,
+        122,
+        143,
+        145,
+        211,
+        45,
+        19,
+        87,
+        93,
+        98,
+        243,
+        141,
+        147,
+        162,
+        157,
+        92,
+        141,
+        65
+      ],
+      "errors_after_ms": [
+        0,
+        19,
+        24,
+        16,
+        2,
+        3,
+        3,
+        3,
+        11,
+        6,
+        2,
+        5,
+        3,
+        3,
+        3,
+        15,
+        4,
+        10,
+        1,
+        2,
+        2,
+        1,
+        19,
+        5,
+        0,
+        10,
+        11,
+        7,
+        8,
+        9,
+        9,
+        19,
+        17,
+        7,
+        10,
+        10,
+        20,
+        12,
+        11,
+        22,
+        13,
+        15,
+        11,
+        15,
+        1,
+        3,
+        3,
+        38,
+        17,
+        1,
+        3,
+        2,
+        3,
+        12,
+        11,
+        5
+      ]
+    },
+    "anchor_onset": {
+      "before": {
+        "n": 44,
+        "p50_ms": 128,
+        "p90_ms": 197,
+        "max_ms": 500,
+        "mean_ms": 139
+      },
+      "after": {
+        "n": 44,
+        "p50_ms": 10,
+        "p90_ms": 19,
+        "max_ms": 38,
+        "mean_ms": 10
+      },
+      "errors_before_ms": [
+        184,
+        86,
+        88,
+        57,
+        77,
+        136,
+        187,
+        173,
+        167,
+        145,
+        130,
+        500,
+        112,
+        122,
+        89,
+        39,
+        500,
+        120,
+        19,
+        77,
+        168,
+        50,
+        49,
+        251,
+        127,
+        127,
+        180,
+        140,
+        130,
+        152,
+        201,
+        122,
+        143,
+        45,
+        19,
+        87,
+        93,
+        98,
+        243,
+        141,
+        147,
+        162,
+        157,
+        92
+      ],
+      "errors_after_ms": [
+        24,
+        16,
+        2,
+        3,
+        3,
+        6,
+        3,
+        3,
+        3,
+        15,
+        10,
+        10,
+        2,
+        2,
+        1,
+        19,
+        10,
+        10,
+        11,
+        7,
+        8,
+        9,
+        9,
+        19,
+        17,
+        7,
+        10,
+        10,
+        20,
+        12,
+        11,
+        22,
+        13,
+        15,
+        1,
+        3,
+        3,
+        38,
+        17,
+        1,
+        3,
+        2,
+        3,
+        12
+      ]
+    },
+    "truth_class": "SYNTH_KNOWN (per-unit TTS assembly, ffprobe-measured; ASR not used)",
+    "split": "dev",
+    "thresholds": {
+      "p90_target_ms": 100,
+      "min_events_for_acceptance": 50
+    },
+    "verdict": "EXPLORATORY (<50 events)",
+    "note": "Dev calibration on synthetic TTS, not real human speech; P90 acceptance per spec §5 needs >= 50 independent events and at least one independently labelled (HUMAN) set."
+  }
+}

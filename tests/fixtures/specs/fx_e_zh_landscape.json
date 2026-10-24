@@ -1,0 +1,102 @@
+{
+  "id": "fx_e_zh_landscape",
+  "voice": "Tingting",
+  "rate": 178,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "gap_s": 0.3,
+  "lead_in_s": 0.5,
+  "tail_s": 0.7,
+  "palette": "studio_night",
+  "camera_motion": "static",
+  "seed": 53,
+  "purpose": "G1 timing sample expansion #2 (SYNTH_KNOWN, landscape). 13 units with percentages (百分之八十七 / 百分之五十 / 一半), a three-item step list, two conclusion sentences (所以 / 结论是) and unit-initial anchor coverage for anchor->truth matching. Extended to 17 units: four extra unit-initial anchors (第一步/第二步/第三步/结论) for anchor->truth sample size.",
+  "units": [
+    {
+      "id": "u01",
+      "text": "先看一组真实数据。",
+      "role": "plain"
+    },
+    {
+      "id": "u02",
+      "text": "百分之八十七的人，三秒就划走。",
+      "role": "number"
+    },
+    {
+      "id": "u03",
+      "text": "两秒之后，注意力就散了。",
+      "role": "number"
+    },
+    {
+      "id": "u04",
+      "text": "所以重点必须前置。",
+      "role": "keyword"
+    },
+    {
+      "id": "u05",
+      "text": "第一，标题要短。",
+      "role": "list_item"
+    },
+    {
+      "id": "u06",
+      "text": "第二，数字要准。",
+      "role": "list_item"
+    },
+    {
+      "id": "u07",
+      "text": "第三，节奏要稳。",
+      "role": "list_item"
+    },
+    {
+      "id": "u08",
+      "text": "三条都做到，数据会变好。",
+      "role": "number"
+    },
+    {
+      "id": "u09",
+      "text": "结论是，少即是多。",
+      "role": "keyword"
+    },
+    {
+      "id": "u10",
+      "text": "百分之五十的效果来自删减。",
+      "role": "number"
+    },
+    {
+      "id": "u11",
+      "text": "一半的动效可以直接删掉。",
+      "role": "number"
+    },
+    {
+      "id": "u14",
+      "text": "第一步先定标题。",
+      "role": "list_item"
+    },
+    {
+      "id": "u15",
+      "text": "第二步再定数字。",
+      "role": "list_item"
+    },
+    {
+      "id": "u16",
+      "text": "第三步才排节奏。",
+      "role": "list_item"
+    },
+    {
+      "id": "u17",
+      "text": "结论很清楚，少即是多。",
+      "role": "keyword"
+    },
+    {
+      "id": "u12",
+      "text": "剩下的交给你。",
+      "role": "plain"
+    },
+    {
+      "id": "u13",
+      "text": "我们下期见。",
+      "role": "plain"
+    }
+  ]
+}

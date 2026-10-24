@@ -1,0 +1,618 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+  "transcript_sha256": "2a0983a3020dcb98ab171ab36242ae338cd327bd5e2708f2e6baab87508805e8",
+  "duration_s": 40.64,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "number",
+      "text": "87%",
+      "start_s": 3.31,
+      "end_s": 3.76,
+      "confidence": 0.92,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w8",
+        "w9"
+      ],
+      "rule": "percent_symbol",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "energy_rise",
+        "onset_s": 3.31,
+        "search_window_s": [
+          2.97,
+          3.47
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.134934,
+        "asr_start_s": 3.22
+      }
+    },
+    {
+      "id": "a01",
+      "kind": "number",
+      "text": "3秒",
+      "start_s": 4.57,
+      "end_s": 5.06,
+      "confidence": 0.88,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w11",
+        "w12"
+      ],
+      "rule": "arabic_number",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 4.57,
+        "search_window_s": [
+          4.41,
+          4.91
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.002835,
+        "asr_start_s": 4.66
+      }
+    },
+    {
+      "id": "a02",
+      "kind": "number",
+      "text": "2秒",
+      "start_s": 6.14,
+      "end_s": 6.68,
+      "confidence": 0.88,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w16",
+        "w17"
+      ],
+      "rule": "arabic_number",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -20,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 6.14,
+        "search_window_s": [
+          5.91,
+          6.41
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.007989,
+        "asr_start_s": 6.16
+      }
+    },
+    {
+      "id": "a03",
+      "kind": "conclusion",
+      "text": "所以",
+      "start_s": 8.91,
+      "end_s": 9.38,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w25"
+      ],
+      "rule": "conclusion_marker",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -30,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 8.91,
+        "search_window_s": [
+          8.68,
+          9.19
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.005483,
+        "asr_start_s": 8.94
+      }
+    },
+    {
+      "id": "a04",
+      "kind": "card",
+      "text": "所以重点必须前置",
+      "start_s": 8.91,
+      "end_s": 10.94,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w25",
+        "w26",
+        "w27",
+        "w28",
+        "w29",
+        "w30",
+        "w31"
+      ],
+      "rule": "card_clause",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -30,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 8.91,
+        "search_window_s": [
+          8.68,
+          9.19
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.005483,
+        "asr_start_s": 8.94
+      }
+    },
+    {
+      "id": "a05",
+      "kind": "keyword",
+      "text": "重点必须前置",
+      "start_s": 9.42,
+      "end_s": 10.94,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w26",
+        "w27",
+        "w28",
+        "w29",
+        "w30",
+        "w31"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 6,
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 40,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "energy_rise",
+        "onset_s": 9.42,
+        "search_window_s": [
+          9.13,
+          9.64
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.120315,
+        "asr_start_s": 9.38
+      }
+    },
+    {
+      "id": "a06",
+      "kind": "list_item",
+      "text": "第一",
+      "start_s": 11.1,
+      "end_s": 11.56,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w32"
+      ],
+      "rule": "ordinal",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -20,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 11.1,
+        "search_window_s": [
+          10.87,
+          11.37
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.003521,
+        "asr_start_s": 11.12
+      }
+    },
+    {
+      "id": "a07",
+      "kind": "list_item",
+      "text": "第二",
+      "start_s": 13.11,
+      "end_s": 13.64,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w37"
+      ],
+      "rule": "ordinal",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 13.11,
+        "search_window_s": [
+          12.95,
+          13.45
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.003037,
+        "asr_start_s": 13.2
+      }
+    },
+    {
+      "id": "a08",
+      "kind": "list_item",
+      "text": "第三",
+      "start_s": 15.15,
+      "end_s": 15.72,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w42"
+      ],
+      "rule": "ordinal",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 15.15,
+        "search_window_s": [
+          14.99,
+          15.49
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.01389,
+        "asr_start_s": 15.24
+      }
+    },
+    {
+      "id": "a09",
+      "kind": "number",
+      "text": "三条",
+      "start_s": 17.22,
+      "end_s": 17.72,
+      "confidence": 0.86,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w47",
+        "w48"
+      ],
+      "rule": "chinese_number",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -60,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 17.22,
+        "search_window_s": [
+          17.03,
+          17.53
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.002527,
+        "asr_start_s": 17.28
+      }
+    },
+    {
+      "id": "a10",
+      "kind": "conclusion",
+      "text": "结论",
+      "start_s": 20.38,
+      "end_s": 20.86,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w57",
+        "w58"
+      ],
+      "rule": "conclusion_marker",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 260,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_forward",
+        "onset_s": 20.38,
+        "search_window_s": [
+          19.87,
+          20.37
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.009328,
+        "asr_start_s": 20.12
+      }
+    },
+    {
+      "id": "a11",
+      "kind": "number",
+      "text": "50%",
+      "start_s": 22.74,
+      "end_s": 23.7,
+      "confidence": 0.92,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w64",
+        "w65"
+      ],
+      "rule": "percent_symbol",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -180,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 22.74,
+        "search_window_s": [
+          22.67,
+          23.17
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.018485,
+        "asr_start_s": 22.92
+      }
+    },
+    {
+      "id": "a12",
+      "kind": "number",
+      "text": "一半",
+      "start_s": 25.66,
+      "end_s": 26.06,
+      "confidence": 0.84,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w73",
+        "w74"
+      ],
+      "rule": "fraction_half",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -140,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 25.66,
+        "search_window_s": [
+          25.55,
+          26.05
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.006698,
+        "asr_start_s": 25.8
+      }
+    },
+    {
+      "id": "a13",
+      "kind": "list_item",
+      "text": "第一步",
+      "start_s": 28.27,
+      "end_s": 28.84,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w82",
+        "w83"
+      ],
+      "rule": "ordinal",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -150,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 28.27,
+        "search_window_s": [
+          28.17,
+          28.67
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.003045,
+        "asr_start_s": 28.42
+      }
+    },
+    {
+      "id": "a14",
+      "kind": "list_item",
+      "text": "第二步",
+      "start_s": 30.24,
+      "end_s": 30.88,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w88",
+        "w89"
+      ],
+      "rule": "ordinal",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -160,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 30.24,
+        "search_window_s": [
+          30.15,
+          30.65
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.011076,
+        "asr_start_s": 30.4
+      }
+    },
+    {
+      "id": "a15",
+      "kind": "card",
+      "text": "第二步再定数字",
+      "start_s": 30.24,
+      "end_s": 31.9,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w88",
+        "w89",
+        "w90",
+        "w91",
+        "w92",
+        "w93"
+      ],
+      "rule": "card_clause",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -160,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 30.24,
+        "search_window_s": [
+          30.15,
+          30.65
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.011076,
+        "asr_start_s": 30.4
+      }
+    },
+    {
+      "id": "a16",
+      "kind": "list_item",
+      "text": "第三步",
+      "start_s": 32.06,
+      "end_s": 32.78,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w94",
+        "w95"
+      ],
+      "rule": "ordinal",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -160,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 32.06,
+        "search_window_s": [
+          31.97,
+          32.47
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.002904,
+        "asr_start_s": 32.22
+      }
+    },
+    {
+      "id": "a17",
+      "kind": "card",
+      "text": "第三步才排节奏",
+      "start_s": 32.06,
+      "end_s": 33.94,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w94",
+        "w95",
+        "w96",
+        "w97",
+        "w98",
+        "w99"
+      ],
+      "rule": "card_clause",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -160,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 32.06,
+        "search_window_s": [
+          31.97,
+          32.47
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.002904,
+        "asr_start_s": 32.22
+      }
+    },
+    {
+      "id": "a18",
+      "kind": "conclusion",
+      "text": "结论",
+      "start_s": 34.04,
+      "end_s": 34.48,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w100",
+        "w101"
+      ],
+      "rule": "conclusion_marker",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -80,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 34.04,
+        "search_window_s": [
+          33.86,
+          34.37
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.004441,
+        "asr_start_s": 34.12
+      }
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:29:54Z",
+    "method": "asr_word_spans+rule_classifier",
+    "n_anchors": 19,
+    "kinds": {
+      "card": 3,
+      "conclusion": 3,
+      "keyword": 1,
+      "list_item": 6,
+      "number": 6
+    },
+    "truth_class": "MACHINE_WEAK",
+    "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
+    "refine": {
+      "method": "energy_onset",
+      "window_ms": 500,
+      "hop_ms": 10,
+      "energy": "rms",
+      "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",
+      "video_sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+      "n_anchors": 19,
+      "n_accepted": 19,
+      "n_rejected": 0
+    }
+  }
+}

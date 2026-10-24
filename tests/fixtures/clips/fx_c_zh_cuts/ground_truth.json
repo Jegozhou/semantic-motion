@@ -1,0 +1,147 @@
+{
+  "fixture_id": "fx_c_zh_cuts",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
+  "abs_path": "tests/fixtures/clips/fx_c_zh_cuts/fx_c_zh_cuts.mp4",
+  "sha256": "09a51e58c6c065d02534cee1aeff9f5ed753b166b5587ae0ae985ca22aecd4c5",
+  "duration_s": 20.08,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25.0,
+  "n_frames": 502,
+  "language": "zh",
+  "voice": "Tingting",
+  "rate": 175,
+  "camera_motion": [
+    "static",
+    "slow_pan",
+    "slow_zoom"
+  ],
+  "palette": [
+    "studio_night",
+    "studio_warm",
+    "studio_day"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 8.0,
+      "start_frame": 0,
+      "end_frame": 200
+    },
+    {
+      "index": 1,
+      "start_s": 8.0,
+      "end_s": 16.0,
+      "start_frame": 200,
+      "end_frame": 400
+    },
+    {
+      "index": 2,
+      "start_s": 16.0,
+      "end_s": 20.082583,
+      "start_frame": 400,
+      "end_frame": 502
+    }
+  ],
+  "design": "generated graphic artwork (no real person)",
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "第三种情况最难处理。",
+      "role": "number",
+      "start_s": 0.5,
+      "end_s": 2.629313,
+      "start_frame": 12,
+      "end_frame": 66,
+      "duration_s": 2.129313,
+      "audio_sha256": "70ea7f083341b2b11ebbff7bcee9c71032f6d63b1151c15a9d076781bf698210",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "人物在动，镜头也在动。",
+      "role": "keyword",
+      "start_s": 2.929312,
+      "end_s": 5.371646,
+      "start_frame": 73,
+      "end_frame": 134,
+      "duration_s": 2.442333,
+      "audio_sha256": "2810b01d0a8e81e88f38c7bf46a160830d601309b5db4ddc47c770a55a63617e",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "第一，先锁定人脸。",
+      "role": "list_item",
+      "start_s": 5.671646,
+      "end_s": 7.661625,
+      "start_frame": 142,
+      "end_frame": 192,
+      "duration_s": 1.989979,
+      "audio_sha256": "c800630f2be62b34b3db53bd806e43163cd69686925e515211942c30f1172a7f",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "第二，再判断镜头有没有切换。",
+      "role": "list_item",
+      "start_s": 7.961625,
+      "end_s": 11.089396,
+      "start_frame": 199,
+      "end_frame": 277,
+      "duration_s": 3.127771,
+      "audio_sha256": "c37b83fd0f8eeca23d241dbd17d5c471a7d2a625db8758aab63fa532da72eda7",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "第三，最后才排文字。",
+      "role": "list_item",
+      "start_s": 11.389396,
+      "end_s": 13.68125,
+      "start_frame": 285,
+      "end_frame": 342,
+      "duration_s": 2.291854,
+      "audio_sha256": "d96b9bd1d7c7d4f8e4833f66b7dc3b75107fc977db1b9bd9375becd49cfc0a6c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "九成的情况都能稳住。",
+      "role": "number",
+      "start_s": 13.98125,
+      "end_s": 15.925292,
+      "start_frame": 350,
+      "end_frame": 398,
+      "duration_s": 1.944042,
+      "audio_sha256": "3f9b091b17012eb189ef7215e0cab90a80e87590f9abda01c2557b7253ec9e22",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "剩下的百分之十，交给人工。",
+      "role": "number",
+      "start_s": 16.225292,
+      "end_s": 19.082583,
+      "start_frame": 406,
+      "end_frame": 477,
+      "duration_s": 2.857292,
+      "audio_sha256": "da7c7890e4c4b072a28376d4e61581bd8f598cc78dabed45d86792c7b1841360",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.5,
+    "gap_s": 0.3,
+    "tail_s": 0.7,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "fixture_id": "fx_e_zh_landscape",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",
+  "abs_path": "tests/fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",
+  "sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+  "duration_s": 40.64,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25.0,
+  "n_frames": 1016,
+  "language": "zh",
+  "voice": "Tingting",
+  "rate": 178,
+  "camera_motion": [
+    "static"
+  ],
+  "palette": [
+    "studio_night"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 40.653958,
+      "start_frame": 0,
+      "end_frame": 1016
+    }
+  ],
+  "design": "generated graphic artwork (no real person)",
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "先看一组真实数据。",
+      "role": "plain",
+      "start_s": 0.5,
+      "end_s": 2.348667,
+      "start_frame": 12,
+      "end_frame": 59,
+      "duration_s": 1.848667,
+      "audio_sha256": "356552f2ea0b2aa52c3e2a1a2e596ba8255856d6a15c7345d9602bed1dfbf8fa",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "百分之八十七的人，三秒就划走。",
+      "role": "number",
+      "start_s": 2.648667,
+      "end_s": 5.841375,
+      "start_frame": 66,
+      "end_frame": 146,
+      "duration_s": 3.192708,
+      "audio_sha256": "f08764cac95eb17aab9477a4aca1d26c732a2c400fda13b39f0deb73d9a9fad8",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "两秒之后，注意力就散了。",
+      "role": "number",
+      "start_s": 6.141375,
+      "end_s": 8.595125,
+      "start_frame": 154,
+      "end_frame": 215,
+      "duration_s": 2.45375,
+      "audio_sha256": "0b8cc2865b4ae3d50e82c399b2d58e6e50afa726de591c18fae2b978935da04c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "所以重点必须前置。",
+      "role": "keyword",
+      "start_s": 8.895125,
+      "end_s": 10.801354,
+      "start_frame": 222,
+      "end_frame": 270,
+      "duration_s": 1.906229,
+      "audio_sha256": "c70112a4c5597659afdae9866fe29c427443b5aac6be21c25fcfbf65166048d7",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "第一，标题要短。",
+      "role": "list_item",
+      "start_s": 11.101354,
+      "end_s": 12.812708,
+      "start_frame": 278,
+      "end_frame": 320,
+      "duration_s": 1.711354,
+      "audio_sha256": "17589aa167d899131931d9185b12484937286de055b9d10679c29d320b91f02d",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "第二，数字要准。",
+      "role": "list_item",
+      "start_s": 13.112708,
+      "end_s": 14.847271,
+      "start_frame": 328,
+      "end_frame": 371,
+      "duration_s": 1.734563,
+      "audio_sha256": "c6eaa083f74f374c1bc28e48b445844eab5f45798d52e3da316cc932896d562a",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "第三，节奏要稳。",
+      "role": "list_item",
+      "start_s": 15.147271,
+      "end_s": 16.881833,
+      "start_frame": 379,
+      "end_frame": 422,
+      "duration_s": 1.734563,
+      "audio_sha256": "ce093b44fd54770531110178b73c857a4d1dcebb4755010465d55fad0ad670cd",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u08",
+      "text": "三条都做到，数据会变好。",
+      "role": "number",
+      "start_s": 17.181833,
+      "end_s": 20.062979,
+      "start_frame": 430,
+      "end_frame": 502,
+      "duration_s": 2.881146,
+      "audio_sha256": "d84a1b1a0485216d6084242b46b12ef1ca48dc9db420d9f5d1b4bdcb9c33fef9",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u09",
+      "text": "结论是，少即是多。",
+      "role": "keyword",
+      "start_s": 20.362979,
+      "end_s": 22.434729,
+      "start_frame": 509,
+      "end_frame": 561,
+      "duration_s": 2.07175,
+      "audio_sha256": "2a58af3c641c6175f8811f03e8d4f92eb8dc47f5eb8b8ed7e547a2632e590e67",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u10",
+      "text": "百分之五十的效果来自删减。",
+      "role": "number",
+      "start_s": 22.734729,
+      "end_s": 25.358542,
+      "start_frame": 568,
+      "end_frame": 634,
+      "duration_s": 2.623813,
+      "audio_sha256": "8a4594eb3473815cb183500a386379a08dbce2043ed4e62eb7f950326e55ea6b",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u11",
+      "text": "一半的动效可以直接删掉。",
+      "role": "number",
+      "start_s": 25.658542,
+      "end_s": 27.972667,
+      "start_frame": 641,
+      "end_frame": 699,
+      "duration_s": 2.314125,
+      "audio_sha256": "8d7bcc5e011c2b02a8397365f725de490056df2acd7428c8e369dfd551fa6db9",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u14",
+      "text": "第一步先定标题。",
+      "role": "list_item",
+      "start_s": 28.272667,
+      "end_s": 29.937583,
+      "start_frame": 707,
+      "end_frame": 748,
+      "duration_s": 1.664917,
+      "audio_sha256": "49344cf455442e58cd7db6065f30cdac3381881d6d0d4e1fb6765b835df498a2",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u15",
+      "text": "第二步再定数字。",
+      "role": "list_item",
+      "start_s": 30.237583,
+      "end_s": 31.763167,
+      "start_frame": 756,
+      "end_frame": 794,
+      "duration_s": 1.525583,
+      "audio_sha256": "d9b4301d15a590c45fe33276146a0a4a967f8ecd16f31ffc16bc18a7e5f15937",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u16",
+      "text": "第三步才排节奏。",
+      "role": "list_item",
+      "start_s": 32.063167,
+      "end_s": 33.728083,
+      "start_frame": 802,
+      "end_frame": 843,
+      "duration_s": 1.664917,
+      "audio_sha256": "5221f5fb3153a266e75f5e386f795c3b9595a246e9a446c5b0b0e2bd161db03f",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u17",
+      "text": "结论很清楚，少即是多。",
+      "role": "keyword",
+      "start_s": 34.028083,
+      "end_s": 36.599063,
+      "start_frame": 851,
+      "end_frame": 915,
+      "duration_s": 2.570979,
+      "audio_sha256": "a7aaab85314f8ad4c163754d635e3cc9814df235b5fc16e2ebc600285f219527",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u12",
+      "text": "剩下的交给你。",
+      "role": "plain",
+      "start_s": 36.899063,
+      "end_s": 38.235438,
+      "start_frame": 922,
+      "end_frame": 956,
+      "duration_s": 1.336375,
+      "audio_sha256": "9cf12433f4623a0ee8a19e39f507c4dd1f894e8d3dd0361c468d7e6de42f6d5b",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u13",
+      "text": "我们下期见。",
+      "role": "plain",
+      "start_s": 38.535438,
+      "end_s": 39.653958,
+      "start_frame": 963,
+      "end_frame": 991,
+      "duration_s": 1.118521,
+      "audio_sha256": "4b5ad774ddef9108718317b1db214cd15cea22b3191e12350d48d11aefff5dfa",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.5,
+    "gap_s": 0.3,
+    "tail_s": 0.7,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

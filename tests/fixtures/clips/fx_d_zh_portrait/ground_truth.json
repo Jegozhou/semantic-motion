@@ -1,0 +1,285 @@
+{
+  "fixture_id": "fx_d_zh_portrait",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
+  "abs_path": "tests/fixtures/clips/fx_d_zh_portrait/fx_d_zh_portrait.mp4",
+  "sha256": "d1918355d8a801447309163a75b6d65d71d43242b8a7055f0b369532b63c187e",
+  "duration_s": 46.633,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25.0,
+  "n_frames": 1166,
+  "language": "zh",
+  "voice": "Meijia",
+  "rate": 180,
+  "camera_motion": [
+    "slow_zoom"
+  ],
+  "palette": [
+    "studio_day"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 46.633,
+      "start_frame": 0,
+      "end_frame": 1166
+    }
+  ],
+  "design": "generated graphic artwork (no real person)",
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "其实大多数人，都高估了动效。",
+      "role": "keyword",
+      "start_s": 0.5,
+      "end_s": 3.399563,
+      "start_frame": 12,
+      "end_frame": 85,
+      "duration_s": 2.899563,
+      "audio_sha256": "4396489474c63890ec11153d52d32b3edcb4a5f2f83e993427259073cf478c9c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "以为做得越多，就越专业。",
+      "role": "plain",
+      "start_s": 3.699562,
+      "end_s": 6.039625,
+      "start_frame": 92,
+      "end_frame": 151,
+      "duration_s": 2.340063,
+      "audio_sha256": "ceb94b9555f88fa8fad29cb0e2da596f82f774833bb34eb33671507b3ab4b122",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "三个动效就够了。",
+      "role": "number",
+      "start_s": 6.339625,
+      "end_s": 7.879313,
+      "start_frame": 158,
+      "end_frame": 197,
+      "duration_s": 1.539688,
+      "audio_sha256": "a8122330a57b58f109aa70486e2d7cdd6db1fa8eaa5079ca41ef71ced90758c6",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "第一，关键词只标一次。",
+      "role": "list_item",
+      "start_s": 8.179312,
+      "end_s": 10.522583,
+      "start_frame": 204,
+      "end_frame": 263,
+      "duration_s": 2.343271,
+      "audio_sha256": "7b958d6246a3fba5888bc32d4c9d42c148dd59768fb9789df86b87d9541ed648",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "第二，数字只停两秒。",
+      "role": "list_item",
+      "start_s": 10.822583,
+      "end_s": 12.991708,
+      "start_frame": 271,
+      "end_frame": 325,
+      "duration_s": 2.169125,
+      "audio_sha256": "81803eef06cc8774ac6d3abc7841e247f7001a7c70d6f5c168923c626c80c8d8",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "第三，卡片别压住脸。",
+      "role": "list_item",
+      "start_s": 13.291708,
+      "end_s": 15.5305,
+      "start_frame": 332,
+      "end_frame": 388,
+      "duration_s": 2.238792,
+      "audio_sha256": "9770bcdff809f8eeb5903fa7e6d6bb20bc3910cd849c8547c9c9b330d641d54d",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "六次是每分钟上限。",
+      "role": "number",
+      "start_s": 15.8305,
+      "end_s": 17.731104,
+      "start_frame": 396,
+      "end_frame": 443,
+      "duration_s": 1.900604,
+      "audio_sha256": "6ab7405ae1380a51209c1809b1d1325eb6c603cd34eaf6ace312f4d3405a787e",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u08",
+      "text": "底线是先保住人物。",
+      "role": "keyword",
+      "start_s": 18.031104,
+      "end_s": 19.770667,
+      "start_frame": 451,
+      "end_frame": 494,
+      "duration_s": 1.739562,
+      "audio_sha256": "057b6ad7703428ec9a65a95e83c3bdf37a559958e9178c695b32d85e62704a3f",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u09",
+      "text": "所以我们把动效减半。",
+      "role": "keyword",
+      "start_s": 20.070667,
+      "end_s": 22.132667,
+      "start_frame": 502,
+      "end_frame": 553,
+      "duration_s": 2.062,
+      "audio_sha256": "fe3c83a6eafddcc9282707b5bf4913028e4cf9293380109b326e3ea5b6e35487",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u10",
+      "text": "最难的是舍得删。",
+      "role": "keyword",
+      "start_s": 22.432667,
+      "end_s": 23.972625,
+      "start_frame": 561,
+      "end_frame": 599,
+      "duration_s": 1.539958,
+      "audio_sha256": "1d0be04b70ccc63f646370d438bd5d3fb4f1d584f950ee983a467ee61d4e137f",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u11",
+      "text": "其实删掉反而更清楚。",
+      "role": "keyword",
+      "start_s": 24.272625,
+      "end_s": 26.580083,
+      "start_frame": 607,
+      "end_frame": 665,
+      "duration_s": 2.307458,
+      "audio_sha256": "dba542745a5e374ee357aaad86951c61baf75d2965eb99f507a90a53b3590c3a",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u12",
+      "text": "第一版总会加太多。",
+      "role": "list_item",
+      "start_s": 26.880083,
+      "end_s": 28.619646,
+      "start_frame": 672,
+      "end_frame": 715,
+      "duration_s": 1.739562,
+      "audio_sha256": "8f8be4f46e74bce325d3fe10ee89fe0e218c109c1a0e6cb31806339c2438def3",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u13",
+      "text": "第二版砍掉一半。",
+      "role": "list_item",
+      "start_s": 28.919646,
+      "end_s": 30.450229,
+      "start_frame": 723,
+      "end_frame": 761,
+      "duration_s": 1.530583,
+      "audio_sha256": "95a431972af5575fb4336a11cc2cb00133b701c18eb3e1a798d1aedec2deda22",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u14",
+      "text": "三个版本砍成一个。",
+      "role": "number",
+      "start_s": 30.750229,
+      "end_s": 32.567917,
+      "start_frame": 769,
+      "end_frame": 814,
+      "duration_s": 1.817687,
+      "audio_sha256": "49d6704e5a03459fb55ca66a08bacca7b5383c8db5d9ca4c9358721686d94d9c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u17",
+      "text": "第一次听都会怀疑。",
+      "role": "list_item",
+      "start_s": 32.867917,
+      "end_s": 34.619083,
+      "start_frame": 822,
+      "end_frame": 865,
+      "duration_s": 1.751167,
+      "audio_sha256": "e47c2b0df0839fe315a5052fd1faffd2c78571c99fa1ea453a30cc12bb68732b",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u18",
+      "text": "第二个误区更常见。",
+      "role": "list_item",
+      "start_s": 34.919083,
+      "end_s": 36.797958,
+      "start_frame": 873,
+      "end_frame": 920,
+      "duration_s": 1.878875,
+      "audio_sha256": "678dd7cea97c61279a3c41ec1b4a4d550b69f9977666641a352c7151c3861b7c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u19",
+      "text": "最后才轮到排版。",
+      "role": "list_item",
+      "start_s": 37.097958,
+      "end_s": 38.77725,
+      "start_frame": 927,
+      "end_frame": 969,
+      "duration_s": 1.679292,
+      "audio_sha256": "8a0a8ada6eba95d3dcef6aaff5867b8f3da5cab8ccc4cfd42d41c70a4815bf1b",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u20",
+      "text": "所以别一上来就加动效。",
+      "role": "keyword",
+      "start_s": 39.07725,
+      "end_s": 41.394667,
+      "start_frame": 977,
+      "end_frame": 1035,
+      "duration_s": 2.317417,
+      "audio_sha256": "88250bd00f6c8eb6e7484b123aebccfbe18fededb32bc9eac7c0c228299bf864",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u15",
+      "text": "剩下的是你的判断。",
+      "role": "plain",
+      "start_s": 41.694667,
+      "end_s": 43.409458,
+      "start_frame": 1042,
+      "end_frame": 1085,
+      "duration_s": 1.714792,
+      "audio_sha256": "812d69a405d99e6767b7f93193a01e5ef0d59d5bcc382817dc6178c7c8b532b2",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u16",
+      "text": "下一期讲镜头切换。",
+      "role": "plain",
+      "start_s": 43.709458,
+      "end_s": 45.633,
+      "start_frame": 1093,
+      "end_frame": 1141,
+      "duration_s": 1.923542,
+      "audio_sha256": "03e5938cb8b8361b8177b17003e8de9e160de75667177da3c3624afed5805e18",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.5,
+    "gap_s": 0.3,
+    "tail_s": 0.7,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

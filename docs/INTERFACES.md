@@ -204,7 +204,9 @@ export PYTHONPATH=src            # 项目根目录下
 **IR 不变量（校验器必须强制）：**
 
 1. `elements[].window.start_frame == round(start_s*fps)`，`end_frame == round(end_s*fps)`，且 `0 ≤ start < end ≤ n_frames`。
-2. `elements[].anchor_ref` 必须存在于 `semantic.anchors`；时间窗必须落在锚点 ±250ms 容差内（除非 `type="caption"`）。
+2. `elements[].anchor_ref` 必须存在于 `semantic.anchors`；**起点** `window.start_s` 必须在锚点起点 ±250ms 内（除非 `type="caption"`）。
+   **尾随停留（hold）**：`window.end_s` 允许超出锚点终点最多 **0.8 s**（用于文字停留可读），必须在 `window.hold_s` 中显式记录其秒数，
+   `window.hold_s = max(0, end_s - anchor.end_s)`；超过 0.8 s 视为非法。渲染不得因 hold 改变起点。
 3. `layout.box` 完全位于 canvas 内（`x≥0, y≥0, x+w≤W, y+h≤H`）。
 4. 任何 `avoid_face=true` 的元素，其 box 与人脸 `bbox_union` 交集面积必须 ≤ 人脸框面积 1%，或元素被标 `allow_face_overlap: true` 且记录理由。
 5. `tracks[].elements` 必须引用存在的 element id；每个 element 恰好属于一个 track。

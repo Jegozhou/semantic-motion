@@ -1,0 +1,5 @@
+$ ffmpeg -v error -y -i artifacts/g1/preview_test/fx_a_gt_preview.mp4 -vn -ac 2 -ar 48000 -f s16le /var/folders/p8/q8j7vc7d63559cnpxxr4wcy00000gn/T/tmpfyaws60u.s16le
+
+
+render manifest: artifacts/g1/preview_test/render_manifest.json
+verdict: PASS

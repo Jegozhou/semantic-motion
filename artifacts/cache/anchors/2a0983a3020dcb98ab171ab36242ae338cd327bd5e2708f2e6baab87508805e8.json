@@ -1,0 +1,323 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+  "transcript_sha256": "2a0983a3020dcb98ab171ab36242ae338cd327bd5e2708f2e6baab87508805e8",
+  "duration_s": 40.64,
+  "language": "zh",
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "number",
+      "text": "87%",
+      "start_s": 3.22,
+      "end_s": 3.76,
+      "confidence": 0.92,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w8",
+        "w9"
+      ],
+      "rule": "percent_symbol"
+    },
+    {
+      "id": "a01",
+      "kind": "number",
+      "text": "3秒",
+      "start_s": 4.66,
+      "end_s": 5.06,
+      "confidence": 0.88,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w11",
+        "w12"
+      ],
+      "rule": "arabic_number"
+    },
+    {
+      "id": "a02",
+      "kind": "number",
+      "text": "2秒",
+      "start_s": 6.16,
+      "end_s": 6.68,
+      "confidence": 0.88,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w16",
+        "w17"
+      ],
+      "rule": "arabic_number"
+    },
+    {
+      "id": "a03",
+      "kind": "conclusion",
+      "text": "所以",
+      "start_s": 8.94,
+      "end_s": 9.38,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w25"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a04",
+      "kind": "card",
+      "text": "所以重点必须前置",
+      "start_s": 8.94,
+      "end_s": 10.94,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w25",
+        "w26",
+        "w27",
+        "w28",
+        "w29",
+        "w30",
+        "w31"
+      ],
+      "rule": "card_clause"
+    },
+    {
+      "id": "a05",
+      "kind": "keyword",
+      "text": "重点必须前置",
+      "start_s": 9.38,
+      "end_s": 10.94,
+      "confidence": 0.78,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s0",
+      "word_ids": [
+        "w26",
+        "w27",
+        "w28",
+        "w29",
+        "w30",
+        "w31"
+      ],
+      "rule": "emphasis_word+phrase_merge",
+      "merged_words": 6
+    },
+    {
+      "id": "a06",
+      "kind": "list_item",
+      "text": "第一",
+      "start_s": 11.12,
+      "end_s": 11.56,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w32"
+      ],
+      "rule": "ordinal"
+    },
+    {
+      "id": "a07",
+      "kind": "list_item",
+      "text": "第二",
+      "start_s": 13.2,
+      "end_s": 13.64,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w37"
+      ],
+      "rule": "ordinal"
+    },
+    {
+      "id": "a08",
+      "kind": "list_item",
+      "text": "第三",
+      "start_s": 15.24,
+      "end_s": 15.72,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w42"
+      ],
+      "rule": "ordinal"
+    },
+    {
+      "id": "a09",
+      "kind": "number",
+      "text": "三条",
+      "start_s": 17.28,
+      "end_s": 17.72,
+      "confidence": 0.86,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s1",
+      "word_ids": [
+        "w47",
+        "w48"
+      ],
+      "rule": "chinese_number"
+    },
+    {
+      "id": "a10",
+      "kind": "conclusion",
+      "text": "结论",
+      "start_s": 20.12,
+      "end_s": 20.86,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w57",
+        "w58"
+      ],
+      "rule": "conclusion_marker"
+    },
+    {
+      "id": "a11",
+      "kind": "number",
+      "text": "50%",
+      "start_s": 22.92,
+      "end_s": 23.7,
+      "confidence": 0.92,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w64",
+        "w65"
+      ],
+      "rule": "percent_symbol"
+    },
+    {
+      "id": "a12",
+      "kind": "number",
+      "text": "一半",
+      "start_s": 25.8,
+      "end_s": 26.06,
+      "confidence": 0.84,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w73",
+        "w74"
+      ],
+      "rule": "fraction_half"
+    },
+    {
+      "id": "a13",
+      "kind": "list_item",
+      "text": "第一步",
+      "start_s": 28.42,
+      "end_s": 28.84,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w82",
+        "w83"
+      ],
+      "rule": "ordinal"
+    },
+    {
+      "id": "a14",
+      "kind": "list_item",
+      "text": "第二步",
+      "start_s": 30.4,
+      "end_s": 30.88,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w88",
+        "w89"
+      ],
+      "rule": "ordinal"
+    },
+    {
+      "id": "a15",
+      "kind": "card",
+      "text": "第二步再定数字",
+      "start_s": 30.4,
+      "end_s": 31.9,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w88",
+        "w89",
+        "w90",
+        "w91",
+        "w92",
+        "w93"
+      ],
+      "rule": "card_clause"
+    },
+    {
+      "id": "a16",
+      "kind": "list_item",
+      "text": "第三步",
+      "start_s": 32.22,
+      "end_s": 32.78,
+      "confidence": 0.9,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w94",
+        "w95"
+      ],
+      "rule": "ordinal"
+    },
+    {
+      "id": "a17",
+      "kind": "card",
+      "text": "第三步才排节奏",
+      "start_s": 32.22,
+      "end_s": 33.94,
+      "confidence": 0.62,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w94",
+        "w95",
+        "w96",
+        "w97",
+        "w98",
+        "w99"
+      ],
+      "rule": "card_clause"
+    },
+    {
+      "id": "a18",
+      "kind": "conclusion",
+      "text": "结论",
+      "start_s": 34.12,
+      "end_s": 34.48,
+      "confidence": 0.8,
+      "source": "ASR_ALIGNED",
+      "segment_id": "s2",
+      "word_ids": [
+        "w100",
+        "w101"
+      ],
+      "rule": "conclusion_marker"
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:29:54Z",
+    "method": "asr_word_spans+rule_classifier",
+    "n_anchors": 19,
+    "kinds": {
+      "card": 3,
+      "conclusion": 3,
+      "keyword": 1,
+      "list_item": 6,
+      "number": 6
+    },
+    "truth_class": "MACHINE_WEAK",
+    "note": "anchor times are ASR word/segment spans (MACHINE_WEAK); run refine_onsets() to snap them to the audio envelope",
+    "refine": null
+  }
+}

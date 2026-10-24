@@ -1,0 +1,117 @@
+{
+  "id": "fx_d_zh_portrait",
+  "voice": "Meijia",
+  "rate": 180,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "gap_s": 0.3,
+  "lead_in_s": 0.5,
+  "tail_s": 0.7,
+  "palette": "studio_day",
+  "camera_motion": "slow_zoom",
+  "seed": 37,
+  "purpose": "G1 timing sample expansion #1 (SYNTH_KNOWN, portrait, second TTS voice). 16 units; most units START with a rule-detectable anchor (其实/三个/第一.../六次/底线/所以/最难) so anchor->truth matching yields enough independent events. Camera slow_zoom exercises onset accuracy under motion. Covers: 2 numbers, 3 list items, 2 keywords, plus plain units. Extended to 20 units: four extra unit-initial anchors (第一次/第二个/最后/所以) so anchor->truth matching has >= 40 events across the dev set.",
+  "units": [
+    {
+      "id": "u01",
+      "text": "其实大多数人，都高估了动效。",
+      "role": "keyword"
+    },
+    {
+      "id": "u02",
+      "text": "以为做得越多，就越专业。",
+      "role": "plain"
+    },
+    {
+      "id": "u03",
+      "text": "三个动效就够了。",
+      "role": "number"
+    },
+    {
+      "id": "u04",
+      "text": "第一，关键词只标一次。",
+      "role": "list_item"
+    },
+    {
+      "id": "u05",
+      "text": "第二，数字只停两秒。",
+      "role": "list_item"
+    },
+    {
+      "id": "u06",
+      "text": "第三，卡片别压住脸。",
+      "role": "list_item"
+    },
+    {
+      "id": "u07",
+      "text": "六次是每分钟上限。",
+      "role": "number"
+    },
+    {
+      "id": "u08",
+      "text": "底线是先保住人物。",
+      "role": "keyword"
+    },
+    {
+      "id": "u09",
+      "text": "所以我们把动效减半。",
+      "role": "keyword"
+    },
+    {
+      "id": "u10",
+      "text": "最难的是舍得删。",
+      "role": "keyword"
+    },
+    {
+      "id": "u11",
+      "text": "其实删掉反而更清楚。",
+      "role": "keyword"
+    },
+    {
+      "id": "u12",
+      "text": "第一版总会加太多。",
+      "role": "list_item"
+    },
+    {
+      "id": "u13",
+      "text": "第二版砍掉一半。",
+      "role": "list_item"
+    },
+    {
+      "id": "u14",
+      "text": "三个版本砍成一个。",
+      "role": "number"
+    },
+    {
+      "id": "u17",
+      "text": "第一次听都会怀疑。",
+      "role": "list_item"
+    },
+    {
+      "id": "u18",
+      "text": "第二个误区更常见。",
+      "role": "list_item"
+    },
+    {
+      "id": "u19",
+      "text": "最后才轮到排版。",
+      "role": "list_item"
+    },
+    {
+      "id": "u20",
+      "text": "所以别一上来就加动效。",
+      "role": "keyword"
+    },
+    {
+      "id": "u15",
+      "text": "剩下的是你的判断。",
+      "role": "plain"
+    },
+    {
+      "id": "u16",
+      "text": "下一期讲镜头切换。",
+      "role": "plain"
+    }
+  ]
+}

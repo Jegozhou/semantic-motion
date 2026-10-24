@@ -1,0 +1,171 @@
+{
+  "schema": "semotion.render/1",
+  "ir_sha256": "4ebdc65dd968f794946d6a80ab9b61172bcb978dfa9e9e46fc8803d305de7a63",
+  "source": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "sha256": "2689253ef0030dff0534c4e9628a019d89bb9ca5cc872ec2d0631fa3646024df"
+  },
+  "output": {
+    "path": "/Volumes/ZHITAI/SemanticMotion/artifacts/g1/preview_test/fx_a_gt_preview.mp4",
+    "sha256": "8e794497d3860c5ca4c84db13bde5562a33dfa7ce2541937424940aacb240459",
+    "size_bytes": 543286,
+    "duration_s": 24.2,
+    "n_frames": 605,
+    "width": 540,
+    "height": 960,
+    "fps": 25.0,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "pix_fmt": "yuv420p"
+  },
+  "audio": {
+    "pcm_sha256": "8c91e3fc61fc1946b3dc62ac9a01d846344d4cdbcb33e15b8d15e8d0aed7b1c6",
+    "source": "passthrough_decode_encode",
+    "delta_vs_source_s": 0.0,
+    "rms_delta_db": 0.001,
+    "correlation": 0.999998,
+    "method": "decoded 48 kHz stereo PCM: duration + RMS energy + zero-mean correlation vs source (AAC re-encode prevents sample-exact identity)",
+    "source_duration_s": 24.192
+  },
+  "overlay": {
+    "fps": 25.0,
+    "frames_dir": "/Volumes/ZHITAI/SemanticMotion/artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968",
+    "rendered_frames": 386,
+    "empty_frames": 0,
+    "elements": [
+      {
+        "id": "el_d02",
+        "type": "keyword",
+        "z": 20,
+        "start_frame": 158,
+        "end_frame": 194,
+        "frames": 36,
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d02"
+      },
+      {
+        "id": "el_d03",
+        "type": "number",
+        "z": 20,
+        "start_frame": 196,
+        "end_frame": 232,
+        "frames": 36,
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d03"
+      },
+      {
+        "id": "el_d04",
+        "type": "list",
+        "z": 20,
+        "start_frame": 284,
+        "end_frame": 498,
+        "frames": 214,
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d04"
+      },
+      {
+        "id": "el_d05",
+        "type": "keyword",
+        "z": 20,
+        "start_frame": 546,
+        "end_frame": 586,
+        "frames": 40,
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d05"
+      },
+      {
+        "id": "el_d01",
+        "type": "card",
+        "z": 30,
+        "start_frame": 40,
+        "end_frame": 100,
+        "frames": 60,
+        "frames_dir": "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d01"
+      }
+    ],
+    "frames_retained": false
+  },
+  "commands": [
+    "ffmpeg -hide_banner -y -v error -i tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4 -framerate 25 -start_number 158 -i artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d02/f%05d.png -framerate 25 -start_number 196 -i artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d03/f%05d.png -framerate 25 -start_number 284 -i artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d04/f%05d.png -framerate 25 -start_number 546 -i artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d05/f%05d.png -framerate 25 -start_number 40 -i artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d01/f%05d.png -filter_complex '[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+6.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,6.320000)*lt(t,7.760000)'\"'\"'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,7.840000)*lt(t,9.280000)'\"'\"'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.360000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,11.360000)*lt(t,19.920000)'\"'\"'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+21.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,21.840000)*lt(t,23.440000)'\"'\"'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='\"'\"'gte(t,1.600000)*lt(t,4.000000)'\"'\"'[v4];[v4]scale=iw/2:ih/2,format=yuv420p[vout]' -map '[vout]' -map '0:a?' -frames:v 605 -r 25 -c:v libx264 -preset medium -crf 28 -pix_fmt yuv420p -c:a aac -b:a 192k -ar 48000 -movflags +faststart artifacts/g1/preview_test/fx_a_gt_preview.mp4"
+  ],
+  "command_argv": [
+    "ffmpeg",
+    "-hide_banner",
+    "-y",
+    "-v",
+    "error",
+    "-i",
+    "tests/fixtures/clips/fx_a_zh_portrait/fx_a_zh_portrait.mp4",
+    "-framerate",
+    "25",
+    "-start_number",
+    "158",
+    "-i",
+    "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d02/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "196",
+    "-i",
+    "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d03/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "284",
+    "-i",
+    "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d04/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "546",
+    "-i",
+    "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d05/f%05d.png",
+    "-framerate",
+    "25",
+    "-start_number",
+    "40",
+    "-i",
+    "artifacts/tmp/render_fx_a_gt_preview_4ebdc65dd968/el_d01/f%05d.png",
+    "-filter_complex",
+    "[0:v]setpts=PTS-STARTPTS[base];[1:v]format=rgba,setpts=PTS-STARTPTS+6.320000/TB[o0];[base][o0]overlay=0:0:eof_action=pass:enable='gte(t,6.320000)*lt(t,7.760000)'[v0];[2:v]format=rgba,setpts=PTS-STARTPTS+7.840000/TB[o1];[v0][o1]overlay=0:0:eof_action=pass:enable='gte(t,7.840000)*lt(t,9.280000)'[v1];[3:v]format=rgba,setpts=PTS-STARTPTS+11.360000/TB[o2];[v1][o2]overlay=0:0:eof_action=pass:enable='gte(t,11.360000)*lt(t,19.920000)'[v2];[4:v]format=rgba,setpts=PTS-STARTPTS+21.840000/TB[o3];[v2][o3]overlay=0:0:eof_action=pass:enable='gte(t,21.840000)*lt(t,23.440000)'[v3];[5:v]format=rgba,setpts=PTS-STARTPTS+1.600000/TB[o4];[v3][o4]overlay=0:0:eof_action=pass:enable='gte(t,1.600000)*lt(t,4.000000)'[v4];[v4]scale=iw/2:ih/2,format=yuv420p[vout]",
+    "-map",
+    "[vout]",
+    "-map",
+    "0:a?",
+    "-frames:v",
+    "605",
+    "-r",
+    "25",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "28",
+    "-pix_fmt",
+    "yuv420p",
+    "-c:a",
+    "aac",
+    "-b:a",
+    "192k",
+    "-ar",
+    "48000",
+    "-movflags",
+    "+faststart",
+    "artifacts/g1/preview_test/fx_a_gt_preview.mp4"
+  ],
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "created_utc": "2026-10-24T09:29:59Z",
+  "preview": true,
+  "checks": {
+    "duration_delta_s": 0.0,
+    "duration_tolerance_s": 0.04,
+    "frames_expected": 605,
+    "resolution_expected": [
+      540,
+      960
+    ],
+    "verdict": "PASS",
+    "problems": []
+  },
+  "log": "artifacts/g1/preview_test/logs/render_fx_a_gt_preview.log"
+}

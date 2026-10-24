@@ -17,11 +17,30 @@ from typing import Any
 STYLE_SMART_BALANCED = "smart_balanced"
 
 # Rhythm budget for Smart Balanced.
-MAX_NEW_ELEMENTS_PER_10S = 3.0     # new overlays per 10 seconds
+MAX_NEW_ELEMENTS_PER_10S = 4.0     # new overlays per 10 seconds
 MIN_GAP_BETWEEN_ELEMENTS_S = 0.9   # breathing room between overlay windows
 MAX_OVERLAY_COVERAGE = 0.58        # fraction of runtime that may carry an overlay
 MIN_CONFIDENCE = 0.60              # below this, do not animate precisely
 LIST_MERGE_GAP_S = 2.0             # consecutive list anchors merge into one list
+
+# Information value of a semantic role. Numbers and steps outrank loose keywords
+# when the rhythm budget is scarce (Smart Balanced: important information first).
+ROLE_PRIORITY = {
+    "number": 3.0,
+    "list_item": 3.0,
+    "card": 2.6,
+    "conclusion": 2.2,
+    "comparison": 2.0,
+    "process": 2.0,
+    "keyword": 1.6,
+}
+
+# Discourse fillers that carry no emphasis value even if a transcript labels them
+# as keywords. Kept short and explainable on purpose.
+STOPWORDS = {
+    "其实", "这个", "那个", "就是", "然后", "所以", "但是", "因为", "如果",
+    "我们", "你们", "他们", "一个", "一下", "现在", "今天", "大家", "什么",
+}
 
 
 def _conf(a: dict) -> float:
@@ -29,6 +48,10 @@ def _conf(a: dict) -> float:
         return float(a.get("confidence", 0.0))
     except (TypeError, ValueError):
         return 0.0
+
+
+def _norm(text: str) -> str:
+    return "".join(ch for ch in str(text) if ch.isalnum())
 
 
 def _is_list(a: dict) -> bool:
@@ -56,6 +79,34 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
     decisions: list[dict] = []
     skipped: list[dict] = []
     recent_starts: list[float] = []
+
+    def _score(a: dict) -> float:
+        conf = _conf(a)
+        base = ROLE_PRIORITY.get(a.get("kind", ""), 0.5)
+        text = str(a.get("text", ""))
+        length_bonus = 0.15 if len(text) >= 4 else 0.0
+        return base * (0.5 + conf) + length_bonus
+
+    # Pre-filter: drop filler words; keep at most one loose keyword per ASR segment
+    # so a single sentence cannot produce a stack of one-word overlays.
+    by_segment: dict[str, list[dict]] = {}
+    pruned: list[dict] = []
+    for a in items:
+        text = str(a.get("text", ""))
+        if a.get("kind") in ("keyword", "comparison", "process", "conclusion") and \
+                _norm(text) in STOPWORDS and len(_norm(text)) <= 4:
+            skipped.append({"anchor_id": a.get("id"), "reason": "filler_word"})
+            continue
+        if a.get("kind") == "keyword":
+            by_segment.setdefault(str(a.get("segment_id")), []).append(a)
+        else:
+            pruned.append(a)
+    for seg, group in by_segment.items():
+        group.sort(key=_score, reverse=True)
+        pruned.append(group[0])
+        for extra in group[1:]:
+            skipped.append({"anchor_id": extra.get("id"), "reason": "segment_keyword_dedupe"})
+    items = sorted(pruned, key=lambda a: a.get("start_s", 0.0))
 
     def _budget_ok(start: float) -> tuple[bool, str]:
         if len(recent_starts) >= 2 and start - recent_starts[-2] < MIN_GAP_BETWEEN_ELEMENTS_S:
@@ -189,6 +240,41 @@ def decide(anchors: dict, vision: dict, canvas: dict, *, style: str = STYLE_SMAR
 
         skipped.append({"anchor_id": a.get("id"), "reason": f"unhandled_kind:{kind}"})
         i += 1
+
+    # --- redundancy guard: a card that merely restates a shorter element adds
+    # noise, and overlapping overlays collide. Keep one element per time span,
+    # preferring the higher-information one (numbers/steps over prose cards).
+    def _keep_score(d: dict) -> float:
+        eff = d.get("effect")
+        base = {"number": 3.0, "list": 3.0, "card": 2.4, "keyword": 1.6}.get(eff, 1.0)
+        text = str(d.get("content", {}).get("text", ""))
+        return base * (0.5 + float(d.get("confidence", 0.0))) + (0.2 if len(text) >= 4 else 0.0)
+
+    decisions.sort(key=lambda d: (d["window"]["start_s"], _keep_score(d) * -1))
+    kept: list[dict] = []
+    for d in decisions:
+        conflict = None
+        for k in kept:
+            if d["window"]["start_s"] < k["window"]["end_s"] and \
+                    k["window"]["start_s"] < d["window"]["end_s"]:
+                contained = (str(d["content"].get("text", "")) in str(k["content"].get("text", ""))
+                             or str(k["content"].get("text", "")) in str(d["content"].get("text", "")))
+                if contained:
+                    conflict = (k, "contains " + k["id"] if _keep_score(k) >= _keep_score(d)
+                                else k["id"] + " contained")
+                elif _keep_score(k) >= _keep_score(d):
+                    conflict = (k, f"temporal_conflict_with_{k['id']}")
+                else:
+                    kept.remove(k)
+                    skipped.append({"anchor_id": k["anchor_id"],
+                                    "reason": f"superseded_by_{d['id']}"})
+                    continue
+                break
+        if conflict is None:
+            kept.append(d)
+        else:
+            skipped.append({"anchor_id": d["anchor_id"], "reason": conflict[1]})
+    decisions = kept
 
     # --- global coverage guard: drop the least important elements if over budget
     overlay = sum(max(0.0, d["window"]["end_s"] - d["window"]["start_s"]) for d in decisions)

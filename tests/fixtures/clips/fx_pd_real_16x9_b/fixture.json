@@ -1,0 +1,40 @@
+{
+  "fixture_id": "fx_pd_real_16x9_b",
+  "kind": "REAL_PD",
+  "truth_class": "MACHINE_WEAK",
+  "note": "Real footage (public domain US government video), English speech. No human word labels: timing is NOT independently labelled.",
+  "source": {
+    "name": "Weekly Address (2009-01-24), small.ogv",
+    "provider": "Wikimedia Commons",
+    "license": "Public domain (U.S. Government work, 17 U.S.C. §105)",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Weekly_Address_(2009-01-24),_small.ogv",
+    "attribution_required": false,
+    "note": "White House Weekly Address, 2009-01-24. Real footage of a real person; English speech; no human word-level labels."
+  },
+  "abs_path": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_pd_real_16x9_b/fx_pd_real_16x9_b.mp4",
+  "sha256": "b463bcba53983f5ec95029ada62171efdd6d4a8137fd7fa4cac131a5099b04ff",
+  "duration_s": 24.0,
+  "width": 1280,
+  "height": 720,
+  "fps": 30.0,
+  "n_frames": 720,
+  "language": "en",
+  "people": 1,
+  "composition": "talking head, center; bookshelf background",
+  "camera_motion": "static",
+  "label_types": [
+    "face",
+    "speech"
+  ],
+  "split": "dev",
+  "derived_from": {
+    "path": "assets/media/pd_weekly_address_2009-01-24.ogv",
+    "trim_start_s": 66.0,
+    "trim_duration_s": 24.0,
+    "upscaled": "854x480 -> 1280x720"
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

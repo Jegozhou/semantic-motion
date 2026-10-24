@@ -1,0 +1,25 @@
+{
+  "id": "fx_b_zh_landscape",
+  "voice": "Tingting",
+  "rate": 175,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "gap_s": 0.30,
+  "lead_in_s": 0.5,
+  "tail_s": 0.7,
+  "palette": "studio_warm",
+  "camera_motion": "static",
+  "seed": 11,
+  "purpose": "G2 landscape (16:9) calibration: one explicit number (三个), one percentage (百分之七十), a three-item step list, and a conclusion marker (先看/然后/所以). Same SYNTH_KNOWN assembly truth as fx_a so timing can be measured independently of ASR.",
+  "units": [
+    {"id": "u01", "text": "做口播动画，先看三个指标。", "role": "number"},
+    {"id": "u02", "text": "第一，字幕出现的时间。", "role": "list_item"},
+    {"id": "u03", "text": "第二，动效占用的画面。", "role": "list_item"},
+    {"id": "u04", "text": "第三，人物被遮挡的面积。", "role": "list_item"},
+    {"id": "u05", "text": "百分之七十的问题，都出在时间对齐。", "role": "number"},
+    {"id": "u06", "text": "所以我们先对齐，再谈样式。", "role": "keyword"},
+    {"id": "u07", "text": "这也是这套流程的底线。", "role": "plain"},
+    {"id": "u08", "text": "先说结论，时间不对，一切白搭。", "role": "keyword"}
+  ]
+}

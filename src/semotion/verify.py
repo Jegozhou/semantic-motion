@@ -39,13 +39,14 @@ BLOCKED = "BLOCKED"
 P90_THRESHOLD_MS = 100.0
 FACE_OVERLAP_THRESHOLD = 0.0
 FACE_INSIDE_AREA_RATIO = 0.01      # >1% of the face box covered counts as overlap
+LOW_W = 192                        # width of the low-res analysis grid
 COLLISION_THRESHOLD = 0.01
 COLLISION_AREA_RATIO = 0.05
 
 
 # --------------------------------------------------------------------- helpers
 
-def _gray_frames(path: Path, width: int = 192, height: int | None = None) -> np.ndarray:
+def _gray_frames(path: Path, width: int = LOW_W, height: int | None = None) -> np.ndarray:
     """Decoded grayscale frames as (n, h*w) int16."""
     mi = media.info(path)
     h = height or max(2, int(round(width * mi.height / mi.width / 2)) * 2)
@@ -130,8 +131,35 @@ def _inter_area(a: list[float], b: list[float]) -> float:
 
 # ---------------------------------------------------------------------- metrics
 
+def _unit_matches(anchor_text: str, units: list[dict]) -> list[dict]:
+    """Units whose text *starts with* the anchor (prefix match, no timing used).
+
+    Only a unit-initial anchor can be validated against the unit's independently
+    measured onset. An anchor that sits inside a longer unit has no independent
+    target in a SYNTH_KNOWN assembly, so it is reported as not measurable rather
+    than being graded against a number derived from ASR.
+    """
+    a = _norm_text(anchor_text)
+    if len(a) < 2:
+        return []
+    out = []
+    for u in units:
+        t = _norm_text(u.get("text", ""))
+        if t.startswith(a):
+            out.append(u)
+    return out
+
+
 def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | None,
             fps: float) -> dict[str, Any]:
+    """Measure rendered onsets and compare with independent truth where available.
+
+    Two quantities are reported separately:
+      * fidelity_ms   — rendered onset vs the anchor time frozen in the IR
+                        (rendering fidelity; expected ~1 frame);
+      * error_ms      — rendered onset vs an independent SYNTH_KNOWN/HUMAN event
+                        (semantic time accuracy; the spec's acceptance metric).
+    """
     units = (truth or {}).get("units", []) if truth else []
     elements = ir.get("elements", [])
     rows: list[dict[str, Any]] = []
@@ -142,47 +170,75 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
         lo, hi = max(0, sf - 6), min(len(rendered), ef + 2)
         if hi - lo < 2:
             continue
-        diffs = np.abs(rendered[lo:hi].astype(np.int32) - source[lo:hi].astype(np.int32)).mean(axis=1)
-        pre = diffs[: max(1, min(4, len(diffs)))]
-        noise = float(np.median(pre))
-        thr = max(1.5, noise * 2.5 + 0.5)
+        raw = np.abs(rendered[lo:hi].astype(np.int32) - source[lo:hi].astype(np.int32))
+        ratio = (raw > 8).mean(axis=1)                      # changed-pixel fraction
+        pre_lo, pre_hi = max(0, sf - 12), max(1, sf - 1)
+        if pre_hi - pre_lo >= 2:
+            pr = (np.abs(rendered[pre_lo:pre_hi].astype(np.int32)
+                         - source[pre_lo:pre_hi].astype(np.int32)) > 8).mean(axis=1)
+        else:
+            pr = np.array([0.0])
+        noise = float(np.median(pr))
+        peak = float(ratio.max()) if ratio.size else 0.0
+        thr = max(0.0012, noise * 4.0 + 0.0008, 0.12 * peak)
         onset_idx = None
-        for k, d in enumerate(diffs):
-            if d > thr:
+        for k, val in enumerate(ratio):
+            if val > thr:
                 onset_idx = lo + k
                 break
         rendered_onset_s = (onset_idx / fps) if onset_idx is not None else None
 
-        target_s = None
-        truth_unit = None
-        if units:
-            anchor = next((a for a in ir.get("semantic", {}).get("anchors", [])
-                           if a.get("id") == el.get("anchor_ref")), None)
-            if anchor:
-                truth_unit = _match_truth(anchor.get("text", ""), units)
-                if truth_unit:
-                    target_s = float(truth_unit["start_s"])
+        anchor = next((a for a in ir.get("semantic", {}).get("anchors", [])
+                       if a.get("id") == el.get("anchor_ref")), None)
+        anchor_start = float(anchor.get("start_s")) if anchor else None
+
+        target_s, truth_unit = None, None
+        if units and anchor:
+            cands = _unit_matches(anchor.get("text", ""), units)
+            if len(cands) == 1:
+                truth_unit = cands[0]
+                target_s = float(truth_unit["start_s"])
+
         rows.append({
             "element_id": el["id"],
             "effect": el.get("type"),
+            "text": (el.get("content") or {}).get("text"),
             "window_start_s": w["start_s"],
             "rendered_onset_s": None if rendered_onset_s is None else round(rendered_onset_s, 4),
+            "anchor_start_s": anchor_start,
+            "fidelity_ms": (None if (rendered_onset_s is None or anchor_start is None)
+                            else round(abs(rendered_onset_s - anchor_start) * 1000, 2)),
             "target_onset_s": None if target_s is None else round(target_s, 4),
             "truth_unit": None if not truth_unit else truth_unit.get("unit_id"),
             "error_ms": (None if (rendered_onset_s is None or target_s is None)
                          else round(abs(rendered_onset_s - target_s) * 1000, 2)),
             "detected": rendered_onset_s is not None,
+            "measurable_against_truth": target_s is not None,
         })
 
     errors = [r["error_ms"] for r in rows if r["error_ms"] is not None]
+    fidelity = [r["fidelity_ms"] for r in rows if r["fidelity_ms"] is not None]
+    base = {
+        "samples": len(errors),
+        "elements": len(rows),
+        "detected_onsets": sum(1 for r in rows if r["detected"]),
+        "rows": rows,
+        "source": (truth or {}).get("kind", "none"),
+        "threshold_p90_ms": P90_THRESHOLD_MS,
+        "fidelity": {
+            "samples": len(fidelity),
+            "p50_ms": round(statistics.median(fidelity), 2) if fidelity else None,
+            "max_ms": round(max(fidelity), 2) if fidelity else None,
+        },
+    }
     if not errors:
-        return {
-            "samples": 0, "rows": rows, "source": (truth or {}).get("kind", "none"),
+        base.update({
             "p50_ms": None, "p90_ms": None, "max_ms": None,
-            "threshold_p90_ms": P90_THRESHOLD_MS,
             "verdict": NOT_RUN if not truth else BLOCKED,
-            "note": "no element could be matched to an independent target onset",
-        }
+            "note": ("no element had an independent target onset: SYNTH_KNOWN truth is "
+                     "unit-granular and this IR only animates intra-unit words"),
+        })
+        return base
 
     errors_sorted = sorted(errors)
     p90 = errors_sorted[max(0, int(round(0.9 * (len(errors_sorted) - 1))))]
@@ -190,24 +246,19 @@ def _timing(ir: dict, rendered: np.ndarray, source: np.ndarray, truth: dict | No
     for r in rows:
         if r["error_ms"] is not None:
             by_effect.setdefault(str(r["effect"]), []).append(r["error_ms"])
-
-    verdict = PASS if p90 <= P90_THRESHOLD_MS else FAIL
-    return {
-        "samples": len(errors),
-        "source": (truth or {}).get("kind", "unknown"),
+    base.update({
         "p50_ms": round(statistics.median(errors), 2),
         "p90_ms": round(p90, 2),
         "max_ms": round(max(errors), 2),
-        "threshold_p90_ms": P90_THRESHOLD_MS,
         "by_effect": {k: {"n": len(v), "p50_ms": round(statistics.median(v), 2),
                           "max_ms": round(max(v), 2)} for k, v in by_effect.items()},
-        "rows": rows,
         "frame_quantum_ms": round(1000.0 / fps, 2),
-        "verdict": verdict,
+        "verdict": PASS if p90 <= P90_THRESHOLD_MS else FAIL,
         "note": ("rendered onset measured from decoded pixels vs source; target is an "
-                 "independent SYNTH_KNOWN assembly time (ASR not used to define targets). "
-                 "Errors below half a frame are within frame quantisation."),
-    }
+                 "independent SYNTH_KNOWN assembly time of a unit the anchor starts. "
+                 "ASR timings never define the target. n<50 is exploratory, not a P90 claim."),
+    })
+    return base
 
 
 def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
@@ -240,6 +291,7 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
     obs_frames = 0
     obs_oob = 0
     observed_windows = 0
+    containment = {"changed": 0, "inside": 0}
     stride = max(1, len(rendered) // max_samples)
     for el in elements:
         wnd = el["window"]
@@ -252,20 +304,27 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
                 continue
             observed_any = True
             obs_frames += 1
-            # map low-res frame index back to original coordinates
-            scale_x, scale_y = width / 192.0, height / float(source.shape[1] // 192)
-            ys, xs = np.nonzero(mask.reshape(1, -1)[0].reshape(-1)[:0].size or mask)
-            # mask is flat; reconstruct 2D
-            hh = source.shape[1] // 192
-            m2 = mask.reshape(hh, 192)
+            # mask is a flat grayscale frame of width 192; rebuild 2D and map back
+            hh = mask.size // LOW_W
+            m2 = mask.reshape(hh, LOW_W)
             ys, xs = np.nonzero(m2)
             if xs.size == 0:
                 continue
-            bx0, bx1 = xs.min() * width / 192.0, (xs.max() + 1) * width / 192.0
+            bx0, bx1 = xs.min() * width / LOW_W, (xs.max() + 1) * width / LOW_W
             by0, by1 = ys.min() * height / hh, (ys.max() + 1) * height / hh
             if bx0 < 1 or by0 < 1 or bx1 > width - 1 or by1 > height - 1:
                 obs_oob += 1
             fbox = [bx0, by0, bx1 - bx0, by1 - by0]
+            # containment: changed pixels must fall inside the declared box
+            pad = 6.0
+            box = el["layout"]["box"]
+            bx_lo, by_lo = box[0] - pad, box[1] - pad
+            bx_hi, by_hi = box[0] + box[2] + pad, box[1] + box[3] + pad
+            changed = int(m2.sum())
+            inside = int(m2[max(0, int(by_lo * hh / height)):int(by_hi * hh / height),
+                            max(0, int(bx_lo * LOW_W / width)):int(bx_hi * LOW_W / width)].sum())
+            containment["changed"] += changed
+            containment["inside"] += inside
             for f in _nearest_faces(faces, fr):
                 covered = _inter_area(fbox, f)
                 face_area = f[2] * f[3] or 1.0
@@ -313,6 +372,17 @@ def _position(ir: dict, rendered: np.ndarray, source: np.ndarray, vision: dict,
             "out_of_bounds": _rate(obs_oob, obs_frames, 0.0),
             "windows_with_visible_change": observed_windows,
             "sampled_frames": obs_frames,
+        },
+        "raster_containment": {
+            "changed_pixels": containment["changed"],
+            "inside_declared_box": containment["inside"],
+            "value": (round(1.0 - containment["inside"] / containment["changed"], 6)
+                      if containment["changed"] else 0.0),
+            "threshold": 0.03,
+            "verdict": ("PASS" if (not containment["changed"] or
+                                   1.0 - containment["inside"] / containment["changed"] <= 0.03)
+                        else FAIL),
+            "note": "changed pixels outside the IR layout box (+6px pad) / changed pixels",
         },
         "collision": {
             "value": round(collision_pairs / compared, 6) if compared else 0.0,
@@ -377,6 +447,7 @@ def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
             position["observed"]["face_overlap"]["verdict"],
             position["observed"]["out_of_bounds"]["verdict"],
             position["collision"]["verdict"],
+            position["raster_containment"]["verdict"],
         ]),
         "render": render_check["verdict"],
     }
@@ -397,12 +468,26 @@ def metrics(ir: dict, render_manifest: dict, *, source: Path, rendered: Path,
             "tool_versions": media.tool_versions(),
         },
     }
+    result = _clean(result)
     if work:
         work = Path(work)
         work.mkdir(parents=True, exist_ok=True)
         (work / f"metrics_{gate}.json").write_text(
             json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return result
+
+
+def _clean(obj):
+    """Convert numpy scalars/containers into plain JSON types."""
+    if isinstance(obj, dict):
+        return {k: _clean(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_clean(v) for v in obj]
+    if isinstance(obj, np.generic):
+        return obj.item()
+    if isinstance(obj, np.ndarray):
+        return _clean(obj.tolist())
+    return obj
 
 
 def _worst(vals: list[str]) -> str:

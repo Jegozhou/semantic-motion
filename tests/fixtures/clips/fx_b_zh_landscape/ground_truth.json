@@ -1,0 +1,141 @@
+{
+  "fixture_id": "fx_b_zh_landscape",
+  "kind": "SYNTH_KNOWN",
+  "note": "Synthetic TTS narration over generated graphic artwork. Not real footage.",
+  "path": "fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+  "abs_path": "tests/fixtures/clips/fx_b_zh_landscape/fx_b_zh_landscape.mp4",
+  "sha256": "188829adbb9b35324974e2094e58402b9a3238d090e76beadbc305b979be2ec6",
+  "duration_s": 26.18,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25.0,
+  "n_frames": 654,
+  "language": "zh",
+  "voice": "Tingting",
+  "rate": 175,
+  "camera_motion": [
+    "static"
+  ],
+  "palette": [
+    "studio_warm"
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "start_s": 0.0,
+      "end_s": 26.180396,
+      "start_frame": 0,
+      "end_frame": 655
+    }
+  ],
+  "design": "generated graphic artwork (no real person)",
+  "units": [
+    {
+      "unit_id": "u01",
+      "text": "做口播动画，先看三个指标。",
+      "role": "number",
+      "start_s": 0.5,
+      "end_s": 3.592938,
+      "start_frame": 12,
+      "end_frame": 90,
+      "duration_s": 3.092938,
+      "audio_sha256": "d95c009582b7351948438c8c7e394874659fe044a9efc790a1eae545a11f1a37",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u02",
+      "text": "第一，字幕出现的时间。",
+      "role": "list_item",
+      "start_s": 3.892937,
+      "end_s": 6.126729,
+      "start_frame": 97,
+      "end_frame": 153,
+      "duration_s": 2.233792,
+      "audio_sha256": "f77a92526954f180df1ca14c2727bcaf2a7af929efd764830e57716096a36ccb",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u03",
+      "text": "第二，动效占用的画面。",
+      "role": "list_item",
+      "start_s": 6.426729,
+      "end_s": 8.753396,
+      "start_frame": 161,
+      "end_frame": 219,
+      "duration_s": 2.326667,
+      "audio_sha256": "234991d319134a0eaf4721e6f06492de92350af56677e3cf729523eb25fac7d5",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u04",
+      "text": "第三，人物被遮挡的面积。",
+      "role": "list_item",
+      "start_s": 9.053396,
+      "end_s": 11.519396,
+      "start_frame": 226,
+      "end_frame": 288,
+      "duration_s": 2.466,
+      "audio_sha256": "7e9ea1085cf23887d35e55b69c3c65719da136fd75d2bd206e8c6d53657f1127",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u05",
+      "text": "百分之七十的问题，都出在时间对齐。",
+      "role": "number",
+      "start_s": 11.819396,
+      "end_s": 15.534563,
+      "start_frame": 295,
+      "end_frame": 388,
+      "duration_s": 3.715167,
+      "audio_sha256": "9b04d2236661a7c31a9625ec64270dd86d72e678267961adcea67a77da92995e",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u06",
+      "text": "所以我们先对齐，再谈样式。",
+      "role": "keyword",
+      "start_s": 15.834563,
+      "end_s": 18.785688,
+      "start_frame": 396,
+      "end_frame": 470,
+      "duration_s": 2.951125,
+      "audio_sha256": "c732a4f6d50738021243d0a200e53f877e2435c804c2b6c09b509a6b93e47d1c",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u07",
+      "text": "这也是这套流程的底线。",
+      "role": "plain",
+      "start_s": 19.085688,
+      "end_s": 21.290229,
+      "start_frame": 477,
+      "end_frame": 532,
+      "duration_s": 2.204542,
+      "audio_sha256": "724cf5a24de25cc48e0f6496bacf7046054542c6479c9a33d29fdf5d7594ed36",
+      "truth": "SYNTH_KNOWN"
+    },
+    {
+      "unit_id": "u08",
+      "text": "先说结论，时间不对，一切白搭。",
+      "role": "keyword",
+      "start_s": 21.590229,
+      "end_s": 25.180396,
+      "start_frame": 540,
+      "end_frame": 630,
+      "duration_s": 3.590167,
+      "audio_sha256": "9a74148a9b8ab0559940763081783213538fa41038b7b395762a1b0159cc565e",
+      "truth": "SYNTH_KNOWN"
+    }
+  ],
+  "audio_assembly": {
+    "lead_in_s": 0.5,
+    "gap_s": 0.3,
+    "tail_s": 0.7,
+    "method": "per-unit TTS + silence concat; onsets measured with ffprobe",
+    "asr_used_for_truth": false
+  },
+  "tool_versions": {
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1 Copyright (c) 2007-2026 the FFmpeg developers"
+  }
+}

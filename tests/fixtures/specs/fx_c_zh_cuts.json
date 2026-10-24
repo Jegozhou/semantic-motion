@@ -1,0 +1,28 @@
+{
+  "id": "fx_c_zh_cuts",
+  "voice": "Tingting",
+  "rate": 175,
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "gap_s": 0.30,
+  "lead_in_s": 0.5,
+  "tail_s": 0.7,
+  "seed": 23,
+  "purpose": "G3 multi-shot calibration: three cuts at 8.0s / 16.0s, shot 2 uses slow_pan and shot 3 uses slow_zoom (camera motion), so shot detection, re-layout on cut and tracking degradation can be measured against ground_truth.shots[].",
+  "scenes": [
+    {"palette": "studio_night", "camera_motion": "static"},
+    {"palette": "studio_warm", "camera_motion": "slow_pan"},
+    {"palette": "studio_day", "camera_motion": "slow_zoom"}
+  ],
+  "cuts_at_s": [8.0, 16.0],
+  "units": [
+    {"id": "u01", "text": "第三种情况最难处理。", "role": "number"},
+    {"id": "u02", "text": "人物在动，镜头也在动。", "role": "keyword"},
+    {"id": "u03", "text": "第一，先锁定人脸。", "role": "list_item"},
+    {"id": "u04", "text": "第二，再判断镜头有没有切换。", "role": "list_item"},
+    {"id": "u05", "text": "第三，最后才排文字。", "role": "list_item"},
+    {"id": "u06", "text": "九成的情况都能稳住。", "role": "number"},
+    {"id": "u07", "text": "剩下的百分之十，交给人工。", "role": "number"}
+  ]
+}

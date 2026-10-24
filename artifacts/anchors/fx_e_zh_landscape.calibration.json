@@ -1,0 +1,521 @@
+{
+  "schema": "semotion.anchors/1",
+  "source_sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+  "transcript_sha256": "2a0983a3020dcb98ab171ab36242ae338cd327bd5e2708f2e6baab87508805e8",
+  "duration_s": 40.64,
+  "anchors": [
+    {
+      "id": "a00",
+      "kind": "keyword",
+      "text": "看",
+      "start_s": 0.64,
+      "end_s": 1.08,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s0",
+      "word_ids": [
+        "w1"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -180,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "energy_rise",
+        "onset_s": 0.64,
+        "search_window_s": [
+          0.56,
+          1.07
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.095999,
+        "asr_start_s": 0.82
+      }
+    },
+    {
+      "id": "a01",
+      "kind": "keyword",
+      "text": "87",
+      "start_s": 3.31,
+      "end_s": 3.74,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s0",
+      "word_ids": [
+        "w8"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "energy_rise",
+        "onset_s": 3.31,
+        "search_window_s": [
+          2.97,
+          3.47
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.134934,
+        "asr_start_s": 3.22
+      }
+    },
+    {
+      "id": "a02",
+      "kind": "keyword",
+      "text": "2",
+      "start_s": 6.14,
+      "end_s": 6.42,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s0",
+      "word_ids": [
+        "w16"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -20,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 6.14,
+        "search_window_s": [
+          5.91,
+          6.41
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.007989,
+        "asr_start_s": 6.16
+      }
+    },
+    {
+      "id": "a03",
+      "kind": "keyword",
+      "text": "所以",
+      "start_s": 8.91,
+      "end_s": 9.38,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s0",
+      "word_ids": [
+        "w25"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -30,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 8.91,
+        "search_window_s": [
+          8.68,
+          9.19
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.005483,
+        "asr_start_s": 8.94
+      }
+    },
+    {
+      "id": "a04",
+      "kind": "keyword",
+      "text": "第一,",
+      "start_s": 11.1,
+      "end_s": 11.56,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s1",
+      "word_ids": [
+        "w32"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -20,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 11.1,
+        "search_window_s": [
+          10.87,
+          11.37
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.003521,
+        "asr_start_s": 11.12
+      }
+    },
+    {
+      "id": "a05",
+      "kind": "keyword",
+      "text": "第二,",
+      "start_s": 13.11,
+      "end_s": 13.64,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s1",
+      "word_ids": [
+        "w37"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 13.11,
+        "search_window_s": [
+          12.95,
+          13.45
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.003037,
+        "asr_start_s": 13.2
+      }
+    },
+    {
+      "id": "a06",
+      "kind": "keyword",
+      "text": "第三,",
+      "start_s": 15.15,
+      "end_s": 15.72,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s1",
+      "word_ids": [
+        "w42"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -90,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 15.15,
+        "search_window_s": [
+          14.99,
+          15.49
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.01389,
+        "asr_start_s": 15.24
+      }
+    },
+    {
+      "id": "a07",
+      "kind": "keyword",
+      "text": "三",
+      "start_s": 17.22,
+      "end_s": 17.54,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s1",
+      "word_ids": [
+        "w47"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -60,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 17.22,
+        "search_window_s": [
+          17.03,
+          17.53
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.002527,
+        "asr_start_s": 17.28
+      }
+    },
+    {
+      "id": "a08",
+      "kind": "keyword",
+      "text": "结",
+      "start_s": 20.38,
+      "end_s": 20.62,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w57"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": 260,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_forward",
+        "onset_s": 20.38,
+        "search_window_s": [
+          19.87,
+          20.37
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.009328,
+        "asr_start_s": 20.12
+      }
+    },
+    {
+      "id": "a09",
+      "kind": "keyword",
+      "text": "50",
+      "start_s": 22.74,
+      "end_s": 23.6,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w64"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -180,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 22.74,
+        "search_window_s": [
+          22.67,
+          23.17
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.018485,
+        "asr_start_s": 22.92
+      }
+    },
+    {
+      "id": "a10",
+      "kind": "keyword",
+      "text": "一",
+      "start_s": 25.66,
+      "end_s": 25.9,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w73"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -140,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 25.66,
+        "search_window_s": [
+          25.55,
+          26.05
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.006698,
+        "asr_start_s": 25.8
+      }
+    },
+    {
+      "id": "a11",
+      "kind": "keyword",
+      "text": "第一",
+      "start_s": 28.27,
+      "end_s": 28.62,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w82"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -150,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 28.27,
+        "search_window_s": [
+          28.17,
+          28.67
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.003045,
+        "asr_start_s": 28.42
+      }
+    },
+    {
+      "id": "a12",
+      "kind": "keyword",
+      "text": "第二",
+      "start_s": 30.24,
+      "end_s": 30.64,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w88"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -160,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 30.24,
+        "search_window_s": [
+          30.15,
+          30.65
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.011076,
+        "asr_start_s": 30.4
+      }
+    },
+    {
+      "id": "a13",
+      "kind": "keyword",
+      "text": "第三",
+      "start_s": 32.06,
+      "end_s": 32.52,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w94"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -160,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 32.06,
+        "search_window_s": [
+          31.97,
+          32.47
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.002904,
+        "asr_start_s": 32.22
+      }
+    },
+    {
+      "id": "a14",
+      "kind": "keyword",
+      "text": "结",
+      "start_s": 34.04,
+      "end_s": 34.28,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w100"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -80,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 34.04,
+        "search_window_s": [
+          33.86,
+          34.37
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.004441,
+        "asr_start_s": 34.12
+      }
+    },
+    {
+      "id": "a15",
+      "kind": "keyword",
+      "text": "剩",
+      "start_s": 36.91,
+      "end_s": 37.24,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w108"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -130,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 36.91,
+        "search_window_s": [
+          36.79,
+          37.29
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.008121,
+        "asr_start_s": 37.04
+      }
+    },
+    {
+      "id": "a16",
+      "kind": "keyword",
+      "text": "我们",
+      "start_s": 38.54,
+      "end_s": 38.88,
+      "confidence": 1.0,
+      "source": "SYNTH_KNOWN",
+      "segment_id": "s2",
+      "word_ids": [
+        "w114"
+      ],
+      "rule": "calibration_unit_onset",
+      "refine": {
+        "method": "energy_onset",
+        "delta_ms": -60,
+        "accepted": true,
+        "window_ms": 500,
+        "detector": "silence_exit",
+        "onset_s": 38.54,
+        "search_window_s": [
+          38.35,
+          38.85
+        ],
+        "quiet_threshold": 0.002787,
+        "climb": 0.029718,
+        "asr_start_s": 38.6
+      }
+    }
+  ],
+  "provenance": {
+    "created_utc": "2026-10-24T09:29:54Z",
+    "method": "calibration:asr_word_nearest_to_synth_truth",
+    "n_anchors": 17,
+    "truth_class": "SYNTH_KNOWN",
+    "refine": {
+      "method": "energy_onset",
+      "window_ms": 500,
+      "hop_ms": 10,
+      "energy": "rms",
+      "video": "/Volumes/ZHITAI/SemanticMotion/tests/fixtures/clips/fx_e_zh_landscape/fx_e_zh_landscape.mp4",
+      "video_sha256": "c8b262c3645335de69269751f493fdf3ce23a7428edf1d6f8e3d19b1ced6aff8",
+      "n_anchors": 17,
+      "n_accepted": 17,
+      "n_rejected": 0
+    },
+    "kinds": {
+      "keyword": 17
+    }
+  }
+}
